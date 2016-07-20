@@ -1,134 +1,130 @@
 package maputil
 
 import (
-    "testing"
-    // "fmt"
+	"testing"
+	// "fmt"
 )
 
 func TestDiffuseTypedOneTierScalar(t *testing.T) {
-    var errs []error
+	var errs []error
 
-    input  := make(map[string]interface{})
-    output := make(map[string]interface{})
+	input := make(map[string]interface{})
+	output := make(map[string]interface{})
 
-    input["str:id"] = "test"
-    input["name"] = "default-string"
-    input["bool:enabled"] = "true"
-    input["float:float"] = "2.7"
+	input["str:id"] = "test"
+	input["name"] = "default-string"
+	input["bool:enabled"] = "true"
+	input["float:float"] = "2.7"
 
-    if output, errs = DiffuseMapTyped(input, ".", ":"); len(errs) > 0 {
-        for _, err := range errs {
-            t.Errorf("%s\n", err)
-        }
-    }
+	if output, errs = DiffuseMapTyped(input, ".", ":"); len(errs) > 0 {
+		for _, err := range errs {
+			t.Errorf("%s\n", err)
+		}
+	}
 
-    if v, ok := output["id"]; !ok || v != "test" {
-        t.Errorf("Incorrect value '%s' for key %s", v, "id")
-    }
+	if v, ok := output["id"]; !ok || v != "test" {
+		t.Errorf("Incorrect value '%s' for key %s", v, "id")
+	}
 
-    if v, ok := output["name"]; !ok || v != "default-string" {
-        t.Errorf("Incorrect value '%s' for key %s", v, "default-string")
-    }
+	if v, ok := output["name"]; !ok || v != "default-string" {
+		t.Errorf("Incorrect value '%s' for key %s", v, "default-string")
+	}
 
-    if v, ok := output["enabled"]; !ok || v != true {
-        t.Errorf("Incorrect value '%s' for key %s", v, "enabled")
-    }
+	if v, ok := output["enabled"]; !ok || v != true {
+		t.Errorf("Incorrect value '%s' for key %s", v, "enabled")
+	}
 
-    if v, ok := output["float"]; !ok || v != 2.7 {
-        t.Errorf("Incorrect value '%s' for key %s", v, "float")
-    }
+	if v, ok := output["float"]; !ok || v != 2.7 {
+		t.Errorf("Incorrect value '%s' for key %s", v, "float")
+	}
 }
-
 
 func TestDiffuseTypedOneTierComplex(t *testing.T) {
-    var errs []error
+	var errs []error
 
-    input  := make(map[string]interface{})
-    output := make(map[string]interface{})
+	input := make(map[string]interface{})
+	output := make(map[string]interface{})
 
+	input["str:array"] = []string{"first", "third", "fifth"}
+	input["array2"] = []string{"first", "third", "fifth"}
+	input["int:numary.0"] = "9"
+	input["int:numary.1"] = "7"
+	input["int:numary.2"] = "3"
+	input["int:things.one"] = "1"
+	input["int:things.two"] = "2"
+	input["int:things.three"] = "3"
 
-    input["str:array"] = []string{ "first", "third", "fifth" }
-    input["array2"] = []string{ "first", "third", "fifth" }
-    input["int:numary.0"] = "9"
-    input["int:numary.1"] = "7"
-    input["int:numary.2"] = "3"
-    input["int:things.one"] = "1"
-    input["int:things.two"] = "2"
-    input["int:things.three"] = "3"
+	if output, errs = DiffuseMapTyped(input, ".", ":"); len(errs) > 0 {
+		for _, err := range errs {
+			t.Errorf("%s\n", err)
+		}
+	}
 
-    if output, errs = DiffuseMapTyped(input, ".", ":"); len(errs) > 0 {
-        for _, err := range errs {
-            t.Errorf("%s\n", err)
-        }
-    }
+	//  test string array
+	if _, ok := output["array"]; !ok {
+		t.Errorf("Key %s is missing from output", "array")
+		return
+	}
 
-//  test string array
-    if _, ok := output["array"]; !ok  {
-        t.Errorf("Key %s is missing from output", "array")
-        return
-    }
+	for i, v := range output["array"].([]string) {
+		if v != input["str:array"].([]string)[i] {
+			t.Errorf("Incorrect value '%s' for key %s[%d]", v, "array", i)
+		}
+	}
 
-    for i, v := range output["array"].([]string) {
-        if v != input["str:array"].([]string)[i] {
-            t.Errorf("Incorrect value '%s' for key %s[%d]", v, "array", i)
-        }
-    }
+	if _, ok := output["array"]; !ok {
+		t.Errorf("Key %s is missing from output", "array")
+	}
 
-    if _, ok := output["array"]; !ok  {
-        t.Errorf("Key %s is missing from output", "array")
-    }
+	for i, v := range output["array2"].([]string) {
+		if v != input["array2"].([]string)[i] {
+			t.Errorf("Incorrect value '%s' for key %s[%d]", v, "array", i)
+		}
+	}
 
-    for i, v := range output["array2"].([]string) {
-        if v != input["array2"].([]string)[i] {
-            t.Errorf("Incorrect value '%s' for key %s[%d]", v, "array", i)
-        }
-    }
+	//  test int array
+	if _, ok := output["numary"]; !ok {
+		t.Errorf("Key %s is missing from output", "numary")
+	}
 
-//  test int array
-    if _, ok := output["numary"]; !ok  {
-        t.Errorf("Key %s is missing from output", "numary")
-    }
+	if l := len(output["numary"].([]interface{})); l != 3 {
+		t.Errorf("Incorrect length for numary; expected 3, got %d", l)
+	}
 
-    if l := len(output["numary"].([]interface{})); l != 3 {
-        t.Errorf("Incorrect length for numary; expected 3, got %d", l)
-    }
+	if a := output["numary"].([]interface{}); a[0].(int64) != 9 {
+		t.Errorf("Expected numary[0] = 9, got %v", a[0])
+	}
 
-    if a := output["numary"].([]interface{}); a[0].(int64) != 9 {
-        t.Errorf("Expected numary[0] = 9, got %v", a[0])
-    }
+	if a := output["numary"].([]interface{}); a[1].(int64) != 7 {
+		t.Errorf("Expected numary[1] = 7, got %v", a[1])
+	}
 
-    if a := output["numary"].([]interface{}); a[1].(int64) != 7 {
-        t.Errorf("Expected numary[1] = 7, got %v", a[1])
-    }
+	if a := output["numary"].([]interface{}); a[2].(int64) != 3 {
+		t.Errorf("Expected numary[2] = 3, got %v", a[2])
+	}
 
-    if a := output["numary"].([]interface{}); a[2].(int64) != 3 {
-        t.Errorf("Expected numary[2] = 3, got %v", a[2])
-    }
+	//  test string-int map
+	if _, ok := output["things"]; !ok {
+		t.Errorf("Key %s is missing from output", "things")
+	}
 
-//  test string-int map
-    if _, ok := output["things"]; !ok  {
-        t.Errorf("Key %s is missing from output", "things")
-    }
-
-    for k, v := range output["things"].(map[string]interface{}) {
-        switch k {
-        case `one`:
-            if v.(int64) != 1 {
-                t.Errorf("Expected things['one'] = 1, got %v", v)
-            }
-        case `two`:
-            if v.(int64) != 2 {
-                t.Errorf("Expected things['two'] = 2, got %v", v)
-            }
-        case `three`:
-            if v.(int64) != 3 {
-                t.Errorf("Expected things['three'] = 3, got %v", v)
-            }
-        }
-    }
+	for k, v := range output["things"].(map[string]interface{}) {
+		switch k {
+		case `one`:
+			if v.(int64) != 1 {
+				t.Errorf("Expected things['one'] = 1, got %v", v)
+			}
+		case `two`:
+			if v.(int64) != 2 {
+				t.Errorf("Expected things['two'] = 2, got %v", v)
+			}
+		case `three`:
+			if v.(int64) != 3 {
+				t.Errorf("Expected things['three'] = 3, got %v", v)
+			}
+		}
+	}
 }
-
-
 
 // func TestDiffuseMultiTierScalar(t *testing.T) {
 //     var err error
@@ -156,7 +152,6 @@ func TestDiffuseTypedOneTierComplex(t *testing.T) {
 //         t.Errorf("Key 'items' is missing from output: %v", output)
 //     }
 // }
-
 
 // func TestDiffuseMultiTierComplex(t *testing.T) {
 //     var err error
@@ -193,7 +188,6 @@ func TestDiffuseTypedOneTierComplex(t *testing.T) {
 //         t.Errorf("Key 'items' is missing from output: %v", output)
 //     }
 // }
-
 
 // func TestDiffuseMultiTierMixed(t *testing.T) {
 //     var err error

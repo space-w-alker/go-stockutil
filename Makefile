@@ -1,12 +1,16 @@
-all: build
+all: vendor fmt test
 
-build:
-	./build.sh
-debug:
-	DEBUG=true ./build.sh
+update:
+	glide up --strip-vcs --update-vendored
+
+vendor:
+	go list github.com/Masterminds/glide
+	glide install --strip-vcs --update-vendored
+
+fmt:
+	gofmt -w .
 
 test:
-	./build.sh test
-coverage:
-	./build.sh coverage
-
+	go test maputil/*
+	go test sliceutil/*
+	go test stringutil/*
