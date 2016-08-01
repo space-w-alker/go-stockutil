@@ -9,6 +9,8 @@ import (
 	"strings"
 )
 
+var DefaultStructTag string = `maputil`
+
 func StringKeys(input map[string]interface{}) []string {
 	keys := make([]string, 0)
 
@@ -27,6 +29,77 @@ func MapValues(input map[string]interface{}) []interface{} {
 	}
 
 	return values
+}
+
+func StructFromMap(input map[string]interface{}, populate interface{}) error {
+	populateV := reflect.ValueOf(populate)
+
+	if ptrKind := populateV.Kind(); ptrKind != reflect.Ptr {
+		return fmt.Errorf("Output value must be a pointer to a struct instance, got: %s", ptrKind.String())
+	} else {
+		if elem := populateV.Elem(); elem.Kind() != reflect.Struct {
+			return fmt.Errorf("Value must point to a struct instance, got: %T (%s)", populate, elem.Kind().String())
+		} else {
+			elemType := elem.Type()
+
+			for i := 0; i < elemType.NumField(); i++ {
+				field := elemType.Field(i)
+				fieldName := field.Name
+
+				if tagValue := field.Tag.Get(DefaultStructTag); tagValue != `` {
+					tagParts := strings.Split(tagValue, `,`)
+					fieldName = tagParts[0]
+				}
+
+				if v, ok := input[fieldName]; ok {
+					fieldValue := elem.Field(i)
+
+					if fieldValue.CanSet() {
+						vValue := reflect.ValueOf(v)
+
+						// this is where we handle nested structs being populated with nested maps
+						switch v.(type) {
+						case map[string]interface{}:
+							vMap := v.(map[string]interface{})
+							var newFieldInstance reflect.Value
+
+							// get a new instance of the type we want to populate
+							if fieldValue.Kind() == reflect.Struct {
+								newFieldInstance = reflect.New(fieldValue.Type())
+							} else if fieldValue.Kind() == reflect.Ptr && fieldValue.Type().Elem().Kind() == reflect.Struct {
+								newFieldInstance = reflect.New(fieldValue.Type().Elem())
+							}
+
+							// recursively call StructFromMap, passing the current map[s*]i* value and the new
+							// instance we just created.
+							//
+							if newFieldInstance.IsValid() {
+								if err := StructFromMap(vMap, newFieldInstance.Interface()); err == nil {
+
+									if newFieldInstance.Elem().Type().AssignableTo(fieldValue.Type()) {
+										fieldValue.Set(newFieldInstance.Elem())
+									} else if newFieldInstance.Type().AssignableTo(fieldValue.Type()) {
+										fieldValue.Set(newFieldInstance)
+									}
+								} else {
+									return err
+								}
+							}
+						default:
+							if vValue.Type().AssignableTo(fieldValue.Type()) {
+								fieldValue.Set(vValue)
+							}
+						}
+					} else {
+						return fmt.Errorf("Field '%s' value cannot be changed", field.Name)
+					}
+				}
+			}
+
+		}
+	}
+
+	return nil
 }
 
 func Join(input map[string]interface{}, innerJoiner string, outerJoiner string) string {

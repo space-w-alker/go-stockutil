@@ -52,3 +52,70 @@ func TestMapSplit(t *testing.T) {
 		t.Errorf("Output should contain key %s => '%s'", `key3`, `3`)
 	}
 }
+
+type SubtypeTester struct {
+	A int
+	B int `maputil:"b"`
+}
+
+type MyStructTester struct {
+	Name        string
+	Subtype1    SubtypeTester
+	Active      bool           `maputil:"active"`
+	Subtype2    *SubtypeTester `maputil:"subtype2"`
+	nonexported int
+}
+
+func TestStructFromMap(t *testing.T) {
+	input := map[string]interface{}{
+		`Name`:           `Foo Bar`,
+		`active`:         true,
+		`should_not_set`: 4,
+		`Subtype1`: map[string]interface{}{
+			`A`: 1,
+			`b`: 2,
+		},
+		`subtype2`: map[string]interface{}{
+			`A`: 3,
+			`b`: 4,
+		},
+	}
+
+	output := MyStructTester{}
+
+	if err := StructFromMap(input, &output); err == nil {
+		if output.Name != `Foo Bar` {
+			t.Errorf("output.Name; expected: %s, got: %v", `Foo Bar`, output.Name)
+		}
+
+		if !output.Active {
+			t.Errorf("output.Active; expected: true, got: false")
+		}
+
+		if output.nonexported != 0 {
+			t.Errorf("output.nonexported; expected: 0, got: %v", output.nonexported)
+		}
+
+		if output.Subtype1.A != 1 {
+			t.Errorf("output.Subtype1.A; expected: 1, got: %v", output.Subtype1.A)
+		}
+
+		if output.Subtype1.B != 2 {
+			t.Errorf("output.Subtype1.B; expected: 2, got: %v", output.Subtype1.B)
+		}
+
+		if output.Subtype2 == nil {
+			t.Errorf("output.Subtype2; is nil, should be populated with an instance")
+		} else {
+			if output.Subtype2.A != 3 {
+				t.Errorf("output.Subtype2.A; expected: 3, got: %v", output.Subtype2.A)
+			}
+
+			if output.Subtype2.B != 4 {
+				t.Errorf("output.Subtype2.B; expected: 4, got: %v", output.Subtype2.B)
+			}
+		}
+	} else {
+		t.Error(err)
+	}
+}

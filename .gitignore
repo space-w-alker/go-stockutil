@@ -26,3 +26,4 @@ _testmain.go
 /gopath
 /*-profile.html
 /*-profile.file
+/vendor
