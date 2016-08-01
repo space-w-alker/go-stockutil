@@ -57,37 +57,39 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 					if fieldValue.CanSet() {
 						vValue := reflect.ValueOf(v)
 
-						// this is where we handle nested structs being populated with nested maps
-						switch v.(type) {
-						case map[string]interface{}:
-							vMap := v.(map[string]interface{})
-							var newFieldInstance reflect.Value
+						if vValue.IsValid() {
+							// this is where we handle nested structs being populated with nested maps
+							switch v.(type) {
+							case map[string]interface{}:
+								vMap := v.(map[string]interface{})
+								var newFieldInstance reflect.Value
 
-							// get a new instance of the type we want to populate
-							if fieldValue.Kind() == reflect.Struct {
-								newFieldInstance = reflect.New(fieldValue.Type())
-							} else if fieldValue.Kind() == reflect.Ptr && fieldValue.Type().Elem().Kind() == reflect.Struct {
-								newFieldInstance = reflect.New(fieldValue.Type().Elem())
-							}
-
-							// recursively call StructFromMap, passing the current map[s*]i* value and the new
-							// instance we just created.
-							//
-							if newFieldInstance.IsValid() {
-								if err := StructFromMap(vMap, newFieldInstance.Interface()); err == nil {
-
-									if newFieldInstance.Elem().Type().AssignableTo(fieldValue.Type()) {
-										fieldValue.Set(newFieldInstance.Elem())
-									} else if newFieldInstance.Type().AssignableTo(fieldValue.Type()) {
-										fieldValue.Set(newFieldInstance)
-									}
-								} else {
-									return err
+								// get a new instance of the type we want to populate
+								if fieldValue.Kind() == reflect.Struct {
+									newFieldInstance = reflect.New(fieldValue.Type())
+								} else if fieldValue.Kind() == reflect.Ptr && fieldValue.Type().Elem().Kind() == reflect.Struct {
+									newFieldInstance = reflect.New(fieldValue.Type().Elem())
 								}
-							}
-						default:
-							if vValue.Type().AssignableTo(fieldValue.Type()) {
-								fieldValue.Set(vValue)
+
+								// recursively call StructFromMap, passing the current map[s*]i* value and the new
+								// instance we just created.
+								//
+								if newFieldInstance.IsValid() {
+									if err := StructFromMap(vMap, newFieldInstance.Interface()); err == nil {
+
+										if newFieldInstance.Elem().Type().AssignableTo(fieldValue.Type()) {
+											fieldValue.Set(newFieldInstance.Elem())
+										} else if newFieldInstance.Type().AssignableTo(fieldValue.Type()) {
+											fieldValue.Set(newFieldInstance)
+										}
+									} else {
+										return err
+									}
+								}
+							default:
+								if vValue.Type().AssignableTo(fieldValue.Type()) {
+									fieldValue.Set(vValue)
+								}
 							}
 						}
 					} else {
