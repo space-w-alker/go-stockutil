@@ -3,6 +3,7 @@ package maputil
 import (
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestMapJoin(t *testing.T) {
@@ -63,6 +64,8 @@ type MyStructTester struct {
 	Subtype1    SubtypeTester
 	Active      bool           `maputil:"active"`
 	Subtype2    *SubtypeTester `maputil:"subtype2"`
+	TimeTest    time.Duration
+	IntTest int32
 	nonexported int
 }
 
@@ -79,6 +82,8 @@ func TestStructFromMap(t *testing.T) {
 			`A`: 3,
 			`b`: 4,
 		},
+		`TimeTest`: 15000000000,
+		`IntTest`: int64(5),
 	}
 
 	output := MyStructTester{}
@@ -114,6 +119,14 @@ func TestStructFromMap(t *testing.T) {
 			if output.Subtype2.B != 4 {
 				t.Errorf("output.Subtype2.B; expected: 4, got: %v", output.Subtype2.B)
 			}
+		}
+
+		if output.TimeTest != time.Duration(15)*time.Second {
+			t.Errorf("output.TimeTest; expected: 15s, got: %s", output.TimeTest)
+		}
+
+		if output.IntTest != int32(5) {
+			t.Errorf("output.IntTest; expected: 5(int32), got: %d(%T)", output.IntTest, output.IntTest)
 		}
 	} else {
 		t.Error(err)

@@ -76,19 +76,18 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 								//
 								if newFieldInstance.IsValid() {
 									if err := StructFromMap(vMap, newFieldInstance.Interface()); err == nil {
-
-										if newFieldInstance.Elem().Type().AssignableTo(fieldValue.Type()) {
-											fieldValue.Set(newFieldInstance.Elem())
-										} else if newFieldInstance.Type().AssignableTo(fieldValue.Type()) {
-											fieldValue.Set(newFieldInstance)
+										if newFieldInstance.Elem().Type().ConvertibleTo(fieldValue.Type()) {
+											fieldValue.Set(newFieldInstance.Elem().Convert(fieldValue.Type()))
+										} else if newFieldInstance.Type().ConvertibleTo(fieldValue.Type()) {
+											fieldValue.Set(newFieldInstance.Convert(fieldValue.Type()))
 										}
 									} else {
 										return err
 									}
 								}
 							default:
-								if vValue.Type().AssignableTo(fieldValue.Type()) {
-									fieldValue.Set(vValue)
+								if vValue.Type().ConvertibleTo(fieldValue.Type()) {
+									fieldValue.Set(vValue.Convert(fieldValue.Type()))
 								}
 							}
 						}
