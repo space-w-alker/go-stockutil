@@ -181,7 +181,7 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 		default:
 			return in, nil
 		}
-	}else{
+	} else {
 		return nil, err
 	}
 }

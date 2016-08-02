@@ -65,7 +65,8 @@ type MyStructTester struct {
 	Active      bool           `maputil:"active"`
 	Subtype2    *SubtypeTester `maputil:"subtype2"`
 	TimeTest    time.Duration
-	IntTest int32
+	IntTest     int32
+	Properties  map[string]interface{}
 	nonexported int
 }
 
@@ -83,7 +84,12 @@ func TestStructFromMap(t *testing.T) {
 			`b`: 4,
 		},
 		`TimeTest`: 15000000000,
-		`IntTest`: int64(5),
+		`IntTest`:  int64(5),
+		`Properties`: map[string]interface{}{
+			`first`:  1,
+			`second`: true,
+			`third`:  `three`,
+		},
 	}
 
 	output := MyStructTester{}
@@ -127,6 +133,22 @@ func TestStructFromMap(t *testing.T) {
 
 		if output.IntTest != int32(5) {
 			t.Errorf("output.IntTest; expected: 5(int32), got: %d(%T)", output.IntTest, output.IntTest)
+		}
+
+		if output.Properties == nil {
+			t.Errorf("output.Properties; is nil, should be map[string]interface{}")
+		} else {
+			if v, ok := output.Properties[`first`]; !ok || v != 1 {
+				t.Errorf("output.Properties['first']; expected: 1, got: %v(%T)", v, v)
+			}
+
+			if v, ok := output.Properties[`second`]; !ok || v != true {
+				t.Errorf("output.Properties['second']; expected: true, got: %v(%T)", v, v)
+			}
+
+			if v, ok := output.Properties[`third`]; !ok || v != `three` {
+				t.Errorf("output.Properties['third']; expected: 'three', got: %v(%T)", v, v)
+			}
 		}
 	} else {
 		t.Error(err)

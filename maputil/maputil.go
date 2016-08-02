@@ -64,10 +64,16 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 								vMap := v.(map[string]interface{})
 								var newFieldInstance reflect.Value
 
-								// get a new instance of the type we want to populate
-								if fieldValue.Kind() == reflect.Struct {
+								// see if we can directly convert/assign the values
+								if vValue.Type().ConvertibleTo(fieldValue.Type()) {
+									fieldValue.Set(vValue.Convert(fieldValue.Type()))
+									continue
+
+								} else if fieldValue.Kind() == reflect.Struct {
+									// get a new instance of the type we want to populate
 									newFieldInstance = reflect.New(fieldValue.Type())
 								} else if fieldValue.Kind() == reflect.Ptr && fieldValue.Type().Elem().Kind() == reflect.Struct {
+									// get a new instance of the type this pointer is pointing at
 									newFieldInstance = reflect.New(fieldValue.Type().Elem())
 								}
 
