@@ -60,14 +60,16 @@ type SubtypeTester struct {
 }
 
 type MyStructTester struct {
-	Name        string
-	Subtype1    SubtypeTester
-	Active      bool           `maputil:"active"`
-	Subtype2    *SubtypeTester `maputil:"subtype2"`
-	TimeTest    time.Duration
-	IntTest     int32
-	Properties  map[string]interface{}
-	nonexported int
+	Name                  string
+	Subtype1              SubtypeTester
+	Active                bool           `maputil:"active"`
+	Subtype2              *SubtypeTester `maputil:"subtype2"`
+	TimeTest              time.Duration
+	IntTest               int32
+	Properties            map[string]interface{}
+	StrSliceTest          []string
+	InterfaceStrSliceTest []string
+	nonexported           int
 }
 
 func TestStructFromMap(t *testing.T) {
@@ -90,6 +92,8 @@ func TestStructFromMap(t *testing.T) {
 			`second`: true,
 			`third`:  `three`,
 		},
+		`StrSliceTest`:          []string{`one`, `two`, `three`},
+		`InterfaceStrSliceTest`: []interface{}{`one`, `two`, `three`},
 	}
 
 	output := MyStructTester{}
@@ -148,6 +152,46 @@ func TestStructFromMap(t *testing.T) {
 
 			if v, ok := output.Properties[`third`]; !ok || v != `three` {
 				t.Errorf("output.Properties['third']; expected: 'three', got: %v(%T)", v, v)
+			}
+		}
+
+		if output.StrSliceTest == nil {
+			t.Errorf("output.StrSliceTest; is nil, should be []string")
+		} else {
+			if l := len(output.StrSliceTest); l == 3 {
+				if v := output.StrSliceTest[0]; v != `one` {
+					t.Errorf("output.StrSliceTest[0]; expected: 'one', got: %s", v)
+				}
+
+				if v := output.StrSliceTest[1]; v != `two` {
+					t.Errorf("output.StrSliceTest[1]; expected: 'two', got: %s", v)
+				}
+
+				if v := output.StrSliceTest[2]; v != `three` {
+					t.Errorf("output.StrSliceTest[2]; expected: 'three', got: %s", v)
+				}
+			} else {
+				t.Errorf("output.StrSliceTest; wrong length - expected: 3, got: %d", l)
+			}
+		}
+
+		if output.InterfaceStrSliceTest == nil {
+			t.Errorf("output.InterfaceStrSliceTest; is nil, should be []string")
+		} else {
+			if l := len(output.InterfaceStrSliceTest); l == 3 {
+				if v := output.InterfaceStrSliceTest[0]; v != `one` {
+					t.Errorf("output.InterfaceStrSliceTest[0]; expected: 'one', got: %s", v)
+				}
+
+				if v := output.InterfaceStrSliceTest[1]; v != `two` {
+					t.Errorf("output.InterfaceStrSliceTest[1]; expected: 'two', got: %s", v)
+				}
+
+				if v := output.InterfaceStrSliceTest[2]; v != `three` {
+					t.Errorf("output.InterfaceStrSliceTest[2]; expected: 'three', got: %s", v)
+				}
+			} else {
+				t.Errorf("output.InterfaceStrSliceTest; wrong length - expected: 3, got: %d", l)
 			}
 		}
 	} else {

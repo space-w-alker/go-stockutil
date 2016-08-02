@@ -77,18 +77,34 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 									newFieldInstance = reflect.New(fieldValue.Type().Elem())
 								}
 
-								// recursively call StructFromMap, passing the current map[s*]i* value and the new
-								// instance we just created.
-								//
 								if newFieldInstance.IsValid() {
+									// recursively call StructFromMap, passing the current map[s*]i* value and the new
+									// instance we just created.
+									//
 									if err := StructFromMap(vMap, newFieldInstance.Interface()); err == nil {
 										if newFieldInstance.Elem().Type().ConvertibleTo(fieldValue.Type()) {
+											// handle as-value
 											fieldValue.Set(newFieldInstance.Elem().Convert(fieldValue.Type()))
 										} else if newFieldInstance.Type().ConvertibleTo(fieldValue.Type()) {
+											// handle as-ptr
 											fieldValue.Set(newFieldInstance.Convert(fieldValue.Type()))
 										}
 									} else {
 										return err
+									}
+								}
+
+							case []interface{}:
+								switch fieldValue.Kind() {
+								case reflect.Array, reflect.Slice:
+									vISlice := v.([]interface{})
+
+									for _, value := range vISlice {
+										vIValue := reflect.ValueOf(value)
+
+										if vIValue.Type().ConvertibleTo(fieldValue.Type().Elem()) {
+											fieldValue.Set(reflect.Append(fieldValue, vIValue.Convert(fieldValue.Type().Elem())))
+										}
 									}
 								}
 							default:
