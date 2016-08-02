@@ -156,33 +156,37 @@ func ToBytes(input string) (float64, error) {
 	}
 }
 
-func ConvertTo(toType ConvertType, in string) (interface{}, error) {
-	switch toType {
-	case Float:
-		return strconv.ParseFloat(in, 64)
-	case Integer:
-		return strconv.ParseInt(in, 10, 64)
-	case Boolean:
-		if IsBoolean(in) {
-			return (in == `true`), nil
-		} else {
-			return nil, fmt.Errorf("Cannot convert '%s' into a boolean value", in)
-		}
-	case Time:
-		for _, format := range DateConvertFormats {
-			if tm, err := time.Parse(format, in); err == nil {
-				return tm, nil
+func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
+	if in, err := ToString(inI); err == nil {
+		switch toType {
+		case Float:
+			return strconv.ParseFloat(in, 64)
+		case Integer:
+			return strconv.ParseInt(in, 10, 64)
+		case Boolean:
+			if IsBoolean(in) {
+				return (in == `true`), nil
+			} else {
+				return nil, fmt.Errorf("Cannot convert '%s' into a boolean value", in)
 			}
+		case Time:
+			for _, format := range DateConvertFormats {
+				if tm, err := time.Parse(format, in); err == nil {
+					return tm, nil
+				}
+			}
+
+			return nil, fmt.Errorf("Cannot convert '%s' into a date/time value", in)
+
+		default:
+			return in, nil
 		}
-
-		return nil, fmt.Errorf("Cannot convert '%s' into a date/time value", in)
-
-	default:
-		return in, nil
+	}else{
+		return nil, err
 	}
 }
 
-func ConvertToInteger(in string) (int64, error) {
+func ConvertToInteger(in interface{}) (int64, error) {
 	if v, err := ConvertTo(Integer, in); err == nil {
 		return v.(int64), nil
 	} else {
@@ -190,7 +194,7 @@ func ConvertToInteger(in string) (int64, error) {
 	}
 }
 
-func ConvertToFloat(in string) (float64, error) {
+func ConvertToFloat(in interface{}) (float64, error) {
 	if v, err := ConvertTo(Float, in); err == nil {
 		return v.(float64), nil
 	} else {
@@ -198,7 +202,7 @@ func ConvertToFloat(in string) (float64, error) {
 	}
 }
 
-func ConvertToString(in string) (string, error) {
+func ConvertToString(in interface{}) (string, error) {
 	if v, err := ConvertTo(String, in); err == nil {
 		return v.(string), nil
 	} else {
@@ -206,7 +210,7 @@ func ConvertToString(in string) (string, error) {
 	}
 }
 
-func ConvertToBool(in string) (bool, error) {
+func ConvertToBool(in interface{}) (bool, error) {
 	if v, err := ConvertTo(Boolean, in); err == nil {
 		return v.(bool), nil
 	} else {
@@ -214,7 +218,7 @@ func ConvertToBool(in string) (bool, error) {
 	}
 }
 
-func ConvertToTime(in string) (time.Time, error) {
+func ConvertToTime(in interface{}) (time.Time, error) {
 	if v, err := ConvertTo(Time, in); err == nil {
 		return v.(time.Time), nil
 	} else {
