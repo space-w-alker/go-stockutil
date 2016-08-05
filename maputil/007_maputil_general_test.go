@@ -6,6 +6,11 @@ import (
 	"time"
 )
 
+type MyTestThing struct {
+	Name string
+	Other int
+}
+
 func TestMapJoin(t *testing.T) {
 	input := map[string]interface{}{
 		`key1`: `value1`,
@@ -29,6 +34,58 @@ func TestMapJoin(t *testing.T) {
 
 	if !strings.Contains(output, `key3=3`) {
 		t.Errorf("Output should contain '%s'", `key3=3`)
+	}
+}
+
+func TestStringKeys(t *testing.T) {
+	i1 := map[string]interface{}{
+		`1`: 1,
+		`2`: true,
+		`3`: `three`,
+	}
+
+	i2 := map[string]bool{
+		`1`: true,
+		`2`: false,
+		`3`: true,
+	}
+
+	i3 := map[string]MyTestThing{
+		`1`: MyTestThing{},
+		`2`: MyTestThing{},
+		`3`: MyTestThing{},
+	}
+
+	output := []string{`1`, `2`, `3`}
+
+	for i, v := range StringKeys(i1) {
+		if key := output[i]; key != v {
+			t.Errorf("map[string]interface{} key %d; expected: %q, got: %q", i, key, v)
+		}
+	}
+
+	for i, v := range StringKeys(i2) {
+		if key := output[i]; key != v {
+			t.Errorf("map[string]bool key %d; expected: %q, got: %q", i, key, v)
+		}
+	}
+
+	for i, v := range StringKeys(i3) {
+		if key := output[i]; key != v {
+			t.Errorf("map[string]MyTestThing key %d; expected: %q, got: %q", i, key, v)
+		}
+	}
+
+	if keys := StringKeys(true); len(keys) != 0 {
+		t.Errorf("StringKeys(true); expected: len=0, got: len=%d", len(keys))
+	}
+
+	if keys := StringKeys(4); len(keys) != 0 {
+		t.Errorf("StringKeys(4); expected: len=0, got: len=%d", len(keys))
+	}
+
+	if keys := StringKeys([]int{1,2,3}); len(keys) != 0 {
+		t.Errorf("StringKeys([]int{1,2,3}); expected: len=0, got: len=%d", len(keys))
 	}
 }
 

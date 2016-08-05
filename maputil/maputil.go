@@ -11,12 +11,23 @@ import (
 
 var DefaultStructTag string = `maputil`
 
-func StringKeys(input map[string]interface{}) []string {
+func StringKeys(input interface{}) []string {
 	keys := make([]string, 0)
+	inputV := reflect.ValueOf(input)
 
-	for k, _ := range input {
-		keys = append(keys, k)
+	if inputV.Kind() == reflect.Map {
+		keysV := inputV.MapKeys()
+
+		for _, keyV := range keysV {
+			if v, err := stringutil.ToString(keyV.Interface()); err == nil {
+				keys = append(keys, v)
+			}else{
+				keys = append(keys, ``)
+			}
+		}
 	}
+
+	sort.Strings(keys)
 
 	return keys
 }
