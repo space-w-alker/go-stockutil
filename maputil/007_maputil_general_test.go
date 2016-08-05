@@ -154,7 +154,7 @@ func TestStructFromMap(t *testing.T) {
 		`StrSliceTest`:          []string{`one`, `two`, `three`},
 		`InterfaceStrSliceTest`: []interface{}{`one`, `two`, `three`},
 		`StructSliceTest`:       []SubtypeTester{{10, 11}, {12, 13}, {14, 15}},
-		`StructSliceTest2`:      []map[string]interface{}{
+		`StructSliceTest2`: []map[string]interface{}{
 			{
 				`A`: 10,
 				`b`: 11,

@@ -84,7 +84,7 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 								// using this input map value
 								if convertedValue, err := populateNewInstanceFromMap(vMap, fieldValue.Type()); err == nil {
 									fieldValue.Set(convertedValue)
-								}else{
+								} else {
 									return err
 								}
 
@@ -118,7 +118,7 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 											if convertedValue.Type().ConvertibleTo(fieldValue.Type().Elem()) {
 												fieldValue.Set(reflect.Append(fieldValue, convertedValue.Convert(fieldValue.Type().Elem())))
 											}
-										}else{
+										} else {
 											return err
 										}
 									}
