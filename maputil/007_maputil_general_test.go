@@ -128,6 +128,7 @@ type MyStructTester struct {
 	InterfaceStrSliceTest []string
 	StructSliceTest       []SubtypeTester
 	StructSliceTest2      []SubtypeTester
+	StructSliceTest3      []SubtypeTester
 	nonexported           int
 }
 
@@ -164,6 +165,20 @@ func TestStructFromMap(t *testing.T) {
 				`b`: 13,
 			},
 			{
+				`A`: 14,
+				`b`: 15,
+			},
+		},
+		`StructSliceTest3`: []interface{}{
+			map[string]interface{}{
+				`A`: 10,
+				`b`: 11,
+			},
+			map[string]interface{}{
+				`A`: 12,
+				`b`: 13,
+			},
+			map[string]interface{}{
 				`A`: 14,
 				`b`: 15,
 			},
@@ -306,6 +321,26 @@ func TestStructFromMap(t *testing.T) {
 				}
 			} else {
 				t.Errorf("output.StructSliceTest2; wrong length - expected: 3, got: %d", l)
+			}
+		}
+
+		if output.StructSliceTest3 == nil {
+			t.Errorf("output.StructSliceTest3; is nil, should be []SubtypeTester")
+		} else {
+			if l := len(output.StructSliceTest3); l == 3 {
+				if v := output.StructSliceTest3[0]; v.A != 10 || v.B != 11 {
+					t.Errorf("output.StructSliceTest3[0]; expected: {10,11}, got: %v", v)
+				}
+
+				if v := output.StructSliceTest3[1]; v.A != 12 || v.B != 13 {
+					t.Errorf("output.StructSliceTest3[1]; expected: {12,13}, got: %v", v)
+				}
+
+				if v := output.StructSliceTest3[2]; v.A != 14 || v.B != 15 {
+					t.Errorf("output.StructSliceTest3[2]; expected: {14,15}, got: %v", v)
+				}
+			} else {
+				t.Errorf("output.StructSliceTest3; wrong length - expected: 3, got: %d", l)
 			}
 		}
 	} else {

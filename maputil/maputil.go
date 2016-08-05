@@ -97,6 +97,19 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 									for _, value := range vISlice {
 										vIValue := reflect.ValueOf(value)
 
+										switch value.(type) {
+										case map[string]interface{}:
+											nestedMap := value.(map[string]interface{})
+
+											// recursively populate a new instance of whatever type the destination field is
+											// using this input array element
+											if convertedValue, err := populateNewInstanceFromMap(nestedMap, fieldValue.Type().Elem()); err == nil {
+												vIValue = convertedValue
+											} else {
+												return err
+											}
+										}
+
 										// make sure the types are compatible and append the new value to the output field
 										if vIValue.Type().ConvertibleTo(fieldValue.Type().Elem()) {
 											fieldValue.Set(reflect.Append(fieldValue, vIValue.Convert(fieldValue.Type().Elem())))

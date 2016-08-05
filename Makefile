@@ -10,7 +10,7 @@ vendor:
 fmt:
 	gofmt -w .
 
-test:
+test: fmt
 	go test maputil/*
 	go test sliceutil/*
 	go test stringutil/*
