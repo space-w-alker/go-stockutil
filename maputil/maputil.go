@@ -21,7 +21,7 @@ func StringKeys(input interface{}) []string {
 		for _, keyV := range keysV {
 			if v, err := stringutil.ToString(keyV.Interface()); err == nil {
 				keys = append(keys, v)
-			}else{
+			} else {
 				keys = append(keys, ``)
 			}
 		}
@@ -73,36 +73,19 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 							switch v.(type) {
 							case map[string]interface{}:
 								vMap := v.(map[string]interface{})
-								var newFieldInstance reflect.Value
 
 								// see if we can directly convert/assign the values
 								if vValue.Type().ConvertibleTo(fieldValue.Type()) {
 									fieldValue.Set(vValue.Convert(fieldValue.Type()))
 									continue
-
-								} else if fieldValue.Kind() == reflect.Struct {
-									// get a new instance of the type we want to populate
-									newFieldInstance = reflect.New(fieldValue.Type())
-								} else if fieldValue.Kind() == reflect.Ptr && fieldValue.Type().Elem().Kind() == reflect.Struct {
-									// get a new instance of the type this pointer is pointing at
-									newFieldInstance = reflect.New(fieldValue.Type().Elem())
 								}
 
-								if newFieldInstance.IsValid() {
-									// recursively call StructFromMap, passing the current map[s*]i* value and the new
-									// instance we just created.
-									//
-									if err := StructFromMap(vMap, newFieldInstance.Interface()); err == nil {
-										if newFieldInstance.Elem().Type().ConvertibleTo(fieldValue.Type()) {
-											// handle as-value
-											fieldValue.Set(newFieldInstance.Elem().Convert(fieldValue.Type()))
-										} else if newFieldInstance.Type().ConvertibleTo(fieldValue.Type()) {
-											// handle as-ptr
-											fieldValue.Set(newFieldInstance.Convert(fieldValue.Type()))
-										}
-									} else {
-										return err
-									}
+								// recursively populate a new instance of whatever type the destination field is
+								// using this input map value
+								if convertedValue, err := populateNewInstanceFromMap(vMap, fieldValue.Type()); err == nil {
+									fieldValue.Set(convertedValue)
+								}else{
+									return err
 								}
 
 							case []interface{}:
@@ -110,15 +93,39 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 								case reflect.Array, reflect.Slice:
 									vISlice := v.([]interface{})
 
+									// for each element of the input array...
 									for _, value := range vISlice {
 										vIValue := reflect.ValueOf(value)
 
+										// make sure the types are compatible and append the new value to the output field
 										if vIValue.Type().ConvertibleTo(fieldValue.Type().Elem()) {
 											fieldValue.Set(reflect.Append(fieldValue, vIValue.Convert(fieldValue.Type().Elem())))
 										}
 									}
 								}
+
+							case []map[string]interface{}:
+								switch fieldValue.Kind() {
+								case reflect.Array, reflect.Slice:
+									vISlice := v.([]map[string]interface{})
+
+									// for each nested map element of the input array...
+									for _, nestedMap := range vISlice {
+										// recursively populate a new instance of whatever type the destination field is
+										// using this input array element
+										if convertedValue, err := populateNewInstanceFromMap(nestedMap, fieldValue.Type().Elem()); err == nil {
+											// make sure the types are compatible and append the new value to the output field
+											if convertedValue.Type().ConvertibleTo(fieldValue.Type().Elem()) {
+												fieldValue.Set(reflect.Append(fieldValue, convertedValue.Convert(fieldValue.Type().Elem())))
+											}
+										}else{
+											return err
+										}
+									}
+								}
 							default:
+								// if not special cases from above were encountered, attempt a type conversion
+								// and fill in the data
 								if vValue.Type().ConvertibleTo(fieldValue.Type()) {
 									fieldValue.Set(vValue.Convert(fieldValue.Type()))
 								}
@@ -134,6 +141,37 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 	}
 
 	return nil
+}
+
+func populateNewInstanceFromMap(input map[string]interface{}, destination reflect.Type) (reflect.Value, error) {
+	var newFieldInstance reflect.Value
+
+	if destination.Kind() == reflect.Struct {
+		// get a new instance of the type we want to populate
+		newFieldInstance = reflect.New(destination)
+	} else if destination.Kind() == reflect.Ptr && destination.Elem().Kind() == reflect.Struct {
+		// get a new instance of the type this pointer is pointing at
+		newFieldInstance = reflect.New(destination.Elem())
+	}
+
+	if newFieldInstance.IsValid() {
+		// recursively call StructFromMap, passing the current map[s*]i* value and the new
+		// instance we just created.
+		//
+		if err := StructFromMap(input, newFieldInstance.Interface()); err == nil {
+			if newFieldInstance.Elem().Type().ConvertibleTo(destination) {
+				// handle as-value
+				return newFieldInstance.Elem().Convert(destination), nil
+			} else if newFieldInstance.Type().ConvertibleTo(destination) {
+				// handle as-ptr
+				return newFieldInstance.Convert(destination), nil
+			}
+		} else {
+			return reflect.ValueOf(nil), err
+		}
+	}
+
+	return reflect.ValueOf(nil), fmt.Errorf("Could not instantiate type %v", destination)
 }
 
 func Join(input map[string]interface{}, innerJoiner string, outerJoiner string) string {
