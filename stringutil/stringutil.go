@@ -23,6 +23,29 @@ const (
 	Yotta          = 8
 )
 
+func (self SiPrefix) String() string {
+	switch self {
+	case Kilo:
+		return `K`
+	case Mega:
+		return `M`
+	case Giga:
+		return `G`
+	case Tera:
+		return `T`
+	case Peta:
+		return `P`
+	case Exa:
+		return `E`
+	case Zetta:
+		return `Z`
+	case Yotta:
+		return `Y`
+	default:
+		return ``
+	}
+}
+
 type ConvertType int
 
 const (
@@ -103,6 +126,27 @@ func ToString(in interface{}) (string, error) {
 		return in.(string), nil
 	default:
 		return "", fmt.Errorf("Unable to convert type '%T' to string", in)
+	}
+}
+
+func ToByteString(in interface{}, formatString ...string) (string, error) {
+	if asBytes, err := ConvertToInteger(in); err == nil {
+		for i := 0; i < 9; i++ {
+			if converted := (float64(asBytes) / math.Pow(1024, float64(i))); converted < 1024 {
+				prefix := SiPrefix(i)
+				f := `%g`
+
+				if len(formatString) > 0 {
+					f = formatString[0]
+				}
+
+				return fmt.Sprintf(f+"%sB", converted, prefix.String()), nil
+			}
+		}
+
+		return fmt.Sprintf("%fB", asBytes), nil
+	} else {
+		return ``, err
 	}
 }
 
