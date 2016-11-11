@@ -1,16 +1,20 @@
 all: vendor fmt test
 
 update:
-	glide up --strip-vcs --update-vendored
+	glide up
 
 vendor:
 	go list github.com/Masterminds/glide
-	glide install --strip-vcs --update-vendored
+	glide install
+
+clean:
+	-rm -rf vendor bin
 
 fmt:
 	gofmt -w .
 
 test: fmt
-	go test maputil/*
-	go test sliceutil/*
-	go test stringutil/*
+	go test ./maputil
+	go test ./pathutil
+	go test ./sliceutil
+	go test ./stringutil
