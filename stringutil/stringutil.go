@@ -49,17 +49,18 @@ func (self SiPrefix) String() string {
 type ConvertType int
 
 const (
-	String  ConvertType = 0
-	Boolean             = 1
-	Float               = 2
-	Integer             = 3
-	Time                = 4
+	Invalid ConvertType = iota
+	String
+	Boolean
+	Float
+	Integer
+	Time
 )
 
 var DateConvertFormats = []string{
 	"2006-01-02 15:04:05",
-	"1136239445",
 	time.RFC3339,
+	time.RFC3339Nano,
 	time.ANSIC,
 	time.UnixDate,
 	time.RubyDate,
@@ -87,6 +88,8 @@ func IsFloat(in string) bool {
 }
 
 func IsBoolean(in string) bool {
+	in = strings.ToLower(in)
+
 	if in == `true` || in == `false` {
 		return true
 	}
@@ -215,7 +218,7 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 			}
 		case Time:
 			for _, format := range DateConvertFormats {
-				if tm, err := time.Parse(format, in); err == nil {
+				if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
 					return tm, nil
 				}
 			}
@@ -268,4 +271,20 @@ func ConvertToTime(in interface{}) (time.Time, error) {
 	} else {
 		return time.Time{}, err
 	}
+}
+
+func Autotype(in interface{}) interface{} {
+	for _, ctype := range []ConvertType{
+		Boolean,
+		Time,
+		Integer,
+		Float,
+		String,
+	} {
+		if value, err := ConvertTo(ctype, in); err == nil {
+			return value
+		}
+	}
+
+	return in
 }

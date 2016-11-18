@@ -1,6 +1,7 @@
 package stringutil
 
 import (
+	"strings"
 	"testing"
 	"time"
 )
@@ -186,6 +187,87 @@ func TestConvertToDate(t *testing.T) {
 
 		if _, err := ConvertToTime(fail); err == nil {
 			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
+		}
+	}
+}
+
+func TestAutotypeFloat(t *testing.T) {
+	for _, testValue := range []string{
+		`1.5`,
+		`-1.5`,
+	} {
+		v := Autotype(testValue)
+
+		switch v.(type) {
+		case float64:
+			return
+		default:
+			t.Errorf("Invalid autotype: expected float64, got %T", v)
+		}
+	}
+}
+
+func TestAutotypeInt(t *testing.T) {
+	for _, testValue := range []string{
+		`12345`,
+		`-12345`,
+	} {
+		v := Autotype(testValue)
+
+		switch v.(type) {
+		case int64:
+			continue
+		default:
+			t.Errorf("Invalid autotype: expected int64, got %T", v)
+		}
+	}
+}
+
+func TestAutotypeDate(t *testing.T) {
+	for _, testValue := range DateConvertFormats {
+		tvS := strings.Replace(string(testValue), `_`, ``, -1)
+		tvS = strings.TrimSuffix(tvS, `07:00`)
+
+		v := Autotype(tvS)
+
+		switch v.(type) {
+		case time.Time:
+			continue
+		default:
+			t.Errorf("Invalid autotype %q: expected time.Time, got %T", testValue, v)
+		}
+	}
+}
+
+func TestAutotypeBool(t *testing.T) {
+	for _, testValue := range []string{
+		`true`,
+		`True`,
+		`false`,
+		`False`,
+	} {
+		v := Autotype(testValue)
+
+		switch v.(type) {
+		case bool:
+			continue
+		default:
+			t.Errorf("Invalid autotype: expected bool, got %T", v)
+		}
+	}
+
+	for _, testValue := range []string{
+		`trues`,
+		`Falses`,
+		`potato`,
+	} {
+		v := Autotype(testValue)
+
+		switch v.(type) {
+		case string:
+			continue
+		default:
+			t.Errorf("Invalid autotype: expected string, got %T", v)
 		}
 	}
 }
