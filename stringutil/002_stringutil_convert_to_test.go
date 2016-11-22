@@ -157,6 +157,10 @@ func TestConvertToDate(t *testing.T) {
 		// `Friday, 01-May-15 00:15:16 UTC`: time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 	}
 
+	if _, err := ConvertToTime(time.Now()); err != nil {
+		t.Errorf("Error during conversion: %v", err)
+	}
+
 	for in, out := range values {
 		if v, err := ConvertTo(Time, in); err == nil {
 			switch v.(type) {

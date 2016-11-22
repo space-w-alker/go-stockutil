@@ -266,10 +266,15 @@ func ConvertToBool(in interface{}) (bool, error) {
 }
 
 func ConvertToTime(in interface{}) (time.Time, error) {
-	if v, err := ConvertTo(Time, in); err == nil {
-		return v.(time.Time), nil
-	} else {
-		return time.Time{}, err
+	switch in.(type) {
+	case time.Time:
+		return in.(time.Time), nil
+	default:
+		if v, err := ConvertTo(Time, in); err == nil {
+			return v.(time.Time), nil
+		} else {
+			return time.Time{}, err
+		}
 	}
 }
 
