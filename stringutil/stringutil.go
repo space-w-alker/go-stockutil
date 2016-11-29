@@ -4,10 +4,14 @@ import (
 	"fmt"
 	"math"
 	"reflect"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
+	"unicode"
 )
+
+var rxSpace = regexp.MustCompile(`[\s\-]+`)
 
 type SiPrefix int
 
@@ -292,4 +296,81 @@ func Autotype(in interface{}) interface{} {
 	}
 
 	return in
+}
+
+func IsSeparator(r rune) bool {
+	// ASCII alphanumerics and underscore are not separators
+	if r <= 0x7F {
+		switch {
+		case '0' <= r && r <= '9':
+			return false
+		case 'a' <= r && r <= 'z':
+			return false
+		case 'A' <= r && r <= 'Z':
+			return false
+		}
+
+		return true
+	}
+
+	// Letters and digits are not separators
+	if unicode.IsLetter(r) || unicode.IsDigit(r) {
+		return false
+	}
+
+	// Otherwise, all we can do for now is treat spaces as separators.
+	return unicode.IsSpace(r)
+}
+
+func TokenizeFunc(in string, tokenizer func(rune) bool, partfn func(part string) []string) []string {
+	// split on word-separating characters (and discard them), or on capital
+	// letters (preserving them)
+	parts := strings.FieldsFunc(in, tokenizer)
+	out := make([]string, 0)
+
+	for _, part := range parts {
+		partOut := partfn(part)
+
+		if partOut != nil {
+			for _, v := range partOut {
+				if v != `` {
+					out = append(out, v)
+				}
+			}
+		}
+	}
+
+	return out
+}
+
+func Camelize(in string) string {
+	return strings.Join(TokenizeFunc(in, IsSeparator, func(part string) []string {
+		part = strings.TrimSpace(part)
+		part = strings.Title(part)
+		return []string{part}
+	}), ``)
+}
+
+func Underscore(in string) string {
+	in = rxSpace.ReplaceAllString(in, `_`)
+	out := make([]rune, 0)
+	runes := []rune(in)
+
+	sepfn := func(i int) bool {
+		return i >= 0 && i < len(runes) && unicode.IsLower(runes[i])
+	}
+
+	for i, r := range runes {
+		if unicode.IsUpper(r) {
+			r = unicode.ToLower(r)
+
+			if i > 0 && runes[i-1] != '_' && (sepfn(i-1) || sepfn(i+1)) {
+				out = append(out, '_')
+			}
+		}
+
+		out = append(out, r)
+	}
+
+	return string(out)
 }

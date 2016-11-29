@@ -1,6 +1,7 @@
 package stringutil
 
 import (
+	"github.com/stretchr/testify/require"
 	"testing"
 )
 
@@ -146,5 +147,40 @@ func TestToBytes(t *testing.T) {
 
 	if v, err := ToBytes(`123X`); err == nil {
 		t.Errorf("Invalid SI suffix 'X' did not error, got: %v", v)
+	}
+}
+
+func TestCamelize(t *testing.T) {
+	assert := require.New(t)
+
+	tests := map[string]string{
+		`test_value`:  `TestValue`,
+		`test-Value`:  `TestValue`,
+		`test-Val_ue`: `TestValUe`,
+		`test value`:  `TestValue`,
+		`TestValue`:   `TestValue`,
+		`testValue`:   `TestValue`,
+		`TeSt VaLue`:  `TeStVaLue`,
+	}
+
+	for have, want := range tests {
+		assert.Equal(want, Camelize(have))
+	}
+}
+
+func TestUnderscore(t *testing.T) {
+	assert := require.New(t)
+
+	tests := map[string]string{
+		`test_value`: `test_value`,
+		`test-Value`: `test_value`,
+		`test value`: `test_value`,
+		`TestValue`:  `test_value`,
+		`testValue`:  `test_value`,
+		`TeSt VaLue`: `te_st_va_lue`,
+	}
+
+	for have, want := range tests {
+		assert.Equal(want, Underscore(have))
 	}
 }
