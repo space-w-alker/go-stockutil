@@ -154,6 +154,8 @@ func TestCamelize(t *testing.T) {
 	assert := require.New(t)
 
 	tests := map[string]string{
+		`Test`:        `Test`,
+		`test`:        `Test`,
 		`test_value`:  `TestValue`,
 		`test-Value`:  `TestValue`,
 		`test-Val_ue`: `TestValUe`,
@@ -172,6 +174,8 @@ func TestUnderscore(t *testing.T) {
 	assert := require.New(t)
 
 	tests := map[string]string{
+		`Test`:       `test`,
+		`test`:       `test`,
 		`test_value`: `test_value`,
 		`test-Value`: `test_value`,
 		`test value`: `test_value`,
