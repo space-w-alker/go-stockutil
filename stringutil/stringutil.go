@@ -221,13 +221,18 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 				return nil, fmt.Errorf("Cannot convert '%s' into a boolean value", in)
 			}
 		case Time:
-			for _, format := range DateConvertFormats {
-				if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
-					return tm, nil
+			switch in {
+			case `now`:
+				return time.Now(), nil
+			default:
+				for _, format := range DateConvertFormats {
+					if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
+						return tm, nil
+					}
 				}
-			}
 
-			return nil, fmt.Errorf("Cannot convert '%s' into a date/time value", in)
+				return nil, fmt.Errorf("Cannot convert '%s' into a date/time value", in)
+			}
 
 		default:
 			return in, nil

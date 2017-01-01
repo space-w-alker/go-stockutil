@@ -148,6 +148,8 @@ func TestConvertToBoolean(t *testing.T) {
 }
 
 func TestConvertToDate(t *testing.T) {
+	atLeastNow := time.Now()
+
 	values := map[string]time.Time{
 		`2015-05-01 00:15:16`:         time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 		`Fri May 1 00:15:16 UTC 2015`: time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
@@ -155,6 +157,12 @@ func TestConvertToDate(t *testing.T) {
 		// `01 May 15 00:15 UTC`:            time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 		// `01 May 15 00:15 +0000`:          time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 		// `Friday, 01-May-15 00:15:16 UTC`: time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
+	}
+
+	if v, err := ConvertToTime(`now`); err != nil {
+		t.Errorf("Error during conversion: %v", err)
+	} else if v.Before(atLeastNow) {
+		t.Errorf("Symbolic time 'now' should be later than what we got: %v <= %v", v, atLeastNow)
 	}
 
 	if _, err := ConvertToTime(time.Now()); err != nil {
