@@ -1,6 +1,7 @@
 package sliceutil
 
 import (
+	"fmt"
 	"reflect"
 )
 
@@ -50,6 +51,20 @@ func CompactString(in []string) []string {
 		if v != `` {
 			rv = append(rv, v)
 		}
+	}
+
+	return rv
+}
+
+func Stringify(in []interface{}) []string {
+	if in == nil {
+		return nil
+	}
+
+	rv := make([]string, len(in))
+
+	for i, v := range in {
+		rv[i] = fmt.Sprintf("%v", v)
 	}
 
 	return rv

@@ -70,3 +70,27 @@ func TestCompactString(t *testing.T) {
 		`one`, ``, `three`, ``, ` `, `five`,
 	}))
 }
+
+func TestStringify(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Nil(Stringify(nil))
+
+	assert.Equal([]string{
+		`0`, `1`, `2`,
+	}, Stringify([]interface{}{
+		0, 1, 2,
+	}))
+
+	assert.Equal([]string{
+		`0.5`, `0.55`, `0.555`, `0.555001`,
+	}, Stringify([]interface{}{
+		0.5, 0.55, 0.55500, 0.555001,
+	}))
+
+	assert.Equal([]string{
+		`true`, `true`, `false`,
+	}, Stringify([]interface{}{
+		true, true, false,
+	}))
+}
