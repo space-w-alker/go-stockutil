@@ -5,6 +5,7 @@ import (
 	"reflect"
 )
 
+// Returns whether the given string slice contains a given string.
 func ContainsString(list []string, elem string) bool {
 	for _, t := range list {
 		if t == elem {
@@ -15,6 +16,12 @@ func ContainsString(list []string, elem string) bool {
 	return false
 }
 
+// Removes all elements from the given interface slice that are "empty", which is
+// defined as being nil, a nil or zero-length array, chan, map, slice, or string.
+//
+// The zero values of any other type are not considered empty and will remain in
+// the return value.
+//
 func Compact(in []interface{}) []interface{} {
 	if in == nil {
 		return nil
@@ -40,6 +47,8 @@ func Compact(in []interface{}) []interface{} {
 	return rv
 }
 
+// Removes all zero-length strings from the given string slice, returning a new
+// slice with the values removed.
 func CompactString(in []string) []string {
 	if in == nil {
 		return nil
@@ -56,6 +65,8 @@ func CompactString(in []string) []string {
 	return rv
 }
 
+// Converts all elements of the given interface slice to strings using the "%v"
+// format string via the fmt package.
 func Stringify(in []interface{}) []string {
 	if in == nil {
 		return nil
@@ -68,4 +79,26 @@ func Stringify(in []interface{}) []string {
 	}
 
 	return rv
+}
+
+// Returns the first item that is not the zero value for that value's type.
+func Or(in ...interface{}) interface{} {
+	for _, v := range Compact(in) {
+		// if the current value equals the zero value of its type,
+		// then skip it, otherwise return it
+		if v != reflect.Zero(reflect.TypeOf(v)).Interface() {
+			return v
+		}
+	}
+
+	return nil
+}
+
+// Returns the first item that is not a zero-length string.
+func OrString(in ...string) string {
+	if v := CompactString(in); len(v) > 0 {
+		return v[0]
+	} else {
+		return ``
+	}
 }

@@ -94,3 +94,34 @@ func TestStringify(t *testing.T) {
 		true, true, false,
 	}))
 }
+
+func TestOr(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Nil(Or())
+	assert.Nil(Or(nil))
+	assert.Equal(1, Or(0, 1, 0, 2, 0, 3, 4, 5, 6))
+	assert.Equal(true, Or(false, false, true))
+	assert.Equal(`one`, Or(`one`))
+	assert.Equal(4.0, Or(nil, ``, false, 0, 4.0))
+	assert.Nil(Or(false, false, false))
+	assert.Nil(Or(0, 0, 0))
+
+	assert.Equal(`three`, Or(``, ``, `three`))
+
+	type testStruct struct {
+		name string
+	}
+
+	assert.Equal(testStruct{`three`}, Or(testStruct{}, testStruct{}, testStruct{`three`}))
+}
+
+func TestOrString(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(``, OrString())
+	assert.Equal(``, OrString(``))
+
+	assert.Equal(`one`, OrString(`one`))
+	assert.Equal(`two`, OrString(``, `two`, ``, `three`))
+}
