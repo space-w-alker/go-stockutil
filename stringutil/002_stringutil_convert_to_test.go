@@ -136,7 +136,7 @@ func TestConvertToBoolean(t *testing.T) {
 		t.Errorf("Error during conversion: %v", err)
 	}
 
-	for _, fail := range []string{`1.5`, `potato`, `1`, `2015-05-01 00:15:16`} {
+	for _, fail := range []string{`1.5`, `potato`, `01`, `2015-05-01 00:15:16`} {
 		if _, err := ConvertTo(Boolean, fail); err == nil {
 			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
 		}

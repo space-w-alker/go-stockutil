@@ -94,7 +94,25 @@ func IsFloat(in string) bool {
 func IsBoolean(in string) bool {
 	in = strings.ToLower(in)
 
-	if in == `true` || in == `false` {
+	return (IsBooleanTrue(in) || IsBooleanFalse(in))
+}
+
+func IsBooleanTrue(in string) bool {
+	in = strings.ToLower(in)
+
+	switch in {
+	case `true`, `1`, `yes`, `on`:
+		return true
+	}
+
+	return false
+}
+
+func IsBooleanFalse(in string) bool {
+	in = strings.ToLower(in)
+
+	switch in {
+	case `false`, `0`, `no`, `off`:
 		return true
 	}
 
@@ -215,8 +233,10 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 		case Integer:
 			return strconv.ParseInt(in, 10, 64)
 		case Boolean:
-			if IsBoolean(in) {
-				return (in == `true`), nil
+			if IsBooleanTrue(in) {
+				return true, nil
+			} else if IsBooleanFalse(in) {
+				return false, nil
 			} else {
 				return nil, fmt.Errorf("Cannot convert '%s' into a boolean value", in)
 			}
