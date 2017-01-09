@@ -63,6 +63,7 @@ const (
 
 var DateConvertFormats = []string{
 	"2006-01-02 15:04:05",
+	"2006-01-02 15:04:05 -0700 MST",
 	time.RFC3339,
 	time.RFC3339Nano,
 	time.ANSIC,
@@ -149,6 +150,12 @@ func ToString(in interface{}) (string, error) {
 		return strconv.FormatBool(in.(bool)), nil
 	case reflect.String:
 		return in.(string), nil
+	case reflect.Struct:
+		if stringFn := reflect.ValueOf(in).MethodByName(`String`); stringFn != reflect.Zero(reflect.TypeOf(stringFn)) {
+			return fmt.Sprintf("%v", in), nil
+		}
+
+		fallthrough
 	default:
 		return "", fmt.Errorf("Unable to convert type '%T' to string", in)
 	}
