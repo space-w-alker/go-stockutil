@@ -102,7 +102,7 @@ func IsBooleanTrue(in string) bool {
 	in = strings.ToLower(in)
 
 	switch in {
-	case `true`, `1`, `yes`, `on`:
+	case `true`, `yes`, `on`:
 		return true
 	}
 
@@ -113,7 +113,7 @@ func IsBooleanFalse(in string) bool {
 	in = strings.ToLower(in)
 
 	switch in {
-	case `false`, `0`, `no`, `off`:
+	case `false`, `no`, `off`:
 		return true
 	}
 
