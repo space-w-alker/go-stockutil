@@ -1,6 +1,7 @@
 package stringutil
 
 import (
+	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"
 	"time"
@@ -148,6 +149,8 @@ func TestConvertToBoolean(t *testing.T) {
 }
 
 func TestConvertToDate(t *testing.T) {
+	assert := require.New(t)
+
 	atLeastNow := time.Now()
 
 	values := map[string]time.Time{
@@ -159,23 +162,23 @@ func TestConvertToDate(t *testing.T) {
 		// `Friday, 01-May-15 00:15:16 UTC`: time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 	}
 
-	if v, err := ConvertToTime(`now`); err != nil {
-		t.Errorf("Error during conversion: %v", err)
-	} else if v.Before(atLeastNow) {
-		t.Errorf("Symbolic time 'now' should be later than what we got: %v <= %v", v, atLeastNow)
-	}
+	v, err := ConvertToTime(`now`)
+	assert.Nil(err)
+	assert.True(v.After(atLeastNow))
 
-	if _, err := ConvertToTime(time.Now()); err != nil {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	v, err = ConvertToTime(time.Now())
+	assert.Nil(err)
+	assert.True(v.After(atLeastNow))
+
+	v, err = ConvertToTime(`0000-00-00 00:00:00`)
+	assert.Nil(err)
+	assert.Zero(v)
 
 	for in, out := range values {
 		if v, err := ConvertTo(Time, in); err == nil {
 			switch v.(type) {
 			case time.Time:
-				if v.(time.Time) != out {
-					t.Errorf("Conversion yielded an incorrect result value from '%s': expected %s, got: %s", in, out, v.(time.Time))
-				}
+				assert.Equal(out, v.(time.Time))
 			default:
 				t.Errorf("Conversion yielded an incorrect result type: expected time.Time, got: %T", v)
 			}
@@ -184,9 +187,7 @@ func TestConvertToDate(t *testing.T) {
 		}
 
 		if v, err := ConvertToTime(in); err == nil {
-			if v != out {
-				t.Errorf("Conversion yielded an incorrect result value from '%s': expected %s, got: %f", in, out, v)
-			}
+			assert.Equal(out, v)
 		} else {
 			t.Errorf("Error during conversion: %v", err)
 		}

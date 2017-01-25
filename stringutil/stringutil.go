@@ -248,10 +248,26 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 				return nil, fmt.Errorf("Cannot convert '%s' into a boolean value", in)
 			}
 		case Time:
-			switch in {
+			inS := fmt.Sprintf("%v", in)
+
+			switch inS {
 			case `now`:
 				return time.Now(), nil
 			default:
+				// handle time zero values
+				tmS := strings.Map(func(r rune) rune {
+					switch r {
+					case '-', ':', ' ', 'T', 'Z':
+						return '0'
+					}
+
+					return r
+				}, inS)
+
+				if v, err := strconv.ParseInt(tmS, 10, 64); err == nil && v == 0 {
+					return time.Time{}, nil
+				}
+
 				for _, format := range DateConvertFormats {
 					if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
 						return tm, nil
