@@ -391,7 +391,15 @@ func DeepGet(data interface{}, path []string, fallback interface{}) interface{} 
 	for i := 0; i < len(path); i++ {
 		part := path[i]
 
+		// fmt.Printf("dg:%s = %v (%T)\n", part, current, current)
+
 		dValue := reflect.ValueOf(current)
+
+		// if this value is not valid, return fallback here
+		if !dValue.IsValid() {
+			return fallback
+		}
+
 		dType := dValue.Type()
 
 		// for pointers and interfaces, get the underlying type
