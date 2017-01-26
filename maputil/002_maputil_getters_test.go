@@ -1,10 +1,13 @@
 package maputil
 
 import (
+	"github.com/stretchr/testify/require"
 	"testing"
 )
 
 func TestGetNil(t *testing.T) {
+	assert := require.New(t)
+
 	input := make(map[string]interface{})
 	level1 := make(map[string]interface{})
 
@@ -12,27 +15,20 @@ func TestGetNil(t *testing.T) {
 
 	input["test"] = level1
 
-	if v := DeepGet(input, []string{"test", "nilvalue"}, "nope"); v == "nope" {
-		t.Errorf("%s\n", v)
-	}
+	assert.Nil(DeepGet(input, []string{"test", "nilvalue"}, "nope"))
+	assert.Nil(DeepGet(input, []string{"test", "nilvalue"}, nil))
 }
 
 func TestDeepGetScalar(t *testing.T) {
+	assert := require.New(t)
+
 	input := make(map[string]interface{})
 
 	input = DeepSet(input, []string{"deeply", "nested", "value"}, 1.4).(map[string]interface{})
 
-	if v := DeepGet(input, []string{"deeply", "nested", "value"}, nil); v == nil {
-		t.Errorf("%s\n", v)
-	}
-
-	if v := DeepGet(input, []string{"deeply", "nested", "value2"}, true); v != true {
-		t.Errorf("%s\n", v)
-	}
-
-	if v := DeepGet(input, []string{"deeply", "nested", "value2"}, "fallback"); v != "fallback" {
-		t.Errorf("%s\n", v)
-	}
+	assert.NotNil(DeepGet(input, []string{"deeply", "nested", "value"}, nil))
+	assert.Equal(true, DeepGet(input, []string{"deeply", "nested", "value2"}, true))
+	assert.Equal(`fallback`, DeepGet(input, []string{"deeply", "nested", "value2"}, "fallback"))
 }
 
 func TestDeepGetArrayElement(t *testing.T) {

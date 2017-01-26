@@ -297,7 +297,9 @@ func deepGetValues(keys []string, joiner string, data interface{}) map[string]in
 	rv := make(map[string]interface{})
 
 	if data != nil {
-		switch reflect.TypeOf(data).Kind() {
+		dType := reflect.TypeOf(data)
+
+		switch dType.Kind() {
 		case reflect.Map:
 			for k, v := range data.(map[string]interface{}) {
 				newKey := keys
@@ -389,15 +391,22 @@ func DeepGet(data interface{}, path []string, fallback interface{}) interface{} 
 	for i := 0; i < len(path); i++ {
 		part := path[i]
 
-		switch current.(type) {
-		//  arrays
-		case []interface{}:
-			currentAsArray := current.([]interface{})
+		dValue := reflect.ValueOf(current)
+		dType := dValue.Type()
 
+		// for pointers and interfaces, get the underlying type
+		switch dType.Kind() {
+		case reflect.Interface, reflect.Ptr:
+			dType = dType.Elem()
+		}
+
+		switch dType.Kind() {
+		//  arrays
+		case reflect.Slice, reflect.Array:
 			if stringutil.IsInteger(part) {
 				if partIndex, err := strconv.Atoi(part); err == nil {
-					if partIndex < len(currentAsArray) {
-						if value := currentAsArray[partIndex]; value != nil {
+					if partIndex < dValue.Len() {
+						if value := dValue.Index(partIndex).Interface(); value != nil {
 							current = value
 							continue
 						}
@@ -407,16 +416,17 @@ func DeepGet(data interface{}, path []string, fallback interface{}) interface{} 
 
 			return fallback
 
-			//  maps
-		case map[string]interface{}:
-			currentAsMap := current.(map[string]interface{})
-
-			if value, ok := currentAsMap[part]; !ok {
-				return fallback
+		//  maps
+		case reflect.Map:
+			if mapValue := dValue.MapIndex(
+				reflect.ValueOf(part),
+			); mapValue.IsValid() {
+				current = mapValue.Interface()
 			} else {
-				current = value
+				return fallback
 			}
 		}
+
 	}
 
 	return current
