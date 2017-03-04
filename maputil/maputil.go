@@ -11,6 +11,8 @@ import (
 
 var DefaultStructTag string = `maputil`
 
+type WalkFunc func(value interface{}, path []string, isLeaf bool) error // {}
+
 func StringKeys(input interface{}) []string {
 	keys := make([]string, 0)
 	inputV := reflect.ValueOf(input)
@@ -557,4 +559,71 @@ func Append(maps ...map[string]interface{}) map[string]interface{} {
 	}
 
 	return out
+}
+
+func Walk(input interface{}, walkFn WalkFunc) error {
+	return walkGeneric(input, nil, walkFn)
+}
+
+func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
+	if parent == nil {
+		return nil
+	}
+
+	parentV := reflect.ValueOf(parent)
+
+	if parentV.Kind() == reflect.Ptr {
+		parentV = parentV.Elem()
+		parent = parentV.Interface()
+	}
+
+	switch parentV.Kind() {
+	case reflect.Map:
+		if err := walkFn(parent, path, false); err != nil {
+			return err
+		}
+
+		for _, key := range parentV.MapKeys() {
+			valueV := parentV.MapIndex(key)
+			subpath := append(path, fmt.Sprintf("%v", key.Interface()))
+
+			if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
+				return err
+			}
+		}
+
+	case reflect.Slice, reflect.Array:
+		if err := walkFn(parent, path, false); err != nil {
+			return err
+		}
+
+		for i := 0; i < parentV.Len(); i++ {
+			valueV := parentV.Index(i)
+			subpath := append(path, fmt.Sprintf("%v", i))
+
+			if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
+				return err
+			}
+		}
+
+	case reflect.Struct:
+		if err := walkFn(parent, path, false); err != nil {
+			return err
+		}
+
+		for i := 0; i < parentV.NumField(); i++ {
+			fieldV := parentV.Type().Field(i)
+			valueV := parentV.Field(i)
+			subpath := append(path, fieldV.Name)
+
+			if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
+				return err
+			}
+		}
+
+	default:
+		return walkFn(parent, path, true)
+	}
+
+	return nil
 }
