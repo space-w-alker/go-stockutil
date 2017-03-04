@@ -368,6 +368,16 @@ func TestMapAppend(t *testing.T) {
 		`a`: 1,
 		`b`: true,
 		`c`: `Three`,
+	}, Append(nil, map[string]interface{}{
+		`a`: 1,
+		`b`: true,
+		`c`: `Three`,
+	}, nil))
+
+	assert.Equal(map[string]interface{}{
+		`a`: 1,
+		`b`: true,
+		`c`: `Three`,
 		`d`: 4,
 		`e`: false,
 		`f`: 6.1,

@@ -76,17 +76,38 @@ var DateConvertFormats = []string{
 	time.Kitchen,
 }
 
-func IsInteger(in string) bool {
-	if _, err := strconv.Atoi(in); err == nil {
+func IsInteger(in interface{}) bool {
+	inV := reflect.ValueOf(in)
+
+	switch inV.Kind() {
+	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64, reflect.Uint,
+		reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
 		return true
+
+	default:
+		if asStr, err := ToString(in); err == nil {
+			if _, err := strconv.Atoi(asStr); err == nil {
+				return true
+			}
+		}
 	}
 
 	return false
 }
 
-func IsFloat(in string) bool {
-	if _, err := strconv.ParseFloat(in, 64); err == nil {
+func IsFloat(in interface{}) bool {
+	inV := reflect.ValueOf(in)
+
+	switch inV.Kind() {
+	case reflect.Float32, reflect.Float64:
 		return true
+
+	default:
+		if asStr, err := ToString(in); err == nil {
+			if _, err := strconv.ParseFloat(asStr, 64); err == nil {
+				return true
+			}
+		}
 	}
 
 	return false
