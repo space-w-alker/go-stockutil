@@ -613,11 +613,15 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 
 		for i := 0; i < parentV.NumField(); i++ {
 			fieldV := parentV.Type().Field(i)
-			valueV := parentV.Field(i)
-			subpath := append(path, fieldV.Name)
 
-			if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
-				return err
+			// only operate on exported fields
+			if fieldV.PkgPath == `` {
+				valueV := parentV.Field(i)
+				subpath := append(path, fieldV.Name)
+
+				if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
+					return err
+				}
 			}
 		}
 

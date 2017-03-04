@@ -1,14 +1,10 @@
-all: vendor fmt test
+all: fmt deps test
 
-update:
-	glide up
-
-vendor:
-	go list github.com/Masterminds/glide
-	glide install
+deps:
+	go get .
 
 clean:
-	-rm -rf vendor bin
+	-rm -rf bin
 
 fmt:
 	gofmt -w .

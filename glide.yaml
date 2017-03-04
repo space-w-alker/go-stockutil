@@ -1,6 +1,0 @@
-package: github.com/ghetzel/go-stockutil
-import: []
-testImport:
-- package: github.com/stretchr/testify
-  subpackages:
-  - require
