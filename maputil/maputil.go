@@ -546,3 +546,15 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 
 	return data
 }
+
+func Append(maps ...map[string]interface{}) map[string]interface{} {
+	out := make(map[string]interface{})
+
+	for _, mapV := range maps {
+		for k, v := range mapV {
+			out[k] = v
+		}
+	}
+
+	return out
+}

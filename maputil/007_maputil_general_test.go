@@ -1,6 +1,7 @@
 package maputil
 
 import (
+	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"
 	"time"
@@ -346,4 +347,49 @@ func TestStructFromMap(t *testing.T) {
 	} else {
 		t.Error(err)
 	}
+}
+
+func TestMapAppend(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(map[string]interface{}{}, Append())
+
+	assert.Equal(map[string]interface{}{
+		`a`: 1,
+		`b`: true,
+		`c`: `Three`,
+	}, Append(map[string]interface{}{
+		`a`: 1,
+		`b`: true,
+		`c`: `Three`,
+	}))
+
+	assert.Equal(map[string]interface{}{
+		`a`: 1,
+		`b`: true,
+		`c`: `Three`,
+		`d`: 4,
+		`e`: false,
+		`f`: 6.1,
+	}, Append(map[string]interface{}{
+		`a`: 1,
+		`b`: true,
+		`c`: `Three`,
+	}, map[string]interface{}{
+		`d`: 4,
+		`e`: false,
+		`f`: 6.1,
+	}))
+
+	assert.Equal(map[string]interface{}{
+		`a`: 1,
+		`b`: true,
+		`c`: `Five`,
+	}, Append(map[string]interface{}{
+		`a`: 1,
+		`b`: true,
+		`c`: `Three`,
+	}, map[string]interface{}{
+		`c`: `Five`,
+	}))
 }
