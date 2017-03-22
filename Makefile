@@ -14,3 +14,4 @@ test: fmt
 	go test ./pathutil
 	go test ./sliceutil
 	go test ./stringutil
+	go test ./fileutil
