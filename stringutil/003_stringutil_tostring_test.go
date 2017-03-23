@@ -1,6 +1,7 @@
 package stringutil
 
 import (
+	"github.com/stretchr/testify/require"
 	"testing"
 )
 
@@ -43,4 +44,40 @@ func TestToString(t *testing.T) {
 			t.Errorf("Value %v (%T) ToString failed: expected '%s', got '%s' (err: %v)", in, in, out, v, err)
 		}
 	}
+}
+
+func TestToStringSlice(t *testing.T) {
+	assert := require.New(t)
+
+	v, err := ToStringSlice([]string{`a`, `b`, `c`})
+	assert.Nil(err)
+	assert.Equal([]string{`a`, `b`, `c`}, v)
+
+	v, err = ToStringSlice([]int{1, 2, 3})
+	assert.Nil(err)
+	assert.Equal([]string{`1`, `2`, `3`}, v)
+
+	v, err = ToStringSlice([]float32{1.5, 2.7, 3.0032477})
+	assert.Nil(err)
+	assert.Equal([]string{`1.5`, `2.7`, `3.0032477`}, v)
+
+	v, err = ToStringSlice([]float64{1.5, 2.7, 3.9832412754892137})
+	assert.Nil(err)
+	assert.Equal([]string{`1.5`, `2.7`, `3.9832412754892137`}, v)
+
+	v, err = ToStringSlice([]interface{}{1, true, 3.9832412754892137, `four`})
+	assert.Nil(err)
+	assert.Equal([]string{`1`, `true`, `3.9832412754892137`, `four`}, v)
+
+	v, err = ToStringSlice(true)
+	assert.Nil(err)
+	assert.Equal([]string{`true`}, v)
+
+	v, err = ToStringSlice(true)
+	assert.Nil(err)
+	assert.Equal([]string{`true`}, v)
+
+	v, err = ToStringSlice(nil)
+	assert.Nil(err)
+	assert.Equal([]string{}, v)
 }

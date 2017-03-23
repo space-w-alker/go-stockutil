@@ -182,6 +182,55 @@ func ToString(in interface{}) (string, error) {
 	}
 }
 
+func ToStringSlice(in interface{}) ([]string, error) {
+	values := make([]string, 0)
+
+	if in != nil {
+		if v, ok := in.([]string); ok {
+			return v, nil
+		}
+
+		inV := reflect.ValueOf(in)
+
+		if inV.IsValid() {
+			if inV.Kind() == reflect.Ptr {
+				inV = inV.Elem()
+			}
+
+			if inV.IsValid() {
+				switch inV.Kind() {
+				case reflect.Array, reflect.Slice:
+					for i := 0; i < inV.Len(); i++ {
+						if indexV := inV.Index(i); indexV.IsValid() {
+							if v, err := ToString(indexV.Interface()); err == nil {
+								values = append(values, v)
+							} else {
+								return nil, err
+							}
+						} else {
+							return nil, fmt.Errorf("Element %d in slice is invalid", i)
+						}
+					}
+
+				default:
+					if v, err := ToString(in); err == nil {
+						values = append(values, v)
+					} else {
+						return nil, err
+					}
+				}
+			} else {
+				return nil, fmt.Errorf("Cannot parse value pointed to by given value.")
+			}
+
+		} else {
+			return nil, fmt.Errorf("Cannot parse given value.")
+		}
+	}
+
+	return values, nil
+}
+
 func ToByteString(in interface{}, formatString ...string) (string, error) {
 	if asBytes, err := ConvertToInteger(in); err == nil {
 		for i := 0; i < 9; i++ {
