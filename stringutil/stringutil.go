@@ -492,3 +492,53 @@ func Underscore(in string) string {
 
 	return string(out)
 }
+
+// Returns whether the letters (Unicode Catgeory 'L') in a given string are
+// homogenous in case (all upper-case or all lower-case).
+//
+func IsMixedCase(in string) bool {
+	var hasLower bool
+	var hasUpper bool
+
+	for _, c := range in {
+		if unicode.IsLetter(c) {
+			if unicode.IsLower(c) {
+				hasLower = true
+
+				if hasUpper {
+					return true
+				}
+			} else if unicode.IsUpper(c) {
+				hasUpper = true
+
+				if hasLower {
+					return true
+				}
+			}
+		}
+	}
+
+	return false
+}
+
+// Returns whether the given string is a hexadecimal number. If the string is
+// prefixed with "0x", the prefix is removed first. If length is greater than 0,
+// the length of the input (excluding prefix) is checked as well.
+//
+func IsHexadecimal(in string, length int) bool {
+	in = strings.TrimPrefix(in, `0x`)
+
+	if IsMixedCase(in) {
+		return false
+	}
+
+	if _, err := strconv.ParseInt(in, 16, 64); err == nil {
+		if length <= 0 {
+			return true
+		} else if len(in) == length {
+			return true
+		}
+	}
+
+	return false
+}

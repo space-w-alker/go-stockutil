@@ -1,6 +1,7 @@
 package stringutil
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
@@ -187,4 +188,47 @@ func TestUnderscore(t *testing.T) {
 	for have, want := range tests {
 		assert.Equal(want, Underscore(have))
 	}
+}
+
+func TestIsMixedCase(t *testing.T) {
+	assert := require.New(t)
+
+	assert.False(IsMixedCase(``))
+	assert.False(IsMixedCase(`0123456789`))
+	assert.False(IsMixedCase(`abcdefghijklmnopqrstuvwxyz`))
+	assert.False(IsMixedCase(`abcdefghijklm0123456789nopqrstuvwxyz`))
+	assert.False(IsMixedCase(`ABCDEFGHIJKLMNOPQRSTUVWXYZ`))
+	assert.False(IsMixedCase(`ABCDEFGHIJKLM0123456789NOPQRSTUVWXYZ`))
+	assert.False(IsMixedCase(` ABCDEFGHIJKLM 0123456789 NOPQRSTUVWXYZ `))
+	assert.False(IsMixedCase(`сою́з`))
+	assert.False(IsMixedCase(`СОЮ́З`))
+
+	assert.True(IsMixedCase(`AbCdEfGhIjKlMnOpQrStUvWxYz`))
+	assert.True(IsMixedCase(`ABCDEFGHIJKLM0123456789nopqrstuvwxyz`))
+	assert.True(IsMixedCase(`Сою́з`))
+}
+
+func TestIsHexadecimal(t *testing.T) {
+	assert := require.New(t)
+
+	for i := 0; i < 16; i++ {
+		assert.True(IsHexadecimal(fmt.Sprintf("%x", i), -1))
+		assert.True(IsHexadecimal(fmt.Sprintf("%X", i), -1))
+	}
+
+	for i := 10; i < 16; i++ {
+		assert.False(IsHexadecimal(fmt.Sprintf("%x%X", i, i), -1))
+		assert.False(IsHexadecimal(fmt.Sprintf("%X%x", i, i), -1))
+		assert.False(IsHexadecimal(fmt.Sprintf("%x", i), 2))
+		assert.False(IsHexadecimal(fmt.Sprintf("%X", i), 2))
+	}
+
+	assert.True(IsHexadecimal(`abc123`, -1))
+	assert.True(IsHexadecimal(`ABC123`, -1))
+	assert.True(IsHexadecimal(`abc123`, 6))
+	assert.True(IsHexadecimal(`ABC123`, 6))
+
+	assert.False(IsHexadecimal(`aBc123`, -1))
+	assert.False(IsHexadecimal(`abc123`, 32))
+	assert.False(IsHexadecimal(`ABC123`, 32))
 }
