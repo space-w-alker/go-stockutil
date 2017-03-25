@@ -24,11 +24,19 @@ func IsZero(value interface{}) bool {
 // considered empty if the result is zero-length.
 //
 func IsEmpty(value interface{}) bool {
-	if IsZero(value) {
-		return true
+	valueV := reflect.ValueOf(value)
+
+	if valueV.Kind() == reflect.Ptr {
+		valueV = valueV.Elem()
 	}
 
-	valueV := reflect.ValueOf(value)
+	// short circuit for zero values of certain types
+	switch valueV.Kind() {
+	case reflect.Struct:
+		if IsZero(value) {
+			return true
+		}
+	}
 
 	switch valueV.Kind() {
 	case reflect.Array, reflect.Slice:
