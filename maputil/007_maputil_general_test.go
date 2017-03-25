@@ -39,6 +39,8 @@ func TestMapJoin(t *testing.T) {
 }
 
 func TestStringKeys(t *testing.T) {
+	assert := require.New(t)
+
 	i1 := map[string]interface{}{
 		`1`: 1,
 		`2`: true,
@@ -59,35 +61,15 @@ func TestStringKeys(t *testing.T) {
 
 	output := []string{`1`, `2`, `3`}
 
-	for i, v := range StringKeys(i1) {
-		if key := output[i]; key != v {
-			t.Errorf("map[string]interface{} key %d; expected: %q, got: %q", i, key, v)
-		}
-	}
+	assert.Empty(StringKeys(nil))
 
-	for i, v := range StringKeys(i2) {
-		if key := output[i]; key != v {
-			t.Errorf("map[string]bool key %d; expected: %q, got: %q", i, key, v)
-		}
-	}
+	assert.Equal(output, StringKeys(i1))
+	assert.Equal(output, StringKeys(i2))
+	assert.Equal(output, StringKeys(i3))
 
-	for i, v := range StringKeys(i3) {
-		if key := output[i]; key != v {
-			t.Errorf("map[string]MyTestThing key %d; expected: %q, got: %q", i, key, v)
-		}
-	}
-
-	if keys := StringKeys(true); len(keys) != 0 {
-		t.Errorf("StringKeys(true); expected: len=0, got: len=%d", len(keys))
-	}
-
-	if keys := StringKeys(4); len(keys) != 0 {
-		t.Errorf("StringKeys(4); expected: len=0, got: len=%d", len(keys))
-	}
-
-	if keys := StringKeys([]int{1, 2, 3}); len(keys) != 0 {
-		t.Errorf("StringKeys([]int{1,2,3}); expected: len=0, got: len=%d", len(keys))
-	}
+	assert.Empty(StringKeys(true))
+	assert.Empty(StringKeys(4))
+	assert.Empty(StringKeys([]int{1, 2, 3}))
 }
 
 func TestMapSplit(t *testing.T) {

@@ -15,6 +15,11 @@ type WalkFunc func(value interface{}, path []string, isLeaf bool) error // {}
 
 func StringKeys(input interface{}) []string {
 	keys := make([]string, 0)
+
+	if input == nil {
+		return keys
+	}
+
 	inputV := reflect.ValueOf(input)
 
 	if inputV.Kind() == reflect.Map {
