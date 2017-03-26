@@ -326,12 +326,20 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 	if in, err := ToString(inI); err == nil {
 		switch toType {
 		case Float:
+			if inS, ok := inI.(string); ok {
+				if inS == `` {
+					return float64(0), nil
+				}
+			}
+
 			return strconv.ParseFloat(in, 64)
 		case Integer:
 			if inTime, ok := inI.(time.Time); ok {
 				return int64(inTime.UnixNano()), nil
 			} else if inS, ok := inI.(string); ok {
-				if layout := DetectTimeFormat(inS); layout != `` {
+				if inS == `` {
+					return int64(0), nil
+				} else if layout := DetectTimeFormat(inS); layout != `` {
 					if tm, err := time.Parse(layout, inS); err == nil {
 						return tm.UnixNano(), nil
 					} else {
