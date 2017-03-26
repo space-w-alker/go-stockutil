@@ -12,6 +12,23 @@ import (
 )
 
 var rxSpace = regexp.MustCompile(`[\s\-]+`)
+var TimeFormats = []string{
+	time.RFC3339,
+	time.RFC3339Nano,
+	time.ANSIC,
+	time.UnixDate,
+	time.RubyDate,
+	time.RFC822,
+	time.RFC822Z,
+	time.RFC1123,
+	time.RFC1123Z,
+	time.Kitchen,
+	`2006-01-02 15:04:05 -0700 MST`,
+	`2006-01-02 15:04:05Z07:00`,
+	`2006-01-02 15:04:05`,
+	`2006-01-02 15:04`,
+	`2006-01-02`,
+}
 
 type SiPrefix int
 
@@ -60,21 +77,6 @@ const (
 	Integer
 	Time
 )
-
-var DateConvertFormats = []string{
-	"2006-01-02 15:04:05",
-	"2006-01-02 15:04:05 -0700 MST",
-	time.RFC3339,
-	time.RFC3339Nano,
-	time.ANSIC,
-	time.UnixDate,
-	time.RubyDate,
-	time.RFC822,
-	time.RFC822Z,
-	time.RFC1123,
-	time.RFC1123Z,
-	time.Kitchen,
-}
 
 func IsInteger(in interface{}) bool {
 	inV := reflect.ValueOf(in)
@@ -139,6 +141,24 @@ func IsBooleanFalse(in string) bool {
 	}
 
 	return false
+}
+
+func IsTime(in string) bool {
+	if DetectTimeFormat(in) != `` {
+		return true
+	}
+
+	return false
+}
+
+func DetectTimeFormat(in string) string {
+	for _, layout := range TimeFormats {
+		if _, err := time.Parse(layout, in); err == nil {
+			return layout
+		}
+	}
+
+	return ``
 }
 
 func ToString(in interface{}) (string, error) {
@@ -308,6 +328,18 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 		case Float:
 			return strconv.ParseFloat(in, 64)
 		case Integer:
+			if inTime, ok := inI.(time.Time); ok {
+				return int64(inTime.UnixNano()), nil
+			} else if inS, ok := inI.(string); ok {
+				if layout := DetectTimeFormat(inS); layout != `` {
+					if tm, err := time.Parse(layout, inS); err == nil {
+						return tm.UnixNano(), nil
+					} else {
+						return nil, err
+					}
+				}
+			}
+
 			return strconv.ParseInt(in, 10, 64)
 		case Boolean:
 			if IsBooleanTrue(in) {
@@ -338,7 +370,7 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 					return time.Time{}, nil
 				}
 
-				for _, format := range DateConvertFormats {
+				for _, format := range TimeFormats {
 					if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
 						return tm, nil
 					}

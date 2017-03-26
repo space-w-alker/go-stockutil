@@ -8,89 +8,64 @@ import (
 )
 
 func TestConvertToFloat(t *testing.T) {
-	if v, err := ConvertTo(Float, "1.5"); err == nil {
-		switch v.(type) {
-		case float64:
-			if v.(float64) != 1.5 {
-				t.Errorf("Conversion yielded an incorrect result value: expected 1.5, got: %f", v.(float64))
-			}
-		default:
-			t.Errorf("Conversion yielded an incorrect result type: expected float64, got: %T", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	assert := require.New(t)
 
-	if v, err := ConvertTo(Float, "1"); err == nil {
-		switch v.(type) {
-		case float64:
-			if v.(float64) != 1.0 {
-				t.Errorf("Conversion yielded an incorrect result value: expected 1.0, got: %f", v.(float64))
-			}
-		default:
-			t.Errorf("Conversion yielded an incorrect result type: expected float64, got: %T", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	v, err := ConvertTo(Float, "1.5")
+	assert.NoError(err)
+	assert.Equal(float64(1.5), v)
 
-	if v, err := ConvertToFloat("1.5"); err == nil {
-		if v != float64(1.5) {
-			t.Errorf("Conversion yielded an incorrect result value: expected 1.5, got: %f", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	v, err = ConvertTo(Float, "1")
+	assert.NoError(err)
+	assert.Equal(float64(1.0), v)
 
-	if v, err := ConvertToFloat("1"); err == nil {
-		if v != float64(1.0) {
-			t.Errorf("Conversion yielded an incorrect result value: expected 1.0, got: %f", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	v, err = ConvertToFloat("1.5")
+	assert.NoError(err)
+	assert.Equal(float64(1.5), v)
+
+	v, err = ConvertToFloat("1.0")
+	assert.NoError(err)
+	assert.Equal(float64(1.0), v)
 
 	for _, fail := range []string{`potato`, `true`, `2015-05-01 00:15:16`} {
-		if _, err := ConvertTo(Float, fail); err == nil {
-			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
-		}
+		_, err := ConvertTo(Float, fail)
+		assert.Error(err)
 
-		if _, err := ConvertToFloat(fail); err == nil {
-			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
-		}
+		_, err = ConvertToFloat(fail)
+		assert.Error(err)
 	}
 }
 
 func TestConvertToInteger(t *testing.T) {
-	if v, err := ConvertTo(Integer, "7"); err == nil {
-		switch v.(type) {
-		case int64:
-			if v.(int64) != int64(7) {
-				t.Errorf("Conversion yielded an incorrect result value: expected 7, got: %f", v.(int64))
-			}
-		default:
-			t.Errorf("Conversion yielded an incorrect result type: expected int64, got: %T", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	assert := require.New(t)
 
-	if v, err := ConvertToInteger("7"); err == nil {
-		if v != int64(7) {
-			t.Errorf("Conversion yielded an incorrect result value: expected 7, got: %f", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	v, err := ConvertTo(Integer, "7")
+	assert.NoError(err)
+	assert.Equal(int64(7), v)
 
-	for _, fail := range []string{`0.0`, `1.5`, `potato`, `true`, `2015-05-01 00:15:16`} {
-		if _, err := ConvertTo(Integer, fail); err == nil {
-			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
-		}
+	v, err = ConvertToInteger("7")
+	assert.NoError(err)
+	assert.Equal(int64(7), v)
 
-		if _, err := ConvertToInteger(fail); err == nil {
-			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
-		}
+	tm := time.Date(2010, 2, 21, 15, 14, 13, 0, time.UTC)
+
+	v, err = ConvertTo(Integer, tm)
+	assert.NoError(err)
+	assert.Equal(tm.UnixNano(), v)
+
+	v, err = ConvertToInteger(tm)
+	assert.NoError(err)
+	assert.Equal(tm.UnixNano(), v)
+
+	v, err = ConvertTo(Integer, `2010-02-21 15:14:13`)
+	assert.NoError(err)
+	assert.Equal(tm.UnixNano(), v)
+
+	for _, fail := range []string{`0.0`, `1.5`, `potato`, `true`} {
+		_, err := ConvertTo(Integer, fail)
+		assert.Error(err)
+
+		_, err = ConvertToInteger(fail)
+		assert.Error(err)
 	}
 }
 
@@ -237,7 +212,7 @@ func TestAutotypeInt(t *testing.T) {
 }
 
 func TestAutotypeDate(t *testing.T) {
-	for _, testValue := range DateConvertFormats {
+	for _, testValue := range TimeFormats {
 		tvS := strings.Replace(string(testValue), `_`, ``, -1)
 		tvS = strings.TrimSuffix(tvS, `07:00`)
 
