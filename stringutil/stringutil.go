@@ -12,6 +12,8 @@ import (
 )
 
 var rxSpace = regexp.MustCompile(`[\s\-]+`)
+var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
+
 var TimeFormats = []string{
 	time.RFC3339,
 	time.RFC3339Nano,
@@ -572,7 +574,7 @@ func IsHexadecimal(in string, length int) bool {
 		return false
 	}
 
-	if _, err := strconv.ParseInt(in, 16, 64); err == nil {
+	if rxHexadecimal.MatchString(in) {
 		if length <= 0 {
 			return true
 		} else if len(in) == length {

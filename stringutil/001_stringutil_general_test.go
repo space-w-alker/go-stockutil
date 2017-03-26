@@ -227,8 +227,10 @@ func TestIsHexadecimal(t *testing.T) {
 	assert.True(IsHexadecimal(`ABC123`, -1))
 	assert.True(IsHexadecimal(`abc123`, 6))
 	assert.True(IsHexadecimal(`ABC123`, 6))
+	assert.True(IsHexadecimal(`b26252862a11dd3221427bdbae6025604b1760e4`, 40))
 
 	assert.False(IsHexadecimal(`aBc123`, -1))
 	assert.False(IsHexadecimal(`abc123`, 32))
 	assert.False(IsHexadecimal(`ABC123`, 32))
+
 }
