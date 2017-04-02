@@ -591,7 +591,6 @@ func IsHexadecimal(in string, length int) bool {
 	return false
 }
 
-
 func Thousandify(in interface{}, separator string, decimal string) string {
 	if separator == `` {
 		separator = DefaultThousandsSeparator
@@ -631,10 +630,10 @@ func Thousandify(in interface{}, separator string, decimal string) string {
 			}
 
 			return string(buffer[:])
-		}else{
+		} else {
 			return inStr
 		}
-	}else{
+	} else {
 		return ``
 	}
 }
