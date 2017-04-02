@@ -123,37 +123,47 @@ func IsNumeric(in interface{}) bool {
 	return IsFloat(in)
 }
 
-func IsBoolean(in string) bool {
-	in = strings.ToLower(in)
+func IsBoolean(inI interface{}) bool {
+	if in, err := ToString(inI); err == nil {
+		in = strings.ToLower(in)
 
-	return (IsBooleanTrue(in) || IsBooleanFalse(in))
-}
-
-func IsBooleanTrue(in string) bool {
-	in = strings.ToLower(in)
-
-	switch in {
-	case `true`, `yes`, `on`:
-		return true
+		return (IsBooleanTrue(in) || IsBooleanFalse(in))
 	}
 
 	return false
 }
 
-func IsBooleanFalse(in string) bool {
-	in = strings.ToLower(in)
+func IsBooleanTrue(inI interface{}) bool {
+	if in, err := ToString(inI); err == nil {
+		in = strings.ToLower(in)
 
-	switch in {
-	case `false`, `no`, `off`:
-		return true
+		switch in {
+		case `true`, `yes`, `on`:
+			return true
+		}
 	}
 
 	return false
 }
 
-func IsTime(in string) bool {
-	if DetectTimeFormat(in) != `` {
-		return true
+func IsBooleanFalse(inI interface{}) bool {
+	if in, err := ToString(inI); err == nil {
+		in = strings.ToLower(in)
+
+		switch in {
+		case `false`, `no`, `off`:
+			return true
+		}
+	}
+
+	return false
+}
+
+func IsTime(inI interface{}) bool {
+	if in, err := ToString(inI); err == nil {
+		if DetectTimeFormat(in) != `` {
+			return true
+		}
 	}
 
 	return false

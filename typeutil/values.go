@@ -2,6 +2,7 @@ package typeutil
 
 import (
 	"fmt"
+	"github.com/ghetzel/go-stockutil/stringutil"
 	"reflect"
 	"strings"
 )
@@ -77,4 +78,46 @@ func IsEmpty(value interface{}) bool {
 	}
 
 	return false
+}
+
+func RelaxedEqual(first interface{}, second interface{}) (bool, error) {
+	if reflect.DeepEqual(first, second) {
+		return true, nil
+	} else if stringutil.IsNumeric(first) && stringutil.IsNumeric(second) {
+		if fV, err := stringutil.ConvertToFloat(first); err == nil {
+			if sV, err := stringutil.ConvertToFloat(second); err == nil {
+				return (fV == sV), nil
+			} else {
+				return false, err
+			}
+		} else {
+			return false, err
+		}
+	} else if stringutil.IsBooleanTrue(first) && stringutil.IsBooleanTrue(second) {
+		return true, nil
+	} else if stringutil.IsBooleanFalse(first) && stringutil.IsBooleanFalse(second) {
+		return true, nil
+	} else if stringutil.IsTime(first) && stringutil.IsTime(second) {
+		if fV, err := stringutil.ConvertToTime(first); err == nil {
+			if sV, err := stringutil.ConvertToTime(second); err == nil {
+				return fV.Equal(sV), nil
+			} else {
+				return false, err
+			}
+		} else {
+			return false, err
+		}
+	} else {
+		if fV, err := stringutil.ToString(first); err == nil {
+			if sV, err := stringutil.ToString(second); err == nil {
+				return (fV == sV), nil
+			} else {
+				return false, err
+			}
+		} else {
+			return false, err
+		}
+	}
+
+	return false, nil
 }
