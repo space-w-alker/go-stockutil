@@ -10,7 +10,10 @@ import (
 func TestConvertToFloat(t *testing.T) {
 	assert := require.New(t)
 
-	v, err := ConvertTo(Float, "1.5")
+	v, err := ConvertTo(Float, nil)
+	assert.Error(err)
+
+	v, err = ConvertTo(Float, "1.5")
 	assert.NoError(err)
 	assert.Equal(float64(1.5), v)
 
@@ -38,7 +41,10 @@ func TestConvertToFloat(t *testing.T) {
 func TestConvertToInteger(t *testing.T) {
 	assert := require.New(t)
 
-	v, err := ConvertTo(Integer, "7")
+	v, err := ConvertTo(Integer, nil)
+	assert.Error(err)
+
+	v, err = ConvertTo(Integer, "7")
 	assert.NoError(err)
 	assert.Equal(int64(7), v)
 
@@ -70,56 +76,33 @@ func TestConvertToInteger(t *testing.T) {
 }
 
 func TestConvertToBoolean(t *testing.T) {
-	if v, err := ConvertTo(Boolean, "true"); err == nil {
-		switch v.(type) {
-		case bool:
-			if v.(bool) != true {
-				t.Errorf("Conversion yielded an incorrect result value: expected true, got: %s", v.(bool))
-			}
-		default:
-			t.Errorf("Conversion yielded an incorrect result type: expected bool, got: %T", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	assert := require.New(t)
 
-	if v, err := ConvertTo(Boolean, "false"); err == nil {
-		switch v.(type) {
-		case bool:
-			if v.(bool) != false {
-				t.Errorf("Conversion yielded an incorrect result value: expected false, got: %s", v.(bool))
-			}
-		default:
-			t.Errorf("Conversion yielded an incorrect result type: expected bool, got: %T", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	v, err := ConvertTo(Boolean, nil)
+	assert.Equal(false, v)
 
-	if v, err := ConvertToBool("true"); err == nil {
-		if v != true {
-			t.Errorf("Conversion yielded an incorrect result value: expected true, got: %s", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	v, err = ConvertTo(Boolean, `true`)
+	assert.NoError(err)
+	assert.Equal(true, v)
 
-	if v, err := ConvertToBool("false"); err == nil {
-		if v != false {
-			t.Errorf("Conversion yielded an incorrect result value: expected false, got: %s", v)
-		}
-	} else {
-		t.Errorf("Error during conversion: %v", err)
-	}
+	v, err = ConvertTo(Boolean, `false`)
+	assert.NoError(err)
+	assert.Equal(false, v)
+
+	v, err = ConvertToBool(`true`)
+	assert.NoError(err)
+	assert.Equal(true, v)
+
+	v, err = ConvertToBool(`false`)
+	assert.NoError(err)
+	assert.Equal(false, v)
 
 	for _, fail := range []string{`1.5`, `potato`, `01`, `2015-05-01 00:15:16`} {
-		if _, err := ConvertTo(Boolean, fail); err == nil {
-			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
-		}
+		_, err := ConvertTo(Boolean, fail)
+		assert.Error(err)
 
-		if _, err := ConvertToBool(fail); err == nil {
-			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
-		}
+		_, err = ConvertToBool(fail)
+		assert.Error(err)
 	}
 }
 

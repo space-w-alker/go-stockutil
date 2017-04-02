@@ -372,6 +372,10 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 
 			return strconv.ParseInt(in, 10, 64)
 		case Boolean:
+			if inI == nil {
+				return false, nil
+			}
+
 			if IsBooleanTrue(in) {
 				return true, nil
 			} else if IsBooleanFalse(in) {
