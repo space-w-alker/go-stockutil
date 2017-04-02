@@ -13,6 +13,8 @@ import (
 
 var rxSpace = regexp.MustCompile(`[\s\-]+`)
 var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
+var DefaultThousandsSeparator = `,`
+var DefaultDecimalSeparator = `.`
 
 var TimeFormats = []string{
 	time.RFC3339,
@@ -115,6 +117,10 @@ func IsFloat(in interface{}) bool {
 	}
 
 	return false
+}
+
+func IsNumeric(in interface{}) bool {
+	return IsFloat(in)
 }
 
 func IsBoolean(in string) bool {
@@ -583,4 +589,52 @@ func IsHexadecimal(in string, length int) bool {
 	}
 
 	return false
+}
+
+
+func Thousandify(in interface{}, separator string, decimal string) string {
+	if separator == `` {
+		separator = DefaultThousandsSeparator
+	}
+
+	if decimal == `` {
+		decimal = DefaultDecimalSeparator
+	}
+
+	if inStr, err := ToString(in); err == nil {
+		if IsNumeric(in) {
+			var buffer []rune
+
+			lastIndexBeforeDecimal := strings.Index(inStr, decimal) - 1
+			decimalAndAfter := strings.Index(inStr, decimal)
+
+			if lastIndexBeforeDecimal < 0 {
+				lastIndexBeforeDecimal = len(inStr) - 1
+			}
+
+			j := 0
+
+			for i := lastIndexBeforeDecimal; i >= 0; i-- {
+				j++
+				buffer = append([]rune{rune(inStr[i])}, buffer...)
+
+				if j == 3 && i > 0 && !(i == 1 && inStr[0] == '-') {
+					buffer = append([]rune(separator), buffer...)
+					j = 0
+				}
+			}
+
+			if decimalAndAfter >= 0 {
+				for _, r := range inStr[decimalAndAfter:] {
+					buffer = append(buffer, rune(r))
+				}
+			}
+
+			return string(buffer[:])
+		}else{
+			return inStr
+		}
+	}else{
+		return ``
+	}
 }

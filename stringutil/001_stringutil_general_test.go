@@ -234,3 +234,29 @@ func TestIsHexadecimal(t *testing.T) {
 	assert.False(IsHexadecimal(`ABC123`, 32))
 
 }
+
+func TestThousandify(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(``, Thousandify(``, ``, ``))
+	assert.Equal(`0`, Thousandify(`0`, ``, ``))
+	assert.Equal(`1`, Thousandify(`1`, ``, ``))
+	assert.Equal(`1,000`, Thousandify(`1000`, ``, ``))
+	assert.Equal(`1,000.000`, Thousandify(`1000.000`, ``, ``))
+	assert.Equal(`1,000.001`, Thousandify(`1000.001`, ``, ``))
+	assert.Equal(`9,223,372,036,854,775,807`, Thousandify(`9223372036854775807`, ``, ``))
+	assert.Equal(`-9,223,372,036,854,775,809`, Thousandify(`-9223372036854775809`, ``, ``))
+	assert.Equal(
+		`-9,223,372,036,854,775,809,922,337,203,685,477,580,992,233,720,368,547,758,099,223,372,036,854,775,809`,
+		Thousandify(`-9223372036854775809922337203685477580992233720368547758099223372036854775809`, ``, ``),
+	)
+
+	assert.Equal(`0`, Thousandify(0, ``, ``))
+	assert.Equal(`1`, Thousandify(1, ``, ``))
+	assert.Equal(`1,000`, Thousandify(1000, ``, ``))
+	assert.Equal(`1,000`, Thousandify(1000.000, ``, ``))
+	assert.Equal(`1,000.001`, Thousandify(1000.001, ``, ``))
+
+	assert.Equal(`9,223,372,036,854,775,807`, Thousandify(9223372036854775807, ``, ``))
+	assert.Equal(`-9,223,372,036,854,775,808`, Thousandify(-9223372036854775808, ``, ``))
+}
