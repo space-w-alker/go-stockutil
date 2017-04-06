@@ -2,6 +2,7 @@ package pathutil
 
 import (
 	"fmt"
+	"os"
 	"os/user"
 	"strings"
 )
@@ -22,4 +23,48 @@ func ExpandUser(path string) (string, error) {
 	} else {
 		return path, err
 	}
+}
+
+func IsSymlink(mode os.FileMode) bool {
+	return (mode&os.ModeSymlink != 0)
+}
+
+func IsDevice(mode os.FileMode) bool {
+	return (mode&os.ModeDevice != 0)
+}
+
+func IsCharDevice(mode os.FileMode) bool {
+	return (mode&os.ModeCharDevice != 0)
+}
+
+func IsNamedPipe(mode os.FileMode) bool {
+	return (mode&os.ModeNamedPipe != 0)
+}
+
+func IsSocket(mode os.FileMode) bool {
+	return (mode&os.ModeSocket != 0)
+}
+
+func IsSticky(mode os.FileMode) bool {
+	return (mode&os.ModeSticky != 0)
+}
+
+func IsSetuid(mode os.FileMode) bool {
+	return (mode&os.ModeSetuid != 0)
+}
+
+func IsSetgid(mode os.FileMode) bool {
+	return (mode&os.ModeSetgid != 0)
+}
+
+func IsTemporary(mode os.FileMode) bool {
+	return (mode&os.ModeTemporary != 0)
+}
+
+func IsExclusive(mode os.FileMode) bool {
+	return (mode&os.ModeExclusive != 0)
+}
+
+func IsAppend(mode os.FileMode) bool {
+	return (mode&os.ModeAppend != 0)
 }
