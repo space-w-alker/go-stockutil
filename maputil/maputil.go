@@ -566,6 +566,33 @@ func Append(maps ...map[string]interface{}) map[string]interface{} {
 	return out
 }
 
+func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
+	rv := make([]interface{}, 0)
+
+	if sliceOfMaps == nil {
+		return rv
+	}
+
+	inV := reflect.ValueOf(sliceOfMaps)
+
+	if inV.IsValid() {
+		switch inV.Kind() {
+		case reflect.Slice, reflect.Array:
+			for i := 0; i < inV.Len(); i++ {
+				if mapV := inV.Index(i); mapV.IsValid() {
+					if mapV.Kind() == reflect.Map {
+						if v := DeepGet(mapV.Interface(), key, nil); v != nil {
+							rv = append(rv, v)
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return rv
+}
+
 func Walk(input interface{}, walkFn WalkFunc) error {
 	return walkGeneric(input, nil, walkFn)
 }
