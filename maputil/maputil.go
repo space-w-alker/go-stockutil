@@ -576,16 +576,20 @@ func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
 	inV := reflect.ValueOf(sliceOfMaps)
 
 	if inV.IsValid() {
-		if inV.Kind() == reflect.Ptr {
+		if inV.Kind() == reflect.Interface {
 			inV = inV.Elem()
 		}
 
 		if inV.IsValid() {
-			switch inV.Kind() {
-			case reflect.Slice, reflect.Array:
-				for i := 0; i < inV.Len(); i++ {
-					if mapV := inV.Index(i); mapV.IsValid() {
-						if mapV.IsValid() {
+			if inV.Kind() == reflect.Ptr {
+				inV = inV.Elem()
+			}
+
+			if inV.IsValid() {
+				switch inV.Kind() {
+				case reflect.Slice, reflect.Array:
+					for i := 0; i < inV.Len(); i++ {
+						if mapV := inV.Index(i); mapV.IsValid() {
 							if mapV.Kind() == reflect.Interface {
 								mapV = mapV.Elem()
 							}
@@ -595,9 +599,11 @@ func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
 									mapV = mapV.Elem()
 								}
 
-								if mapV.Kind() == reflect.Map {
-									if v := DeepGet(mapV.Interface(), key, nil); v != nil {
-										rv = append(rv, v)
+								if mapV.IsValid() {
+									if mapV.Kind() == reflect.Map {
+										if v := DeepGet(mapV.Interface(), key, nil); v != nil {
+											rv = append(rv, v)
+										}
 									}
 								}
 							}
