@@ -119,4 +119,20 @@ func TestMapPluck(t *testing.T) {
 			`name`: `Mallory`,
 		},
 	}, []string{`name`}))
+
+	assert.Equal([]interface{}{
+		`Alice`,
+		`Bob`,
+		`Mallory`,
+	}, Pluck(&[]interface{}{
+		&map[string]string{
+			`name`: `Alice`,
+		},
+		&map[string]string{
+			`name`: `Bob`,
+		},
+		&map[string]string{
+			`name`: `Mallory`,
+		},
+	}, []string{`name`}))
 }
