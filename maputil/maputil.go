@@ -3,6 +3,7 @@ package maputil
 import (
 	"fmt"
 	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 	"reflect"
 	"sort"
 	"strconv"
@@ -686,4 +687,71 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 	}
 
 	return nil
+}
+
+func Compact(input map[string]interface{}) (map[string]interface{}, error) {
+	output := make(map[string]interface{})
+
+	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
+		if isLeaf {
+			if !typeutil.IsEmpty(value) {
+				DeepSet(output, path, value)
+			}
+		}
+
+		return nil
+	}); err != nil {
+		return nil, err
+	}
+
+	return output, nil
+}
+
+func Merge(first map[string]interface{}, second map[string]interface{}) (map[string]interface{}, error) {
+	output := make(map[string]interface{})
+
+	if err := Walk(first, func(value interface{}, path []string, isLeaf bool) error {
+		if isLeaf {
+			DeepSet(output, path, value)
+		}
+
+		return nil
+	}); err != nil {
+		return nil, err
+	}
+
+	if err := Walk(second, func(value interface{}, path []string, isLeaf bool) error {
+		if isLeaf {
+			if value != nil {
+				if currentValue := DeepGet(output, path, nil); currentValue == nil {
+					DeepSet(output, path, value)
+				} else {
+					currentV := reflect.ValueOf(currentValue)
+					newV := reflect.ValueOf(value)
+
+					switch currentV.Type().Kind() {
+					case reflect.Slice, reflect.Array:
+						switch currentV.Type().Kind() {
+						case reflect.Slice, reflect.Array:
+							currentV = reflect.AppendSlice(currentV, newV)
+						default:
+							currentV = reflect.Append(currentV, newV)
+						}
+
+						currentValue = currentV.Interface()
+					default:
+						currentValue = []interface{}{currentValue, value}
+					}
+
+					DeepSet(output, path, currentValue)
+				}
+			}
+		}
+
+		return nil
+	}); err != nil {
+		return nil, err
+	}
+
+	return output, nil
 }
