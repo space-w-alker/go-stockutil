@@ -655,3 +655,35 @@ func Thousandify(in interface{}, separator string, decimal string) string {
 		return ``
 	}
 }
+
+func LongestCommonPrefix(inputs []string) string {
+	output := ``
+	shortestInputLen := 0
+
+	for _, in := range inputs {
+		if shortestInputLen == 0 || len(in) < shortestInputLen {
+			shortestInputLen = len(in)
+		}
+	}
+
+LCPLoop:
+	for i := 0; i < shortestInputLen; i++ {
+		var current byte
+
+		for _, input := range inputs {
+			if current == 0 {
+				current = input[i]
+			} else if current != input[i] {
+				break LCPLoop
+			}
+		}
+
+		if current == 0 {
+			break
+		}
+
+		output = output + string(current)
+	}
+
+	return output
+}

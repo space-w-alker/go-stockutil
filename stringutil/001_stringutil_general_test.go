@@ -260,3 +260,32 @@ func TestThousandify(t *testing.T) {
 	assert.Equal(`9,223,372,036,854,775,807`, Thousandify(9223372036854775807, ``, ``))
 	assert.Equal(`-9,223,372,036,854,775,808`, Thousandify(-9223372036854775808, ``, ``))
 }
+
+func TestLongestCommonPrefix(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(``, LongestCommonPrefix(nil))
+	assert.Equal(`interstellar`, LongestCommonPrefix([]string{
+		`interstellar`,
+	}))
+
+	assert.Equal(`inters`, LongestCommonPrefix([]string{
+		`interstellar`,
+		`interspace`,
+		`interstitial`,
+	}))
+
+	assert.Equal(`inter`, LongestCommonPrefix([]string{
+		`interstellar`,
+		`interspace`,
+		`interstitial`,
+		`interesting`,
+		`interest`,
+	}))
+
+	assert.Equal(`test.`, LongestCommonPrefix([]string{
+		`test.value`,
+		`test.debug`,
+		`test.test`,
+	}))
+}
