@@ -2,6 +2,7 @@ package sliceutil
 
 import (
 	"fmt"
+	"github.com/ghetzel/go-stockutil/typeutil"
 	"reflect"
 )
 
@@ -67,18 +68,26 @@ func CompactString(in []string) []string {
 
 // Converts all elements of the given interface slice to strings using the "%v"
 // format string via the fmt package.
-func Stringify(in []interface{}) []string {
-	if in == nil {
+func Stringify(in interface{}) []string {
+	if !typeutil.IsArray(in) {
 		return nil
 	}
 
-	rv := make([]string, len(in))
+	inV := reflect.ValueOf(in)
 
-	for i, v := range in {
-		rv[i] = fmt.Sprintf("%v", v)
+	if inV.IsValid() {
+		rv := make([]string, inV.Len())
+
+		for i := 0; i < inV.Len(); i++ {
+			if iV := inV.Index(i); iV.IsValid() {
+				rv[i] = fmt.Sprintf("%v", iV.Interface())
+			}
+		}
+
+		return rv
+	} else {
+		return nil
 	}
-
-	return rv
 }
 
 // Returns the first item that is not the zero value for that value's type.
