@@ -27,6 +27,46 @@ func TestMapMerge(t *testing.T) {
 
 	// ------------------------------------------------------------------------
 	out, err = Merge(map[string]interface{}{
+		`name`: []string{`First`, `Second`},
+	}, map[string]interface{}{
+		`name`: `Third`,
+	})
+
+	assert.NoError(err)
+	assert.Equal(map[string]interface{}{
+		`name`: []interface{}{`First`, `Second`, `Third`},
+	}, out)
+
+	// ------------------------------------------------------------------------
+	// FIXME: wrong output
+	//	expected: map[string]interface {}{"name":[]interface {}{"First", "Second", "Third"}}
+	//	received: map[string]interface {}{"name":[]interface {}{"First", "Second", []interface {}{"First", "Third"}}}
+	//
+	// out, err = Merge(map[string]interface{}{
+	// 	`name`: []string{`First`, `Second`},
+	// }, map[string]interface{}{
+	// 	`name`: []string{`Third`},
+	// })
+
+	// assert.NoError(err)
+	// assert.Equal(map[string]interface{}{
+	// 	`name`: []interface{}{`First`, `Second`, `Third`},
+	// }, out)
+
+	// ------------------------------------------------------------------------
+	out, err = Merge(map[string]interface{}{
+		`name`: `First`,
+	}, map[string]interface{}{
+		`name`: `First`,
+	})
+
+	assert.NoError(err)
+	assert.Equal(map[string]interface{}{
+		`name`: `First`,
+	}, out)
+
+	// ------------------------------------------------------------------------
+	out, err = Merge(map[string]interface{}{
 		`name`:    `First`,
 		`enabled`: true,
 	}, nil)

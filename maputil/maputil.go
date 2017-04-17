@@ -727,23 +727,19 @@ func Merge(first map[string]interface{}, second map[string]interface{}) (map[str
 					DeepSet(output, path, value)
 				} else {
 					currentV := reflect.ValueOf(currentValue)
-					newV := reflect.ValueOf(value)
 
 					switch currentV.Type().Kind() {
 					case reflect.Slice, reflect.Array:
-						switch currentV.Type().Kind() {
-						case reflect.Slice, reflect.Array:
-							currentV = reflect.AppendSlice(currentV, newV)
-						default:
-							currentV = reflect.Append(currentV, newV)
+						newPath := append(path, fmt.Sprintf("%d", currentV.Len()))
+						DeepSet(output, newPath, value)
+
+					default:
+						if currentValue == value {
+							return nil
 						}
 
-						currentValue = currentV.Interface()
-					default:
-						currentValue = []interface{}{currentValue, value}
+						DeepSet(output, path, []interface{}{currentValue, value})
 					}
-
-					DeepSet(output, path, currentValue)
 				}
 			}
 		}
