@@ -121,3 +121,30 @@ func RelaxedEqual(first interface{}, second interface{}) (bool, error) {
 
 	return false, nil
 }
+
+func IsArray(in interface{}) bool {
+	inV := reflect.ValueOf(in)
+
+	if inV.IsValid() {
+		if inV.Kind() == reflect.Ptr {
+			inV = inV.Elem()
+		}
+
+		if inV.Kind() == reflect.Interface {
+			inV = inV.Elem()
+		}
+
+		inT := inV.Type()
+
+		if inT == nil {
+			return false
+		}
+
+		switch inT.Kind() {
+		case reflect.Slice, reflect.Array:
+			return true
+		}
+	}
+
+	return false
+}

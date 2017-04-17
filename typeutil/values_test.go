@@ -124,3 +124,25 @@ func TestRelaxedEqual(t *testing.T) {
 	assert.NoError(err)
 	assert.False(eq)
 }
+
+func TestIsArray(t *testing.T) {
+	assert := require.New(t)
+
+	assert.False(IsArray(nil))
+
+	var a []string
+	assert.True(IsArray(a))
+	assert.True(IsArray([]string{`1`}))
+	assert.True(IsArray(&[]string{`1`}))
+
+	var b interface{}
+	b = []string{`1`}
+
+	assert.True(IsArray(b))
+	assert.True(IsArray(&b))
+
+	assert.False(IsArray(``))
+	assert.False(IsArray(`123`))
+	assert.False(IsArray(123))
+	assert.False(IsArray(true))
+}
