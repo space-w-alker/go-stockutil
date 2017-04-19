@@ -6,6 +6,10 @@ import (
 	"reflect"
 )
 
+var Stop = fmt.Errorf("stop iterating")
+
+type IterationFunc func(i int, value interface{}) error // {}
+
 // Returns whether the given string slice contains a given string.
 func ContainsString(list []string, elem string) bool {
 	for _, t := range list {
@@ -110,4 +114,28 @@ func OrString(in ...string) string {
 	} else {
 		return ``
 	}
+}
+
+func Each(slice interface{}, iterFn IterationFunc) error {
+	if iterFn == nil {
+		return nil
+	}
+
+	if typeutil.IsArray(slice) {
+		sliceV := reflect.ValueOf(slice)
+
+		for i := 0; i < sliceV.Len(); i++ {
+			if err := iterFn(i, sliceV.Index(i).Interface()); err != nil {
+				if err == Stop {
+					return nil
+				} else {
+					return err
+				}
+			}
+		}
+	} else {
+		return fmt.Errorf("Exected slice or array, got %T", slice)
+	}
+
+	return nil
 }

@@ -125,3 +125,25 @@ func TestOrString(t *testing.T) {
 	assert.Equal(`one`, OrString(`one`))
 	assert.Equal(`two`, OrString(``, `two`, ``, `three`))
 }
+
+func TestEach(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Nil(Each(nil, nil))
+
+	assert.Nil(Each([]string{`one`, `two`, `three`}, func(i int, v interface{}) error {
+		return Stop
+	}))
+
+	count := 0
+	assert.Nil(Each([]string{`one`, `two`, `three`}, func(i int, v interface{}) error {
+		if v.(string) == `two` {
+			return Stop
+		} else {
+			count += 1
+			return nil
+		}
+	}))
+
+	assert.Equal(1, count)
+}
