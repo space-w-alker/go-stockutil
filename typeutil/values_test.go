@@ -50,6 +50,7 @@ func TestIsEmpty(t *testing.T) {
 	}
 
 	assert.True(IsEmpty(things))
+	assert.True(IsEmpty(``))
 	assert.True(IsEmpty(` `))
 	assert.True(IsEmpty(`     `))
 	assert.True(IsEmpty("\t\n  \n\t"))
