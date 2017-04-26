@@ -21,6 +21,28 @@ func ContainsString(list []string, elem string) bool {
 	return false
 }
 
+// Returns whether the given string slice contains any of the following strings.
+func ContainsAnyString(list []string, elems ...string) bool {
+	for _, e := range elems {
+		if ContainsString(list, e) {
+			return true
+		}
+	}
+
+	return false
+}
+
+// Returns whether the given string slice contains all of the following strings.
+func ContainsAllStrings(list []string, elems ...string) bool {
+	for _, e := range elems {
+		if !ContainsString(list, e) {
+			return false
+		}
+	}
+
+	return true
+}
+
 // Removes all elements from the given interface slice that are "empty", which is
 // defined as being nil, a nil or zero-length array, chan, map, slice, or string.
 //

@@ -23,6 +23,35 @@ func TestContainsString(t *testing.T) {
 	assert.False(ContainsString([]string{}, ""))
 }
 
+func TestContainsAnyString(t *testing.T) {
+	assert := require.New(t)
+
+	input := []string{"one", "three", "five"}
+	any := []string{"one", "two", "four"}
+
+	assert.True(ContainsAnyString(input, any...))
+	assert.False(ContainsAnyString(input))
+	assert.False(ContainsAnyString([]string{}, "one"))
+	assert.False(ContainsAnyString([]string{}, "two"))
+	assert.False(ContainsAnyString([]string{}, ""))
+	assert.False(ContainsAnyString(input, []string{"six", "seven"}...))
+}
+
+func TestContainsAllStrings(t *testing.T) {
+	assert := require.New(t)
+
+	input := []string{"one", "three", "five"}
+
+	assert.True(ContainsAllStrings(input, "one"))
+	assert.True(ContainsAllStrings(input, "three"))
+	assert.True(ContainsAllStrings(input, "five"))
+	assert.True(ContainsAllStrings(input, "one", "three"))
+	assert.True(ContainsAllStrings(input, "one", "five"))
+	assert.True(ContainsAllStrings(input, "one", "three", "five"))
+	assert.False(ContainsAllStrings(input, "one", "four"))
+	assert.True(ContainsAllStrings(input))
+}
+
 func TestCompact(t *testing.T) {
 	assert := require.New(t)
 
