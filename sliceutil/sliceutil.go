@@ -8,7 +8,47 @@ import (
 
 var Stop = fmt.Errorf("stop iterating")
 
-type IterationFunc func(i int, value interface{}) error // {}
+type IterationFunc func(i int, value interface{}) error                  // {}
+type CompareFunc func(i int, first interface{}, second interface{}) bool // {}
+
+var StrictEqualityCompare = func(_ int, first interface{}, second interface{}) bool {
+	if first == second {
+		return true
+	}
+
+	return false
+}
+
+var RelaxedEqualityCompare = func(_ int, first interface{}, second interface{}) bool {
+	if v, err := typeutil.RelaxedEqual(first, second); err == nil && v == true {
+		return true
+	}
+
+	return false
+}
+
+// Return whether the given slice contains the given value.  If a comparator is provided, it will
+// be used to compare the elements.
+//
+func Contains(in interface{}, value interface{}, comparators ...CompareFunc) bool {
+	if len(comparators) == 0 {
+		comparators = []CompareFunc{StrictEqualityCompare}
+	}
+
+	comparator := comparators[0]
+
+	if inV := reflect.ValueOf(in); inV.IsValid() {
+		for i := 0; i < inV.Len(); i++ {
+			if current := inV.Index(i); current.IsValid() {
+				if comparator(i, value, current.Interface()) {
+					return true
+				}
+			}
+		}
+	}
+
+	return false
+}
 
 // Returns whether the given string slice contains a given string.
 func ContainsString(list []string, elem string) bool {
@@ -160,4 +200,33 @@ func Each(slice interface{}, iterFn IterationFunc) error {
 	}
 
 	return nil
+}
+
+// Returns a new slice with only unique elements from the given interface included.
+func Unique(in interface{}) []interface{} {
+	return unique(in, StrictEqualityCompare)
+}
+
+func unique(in interface{}, comparator CompareFunc) []interface{} {
+	inV := reflect.ValueOf(in)
+	values := make([]interface{}, 0)
+
+	if inV.IsValid() {
+	InputLoop:
+		for i := 0; i < inV.Len(); i++ {
+			if current := inV.Index(i); current.IsValid() {
+				for _, existing := range values {
+					if comparator(i, existing, current.Interface()) {
+						continue InputLoop
+					}
+				}
+
+				values = append(values, current.Interface())
+			}
+		}
+	} else {
+		return nil
+	}
+
+	return values
 }

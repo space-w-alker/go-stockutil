@@ -5,6 +5,37 @@ import (
 	"testing"
 )
 
+func TestContains(t *testing.T) {
+	assert := require.New(t)
+	var input interface{}
+
+	input = []int{1, 3, 5}
+	assert.True(Contains(input, 1))
+	assert.True(Contains(input, 3))
+	assert.True(Contains(input, 5))
+	assert.False(Contains(input, -1))
+	assert.False(Contains(input, 2))
+	assert.False(Contains(input, -3))
+	assert.False(Contains(input, 4))
+	assert.False(Contains(input, -5))
+	assert.False(Contains([]int{}, 1))
+	assert.False(Contains([]int{}, 2))
+	assert.False(Contains([]int{}, 0))
+
+	input = []string{"one", "three", "five"}
+	assert.True(Contains(input, "one"))
+	assert.True(Contains(input, "three"))
+	assert.True(Contains(input, "five"))
+	assert.False(Contains(input, "One"))
+	assert.False(Contains(input, "two"))
+	assert.False(Contains(input, "Three"))
+	assert.False(Contains(input, "four"))
+	assert.False(Contains(input, "Five"))
+	assert.False(Contains([]string{}, "one"))
+	assert.False(Contains([]string{}, "two"))
+	assert.False(Contains([]string{}, ""))
+}
+
 func TestContainsString(t *testing.T) {
 	assert := require.New(t)
 
@@ -175,4 +206,12 @@ func TestEach(t *testing.T) {
 	}))
 
 	assert.Equal(1, count)
+}
+
+func TestUnique(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal([]interface{}{`one`, `two`, `three`}, Unique([]string{`one`, `one`, `two`, `three`}))
+	assert.Equal([]interface{}{1, 2, 3}, Unique([]int{1, 2, 2, 3}))
+	assert.NotEqual([]interface{}{1, 2, 3}, Unique([]int64{1, 2, 2, 3}))
 }
