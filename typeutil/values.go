@@ -122,7 +122,7 @@ func RelaxedEqual(first interface{}, second interface{}) (bool, error) {
 	return false, nil
 }
 
-func IsArray(in interface{}) bool {
+func IsKind(in interface{}, kinds ...reflect.Kind) bool {
 	inV := reflect.ValueOf(in)
 
 	if inV.IsValid() {
@@ -140,11 +140,20 @@ func IsArray(in interface{}) bool {
 			return false
 		}
 
-		switch inT.Kind() {
-		case reflect.Slice, reflect.Array:
-			return true
+		for _, k := range kinds {
+			if inT.Kind() == k {
+				return true
+			}
 		}
 	}
 
 	return false
+}
+
+func IsArray(in interface{}) bool {
+	return IsKind(in, reflect.Slice, reflect.Array)
+}
+
+func IsFunction(in interface{}) bool {
+	return IsKind(in, reflect.Func)
 }
