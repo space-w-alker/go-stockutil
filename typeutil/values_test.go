@@ -147,3 +147,48 @@ func TestIsArray(t *testing.T) {
 	assert.False(IsArray(123))
 	assert.False(IsArray(true))
 }
+
+func TestIsFunction(t *testing.T) {
+	assert := require.New(t)
+
+	assert.False(IsFunction(nil))
+	assert.False(IsFunction(1))
+	assert.False(IsFunction(true))
+	assert.False(IsFunction(`three`))
+
+	assert.True(IsFunction(func() {}))
+	assert.True(IsFunctionArity(func() {}, 0, 0))
+	assert.True(IsFunctionArity(func() {}, 0, -1))
+	assert.True(IsFunctionArity(func() {}, -1, 0))
+	assert.True(IsFunctionArity(func() {}, -1, -1))
+	assert.False(IsFunctionArity(func() {}, 99, 0))
+	assert.False(IsFunctionArity(func() {}, 0, 99))
+	assert.False(IsFunctionArity(func() {}, 99, 99))
+
+	assert.True(IsFunction(func(interface{}) {}))
+	assert.True(IsFunctionArity(func(interface{}) {}, 1, 0))
+	assert.True(IsFunctionArity(func(interface{}) {}, 1, -1))
+	assert.True(IsFunctionArity(func(interface{}) {}, -1, 0))
+	assert.True(IsFunctionArity(func(interface{}) {}, -1, -1))
+	assert.False(IsFunctionArity(func(interface{}) {}, 99, 0))
+	assert.False(IsFunctionArity(func(interface{}) {}, 0, 99))
+	assert.False(IsFunctionArity(func(interface{}) {}, 99, 99))
+
+	assert.True(IsFunction(func(interface{}) error { return nil }))
+	assert.True(IsFunctionArity(func(interface{}) error { return nil }, 1, 1))
+	assert.True(IsFunctionArity(func(interface{}) error { return nil }, 1, -1))
+	assert.True(IsFunctionArity(func(interface{}) error { return nil }, -1, 1))
+	assert.True(IsFunctionArity(func(interface{}) error { return nil }, -1, -1))
+	assert.False(IsFunctionArity(func(interface{}) error { return nil }, 99, 1))
+	assert.False(IsFunctionArity(func(interface{}) error { return nil }, 0, 99))
+	assert.False(IsFunctionArity(func(interface{}) error { return nil }, 99, 99))
+
+	assert.True(IsFunction(func() error { return nil }))
+	assert.True(IsFunctionArity(func() error { return nil }, 0, 1))
+	assert.True(IsFunctionArity(func() error { return nil }, 0, -1))
+	assert.True(IsFunctionArity(func() error { return nil }, -1, 1))
+	assert.True(IsFunctionArity(func() error { return nil }, -1, -1))
+	assert.False(IsFunctionArity(func() error { return nil }, 99, 0))
+	assert.False(IsFunctionArity(func() error { return nil }, 0, 99))
+	assert.False(IsFunctionArity(func() error { return nil }, 99, 99))
+}

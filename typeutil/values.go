@@ -150,10 +150,29 @@ func IsKind(in interface{}, kinds ...reflect.Kind) bool {
 	return false
 }
 
+// Returns whether the given value is a slice or array.
 func IsArray(in interface{}) bool {
 	return IsKind(in, reflect.Slice, reflect.Array)
 }
 
+// Returns whether the given value is a function of any kind
 func IsFunction(in interface{}) bool {
 	return IsKind(in, reflect.Func)
+}
+
+// Returns whether the given value is a function.  If inParams is not -1, the function must
+// accept that number of arguments.  If outParams is not -1, the function must return that
+// number of values.
+func IsFunctionArity(in interface{}, inParams int, outParams int) bool {
+	if IsKind(in, reflect.Func) {
+		inT := reflect.TypeOf(in)
+
+		if inParams < 0 || inParams >= 0 && inT.NumIn() == inParams {
+			if outParams < 0 || outParams >= 0 && inT.NumOut() == outParams {
+				return true
+			}
+		}
+	}
+
+	return false
 }
