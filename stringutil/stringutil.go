@@ -384,9 +384,19 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 				return nil, fmt.Errorf("Cannot convert '%s' into a boolean value", in)
 			}
 		case Time:
-			inS := fmt.Sprintf("%v", in)
+			if inTime, ok := inI.(time.Time); ok {
+				return inTime, nil
+			}
 
-			switch inS {
+			in := strings.Trim(strings.TrimSpace(in), `"'`)
+
+			for _, format := range TimeFormats {
+				if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
+					return tm, nil
+				}
+			}
+
+			switch in {
 			case `now`:
 				return time.Now(), nil
 			default:
@@ -398,16 +408,10 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 					}
 
 					return r
-				}, inS)
+				}, in)
 
 				if v, err := strconv.ParseInt(tmS, 10, 64); err == nil && v == 0 {
 					return time.Time{}, nil
-				}
-
-				for _, format := range TimeFormats {
-					if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
-						return tm, nil
-					}
 				}
 
 				return nil, fmt.Errorf("Cannot convert '%s' into a date/time value", in)
