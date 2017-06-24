@@ -161,7 +161,7 @@ func IsBooleanFalse(inI interface{}) bool {
 
 func IsTime(inI interface{}) bool {
 	if in, err := ToString(inI); err == nil {
-		if DetectTimeFormat(in) != `` {
+		if f := DetectTimeFormat(in); f != `` && f != `epoch` {
 			return true
 		}
 	}
@@ -170,6 +170,10 @@ func IsTime(inI interface{}) bool {
 }
 
 func DetectTimeFormat(in string) string {
+	if IsInteger(in) {
+		return `epoch`
+	}
+
 	for _, layout := range TimeFormats {
 		if _, err := time.Parse(layout, in); err == nil {
 			return layout
@@ -361,7 +365,7 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 			} else if inS, ok := inI.(string); ok {
 				if inS == `` {
 					return int64(0), nil
-				} else if layout := DetectTimeFormat(inS); layout != `` {
+				} else if layout := DetectTimeFormat(inS); layout != `` && layout != `epoch` {
 					if tm, err := time.Parse(layout, inS); err == nil {
 						return tm.UnixNano(), nil
 					} else {
@@ -389,6 +393,12 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 			}
 
 			in := strings.Trim(strings.TrimSpace(in), `"'`)
+
+			if DetectTimeFormat(in) == `epoch` {
+				if v, err := strconv.ParseInt(in, 10, 64); err == nil {
+					return time.Unix(v, 0), nil
+				}
+			}
 
 			for _, format := range TimeFormats {
 				if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
@@ -471,9 +481,14 @@ func ConvertToTime(in interface{}) (time.Time, error) {
 }
 
 func Autotype(in interface{}) interface{} {
+	if IsTime(in) {
+		if v, err := ConvertToTime(in); err == nil {
+			return v
+		}
+	}
+
 	for _, ctype := range []ConvertType{
 		Boolean,
-		Time,
 		Integer,
 		Float,
 		String,

@@ -106,7 +106,7 @@ func TestConvertToBoolean(t *testing.T) {
 	}
 }
 
-func TestConvertToDate(t *testing.T) {
+func TestConvertToTime(t *testing.T) {
 	assert := require.New(t)
 
 	atLeastNow := time.Now()
@@ -118,6 +118,7 @@ func TestConvertToDate(t *testing.T) {
 		// `01 May 15 00:15 UTC`:            time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 		// `01 May 15 00:15 +0000`:          time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 		// `Friday, 01-May-15 00:15:16 UTC`: time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
+		`1136239445`: time.Date(2006, 1, 2, 17, 4, 5, 0, time.Now().Location()),
 	}
 
 	v, err := ConvertToTime(`now`)
@@ -151,7 +152,7 @@ func TestConvertToDate(t *testing.T) {
 		}
 	}
 
-	for _, fail := range []string{`1.5`, `potato`, `1`, `false`} {
+	for _, fail := range []string{`1.5`, `potato`, `false`} {
 		if _, err := ConvertTo(Time, fail); err == nil {
 			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
 		}
