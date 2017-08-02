@@ -9,6 +9,8 @@ import (
 	"strings"
 	"time"
 	"unicode"
+
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 var rxSpace = regexp.MustCompile(`[\s\-]+`)
@@ -188,28 +190,12 @@ func ToString(in interface{}) (string, error) {
 		return ``, nil
 	}
 
+	if inStr, ok := in.(fmt.Stringer); ok {
+		return inStr.String(), nil
+	}
+
 	if inT := reflect.TypeOf(in); inT != nil {
 		switch inT.Kind() {
-		case reflect.Int:
-			return strconv.FormatInt(int64(in.(int)), 10), nil
-		case reflect.Int8:
-			return strconv.FormatInt(int64(in.(int8)), 10), nil
-		case reflect.Int16:
-			return strconv.FormatInt(int64(in.(int16)), 10), nil
-		case reflect.Int32:
-			return strconv.FormatInt(int64(in.(int32)), 10), nil
-		case reflect.Int64:
-			return strconv.FormatInt(in.(int64), 10), nil
-		case reflect.Uint:
-			return strconv.FormatUint(uint64(in.(uint)), 10), nil
-		case reflect.Uint8:
-			return strconv.FormatUint(uint64(in.(uint8)), 10), nil
-		case reflect.Uint16:
-			return strconv.FormatUint(uint64(in.(uint16)), 10), nil
-		case reflect.Uint32:
-			return strconv.FormatUint(uint64(in.(uint32)), 10), nil
-		case reflect.Uint64:
-			return strconv.FormatUint(in.(uint64), 10), nil
 		case reflect.Float32:
 			return strconv.FormatFloat(float64(in.(float32)), 'f', -1, 32), nil
 		case reflect.Float64:
@@ -218,14 +204,22 @@ func ToString(in interface{}) (string, error) {
 			return strconv.FormatBool(in.(bool)), nil
 		case reflect.String:
 			return in.(string), nil
-		case reflect.Struct:
-			if stringFn := reflect.ValueOf(in).MethodByName(`String`); stringFn != reflect.Zero(reflect.TypeOf(stringFn)) {
-				return fmt.Sprintf("%v", in), nil
-			}
+		}
+
+		if typeutil.IsScalar(in) {
+			return fmt.Sprintf("%v", in), nil
 		}
 	}
 
 	return ``, fmt.Errorf("Unable to convert type '%T' to string", in)
+}
+
+func MustString(in interface{}) string {
+	if v, err := ToString(in); err == nil {
+		return v
+	} else {
+		panic(err.Error())
+	}
 }
 
 func ToStringSlice(in interface{}) ([]string, error) {
@@ -705,4 +699,46 @@ LCPLoop:
 	}
 
 	return output
+}
+
+func RelaxedEqual(first interface{}, second interface{}) (bool, error) {
+	if reflect.DeepEqual(first, second) {
+		return true, nil
+	} else if IsNumeric(first) && IsNumeric(second) {
+		if fV, err := ConvertToFloat(first); err == nil {
+			if sV, err := ConvertToFloat(second); err == nil {
+				return (fV == sV), nil
+			} else {
+				return false, err
+			}
+		} else {
+			return false, err
+		}
+	} else if IsBooleanTrue(first) && IsBooleanTrue(second) {
+		return true, nil
+	} else if IsBooleanFalse(first) && IsBooleanFalse(second) {
+		return true, nil
+	} else if IsTime(first) && IsTime(second) {
+		if fV, err := ConvertToTime(first); err == nil {
+			if sV, err := ConvertToTime(second); err == nil {
+				return fV.Equal(sV), nil
+			} else {
+				return false, err
+			}
+		} else {
+			return false, err
+		}
+	} else {
+		if fV, err := ToString(first); err == nil {
+			if sV, err := ToString(second); err == nil {
+				return (fV == sV), nil
+			} else {
+				return false, err
+			}
+		} else {
+			return false, err
+		}
+	}
+
+	return false, nil
 }

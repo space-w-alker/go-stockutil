@@ -1,9 +1,10 @@
 package httputil
 
 import (
-	"github.com/ghetzel/go-stockutil/stringutil"
 	"net/http"
 	"time"
+
+	"github.com/ghetzel/go-stockutil/stringutil"
 )
 
 func QInt(req *http.Request, key string, fallbacks ...int64) int64 {

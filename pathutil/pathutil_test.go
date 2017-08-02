@@ -1,9 +1,10 @@
 package pathutil
 
 import (
-	"github.com/stretchr/testify/require"
 	"os/user"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestExpandUser(t *testing.T) {

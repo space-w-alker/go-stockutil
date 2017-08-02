@@ -1,9 +1,10 @@
 package maputil
 
 import (
-	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 type fnCallSignature struct {

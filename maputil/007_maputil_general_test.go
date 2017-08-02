@@ -1,10 +1,11 @@
 package maputil
 
 import (
-	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/require"
 )
 
 type MyTestThing struct {

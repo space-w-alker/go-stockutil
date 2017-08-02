@@ -2,11 +2,12 @@ package fileutil
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/require"
 	"net/http"
 	"os"
 	"regexp"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 type TestFileSystem map[string]http.File

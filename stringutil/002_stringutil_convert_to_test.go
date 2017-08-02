@@ -1,10 +1,11 @@
 package stringutil
 
 import (
-	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestConvertToFloat(t *testing.T) {

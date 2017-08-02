@@ -2,8 +2,10 @@ package sliceutil
 
 import (
 	"fmt"
-	"github.com/ghetzel/go-stockutil/typeutil"
 	"reflect"
+
+	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 var Stop = fmt.Errorf("stop iterating")
@@ -20,7 +22,7 @@ var StrictEqualityCompare = func(_ int, first interface{}, second interface{}) b
 }
 
 var RelaxedEqualityCompare = func(_ int, first interface{}, second interface{}) bool {
-	if v, err := typeutil.RelaxedEqual(first, second); err == nil && v == true {
+	if v, err := stringutil.RelaxedEqual(first, second); err == nil && v == true {
 		return true
 	}
 

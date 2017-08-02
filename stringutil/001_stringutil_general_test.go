@@ -2,8 +2,9 @@ package stringutil
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestToBytes(t *testing.T) {
@@ -288,4 +289,72 @@ func TestLongestCommonPrefix(t *testing.T) {
 		`test.debug`,
 		`test.test`,
 	}))
+}
+
+func TestRelaxedEqual(t *testing.T) {
+	assert := require.New(t)
+
+	eq, err := RelaxedEqual(nil, nil)
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(1, 1)
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(int(1), int64(1))
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(float64(1), byte(1))
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(float64(1.00), `1`)
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(true, true)
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(false, false)
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(`true`, `on`)
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(`true`, `yes`)
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(`boo`, `boo`)
+	assert.NoError(err)
+	assert.True(eq)
+
+	eq, err = RelaxedEqual(1, true)
+	assert.NoError(err)
+	assert.False(eq)
+
+	eq, err = RelaxedEqual(true, false)
+	assert.NoError(err)
+	assert.False(eq)
+
+	eq, err = RelaxedEqual(false, true)
+	assert.NoError(err)
+	assert.False(eq)
+
+	eq, err = RelaxedEqual(`true`, `no`)
+	assert.NoError(err)
+	assert.False(eq)
+
+	eq, err = RelaxedEqual(`false`, `yes`)
+	assert.NoError(err)
+	assert.False(eq)
+
+	eq, err = RelaxedEqual(`boo`, `Boo`)
+	assert.NoError(err)
+	assert.False(eq)
 }

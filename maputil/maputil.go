@@ -2,12 +2,13 @@ package maputil
 
 import (
 	"fmt"
-	"github.com/ghetzel/go-stockutil/stringutil"
-	"github.com/ghetzel/go-stockutil/typeutil"
 	"reflect"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 var DefaultStructTag string = `maputil`
