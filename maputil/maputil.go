@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
@@ -15,8 +16,8 @@ var DefaultStructTag string = `maputil`
 
 type WalkFunc func(value interface{}, path []string, isLeaf bool) error // {}
 
-func StringKeys(input interface{}) []string {
-	keys := make([]string, 0)
+func Keys(input interface{}) []interface{} {
+	keys := make([]interface{}, 0)
 
 	if input == nil {
 		return keys
@@ -28,14 +29,15 @@ func StringKeys(input interface{}) []string {
 		keysV := inputV.MapKeys()
 
 		for _, keyV := range keysV {
-			if v, err := stringutil.ToString(keyV.Interface()); err == nil {
-				keys = append(keys, v)
-			} else {
-				keys = append(keys, ``)
-			}
+			keys = append(keys, keyV)
 		}
 	}
 
+	return keys
+}
+
+func StringKeys(input interface{}) []string {
+	keys := sliceutil.Stringify(Keys(input))
 	sort.Strings(keys)
 
 	return keys

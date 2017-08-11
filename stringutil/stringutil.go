@@ -84,6 +84,23 @@ const (
 	Time
 )
 
+func ParseType(name string) ConvertType {
+	switch strings.ToLower(name) {
+	case `str`:
+		return String
+	case `bool`:
+		return Boolean
+	case `float`:
+		return Float
+	case `int`:
+		return Integer
+	case `time`:
+		return Time
+	default:
+		return Invalid
+	}
+}
+
 func IsInteger(in interface{}) bool {
 	inV := reflect.ValueOf(in)
 
