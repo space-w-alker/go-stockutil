@@ -79,7 +79,7 @@ func IsEmpty(value interface{}) bool {
 	return false
 }
 
-func IsKind(in interface{}, kinds ...reflect.Kind) bool {
+func ResolveValue(in interface{}) interface{} {
 	inV := reflect.ValueOf(in)
 
 	if inV.IsValid() {
@@ -91,16 +91,29 @@ func IsKind(in interface{}, kinds ...reflect.Kind) bool {
 			inV = inV.Elem()
 		}
 
-		inT := inV.Type()
-
-		if inT == nil {
-			return false
-		}
-
-		for _, k := range kinds {
-			if inT.Kind() == k {
-				return true
+		if inV.IsValid() {
+			if inT := inV.Type(); inT == nil {
+				return nil
 			}
+
+			in = inV.Interface()
+		}
+	}
+
+	return in
+}
+
+func IsKind(in interface{}, kinds ...reflect.Kind) bool {
+	in = ResolveValue(in)
+	inT := reflect.TypeOf(in)
+
+	if inT == nil {
+		return false
+	}
+
+	for _, k := range kinds {
+		if inT.Kind() == k {
+			return true
 		}
 	}
 

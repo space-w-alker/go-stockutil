@@ -198,10 +198,28 @@ func Each(slice interface{}, iterFn IterationFunc) error {
 			}
 		}
 	} else {
-		return fmt.Errorf("Exected slice or array, got %T", slice)
+		if err := iterFn(0, slice); err != nil {
+			if err == Stop {
+				return nil
+			} else {
+				return err
+			}
+		}
 	}
 
 	return nil
+}
+
+// Takes some input value and returns it as a slice.
+func Sliceify(in interface{}) []interface{} {
+	out := make([]interface{}, 0)
+
+	Each(in, func(_ int, v interface{}) error {
+		out = append(out, v)
+		return nil
+	})
+
+	return out
 }
 
 // Returns a new slice with only unique elements from the given interface included.
