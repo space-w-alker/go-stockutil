@@ -68,3 +68,21 @@ func IsExclusive(mode os.FileMode) bool {
 func IsAppend(mode os.FileMode) bool {
 	return (mode&os.ModeAppend != 0)
 }
+
+func IsReadable(filename string) bool {
+	if f, err := os.OpenFile(filename, os.O_RDONLY, 0); err == nil {
+		defer f.Close()
+		return true
+	} else {
+		return false
+	}
+}
+
+func IsWritable(filename string) bool {
+	if f, err := os.OpenFile(filename, os.O_WRONLY, 0); err == nil {
+		defer f.Close()
+		return true
+	} else {
+		return false
+	}
+}
