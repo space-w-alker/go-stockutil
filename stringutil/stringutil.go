@@ -220,7 +220,9 @@ func ToString(in interface{}) (string, error) {
 		case reflect.Bool:
 			return strconv.FormatBool(in.(bool)), nil
 		case reflect.String:
-			return in.(string), nil
+			if inStr, ok := in.(string); ok {
+				return inStr, nil
+			}
 		}
 
 		if typeutil.IsScalar(in) {
