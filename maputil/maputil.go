@@ -396,8 +396,32 @@ func coerceIntoType(in interface{}, typeName string) (interface{}, error) {
 	}
 }
 
-func DeepGet(data interface{}, path []string, fallback interface{}) interface{} {
+func Get(data interface{}, key string, fallback ...interface{}) interface{} {
+	if typeutil.IsKind(data, reflect.Map) {
+		dataV := reflect.ValueOf(data)
+
+		if valueV := dataV.MapIndex(reflect.ValueOf(key)); valueV.IsValid() {
+			if valueI := valueV.Interface(); !typeutil.IsZero(valueI) {
+				return valueI
+			}
+		}
+	}
+
+	if len(fallback) > 0 {
+		return fallback[0]
+	} else {
+		return nil
+	}
+}
+
+func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interface{} {
 	current := data
+
+	if len(fallbacks) == 0 {
+		fallbacks = []interface{}{ nil }
+	}
+
+	fallback := fallbacks[0]
 
 	for i := 0; i < len(path); i++ {
 		part := path[i]
