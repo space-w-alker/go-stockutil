@@ -86,3 +86,17 @@ func TestDeepGetMapKeyInDeepArray(t *testing.T) {
 		t.Errorf("%s\n", v)
 	}
 }
+
+func TestDeepGetBool(t *testing.T) {
+	assert := require.New(t)
+	var input interface{}
+
+	input = make(map[string]interface{})
+
+	input = DeepSet(input, []string{"deeply", "nested", "value"}, true)
+	input = DeepSet(input, []string{"deeply", "nested", "thing"}, "nope")
+
+	assert.True(DeepGetBool(input, []string{"deeply", "nested", "value"}))
+	assert.False(DeepGetBool(input, []string{"deeply", "nested", "other"}))
+	assert.False(DeepGetBool(input, []string{"deeply", "nested", "nope"}))
+}

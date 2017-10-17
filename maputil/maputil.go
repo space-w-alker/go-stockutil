@@ -418,7 +418,7 @@ func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interfac
 	current := data
 
 	if len(fallbacks) == 0 {
-		fallbacks = []interface{}{ nil }
+		fallbacks = []interface{}{nil}
 	}
 
 	fallback := fallbacks[0]
@@ -473,6 +473,25 @@ func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interfac
 	}
 
 	return current
+}
+
+func DeepGetBool(data interface{}, path []string) bool {
+	vI := DeepGet(data, path, false)
+
+	if v, ok := vI.(bool); ok && v {
+		return true
+	}
+
+	return false
+}
+
+func DeepGetString(data interface{}, path []string) string {
+
+	if v, err := stringutil.ToString(DeepGet(data, path)); err == nil {
+		return v
+	}
+
+	return ``
 }
 
 func DeepSet(data interface{}, path []string, value interface{}) interface{} {
