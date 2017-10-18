@@ -241,6 +241,38 @@ func MustString(in interface{}) string {
 	}
 }
 
+func MustInteger(in interface{}) int64 {
+	if v, err := ConvertToInteger(in); err == nil {
+		return v
+	} else {
+		panic(err.Error())
+	}
+}
+
+func MustFloat(in interface{}) float64 {
+	if v, err := ConvertToFloat(in); err == nil {
+		return v
+	} else {
+		panic(err.Error())
+	}
+}
+
+func MustBool(in interface{}) bool {
+	if v, err := ConvertToBool(in); err == nil {
+		return v
+	} else {
+		panic(err.Error())
+	}
+}
+
+func MustTime(in interface{}) time.Time {
+	if v, err := ConvertToTime(in); err == nil {
+		return v
+	} else {
+		panic(err.Error())
+	}
+}
+
 func ToStringSlice(in interface{}) ([]string, error) {
 	values := make([]string, 0)
 
