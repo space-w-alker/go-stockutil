@@ -753,7 +753,15 @@ func Compact(input map[string]interface{}) (map[string]interface{}, error) {
 	return output, nil
 }
 
-func Merge(first map[string]interface{}, second map[string]interface{}) (map[string]interface{}, error) {
+func Merge(first interface{}, second interface{}) (map[string]interface{}, error) {
+	if first != nil && !typeutil.IsKind(first, reflect.Map) {
+		return nil, fmt.Errorf("first argument must be a map, got %T", first)
+	}
+
+	if second != nil && !typeutil.IsKind(second, reflect.Map) {
+		return nil, fmt.Errorf("second argument must be a map, got %T", second)
+	}
+
 	output := make(map[string]interface{})
 
 	if err := Walk(first, func(value interface{}, path []string, isLeaf bool) error {
@@ -796,4 +804,22 @@ func Merge(first map[string]interface{}, second map[string]interface{}) (map[str
 	}
 
 	return output, nil
+}
+
+func Stringify(input map[string]interface{}) map[string]string {
+	output := make(map[string]string)
+
+	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
+		if isLeaf {
+			if !typeutil.IsEmpty(value) {
+				DeepSet(output, path, stringutil.MustString(value))
+			}
+		}
+
+		return nil
+	}); err != nil {
+		panic(err.Error())
+	}
+
+	return output
 }
