@@ -1,3 +1,4 @@
+// Utilities for extracting and formatting data encountered in HTTP requests
 package httputil
 
 import (

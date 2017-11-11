@@ -216,3 +216,45 @@ func TestUnique(t *testing.T) {
 	assert.Equal([]interface{}{1, 2, 3}, Unique([]int{1, 2, 2, 3}))
 	assert.NotEqual([]interface{}{1, 2, 3}, Unique([]int64{1, 2, 2, 3}))
 }
+
+
+func TestMap(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(
+		[]interface{}{ 10, 20, 30 },
+		Map([]int{1,2,3}, func(_ int, v interface{}) interface{} {
+			return v.(int) * 10
+		}),
+	)
+
+	assert.Equal(
+		[]interface{}{ true, false, true },
+		Map([]bool{false, true, false}, func(_ int, v interface{}) interface{} {
+			return !v.(bool)
+		}),
+	)
+}
+
+func TestMapString(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(
+		[]string{ `1-1thousand`, `2-1thousand`, `3-1thousand` },
+		MapString([]int{1,2,3}, func(_ int, v string) string {
+			return v + `-1thousand`
+		}),
+	)
+
+	assert.Equal(
+		[]string{ `first`, `third`, `fifth` },
+		CompactString(MapString([]string{`first`, `second`, `third`, `fourth`, `fifth`}, func(_ int, v string) string {
+			switch v {
+			case `second`, `fourth`:
+				return ``
+			default:
+				return v
+			}
+		})),
+	)
+}

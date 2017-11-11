@@ -1,3 +1,4 @@
+// Utilities for converting and manipulating data to and from strings
 package stringutil
 
 import (

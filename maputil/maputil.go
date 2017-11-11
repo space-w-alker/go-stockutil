@@ -1,3 +1,4 @@
+// Utilities for converting, manipulating, and iterating over maps
 package maputil
 
 import (

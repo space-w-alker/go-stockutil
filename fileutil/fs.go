@@ -1,3 +1,4 @@
+// Helpers for working with files and filesystems
 package fileutil
 
 import (

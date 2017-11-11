@@ -1,3 +1,4 @@
+// Helpers for type inflection and simplifying working with Golang generic interface types
 package typeutil
 
 import (

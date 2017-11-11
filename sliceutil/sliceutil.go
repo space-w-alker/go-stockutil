@@ -1,3 +1,4 @@
+// Utilities for converting, manipulating, and iterating over slices
 package sliceutil
 
 import (
@@ -12,6 +13,8 @@ var Stop = fmt.Errorf("stop iterating")
 
 type IterationFunc func(i int, value interface{}) error                  // {}
 type CompareFunc func(i int, first interface{}, second interface{}) bool // {}
+type MapFunc func(i int, value interface{}) interface{}
+type MapStringFunc func(i int, value string) string
 
 var StrictEqualityCompare = func(_ int, first interface{}, second interface{}) bool {
 	if first == second {
@@ -249,4 +252,31 @@ func unique(in interface{}, comparator CompareFunc) []interface{} {
 	}
 
 	return values
+}
+
+
+// Returns a copy of the given slice with each element modified by the a given function.
+func Map(in interface{}, fn MapFunc) []interface{} {
+	var out []interface{}
+
+	Each(in, func(i int, v interface{}) error {
+		out = append(out, fn(i, v))
+		return nil
+	})
+
+	return out
+}
+
+
+// Returns a copy of the given slice with each element modified by the a given function, then
+// converted to a string.
+func MapString(in interface{}, fn MapStringFunc) []string {
+	var out []string
+
+	Each(in, func(i int, v interface{}) error {
+		out = append(out, fn(i, stringutil.MustString(v)))
+		return nil
+	})
+
+	return out
 }

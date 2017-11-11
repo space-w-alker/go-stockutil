@@ -1,3 +1,4 @@
+// Additional helpers for working with file paths and filesystem information
 package pathutil
 
 import (
