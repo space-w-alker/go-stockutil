@@ -37,6 +37,30 @@ func TestContains(t *testing.T) {
 	assert.False(Contains([]string{}, ""))
 }
 
+func TestAt(t *testing.T) {
+	assert := require.New(t)
+	var input interface{}
+	var out interface{}
+	var ok bool
+
+	input = []int{1, 3, 5}
+	out, ok = At(input, 0)
+	assert.True(ok)
+	assert.Equal(1, out)
+
+	out, ok = At(input, 1)
+	assert.True(ok)
+	assert.Equal(3, out)
+
+	out, ok = At(input, 2)
+	assert.True(ok)
+	assert.Equal(5, out)
+
+	out, ok = At(input, 99999)
+	assert.False(ok)
+	assert.Nil(out)
+}
+
 func TestContainsString(t *testing.T) {
 	assert := require.New(t)
 

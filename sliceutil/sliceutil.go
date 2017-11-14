@@ -183,6 +183,18 @@ func OrString(in ...string) string {
 	}
 }
 
+func At(in interface{}, index int) (interface{}, bool) {
+	if typeutil.IsKind(in, reflect.Array, reflect.Slice, reflect.String) {
+		inV := reflect.ValueOf(in)
+
+		if index < inV.Len() {
+			return inV.Index(index).Interface(), true
+		}
+	}
+
+	return nil, false
+}
+
 func Each(slice interface{}, iterFn IterationFunc) error {
 	if iterFn == nil {
 		return nil

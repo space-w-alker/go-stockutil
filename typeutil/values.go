@@ -168,3 +168,13 @@ func IsFunctionArity(in interface{}, inParams int, outParams int) bool {
 
 	return false
 }
+
+// Returns the length of the given value that could have a length (strings, slices, arrays,
+// maps, and channels).  If the value is not a type that has a length, -1 is returned.
+func Len(in interface{}) int {
+	if IsKind(in, reflect.Array, reflect.Chan, reflect.Map, reflect.Slice, reflect.String) {
+		return reflect.ValueOf(in).Len()
+	} else {
+		return -1
+	}
+}
