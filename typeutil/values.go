@@ -80,6 +80,10 @@ func IsEmpty(value interface{}) bool {
 	return false
 }
 
+// Return the concrete value pointed to by a pointer type, or within an
+// interface type.  Allows functions receiving pointers to supported types
+// to work with those types without doing reflection.
+//
 func ResolveValue(in interface{}) interface{} {
 	inV := reflect.ValueOf(in)
 
@@ -104,6 +108,8 @@ func ResolveValue(in interface{}) interface{} {
 	return in
 }
 
+// Dectect whether the concrete underlying value of the given input is one or more
+// Kinds of value.
 func IsKind(in interface{}, kinds ...reflect.Kind) bool {
 	in = ResolveValue(in)
 	inT := reflect.TypeOf(in)
@@ -121,6 +127,9 @@ func IsKind(in interface{}, kinds ...reflect.Kind) bool {
 	return false
 }
 
+// Return whether the given input is a discrete scalar value (ints, floats, bools,
+// strings), otherwise known as "primitive types" in some other languages.
+//
 func IsScalar(in interface{}) bool {
 	if IsKind(
 		in,

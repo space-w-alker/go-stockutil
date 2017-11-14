@@ -183,6 +183,10 @@ func OrString(in ...string) string {
 	}
 }
 
+// Returns the element in the given indexable value at the given index.  If the
+// index is present, the second return value will be true.  If the index is not
+// present, or the given input is not indexable, the second return value will be
+// false.
 func At(in interface{}, index int) (interface{}, bool) {
 	if typeutil.IsKind(in, reflect.Array, reflect.Slice, reflect.String) {
 		inV := reflect.ValueOf(in)
@@ -195,6 +199,10 @@ func At(in interface{}, index int) (interface{}, bool) {
 	return nil, false
 }
 
+// Iterate through each element of the given array or slice, calling
+// iterFn exactly once for each element.  Otherwise, call iterFn one time
+// with the given input as the argument.
+//
 func Each(slice interface{}, iterFn IterationFunc) error {
 	if iterFn == nil {
 		return nil
