@@ -254,7 +254,6 @@ func unique(in interface{}, comparator CompareFunc) []interface{} {
 	return values
 }
 
-
 // Returns a copy of the given slice with each element modified by the a given function.
 func Map(in interface{}, fn MapFunc) []interface{} {
 	var out []interface{}
@@ -266,7 +265,6 @@ func Map(in interface{}, fn MapFunc) []interface{} {
 
 	return out
 }
-
 
 // Returns a copy of the given slice with each element modified by the a given function, then
 // converted to a string.

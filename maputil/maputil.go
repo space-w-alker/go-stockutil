@@ -7,6 +7,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"sync"
 
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
@@ -32,6 +33,11 @@ func Keys(input interface{}) []interface{} {
 		for _, keyV := range keysV {
 			keys = append(keys, keyV)
 		}
+	} else if syncMap, ok := input.(sync.Map); ok {
+		syncMap.Range(func(key interface{}, _ interface{}) bool {
+			keys = append(keys, key)
+			return true
+		})
 	}
 
 	return keys

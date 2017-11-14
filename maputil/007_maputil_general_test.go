@@ -2,6 +2,7 @@ package maputil
 
 import (
 	"strings"
+	"sync"
 	"testing"
 	"time"
 
@@ -60,6 +61,12 @@ func TestStringKeys(t *testing.T) {
 		`3`: MyTestThing{},
 	}
 
+	var i4 sync.Map
+
+	i4.Store(`1`, MyTestThing{})
+	i4.Store(`2`, 2)
+	i4.Store(`3`, 3.14)
+
 	output := []string{`1`, `2`, `3`}
 
 	assert.Empty(StringKeys(nil))
@@ -67,6 +74,7 @@ func TestStringKeys(t *testing.T) {
 	assert.Equal(output, StringKeys(i1))
 	assert.Equal(output, StringKeys(i2))
 	assert.Equal(output, StringKeys(i3))
+	assert.Equal(output, StringKeys(i4))
 
 	assert.Empty(StringKeys(true))
 	assert.Empty(StringKeys(4))
