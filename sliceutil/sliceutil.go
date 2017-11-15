@@ -298,3 +298,29 @@ func MapString(in interface{}, fn MapStringFunc) []string {
 
 	return out
 }
+
+// Divide the given slice into chunks of (at most) a given length
+func Chunks(in interface{}, size int) [][]interface{} {
+	if !typeutil.IsArray(in) {
+		return nil
+	}
+
+	output := make([][]interface{}, 0)
+	current := make([]interface{}, 0)
+
+	Each(in, func(i int, v interface{}) error {
+		if i > 0 && i%size == 0 {
+			output = append(output, current)
+			current = nil
+		}
+
+		current = append(current, v)
+		return nil
+	})
+
+	if len(current) > 0 {
+		output = append(output, current)
+	}
+
+	return output
+}

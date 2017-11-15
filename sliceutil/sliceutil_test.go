@@ -281,3 +281,43 @@ func TestMapString(t *testing.T) {
 		})),
 	)
 }
+
+func TestChunks(t *testing.T) {
+	assert := require.New(t)
+	input := []int{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23}
+
+	assert.Equal([][]interface{}{
+		[]interface{}{1},
+		[]interface{}{3},
+		[]interface{}{5},
+		[]interface{}{7},
+		[]interface{}{9},
+		[]interface{}{11},
+		[]interface{}{13},
+		[]interface{}{15},
+		[]interface{}{17},
+		[]interface{}{19},
+		[]interface{}{21},
+		[]interface{}{23},
+	}, Chunks(input, 1))
+
+	assert.Equal([][]interface{}{
+		[]interface{}{1, 3},
+		[]interface{}{5, 7},
+		[]interface{}{9, 11},
+		[]interface{}{13, 15},
+		[]interface{}{17, 19},
+		[]interface{}{21, 23},
+	}, Chunks(input, 2))
+
+	assert.Equal([][]interface{}{
+		[]interface{}{1, 3, 5},
+		[]interface{}{7, 9, 11},
+		[]interface{}{13, 15, 17},
+		[]interface{}{19, 21, 23},
+	}, Chunks(input, 3))
+
+	assert.Equal([][]interface{}{
+		[]interface{}{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23},
+	}, Chunks(input, 1000))
+}
