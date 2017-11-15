@@ -1,8 +1,6 @@
 package httputil
 
 import (
-	"bytes"
-	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -77,30 +75,24 @@ func TestClient(t *testing.T) {
 
 	// POST
 	// --------------------------------------------------------------------------------------------
-	data, err := json.Marshal(`postable`)
-	assert.NoError(err)
-
-	response, err = client.Post(`/test/path`, bytes.NewBuffer(data), map[string]interface{}{
+	response, err = client.Post(`/test/path`, `postable`, map[string]interface{}{
 		`thing`: true,
 	}, nil)
 
 	assert.NoError(err)
 	assert.NotNil(response)
-	assert.NoError(ParseJSON(response.Body, &outS))
+	assert.NoError(client.Decode(response.Body, &outS))
 	assert.Equal(`postable`, outS)
 
 	// PUT
 	// --------------------------------------------------------------------------------------------
-	data, err = json.Marshal(`puttable`)
-	assert.NoError(err)
-
-	response, err = client.Put(`/test/path`, bytes.NewBuffer(data), map[string]interface{}{
+	response, err = client.Put(`/test/path`, `puttable`, map[string]interface{}{
 		`thing`: true,
 	}, nil)
 
 	assert.NoError(err)
 	assert.NotNil(response)
-	assert.NoError(ParseJSON(response.Body, &outS))
+	assert.NoError(client.Decode(response.Body, &outS))
 	assert.Equal(`puttable`, outS)
 
 	// PUT

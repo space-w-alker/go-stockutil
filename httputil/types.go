@@ -1,5 +1,7 @@
 package httputil
 
+import "strings"
+
 type Method string
 
 const (
@@ -11,3 +13,11 @@ const (
 	Options        = `OPTIONS`
 	Patch          = `PATCH`
 )
+
+func IsHttpErr(err error) bool {
+	if err != nil && strings.HasPrefix(err.Error(), `HTTP `) {
+		return true
+	}
+
+	return false
+}

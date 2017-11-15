@@ -11,6 +11,8 @@ import (
 )
 
 type Client struct {
+	encoder    EncoderFunc
+	decoder    DecoderFunc
 	uri        *url.URL
 	headers    map[string]interface{}
 	params     map[string]interface{}
@@ -19,6 +21,8 @@ type Client struct {
 
 func NewClient(baseURI string) (*Client, error) {
 	client := &Client{
+		encoder:    JSONEncoder,
+		decoder:    JSONDecoder,
 		headers:    make(map[string]interface{}),
 		params:     make(map[string]interface{}),
 		httpClient: http.DefaultClient,
@@ -31,6 +35,14 @@ func NewClient(baseURI string) (*Client, error) {
 	}
 
 	return client, nil
+}
+
+func (self *Client) SetEncoder(encoder EncoderFunc) {
+	self.encoder = encoder
+}
+
+func (self *Client) SetDecoder(decoder DecoderFunc) {
+	self.decoder = decoder
 }
 
 func (self *Client) AddHeader(name string, value interface{}) {
@@ -48,7 +60,7 @@ func (self *Client) SetClient(client *http.Client) {
 func (self *Client) Request(
 	method Method,
 	path string,
-	body io.Reader,
+	body interface{},
 	params map[string]interface{},
 	headers map[string]interface{},
 ) (*http.Response, error) {
@@ -84,22 +96,42 @@ func (self *Client) Request(
 		url.RawQuery = qs.Encode()
 		// ----------------------
 
-		if request, err := http.NewRequest(
-			string(method),
-			url.String(),
-			body,
-		); err == nil {
-			for k, v := range headers {
-				request.Header.Set(k, fmt.Sprintf("%v", v))
-			}
+		if encoded, err := self.encoder(body); err == nil {
+			if request, err := http.NewRequest(
+				string(method),
+				url.String(),
+				encoded,
+			); err == nil {
+				for k, v := range headers {
+					request.Header.Set(k, fmt.Sprintf("%v", v))
+				}
 
-			// perform the request
-			return self.httpClient.Do(request)
+				// perform the request
+				if response, err := self.httpClient.Do(request); err == nil {
+					if response.StatusCode < 400 {
+						return response, nil
+					} else {
+						return response, fmt.Errorf("HTTP %v", response.Status)
+					}
+				} else {
+					return nil, err
+				}
+			} else {
+				return nil, fmt.Errorf("request init error: %v", err)
+			}
 		} else {
-			return nil, fmt.Errorf("request init error: %v", err)
+			return nil, fmt.Errorf("encoder error: %v", err)
 		}
 	} else {
 		return nil, fmt.Errorf("url error: %v", err)
+	}
+}
+
+func (self *Client) Decode(r io.Reader, out interface{}) error {
+	if self.decoder != nil {
+		return self.decoder(r, out)
+	} else {
+		return fmt.Errorf("No decoder set")
 	}
 }
 
@@ -107,15 +139,15 @@ func (self *Client) Get(path string, params map[string]interface{}, headers map[
 	return self.Request(Get, path, nil, params, headers)
 }
 
-func (self *Client) GetWithBody(path string, body io.Reader, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error) {
+func (self *Client) GetWithBody(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error) {
 	return self.Request(Get, path, body, params, headers)
 }
 
-func (self *Client) Post(path string, body io.Reader, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error) {
+func (self *Client) Post(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error) {
 	return self.Request(Post, path, body, params, headers)
 }
 
-func (self *Client) Put(path string, body io.Reader, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error) {
+func (self *Client) Put(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error) {
 	return self.Request(Put, path, body, params, headers)
 }
 
