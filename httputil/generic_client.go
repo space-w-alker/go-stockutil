@@ -3,6 +3,7 @@ package httputil
 import (
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
@@ -201,6 +202,18 @@ func (self *Client) Request(
 		}
 	} else {
 		return nil, fmt.Errorf("url error: %v", err)
+	}
+}
+
+func (self *Client) Encode(in interface{}) ([]byte, error) {
+	if self.encoder != nil {
+		if r, err := self.encoder(in); err == nil {
+			return ioutil.ReadAll(r)
+		} else {
+			return nil, err
+		}
+	} else {
+		return nil, fmt.Errorf("No encoder set")
 	}
 }
 

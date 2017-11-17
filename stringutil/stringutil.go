@@ -794,3 +794,27 @@ func RelaxedEqual(first interface{}, second interface{}) (bool, error) {
 
 	return false, nil
 }
+
+func SplitPair(in string, delimiter string) (string, string) {
+	parts := strings.Split(in, delimiter)
+
+	switch len(parts) {
+	case 1:
+		return parts[0], ``
+	default:
+		return parts[0], parts[1]
+	}
+}
+
+func SplitTriple(in string, delimiter string) (string, string, string) {
+	parts := strings.Split(in, delimiter)
+
+	switch len(parts) {
+	case 1:
+		return parts[0], ``, ``
+	case 2:
+		return parts[0], parts[1], ``
+	default:
+		return parts[0], parts[1], parts[2]
+	}
+}
