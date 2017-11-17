@@ -11,12 +11,13 @@ import (
 )
 
 type Client struct {
-	encoder    EncoderFunc
-	decoder    DecoderFunc
-	uri        *url.URL
-	headers    map[string]interface{}
-	params     map[string]interface{}
-	httpClient *http.Client
+	encoder      EncoderFunc
+	decoder      DecoderFunc
+	errorDecoder ErrorDecoderFunc
+	uri          *url.URL
+	headers      map[string]interface{}
+	params       map[string]interface{}
+	httpClient   *http.Client
 }
 
 func NewClient(baseURI string) (*Client, error) {
@@ -43,6 +44,10 @@ func (self *Client) SetEncoder(encoder EncoderFunc) {
 
 func (self *Client) SetDecoder(decoder DecoderFunc) {
 	self.decoder = decoder
+}
+
+func (self *Client) SetErrorDecoder(decoder ErrorDecoderFunc) {
+	self.errorDecoder = decoder
 }
 
 func (self *Client) AddHeader(name string, value interface{}) {
@@ -110,6 +115,8 @@ func (self *Client) Request(
 				if response, err := self.httpClient.Do(request); err == nil {
 					if response.StatusCode < 400 {
 						return response, nil
+					} else if self.errorDecoder != nil {
+						return response, self.errorDecoder(response)
 					} else {
 						return response, fmt.Errorf("HTTP %v", response.Status)
 					}
