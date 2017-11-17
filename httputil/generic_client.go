@@ -11,13 +11,15 @@ import (
 )
 
 type Client struct {
-	encoder      EncoderFunc
-	decoder      DecoderFunc
-	errorDecoder ErrorDecoderFunc
-	uri          *url.URL
-	headers      map[string]interface{}
-	params       map[string]interface{}
-	httpClient   *http.Client
+	encoder         EncoderFunc
+	decoder         DecoderFunc
+	errorDecoder    ErrorDecoderFunc
+	preRequestHook  InterceptRequestFunc
+	postRequestHook InterceptResponseFunc
+	uri             *url.URL
+	headers         map[string]interface{}
+	params          map[string]interface{}
+	httpClient      *http.Client
 }
 
 func NewClient(baseURI string) (*Client, error) {
@@ -38,30 +40,82 @@ func NewClient(baseURI string) (*Client, error) {
 	return client, nil
 }
 
-func (self *Client) SetEncoder(encoder EncoderFunc) {
-	self.encoder = encoder
+// Return the base URI for this client.
+func (self *Client) URI() *url.URL {
+	return self.uri
 }
 
-func (self *Client) SetDecoder(decoder DecoderFunc) {
-	self.decoder = decoder
+// Specify an encoder that will be used to serialize data in the request body.
+func (self *Client) SetEncoder(fn EncoderFunc) {
+	self.encoder = fn
 }
 
-func (self *Client) SetErrorDecoder(decoder ErrorDecoderFunc) {
-	self.errorDecoder = decoder
+// Specify a decoder that will be used to deserialize data in the response body.
+func (self *Client) SetDecoder(fn DecoderFunc) {
+	self.decoder = fn
 }
 
-func (self *Client) AddHeader(name string, value interface{}) {
-	self.headers[name] = value
+// Specify a different decoder used to deserialize non 2xx/3xx HTTP responses.
+func (self *Client) SetErrorDecoder(fn ErrorDecoderFunc) {
+	self.errorDecoder = fn
 }
 
-func (self *Client) AddParam(name string, value interface{}) {
-	self.params[name] = value
+// Specify a function that will be called immediately before a request is sent.
+// This function has an opportunity to read and modify the outgoing request, and
+// if it returns a non-nil error, the request will not be sent.
+func (self *Client) SetPreRequestHook(fn InterceptRequestFunc) {
+	self.preRequestHook = fn
 }
 
+// Specify a function tht will be called immediately after a response is received.
+// This function is given the first opportunity to inspect the response, and if it
+// returns a non-nil error, no additional processing (including the Error Decoder function)
+// will be performed.
+func (self *Client) SetPostRequestHook(fn InterceptResponseFunc) {
+	self.postRequestHook = fn
+}
+
+// Remove all implicit HTTP request headers.
+func (self *Client) ClearHeaders() {
+	self.headers = nil
+}
+
+// Add an HTTP request header by name that will be included in every request. If
+// value is nil, the named header will be removed instead.
+func (self *Client) SetHeader(name string, value interface{}) {
+	if value != nil {
+		self.headers[name] = value
+	} else {
+		delete(self.headers, name)
+	}
+}
+
+// Remove all implicit querystring parameters.
+func (self *Client) ClearParams() {
+	self.params = nil
+}
+
+// Add a querystring parameter by name that will be included in every request. If
+// value is nil, the parameter will be removed instead.
+func (self *Client) SetParam(name string, value interface{}) {
+	if value != nil {
+		self.params[name] = value
+	} else {
+		delete(self.params, name)
+	}
+}
+
+// Returns the HTTP client used to perform requests
+func (self *Client) Client(*http.Client) *http.Client {
+	return self.httpClient
+}
+
+// Replace the default HTTP client with a user-provided one
 func (self *Client) SetClient(client *http.Client) {
 	self.httpClient = client
 }
 
+// Perform an HTTP request
 func (self *Client) Request(
 	method Method,
 	path string,
@@ -111,8 +165,24 @@ func (self *Client) Request(
 					request.Header.Set(k, fmt.Sprintf("%v", v))
 				}
 
+				var hookObject interface{}
+
+				if self.preRequestHook != nil {
+					if v, err := self.preRequestHook(request); err == nil {
+						hookObject = v
+					} else {
+						return nil, err
+					}
+				}
+
 				// perform the request
 				if response, err := self.httpClient.Do(request); err == nil {
+					if self.postRequestHook != nil {
+						if err := self.postRequestHook(response, hookObject); err != nil {
+							return nil, err
+						}
+					}
+
 					if response.StatusCode < 400 {
 						return response, nil
 					} else if self.errorDecoder != nil {

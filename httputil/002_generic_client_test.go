@@ -58,7 +58,7 @@ func TestClient(t *testing.T) {
 	defer server.Close()
 
 	client, err := NewClient(server.URL)
-	client.AddParam(`topthing`, true)
+	client.SetParam(`topthing`, true)
 
 	assert.NoError(err)
 	assert.NotNil(client)
