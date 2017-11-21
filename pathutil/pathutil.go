@@ -26,6 +26,22 @@ func ExpandUser(path string) (string, error) {
 	}
 }
 
+func FileExists(path string) bool {
+	if stat, err := os.Stat(path); err == nil {
+		return stat.Mode().IsRegular()
+	}
+
+	return false
+}
+
+func DirExists(path string) bool {
+	if stat, err := os.Stat(path); err == nil {
+		return stat.IsDir()
+	}
+
+	return false
+}
+
 func IsSymlink(mode os.FileMode) bool {
 	return (mode&os.ModeSymlink != 0)
 }
