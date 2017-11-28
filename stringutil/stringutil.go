@@ -802,7 +802,7 @@ func SplitPair(in string, delimiter string) (string, string) {
 	case 1:
 		return parts[0], ``
 	default:
-		return parts[0], parts[1]
+		return parts[0], strings.Join(parts[1:], delimiter)
 	}
 }
 
@@ -815,6 +815,6 @@ func SplitTriple(in string, delimiter string) (string, string, string) {
 	case 2:
 		return parts[0], parts[1], ``
 	default:
-		return parts[0], parts[1], parts[2]
+		return parts[0], parts[1], strings.Join(parts[2:], delimiter)
 	}
 }
