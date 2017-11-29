@@ -347,7 +347,7 @@ func ToByteString(in interface{}, formatString ...string) (string, error) {
 			}
 		}
 
-		return fmt.Sprintf("%fB", asBytes), nil
+		return fmt.Sprintf("%dB", asBytes), nil
 	} else {
 		return ``, err
 	}
@@ -800,8 +800,6 @@ func RelaxedEqual(first interface{}, second interface{}) (bool, error) {
 			return false, err
 		}
 	}
-
-	return false, nil
 }
 
 func SplitPair(in string, delimiter string) (string, string) {

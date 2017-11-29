@@ -20,6 +20,7 @@ type WalkFunc func(value interface{}, path []string, isLeaf bool) error // {}
 
 func Keys(input interface{}) []interface{} {
 	keys := make([]interface{}, 0)
+	input = typeutil.ResolveValue(input)
 
 	if input == nil {
 		return keys

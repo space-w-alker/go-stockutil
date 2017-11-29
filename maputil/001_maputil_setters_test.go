@@ -4,44 +4,48 @@ import (
 	_ "encoding/json"
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestDeepSetNothing(t *testing.T) {
+	assert := require.New(t)
+
 	output := make(map[string]interface{})
 	output = DeepSet(output, []string{}, "yay").(map[string]interface{})
 
-	if len(output) > 0 {
-		t.Errorf("Output should be empty, has length of %d", len(output))
-	}
+	assert.Empty(output)
 }
 
 func TestDeepSetString(t *testing.T) {
+	assert := require.New(t)
+
 	output := make(map[string]interface{})
 	testValue := "test-string"
 
 	output = DeepSet(output, []string{"str"}, testValue).(map[string]interface{})
 
-	if value, ok := output["str"]; !ok {
-		t.Errorf("want key 'str' to exist, it does not")
-	} else if value != testValue {
-		t.Errorf("want 'str' == %q, got: %q", testValue, value)
-	}
+	value, ok := output["str"]
+	assert.True(ok)
+	assert.Equal(testValue, value)
 }
 
 func TestDeepSetBool(t *testing.T) {
+	assert := require.New(t)
+
 	output := make(map[string]interface{})
 	testValue := true
 
 	output = DeepSet(output, []string{"bool"}, testValue).(map[string]interface{})
 
-	if value, ok := output["bool"]; !ok {
-		t.Errorf("want key 'bool' to exist, it does not")
-	} else if value != testValue {
-		t.Errorf("want 'bool' == %s, got: %s", testValue, value)
-	}
+	value, ok := output["bool"]
+	assert.True(ok)
+	assert.Equal(testValue, value)
 }
 
 func TestDeepSetArray(t *testing.T) {
+	assert := require.New(t)
+
 	output := make(map[string]interface{})
 	testValues := []string{"first", "second"}
 
@@ -51,54 +55,46 @@ func TestDeepSetArray(t *testing.T) {
 
 	// output = DeepSet(output, []string{"top-array"}, 3.4).(map[string]interface{})
 
-	if topArray, ok := output["top-array"]; !ok {
-		t.Errorf("want key 'topArray' to exist, it does not")
-	} else {
-		switch topArray.(type) {
-		case []interface{}:
-			for i, val := range topArray.([]interface{}) {
-				if val != testValues[i] {
-					t.Errorf("want v[%d] == %q, got: %q", i, testValues[i], val)
-				}
-			}
-		default:
-			t.Errorf("want topArray to be []string, got: %T", topArray)
+	topArray, ok := output["top-array"]
+	assert.True(ok)
+
+	switch topArray.(type) {
+	case []interface{}:
+		for i, val := range topArray.([]interface{}) {
+			assert.Equal(testValues[i], val)
 		}
+	default:
+		t.Errorf("want topArray to be []string, got: %T", topArray)
 	}
 }
 
 func TestDeepSetNestedMapCreation(t *testing.T) {
-	output := make(map[string]interface{})
+	assert := require.New(t)
 
+	output := make(map[string]interface{})
 	output = DeepSet(output, []string{"deeply", "nested", "map"}, true).(map[string]interface{})
 	output = DeepSet(output, []string{"deeply", "nested", "count"}, 2).(map[string]interface{})
 
-	if deeply, ok := output["deeply"]; !ok {
-		t.Errorf("want key 'deeply' to exist, it does not")
-	} else {
-		deeplyMap := deeply.(map[string]interface{})
+	deeply, ok := output["deeply"]
+	assert.True(ok)
 
-		if nested, ok := deeplyMap["nested"]; !ok {
-			t.Errorf("want key 'deeply.nested' to exist, it does not")
-		} else {
-			nestedMap := nested.(map[string]interface{})
+	deeplyMap := deeply.(map[string]interface{})
 
-			if v, ok := nestedMap["map"]; !ok {
-				t.Errorf("want key 'deeply.nested.map' to exist, it does not")
-			} else if v != true {
-				t.Errorf("want key 'deeply.nested.map' == true, got: %q", v)
-			}
+	nested, ok := deeplyMap["nested"]
+	assert.True(ok)
 
-			if v, ok := nestedMap["count"]; !ok {
-				t.Errorf("want key 'deeply.nested.count' to exist, it does not")
-			} else if v != 2 {
-				t.Errorf("want key 'deeply.nested.count' == 2, got: %q", v)
-			}
-		}
-	}
+	nestedMap := nested.(map[string]interface{})
+
+	_, ok = nestedMap["map"]
+	assert.True(ok)
+
+	_, ok = nestedMap["count"]
+	assert.True(ok)
 }
 
 func TestDiffuseMap(t *testing.T) {
+	assert := require.New(t)
+
 	output := make(map[string]interface{})
 
 	output["name"] = "test.thing.name"
@@ -116,32 +112,25 @@ func TestDiffuseMap(t *testing.T) {
 	output["devices.1.switch.1.name"] = "cc:dd:ee:ff:bb:dd"
 	output["devices.1.switch.1.ip"] = "111.222.0.2"
 
-	if output, err := DiffuseMap(output, "."); err != nil {
-		t.Errorf("Error diffusing map: %s", err)
-	} else {
-		//  name
-		if v, _ := output["name"]; v != "test.thing.name" {
-			t.Errorf("want 'name' == %q, got: %q", "test.thing.name", v)
-		}
+	output, err := DiffuseMap(output, ".")
+	assert.NoError(err)
 
-		//  enabled
-		if v, _ := output["enabled"]; v != true {
-			t.Errorf("want 'enabled' == %s, got: %q", true, v)
-		}
+	//  name
+	v, _ := output["name"]
+	assert.Equal("test.thing.name", v)
 
-		//  tags[]
-		if v, ok := output["tags"]; !ok {
-			t.Errorf("want 'tags' to exist, it does not")
-		} else if l := len(v.([]interface{})); l != 2 {
-			t.Errorf("want 'tags' to have 2 elements, got: %d", l)
-		} else {
-			vArray := v.([]interface{})
+	//  enabled
+	v, _ = output["enabled"]
+	assert.Equal(true, v)
 
-			if vArray[0] != "base" {
-				t.Errorf("want 'tags[0]' == %q, got: %q", "base", vArray[0])
-			} else if vArray[1] != "other" {
-				t.Errorf("want 'tags[1]' == %q, got: %q", "other", vArray[1])
-			}
-		}
-	}
+	//  tags[]
+	v, ok := output["tags"]
+	assert.True(ok)
+
+	assert.Len(v, 2)
+
+	vArray := v.([]interface{})
+
+	assert.Equal("base", vArray[0])
+	assert.Equal("other", vArray[1])
 }

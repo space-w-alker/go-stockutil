@@ -74,7 +74,7 @@ func TestStringKeys(t *testing.T) {
 	assert.Equal(output, StringKeys(i1))
 	assert.Equal(output, StringKeys(i2))
 	assert.Equal(output, StringKeys(i3))
-	assert.Equal(output, StringKeys(i4))
+	assert.Equal(output, StringKeys(&i4))
 
 	assert.Empty(StringKeys(true))
 	assert.Empty(StringKeys(4))
