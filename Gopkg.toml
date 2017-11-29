@@ -21,8 +21,8 @@
 
 
 [[constraint]]
+  branch = "master"
   name = "github.com/op/go-logging"
-  version = "1.0.0"
 
 [[constraint]]
   name = "github.com/stretchr/testify"
