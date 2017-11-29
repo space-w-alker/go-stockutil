@@ -183,6 +183,16 @@ func OrString(in ...string) string {
 	}
 }
 
+// Returns the length of the given slice, array, or string.
+func Len(in interface{}) int {
+	if typeutil.IsKind(in, reflect.Array, reflect.Slice, reflect.String) {
+		inV := reflect.ValueOf(in)
+		return inV.Len()
+	}
+
+	return 0
+}
+
 // Returns the element in the given indexable value at the given index.  If the
 // index is present, the second return value will be true.  If the index is not
 // present, or the given input is not indexable, the second return value will be
@@ -197,6 +207,56 @@ func At(in interface{}, index int) (interface{}, bool) {
 	}
 
 	return nil, false
+}
+
+// Returns the nth element from the given slice, array or string; or nil.
+func Get(in interface{}, index int) interface{} {
+	if v, ok := At(in, index); ok {
+		return v
+	} else {
+		return nil
+	}
+}
+
+// Returns the first element from the given slice, array or string; or nil.
+func First(in interface{}) interface{} {
+	return Get(in, 0)
+}
+
+// Returns the all but the first element from the given slice, array or string; or nil.
+func Rest(in interface{}) []interface{} {
+	if typeutil.IsKind(in, reflect.Array, reflect.Slice, reflect.String) {
+		inV := reflect.ValueOf(in)
+		l := inV.Len()
+
+		switch l {
+		case 0, 1:
+			return nil
+		default:
+			out := make([]interface{}, l-1)
+
+			for i := 1; i < l; i++ {
+				elemV := inV.Index(i)
+
+				if elemV.CanInterface() {
+					out[i-1] = elemV.Interface()
+				}
+			}
+
+			return out
+		}
+	}
+
+	return nil
+}
+
+// Returns the last element from the given slice, array or string; or nil.
+func Last(in interface{}) interface{} {
+	if Len(in) == 0 {
+		return nil
+	}
+
+	return Get(in, Len(in)-1)
 }
 
 // Iterate through each element of the given array or slice, calling

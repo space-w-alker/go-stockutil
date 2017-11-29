@@ -61,6 +61,71 @@ func TestAt(t *testing.T) {
 	assert.Nil(out)
 }
 
+func TestLen(t *testing.T) {
+	assert := require.New(t)
+	var input interface{}
+
+	assert.Zero(Len(nil))
+	assert.Zero(Len(input))
+	input = []int{1, 3, 5}
+	assert.Equal(3, Len(input))
+	assert.Equal(3, Len(`123`))
+}
+
+func TestGet(t *testing.T) {
+	assert := require.New(t)
+	var input interface{}
+
+	input = []int{1, 3, 5}
+	assert.Equal(1, Get(input, 0))
+	assert.Equal(3, Get(input, 1))
+	assert.Equal(5, Get(input, 2))
+	assert.Nil(Get(input, 99999))
+	assert.Nil(Get(nil, 0))
+}
+
+func TestFirst(t *testing.T) {
+	assert := require.New(t)
+	var input interface{}
+
+	assert.Nil(First(nil))
+	assert.Nil(First(input))
+
+	input = []int{}
+	assert.Nil(First(input))
+
+	input = []int{1, 3, 5}
+	assert.Equal(1, First(input))
+}
+
+func TestRest(t *testing.T) {
+	assert := require.New(t)
+	var input interface{}
+
+	assert.Nil(Rest(nil))
+	assert.Nil(Rest(input))
+
+	input = []int{1}
+	assert.Nil(Rest(input))
+
+	input = []int{1, 3, 5}
+	assert.Equal([]interface{}{3, 5}, Rest(input))
+}
+
+func TestLast(t *testing.T) {
+	assert := require.New(t)
+	var input interface{}
+
+	assert.Nil(Last(nil))
+	assert.Nil(Last(input))
+
+	input = []int{}
+	assert.Nil(Last(input))
+
+	input = []int{1, 3, 5}
+	assert.Equal(5, Last(input))
+}
+
 func TestContainsString(t *testing.T) {
 	assert := require.New(t)
 
