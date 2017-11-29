@@ -827,3 +827,30 @@ func SplitTriple(in string, delimiter string) (string, string, string) {
 		return parts[0], parts[1], strings.Join(parts[2:], delimiter)
 	}
 }
+
+// Prefix the given string if it is non-empty
+func PrefixIf(in string, prefix string) string {
+	if !typeutil.IsZero(in) {
+		in = prefix + in
+	}
+
+	return in
+}
+
+// Suffix the given string if it is non-empty
+func SuffixIf(in string, suffix string) string {
+	if !typeutil.IsZero(in) {
+		in = in + suffix
+	}
+
+	return in
+}
+
+// Wrap the given string if it is non-empty
+func WrapIf(in string, prefix string, suffix string) string {
+	if !typeutil.IsZero(in) {
+		in = prefix + in + suffix
+	}
+
+	return in
+}
