@@ -35,3 +35,12 @@ func TestMatchAndMap(t *testing.T) {
 		`second`: `9`,
 	}, match.NamedCaptures())
 }
+
+func TestMatchCaptures(t *testing.T) {
+	assert := require.New(t)
+
+	match := Match(`1234.5678.9`, `(?P<first>\d+)\.(\d+).(?P<second>\d+)`)
+	assert.NotNil(match)
+
+	assert.Equal([]string{`1234.5678.9`, `1234`, `5678`, `9`}, match.Captures())
+}

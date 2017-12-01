@@ -57,3 +57,8 @@ func (self *MatchResult) NamedCaptures() map[string]string {
 
 	return captures
 }
+
+// Return a slice of all capture groups.
+func (self *MatchResult) Captures() []string {
+	return self.rx.FindStringSubmatch(self.source)
+}
