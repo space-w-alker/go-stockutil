@@ -1,3 +1,4 @@
+// Utilities to make working with regular expressions easier.
 package rxutil
 
 import "regexp"
@@ -61,4 +62,19 @@ func (self *MatchResult) NamedCaptures() map[string]string {
 // Return a slice of all capture groups.
 func (self *MatchResult) Captures() []string {
 	return self.rx.FindStringSubmatch(self.source)
+}
+
+// Returns all captures from all matches appended together.  The full match string
+// from match is omitted, so only the actual values appearing within capture groups
+// are returned.
+func (self *MatchResult) AllCaptures() []string {
+	all := make([]string, 0)
+
+	for _, subcaptures := range self.rx.FindAllStringSubmatch(self.source, -1) {
+		if len(subcaptures) > 1 {
+			all = append(all, subcaptures[1:]...)
+		}
+	}
+
+	return all
 }
