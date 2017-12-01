@@ -9,7 +9,7 @@ import (
 func TestMatch(t *testing.T) {
 	assert := require.New(t)
 
-	match := Match(`1234.5678.9`, `(?P<first>\d+)\.(\d+).(?P<second>\d+)`)
+	match := Match(`(?P<first>\d+)\.(\d+).(?P<second>\d+)`, `1234.5678.9`)
 	assert.NotNil(match)
 
 	assert.Equal(`1234.5678.9`, match.Group(0))
@@ -26,7 +26,7 @@ func TestMatch(t *testing.T) {
 func TestMatchAndMap(t *testing.T) {
 	assert := require.New(t)
 
-	match := Match(`1234.5678.9`, `(?P<first>\d+)\.(\d+).(?P<second>\d+)`)
+	match := Match(`(?P<first>\d+)\.(\d+).(?P<second>\d+)`, `1234.5678.9`)
 	assert.NotNil(match)
 
 	assert.Equal(`1234.5678.9`, match.Group(0))
@@ -39,7 +39,7 @@ func TestMatchAndMap(t *testing.T) {
 func TestMatchCaptures(t *testing.T) {
 	assert := require.New(t)
 
-	match := Match(`1234.5678.9`, `(?P<first>\d+)\.(\d+).(?P<second>\d+)`)
+	match := Match(`(?P<first>\d+)\.(\d+).(?P<second>\d+)`, `1234.5678.9`)
 	assert.NotNil(match)
 
 	assert.Equal([]string{`1234.5678.9`, `1234`, `5678`, `9`}, match.Captures())

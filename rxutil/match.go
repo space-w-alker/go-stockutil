@@ -12,7 +12,7 @@ type MatchResult struct {
 
 // Returns a MatchResult object representing the leftmost match of pattern against
 // source, or nil if no matches were found.
-func Match(source string, pattern string) *MatchResult {
+func Match(pattern string, source string) *MatchResult {
 	rx := regexp.MustCompile(pattern)
 
 	if rx.MatchString(source) {
