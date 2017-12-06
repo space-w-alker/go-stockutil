@@ -243,41 +243,51 @@ func ToString(in interface{}) (string, error) {
 	return ``, fmt.Errorf("Unable to convert type '%T' to string", in)
 }
 
-func MustString(in interface{}) string {
+func MustString(in interface{}, fallbackOpt ...string) string {
 	if v, err := ToString(in); err == nil {
 		return v
+	} else if len(fallbackOpt) > 0 {
+		return fallbackOpt[0]
 	} else {
 		panic(err.Error())
 	}
 }
 
-func MustInteger(in interface{}) int64 {
+func MustInteger(in interface{}, fallbackOpt ...int64) int64 {
 	if v, err := ConvertToInteger(in); err == nil {
 		return v
+	} else if len(fallbackOpt) > 0 {
+		return fallbackOpt[0]
 	} else {
 		panic(err.Error())
 	}
 }
 
-func MustFloat(in interface{}) float64 {
+func MustFloat(in interface{}, fallbackOpt ...float64) float64 {
 	if v, err := ConvertToFloat(in); err == nil {
 		return v
+	} else if len(fallbackOpt) > 0 {
+		return fallbackOpt[0]
 	} else {
 		panic(err.Error())
 	}
 }
 
-func MustBool(in interface{}) bool {
+func MustBool(in interface{}, fallbackOpt ...bool) bool {
 	if v, err := ConvertToBool(in); err == nil {
 		return v
+	} else if len(fallbackOpt) > 0 {
+		return fallbackOpt[0]
 	} else {
 		panic(err.Error())
 	}
 }
 
-func MustTime(in interface{}) time.Time {
+func MustTime(in interface{}, fallbackOpt ...time.Time) time.Time {
 	if v, err := ConvertToTime(in); err == nil {
 		return v
+	} else if len(fallbackOpt) > 0 {
+		return fallbackOpt[0]
 	} else {
 		panic(err.Error())
 	}
