@@ -1,13 +1,17 @@
 // Utilities to make working with regular expressions easier.
 package rxutil
 
-import "regexp"
+import (
+	"regexp"
+)
 
 type MatchResult struct {
-	rx                  *regexp.Regexp
-	source              string
-	leftmost_submatches []string
-	all_submatches      [][]string
+	rx                        *regexp.Regexp
+	source                    string
+	names                     []string
+	leftmost_submatches       []string
+	leftmost_submatch_indices []int
+	all_submatches            [][]string
 }
 
 // Returns a MatchResult object representing the leftmost match of pattern against
@@ -17,41 +21,74 @@ func Match(pattern string, source string) *MatchResult {
 
 	if rx.MatchString(source) {
 		return &MatchResult{
-			rx:                  rx,
-			source:              source,
-			leftmost_submatches: rx.FindStringSubmatch(source),
-			all_submatches:      rx.FindAllStringSubmatch(source, -1),
+			rx:                        rx,
+			source:                    source,
+			names:                     rx.SubexpNames(),
+			leftmost_submatches:       rx.FindStringSubmatch(source),
+			leftmost_submatch_indices: rx.FindStringSubmatchIndex(source),
+			all_submatches:            rx.FindAllStringSubmatch(source, -1),
 		}
 	}
 
 	return nil
 }
 
-// Return the value of the numbered capture group (if given an int), or the
-// named capture group (if given a string).  Returns an empty string if the
-// given group name or index does not exist.
-func (self *MatchResult) Group(nameOrIndex interface{}) string {
-	for i, name := range self.rx.SubexpNames() {
+func (self *MatchResult) groupI(nameOrIndex interface{}) (string, int) {
+	for i, name := range self.names {
 		switch nameOrIndex.(type) {
 		case string:
 			if i > 0 && name == nameOrIndex.(string) {
-				return self.leftmost_submatches[i]
+				return self.leftmost_submatches[i], i
 			}
 		case int:
 			if i == nameOrIndex.(int) {
-				return self.leftmost_submatches[i]
+				return self.leftmost_submatches[i], i
 			}
 		}
 	}
 
-	return ``
+	return ``, -1
+}
+
+// Return the value of the numbered capture group (if given an int), or the
+// named capture group (if given a string).  Returns an empty string if the
+// given group name or index does not exist.
+func (self *MatchResult) Group(nameOrIndex interface{}) string {
+	if match, i := self.groupI(nameOrIndex); i >= 0 {
+		return match
+	} else {
+		return ``
+	}
+}
+
+// Return a copy of source string with the given numbered or named group replaced
+// with repl.
+func (self *MatchResult) ReplaceGroup(nameOrIndex interface{}, repl string) string {
+	if _, i := self.groupI(nameOrIndex); i >= 0 {
+		if i == 0 {
+			return repl
+		}
+
+		if (i*2 + 1) < len(self.leftmost_submatch_indices) {
+			startIndex := self.leftmost_submatch_indices[(i * 2)]
+			endIndex := self.leftmost_submatch_indices[(i*2)+1]
+
+			out := self.source[0:startIndex]
+			out += repl
+			out += self.source[endIndex:]
+
+			return out
+		}
+	}
+
+	return self.source
 }
 
 // Returns a map of all named capture matches, keyed on capture group name.
 func (self *MatchResult) NamedCaptures() map[string]string {
 	captures := make(map[string]string)
 
-	for i, name := range self.rx.SubexpNames() {
+	for i, name := range self.names {
 		if i > 0 && name != `` {
 			captures[name] = self.leftmost_submatches[i]
 		}
