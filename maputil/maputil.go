@@ -51,11 +51,18 @@ func StringKeys(input interface{}) []string {
 	return keys
 }
 
-func MapValues(input map[string]interface{}) []interface{} {
+func MapValues(input interface{}) []interface{} {
 	values := make([]interface{}, 0)
 
-	for _, value := range input {
-		values = append(values, value)
+	inputV := reflect.ValueOf(input)
+
+	switch inputV.Kind() {
+	case reflect.Map:
+		for _, mapKeyV := range inputV.MapKeys() {
+			if mapV := inputV.MapIndex(mapKeyV); mapV.IsValid() && mapV.CanInterface() {
+				values = append(values, mapV.Interface())
+			}
+		}
 	}
 
 	return values
