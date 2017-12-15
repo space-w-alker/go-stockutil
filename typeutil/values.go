@@ -5,7 +5,15 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+
+	"github.com/davecgh/go-spew/spew"
 )
+
+var scs = spew.ConfigState{
+	Indent:            `    `,
+	DisableCapacities: true,
+	SortKeys:          true,
+}
 
 // Returns whether the given value represents the underlying type's zero value
 func IsZero(value interface{}) bool {
@@ -191,4 +199,14 @@ func Len(in interface{}) int {
 	} else {
 		return -1
 	}
+}
+
+// Returns a pretty-printed string representation of the given values.
+func Dump(in1 interface{}, in ...interface{}) string {
+	return scs.Sdump(append([]interface{}{in1}, in...))
+}
+
+// Returns a pretty-printed string representation of the given values.
+func Dumpf(format string, in ...interface{}) string {
+	return fmt.Sprintf(format, scs.Sdump(in...))
 }
