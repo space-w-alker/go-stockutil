@@ -386,3 +386,11 @@ func TestChunks(t *testing.T) {
 		[]interface{}{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23},
 	}, Chunks(input, 1000))
 }
+
+func TestFlatten(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal([]interface{}{`one`, `two`, `three`}, Flatten([]string{`one`, `two`, `three`}))
+	assert.Equal([]interface{}{`one`, `two`, `three`}, Flatten([]interface{}{[]string{`one`, `two`}, `three`}))
+	assert.Equal([]interface{}{`one`, `two`, `three`}, Flatten([]interface{}{[]string{`one`}, []string{`two`}, []string{`three`}}))
+}

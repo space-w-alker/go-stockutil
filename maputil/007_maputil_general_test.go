@@ -395,14 +395,14 @@ func TestMapAppend(t *testing.T) {
 	}))
 }
 
-func TestMapValues(t *testing.T) {
-	assert := require.New(t)
+// func TestMapValues(t *testing.T) {
+// 	assert := require.New(t)
 
-	assert.Equal([]interface{}{
-		1, 3, 5,
-	}, MapValues(map[string]int{
-		`first`:  1,
-		`second`: 3,
-		`third`:  5,
-	}))
-}
+// 	assert.Equal([]interface{}{
+// 		1, 3, 5,
+// 	}, MapValues(map[string]int{
+// 		`first`:  1,
+// 		`second`: 3,
+// 		`third`:  5,
+// 	}))
+// }

@@ -156,6 +156,11 @@ func IsArray(in interface{}) bool {
 	return IsKind(in, reflect.Slice, reflect.Array)
 }
 
+// Returns whether the given value is a map.
+func IsMap(in interface{}) bool {
+	return IsKind(in, reflect.Map)
+}
+
 // Returns whether the given value is a function of any kind
 func IsFunction(in interface{}) bool {
 	return IsKind(in, reflect.Func)

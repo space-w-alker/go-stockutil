@@ -119,6 +119,23 @@ func Compact(in []interface{}) []interface{} {
 	return rv
 }
 
+// Returns the given slice as a single-level flattened array.
+func Flatten(in interface{}) []interface{} {
+	out := make([]interface{}, 0)
+
+	Each(in, func(_ int, value interface{}) error {
+		if typeutil.IsArray(value) {
+			out = append(out, Flatten(value)...)
+		} else {
+			out = append(out, value)
+		}
+
+		return nil
+	})
+
+	return out
+}
+
 // Removes all zero-length strings from the given string slice, returning a new
 // slice with the values removed.
 func CompactString(in []string) []string {
