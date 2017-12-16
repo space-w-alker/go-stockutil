@@ -401,3 +401,15 @@ func Chunks(in interface{}, size int) [][]interface{} {
 
 	return output
 }
+
+// Returns a copy of the given slice with each element's value passed to stringutil.Autotype
+func Autotype(in interface{}) []interface{} {
+	var out []interface{}
+
+	Each(in, func(i int, v interface{}) error {
+		out = append(out, stringutil.Autotype(v))
+		return nil
+	})
+
+	return out
+}
