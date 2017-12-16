@@ -196,6 +196,25 @@ func TestAutotypeInt(t *testing.T) {
 	}
 }
 
+func TestAutotypePreserveLeadingZeroes(t *testing.T) {
+	for _, testValue := range []string{
+		`00`,
+		`01`,
+		`07753`,
+		`06094`,
+		`0000000010000000`,
+	} {
+		v := Autotype(testValue)
+
+		switch v.(type) {
+		case string:
+			continue
+		default:
+			t.Errorf("Invalid autotype: expected string, got %T", v)
+		}
+	}
+}
+
 func TestAutotypeDate(t *testing.T) {
 	for _, testValue := range TimeFormats {
 		tvS := strings.Replace(string(testValue), `_`, ``, -1)

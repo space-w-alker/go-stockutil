@@ -16,6 +16,7 @@ import (
 
 var rxSpace = regexp.MustCompile(`[\s\-]+`)
 var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
+var rxLeadingZeroes = regexp.MustCompile(`^0+\d+$`)
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
 
@@ -549,6 +550,16 @@ func Autotype(in interface{}) interface{} {
 	if IsTime(in) {
 		if v, err := ConvertToTime(in); err == nil {
 			return v
+		}
+	}
+
+	// effectively, this detects strings that are numeric, but have leading zeroes.
+	// we should treat those as meaningful and return that string outright
+	//
+	// (e.g.: handle the "US Zip Code" problem)
+	if vStr, ok := in.(string); ok {
+		if rxLeadingZeroes.MatchString(vStr) {
+			return vStr
 		}
 	}
 
