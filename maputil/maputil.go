@@ -838,3 +838,21 @@ func Stringify(input map[string]interface{}) map[string]string {
 
 	return output
 }
+
+func Autotype(input interface{}) map[string]interface{} {
+	output := make(map[string]interface{})
+
+	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
+		if isLeaf {
+			if !typeutil.IsEmpty(value) {
+				DeepSet(output, path, stringutil.Autotype(value))
+			}
+		}
+
+		return nil
+	}); err != nil {
+		panic(err.Error())
+	}
+
+	return output
+}
