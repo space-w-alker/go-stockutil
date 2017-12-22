@@ -873,3 +873,24 @@ func WrapIf(in string, prefix string, suffix string) string {
 
 	return in
 }
+
+// Wrap each element in the given string slice with prefix and suffix.
+func WrapEach(in []string, prefix string, suffix string) []string {
+	out := make([]string, len(in))
+
+	for i, v := range in {
+		out[i] = prefix + v + suffix
+	}
+
+	return out
+}
+
+// Prefix each element in the given string slice with prefix.
+func PrefixEach(in []string, prefix string) []string {
+	return WrapEach(in, prefix, ``)
+}
+
+// Suffix each element in the given string slice with suffix.
+func SuffixEach(in []string, prefix string, suffix string) []string {
+	return WrapEach(in, ``, suffix)
+}
