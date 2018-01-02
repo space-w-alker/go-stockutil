@@ -199,6 +199,16 @@ func IsTime(inI interface{}) bool {
 	return false
 }
 
+func IsSurroundedBy(inI interface{}, prefix string, suffix string) bool {
+	if in, err := ToString(inI); err == nil {
+		if strings.HasPrefix(in, prefix) && strings.HasSuffix(in, suffix) {
+			return true
+		}
+	}
+
+	return false
+}
+
 func DetectTimeFormat(in string) string {
 	if IsInteger(in) {
 		return `epoch`
