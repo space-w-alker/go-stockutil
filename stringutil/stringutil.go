@@ -632,18 +632,18 @@ func TokenizeFunc(in string, tokenizer func(rune) bool, partfn func(part string)
 	return out
 }
 
-func Camelize(in string) string {
-	return strings.Join(TokenizeFunc(in, IsSeparator, func(part string) []string {
+func Camelize(in interface{}) string {
+	return strings.Join(TokenizeFunc(MustString(in), IsSeparator, func(part string) []string {
 		part = strings.TrimSpace(part)
 		part = strings.Title(part)
 		return []string{part}
 	}), ``)
 }
 
-func Underscore(in string) string {
-	in = rxSpace.ReplaceAllString(in, `_`)
+func Underscore(in interface{}) string {
+	inS := rxSpace.ReplaceAllString(MustString(in), `_`)
 	out := make([]rune, 0)
-	runes := []rune(in)
+	runes := []rune(inS)
 
 	sepfn := func(i int) bool {
 		return i >= 0 && i < len(runes) && unicode.IsLower(runes[i])
