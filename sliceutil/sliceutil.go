@@ -94,14 +94,14 @@ func ContainsAllStrings(list []string, elems ...string) bool {
 // The zero values of any other type are not considered empty and will remain in
 // the return value.
 //
-func Compact(in []interface{}) []interface{} {
+func Compact(in interface{}) []interface{} {
 	if in == nil {
 		return nil
 	}
 
 	rv := make([]interface{}, 0)
 
-	for _, v := range in {
+	for _, v := range Sliceify(in) {
 		if v != nil {
 			vV := reflect.ValueOf(v)
 
