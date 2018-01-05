@@ -16,7 +16,8 @@ import (
 
 var DefaultStructTag string = `maputil`
 
-type WalkFunc func(value interface{}, path []string, isLeaf bool) error // {}
+type WalkFunc func(value interface{}, path []string, isLeaf bool) error
+type ApplyFunc func(key []string, value interface{}) (interface{}, bool)
 
 func Keys(input interface{}) []interface{} {
 	keys := make([]interface{}, 0)
@@ -846,6 +847,26 @@ func Autotype(input interface{}) map[string]interface{} {
 		if isLeaf {
 			if !typeutil.IsEmpty(value) {
 				DeepSet(output, path, stringutil.Autotype(value))
+			}
+		}
+
+		return nil
+	}); err != nil {
+		panic(err.Error())
+	}
+
+	return output
+}
+
+func Apply(input interface{}, fn ApplyFunc) map[string]interface{} {
+	output := make(map[string]interface{})
+
+	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
+		if isLeaf {
+			if out, ok := fn(path, value); ok {
+				DeepSet(output, path, out)
+			} else {
+				DeepSet(output, path, value)
 			}
 		}
 

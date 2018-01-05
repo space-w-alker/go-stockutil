@@ -406,3 +406,19 @@ func TestMapAppend(t *testing.T) {
 // 		`third`:  5,
 // 	}))
 // }
+
+func TestApply(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(map[string]interface{}{
+		`a`: 10,
+		`b`: 20,
+		`c`: 30,
+	}, Apply(map[string]interface{}{
+		`a`: 1,
+		`b`: 2,
+		`c`: 3,
+	}, func(_ []string, value interface{}) (interface{}, bool) {
+		return value.(int) * 10, true
+	}))
+}
