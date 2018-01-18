@@ -1,19 +1,27 @@
 package stringutil
 
 import (
-	"fmt"
-
-	"github.com/satori/go.uuid"
+	"github.com/google/uuid"
 )
 
 type Uuid struct {
 	uuid.UUID
 }
 
-func UUID() *Uuid {
-	if u, err := uuid.NewV4(); err == nil {
-		return &Uuid{u}
+func UuidFromBytes(b []byte) (*Uuid, error) {
+	if uuid, err := uuid.FromBytes(b); err == nil {
+		return &Uuid{uuid}, nil
 	} else {
-		panic(fmt.Sprintf("uuid error: %v", err))
+		return nil, err
 	}
+}
+
+func UUID() *Uuid {
+	return &Uuid{
+		UUID: uuid.New(),
+	}
+}
+
+func (self *Uuid) Bytes() []byte {
+	return []byte(self.UUID[:])
 }
