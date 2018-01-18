@@ -1,7 +1,7 @@
 package stringutil
 
 import (
-	"github.com/google/uuid"
+	"github.com/ghetzel/uuid"
 )
 
 type Uuid struct {
