@@ -833,12 +833,27 @@ func RelaxedEqual(first interface{}, second interface{}) (bool, error) {
 	}
 }
 
+// Split the given string into two parts.  If there is only one resulting part,
+// that part will be the first return value and the second return value will be empty.
 func SplitPair(in string, delimiter string) (string, string) {
 	parts := strings.Split(in, delimiter)
 
 	switch len(parts) {
 	case 1:
 		return parts[0], ``
+	default:
+		return parts[0], strings.Join(parts[1:], delimiter)
+	}
+}
+
+// Split the given string into two parts.  If there is only one resulting part,
+// that part will be the second return value and the first return value will be empty.
+func SplitPairTrailing(in string, delimiter string) (string, string) {
+	parts := strings.Split(in, delimiter)
+
+	switch len(parts) {
+	case 1:
+		return ``, parts[0]
 	default:
 		return parts[0], strings.Join(parts[1:], delimiter)
 	}
