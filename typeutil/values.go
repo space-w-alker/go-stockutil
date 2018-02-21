@@ -214,14 +214,16 @@ func Dumpf(format string, in ...interface{}) string {
 // Attempts to set the given reflect.Value to the given interface value
 func SetValue(target interface{}, value interface{}) error {
 	var targetV reflect.Value
+	wasAlreadyRV := false
 
 	if tV, ok := target.(reflect.Value); ok {
 		targetV = tV
+		wasAlreadyRV = true
 	} else {
 		targetV = reflect.ValueOf(target)
 	}
 
-	if targetV.Kind() == reflect.Struct {
+	if !wasAlreadyRV && targetV.Kind() == reflect.Struct {
 		return fmt.Errorf("Must pass a pointer to a struct instance, got %T", target)
 	} else if targetV.Kind() == reflect.Ptr {
 		targetV = targetV.Elem()

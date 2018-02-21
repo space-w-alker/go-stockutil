@@ -3,6 +3,7 @@ package typeutil
 import (
 	"reflect"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/require"
 )
@@ -217,8 +218,9 @@ const (
 )
 
 type testSettable struct {
-	Name string
-	Type testEnum
+	Name      string
+	Type      testEnum
+	CreatedAt time.Time
 }
 
 func TestSetValueStruct(t *testing.T) {
@@ -250,4 +252,22 @@ func TestSetValueStruct(t *testing.T) {
 	))
 
 	assert.Equal(testEnum(`value-4`), t1.Type)
+
+	tm := time.Date(2009, time.November, 10, 23, 0, 0, 0, time.UTC)
+	assert.NoError(SetValue(
+		reflect.ValueOf(t1).Elem().Field(2),
+		tm,
+	))
+
+	assert.True(t1.CreatedAt.Equal(tm))
+
+	var tmI interface{}
+	tmI = tm
+
+	assert.NoError(SetValue(
+		reflect.ValueOf(t1).Elem().Field(2),
+		tmI,
+	))
+
+	assert.True(t1.CreatedAt.Equal(tm))
 }
