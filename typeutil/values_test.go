@@ -1,6 +1,7 @@
 package typeutil
 
 import (
+	"reflect"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -124,4 +125,129 @@ func TestIsFunction(t *testing.T) {
 	assert.False(IsFunctionArity(func() error { return nil }, 99, 0))
 	assert.False(IsFunctionArity(func() error { return nil }, 0, 99))
 	assert.False(IsFunctionArity(func() error { return nil }, 99, 99))
+}
+
+func TestSetValueInt(t *testing.T) {
+	assert := require.New(t)
+
+	// INT
+	// ---------------------------------------------------------------------------------------------
+	var i int
+	// int* -> int
+	assert.NoError(SetValue(&i, int(42)))
+	assert.Equal(int(42), i)
+
+	assert.NoError(SetValue(&i, int8(42)))
+	assert.Equal(int(42), i)
+
+	assert.NoError(SetValue(&i, int16(42)))
+	assert.Equal(int(42), i)
+
+	assert.NoError(SetValue(&i, int32(42)))
+	assert.Equal(int(42), i)
+
+	assert.NoError(SetValue(&i, int64(42)))
+	assert.Equal(int(42), i)
+
+	// uint* -> int
+	assert.NoError(SetValue(&i, uint(42)))
+	assert.Equal(int(42), i)
+
+	assert.NoError(SetValue(&i, uint8(42)))
+	assert.Equal(int(42), i)
+
+	assert.NoError(SetValue(&i, uint16(42)))
+	assert.Equal(int(42), i)
+
+	assert.NoError(SetValue(&i, uint32(42)))
+	assert.Equal(int(42), i)
+
+	assert.NoError(SetValue(&i, uint64(42)))
+	assert.Equal(int(42), i)
+
+	// ---------------------------------------------------------------------------------------------
+	var i8 int8
+	// int* -> int
+	assert.NoError(SetValue(&i8, int(42)))
+	assert.Equal(int8(42), i8)
+
+	assert.NoError(SetValue(&i8, int8(42)))
+	assert.Equal(int8(42), i8)
+
+	assert.NoError(SetValue(&i8, int16(42)))
+	assert.Equal(int8(42), i8)
+
+	assert.NoError(SetValue(&i8, int32(42)))
+	assert.Equal(int8(42), i8)
+
+	assert.NoError(SetValue(&i8, int64(42)))
+	assert.Equal(int8(42), i8)
+
+	// uint* -> int
+	assert.NoError(SetValue(&i8, uint(42)))
+	assert.Equal(int8(42), i8)
+
+	assert.NoError(SetValue(&i8, uint8(42)))
+	assert.Equal(int8(42), i8)
+
+	assert.NoError(SetValue(&i8, uint16(42)))
+	assert.Equal(int8(42), i8)
+
+	assert.NoError(SetValue(&i8, uint32(42)))
+	assert.Equal(int8(42), i8)
+
+	assert.NoError(SetValue(&i8, uint64(42)))
+	assert.Equal(int8(42), i8)
+
+	// var i16 int16
+	// var i32 int32
+	// var u uint
+	// var u8 uint8
+	// var u16 uint16
+	// var u32 uint32
+	// var u64 uint64
+}
+
+type testEnum string
+
+const (
+	Value1 testEnum = `value-1`
+	Value2 testEnum = `value-2`
+	Value3 testEnum = `value-3`
+)
+
+type testSettable struct {
+	Name string
+	Type testEnum
+}
+
+func TestSetValueStruct(t *testing.T) {
+	assert := require.New(t)
+
+	t1 := &testSettable{
+		Name: `t1`,
+		Type: Value2,
+	}
+
+	assert.Equal(Value2, t1.Type)
+
+	assert.NoError(SetValue(
+		reflect.ValueOf(t1).Elem().Field(0),
+		42,
+	))
+
+	assert.NoError(SetValue(
+		reflect.ValueOf(t1).Elem().Field(1),
+		Value3,
+	))
+
+	assert.Equal(`42`, t1.Name)
+	assert.Equal(Value3, t1.Type)
+
+	assert.NoError(SetValue(
+		reflect.ValueOf(t1).Elem().Field(1),
+		`value-4`,
+	))
+
+	assert.Equal(testEnum(`value-4`), t1.Type)
 }

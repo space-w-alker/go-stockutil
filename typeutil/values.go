@@ -210,3 +210,55 @@ func Dump(in1 interface{}, in ...interface{}) string {
 func Dumpf(format string, in ...interface{}) string {
 	return fmt.Sprintf(format, scs.Sdump(in...))
 }
+
+// Attempts to set the given reflect.Value to the given interface value
+func SetValue(target interface{}, value interface{}) error {
+	var targetV reflect.Value
+
+	if tV, ok := target.(reflect.Value); ok {
+		targetV = tV
+	} else {
+		targetV = reflect.ValueOf(target)
+	}
+
+	if targetV.Kind() == reflect.Struct {
+		return fmt.Errorf("Must pass a pointer to a struct instance, got %T", target)
+	} else if targetV.Kind() == reflect.Ptr {
+		targetV = targetV.Elem()
+	}
+
+	if valueV := reflect.ValueOf(ResolveValue(value)); valueV.IsValid() {
+		targetT := targetV.Type()
+		valueT := valueV.Type()
+
+		// if the target value is a string-a-like, stringify whatever we got in first
+		if targetT.Kind() == reflect.String && valueV.CanInterface() {
+			valueV = reflect.ValueOf(fmt.Sprintf("%v", valueV.Interface()))
+			valueT = valueV.Type()
+
+			if !valueV.IsValid() {
+				return fmt.Errorf(
+					"Converting %T to %v produced an invalid value",
+					value,
+					targetT,
+				)
+			}
+		}
+
+		if valueT.AssignableTo(targetT) {
+			targetV.Set(valueV)
+		} else if valueT.ConvertibleTo(targetT) {
+			targetV.Set(valueV.Convert(targetT))
+		} else {
+			return fmt.Errorf(
+				"Unable to set target: %T has no path to becoming %v",
+				value,
+				targetT,
+			)
+		}
+	} else {
+		return fmt.Errorf("Unable to set target to the given %T value", value)
+	}
+
+	return nil
+}
