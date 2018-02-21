@@ -216,6 +216,7 @@ func SetValue(target interface{}, value interface{}) error {
 	var targetV reflect.Value
 	wasAlreadyRV := false
 
+	// if we were given a reflect.Value, then we shouldn't take the reflect.ValueOf that
 	if tV, ok := target.(reflect.Value); ok {
 		targetV = tV
 		wasAlreadyRV = true
@@ -223,17 +224,25 @@ func SetValue(target interface{}, value interface{}) error {
 		targetV = reflect.ValueOf(target)
 	}
 
+	// struct targets must be pointers (unless the struct in question is a reflect.Value)
 	if !wasAlreadyRV && targetV.Kind() == reflect.Struct {
 		return fmt.Errorf("Must pass a pointer to a struct instance, got %T", target)
 	} else if targetV.Kind() == reflect.Ptr {
+		// dereference pointers to get at the real destination
 		targetV = targetV.Elem()
 	}
 
+	// targets must be valid in order to set them to values
+	if !targetV.IsValid() {
+		return fmt.Errorf("Target %v is not valid", target)
+	}
+
+	// get the underlying value that was passed in
 	if valueV := reflect.ValueOf(ResolveValue(value)); valueV.IsValid() {
 		targetT := targetV.Type()
 		valueT := valueV.Type()
 
-		// if the target value is a string-a-like, stringify whatever we got in first
+		// if the target value is a string-a-like, stringify whatever we got in
 		if targetT.Kind() == reflect.String && valueV.CanInterface() {
 			valueV = reflect.ValueOf(fmt.Sprintf("%v", valueV.Interface()))
 			valueT = valueV.Type()
@@ -248,10 +257,13 @@ func SetValue(target interface{}, value interface{}) error {
 		}
 
 		if valueT.AssignableTo(targetT) {
+			// attempt direct assignment
 			targetV.Set(valueV)
 		} else if valueT.ConvertibleTo(targetT) {
+			// attempt type conversion
 			targetV.Set(valueV.Convert(targetT))
 		} else {
+			// no dice.
 			return fmt.Errorf(
 				"Unable to set target: %T has no path to becoming %v",
 				value,
