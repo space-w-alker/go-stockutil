@@ -214,7 +214,7 @@ func Dumpf(format string, in ...interface{}) string {
 
 // Attempts to set the given reflect.Value to the given interface value
 func SetValue(target interface{}, value interface{}) error {
-	var targetV reflect.Value
+	var targetV, valueV, originalV reflect.Value
 
 	// if we were given a reflect.Value, then we shouldn't take the reflect.ValueOf that
 	if tV, ok := target.(reflect.Value); ok {
@@ -235,8 +235,16 @@ func SetValue(target interface{}, value interface{}) error {
 		return fmt.Errorf("Target %T is not valid", target)
 	}
 
+	if vV, ok := value.(reflect.Value); ok {
+		originalV = vV
+		valueV = vV
+	} else {
+		originalV = reflect.ValueOf(value)
+		valueV = reflect.ValueOf(ResolveValue(value))
+	}
+
 	// get the underlying value that was passed in
-	if valueV := reflect.ValueOf(ResolveValue(value)); valueV.IsValid() {
+	if valueV.IsValid() {
 		targetT := targetV.Type()
 		valueT := valueV.Type()
 
@@ -260,12 +268,15 @@ func SetValue(target interface{}, value interface{}) error {
 		} else if valueT.ConvertibleTo(targetT) {
 			// attempt type conversion
 			targetV.Set(valueV.Convert(targetT))
-			// } else if targetT.Kind() == reflect.Ptr && originalV.Kind() != reflect.Ptr {
-			// 	typedV := reflect.New(valueT)
-			// 	// intermediateV :=
-			// 	typedV.Set(valueV)
-
-			// 	return fmt.Errorf("TODO: %v -> %v", typedV, targetT)
+		} else if targetV.Kind() == reflect.Ptr {
+			if originalV.Kind() == reflect.Ptr {
+				return SetValue(targetV, originalV)
+			} else {
+				return fmt.Errorf(
+					"Unable to set target: value for target %v must be given as a pointer",
+					targetT,
+				)
+			}
 		} else {
 			// no dice.
 			return fmt.Errorf(

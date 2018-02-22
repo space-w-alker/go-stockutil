@@ -1,6 +1,7 @@
 package typeutil
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 	"time"
@@ -222,6 +223,7 @@ type testSettable struct {
 	Type      testEnum
 	CreatedAt time.Time
 	UpdatedAt *time.Time
+	Other     *string
 }
 
 func TestSetValueStruct(t *testing.T) {
@@ -277,10 +279,16 @@ func TestSetValueStruct(t *testing.T) {
 	assert.True(t1.CreatedAt.Equal(tm))
 
 	// -------------------------------------------------------------------------
-	// assert.NoError(SetValue(
-	// 	reflect.ValueOf(t1).Elem().Field(3),
-	// 	tm,
-	// ))
+	assert.NoError(SetValue(
+		reflect.ValueOf(t1).Elem().Field(3),
+		&tm,
+	))
 
-	// assert.True(t1.UpdatedAt.Equal(tm))
+	assert.True(t1.UpdatedAt.Equal(tm), fmt.Sprintf("%v", t1.UpdatedAt))
+
+	// -------------------------------------------------------------------------
+	assert.Error(SetValue(
+		reflect.ValueOf(t1).Elem().Field(3),
+		tm,
+	))
 }
