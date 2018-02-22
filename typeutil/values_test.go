@@ -221,6 +221,7 @@ type testSettable struct {
 	Name      string
 	Type      testEnum
 	CreatedAt time.Time
+	UpdatedAt *time.Time
 }
 
 func TestSetValueStruct(t *testing.T) {
@@ -231,6 +232,7 @@ func TestSetValueStruct(t *testing.T) {
 		Type: Value2,
 	}
 
+	// -------------------------------------------------------------------------
 	assert.Equal(Value2, t1.Type)
 
 	assert.NoError(SetValue(
@@ -246,6 +248,7 @@ func TestSetValueStruct(t *testing.T) {
 	assert.Equal(`42`, t1.Name)
 	assert.Equal(Value3, t1.Type)
 
+	// -------------------------------------------------------------------------
 	assert.NoError(SetValue(
 		reflect.ValueOf(t1).Elem().Field(1),
 		`value-4`,
@@ -253,6 +256,7 @@ func TestSetValueStruct(t *testing.T) {
 
 	assert.Equal(testEnum(`value-4`), t1.Type)
 
+	// -------------------------------------------------------------------------
 	tm := time.Date(2009, time.November, 10, 23, 0, 0, 0, time.UTC)
 	assert.NoError(SetValue(
 		reflect.ValueOf(t1).Elem().Field(2),
@@ -261,6 +265,7 @@ func TestSetValueStruct(t *testing.T) {
 
 	assert.True(t1.CreatedAt.Equal(tm))
 
+	// -------------------------------------------------------------------------
 	var tmI interface{}
 	tmI = tm
 
@@ -270,4 +275,12 @@ func TestSetValueStruct(t *testing.T) {
 	))
 
 	assert.True(t1.CreatedAt.Equal(tm))
+
+	// -------------------------------------------------------------------------
+	// assert.NoError(SetValue(
+	// 	reflect.ValueOf(t1).Elem().Field(3),
+	// 	tm,
+	// ))
+
+	// assert.True(t1.UpdatedAt.Equal(tm))
 }

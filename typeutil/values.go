@@ -93,24 +93,25 @@ func IsEmpty(value interface{}) bool {
 // to work with those types without doing reflection.
 //
 func ResolveValue(in interface{}) interface{} {
-	inV := reflect.ValueOf(in)
+	var inV reflect.Value
+
+	if vV, ok := in.(reflect.Value); ok {
+		inV = vV
+	} else {
+		inV = reflect.ValueOf(in)
+	}
 
 	if inV.IsValid() {
-		if inV.Kind() == reflect.Ptr {
-			inV = inV.Elem()
+		if inT := inV.Type(); inT == nil {
+			return nil
 		}
 
-		if inV.Kind() == reflect.Interface {
-			inV = inV.Elem()
+		switch inV.Kind() {
+		case reflect.Ptr, reflect.Interface:
+			return ResolveValue(inV.Elem())
 		}
 
-		if inV.IsValid() {
-			if inT := inV.Type(); inT == nil {
-				return nil
-			}
-
-			in = inV.Interface()
-		}
+		in = inV.Interface()
 	}
 
 	return in
@@ -214,27 +215,24 @@ func Dumpf(format string, in ...interface{}) string {
 // Attempts to set the given reflect.Value to the given interface value
 func SetValue(target interface{}, value interface{}) error {
 	var targetV reflect.Value
-	wasAlreadyRV := false
 
 	// if we were given a reflect.Value, then we shouldn't take the reflect.ValueOf that
 	if tV, ok := target.(reflect.Value); ok {
 		targetV = tV
-		wasAlreadyRV = true
 	} else {
 		targetV = reflect.ValueOf(target)
-	}
 
-	// struct targets must be pointers (unless the struct in question is a reflect.Value)
-	if !wasAlreadyRV && targetV.Kind() == reflect.Struct {
-		return fmt.Errorf("Must pass a pointer to a struct instance, got %T", target)
-	} else if targetV.Kind() == reflect.Ptr {
-		// dereference pointers to get at the real destination
-		targetV = targetV.Elem()
+		if targetV.Kind() == reflect.Struct {
+			return fmt.Errorf("Must pass a pointer to a struct instance, got %T", target)
+		} else if targetV.Kind() == reflect.Ptr {
+			// dereference pointers to get at the real destination
+			targetV = targetV.Elem()
+		}
 	}
 
 	// targets must be valid in order to set them to values
 	if !targetV.IsValid() {
-		return fmt.Errorf("Target %v is not valid", target)
+		return fmt.Errorf("Target %T is not valid", target)
 	}
 
 	// get the underlying value that was passed in
@@ -262,6 +260,12 @@ func SetValue(target interface{}, value interface{}) error {
 		} else if valueT.ConvertibleTo(targetT) {
 			// attempt type conversion
 			targetV.Set(valueV.Convert(targetT))
+			// } else if targetT.Kind() == reflect.Ptr && originalV.Kind() != reflect.Ptr {
+			// 	typedV := reflect.New(valueT)
+			// 	// intermediateV :=
+			// 	typedV.Set(valueV)
+
+			// 	return fmt.Errorf("TODO: %v -> %v", typedV, targetT)
 		} else {
 			// no dice.
 			return fmt.Errorf(
