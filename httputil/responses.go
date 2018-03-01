@@ -11,7 +11,6 @@ import (
 	"github.com/ghetzel/go-stockutil/maputil"
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
-	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 var FormUnmarshalStructTag = `json`
@@ -101,7 +100,7 @@ func ParseFormRequest(req *http.Request, into interface{}) error {
 	if err := req.ParseForm(); err == nil {
 		if req.Method == `POST` {
 			return ParseFormValues(req.PostForm, into)
-		}else{
+		} else {
 			return ParseFormValues(req.Form, into)
 		}
 	} else {
