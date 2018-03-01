@@ -11,6 +11,7 @@ import (
 	"github.com/ghetzel/go-stockutil/maputil"
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 var FormUnmarshalStructTag = `json`
@@ -81,9 +82,10 @@ func ParseFormValues(formValues url.Values, into interface{}) error {
 	data := make(map[string]interface{})
 
 	for key, values := range formValues {
+		values = sliceutil.CompactString(values)
+		data[key] = nil
+
 		switch len(values) {
-		case 0:
-			data[key] = nil
 		case 1:
 			data[key] = stringutil.Autotype(values[0])
 		default:
@@ -97,7 +99,11 @@ func ParseFormValues(formValues url.Values, into interface{}) error {
 // Parses the form values for a Request and unmarshals into the given value.
 func ParseFormRequest(req *http.Request, into interface{}) error {
 	if err := req.ParseForm(); err == nil {
-		return ParseFormValues(req.Form, into)
+		if req.Method == `POST` {
+			return ParseFormValues(req.PostForm, into)
+		}else{
+			return ParseFormValues(req.Form, into)
+		}
 	} else {
 		return err
 	}
