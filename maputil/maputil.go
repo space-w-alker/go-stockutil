@@ -14,7 +14,7 @@ import (
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
-var DefaultStructTag string = `maputil`
+var UnmarshalStructTag string = `maputil`
 
 type WalkFunc func(value interface{}, path []string, isLeaf bool) error
 type ApplyFunc func(key []string, value interface{}) (interface{}, bool)
@@ -69,7 +69,7 @@ func MapValues(input interface{}) []interface{} {
 	return values
 }
 
-func StructFromMap(input map[string]interface{}, populate interface{}) error {
+func TaggedStructFromMap(input map[string]interface{}, populate interface{}, tagname string) error {
 	populateV := reflect.ValueOf(populate)
 
 	if ptrKind := populateV.Kind(); ptrKind != reflect.Ptr {
@@ -84,7 +84,16 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 				field := elemType.Field(i)
 				fieldName := field.Name
 
-				if tagValue := field.Tag.Get(DefaultStructTag); tagValue != `` {
+				// do this so that we'll always consider the "maputil:" tag first
+				tagValue := field.Tag.Get(UnmarshalStructTag)
+
+				// no maputil tag, fallback to whatever we were given
+				if tagValue == `` && tagname != `` {
+					tagValue = field.Tag.Get(tagname)
+				}
+
+				// if we found a tag, parse it
+				if tagValue != `` {
 					tagParts := strings.Split(tagValue, `,`)
 					fieldName = tagParts[0]
 				}
@@ -181,6 +190,10 @@ func StructFromMap(input map[string]interface{}, populate interface{}) error {
 	}
 
 	return nil
+}
+
+func StructFromMap(input map[string]interface{}, populate interface{}) error {
+	return TaggedStructFromMap(input, populate, ``)
 }
 
 func populateNewInstanceFromMap(input map[string]interface{}, destination reflect.Type) (reflect.Value, error) {

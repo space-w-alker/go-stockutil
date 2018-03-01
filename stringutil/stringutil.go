@@ -19,7 +19,8 @@ var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
 var rxLeadingZeroes = regexp.MustCompile(`^0+\d+$`)
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
-
+var BooleanTrueValues = []string{`true`, `yes`, `on`}
+var BooleanFalseValues = []string{`false`, `no`, `off`}
 var TimeFormats = []string{
 	time.RFC3339,
 	time.RFC3339Nano,
@@ -167,9 +168,10 @@ func IsBooleanTrue(inI interface{}) bool {
 	if in, err := ToString(inI); err == nil {
 		in = strings.ToLower(in)
 
-		switch in {
-		case `true`, `yes`, `on`:
-			return true
+		for _, val := range BooleanTrueValues {
+			if in == val {
+				return true
+			}
 		}
 	}
 
@@ -180,9 +182,10 @@ func IsBooleanFalse(inI interface{}) bool {
 	if in, err := ToString(inI); err == nil {
 		in = strings.ToLower(in)
 
-		switch in {
-		case `false`, `no`, `off`:
-			return true
+		for _, val := range BooleanFalseValues {
+			if in == val {
+				return true
+			}
 		}
 	}
 
