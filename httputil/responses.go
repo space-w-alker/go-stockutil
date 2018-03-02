@@ -7,6 +7,7 @@ import (
 	"mime"
 	"net/http"
 	"net/url"
+	"strings"
 
 	"github.com/ghetzel/go-stockutil/maputil"
 	"github.com/ghetzel/go-stockutil/sliceutil"
@@ -81,14 +82,14 @@ func ParseFormValues(formValues url.Values, into interface{}) error {
 	data := make(map[string]interface{})
 
 	for key, values := range formValues {
+		parts := strings.Split(key, `.`)
 		values = sliceutil.CompactString(values)
-		data[key] = nil
 
 		switch len(values) {
 		case 1:
-			data[key] = stringutil.Autotype(values[0])
+			maputil.DeepSet(data, parts, stringutil.Autotype(values[0]))
 		default:
-			data[key] = sliceutil.Autotype(values)
+			maputil.DeepSet(data, parts, sliceutil.Autotype(values))
 		}
 	}
 

@@ -3,11 +3,10 @@
 PKGS=`go list ./... | grep -v /vendor/`
 LOCALS=`find . -type f -name '*.go' -not -path "./vendor/*"`
 
-all: deps fmt test
+all: fmt deps test
 
 deps:
 	@go list github.com/mjibson/esc || go get github.com/mjibson/esc/...
-	@go list golang.org/x/tools/cmd/goimports || go get golang.org/x/tools/cmd/goimports
 	go generate -x ./...
 	go get ./...
 
@@ -18,6 +17,7 @@ clean:
 	-rm -rf bin
 
 fmt:
+	@go list golang.org/x/tools/cmd/goimports || go get golang.org/x/tools/cmd/goimports
 	goimports -w $(LOCALS)
 	go vet $(PKGS)
 
