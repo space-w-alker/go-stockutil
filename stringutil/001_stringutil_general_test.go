@@ -376,7 +376,6 @@ func TestSplitWords(t *testing.T) {
 	}, SplitWords(`Goldenrod adorned log.`))
 }
 
-
 func TestElideWords(t *testing.T) {
 	assert := require.New(t)
 
