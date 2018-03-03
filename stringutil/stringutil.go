@@ -12,6 +12,7 @@ import (
 	"unicode"
 
 	"github.com/ghetzel/go-stockutil/typeutil"
+	"github.com/jdkato/prose/tokenize"
 )
 
 var rxSpace = regexp.MustCompile(`[\s\-]+`)
@@ -921,4 +922,34 @@ func PrefixEach(in []string, prefix string) []string {
 // Suffix each element in the given string slice with suffix.
 func SuffixEach(in []string, prefix string, suffix string) []string {
 	return WrapEach(in, ``, suffix)
+}
+
+// Split the given string into words.
+func SplitWords(in string) []string {
+	tokenizer := tokenize.NewTreebankWordTokenizer()
+	out := make([]string, 0)
+
+	for _, word := range tokenizer.Tokenize(in) {
+		out = append(out, word)
+	}
+
+	return out
+}
+
+// Truncate the given string to a certain number of words.
+func ElideWords(in string, wordcount uint) string {
+	words := SplitWords(in)
+	wc := uint(len(words))
+
+	if wc == 0 {
+		return ``
+	} else if wc <= wordcount {
+		return strings.Join(words, ` `)
+	} else {
+		words = words[0:int(wordcount)]
+
+		return strings.TrimRightFunc(strings.Join(words, ` `), func(r rune) bool {
+			return unicode.IsPunct(r) || unicode.IsSpace(r)
+		})
+	}
 }

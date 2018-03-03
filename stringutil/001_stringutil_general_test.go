@@ -358,3 +358,37 @@ func TestRelaxedEqual(t *testing.T) {
 	assert.NoError(err)
 	assert.False(eq)
 }
+
+func TestSplitWords(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal([]string{
+		`Goldenrod-adorned`,
+		`log`,
+		`.`,
+	}, SplitWords(`Goldenrod-adorned log.`))
+
+	assert.Equal([]string{
+		`Goldenrod`,
+		`adorned`,
+		`log`,
+		`.`,
+	}, SplitWords(`Goldenrod adorned log.`))
+}
+
+
+func TestElideWords(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(``, ElideWords(``, 0))
+	assert.Equal(`.`, ElideWords(`.`, 1))
+	assert.Equal(`test`, ElideWords(`test.`, 1))
+
+	assert.Equal(
+		`This is the song that never ends`,
+		ElideWords(
+			`This is the song that never ends, it just goes on and on my friends.`,
+			7,
+		),
+	)
+}
