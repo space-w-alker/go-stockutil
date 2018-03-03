@@ -1,3 +1,4 @@
+// Utilities for parsing and manipulating colors.
 package colorutil
 
 import (
