@@ -29,24 +29,24 @@ func (self Color) String() string {
 	}
 }
 
-func (self Color) StringRGBA() string {
-	if self.a < 0xFF {
-		return fmt.Sprintf(
-			"rgba(%d, %d, %d, %0.2f)",
-			self.r,
-			self.g,
-			self.b,
-			(self.a / 100.0),
-		)
-	}else{
-		return fmt.Sprintf(
-			"rgb(%d, %d, %d)",
-			self.r,
-			self.g,
-			self.b,
-		)
-	}
-}
+// func (self Color) StringRGBA() string {
+// 	if self.a < 0xFF {
+// 		return fmt.Sprintf(
+// 			"rgba(%d, %d, %d, %0.2f)",
+// 			self.r,
+// 			self.g,
+// 			self.b,
+// 			(self.a / 100.0),
+// 		)
+// 	} else {
+// 		return fmt.Sprintf(
+// 			"rgb(%d, %d, %d)",
+// 			self.r,
+// 			self.g,
+// 			self.b,
+// 		)
+// 	}
+// }
 
 // func (self Color) StringHSLA() string {
 // }
