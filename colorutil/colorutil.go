@@ -4,66 +4,133 @@ package colorutil
 import (
 	"encoding/hex"
 	"fmt"
+	"math"
 	"strings"
 
+	"github.com/ghetzel/go-stockutil/mathutil"
 	"github.com/ghetzel/go-stockutil/rxutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
-	colorful "github.com/lucasb-eyer/go-colorful"
 )
 
-var rgbaPattern = `rgba?\((?P<r>[\d\.]+%?)\s*,\s*(?P<g>[\d\.]+%?)\s*,\s*(?P<b>[\d\.]+%?)\s*(?:,\s*(?P<a>[\d\.]+%?)?\s*)?\)`
-var hslaPattern = `hsla?\((?P<h>[\d\.]+%?)(?:deg)?\s*,\s*(?P<s>[\d\.]+%?)\s*,\s*(?P<l>[\d\.]+%?)\s*(?:,\s*(?P<a>[\d\.]+%?)?\s*)?\)`
+var rgbaPattern = `rgba?\((?P<r>\d+(?:\.\d+)?%?)\s*,\s*(?P<g>\d+(?:\.\d+)?%?)\s*,\s*(?P<b>\d+(?:\.\d+)?%?)\s*(?:,\s*(?P<a>\d+(?:\.\d+)?%?)?\s*)?\)`
+var hslaPattern = `hs(?P<LorV>[lv])a?\((?P<h>\d+(?:\.\d+)?%?)(?:deg)?\s*,\s*(?P<s>\d+(?:\.\d+)?%?)\s*,\s*(?P<lv>\d+(?:\.\d+)?%?)\s*(?:,\s*(?P<a>\d+(?:\.\d+)?%?)?\s*)?\)`
+var hexPattern = `#?(?P<r>[0-9a-fA-F]{2})(?P<g>[0-9a-fA-F]{2})(?P<b>[0-9a-fA-F]{2})(?P<a>[0-9a-fA-F]{2})?`
+
+const precision = 2
+
+type lmodel int
+
+const (
+	Invalid lmodel = iota
+	HSI
+	HSL
+	HSV
+)
 
 type Color struct {
-	r uint8
-	g uint8
-	b uint8
-	a uint8
+	r float64
+	g float64
+	b float64
+	a float64
 }
 
 func (self Color) String() string {
-	if self.a < 0xFF {
-		return fmt.Sprintf("#%02X%02X%02X%02X", self.r, self.b, self.g, self.a)
+	r, g, b, a := self.RGBA255()
+
+	if self.a < 1 {
+		return fmt.Sprintf("#%02X%02X%02X%02X", r, g, b, a)
 	} else {
-		return fmt.Sprintf("#%02X%02X%02X", self.r, self.b, self.g)
+		return fmt.Sprintf("#%02X%02X%02X", r, g, b)
 	}
 }
 
-// func (self Color) StringRGBA() string {
-// 	if self.a < 0xFF {
-// 		return fmt.Sprintf(
-// 			"rgba(%d, %d, %d, %0.2f)",
-// 			self.r,
-// 			self.g,
-// 			self.b,
-// 			(self.a / 100.0),
-// 		)
-// 	} else {
-// 		return fmt.Sprintf(
-// 			"rgb(%d, %d, %d)",
-// 			self.r,
-// 			self.g,
-// 			self.b,
-// 		)
-// 	}
-// }
+func (self Color) StringRGBA() string {
+	r, g, b, a := self.RGBA255()
 
-// func (self Color) StringHSLA() string {
-// }
-
-func (self Color) RGBA() (uint32, uint32, uint32, uint32) {
-	return uint32(self.r),
-		uint32(self.g),
-		uint32(self.b),
-		uint32(self.a)
+	if self.a < 1 {
+		return fmt.Sprintf(
+			"rgba(%d, %d, %d, %d)",
+			r,
+			g,
+			b,
+			a,
+		)
+	} else {
+		return fmt.Sprintf(
+			"rgb(%d, %d, %d)",
+			r,
+			g,
+			b,
+		)
+	}
 }
 
+func (self Color) StringHSLA() string {
+	h, s, l := self.HSL()
+
+	if self.a < 1 {
+		return fmt.Sprintf(
+			`hsla(%d, %d%%, %d%%, %g)`,
+			int(math.Mod(mathutil.Round(h), 360)),
+			int(s*100.0),
+			int(l*100.0),
+			mathutil.RoundPlaces(self.a, 2),
+		)
+	} else {
+		return fmt.Sprintf(
+			"hsl(%d, %d%%, %d%%)",
+			int(math.Mod(mathutil.Round(h), 360)),
+			int(s*100.0),
+			int(l*100.0),
+		)
+	}
+}
+
+// Return the current color as 4x 8-bit RGB values, each [0, 255].
+func (self Color) RGBA255() (uint8, uint8, uint8, uint8) {
+	var r, g, b, a uint8
+
+	r = uint8(self.r*255.0 + 0.5)
+	g = uint8(self.g*255.0 + 0.5)
+	b = uint8(self.b*255.0 + 0.5)
+	a = uint8(self.a*255.0 + 0.5)
+
+	return r, g, b, a
+}
+
+// Return the current color as a 32-bit uint quad, implementing the color.Color interface.
+func (self Color) RGBA() (uint32, uint32, uint32, uint32) {
+	return uint32(self.r * float64(0xFFFF)),
+		uint32(self.g * float64(0xFFFF)),
+		uint32(self.b * float64(0xFFFF)),
+		uint32(self.a * float64(0xFFFF))
+}
+
+// Return the current color as hue (out of 360°), saturation [0, 1], and lightness [0, 1].
+func (self Color) HSL() (float64, float64, float64) {
+	return rgb2lhs(HSL, self.r, self.g, self.b)
+}
+
+// Return the current color as hue (out of 360°), saturation [0, 1], and value [0, 1].
+func (self Color) HSV() (float64, float64, float64) {
+	return rgb2lhs(HSV, self.r, self.g, self.b)
+}
+
+// Return the current color as hue (out of 360°), saturation [0, 1], and intensity [0, 1].
+func (self Color) HSI() (float64, float64, float64) {
+	return rgb2lhs(HSI, self.r, self.g, self.b)
+}
+
+// Return whether the given color is equal to this one in the 24-bit RGB (RGB255) color space
 func (self Color) Equals(other interface{}) bool {
 	if color, err := Parse(other); err == nil {
-		if self.r == color.r {
-			if self.g == color.g {
-				if self.b == color.b {
-					if self.a == color.a {
+		r1, g1, b1, a1 := self.RGBA255()
+		r2, g2, b2, a2 := color.RGBA255()
+
+		if r1 == r2 {
+			if g1 == g2 {
+				if b1 == b2 {
+					if a1 == a2 {
 						return true
 					}
 				}
@@ -74,17 +141,25 @@ func (self Color) Equals(other interface{}) bool {
 	return false
 }
 
-func Parse(colorI interface{}) (Color, error) {
-	var colorC colorful.Color
-	var alpha float64 = 1.0
+// Parse the given value into a Color or panic.
+func MustParse(value interface{}) Color {
+	if color, err := Parse(value); err == nil {
+		return color
+	} else {
+		panic(err)
+	}
+}
 
-	if c, ok := colorI.(colorful.Color); ok {
-		colorC = c
+// Parse the given value into a Color or return an error.
+func Parse(value interface{}) (Color, error) {
+	var colorC Color
 
-	} else if c, ok := colorI.(Color); ok {
+	colorC.a = 1
+
+	if c, ok := value.(Color); ok {
 		return c, nil
 	} else {
-		colorS := fmt.Sprintf("%v", colorI)
+		colorS := fmt.Sprintf("%v", value)
 		colorS = strings.TrimSpace(colorS)
 
 		if rgba := rxutil.Match(rgbaPattern, colorS); rgba != nil {
@@ -104,18 +179,18 @@ func Parse(colorI interface{}) (Color, error) {
 
 					switch v {
 					case `r`:
-						colorC.R = factorF
+						colorC.r = factorF
 					case `g`:
-						colorC.G = factorF
+						colorC.g = factorF
 					case `b`:
-						colorC.B = factorF
+						colorC.b = factorF
 					case `a`:
 						if factorS != `` {
 							if factorF > 1 {
 								factorF = (factorF / denom)
 							}
 
-							alpha = factorF
+							colorC.a = factorF
 						}
 					}
 				} else {
@@ -124,71 +199,87 @@ func Parse(colorI interface{}) (Color, error) {
 			}
 
 		} else if hsla := rxutil.Match(hslaPattern, colorS); hsla != nil {
-			// handles hsl(), hsla() patterns
+			// handles hsl(), hsla(), hsv(), hsva() patterns
+			var h, s, lv float64
+			var isHSV bool
+
+			if hsla.Group(`LorV`) == `v` {
+				isHSV = true
+			}
+
 			for v, factorS := range hsla.NamedCaptures() {
-				var denom float64 = 0xFF
+				if v == `LorV` {
+					continue
+				}
+
+				var denom float64 = 1
 
 				if strings.HasSuffix(factorS, `%`) {
 					denom = 100
-					factorS = factorS[:len(factorS)-1]
+					factorS = strings.TrimSuffix(factorS, `%`)
 				}
 
 				if factorF, err := stringutil.ConvertToFloat(factorS); err == nil {
-					var h, s, l float64
+					if factorF > 1 && denom == 1 {
+						denom = 0xFF
+					}
 
 					switch v {
 					case `h`:
-						h = (factorF / 360)
+						h = factorF
 					case `s`:
 						s = (factorF / denom)
-					case `l`:
-						l = (factorF / denom)
+					case `lv`:
+						lv = (factorF / denom)
 					case `a`:
 						if factorS != `` {
 							if factorF > 1 {
 								factorF = (factorF / denom)
 							}
 
-							alpha = factorF
+							colorC.a = factorF
 						}
 					}
-
-					colorC = colorful.Hsl(h, s, l)
 				} else {
 					return Color{}, fmt.Errorf("Invalid rgba() value in '%v' position: %v", v, err)
 				}
 			}
-		} else {
-			colorS = `#` + strings.ToUpper(strings.TrimPrefix(colorS, `#`))
 
-			if len(colorS) == 9 {
-				if v, err := hex.DecodeString(colorS[7:]); err == nil {
-					if len(v) == 1 {
-						alpha = float64(v[0]) / 0xFF
-					}
-				} else {
-					return Color{}, fmt.Errorf("Invalid hex value '%v'", colorS[7:])
-				}
-			}
-
-			if c, err := colorful.Hex(colorS); err == nil {
-				colorC = c
+			if isHSV {
+				colorC.r, colorC.g, colorC.b = hsv2rgb(h, s, lv)
 			} else {
-				return Color{}, fmt.Errorf("Invalid color '%v': %v", colorS, err)
+				colorC.r, colorC.g, colorC.b = hsl2rgb(h, s, lv)
+			}
+		} else if hexa := rxutil.Match(hexPattern, colorS); hexa != nil {
+			for v, hexbyte := range hexa.NamedCaptures() {
+				if hexbyte != `` {
+					if vB, err := hex.DecodeString(hexbyte); err == nil {
+						if len(vB) == 1 {
+							switch v {
+							case `r`:
+								colorC.r = (float64(vB[0]) / 0xFF)
+							case `g`:
+								colorC.g = (float64(vB[0]) / 0xFF)
+							case `b`:
+								colorC.b = (float64(vB[0]) / 0xFF)
+							case `a`:
+								colorC.a = (float64(vB[0]) / 0xFF)
+							}
+						} else {
+							return Color{}, fmt.Errorf("Invalid hex byte '%v'", vB)
+						}
+					} else {
+						return Color{}, fmt.Errorf("Invalid hex value '%v'", hexbyte)
+					}
+				}
 			}
 		}
 	}
 
-	returnColor := Color{
-		r: uint8(0xFF * colorC.R),
-		g: uint8(0xFF * colorC.G),
-		b: uint8(0xFF * colorC.B),
-		a: uint8(0xFF * alpha),
-	}
-
-	return returnColor, nil
+	return colorC, nil
 }
 
+// Return whether two colors are equivalent in the 24-bit RGB (RGB255) color space.
 func Equals(first interface{}, second interface{}) bool {
 	if first != nil && second != nil {
 		if firstC, err := Parse(first); err == nil {
@@ -199,36 +290,20 @@ func Equals(first interface{}, second interface{}) bool {
 	return false
 }
 
-func Darken(in interface{}, percent float64) (Color, error) {
-	var isLighten bool
-
-	if percent < 0 {
-		percent = 0
-	} else if percent > 100 {
-		isLighten = true
-		percent = (percent - 100)
-	}
-
-	factor := (percent / 100)
-
+// adjust the given color by a specified factor, either positive (lightening) or
+// negative (darkening)
+func adjust(in interface{}, factor float64) (Color, error) {
 	if sample, err := Parse(in); err == nil {
-		h, s, l := colorful.MakeColor(sample).Hsl()
+		h, s, l := sample.HSL()
+		l += factor
 
-		if isLighten {
-			// find the delta between full luminosity and current luminosity, then use the
-			// factor to take us that percentage of the way there
-			l = l + ((1.0 - l) * factor)
-		} else {
-			// since we're darkening, we can just apply the factor as-is, because the implicit
-			// lower bound is already zero
-			l = l * factor
+		if l < 0 {
+			l = 0
+		} else if l > 1 {
+			l = 1
 		}
 
-		r, g, b := colorful.Hsl(h, s, l).Clamped().RGB255()
-
-		sample.r = r
-		sample.g = g
-		sample.b = b
+		sample.r, sample.g, sample.b = hsl2rgb(h, s, l)
 
 		return sample, nil
 	} else {
@@ -236,6 +311,213 @@ func Darken(in interface{}, percent float64) (Color, error) {
 	}
 }
 
-func Lighten(in interface{}, percent float64) (Color, error) {
-	return Darken(in, 100+percent)
+// Darken the given color by a certain percent.  Consistent with the results of the
+// Sass darken() function.
+func Darken(in interface{}, percent int) (Color, error) {
+	return adjust(in, -1*(float64(percent)/100.0))
+}
+
+// Lighten the given color by a certain percent.  Consistent with the results of the
+// Sass lighten() function.
+func Lighten(in interface{}, percent int) (Color, error) {
+	return adjust(in, float64(percent)/100.0)
+}
+
+// Given HSL values (where hue is given in degrees (out of 360°), saturation
+// and lightness are [0, 1]), return the corresponding RGB values (where each value
+// is [0, 255]).
+func HslToRgb(hue float64, saturation float64, lightness float64) (uint8, uint8, uint8) {
+	r, g, b := hsl2rgb(hue, saturation, lightness)
+
+	return uint8(r * 255.0), uint8(g * 255.0), uint8(b * 255.0)
+}
+
+// Given HSL values (where hue is given in degrees (out of 360°), saturation
+// and value are [0, 1]), return the corresponding RGB values (where each value
+// is [0, 255]).
+func HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8) {
+	r, g, b := hsv2rgb(hue, saturation, value)
+
+	return uint8(r * 255.0), uint8(g * 255.0), uint8(b * 255.0)
+}
+
+// Given RGB values (where each value is [0, 255]), return the hue (in degrees), saturation,
+// and lightness (where each is [0, 1]).
+func RgbToHsl(r float64, g float64, b float64) (float64, float64, float64) {
+	return rgb2lhs(HSL, r/255, g/255, b/255)
+}
+
+// Internal HSL->RGB function for doing conversions using float inputs (saturation, lightness) and
+// outputs (for R, G, and B).
+func hsl2rgb(hueDegrees float64, saturation float64, lightness float64) (float64, float64, float64) {
+	return hs2rgb(false, hueDegrees, saturation, lightness)
+}
+
+// Internal HSV->RGB function for doing conversions using float inputs (saturation, value) and
+// outputs (for R, G, and B).
+func hsv2rgb(hueDegrees float64, saturation float64, value float64) (float64, float64, float64) {
+	return hs2rgb(true, hueDegrees, saturation, value)
+}
+
+// Internal generic implementation for converting HSV, HSL to RGB.
+// Basically a direct implementation of this: https://en.wikipedia.org/wiki/HSL_and_HSV#Converting_to_RGB
+func hs2rgb(isValue bool, hueDegrees float64, saturation float64, lightOrVal float64) (float64, float64, float64) {
+	var r, g, b float64
+
+	hueDegrees = math.Mod(hueDegrees, 360)
+
+	if saturation == 0 {
+		r = lightOrVal
+		g = lightOrVal
+		b = lightOrVal
+	} else {
+		var chroma float64
+		var m float64
+
+		if isValue {
+			chroma = lightOrVal * saturation
+		} else {
+			chroma = (1 - math.Abs((2*lightOrVal)-1)) * saturation
+		}
+
+		hueSector := hueDegrees / 60
+
+		intermediate := chroma * (1 - math.Abs(
+			math.Mod(hueSector, 2)-1,
+		))
+
+		switch {
+		case hueSector >= 0 && hueSector <= 1:
+			r = chroma
+			g = intermediate
+			b = 0
+
+		case hueSector > 1 && hueSector <= 2:
+			r = intermediate
+			g = chroma
+			b = 0
+
+		case hueSector > 2 && hueSector <= 3:
+			r = 0
+			g = chroma
+			b = intermediate
+
+		case hueSector > 3 && hueSector <= 4:
+			r = 0
+			g = intermediate
+			b = chroma
+		case hueSector > 4 && hueSector <= 5:
+			r = intermediate
+			g = 0
+			b = chroma
+
+		case hueSector > 5 && hueSector <= 6:
+			r = chroma
+			g = 0
+			b = intermediate
+
+		default:
+			panic(fmt.Errorf("hue input %v yielded sector %v", hueDegrees, hueSector))
+		}
+
+		if isValue {
+			m = lightOrVal - chroma
+		} else {
+			m = lightOrVal - (chroma / 2)
+		}
+
+		r += m
+		g += m
+		b += m
+
+	}
+
+	r = mathutil.RoundPlaces(r, precision)
+	g = mathutil.RoundPlaces(g, precision)
+	b = mathutil.RoundPlaces(b, precision)
+
+	return r, g, b
+}
+
+// Internal implementation converting RGB to HSL, HSV, or HSI.
+// Basically a direct implementation of this: https://en.wikipedia.org/wiki/HSL_and_HSV#General_approach
+func rgb2lhs(lightnessModel lmodel, r float64, g float64, b float64) (float64, float64, float64) {
+	var h, s, lvi float64
+	var huePrime float64
+
+	// hue
+	// ---------------------------------------------------------------------------------------------
+	max := math.Max(math.Max(r, g), b)
+	min := math.Min(math.Min(r, g), b)
+	chroma := (max - min)
+
+	if chroma == 0 {
+		h = 0
+	} else {
+		if r == max {
+			huePrime = math.Mod(((g - b) / chroma), 6)
+		} else if g == max {
+			huePrime = ((b - r) / chroma) + 2
+
+		} else if b == max {
+			huePrime = ((r - g) / chroma) + 4
+
+		}
+
+		h = huePrime * 60
+	}
+
+	// lightness
+	// ---------------------------------------------------------------------------------------------
+	if r == g && g == b {
+		lvi = r
+	} else {
+		switch lightnessModel {
+		case HSI:
+			lvi = (r + b + g) / 3
+		case HSV:
+			lvi = max
+		case HSL:
+			lvi = (max + min) / 2
+		}
+	}
+
+	// saturation
+	// ---------------------------------------------------------------------------------------------
+	switch lightnessModel {
+	case HSI:
+		if lvi == 0 {
+			s = 0
+		} else {
+			s = (1 - (min / lvi))
+		}
+
+	case HSV:
+		if lvi == 0 {
+			s = 0
+		} else {
+			s = (chroma / lvi)
+		}
+
+	case HSL:
+		if lvi == 1 {
+			s = 0
+		} else {
+			s = (chroma / (1 - math.Abs(2*lvi-1)))
+		}
+	}
+
+	if math.IsNaN(s) {
+		s = 0
+	}
+
+	h = mathutil.RoundPlaces(h, precision)
+	s = mathutil.RoundPlaces(s, precision)
+	lvi = mathutil.RoundPlaces(lvi, precision)
+
+	if h < 0 {
+		h = 360 + h
+	}
+
+	return h, s, lvi
 }
