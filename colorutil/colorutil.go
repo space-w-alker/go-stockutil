@@ -323,6 +323,21 @@ func Lighten(in interface{}, percent int) (Color, error) {
 	return adjust(in, float64(percent)/100.0)
 }
 
+// Adjust the hue of the given color by the specified number of degrees.
+func AdjustHue(in interface{}, degrees float64) (Color, error) {
+	if sample, err := Parse(in); err == nil {
+		h, s, l := sample.HSL()
+
+		h += degrees
+
+		sample.r, sample.g, sample.b = hsl2rgb(h, s, l)
+
+		return sample, nil
+	} else {
+		return Color{}, err
+	}
+}
+
 // Given HSL values (where hue is given in degrees (out of 360°), saturation
 // and lightness are [0, 1]), return the corresponding RGB values (where each value
 // is [0, 255]).

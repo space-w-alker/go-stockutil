@@ -61,6 +61,18 @@ func assertColor(t *testing.T, in string, rIn uint8, gIn uint8, bIn uint8, aIn u
 	assert.Equal(aIn, a, fmt.Sprintf("%v: alpha", in))
 }
 
+func adjustHue(t *testing.T, in interface{}, adjustAmount float64, wantedColor string) {
+	assert := assert.New(t)
+
+	var color Color
+	var err error
+
+	color, err = AdjustHue(in, adjustAmount)
+	assert.NoError(err)
+
+	assert.True(color.Equals(wantedColor), fmt.Sprintf("have: %v, want: %v", color, wantedColor))
+}
+
 func TestHslToRgb(t *testing.T) {
 	// greyscale tests
 	assertHslToRgb(t, 0, 0, 0, 0, 0, 0)
@@ -303,4 +315,10 @@ func TestColorStringers(t *testing.T) {
 
 	assert.True(`hsl(312, 100%, 50%)` == MustParse(`#FF00CCFF`).StringHSLA())
 	assert.True(`hsla(312, 100%, 50%, 0.5)` == MustParse(`#FF00CC80`).StringHSLA())
+}
+
+func TestAdjustHue(t *testing.T) {
+	adjustHue(t, `#FF0000`, 120, `#00FF00`)
+	adjustHue(t, `#FF0000`, 240, `#0000FF`)
+	adjustHue(t, `#ad4038`, 20, `#ad6638`)
 }
