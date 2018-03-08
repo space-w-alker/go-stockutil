@@ -20,6 +20,7 @@ var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
 var rxLeadingZeroes = regexp.MustCompile(`^0+\d+$`)
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
+var NilStrings = []string{`null`, `NULL`, `<nil>`, `nil`, `Nil`, `None`, `undefined`, ``}
 var BooleanTrueValues = []string{`true`, `yes`, `on`}
 var BooleanFalseValues = []string{`false`, `no`, `off`}
 var TimeFormats = []string{
@@ -574,6 +575,13 @@ func Autotype(in interface{}) interface{} {
 	if vStr, ok := in.(string); ok {
 		if rxLeadingZeroes.MatchString(vStr) {
 			return vStr
+		}
+
+		// certain known string values should convert to nil directly
+		for _, nilStr := range NilStrings {
+			if vStr == nilStr {
+				return nil
+			}
 		}
 	}
 

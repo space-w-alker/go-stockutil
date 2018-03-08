@@ -1,10 +1,12 @@
 package stringutil
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -161,6 +163,22 @@ func TestConvertToTime(t *testing.T) {
 		if _, err := ConvertToTime(fail); err == nil {
 			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
 		}
+	}
+}
+
+func TestAutotypeNil(t *testing.T) {
+	assert := assert.New(t)
+
+	for _, testValue := range []string{
+		``,
+		`nil`,
+		`null`,
+		`Nil`,
+		`NULL`,
+		`None`,
+		`undefined`,
+	} {
+		assert.Nil(Autotype(testValue), fmt.Sprintf("%q was not autotyped to nil", testValue))
 	}
 }
 
