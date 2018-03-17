@@ -14,7 +14,8 @@ func TestConvertToFloat(t *testing.T) {
 	assert := require.New(t)
 
 	v, err := ConvertTo(Float, nil)
-	assert.Error(err)
+	assert.NoError(err)
+	assert.Equal(float64(0), v)
 
 	v, err = ConvertTo(Float, "1.5")
 	assert.NoError(err)
@@ -45,7 +46,8 @@ func TestConvertToInteger(t *testing.T) {
 	assert := require.New(t)
 
 	v, err := ConvertTo(Integer, nil)
-	assert.Error(err)
+	assert.NoError(err)
+	assert.Equal(int64(0), v)
 
 	v, err = ConvertTo(Integer, "7")
 	assert.NoError(err)
