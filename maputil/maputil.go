@@ -876,11 +876,14 @@ func Apply(input interface{}, fn ApplyFunc) map[string]interface{} {
 
 	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
 		if isLeaf {
-			if out, ok := fn(path, value); ok {
-				DeepSet(output, path, out)
-			} else {
-				DeepSet(output, path, value)
+			if fn != nil {
+				if out, ok := fn(path, value); ok {
+					DeepSet(output, path, out)
+					return nil
+				}
 			}
+
+			DeepSet(output, path, value)
 		}
 
 		return nil
@@ -889,4 +892,8 @@ func Apply(input interface{}, fn ApplyFunc) map[string]interface{} {
 	}
 
 	return output
+}
+
+func DeepCopy(input interface{}) map[string]interface{} {
+	return Apply(input, nil)
 }
