@@ -100,3 +100,19 @@ func TestDeepGetBool(t *testing.T) {
 	assert.False(DeepGetBool(input, []string{"deeply", "nested", "other"}))
 	assert.False(DeepGetBool(input, []string{"deeply", "nested", "nope"}))
 }
+
+func TestDeepGetMapInMap(t *testing.T) {
+	assert := require.New(t)
+
+	in := map[string]interface{}{
+		`ok`: true,
+		`always`: map[string]interface{}{
+			`finishing`: map[string]interface{}{
+				`each_others`: `sentences`,
+			},
+		},
+	}
+
+	assert.Equal(`sentences`, DeepGet(in, []string{`always`, `finishing`, `each_others`}))
+	assert.Nil(DeepGet(in, []string{`always`, `finishing`, `each_others`, `sandwiches`}))
+}

@@ -499,6 +499,10 @@ func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interfac
 			} else {
 				return fallback
 			}
+
+		// attempting to retrieve nested data from a scalar value; return fallback
+		default:
+			return fallback
 		}
 
 	}
