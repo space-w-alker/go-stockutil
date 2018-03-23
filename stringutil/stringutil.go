@@ -898,10 +898,22 @@ func SuffixIf(in string, suffix string) string {
 	return in
 }
 
+// Return the given string with prefixed and suffixed with other strings.
+func Wrap(in string, prefix string, suffix string) string {
+	return prefix + in + suffix
+}
+
+// Return the given string with the given prefix and suffix removed.
+func Unwrap(in string, prefix string, suffix string) string {
+	in = strings.TrimPrefix(in, prefix)
+	in = strings.TrimSuffix(in, suffix)
+	return in
+}
+
 // Wrap the given string if it is non-empty
 func WrapIf(in string, prefix string, suffix string) string {
 	if !typeutil.IsZero(in) {
-		in = prefix + in + suffix
+		in = Wrap(in, prefix, suffix)
 	}
 
 	return in
@@ -912,7 +924,7 @@ func WrapEach(in []string, prefix string, suffix string) []string {
 	out := make([]string, len(in))
 
 	for i, v := range in {
-		out[i] = prefix + v + suffix
+		out[i] = Wrap(v, prefix, suffix)
 	}
 
 	return out

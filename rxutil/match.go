@@ -2,6 +2,7 @@
 package rxutil
 
 import (
+	"fmt"
 	"regexp"
 )
 
@@ -15,9 +16,18 @@ type MatchResult struct {
 }
 
 // Returns a MatchResult object representing the leftmost match of pattern against
-// source, or nil if no matches were found.
-func Match(pattern string, source string) *MatchResult {
-	rx := regexp.MustCompile(pattern)
+// source, or nil if no matches were found.  Pattern can be a string or a
+// previously-compiled *regexp.Regexp.
+func Match(pattern interface{}, source string) *MatchResult {
+	var rx *regexp.Regexp
+
+	if r, ok := pattern.(*regexp.Regexp); ok {
+		rx = r
+	} else if r, ok := pattern.(regexp.Regexp); ok {
+		rx = &r
+	} else {
+		rx = regexp.MustCompile(fmt.Sprintf("%v", pattern))
+	}
 
 	if rx.MatchString(source) {
 		return &MatchResult{
