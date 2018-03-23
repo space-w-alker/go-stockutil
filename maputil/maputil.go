@@ -2,6 +2,7 @@
 package maputil
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 	"sort"
@@ -15,6 +16,7 @@ import (
 )
 
 var UnmarshalStructTag string = `maputil`
+var SkipDescendants = errors.New("skip descendants")
 
 type WalkFunc func(value interface{}, path []string, isLeaf bool) error
 type ApplyFunc func(key []string, value interface{}) (interface{}, bool)
@@ -712,7 +714,7 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 	switch parentV.Kind() {
 	case reflect.Map:
 		if err := walkFn(parent, path, false); err != nil {
-			return err
+			return returnSkipOrErr(err)
 		}
 
 		for _, key := range parentV.MapKeys() {
@@ -720,13 +722,13 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 			subpath := append(path, fmt.Sprintf("%v", key.Interface()))
 
 			if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
-				return err
+				return returnSkipOrErr(err)
 			}
 		}
 
 	case reflect.Slice, reflect.Array:
 		if err := walkFn(parent, path, false); err != nil {
-			return err
+			return returnSkipOrErr(err)
 		}
 
 		for i := 0; i < parentV.Len(); i++ {
@@ -734,13 +736,13 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 			subpath := append(path, fmt.Sprintf("%v", i))
 
 			if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
-				return err
+				return returnSkipOrErr(err)
 			}
 		}
 
 	case reflect.Struct:
 		if err := walkFn(parent, path, false); err != nil {
-			return err
+			return returnSkipOrErr(err)
 		}
 
 		for i := 0; i < parentV.NumField(); i++ {
@@ -752,7 +754,7 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 				subpath := append(path, fieldV.Name)
 
 				if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
-					return err
+					return returnSkipOrErr(err)
 				}
 			}
 		}
@@ -896,4 +898,12 @@ func Apply(input interface{}, fn ApplyFunc) map[string]interface{} {
 
 func DeepCopy(input interface{}) map[string]interface{} {
 	return Apply(input, nil)
+}
+
+func returnSkipOrErr(err error) error {
+	if err == SkipDescendants {
+		return nil
+	} else {
+		return err
+	}
 }
