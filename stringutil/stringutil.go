@@ -784,10 +784,12 @@ LCPLoop:
 		var current byte
 
 		for _, input := range inputs {
-			if current == 0 {
-				current = input[i]
-			} else if current != input[i] {
-				break LCPLoop
+			if i < len(input) {
+				if current == 0 {
+					current = input[i]
+				} else if current != input[i] {
+					break LCPLoop
+				}
 			}
 		}
 
