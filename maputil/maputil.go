@@ -337,6 +337,7 @@ func CoalesceMapTyped(data map[string]interface{}, fieldJoiner string, typePrefi
 
 func deepGetValues(keys []string, joiner string, data interface{}) map[string]interface{} {
 	rv := make(map[string]interface{})
+	data = typeutil.ResolveValue(data)
 
 	if data != nil {
 		dType := reflect.TypeOf(data)
@@ -428,6 +429,8 @@ func coerceIntoType(in interface{}, typeName string) (interface{}, error) {
 }
 
 func Get(data interface{}, key string, fallback ...interface{}) interface{} {
+	data = typeutil.ResolveValue(data)
+
 	if typeutil.IsKind(data, reflect.Map) {
 		dataV := reflect.ValueOf(data)
 
@@ -446,7 +449,7 @@ func Get(data interface{}, key string, fallback ...interface{}) interface{} {
 }
 
 func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interface{} {
-	current := data
+	current := typeutil.ResolveValue(data)
 
 	if len(fallbacks) == 0 {
 		fallbacks = []interface{}{nil}

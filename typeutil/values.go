@@ -87,6 +87,10 @@ func IsEmpty(value interface{}) bool {
 // to work with those types without doing reflection.
 //
 func ResolveValue(in interface{}) interface{} {
+	if inV, ok := in.(Variadic); ok {
+		in = inV.Value
+	}
+
 	return utils.ResolveValue(in)
 }
 
