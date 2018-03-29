@@ -18,7 +18,6 @@ import (
 
 var rxSpace = regexp.MustCompile(`[\s\-]+`)
 var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
-var rxLeadingZeroes = regexp.MustCompile(`^0+\d+$`)
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
 
@@ -324,41 +323,7 @@ func ConvertToTime(in interface{}) (time.Time, error) {
 }
 
 func Autotype(in interface{}) interface{} {
-	if IsTime(in) {
-		if v, err := ConvertToTime(in); err == nil {
-			return v
-		}
-	}
-
-	// effectively, this detects strings that are numeric, but have leading zeroes.
-	// we should treat those as meaningful and return that string outright
-	//
-	// (e.g.: handle the "US Zip Code" problem)
-	if vStr, ok := in.(string); ok {
-		if rxLeadingZeroes.MatchString(vStr) {
-			return vStr
-		}
-
-		// certain known string values should convert to nil directly
-		for _, nilStr := range NilStrings {
-			if vStr == nilStr {
-				return nil
-			}
-		}
-	}
-
-	for _, ctype := range []ConvertType{
-		utils.Boolean,
-		utils.Integer,
-		utils.Float,
-		utils.String,
-	} {
-		if value, err := ConvertTo(ctype, in); err == nil {
-			return value
-		}
-	}
-
-	return in
+	return utils.Autotype(in)
 }
 
 func IsSeparator(r rune) bool {

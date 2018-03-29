@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"reflect"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -19,6 +20,7 @@ const (
 	Time
 )
 
+var rxLeadingZeroes = regexp.MustCompile(`^0+\d+$`)
 var NilStrings = []string{`null`, `NULL`, `<nil>`, `nil`, `Nil`, `None`, `undefined`, ``}
 var BooleanTrueValues = []string{`true`, `yes`, `on`}
 var BooleanFalseValues = []string{`false`, `no`, `off`}
@@ -221,4 +223,42 @@ func DetectTimeFormat(in string) string {
 	}
 
 	return ``
+}
+
+func Autotype(in interface{}) interface{} {
+	if IsTime(in) {
+		if v, err := ConvertTo(Time, in); err == nil {
+			return v
+		}
+	}
+
+	// effectively, this detects strings that are numeric, but have leading zeroes.
+	// we should treat those as meaningful and return that string outright
+	//
+	// (e.g.: handle the "US Zip Code" problem)
+	if vStr, ok := in.(string); ok {
+		if rxLeadingZeroes.MatchString(vStr) {
+			return vStr
+		}
+
+		// certain known string values should convert to nil directly
+		for _, nilStr := range NilStrings {
+			if vStr == nilStr {
+				return nil
+			}
+		}
+	}
+
+	for _, ctype := range []ConvertType{
+		Boolean,
+		Integer,
+		Float,
+		String,
+	} {
+		if value, err := ConvertTo(ctype, in); err == nil {
+			return value
+		}
+	}
+
+	return in
 }

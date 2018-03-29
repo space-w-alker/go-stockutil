@@ -2,6 +2,7 @@ package maputil
 
 import (
 	"strings"
+	"time"
 
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
@@ -30,9 +31,19 @@ func (self *Map) Get(key string, fallbacks ...interface{}) typeutil.Variadic {
 	}
 }
 
+// Return the value at key as an automatically converted value.
+func (self *Map) Auto(key string, fallbacks ...interface{}) interface{} {
+	return self.Get(key, fallbacks...).Auto()
+}
+
 // Return the value at key as a string.
 func (self *Map) String(key string, fallbacks ...interface{}) string {
 	return self.Get(key, fallbacks...).String()
+}
+
+// Return the value at key interpreted as a Time.
+func (self *Map) Time(key string, fallbacks ...interface{}) time.Time {
+	return self.Get(key, fallbacks...).Time()
 }
 
 // Return the value at key as a bool.

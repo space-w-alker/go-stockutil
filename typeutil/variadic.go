@@ -2,6 +2,7 @@ package typeutil
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/ghetzel/go-stockutil/utils"
 )
@@ -67,4 +68,18 @@ func (self Variadic) Slice() []Variadic {
 	})
 
 	return values
+}
+
+// Return the value automaticall converted to the appropriate type.
+func (self Variadic) Auto() interface{} {
+	return utils.Autotype(self.Value)
+}
+
+// Return the value as a time.Time if it can be interpreted as such, or zero time otherwise.
+func (self Variadic) Time() time.Time {
+	if v, err := utils.ConvertToTime(self.Value); err == nil {
+		return v
+	} else {
+		return time.Time{}
+	}
 }

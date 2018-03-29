@@ -2,6 +2,7 @@ package maputil
 
 import (
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/require"
 )
@@ -14,7 +15,10 @@ func TestM(t *testing.T) {
 			`s1`:     `test`,
 			`values`: []int{1, 2, 3, 4},
 			`truthy`: `True`,
+			`strnum`: `42`,
+			`then`:   `2006-01-02`,
 		},
+		`now`:    time.Now(),
 		`third`:  3.1415,
 		`fourth`: 42,
 	})
@@ -24,6 +28,8 @@ func TestM(t *testing.T) {
 	assert.Equal(int64(0), M(nil).Int(`lol`))
 	assert.Equal(float64(0), M(nil).Float(`lol`))
 	assert.Len(M(nil).Slice(`lol`), 0)
+	assert.Equal(false, M(nil).Auto(`second.strnum`))
+	assert.Zero(M(nil).Time(`now`))
 
 	assert.Equal(`test`, input.String(`second.s1`))
 	assert.True(input.Bool(`first`))
@@ -36,4 +42,6 @@ func TestM(t *testing.T) {
 	assert.Equal(int64(0), input.Int(`second.values.99`))
 	assert.Equal(float64(42), input.Float(`fourth`))
 	assert.Len(input.Slice(`second.values`), 4)
+	assert.Equal(int64(42), input.Auto(`second.strnum`))
+	assert.Equal(time.Date(2006, 1, 2, 0, 0, 0, 0, time.UTC), input.Time(`second.then`))
 }
