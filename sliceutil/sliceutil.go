@@ -7,11 +7,12 @@ import (
 
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
+	"github.com/ghetzel/go-stockutil/utils"
 )
 
-var Stop = fmt.Errorf("stop iterating")
+var Stop = utils.Stop
 
-type IterationFunc func(i int, value interface{}) error                  // {}
+type IterationFunc = utils.IterationFunc
 type CompareFunc func(i int, first interface{}, second interface{}) bool // {}
 type MapFunc func(i int, value interface{}) interface{}
 type MapStringFunc func(i int, value string) string
@@ -281,33 +282,7 @@ func Last(in interface{}) interface{} {
 // with the given input as the argument.
 //
 func Each(slice interface{}, iterFn IterationFunc) error {
-	if iterFn == nil {
-		return nil
-	}
-
-	if typeutil.IsArray(slice) {
-		sliceV := reflect.ValueOf(slice)
-
-		for i := 0; i < sliceV.Len(); i++ {
-			if err := iterFn(i, sliceV.Index(i).Interface()); err != nil {
-				if err == Stop {
-					return nil
-				} else {
-					return err
-				}
-			}
-		}
-	} else {
-		if err := iterFn(0, slice); err != nil {
-			if err == Stop {
-				return nil
-			} else {
-				return err
-			}
-		}
-	}
-
-	return nil
+	return utils.SliceEach(slice, iterFn)
 }
 
 // Takes some input value and returns it as a slice.

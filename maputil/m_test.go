@@ -1,0 +1,39 @@
+package maputil
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
+
+func TestM(t *testing.T) {
+	assert := require.New(t)
+	input := M(map[string]interface{}{
+		`first`: true,
+		`second`: map[string]interface{}{
+			`s1`:     `test`,
+			`values`: []int{1, 2, 3, 4},
+			`truthy`: `True`,
+		},
+		`third`:  3.1415,
+		`fourth`: 42,
+	})
+
+	assert.Equal(``, M(nil).String(`lol`))
+	assert.False(M(nil).Bool(`lol`))
+	assert.Equal(int64(0), M(nil).Int(`lol`))
+	assert.Equal(float64(0), M(nil).Float(`lol`))
+	assert.Len(M(nil).Slice(`lol`), 0)
+
+	assert.Equal(`test`, input.String(`second.s1`))
+	assert.True(input.Bool(`first`))
+	assert.True(input.Bool(`second.truthy`))
+	assert.False(input.Bool(`second.s1`))
+	assert.Equal(3.1415, input.Float(`third`))
+	assert.Equal(int64(3), input.Int(`third`))
+	assert.Equal(int64(42), input.Int(`fourth`))
+	assert.Equal(int64(3), input.Int(`second.values.2`))
+	assert.Equal(int64(0), input.Int(`second.values.99`))
+	assert.Equal(float64(42), input.Float(`fourth`))
+	assert.Len(input.Slice(`second.values`), 4)
+}
