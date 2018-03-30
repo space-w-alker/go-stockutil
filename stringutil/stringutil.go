@@ -65,6 +65,15 @@ func (self SiPrefix) String() string {
 
 type ConvertType = utils.ConvertType
 
+const (
+	Invalid ConvertType = utils.Invalid
+	String              = utils.String
+	Boolean             = utils.Boolean
+	Float               = utils.Float
+	Integer             = utils.Integer
+	Time                = utils.Time
+)
+
 func ParseType(name string) ConvertType {
 	switch strings.ToLower(name) {
 	case `str`:
