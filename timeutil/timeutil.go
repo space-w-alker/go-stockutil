@@ -34,11 +34,9 @@ func ParseDuration(in string) (time.Duration, error) {
 	}, in)
 
 	for {
-		i += 1
+		i++
 
 		if match := rxutil.Match(rxExtendedDurations, in); match != nil {
-			fmt.Printf("in=%s\n", in)
-
 			if num, err := stringutil.ConvertToInteger(match.Group(`number`)); err == nil {
 				var hours int
 
@@ -62,7 +60,6 @@ func ParseDuration(in string) (time.Duration, error) {
 				}
 
 				totalHours += int(num) * hours
-				fmt.Printf("added %d*%d -> total=%d out=%s\n", num, hours, totalHours, in)
 			} else {
 				return 0, fmt.Errorf("Invalid number: %v", err)
 			}
@@ -78,8 +75,6 @@ func ParseDuration(in string) (time.Duration, error) {
 	if totalHours > 0 {
 		in = fmt.Sprintf("%dh%s", totalHours, in)
 	}
-
-	fmt.Printf("finalout=%s total=%d\n", in, totalHours)
 
 	return time.ParseDuration(in)
 }
