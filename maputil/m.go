@@ -19,15 +19,15 @@ func M(data interface{}) *Map {
 }
 
 // Retrieve a value from the Map by the given dot.separated key, or return a fallback
-// value.  Return values are a typeutil.Variadic, which can be easily coerced into
+// value.  Return values are a typeutil.Variant, which can be easily coerced into
 // various types.
-func (self *Map) Get(key string, fallbacks ...interface{}) typeutil.Variadic {
+func (self *Map) Get(key string, fallbacks ...interface{}) typeutil.Variant {
 	if v := DeepGet(self.data, strings.Split(key, `.`), fallbacks...); v != nil {
-		return typeutil.Variadic{
+		return typeutil.Variant{
 			Value: v,
 		}
 	} else {
-		return typeutil.Variadic{}
+		return typeutil.Variant{}
 	}
 }
 
@@ -63,7 +63,7 @@ func (self *Map) Float(key string, fallbacks ...interface{}) float64 {
 
 // Return the value at key as a slice.  Scalar values will be returned as a slice containing
 // only that value.
-func (self *Map) Slice(key string) []typeutil.Variadic {
+func (self *Map) Slice(key string) []typeutil.Variant {
 	return self.Get(key).Slice()
 }
 

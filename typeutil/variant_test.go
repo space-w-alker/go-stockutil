@@ -6,8 +6,8 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestVariadic(t *testing.T) {
+func TestVariant(t *testing.T) {
 	assert := require.New(t)
 
-	assert.Equal(``, Variadic{}.String())
+	assert.Equal(``, Variant{}.String())
 }
