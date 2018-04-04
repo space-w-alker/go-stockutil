@@ -13,6 +13,13 @@ type Variant struct {
 	Value interface{}
 }
 
+// Shortcut for creating a Variant.
+func V(value interface{}) Variant {
+	return Variant{
+		Value: value,
+	}
+}
+
 // Returns whether the underlying value is a zero value.
 func (self Variant) IsZero() bool {
 	return IsZero(self.Value)
