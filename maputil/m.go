@@ -69,6 +69,11 @@ func (self *Map) Float(key string, fallbacks ...interface{}) float64 {
 	return self.Get(key, fallbacks...).Float()
 }
 
+// Return the value at key as a byte slice.
+func (self *Map) Bytes(key string) []byte {
+	return self.Get(key).Bytes()
+}
+
 // Return the value at key as a slice.  Scalar values will be returned as a slice containing
 // only that value.
 func (self *Map) Slice(key string) []typeutil.Variant {

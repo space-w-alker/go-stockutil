@@ -3,6 +3,7 @@ package typeutil
 import (
 	"fmt"
 	"reflect"
+	"strings"
 	"time"
 
 	"github.com/ghetzel/go-stockutil/utils"
@@ -40,6 +41,13 @@ func (self Variant) Bool() bool {
 	if v, err := utils.ConvertToBool(self.Value); err == nil {
 		return v
 	} else {
+		// use a more relaxed set of values for determining "true" because
+		// the user has very explicitly asked us to try
+		switch strings.ToLower(fmt.Sprintf("%v", self.Value)) {
+		case `on`, `1`, `yes`, `active`, `online`:
+			return true
+		}
+
 		return false
 	}
 }
@@ -89,6 +97,15 @@ func (self Variant) Time() time.Time {
 		return v
 	} else {
 		return time.Time{}
+	}
+}
+
+// Return the value at key as a byte slice.
+func (self Variant) Bytes() []byte {
+	if v, err := utils.ConvertToBytes(self.Value); err == nil {
+		return v
+	} else {
+		return []byte{}
 	}
 }
 
