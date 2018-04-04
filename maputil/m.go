@@ -7,15 +7,23 @@ import (
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
+// A Map object (or "M" object) is a utility struct that makes it straightforward to
+// work with interface data types that contain map-like data (has a reflect.Kind equal
+// to reflect.Map).
 type Map struct {
 	data interface{}
 }
 
-// Create a new variadic map object from the given value (which should be a map of some kind).
+// Create a new Variant map object from the given value (which should be a map of some kind).
 func M(data interface{}) *Map {
 	return &Map{
 		data: data,
 	}
+}
+
+// Return the underlying value the M-object was created with.
+func (self *Map) Value() interface{} {
+	return self.data
 }
 
 // Retrieve a value from the Map by the given dot.separated key, or return a fallback
@@ -70,12 +78,6 @@ func (self *Map) Slice(key string) []typeutil.Variant {
 // Return the value at key as a Map.  If the resulting value is nil or not a
 // map type, a null Map will be returned.  All values retrieved from a null
 // Map will return that type's zero value.
-func (self *Map) Map(key string) *Map {
-	if v := self.Get(key); v.Value != nil {
-		if typeutil.IsMap(v) {
-			return M(v)
-		}
-	}
-
-	return M(nil)
+func (self *Map) Map(key string) map[typeutil.Variant]typeutil.Variant {
+	return self.Get(key).Map()
 }

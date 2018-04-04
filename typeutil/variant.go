@@ -2,6 +2,7 @@ package typeutil
 
 import (
 	"fmt"
+	"reflect"
 	"time"
 
 	"github.com/ghetzel/go-stockutil/utils"
@@ -89,4 +90,23 @@ func (self Variant) Time() time.Time {
 	} else {
 		return time.Time{}
 	}
+}
+
+// Return the value as a map[Variant]Variant if it can be interpreted as such, or nil otherwise.
+func (self Variant) Map() map[Variant]Variant {
+	output := make(map[Variant]Variant)
+
+	if IsMap(self.Value) {
+		mapV := reflect.ValueOf(self.Value)
+
+		for _, key := range mapV.MapKeys() {
+			if key.CanInterface() {
+				if value := mapV.MapIndex(key); value.CanInterface() {
+					output[V(key.Interface())] = V(value.Interface())
+				}
+			}
+		}
+	}
+
+	return output
 }

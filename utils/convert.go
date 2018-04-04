@@ -84,6 +84,14 @@ func ToString(in interface{}) (string, error) {
 }
 
 func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
+	if inV, ok := inI.(reflect.Value); ok {
+		if inV.CanInterface() {
+			inI = inV.Interface()
+		} else {
+			return nil, fmt.Errorf("reflect.Value given, but cannot retrieve interface value")
+		}
+	}
+
 	if in, err := ToString(inI); err == nil {
 		switch toType {
 		case Float:
