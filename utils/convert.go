@@ -18,6 +18,7 @@ const (
 	Float
 	Integer
 	Time
+	Bytes
 )
 
 var rxLeadingZeroes = regexp.MustCompile(`^0+\d+$`)
@@ -84,6 +85,9 @@ func ToString(in interface{}) (string, error) {
 }
 
 func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
+	var inS string
+	var inSerr error
+
 	if inV, ok := inI.(reflect.Value); ok {
 		if inV.CanInterface() {
 			inI = inV.Interface()
@@ -92,85 +96,120 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 		}
 	}
 
-	if in, err := ToString(inI); err == nil {
-		switch toType {
-		case Float:
-			if in == `` {
-				return float64(0), nil
-			}
+	inS, inSerr = ToString(inI)
 
-			return strconv.ParseFloat(in, 64)
-		case Integer:
-			if inTime, ok := inI.(time.Time); ok {
-				return int64(inTime.UnixNano()), nil
-			} else if in == `` {
-				return int64(0), nil
-			} else if layout := DetectTimeFormat(in); layout != `` && layout != `epoch` {
-				if tm, err := time.Parse(layout, in); err == nil {
-					return tm.UnixNano(), nil
-				} else {
-					return nil, err
-				}
-			}
-
-			return strconv.ParseInt(in, 10, 64)
-		case Boolean:
-			if inI == nil {
-				return false, nil
-			}
-
-			if IsBooleanTrue(in) {
-				return true, nil
-			} else if IsBooleanFalse(in) {
-				return false, nil
-			} else {
-				return nil, fmt.Errorf("Cannot convert '%s' into a boolean value", in)
-			}
-		case Time:
-			if inTime, ok := inI.(time.Time); ok {
-				return inTime, nil
-			}
-
-			in := strings.Trim(strings.TrimSpace(in), `"'`)
-
-			if DetectTimeFormat(in) == `epoch` {
-				if v, err := strconv.ParseInt(in, 10, 64); err == nil {
-					return time.Unix(v, 0), nil
-				}
-			}
-
-			for _, format := range TimeFormats {
-				if tm, err := time.Parse(format, strings.TrimSpace(in)); err == nil {
-					return tm, nil
-				}
-			}
-
-			switch in {
-			case `now`:
-				return time.Now(), nil
-			default:
-				// handle time zero values
-				tmS := strings.Map(func(r rune) rune {
-					switch r {
-					case '-', ':', ' ', 'T', 'Z':
-						return '0'
-					}
-
-					return r
-				}, in)
-
-				if v, err := strconv.ParseInt(tmS, 10, 64); err == nil && v == 0 {
-					return time.Time{}, nil
-				}
-
-				return nil, fmt.Errorf("Cannot convert '%s' into a date/time value", in)
-			}
-
-		default:
-			return in, nil
+	switch toType {
+	case Float:
+		if inS == `` {
+			return float64(0), nil
 		}
-	} else {
-		return nil, err
+
+		return strconv.ParseFloat(inS, 64)
+	case Integer:
+		if inTime, ok := inI.(time.Time); ok {
+			return int64(inTime.UnixNano()), nil
+		} else if inS == `` {
+			return int64(0), nil
+		} else if layout := DetectTimeFormat(inS); layout != `` && layout != `epoch` {
+			if tm, err := time.Parse(layout, inS); err == nil {
+				return tm.UnixNano(), nil
+			} else {
+				return nil, err
+			}
+		}
+
+		return strconv.ParseInt(inS, 10, 64)
+	case Boolean:
+		if inI == nil {
+			return false, nil
+		}
+
+		if IsBooleanTrue(inS) {
+			return true, nil
+		} else if IsBooleanFalse(inS) {
+			return false, nil
+		} else {
+			return nil, fmt.Errorf("Cannot convert '%s' into a boolean value", inS)
+		}
+	case Time:
+		if inTime, ok := inI.(time.Time); ok {
+			return inTime, nil
+		}
+
+		inS = strings.Trim(strings.TrimSpace(inS), `"'`)
+
+		if DetectTimeFormat(inS) == `epoch` {
+			if v, err := strconv.ParseInt(inS, 10, 64); err == nil {
+				return time.Unix(v, 0), nil
+			}
+		}
+
+		for _, format := range TimeFormats {
+			if tm, err := time.Parse(format, strings.TrimSpace(inS)); err == nil {
+				return tm, nil
+			}
+		}
+
+		switch inS {
+		case `now`:
+			return time.Now(), nil
+		default:
+			// handle time zero values
+			tmS := strings.Map(func(r rune) rune {
+				switch r {
+				case '-', ':', ' ', 'T', 'Z':
+					return '0'
+				}
+
+				return r
+			}, inS)
+
+			if v, err := strconv.ParseInt(tmS, 10, 64); err == nil && v == 0 {
+				return time.Time{}, nil
+			}
+
+			return nil, fmt.Errorf("Cannot convert '%s' into a date/time value", inS)
+		}
+
+	case Bytes:
+		if inI == nil {
+			return []byte{}, nil
+		} else if inB, ok := inI.([]byte); ok {
+			return inB, nil
+		} else if inB, ok := inI.([]uint8); ok {
+			outB := make([]byte, len(inB))
+
+			for i, v := range inB {
+				outB[i] = byte(v)
+			}
+
+			return outB, nil
+		} else if IsKind(inI, reflect.Slice, reflect.Array) {
+			outB := make([]byte, 0)
+
+			if err := SliceEach(inI, func(i int, value interface{}) error {
+				if bb, err := ConvertToInteger(value); err == nil {
+					outB = append(outB, byte(bb))
+					return nil
+				} else {
+					return err
+				}
+			}); err == nil {
+				return outB, nil
+			} else {
+				return nil, err
+			}
+		} else if inSerr == nil {
+			return []byte(inS), inSerr
+		} else {
+			return nil, inSerr
+		}
+
+	case String:
+		return inS, inSerr
+
+	default:
+		return inI, nil
 	}
 }
 
@@ -216,6 +255,14 @@ func ConvertToTime(in interface{}) (time.Time, error) {
 		} else {
 			return time.Time{}, err
 		}
+	}
+}
+
+func ConvertToBytes(in interface{}) ([]byte, error) {
+	if v, err := ConvertTo(Bytes, in); err == nil {
+		return v.([]byte), nil
+	} else {
+		return nil, err
 	}
 }
 

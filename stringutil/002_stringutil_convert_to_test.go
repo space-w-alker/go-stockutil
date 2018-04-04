@@ -6,7 +6,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ghetzel/go-stockutil/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -14,15 +13,15 @@ import (
 func TestConvertToFloat(t *testing.T) {
 	assert := require.New(t)
 
-	v, err := ConvertTo(utils.Float, nil)
+	v, err := ConvertTo(Float, nil)
 	assert.NoError(err)
 	assert.Equal(float64(0), v)
 
-	v, err = ConvertTo(utils.Float, "1.5")
+	v, err = ConvertTo(Float, "1.5")
 	assert.NoError(err)
 	assert.Equal(float64(1.5), v)
 
-	v, err = ConvertTo(utils.Float, "1")
+	v, err = ConvertTo(Float, "1")
 	assert.NoError(err)
 	assert.Equal(float64(1.0), v)
 
@@ -35,7 +34,7 @@ func TestConvertToFloat(t *testing.T) {
 	assert.Equal(float64(1.0), v)
 
 	for _, fail := range []string{`potato`, `true`, `2015-05-01 00:15:16`} {
-		_, err := ConvertTo(utils.Float, fail)
+		_, err := ConvertTo(Float, fail)
 		assert.Error(err)
 
 		_, err = ConvertToFloat(fail)
@@ -46,11 +45,11 @@ func TestConvertToFloat(t *testing.T) {
 func TestConvertToInteger(t *testing.T) {
 	assert := require.New(t)
 
-	v, err := ConvertTo(utils.Integer, nil)
+	v, err := ConvertTo(Integer, nil)
 	assert.NoError(err)
 	assert.Equal(int64(0), v)
 
-	v, err = ConvertTo(utils.Integer, "7")
+	v, err = ConvertTo(Integer, "7")
 	assert.NoError(err)
 	assert.Equal(int64(7), v)
 
@@ -60,7 +59,7 @@ func TestConvertToInteger(t *testing.T) {
 
 	tm := time.Date(2010, 2, 21, 15, 14, 13, 0, time.UTC)
 
-	v, err = ConvertTo(utils.Integer, tm)
+	v, err = ConvertTo(Integer, tm)
 	assert.NoError(err)
 	assert.Equal(tm.UnixNano(), v)
 
@@ -68,12 +67,12 @@ func TestConvertToInteger(t *testing.T) {
 	assert.NoError(err)
 	assert.Equal(tm.UnixNano(), v)
 
-	v, err = ConvertTo(utils.Integer, `2010-02-21 15:14:13`)
+	v, err = ConvertTo(Integer, `2010-02-21 15:14:13`)
 	assert.NoError(err)
 	assert.Equal(tm.UnixNano(), v)
 
 	for _, fail := range []string{`0.0`, `1.5`, `potato`, `true`} {
-		_, err := ConvertTo(utils.Integer, fail)
+		_, err := ConvertTo(Integer, fail)
 		assert.Error(err)
 
 		_, err = ConvertToInteger(fail)
@@ -81,17 +80,41 @@ func TestConvertToInteger(t *testing.T) {
 	}
 }
 
+func TestConvertToBytes(t *testing.T) {
+	assert := require.New(t)
+
+	v, err := ConvertTo(Bytes, nil)
+	assert.NoError(err)
+	assert.Equal([]byte{}, v)
+
+	v, err = ConvertTo(Bytes, []byte{})
+	assert.NoError(err)
+	assert.Equal([]byte{}, v)
+
+	v, err = ConvertTo(Bytes, []byte{1, 2, 3})
+	assert.NoError(err)
+	assert.Equal([]byte{1, 2, 3}, v)
+
+	v, err = ConvertTo(Bytes, `test`)
+	assert.NoError(err)
+	assert.Equal([]byte{0x74, 0x65, 0x73, 0x74}, v)
+
+	v, err = ConvertTo(Bytes, []int{0x74, 0x65, 0x73, 0x74})
+	assert.NoError(err)
+	assert.Equal(`test`, string(v.([]byte)))
+}
+
 func TestConvertToBoolean(t *testing.T) {
 	assert := require.New(t)
 
-	v, err := ConvertTo(utils.Boolean, nil)
+	v, err := ConvertTo(Boolean, nil)
 	assert.Equal(false, v)
 
-	v, err = ConvertTo(utils.Boolean, `true`)
+	v, err = ConvertTo(Boolean, `true`)
 	assert.NoError(err)
 	assert.Equal(true, v)
 
-	v, err = ConvertTo(utils.Boolean, `false`)
+	v, err = ConvertTo(Boolean, `false`)
 	assert.NoError(err)
 	assert.Equal(false, v)
 
@@ -104,7 +127,7 @@ func TestConvertToBoolean(t *testing.T) {
 	assert.Equal(false, v)
 
 	for _, fail := range []string{`1.5`, `potato`, `01`, `2015-05-01 00:15:16`} {
-		_, err := ConvertTo(utils.Boolean, fail)
+		_, err := ConvertTo(Boolean, fail)
 		assert.Error(err)
 
 		_, err = ConvertToBool(fail)
@@ -140,7 +163,7 @@ func TestConvertToTime(t *testing.T) {
 	assert.Zero(v)
 
 	for in, out := range values {
-		if v, err := ConvertTo(utils.Time, in); err == nil {
+		if v, err := ConvertTo(Time, in); err == nil {
 			switch v.(type) {
 			case time.Time:
 				assert.Equal(out, v.(time.Time))
@@ -159,7 +182,7 @@ func TestConvertToTime(t *testing.T) {
 	}
 
 	for _, fail := range []string{`1.5`, `potato`, `false`} {
-		if _, err := ConvertTo(utils.Time, fail); err == nil {
+		if _, err := ConvertTo(Time, fail); err == nil {
 			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
 		}
 

@@ -72,6 +72,7 @@ const (
 	Float               = utils.Float
 	Integer             = utils.Integer
 	Time                = utils.Time
+	Bytes               = utils.Bytes
 )
 
 func ParseType(name string) ConvertType {
@@ -329,6 +330,10 @@ func ConvertToBool(in interface{}) (bool, error) {
 
 func ConvertToTime(in interface{}) (time.Time, error) {
 	return utils.ConvertToTime(in)
+}
+
+func ConvertToBytes(in interface{}) ([]byte, error) {
+	return utils.ConvertToBytes(in)
 }
 
 func Autotype(in interface{}) interface{} {
