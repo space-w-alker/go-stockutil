@@ -28,7 +28,7 @@ func TestM(t *testing.T) {
 	assert.Equal(int64(0), M(nil).Int(`lol`))
 	assert.Equal(float64(0), M(nil).Float(`lol`))
 	assert.Len(M(nil).Slice(`lol`), 0)
-	assert.Equal(false, M(nil).Auto(`second.strnum`))
+	assert.Nil(M(nil).Auto(`second.strnum`))
 	assert.Zero(M(nil).Time(`now`))
 
 	assert.Equal(`test`, input.String(`second.s1`))

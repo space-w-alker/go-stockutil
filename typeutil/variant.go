@@ -1,6 +1,7 @@
 package typeutil
 
 import (
+	"encoding/json"
 	"fmt"
 	"reflect"
 	"strings"
@@ -126,4 +127,9 @@ func (self Variant) Map() map[Variant]Variant {
 	}
 
 	return output
+}
+
+// Satisfy the json.Marshaler interface
+func (self Variant) MarshalJSON() ([]byte, error) {
+	return json.Marshal(self.Auto())
 }

@@ -288,6 +288,10 @@ func DetectTimeFormat(in string) string {
 }
 
 func Autotype(in interface{}) interface{} {
+	if in == nil {
+		return nil
+	}
+
 	if IsTime(in) {
 		if v, err := ConvertTo(Time, in); err == nil {
 			return v

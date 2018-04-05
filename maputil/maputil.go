@@ -866,7 +866,16 @@ func Autotype(input interface{}) map[string]interface{} {
 	output := make(map[string]interface{})
 
 	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
-		if isLeaf {
+		// if we encounter a Variant, use its autotyping instead of walking the struct
+		if valueVar, ok := value.(typeutil.Variant); ok {
+			value = valueVar.Auto()
+
+			if !typeutil.IsEmpty(value) {
+				DeepSet(output, path, value)
+			}
+
+			return SkipDescendants
+		} else if isLeaf {
 			if !typeutil.IsEmpty(value) {
 				DeepSet(output, path, stringutil.Autotype(value))
 			}
