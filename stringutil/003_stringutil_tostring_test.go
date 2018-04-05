@@ -6,6 +6,21 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestConvertToString(t *testing.T) {
+	assert := require.New(t)
+
+	v, err := ConvertTo(String, nil)
+	assert.NoError(err)
+	assert.Equal(``, v)
+
+	v, err = ConvertTo(String, []byte{0x74, 0x65, 0x73, 0x74})
+	assert.NoError(err)
+	assert.Equal(`test`, v)
+
+	v, err = ConvertTo(String, []uint8{0x74, 0x65, 0x73, 0x74})
+	assert.NoError(err)
+	assert.Equal(`test`, v)
+}
 func TestToString(t *testing.T) {
 	testvalues := map[interface{}]string{
 		nil:      ``,

@@ -206,6 +206,13 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 		}
 
 	case String:
+		// special case: assume incoming byte slices are actually strings
+		if inB, ok := inI.([]byte); ok {
+			return string(inB), nil
+		} else if inB, ok := inI.([]uint8); ok {
+			return string(inB), nil
+		}
+
 		return inS, inSerr
 
 	default:
