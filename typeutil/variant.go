@@ -29,10 +29,10 @@ func (self Variant) IsZero() bool {
 
 // Return the value as a string, or an empty string if the value could not be converted.
 func (self Variant) String() string {
-	if IsZero(self.Value) {
-		return ``
+	if v, err := utils.ConvertToString(self.Value); err == nil {
+		return v
 	} else {
-		return fmt.Sprintf("%v", self.Value)
+		return ``
 	}
 }
 
