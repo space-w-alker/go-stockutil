@@ -14,6 +14,10 @@ type Thing struct {
 	Value interface{}
 }
 
+type subtime struct {
+	time.Time
+}
+
 func TestIsZero(t *testing.T) {
 	assert := require.New(t)
 
@@ -291,4 +295,8 @@ func TestSetValueStruct(t *testing.T) {
 		reflect.ValueOf(t1).Elem().Field(3),
 		tm,
 	))
+
+	st := subtime{}
+	assert.NoError(SetValue(&st, tm))
+	assert.True(st.Time.Equal(tm))
 }

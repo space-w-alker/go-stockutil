@@ -172,7 +172,7 @@ func Dumpf(format string, in ...interface{}) string {
 func SetValue(target interface{}, value interface{}) error {
 	var targetV, valueV, originalV reflect.Value
 
-	// if we were given a reflect.Value, then we shouldn't take the reflect.ValueOf that
+	// if we were given a reflect.Value target, then we shouldn't take the reflect.ValueOf that
 	if tV, ok := target.(reflect.Value); ok {
 		targetV = tV
 	} else {
@@ -191,6 +191,7 @@ func SetValue(target interface{}, value interface{}) error {
 		return fmt.Errorf("Target %T is not valid", target)
 	}
 
+	// if the value we were given was a reflect.Value, just use that
 	if vV, ok := value.(reflect.Value); ok {
 		originalV = vV
 		valueV = vV
@@ -234,6 +235,14 @@ func SetValue(target interface{}, value interface{}) error {
 				)
 			}
 		} else {
+			if targetV.Kind() == reflect.Struct {
+				if embeddedV := targetV.FieldByName(valueT.Name()); embeddedV.IsValid() {
+					if err := SetValue(embeddedV, value); err == nil {
+						return nil
+					}
+				}
+			}
+
 			// no dice.
 			return fmt.Errorf(
 				"Unable to set target: %T has no path to becoming %v",
