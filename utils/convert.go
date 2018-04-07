@@ -208,9 +208,14 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 	case String:
 		// special case: assume incoming byte slices are actually strings
 		if inB, ok := inI.([]byte); ok {
+			// convert byte slices to strings directly
 			return string(inB), nil
 		} else if inB, ok := inI.([]uint8); ok {
+			// convert byte slices to strings directly
 			return string(inB), nil
+		} else if inV := reflect.ValueOf(inI); inV.Kind() == reflect.Ptr {
+			// dereference pointers to strings and stringify the result
+			inS, inSerr = ToString(inV.Elem())
 		}
 
 		return inS, inSerr

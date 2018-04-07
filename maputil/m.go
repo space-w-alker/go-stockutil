@@ -16,6 +16,14 @@ type Map struct {
 
 // Create a new Variant map object from the given value (which should be a map of some kind).
 func M(data interface{}) *Map {
+	if dataV, ok := data.(typeutil.Variant); ok {
+		data = dataV.Value
+	} else if dataM, ok := data.(*Map); ok {
+		return dataM
+	} else if dataM, ok := data.(Map); ok {
+		return &dataM
+	}
+
 	return &Map{
 		data: data,
 	}

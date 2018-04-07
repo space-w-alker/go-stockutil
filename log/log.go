@@ -141,6 +141,12 @@ func Dump(args ...interface{}) {
 	}
 }
 
+func Dumpf(format string, args ...interface{}) {
+	for _, arg := range args {
+		Logf(DEBUG, format, typeutil.Dump(arg))
+	}
+}
+
 func Error(args ...interface{}) {
 	Log(ERROR, args...)
 }
