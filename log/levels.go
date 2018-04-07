@@ -55,6 +55,6 @@ func GetLevel(level string) Level {
 	case `debug`:
 		return DEBUG
 	default:
-		return CRITICAL
+		return DEBUG
 	}
 }

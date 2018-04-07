@@ -503,6 +503,17 @@ func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interfac
 				return fallback
 			}
 
+		// structs
+		case reflect.Struct:
+			if dValue.Type().Kind() == reflect.Ptr {
+				dValue = dValue.Elem()
+			}
+
+			if structField := dValue.FieldByName(part); structField.IsValid() && structField.CanInterface() {
+				current = structField.Interface()
+				continue
+			}
+
 		// attempting to retrieve nested data from a scalar value; return fallback
 		default:
 			return fallback

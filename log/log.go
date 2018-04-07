@@ -31,7 +31,9 @@ func initLogging() {
 		backend = logging.NewLogBackend(os.Stderr, ``, 0)
 
 		formatted = logging.NewBackendFormatter(backend, logging.MustStringFormatter(
-			fmt.Sprintf(`%%{color}%%{level:.4s}%%{color:reset}[%%{id:04d}] [%%{module:16s}] %%{message}`),
+			fmt.Sprintf(
+				`[%%{time:15:04:05} %%{id:04d}] %%{color:bold}%%{level:.4s}%%{color:reset} %%{message}`,
+			),
 		))
 
 		leveled = logging.AddModuleLevel(formatted)
@@ -49,6 +51,10 @@ func Debugging() bool {
 func Logger() *logging.Logger {
 	initLogging()
 	return defaultLogger
+}
+
+func SetLevelString(level string, modules ...string) {
+	SetLevel(GetLevel(level), modules...)
 }
 
 func SetLevel(level Level, modules ...string) {

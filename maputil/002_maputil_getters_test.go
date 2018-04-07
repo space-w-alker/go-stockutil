@@ -6,6 +6,17 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+type mapTestSubstruct struct {
+	Name  string
+	Value interface{}
+}
+
+type mapTestStruct struct {
+	Name    string
+	NestedP *mapTestSubstruct
+	Nested  mapTestSubstruct
+}
+
 func TestGetNil(t *testing.T) {
 	assert := require.New(t)
 
@@ -115,4 +126,26 @@ func TestDeepGetMapInMap(t *testing.T) {
 
 	assert.Equal(`sentences`, DeepGet(in, []string{`always`, `finishing`, `each_others`}))
 	assert.Nil(DeepGet(in, []string{`always`, `finishing`, `each_others`, `sandwiches`}))
+}
+
+func TestDeepStructs(t *testing.T) {
+	assert := require.New(t)
+
+	in := &mapTestStruct{
+		Name: `toplevel`,
+		NestedP: &mapTestSubstruct{
+			Name:  `one-ptr`,
+			Value: true,
+		},
+		Nested: mapTestSubstruct{
+			Name:  `one-value`,
+			Value: 3.14,
+		},
+	}
+
+	assert.Equal(`toplevel`, DeepGet(in, []string{`Name`}))
+	assert.Equal(`one-ptr`, DeepGet(in, []string{`NestedP`, `Name`}))
+	assert.Equal(true, DeepGet(in, []string{`NestedP`, `Value`}))
+	assert.Equal(`one-value`, DeepGet(in, []string{`Nested`, `Name`}))
+	assert.Equal(float64(3.14), DeepGet(in, []string{`Nested`, `Value`}))
 }
