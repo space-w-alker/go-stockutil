@@ -16,6 +16,9 @@ var leveled logging.LeveledBackend
 var defaultLogger *logging.Logger
 var ModuleName = ``
 
+type LogFunc func(args ...interface{})
+type FormattedLogFunc func(format string, args ...interface{})
+
 // The LOGLEVEL environment variable has final say over the effective log level
 // for all users of this package.
 var LogLevel Level = func() Level {

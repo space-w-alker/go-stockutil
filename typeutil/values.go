@@ -105,10 +105,10 @@ func IsKind(in interface{}, kinds ...reflect.Kind) bool {
 //
 func IsScalar(in interface{}) bool {
 	if !IsKind(in, utils.CompoundTypes...) {
-		return false
+		return true
 	}
 
-	return true
+	return false
 }
 
 // Returns whether the given value is a slice or array.

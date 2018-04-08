@@ -66,6 +66,32 @@ func TestIsEmpty(t *testing.T) {
 	assert.True(IsEmpty(stringmap))
 }
 
+func TestIsScalar(t *testing.T) {
+	assert := require.New(t)
+
+	assert.True(IsScalar(1))
+	assert.True(IsScalar(true))
+	assert.True(IsScalar(3.14))
+	assert.True(IsScalar(`four`))
+	assert.False(IsScalar([]string{`1`}))
+	assert.False(IsScalar(map[string]string{}))
+	assert.False(IsScalar(make(chan string)))
+	assert.False(IsScalar(time.Time{}))
+}
+
+func TestIsStruct(t *testing.T) {
+	assert := require.New(t)
+
+	assert.False(IsStruct(1))
+	assert.False(IsStruct(true))
+	assert.False(IsStruct(3.14))
+	assert.False(IsStruct(`four`))
+	assert.False(IsStruct([]string{`1`}))
+	assert.False(IsStruct(map[string]string{}))
+	assert.False(IsStruct(make(chan string)))
+	assert.True(IsStruct(time.Time{}))
+}
+
 func TestIsArray(t *testing.T) {
 	assert := require.New(t)
 
@@ -204,6 +230,8 @@ func TestSetValueInt(t *testing.T) {
 
 	assert.NoError(SetValue(&i8, uint64(42)))
 	assert.Equal(int8(42), i8)
+
+	assert.NotNil(SetValue(time.Time{}, time.Now()))
 
 	// var i16 int16
 	// var i32 int32
