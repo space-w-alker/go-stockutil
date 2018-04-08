@@ -72,7 +72,13 @@ func MapValues(input interface{}) []interface{} {
 }
 
 func TaggedStructFromMap(input map[string]interface{}, populate interface{}, tagname string) error {
-	populateV := reflect.ValueOf(populate)
+	var populateV reflect.Value
+
+	if pV, ok := populate.(reflect.Value); ok {
+		populateV = pV
+	} else {
+		populateV = reflect.ValueOf(populate)
+	}
 
 	if ptrKind := populateV.Kind(); ptrKind != reflect.Ptr {
 		return fmt.Errorf("Output value must be a pointer to a struct instance, got: %s", ptrKind.String())
