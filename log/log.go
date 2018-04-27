@@ -4,6 +4,7 @@ package log
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/op/go-logging"
@@ -196,4 +197,29 @@ func Warning(args ...interface{}) {
 
 func Warningf(format string, args ...interface{}) {
 	Logf(WARNING, format, args...)
+}
+
+func Confirm(prompt string) bool {
+	return Confirmf(prompt)
+}
+
+func Confirmf(format string, args ...interface{}) bool {
+	var response string
+
+	fmt.Printf(format, args...)
+
+	if _, err := fmt.Scanln(&response); err != nil {
+		panic(err.Error())
+	}
+
+	for _, okay := range []string{
+		`y`,
+		`yes`,
+	} {
+		if strings.ToLower(okay) == strings.ToLower(response) {
+			return true
+		}
+	}
+
+	return false
 }
