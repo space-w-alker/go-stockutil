@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/ghetzel/go-stockutil/typeutil"
+	multierror "github.com/hashicorp/go-multierror"
 	"github.com/op/go-logging"
 )
 
@@ -222,4 +223,14 @@ func Confirmf(format string, args ...interface{}) bool {
 	}
 
 	return false
+}
+
+// Appends on error to another, allowing for operations that return multiple errors
+// to remain compatible within a single-valued context.
+func AppendError(base error, err error) error {
+	if err == nil {
+		return base
+	} else {
+		return multierror.Append(base, err)
+	}
 }
