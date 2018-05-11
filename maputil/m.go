@@ -22,6 +22,8 @@ func M(data interface{}) *Map {
 		return dataM
 	} else if dataM, ok := data.(Map); ok {
 		return &dataM
+	} else if data == nil {
+		data = make(map[string]interface{})
 	}
 
 	return &Map{
@@ -32,6 +34,14 @@ func M(data interface{}) *Map {
 // Return the underlying value the M-object was created with.
 func (self *Map) Value() interface{} {
 	return self.data
+}
+
+// Set a value in the Map at the give dot.separated key.
+func (self *Map) Set(key string, value interface{}) typeutil.Variant {
+	vv := typeutil.V(value)
+	self.data = DeepSet(self.data, strings.Split(key, `.`), vv)
+
+	return vv
 }
 
 // Retrieve a value from the Map by the given dot.separated key, or return a fallback

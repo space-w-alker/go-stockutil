@@ -45,3 +45,14 @@ func TestM(t *testing.T) {
 	assert.Equal(int64(42), input.Auto(`second.strnum`))
 	assert.Equal(time.Date(2006, 1, 2, 0, 0, 0, 0, time.UTC), input.Time(`second.then`))
 }
+
+func TestMSet(t *testing.T) {
+	assert := require.New(t)
+	input := M(nil)
+
+	assert.Equal(``, input.String(`lol`))
+
+	assert.Equal(`2funny4me`, input.Set(`lol`, `2funny4me`).String())
+
+	assert.Equal(`2funny4me`, input.String(`lol`))
+}
