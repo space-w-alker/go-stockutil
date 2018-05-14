@@ -218,6 +218,8 @@ func Len(in interface{}) int {
 // present, or the given input is not indexable, the second return value will be
 // false.
 func At(in interface{}, index int) (interface{}, bool) {
+	in = typeutil.ResolveValue(in)
+
 	if typeutil.IsKind(in, reflect.Array, reflect.Slice, reflect.String) {
 		inV := reflect.ValueOf(in)
 
