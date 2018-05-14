@@ -203,6 +203,8 @@ func OrString(in ...string) string {
 
 // Returns the length of the given slice, array, or string.
 func Len(in interface{}) int {
+	in = typeutil.ResolveValue(in)
+
 	if typeutil.IsKind(in, reflect.Array, reflect.Slice, reflect.String) {
 		inV := reflect.ValueOf(in)
 		return inV.Len()
