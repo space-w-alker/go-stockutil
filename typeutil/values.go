@@ -256,3 +256,68 @@ func SetValue(target interface{}, value interface{}) error {
 
 	return nil
 }
+
+func IsKindOfInteger(in interface{}) bool {
+	var kind reflect.Kind
+
+	if k, ok := in.(reflect.Kind); ok {
+		kind = k
+	} else {
+		kind = reflect.TypeOf(in).Kind()
+	}
+
+	return IsKind(
+		kind,
+		reflect.Int,
+		reflect.Int8,
+		reflect.Int16,
+		reflect.Int32,
+		reflect.Int64,
+		reflect.Uint,
+		reflect.Uint8,
+		reflect.Uint16,
+		reflect.Uint32,
+		reflect.Uint64,
+		reflect.Uintptr,
+	)
+}
+
+func IsKindOfFloat(in interface{}) bool {
+	var kind reflect.Kind
+
+	if k, ok := in.(reflect.Kind); ok {
+		kind = k
+	} else {
+		kind = reflect.TypeOf(in).Kind()
+	}
+
+	return IsKind(
+		kind,
+		reflect.Float32,
+		reflect.Float64,
+	)
+}
+
+func IsKindOfBool(in interface{}) bool {
+	var kind reflect.Kind
+
+	if k, ok := in.(reflect.Kind); ok {
+		kind = k
+	} else {
+		kind = reflect.TypeOf(in).Kind()
+	}
+
+	return IsKind(kind, reflect.Bool)
+}
+
+func IsKindOfString(in interface{}) bool {
+	var kind reflect.Kind
+
+	if k, ok := in.(reflect.Kind); ok {
+		kind = k
+	} else {
+		kind = reflect.TypeOf(in).Kind()
+	}
+
+	return IsKind(kind, reflect.String)
+}
