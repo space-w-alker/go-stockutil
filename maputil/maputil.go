@@ -576,7 +576,6 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 
 			return dataMap
 		}
-
 	} else {
 		//  Array Embedding
 		//    this is where keys that are actually array indices get processed

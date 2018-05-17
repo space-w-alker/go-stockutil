@@ -1,6 +1,7 @@
 package maputil
 
 import (
+	"encoding/json"
 	"strings"
 	"time"
 
@@ -103,4 +104,8 @@ func (self *Map) Slice(key string) []typeutil.Variant {
 // Map will return that type's zero value.
 func (self *Map) Map(key string) map[typeutil.Variant]typeutil.Variant {
 	return self.Get(key).Map()
+}
+
+func (self *Map) MarshalJSON() ([]byte, error) {
+	return json.Marshal(self.data)
 }
