@@ -604,13 +604,37 @@ func SplitPair(in string, delimiter string) (string, string) {
 // Split the given string into two parts.  If there is only one resulting part,
 // that part will be the second return value and the first return value will be empty.
 func SplitPairTrailing(in string, delimiter string) (string, string) {
+	first, rest := SplitPair(in, delimiter)
+
+	if rest == `` {
+		return rest, first
+	} else {
+		return first, rest
+	}
+}
+
+// Split the given string into two parts from the right. If there is only one resulting part,
+// that part will be the first return value and the second return value will be empty.
+func SplitPairRight(in string, delimiter string) (string, string) {
 	parts := strings.Split(in, delimiter)
 
 	switch len(parts) {
 	case 1:
-		return ``, parts[0]
+		return parts[0], ``
 	default:
-		return parts[0], strings.Join(parts[1:], delimiter)
+		return strings.Join(parts[0:len(parts)-1], delimiter), parts[len(parts)-1]
+	}
+}
+
+// Split the given string into two parts.  If there is only one resulting part,
+// that part will be the second return value and the first return value will be empty.
+func SplitPairRightTrailing(in string, delimiter string) (string, string) {
+	first, rest := SplitPairRight(in, delimiter)
+
+	if rest == `` {
+		return rest, first
+	} else {
+		return first, rest
 	}
 }
 

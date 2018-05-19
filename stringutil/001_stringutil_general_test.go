@@ -391,3 +391,76 @@ func TestElideWords(t *testing.T) {
 		),
 	)
 }
+
+func TestSplitPairFamily(t *testing.T) {
+	assert := require.New(t)
+	var first, rest string
+
+	// ---------------------------------------------------------------------------------------------
+	first, rest = SplitPair(``, `.`)
+	assert.Equal(``, first)
+	assert.Equal(``, rest)
+
+	first, rest = SplitPair(`test`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(``, rest)
+
+	first, rest = SplitPair(`test.values`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(`values`, rest)
+
+	first, rest = SplitPair(`test.values.nested`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(`values.nested`, rest)
+
+	// ---------------------------------------------------------------------------------------------
+	first, rest = SplitPairTrailing(``, `.`)
+	assert.Equal(``, first)
+	assert.Equal(``, rest)
+
+	first, rest = SplitPairTrailing(`test`, `.`)
+	assert.Equal(``, first)
+	assert.Equal(`test`, rest)
+
+	first, rest = SplitPairTrailing(`test.values`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(`values`, rest)
+
+	first, rest = SplitPairTrailing(`test.values.nested`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(`values.nested`, rest)
+
+	// ---------------------------------------------------------------------------------------------
+	first, rest = SplitPairRight(``, `.`)
+	assert.Equal(``, first)
+	assert.Equal(``, rest)
+
+	first, rest = SplitPairRight(`test`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(``, rest)
+
+	first, rest = SplitPairRight(`test.values`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(`values`, rest)
+
+	first, rest = SplitPairRight(`test.values.nested`, `.`)
+	assert.Equal(`test.values`, first)
+	assert.Equal(`nested`, rest)
+
+	// ---------------------------------------------------------------------------------------------
+	first, rest = SplitPairRightTrailing(``, `.`)
+	assert.Equal(``, first)
+	assert.Equal(``, rest)
+
+	first, rest = SplitPairRightTrailing(`test`, `.`)
+	assert.Equal(``, first)
+	assert.Equal(`test`, rest)
+
+	first, rest = SplitPairRightTrailing(`test.values`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(`values`, rest)
+
+	first, rest = SplitPairRightTrailing(`test.values.nested`, `.`)
+	assert.Equal(`test.values`, first)
+	assert.Equal(`nested`, rest)
+}
