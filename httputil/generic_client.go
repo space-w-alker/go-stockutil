@@ -220,7 +220,12 @@ func (self *Client) Encode(in interface{}) ([]byte, error) {
 	}
 }
 
+// Decode a response and, if applicable, automatically close the reader.
 func (self *Client) Decode(r io.Reader, out interface{}) error {
+	if closer, ok := r.(io.Closer); ok {
+		defer closer.Close()
+	}
+
 	if self.decoder != nil {
 		return self.decoder(r, out)
 	} else {
