@@ -176,6 +176,9 @@ func (self *Client) Request(
 					}
 				}
 
+				// close connection after sending this request and reading its response
+				request.Close = true
+
 				// perform the request
 				if response, err := self.httpClient.Do(request); err == nil {
 					if self.postRequestHook != nil {
