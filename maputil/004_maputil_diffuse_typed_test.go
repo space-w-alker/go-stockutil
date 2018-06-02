@@ -1,8 +1,10 @@
 package maputil
 
 import (
+	"fmt"
 	"testing"
-	// "fmt"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestDiffuseTypedOneTierScalar(t *testing.T) {
@@ -40,6 +42,8 @@ func TestDiffuseTypedOneTierScalar(t *testing.T) {
 }
 
 func TestDiffuseTypedOneTierComplex(t *testing.T) {
+	assert := require.New(t)
+
 	var errs []error
 
 	input := make(map[string]interface{})
@@ -56,57 +60,32 @@ func TestDiffuseTypedOneTierComplex(t *testing.T) {
 
 	if output, errs = DiffuseMapTyped(input, ".", ":"); len(errs) > 0 {
 		for _, err := range errs {
-			t.Errorf("%s\n", err)
+			assert.NoError(err)
 		}
 	}
 
 	//  test string array
-	if _, ok := output["array"]; !ok {
-		t.Errorf("Key %s is missing from output", "array")
-		return
-	}
+	assert.Contains(output, `array`)
+	assert.Len(output[`array`], 3)
 
 	for i, v := range output["array"].([]string) {
-		if v != input["str:array"].([]string)[i] {
-			t.Errorf("Incorrect value '%s' for key %s[%d]", v, "array", i)
-		}
+		assert.Equal(v, input["str:array"].([]string)[i])
 	}
 
-	if _, ok := output["array"]; !ok {
-		t.Errorf("Key %s is missing from output", "array")
-	}
+	assert.Contains(output, `array2`)
+	assert.Len(output[`array2`], 3)
 
 	for i, v := range output["array2"].([]string) {
-		if v != input["array2"].([]string)[i] {
-			t.Errorf("Incorrect value '%s' for key %s[%d]", v, "array", i)
-		}
+		assert.Equal(v, input["array2"].([]string)[i])
 	}
 
 	//  test int array
-	if _, ok := output["numary"]; !ok {
-		t.Errorf("Key %s is missing from output", "numary")
-	}
-
-	if l := len(output["numary"].([]interface{})); l != 3 {
-		t.Errorf("Incorrect length for numary; expected 3, got %d", l)
-	}
-
-	if a := output["numary"].([]interface{}); a[0].(int64) != 9 {
-		t.Errorf("Expected numary[0] = 9, got %v", a[0])
-	}
-
-	if a := output["numary"].([]interface{}); a[1].(int64) != 7 {
-		t.Errorf("Expected numary[1] = 7, got %v", a[1])
-	}
-
-	if a := output["numary"].([]interface{}); a[2].(int64) != 3 {
-		t.Errorf("Expected numary[2] = 3, got %v", a[2])
-	}
+	assert.Contains(output, `numary`)
+	assert.Len(output[`numary`], 3)
+	assert.ElementsMatch(output["numary"], []int64{9, 7, 3})
 
 	//  test string-int map
-	if _, ok := output["things"]; !ok {
-		t.Errorf("Key %s is missing from output", "things")
-	}
+	assert.Contains(output, `things`)
 
 	for k, v := range output["things"].(map[string]interface{}) {
 		switch k {
@@ -126,109 +105,100 @@ func TestDiffuseTypedOneTierComplex(t *testing.T) {
 	}
 }
 
-// func TestDiffuseMultiTierScalar(t *testing.T) {
-//     var err error
+func TestDiffuseTypedMultiTierScalar(t *testing.T) {
+	assert := require.New(t)
+	var errs []error
 
-//     input  := make(map[string]interface{})
-//     output := make(map[string]interface{})
+	input := make(map[string]interface{})
+	output := make(map[string]interface{})
 
-//     input["items.0"] = 54
-//     input["items.1"] = 77
-//     input["items.2"] = 82
+	input["int:items.0"] = 54
+	input["int:items.1"] = 77
+	input["int:items.2"] = 82
 
-//     if output, err = DiffuseMap(input, "."); err != nil {
-//         t.Errorf("%s\n", err)
-//     }
+	output, errs = DiffuseMapTyped(input, ".", ":")
+	assert.Len(errs, 0)
 
-//     if i_items, ok := output["items"]; ok {
-//         items := i_items.([]interface{})
+	assert.ElementsMatch(output["items"], []int64{54, 77, 82})
+}
 
-//         for i, v := range []int{ 54, 77, 82 } {
-//             if len(items) <= i || items[i].(int) != v {
-//                 t.Errorf("Output items[%d] != %v", i, v)
-//             }
-//         }
-//     }else{
-//         t.Errorf("Key 'items' is missing from output: %v", output)
-//     }
-// }
+func TestDiffuseTypedMultiTierComplex(t *testing.T) {
+	assert := require.New(t)
+	var errs []error
 
-// func TestDiffuseMultiTierComplex(t *testing.T) {
-//     var err error
+	input := make(map[string]interface{})
+	output := make(map[string]interface{})
 
-//     input  := make(map[string]interface{})
-//     output := make(map[string]interface{})
+	input["str:items.0.name"] = "First"
+	input["int:items.0.age"] = 54
+	input["str:items.1.name"] = "Second"
+	input["int:items.1.age"] = 77
+	input["str:items.2.name"] = "Third"
+	input["int:items.2.age"] = 82
 
-//     input["items.0.name"] = "First"
-//     input["items.0.age"]  = 54
-//     input["items.1.name"] = "Second"
-//     input["items.1.age"]  = 77
-//     input["items.2.name"] = "Third"
-//     input["items.2.age"]  = 82
+	output, errs = DiffuseMapTyped(input, ".", ":")
+	assert.Len(errs, 0)
 
-//     if output, err = DiffuseMap(input, "."); err != nil {
-//         t.Errorf("%s\n", err)
-//     }
+	assert.Len(output["items"], 3)
 
-//     if i_items, ok := output["items"]; ok {
-//         items := i_items.([]interface{})
+	if i_items, ok := output["items"]; ok {
+		items := i_items.([]interface{})
 
-//         if len(items) != 3 {
-//             t.Errorf("Key 'items' should be an array with 3 elements, got %v", i_items)
-//         }
+		for item_id, obj := range items {
+			for k, v := range obj.(map[string]interface{}) {
+				switch k {
+				case `name`:
+					assert.Equal(v, input[fmt.Sprintf("str:items.%d.%s", item_id, k)])
+				case `age`:
+					assert.EqualValues(v, input[fmt.Sprintf("int:items.%d.%s", item_id, k)])
+				}
+			}
+		}
+	} else {
+		t.Errorf("Key 'items' is missing from output: %v", output)
+	}
+}
 
-//         for item_id, obj := range items {
-//             for k, v := range obj.(map[string]interface{}) {
-//                 if inValue, ok := input[fmt.Sprintf("items.%d.%s", item_id, k)]; !ok || inValue != v {
-//                     t.Errorf("Key %s Incorrect, expected %s, got %s", fmt.Sprintf("items.%d.%s", item_id, k), inValue, v)
-//                 }
-//             }
-//         }
-//     }else{
-//         t.Errorf("Key 'items' is missing from output: %v", output)
-//     }
-// }
+func TestDiffuseTypedMultiTierMixed(t *testing.T) {
+	assert := require.New(t)
+	var errs []error
 
-// func TestDiffuseMultiTierMixed(t *testing.T) {
-//     var err error
+	input := make(map[string]interface{})
+	output := make(map[string]interface{})
 
-//     input  := make(map[string]interface{})
-//     output := make(map[string]interface{})
+	input["items.0.tags"] = []string{"base", "other"}
+	input["items.1.tags"] = []string{"thing", "still-other", "more-other"}
+	input["items.2.tags"] = []string{"last"}
 
-//     input["items.0.tags"] = []string{ "base", "other" }
-//     input["items.1.tags"] = []string{ "thing", "still-other", "more-other" }
-//     input["items.2.tags"] = []string{ "last" }
+	output, errs = DiffuseMapTyped(input, ".", ":")
+	assert.Len(errs, 0)
 
-//     if output, err = DiffuseMap(input, "."); err != nil {
-//         t.Errorf("%s\n", err)
-//     }
+	if i_items, ok := output["items"]; ok {
+		items := i_items.([]interface{})
 
-//     if i_items, ok := output["items"]; ok {
-//         items := i_items.([]interface{})
+		if len(items) != 3 {
+			t.Errorf("Key 'items' should be an array with 3 elements, got %v", i_items)
+		}
 
-//         if len(items) != 3 {
-//             t.Errorf("Key 'items' should be an array with 3 elements, got %v", i_items)
-//         }
+		for item_id, obj := range items {
+			for k, v := range obj.(map[string]interface{}) {
+				vAry := v.([]string)
 
-//         for item_id, obj := range items {
-//             for k, v := range obj.(map[string]interface{}) {
-//                 vAry := v.([]string)
+				if inValue, ok := input[fmt.Sprintf("items.%d.%s", item_id, k)]; !ok {
+					t.Errorf("Key %s Incorrect, expected %s, got %s", fmt.Sprintf("items.%d.%s", item_id, k), inValue, v)
+				} else {
+					inValueAry := inValue.([]string)
 
-//                 if inValue, ok := input[fmt.Sprintf("items.%d.%s", item_id, k)]; !ok {
-//                     t.Errorf("Key %s Incorrect, expected %s, got %s", fmt.Sprintf("items.%d.%s", item_id, k), inValue, v)
-//                 }else{
-//                     inValueAry := inValue.([]string)
+					for i, vAryV := range vAry {
 
-//                     for i, vAryV := range vAry {
-
-//                         if vAryV != inValueAry[i] {
-//                             t.Errorf("Key %s[%d] Incorrect, expected %s, got %s", fmt.Sprintf("items.%d.%s", item_id, k), i, inValueAry[i], vAryV)
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }else{
-//         t.Errorf("Key 'items' is missing from output: %v", output)
-//     }
-// }
+						if vAryV != inValueAry[i] {
+							t.Errorf("Key %s[%d] Incorrect, expected %s, got %s", fmt.Sprintf("items.%d.%s", item_id, k), i, inValueAry[i], vAryV)
+						}
+					}
+				}
+			}
+		}
+	} else {
+		t.Errorf("Key 'items' is missing from output: %v", output)
+	}
+}

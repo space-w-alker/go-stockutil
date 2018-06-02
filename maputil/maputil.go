@@ -13,6 +13,7 @@ import (
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
+	"github.com/ghetzel/go-stockutil/utils"
 )
 
 var UnmarshalStructTag string = `maputil`
@@ -289,24 +290,19 @@ func DiffuseMapTyped(data map[string]interface{}, fieldJoiner string, typePrefix
 
 		//  handle "typed" maps in which the type information is embedded
 		if typePrefixSeparator != "" {
-			typeKeyPair := strings.SplitN(key, typePrefixSeparator, 2)
+			var typeName string
 
-			if len(typeKeyPair) == 2 {
-				key = typeKeyPair[1]
+			typeName, key = stringutil.SplitPairTrailing(key, typePrefixSeparator)
 
-				if v, err := coerceIntoType(value, typeKeyPair[0]); err == nil {
-					value = v
-				} else {
-					errs = append(errs, err)
-				}
-			} else {
-				if v, err := coerceIntoType(value, `str`); err == nil {
-					value = v
-				} else {
-					errs = append(errs, err)
-				}
+			if typeName == `` {
+				typeName = `str`
 			}
 
+			if v, err := coerceIntoType(value, typeName); err == nil {
+				value = v
+			} else {
+				errs = append(errs, err)
+			}
 		}
 
 		keyParts = strings.Split(key, fieldJoiner)
@@ -383,18 +379,8 @@ func prepareCoalescedKey(key string, value interface{}, typePrefixSeparator stri
 	} else {
 		var datatype string
 
-		switch reflect.TypeOf(value).Kind() {
-		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64,
-			reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
-			datatype = "int"
-		case reflect.Float32, reflect.Float64:
-			datatype = "float"
-		case reflect.Bool:
-			datatype = "bool"
-		case reflect.String:
-			datatype = "str"
-		default:
-			return key
+		if dtype := utils.DetectConvertType(value); dtype != utils.Invalid {
+			datatype = dtype.String()
 		}
 
 		return datatype + typePrefixSeparator + key
@@ -402,33 +388,14 @@ func prepareCoalescedKey(key string, value interface{}, typePrefixSeparator stri
 }
 
 func coerceIntoType(in interface{}, typeName string) (interface{}, error) {
-	//  make sure `in' is a string, error out if not
-	if inStr, err := stringutil.ToString(in); err == nil {
-		switch typeName {
-		case `bool`:
-			if v, err := strconv.ParseBool(inStr); err == nil {
-				return interface{}(v), nil
-			} else {
-				return nil, fmt.Errorf("Unable to convert '%s' into a boolean", inStr)
-			}
-		case `int`:
-			if v, err := strconv.ParseInt(inStr, 10, 64); err == nil {
-				return interface{}(v), nil
-			} else {
-				return nil, fmt.Errorf("Unable to convert '%s' into an integer", inStr)
-			}
-		case `float`:
-			if v, err := strconv.ParseFloat(inStr, 64); err == nil {
-				return interface{}(v), nil
-			} else {
-				return nil, fmt.Errorf("Unable to convert '%s' into a float", inStr)
-			}
-		case `str`:
-			return interface{}(inStr), nil
-		default:
-			return in, fmt.Errorf("Unknown conversion type '%s'", typeName)
+	if dtype := stringutil.ParseType(typeName); dtype != stringutil.Invalid {
+		if v, err := stringutil.ConvertTo(dtype, in); err == nil {
+			return v, nil
 		}
+	}
 
+	if inStr, err := stringutil.ToString(in); err == nil {
+		return inStr, nil
 	} else {
 		return in, nil
 	}

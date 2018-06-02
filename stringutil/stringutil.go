@@ -67,6 +67,7 @@ type ConvertType = utils.ConvertType
 
 const (
 	Invalid ConvertType = utils.Invalid
+	Nil                 = utils.Nil
 	String              = utils.String
 	Boolean             = utils.Boolean
 	Float               = utils.Float
@@ -87,6 +88,8 @@ func ParseType(name string) ConvertType {
 		return utils.Integer
 	case `time`:
 		return utils.Time
+	case `bytes`:
+		return utils.Bytes
 	default:
 		return utils.Invalid
 	}

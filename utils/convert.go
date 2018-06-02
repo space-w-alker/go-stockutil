@@ -13,6 +13,7 @@ type ConvertType int
 
 const (
 	Invalid ConvertType = iota
+	Nil
 	String
 	Boolean
 	Float
@@ -20,6 +21,25 @@ const (
 	Time
 	Bytes
 )
+
+func (self ConvertType) String() string {
+	switch self {
+	case String:
+		return `str`
+	case Boolean:
+		return `bool`
+	case Float:
+		return `float`
+	case Integer:
+		return `int`
+	case Time:
+		return `time`
+	case Bytes:
+		return `bytes`
+	default:
+		return ``
+	}
+}
 
 var rxLeadingZeroes = regexp.MustCompile(`^0+\d+$`)
 var NilStrings = []string{`null`, `NULL`, `<nil>`, `nil`, `Nil`, `None`, `undefined`, ``}
@@ -32,6 +52,7 @@ var TimeFormats = []string{
 	time.ANSIC,
 	time.UnixDate,
 	time.RubyDate,
+	time.RFC850,
 	time.RFC822,
 	time.RFC822Z,
 	time.RFC1123,
@@ -332,4 +353,44 @@ func Autotype(in interface{}) interface{} {
 	}
 
 	return in
+}
+
+func DetectConvertType(in interface{}) ConvertType {
+	if in == nil {
+		return Nil
+	}
+
+	if IsTime(in) {
+		return Time
+	}
+
+	// effectively, this detects strings that are numeric, but have leading zeroes.
+	// we should treat those as meaningful and return that string outright
+	//
+	// (e.g.: handle the "US Zip Code" problem)
+	if vStr, ok := in.(string); ok {
+		if rxLeadingZeroes.MatchString(vStr) {
+			return String
+		}
+
+		// certain known string values should convert to nil directly
+		for _, nilStr := range NilStrings {
+			if vStr == nilStr {
+				return Nil
+			}
+		}
+	}
+
+	for _, ctype := range []ConvertType{
+		Boolean,
+		Integer,
+		Float,
+		String,
+	} {
+		if _, err := ConvertTo(ctype, in); err == nil {
+			return ctype
+		}
+	}
+
+	return Invalid
 }

@@ -2,9 +2,13 @@ package maputil
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestCoalesceTypedOneTierScalar(t *testing.T) {
+	assert := require.New(t)
+
 	var errs []error
 
 	input := make(map[string]interface{})
@@ -20,52 +24,36 @@ func TestCoalesceTypedOneTierScalar(t *testing.T) {
 		}
 	}
 
-	if v, ok := output["str:id"]; !ok || v != "test" {
-		t.Errorf("Incorrect value '%s' for key %s", v, "str:id")
-	}
-
-	if v, ok := output["bool:enabled"]; !ok || v != "true" {
-		t.Errorf("Incorrect value '%s' for key %s", v, "bool:enabled")
-	}
-
-	if v, ok := output["float:float"]; !ok || v != "2.7" {
-		t.Errorf("Incorrect value '%s' for key %s", v, "float:float")
-	}
+	assert.Equal(`test`, output[`str:id`])
+	assert.Equal(`true`, output[`bool:enabled`])
+	assert.Equal(`2.7`, output[`float:float`])
 }
 
 func TestCoalesceTypedMultiTierScalar(t *testing.T) {
+	assert := require.New(t)
+
 	var errs []error
 
 	input := make(map[string]interface{})
 	output := make(map[string]interface{})
 
 	input["id"] = "top"
-	input["nested"] = make(map[string]interface{})
-	input["nested"].(map[string]interface{})["data"] = true
-	input["nested"].(map[string]interface{})["value"] = 4.9
-	input["nested"].(map[string]interface{})["awesome"] = "very yes"
+	input["nested"] = map[string]interface{}{
+		`data`:    true,
+		`value`:   4.9,
+		`awesome`: "very yes",
+	}
 
-	if output, errs = CoalesceMapTyped(input, ".", ":"); len(errs) > 0 {
+	if output, errs = CoalesceMapTyped(input, "__", "|"); len(errs) > 0 {
 		for _, err := range errs {
 			t.Errorf("%s\n", err)
 		}
 	}
 
-	if v, ok := output["str:id"]; !ok || v != "top" {
-		t.Errorf("Incorrect value '%s' for key %s", v, "str:id")
-	}
-
-	if v, ok := output["bool:nested.data"]; !ok || v != "true" {
-		t.Errorf("Incorrect value '%s' for key %s", v, "bool:nested.data")
-	}
-
-	if v, ok := output["float:nested.value"]; !ok || v != "4.9" {
-		t.Errorf("Incorrect value '%s' for key %s", v, "float:nested.value")
-	}
-
-	if v, ok := output["str:nested.awesome"]; !ok || v != "very yes" {
-		t.Errorf("Incorrect value '%s' for key %s", v, "str:nested.awesome")
-	}
+	assert.Equal(`top`, output[`str|id`])
+	assert.Equal(`true`, output[`bool|nested__data`])
+	assert.Equal(`4.9`, output[`float|nested__value`])
+	assert.Equal(`very yes`, output[`str|nested__awesome`])
 }
 
 func TestCoalesceTypedTopLevelArray(t *testing.T) {
