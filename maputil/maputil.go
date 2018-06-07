@@ -356,7 +356,7 @@ func deepGetValues(keys []string, joiner string, data interface{}) map[string]in
 			}
 
 		case reflect.Slice, reflect.Array:
-			for i, value := range data.([]interface{}) {
+			for i, value := range sliceutil.Sliceify(data) {
 				newKey := keys
 				newKey = append(newKey, strconv.Itoa(i))
 
