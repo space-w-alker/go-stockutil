@@ -747,8 +747,10 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 				// it should be considered a first-class member of the parent struct
 				if fieldV.Anonymous {
 					subpath = path
+				} else if name := fieldNameFromReflect(fieldV); name != `-` {
+					subpath = append(path, name)
 				} else {
-					subpath = append(path, fieldV.Name)
+					continue
 				}
 
 				if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
@@ -913,4 +915,14 @@ func returnSkipOrErr(err error) error {
 	} else {
 		return err
 	}
+}
+
+func fieldNameFromReflect(field reflect.StructField) string {
+	if tag := field.Tag.Get(UnmarshalStructTag); tag != `` {
+		if name, _ := stringutil.SplitPair(tag, `,`); name != `` {
+			return name
+		}
+	}
+
+	return field.Name
 }
