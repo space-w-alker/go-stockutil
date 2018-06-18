@@ -741,7 +741,15 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 			// only operate on exported fields
 			if fieldV.PkgPath == `` {
 				valueV := parentV.Field(i)
-				subpath := append(path, fieldV.Name)
+				var subpath []string
+
+				// if this field is embedded, don't add it to the path list because
+				// it should be considered a first-class member of the parent struct
+				if fieldV.Anonymous {
+					subpath = path
+				} else {
+					subpath = append(path, fieldV.Name)
+				}
 
 				if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
 					return returnSkipOrErr(err)
