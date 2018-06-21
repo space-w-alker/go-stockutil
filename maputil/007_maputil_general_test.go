@@ -125,6 +125,8 @@ type MyStructTester struct {
 }
 
 func TestStructFromMap(t *testing.T) {
+	assert := require.New(t)
+
 	input := map[string]interface{}{
 		`Name`:           `Foo Bar`,
 		`active`:         true,
@@ -179,165 +181,72 @@ func TestStructFromMap(t *testing.T) {
 
 	output := MyStructTester{}
 
-	if err := StructFromMap(input, &output); err == nil {
-		if output.Name != `Foo Bar` {
-			t.Errorf("output.Name; expected: %s, got: %v", `Foo Bar`, output.Name)
-		}
+	err := StructFromMap(input, &output)
+	assert.NoError(err)
 
-		if !output.Active {
-			t.Errorf("output.Active; expected: true, got: false")
-		}
+	assert.Equal(`Foo Bar`, output.Name)
+	assert.True(output.Active)
+	assert.Zero(output.nonexported)
 
-		if output.nonexported != 0 {
-			t.Errorf("output.nonexported; expected: 0, got: %v", output.nonexported)
-		}
+	assert.Equal(1, output.Subtype1.A)
+	assert.Equal(2, output.Subtype1.B)
 
-		if output.Subtype1.A != 1 {
-			t.Errorf("output.Subtype1.A; expected: 1, got: %v", output.Subtype1.A)
-		}
+	assert.NotNil(output.Subtype2)
+	assert.Equal(3, output.Subtype2.A)
+	assert.Equal(4, output.Subtype2.B)
 
-		if output.Subtype1.B != 2 {
-			t.Errorf("output.Subtype1.B; expected: 2, got: %v", output.Subtype1.B)
-		}
+	assert.Equal(time.Duration(15)*time.Second, output.TimeTest)
+	assert.Equal(int32(5), output.IntTest)
 
-		if output.Subtype2 == nil {
-			t.Errorf("output.Subtype2; is nil, should be populated with an instance")
-		} else {
-			if output.Subtype2.A != 3 {
-				t.Errorf("output.Subtype2.A; expected: 3, got: %v", output.Subtype2.A)
-			}
+	assert.NotNil(output.Properties)
+	assert.EqualValues(1, output.Properties[`first`])
+	assert.EqualValues(true, output.Properties[`second`])
+	assert.Equal(`three`, output.Properties[`third`])
 
-			if output.Subtype2.B != 4 {
-				t.Errorf("output.Subtype2.B; expected: 4, got: %v", output.Subtype2.B)
-			}
-		}
+	assert.NotNil(output.StrSliceTest)
+	assert.Len(output.StrSliceTest, 3)
+	assert.Equal(`one`, output.StrSliceTest[0])
+	assert.Equal(`two`, output.StrSliceTest[1])
+	assert.Equal(`three`, output.StrSliceTest[2])
 
-		if output.TimeTest != time.Duration(15)*time.Second {
-			t.Errorf("output.TimeTest; expected: 15s, got: %s", output.TimeTest)
-		}
+	assert.NotNil(output.InterfaceStrSliceTest)
+	assert.Len(output.InterfaceStrSliceTest, 3)
+	assert.EqualValues(`one`, output.InterfaceStrSliceTest[0])
+	assert.EqualValues(`two`, output.InterfaceStrSliceTest[1])
+	assert.EqualValues(`three`, output.InterfaceStrSliceTest[2])
 
-		if output.IntTest != int32(5) {
-			t.Errorf("output.IntTest; expected: 5(int32), got: %d(%T)", output.IntTest, output.IntTest)
-		}
+	assert.NotNil(output.StructSliceTest)
+	assert.Len(output.StructSliceTest, 3)
+	assert.EqualValues(10, output.StructSliceTest[0].A)
+	assert.EqualValues(11, output.StructSliceTest[0].B)
 
-		if output.Properties == nil {
-			t.Errorf("output.Properties; is nil, should be map[string]interface{}")
-		} else {
-			if v, ok := output.Properties[`first`]; !ok || v != 1 {
-				t.Errorf("output.Properties['first']; expected: 1, got: %v(%T)", v, v)
-			}
+	assert.EqualValues(12, output.StructSliceTest[1].A)
+	assert.EqualValues(13, output.StructSliceTest[1].B)
 
-			if v, ok := output.Properties[`second`]; !ok || v != true {
-				t.Errorf("output.Properties['second']; expected: true, got: %v(%T)", v, v)
-			}
+	assert.EqualValues(14, output.StructSliceTest[2].A)
+	assert.EqualValues(15, output.StructSliceTest[2].B)
 
-			if v, ok := output.Properties[`third`]; !ok || v != `three` {
-				t.Errorf("output.Properties['third']; expected: 'three', got: %v(%T)", v, v)
-			}
-		}
+	assert.NotNil(output.StructSliceTest2)
+	assert.Len(output.StructSliceTest2, 3)
+	assert.EqualValues(10, output.StructSliceTest2[0].A)
+	assert.EqualValues(11, output.StructSliceTest2[0].B)
 
-		if output.StrSliceTest == nil {
-			t.Errorf("output.StrSliceTest; is nil, should be []string")
-		} else {
-			if l := len(output.StrSliceTest); l == 3 {
-				if v := output.StrSliceTest[0]; v != `one` {
-					t.Errorf("output.StrSliceTest[0]; expected: 'one', got: %s", v)
-				}
+	assert.EqualValues(12, output.StructSliceTest2[1].A)
+	assert.EqualValues(13, output.StructSliceTest2[1].B)
 
-				if v := output.StrSliceTest[1]; v != `two` {
-					t.Errorf("output.StrSliceTest[1]; expected: 'two', got: %s", v)
-				}
+	assert.EqualValues(14, output.StructSliceTest2[2].A)
+	assert.EqualValues(15, output.StructSliceTest2[2].B)
 
-				if v := output.StrSliceTest[2]; v != `three` {
-					t.Errorf("output.StrSliceTest[2]; expected: 'three', got: %s", v)
-				}
-			} else {
-				t.Errorf("output.StrSliceTest; wrong length - expected: 3, got: %d", l)
-			}
-		}
+	assert.NotNil(output.StructSliceTest3)
+	assert.Len(output.StructSliceTest3, 3)
+	assert.EqualValues(10, output.StructSliceTest3[0].A)
+	assert.EqualValues(11, output.StructSliceTest3[0].B)
 
-		if output.InterfaceStrSliceTest == nil {
-			t.Errorf("output.InterfaceStrSliceTest; is nil, should be []interface{}")
-		} else {
-			if l := len(output.InterfaceStrSliceTest); l == 3 {
-				if v := output.InterfaceStrSliceTest[0]; v != `one` {
-					t.Errorf("output.InterfaceStrSliceTest[0]; expected: 'one', got: %s", v)
-				}
+	assert.EqualValues(12, output.StructSliceTest3[1].A)
+	assert.EqualValues(13, output.StructSliceTest3[1].B)
 
-				if v := output.InterfaceStrSliceTest[1]; v != `two` {
-					t.Errorf("output.InterfaceStrSliceTest[1]; expected: 'two', got: %s", v)
-				}
-
-				if v := output.InterfaceStrSliceTest[2]; v != `three` {
-					t.Errorf("output.InterfaceStrSliceTest[2]; expected: 'three', got: %s", v)
-				}
-			} else {
-				t.Errorf("output.InterfaceStrSliceTest; wrong length - expected: 3, got: %d", l)
-			}
-		}
-
-		if output.StructSliceTest == nil {
-			t.Errorf("output.StructSliceTest; is nil, should be []SubtypeTester")
-		} else {
-			if l := len(output.StructSliceTest); l == 3 {
-				if v := output.StructSliceTest[0]; v.A != 10 || v.B != 11 {
-					t.Errorf("output.StructSliceTest[0]; expected: {10,11}, got: %v", v)
-				}
-
-				if v := output.StructSliceTest[1]; v.A != 12 || v.B != 13 {
-					t.Errorf("output.StructSliceTest[1]; expected: {12,13}, got: %v", v)
-				}
-
-				if v := output.StructSliceTest[2]; v.A != 14 || v.B != 15 {
-					t.Errorf("output.StructSliceTest[2]; expected: {14,15}, got: %v", v)
-				}
-			} else {
-				t.Errorf("output.StructSliceTest; wrong length - expected: 3, got: %d", l)
-			}
-		}
-
-		if output.StructSliceTest2 == nil {
-			t.Errorf("output.StructSliceTest2; is nil, should be []SubtypeTester")
-		} else {
-			if l := len(output.StructSliceTest2); l == 3 {
-				if v := output.StructSliceTest2[0]; v.A != 10 || v.B != 11 {
-					t.Errorf("output.StructSliceTest2[0]; expected: {10,11}, got: %v", v)
-				}
-
-				if v := output.StructSliceTest2[1]; v.A != 12 || v.B != 13 {
-					t.Errorf("output.StructSliceTest2[1]; expected: {12,13}, got: %v", v)
-				}
-
-				if v := output.StructSliceTest2[2]; v.A != 14 || v.B != 15 {
-					t.Errorf("output.StructSliceTest2[2]; expected: {14,15}, got: %v", v)
-				}
-			} else {
-				t.Errorf("output.StructSliceTest2; wrong length - expected: 3, got: %d", l)
-			}
-		}
-
-		if output.StructSliceTest3 == nil {
-			t.Errorf("output.StructSliceTest3; is nil, should be []SubtypeTester")
-		} else {
-			if l := len(output.StructSliceTest3); l == 3 {
-				if v := output.StructSliceTest3[0]; v.A != 10 || v.B != 11 {
-					t.Errorf("output.StructSliceTest3[0]; expected: {10,11}, got: %v", v)
-				}
-
-				if v := output.StructSliceTest3[1]; v.A != 12 || v.B != 13 {
-					t.Errorf("output.StructSliceTest3[1]; expected: {12,13}, got: %v", v)
-				}
-
-				if v := output.StructSliceTest3[2]; v.A != 14 || v.B != 15 {
-					t.Errorf("output.StructSliceTest3[2]; expected: {14,15}, got: %v", v)
-				}
-			} else {
-				t.Errorf("output.StructSliceTest3; wrong length - expected: 3, got: %d", l)
-			}
-		}
-	} else {
-		t.Error(err)
-	}
+	assert.EqualValues(14, output.StructSliceTest3[2].A)
+	assert.EqualValues(15, output.StructSliceTest3[2].B)
 }
 
 func TestMapAppend(t *testing.T) {

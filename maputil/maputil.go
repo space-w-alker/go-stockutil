@@ -14,6 +14,7 @@ import (
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/ghetzel/go-stockutil/utils"
+	"github.com/mitchellh/mapstructure"
 )
 
 var UnmarshalStructTag string = `maputil`
@@ -72,133 +73,19 @@ func MapValues(input interface{}) []interface{} {
 	return values
 }
 
-func TaggedStructFromMap(input map[string]interface{}, populate interface{}, tagname string) error {
-	var populateV reflect.Value
-
-	if pV, ok := populate.(reflect.Value); ok {
-		populateV = pV
-	} else {
-		populateV = reflect.ValueOf(populate)
+func TaggedStructFromMap(input interface{}, populate interface{}, tagname string) error {
+	if tagname == `` {
+		tagname = UnmarshalStructTag
 	}
 
-	if ptrKind := populateV.Kind(); ptrKind != reflect.Ptr {
-		return fmt.Errorf("Output value must be a pointer to a struct instance, got: %s", ptrKind.String())
+	if decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
+		Result:  populate,
+		TagName: tagname,
+	}); err == nil {
+		return decoder.Decode(input)
 	} else {
-		if elem := populateV.Elem(); elem.Kind() != reflect.Struct {
-			return fmt.Errorf("Value must point to a struct instance, got: %T (%s)", populate, elem.Kind().String())
-		} else {
-			elemType := elem.Type()
-
-			for i := 0; i < elemType.NumField(); i++ {
-				field := elemType.Field(i)
-				fieldName := field.Name
-
-				// do this so that we'll always consider the "maputil:" tag first
-				tagValue := field.Tag.Get(UnmarshalStructTag)
-
-				// no maputil tag, fallback to whatever we were given
-				if tagValue == `` && tagname != `` {
-					tagValue = field.Tag.Get(tagname)
-				}
-
-				// if we found a tag, parse it
-				if tagValue != `` {
-					tagParts := strings.Split(tagValue, `,`)
-					fieldName = tagParts[0]
-				}
-
-				if v, ok := input[fieldName]; ok {
-					fieldValue := elem.Field(i)
-
-					if fieldValue.CanSet() {
-						vValue := reflect.ValueOf(v)
-
-						if vValue.IsValid() {
-							// this is where we handle nested structs being populated with nested maps
-							switch v.(type) {
-							case map[string]interface{}:
-								vMap := v.(map[string]interface{})
-
-								// see if we can directly convert/assign the values
-								if vValue.Type().ConvertibleTo(fieldValue.Type()) {
-									fieldValue.Set(vValue.Convert(fieldValue.Type()))
-									continue
-								}
-
-								// recursively populate a new instance of whatever type the destination field is
-								// using this input map value
-								if convertedValue, err := populateNewInstanceFromMap(vMap, fieldValue.Type()); err == nil {
-									fieldValue.Set(convertedValue)
-								} else {
-									return err
-								}
-
-							case []interface{}:
-								switch fieldValue.Kind() {
-								case reflect.Array, reflect.Slice:
-									vISlice := v.([]interface{})
-
-									// for each element of the input array...
-									for _, value := range vISlice {
-										vIValue := reflect.ValueOf(value)
-
-										switch value.(type) {
-										case map[string]interface{}:
-											nestedMap := value.(map[string]interface{})
-
-											// recursively populate a new instance of whatever type the destination field is
-											// using this input array element
-											if convertedValue, err := populateNewInstanceFromMap(nestedMap, fieldValue.Type().Elem()); err == nil {
-												vIValue = convertedValue
-											} else {
-												return err
-											}
-										}
-
-										// make sure the types are compatible and append the new value to the output field
-										if vIValue.Type().ConvertibleTo(fieldValue.Type().Elem()) {
-											fieldValue.Set(reflect.Append(fieldValue, vIValue.Convert(fieldValue.Type().Elem())))
-										}
-									}
-								}
-
-							case []map[string]interface{}:
-								switch fieldValue.Kind() {
-								case reflect.Array, reflect.Slice:
-									vISlice := v.([]map[string]interface{})
-
-									// for each nested map element of the input array...
-									for _, nestedMap := range vISlice {
-										// recursively populate a new instance of whatever type the destination field is
-										// using this input array element
-										if convertedValue, err := populateNewInstanceFromMap(nestedMap, fieldValue.Type().Elem()); err == nil {
-											// make sure the types are compatible and append the new value to the output field
-											if convertedValue.Type().ConvertibleTo(fieldValue.Type().Elem()) {
-												fieldValue.Set(reflect.Append(fieldValue, convertedValue.Convert(fieldValue.Type().Elem())))
-											}
-										} else {
-											return err
-										}
-									}
-								}
-							default:
-								// if not special cases from above were encountered, attempt a type conversion
-								// and fill in the data
-								if vValue.Type().ConvertibleTo(fieldValue.Type()) {
-									fieldValue.Set(vValue.Convert(fieldValue.Type()))
-								}
-							}
-						}
-					} else {
-						return fmt.Errorf("Field '%s' value cannot be changed", field.Name)
-					}
-				}
-			}
-
-		}
+		return err
 	}
-
-	return nil
 }
 
 func StructFromMap(input map[string]interface{}, populate interface{}) error {
