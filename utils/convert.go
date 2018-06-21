@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"unicode/utf8"
 )
 
 type ConvertType int
@@ -81,6 +82,24 @@ func ToString(in interface{}) (string, error) {
 
 	if inStr, ok := in.(fmt.Stringer); ok {
 		return inStr.String(), nil
+	}
+
+	var asBytes []byte
+
+	if u8, ok := in.([]uint8); ok {
+		asBytes = []byte(u8)
+	} else if b, ok := in.([]byte); ok {
+		asBytes = b
+	} else if r, ok := in.([]rune); ok {
+		return string(r), nil
+	}
+
+	if len(asBytes) > 0 {
+		if out := string(asBytes); utf8.ValidString(out) {
+			return out, nil
+		} else {
+			return ``, fmt.Errorf("Given %T is not a valid UTF-8 string", in)
+		}
 	}
 
 	if inT := reflect.TypeOf(in); inT != nil {

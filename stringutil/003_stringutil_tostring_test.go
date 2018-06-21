@@ -22,6 +22,8 @@ func TestConvertToString(t *testing.T) {
 	assert.Equal(`test`, v)
 }
 func TestToString(t *testing.T) {
+	assert := require.New(t)
+
 	testvalues := map[interface{}]string{
 		nil:      ``,
 		int(0):   `0`,
@@ -61,6 +63,18 @@ func TestToString(t *testing.T) {
 			t.Errorf("Value %v (%T) ToString failed: expected '%s', got '%s' (err: %v)", in, in, out, v, err)
 		}
 	}
+
+	s, err := ToString([]uint8{0x74, 0x65, 0x73, 0x74})
+	assert.NoError(err)
+	assert.Equal(`test`, s)
+
+	s, err = ToString([]byte{0x74, 0x65, 0x73, 0x74})
+	assert.NoError(err)
+	assert.Equal(`test`, s)
+
+	s, err = ToString([]rune{'t', 'e', 's', 't'})
+	assert.NoError(err)
+	assert.Equal(`test`, s)
 }
 
 func TestToStringSlice(t *testing.T) {
