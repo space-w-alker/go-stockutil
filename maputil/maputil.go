@@ -86,6 +86,12 @@ func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname st
 		tagname = UnmarshalStructTag
 	}
 
+	if converter == nil {
+		converter = func(from reflect.Type, to reflect.Type, data interface{}) (interface{}, error) {
+			return data, nil
+		}
+	}
+
 	if decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
 		Result:     populate,
 		TagName:    tagname,
@@ -603,7 +609,12 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 
 	if parentV.Kind() == reflect.Ptr {
 		parentV = parentV.Elem()
-		parent = parentV.Interface()
+
+		if parentV.IsValid() {
+			parent = parentV.Interface()
+		} else {
+			return nil
+		}
 	}
 
 	switch parentV.Kind() {
@@ -675,8 +686,11 @@ func Compact(input map[string]interface{}) (map[string]interface{}, error) {
 	output := make(map[string]interface{})
 
 	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
-		if isLeaf {
-			if !typeutil.IsEmpty(value) {
+		if !typeutil.IsEmpty(value) {
+			if typeutil.IsArray(value) {
+				DeepSet(output, path, value)
+				return SkipDescendants
+			} else if isLeaf {
 				DeepSet(output, path, value)
 			}
 		}
