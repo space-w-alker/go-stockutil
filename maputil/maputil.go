@@ -23,6 +23,9 @@ var SkipDescendants = errors.New("skip descendants")
 type WalkFunc func(value interface{}, path []string, isLeaf bool) error
 type ApplyFunc func(key []string, value interface{}) (interface{}, bool)
 
+type ConversionFunc func(from reflect.Type, to reflect.Type, data interface{}) (interface{}, error)
+
+// Return an interface slice of the keys of the given map.
 func Keys(input interface{}) []interface{} {
 	keys := make([]interface{}, 0)
 	input = typeutil.ResolveValue(input)
@@ -49,6 +52,7 @@ func Keys(input interface{}) []interface{} {
 	return keys
 }
 
+// Return a slice of strings representing the keys of the given map.
 func StringKeys(input interface{}) []string {
 	keys := sliceutil.Stringify(Keys(input))
 	sort.Strings(keys)
@@ -56,6 +60,7 @@ func StringKeys(input interface{}) []string {
 	return keys
 }
 
+// Return the values from the given map.
 func MapValues(input interface{}) []interface{} {
 	values := make([]interface{}, 0)
 
@@ -73,14 +78,18 @@ func MapValues(input interface{}) []interface{} {
 	return values
 }
 
-func TaggedStructFromMap(input interface{}, populate interface{}, tagname string) error {
+// Take an input map, and populate the struct instance pointed to by "populate".  Use the values of the tagname tag
+// to inform which map keys should be used to fill struct fields, and if a Conversion function is given, that
+// function will be used to allow values to be converted in preparation for becoming struct field values.
+func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname string, converter ConversionFunc) error {
 	if tagname == `` {
 		tagname = UnmarshalStructTag
 	}
 
 	if decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
-		Result:  populate,
-		TagName: tagname,
+		Result:     populate,
+		TagName:    tagname,
+		DecodeHook: converter,
 	}); err == nil {
 		return decoder.Decode(input)
 	} else {
@@ -88,6 +97,12 @@ func TaggedStructFromMap(input interface{}, populate interface{}, tagname string
 	}
 }
 
+// Same as TaggedStructFromMapFunc, but does not perform any value conversion.
+func TaggedStructFromMap(input interface{}, populate interface{}, tagname string) error {
+	return TaggedStructFromMapFunc(input, populate, tagname, nil)
+}
+
+// Same as TaggedStructFromMapFunc, but no value conversion and uses the "maputil" struct tag.
 func StructFromMap(input map[string]interface{}, populate interface{}) error {
 	return TaggedStructFromMap(input, populate, ``)
 }
@@ -123,6 +138,7 @@ func populateNewInstanceFromMap(input map[string]interface{}, destination reflec
 	return reflect.ValueOf(nil), fmt.Errorf("Could not instantiate type %v", destination)
 }
 
+// Join the given map, using innerJoiner to join keys and values, and outerJoiner to join the resulting key-value lines.
 func Join(input map[string]interface{}, innerJoiner string, outerJoiner string) string {
 	parts := make([]string, 0)
 
@@ -135,6 +151,8 @@ func Join(input map[string]interface{}, innerJoiner string, outerJoiner string) 
 	return strings.Join(parts, outerJoiner)
 }
 
+// Split the given string, first on outerJoiner to form key-value lines, then each line on innerJoiner.
+// Populates a map and returns the result.
 func Split(input string, innerJoiner string, outerJoiner string) map[string]interface{} {
 	rv := make(map[string]interface{})
 	pairs := strings.Split(input, outerJoiner)
