@@ -23,6 +23,8 @@ func M(data interface{}) *Map {
 		return dataM
 	} else if dataM, ok := data.(Map); ok {
 		return &dataM
+	} else if typeutil.IsStruct(data) {
+		data = DeepCopy(data)
 	} else if data == nil {
 		data = make(map[string]interface{})
 	}

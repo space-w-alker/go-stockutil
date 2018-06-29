@@ -7,6 +7,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+type testMstruct struct {
+	ID     string `maputil:"id"`
+	Name   string
+	Factor float64
+}
+
 func TestM(t *testing.T) {
 	assert := require.New(t)
 	input := M(map[string]interface{}{
@@ -55,4 +61,19 @@ func TestMSet(t *testing.T) {
 	assert.Equal(`2funny4me`, input.Set(`lol`, `2funny4me`).String())
 
 	assert.Equal(`2funny4me`, input.String(`lol`))
+}
+
+func TestMStruct(t *testing.T) {
+	assert := require.New(t)
+	input := M(&testMstruct{
+		ID:     `123`,
+		Name:   `tester`,
+		Factor: 3.14,
+	})
+
+	assert.Equal(`123`, input.String(`id`))
+	assert.EqualValues(123, input.Int(`id`))
+
+	assert.Equal(`tester`, input.String(`Name`))
+	assert.Equal(3.14, input.Float(`Factor`))
 }
