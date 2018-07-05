@@ -145,14 +145,21 @@ func populateNewInstanceFromMap(input map[string]interface{}, destination reflec
 }
 
 // Join the given map, using innerJoiner to join keys and values, and outerJoiner to join the resulting key-value lines.
-func Join(input map[string]interface{}, innerJoiner string, outerJoiner string) string {
+func Join(input interface{}, innerJoiner string, outerJoiner string) string {
+	return DeepJoin(input, innerJoiner, outerJoiner, `.`)
+}
+
+// Join the given map, using innerJoiner to join keys and values, and outerJoiner to join the resulting key-value lines.
+func DeepJoin(input interface{}, innerJoiner string, outerJoiner string, nestedSeparator string) string {
 	parts := make([]string, 0)
 
-	for key, value := range input {
-		if v, err := stringutil.ToString(value); err == nil {
-			parts = append(parts, key+innerJoiner+v)
+	Walk(input, func(value interface{}, path []string, isLeaf bool) error {
+		if isLeaf {
+			parts = append(parts, strings.Join(path, nestedSeparator)+innerJoiner+stringutil.MustString(value))
 		}
-	}
+
+		return nil
+	})
 
 	return strings.Join(parts, outerJoiner)
 }
