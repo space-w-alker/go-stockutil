@@ -23,6 +23,11 @@ func V(value interface{}) Variant {
 	}
 }
 
+// Returns whether the underlying value is nil.
+func (self Variant) IsNil() bool {
+	return (self.Value == nil)
+}
+
 // Returns whether the underlying value is a zero value.
 func (self Variant) IsZero() bool {
 	return IsZero(self.Value)
