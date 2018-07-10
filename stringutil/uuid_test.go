@@ -21,4 +21,7 @@ func TestUUID(t *testing.T) {
 
 	assert.Equal(`01020301-0203-0102-0301-020301020301`, uuid.String())
 	assert.Equal(input, uuid.Bytes())
+	assert.Equal(`01020301020301020301020301020301`, uuid.Hex())
+	assert.Equal(`AQIDAQIDAQIDAQIDAQIDAQ==`, uuid.Base64())
+	assert.Equal(`8DfbUyTr2zZABVZdbmdo6`, uuid.Base58())
 }

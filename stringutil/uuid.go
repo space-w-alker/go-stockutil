@@ -1,7 +1,11 @@
 package stringutil
 
 import (
+	"encoding/base64"
+	"encoding/hex"
+
 	"github.com/ghetzel/uuid"
+	"github.com/jbenet/go-base58"
 )
 
 type Uuid struct {
@@ -44,4 +48,16 @@ func UUID() *Uuid {
 
 func (self *Uuid) Bytes() []byte {
 	return []byte(self.UUID[:])
+}
+
+func (self *Uuid) Hex() string {
+	return hex.EncodeToString(self.Bytes())
+}
+
+func (self *Uuid) Base64() string {
+	return base64.StdEncoding.EncodeToString(self.Bytes())
+}
+
+func (self *Uuid) Base58() string {
+	return base58.EncodeAlphabet(self.Bytes(), base58.BTCAlphabet)
 }
