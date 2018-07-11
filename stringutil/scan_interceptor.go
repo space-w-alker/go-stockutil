@@ -51,7 +51,7 @@ func (self *ScanInterceptor) Intercept(sequence string, handler SubsequenceHandl
 	}
 }
 
-// Implements the bufio.SplitFunc interface.
+// Implements the bufio.SplitFunc function signature for use in a bufio.Scanner.
 func (self *ScanInterceptor) Scan(data []byte, atEOF bool) (advance int, token []byte, err error) {
 	if _, err := self.accumulator.Write(data); err != nil {
 		return 0, nil, err
