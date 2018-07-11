@@ -38,7 +38,7 @@ func TestScanInterceptorSingle(t *testing.T) {
 	prompts := 0
 	var lines []string
 
-	splitter := NewScanInterceptor(bufio.ScanLines, map[string]SubsequenceHandlerFunc{
+	splitter := NewScanInterceptor(bufio.ScanLines, map[string]InterceptFunc{
 		`[error] `: func(seq []byte) {
 			errors += 1
 		},
@@ -79,7 +79,7 @@ func TestScanInterceptorMultiple(t *testing.T) {
 	prompts := 0
 	var lines []string
 
-	splitter := NewScanInterceptor(bufio.ScanLines, map[string]SubsequenceHandlerFunc{
+	splitter := NewScanInterceptor(bufio.ScanLines, map[string]InterceptFunc{
 		`[error] `: func(seq []byte) {
 			errors += 1
 		},
@@ -120,7 +120,7 @@ func TestScanInterceptorAddIntercept(t *testing.T) {
 	warnings := 0
 	var lines []string
 
-	splitter := NewScanInterceptor(bufio.ScanLines, map[string]SubsequenceHandlerFunc{
+	splitter := NewScanInterceptor(bufio.ScanLines, map[string]InterceptFunc{
 		`[error] `: func(seq []byte) {
 			errors += 1
 		},
