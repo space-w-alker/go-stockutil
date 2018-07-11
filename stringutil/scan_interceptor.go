@@ -19,6 +19,7 @@ type ScanInterceptor struct {
 	interceptStats     map[string]int64
 	longestSubsequence int
 	totalWritten       int64
+	totalAdvanced      int64
 	highWaterMark      map[string]int64
 	passthrough        bufio.SplitFunc
 }
@@ -56,9 +57,17 @@ func (self *ScanInterceptor) Intercept(sequence string, handler InterceptFunc) {
 
 // Implements the bufio.SplitFunc function signature for use in a bufio.Scanner.
 func (self *ScanInterceptor) Scan(data []byte, atEOF bool) (advance int, token []byte, err error) {
+	// call the SplitFunc we were given
+	advance, token, err = self.passthrough(data, atEOF)
+
 	if !self.Disabled {
-		if _, err := self.accumulator.Write(data); err != nil {
-			return 0, nil, err
+		if len(token) > 0 {
+			if _, err := self.accumulator.Write(token); err != nil {
+				return 0, nil, err
+			}
+
+			// however far we just advanced (if at all), keep track of that
+			self.totalWritten += int64(len(token))
 		}
 
 		// if we've accumulated *at least* as many bytes as our longest subsequence, then
@@ -85,17 +94,25 @@ func (self *ScanInterceptor) Scan(data []byte, atEOF bool) (advance int, token [
 					continue
 				}
 
+				work := soFar
+
 				// find the index in the stream of our match (if any)
-				if indexOf := bytes.Index(soFar, subseq); indexOf >= 0 {
-					// mark the end of the stream (so we ensure we dont fire events for anything before this point)
-					endIndex := indexOf + len(subseq)
+				for {
+					if indexOf := bytes.Index(work, subseq); indexOf >= 0 {
+						// mark the end of the stream (so we ensure we dont fire events for anything before this point)
+						endIndex := indexOf + len(subseq)
 
-					// fire the handler
-					handler(soFar[indexOf:endIndex])
-					self.interceptStats[k] = self.interceptStats[k] + 1
+						// fire the handler
+						handler(work[indexOf:endIndex])
+						work = work[endIndex:]
 
-					// advance the HWM for this interceptor past this result
-					self.highWaterMark[k] = self.totalWritten + int64(endIndex)
+						self.interceptStats[k] = self.interceptStats[k] + 1
+
+						// advance the HWM for this interceptor past this result
+						self.highWaterMark[k] = self.totalWritten + int64(endIndex) + 1
+					} else {
+						break
+					}
 				}
 			}
 
@@ -103,12 +120,6 @@ func (self *ScanInterceptor) Scan(data []byte, atEOF bool) (advance int, token [
 			self.accumulator = bytes.NewBuffer(nil)
 		}
 	}
-
-	// call the SplitFunc we were given
-	advance, token, err = self.passthrough(data, atEOF)
-
-	// however far we just advanced (if at all), keep track of that
-	self.totalWritten += int64(advance)
 
 	// return the results of the SplitFunc we were given
 	return advance, token, err
