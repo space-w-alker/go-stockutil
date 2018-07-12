@@ -36,7 +36,9 @@ func (self Status) Took() time.Duration {
 }
 
 func (self Status) String() string {
-	if self.Running {
+	if self.Error != nil {
+		return self.Error.Error()
+	} else if self.Running {
 		if self.PID > 0 {
 			return fmt.Sprintf("PID %d has been running for %v", self.PID, time.Since(self.StartedAt))
 		} else {
@@ -48,7 +50,7 @@ func (self Status) String() string {
 		} else {
 			return fmt.Sprintf("Process exited with status %d, took %v, PID unknown", self.ExitCode, self.Took())
 		}
-	} else if self.StoppedAt.IsZero() {
+	} else if self.StartedAt.IsZero() {
 		return fmt.Sprintf("Process has not started yet")
 	} else {
 		return fmt.Sprintf("Process status is unknown")
@@ -140,8 +142,6 @@ func (self *Cmd) Run() error {
 }
 
 func (self *Cmd) Start() error {
-	defer self.waitReallyDone()
-
 	if err := self.prestart(); err == nil {
 		if err := self.Cmd.Start(); err != nil {
 			self.exitError = err
@@ -231,12 +231,13 @@ func (self *Cmd) updateStatus() {
 
 	// handle known exit errors
 	if self.exitError != nil {
+		self.status.Error = self.exitError
+		self.status.Running = false
+		self.status.StoppedAt = time.Now()
+
 		if xerr, ok := self.exitError.(*exec.ExitError); ok {
 			pstate = xerr.ProcessState
 		} else {
-			self.status.Running = false
-			self.status.StoppedAt = time.Now()
-			self.status.Error = self.exitError
 			self.done <- self.status
 			return
 		}
