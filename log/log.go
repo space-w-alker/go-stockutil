@@ -3,6 +3,7 @@ package log
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"strings"
 
@@ -56,6 +57,12 @@ func Debugging() bool {
 func Logger() *logging.Logger {
 	initLogging()
 	return defaultLogger
+}
+
+// Set the destination Writer where logs will henceforth be written.
+func SetOutput(w io.Writer) {
+	initLogging()
+	backend.Logger.SetOutput(w)
 }
 
 func SetLevelString(level string, modules ...string) {
