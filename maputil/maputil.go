@@ -92,6 +92,14 @@ func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname st
 		}
 	}
 
+	if populateV, ok := populate.(reflect.Value); ok {
+		if populateV.IsValid() {
+			populate = populateV.Interface()
+		} else {
+			return fmt.Errorf("Destination value is invalid or non-addressable")
+		}
+	}
+
 	if decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
 		Result:     populate,
 		TagName:    tagname,
