@@ -16,7 +16,6 @@ import (
 	"github.com/jdkato/prose/tokenize"
 )
 
-var rxSpace = regexp.MustCompile(`[\s\-]+`)
 var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
@@ -397,7 +396,24 @@ func Camelize(in interface{}) string {
 }
 
 func Underscore(in interface{}) string {
-	inS := rxSpace.ReplaceAllString(MustString(in), `_`)
+	return Snakeify(in, '_')
+}
+
+func Hyphenate(in interface{}) string {
+	return Snakeify(in, '-')
+}
+
+func Snakeify(in interface{}, separator rune) string {
+	inS := strings.Map(func(r rune) rune {
+		if unicode.IsSpace(r) {
+			return separator
+		} else if unicode.IsPunct(r) && separator != r {
+			return separator
+		} else {
+			return r
+		}
+	}, MustString(in))
+
 	out := make([]rune, 0)
 	runes := []rune(inS)
 
@@ -409,8 +425,8 @@ func Underscore(in interface{}) string {
 		if unicode.IsUpper(r) {
 			r = unicode.ToLower(r)
 
-			if i > 0 && runes[i-1] != '_' && (sepfn(i-1) || sepfn(i+1)) {
-				out = append(out, '_')
+			if i > 0 && runes[i-1] != separator && (sepfn(i-1) || sepfn(i+1)) {
+				out = append(out, separator)
 			}
 		}
 

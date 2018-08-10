@@ -191,6 +191,44 @@ func TestUnderscore(t *testing.T) {
 	}
 }
 
+func TestHyphenate(t *testing.T) {
+	assert := require.New(t)
+
+	tests := map[string]string{
+		`Test`:       `test`,
+		`test`:       `test`,
+		`test_value`: `test-value`,
+		`test-Value`: `test-value`,
+		`test value`: `test-value`,
+		`TestValue`:  `test-value`,
+		`testValue`:  `test-value`,
+		`TeSt VaLue`: `te-st-va-lue`,
+	}
+
+	for have, want := range tests {
+		assert.Equal(want, Hyphenate(have))
+	}
+}
+
+func TestSnakeify(t *testing.T) {
+	assert := require.New(t)
+
+	tests := map[string]string{
+		`Test`:       `test`,
+		`test`:       `test`,
+		`test_value`: `test:value`,
+		`test-Value`: `test:value`,
+		`test value`: `test:value`,
+		`TestValue`:  `test:value`,
+		`testValue`:  `test:value`,
+		`TeSt VaLue`: `te:st:va:lue`,
+	}
+
+	for have, want := range tests {
+		assert.Equal(want, Snakeify(have, ':'))
+	}
+}
+
 func TestIsMixedCase(t *testing.T) {
 	assert := require.New(t)
 
