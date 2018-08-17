@@ -306,6 +306,11 @@ func Unique(in interface{}) []interface{} {
 	return unique(in, StrictEqualityCompare)
 }
 
+// Returns a new slice with only unique string elements from the given interface included.
+func UniqueStrings(in interface{}) []string {
+	return Stringify(Unique(in))
+}
+
 func unique(in interface{}, comparator CompareFunc) []interface{} {
 	inV := reflect.ValueOf(in)
 	values := make([]interface{}, 0)
