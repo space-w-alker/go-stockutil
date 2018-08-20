@@ -8,6 +8,7 @@ import (
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/ghetzel/go-stockutil/utils"
+	"github.com/juliangruber/go-intersect"
 )
 
 var Stop = utils.Stop
@@ -87,6 +88,20 @@ func ContainsAllStrings(list []string, elems ...string) bool {
 	}
 
 	return true
+}
+
+// Return the intersection of two string slices.
+func IntersectStrings(a []string, b []string) []string {
+	if len(a) == 0 || len(b) == 0 {
+		return make([]string, 0)
+	}
+
+	return Stringify(intersect.Simple(a, b))
+}
+
+// Return the intersection of two slices.
+func Intersect(a interface{}, b interface{}) []interface{} {
+	return Sliceify(intersect.Simple(a, b))
 }
 
 // Removes all elements from the given interface slice that are "empty", which is
@@ -169,7 +184,13 @@ func Stringify(in interface{}) []string {
 
 		for i := 0; i < inV.Len(); i++ {
 			if iV := inV.Index(i); iV.IsValid() {
-				rv[i] = fmt.Sprintf("%v", iV.Interface())
+				value := iV.Interface()
+
+				if str, ok := value.(fmt.Stringer); ok {
+					rv[i] = str.String()
+				} else {
+					rv[i] = fmt.Sprintf("%v", value)
+				}
 			}
 		}
 

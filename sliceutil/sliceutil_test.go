@@ -394,3 +394,16 @@ func TestFlatten(t *testing.T) {
 	assert.Equal([]interface{}{`one`, `two`, `three`}, Flatten([]interface{}{[]string{`one`, `two`}, `three`}))
 	assert.Equal([]interface{}{`one`, `two`, `three`}, Flatten([]interface{}{[]string{`one`}, []string{`two`}, []string{`three`}}))
 }
+
+func TestIntersect(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Empty(IntersectStrings(nil, nil))
+	assert.Empty(IntersectStrings([]string{`a`, `b`, `c`}, nil))
+	assert.Empty(IntersectStrings(nil, []string{`a`, `c`, `e`}))
+
+	assert.Equal(
+		[]string{`a`, `c`},
+		IntersectStrings([]string{`a`, `b`, `c`}, []string{`a`, `c`, `e`}),
+	)
+}
