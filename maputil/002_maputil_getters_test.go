@@ -149,3 +149,45 @@ func TestDeepStructs(t *testing.T) {
 	assert.Equal(`one-value`, DeepGet(in, []string{`Nested`, `Name`}))
 	assert.Equal(float64(3.14), DeepGet(in, []string{`Nested`, `Value`}))
 }
+
+func TestDeepGetNestedArrayElements(t *testing.T) {
+	assert := require.New(t)
+
+	input := map[string]interface{}{
+		`interfaces`: []string{
+			`lo0`, `en1`, `wlan0`,
+		},
+	}
+
+	assert.EqualValues([]interface{}{
+		`lo0`, `en1`, `wlan0`,
+	}, DeepGet(input, []string{`interfaces`, `*`}))
+}
+
+func TestDeepGetNestedArrayOfMaps(t *testing.T) {
+	assert := require.New(t)
+
+	input := map[string]interface{}{
+		`interfaces`: []map[string]interface{}{
+			{
+				`name`: `lo0`,
+				`type`: `loopback`,
+			}, {
+				`name`: `en1`,
+				`type`: `ethernet`,
+			}, {
+				`name`:     `wlan0`,
+				`type`:     `ethernet`,
+				`wireless`: true,
+			},
+		},
+	}
+
+	assert.EqualValues([]interface{}{
+		`loopback`, `ethernet`, `ethernet`,
+	}, DeepGet(input, []string{`interfaces`, `*`, `type`}))
+
+	assert.EqualValues([]interface{}{
+		false, false, true,
+	}, DeepGet(input, []string{`interfaces`, `*`, `wireless`}, false))
+}

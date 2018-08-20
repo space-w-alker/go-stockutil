@@ -388,6 +388,22 @@ func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interfac
 						}
 					}
 				}
+			} else if part == `*` {
+				subitems := make([]interface{}, dValue.Len())
+
+				for j := 0; j < dValue.Len(); j++ {
+					if value := dValue.Index(j).Interface(); value != nil {
+						if i+1 < len(path) {
+							subitems[j] = DeepGet(value, path[(i+1):], fallbacks...)
+						} else {
+							subitems[j] = value
+						}
+					} else {
+						subitems[j] = fallback
+					}
+				}
+
+				return subitems
 			}
 
 			return fallback
