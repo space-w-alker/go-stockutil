@@ -72,3 +72,24 @@ func Q(req *http.Request, key string, fallbacks ...string) string {
 		return ``
 	}
 }
+
+// Sets a query string to the given value in the given url.URL
+func SetQ(u *url.URL, key string, value interface{}) {
+	qs := u.Query()
+	qs.Set(key, stringutil.MustString(value))
+	u.RawQuery = qs.Encode()
+}
+
+// Appends a query string from then given url.URL
+func AddQ(u *url.URL, key string, value interface{}) {
+	qs := u.Query()
+	qs.Add(key, stringutil.MustString(value))
+	u.RawQuery = qs.Encode()
+}
+
+// Deletes a query string from then given url.URL
+func DelQ(u *url.URL, key string) {
+	qs := u.Query()
+	qs.Del(key)
+	u.RawQuery = qs.Encode()
+}
