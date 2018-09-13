@@ -11,6 +11,10 @@ import (
 func TestParseDuration(t *testing.T) {
 	assert := require.New(t)
 
+	v, err := ParseDuration(``)
+	assert.NoError(err)
+	assert.Zero(v)
+
 	for in, out := range map[string]time.Duration{
 		`4h`:    time.Duration(4 * time.Hour),
 		`4H`:    time.Duration(4 * time.Hour),

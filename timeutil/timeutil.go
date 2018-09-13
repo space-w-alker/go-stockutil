@@ -22,6 +22,10 @@ const durationMaxMatches = 16
 //   1d, 1day, 5days:   Expands to (n*24) hours
 //
 func ParseDuration(in string) (time.Duration, error) {
+	if in == `` {
+		return 0, nil
+	}
+
 	var i int
 	var totalHours int
 
