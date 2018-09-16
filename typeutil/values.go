@@ -131,6 +131,21 @@ func IsFunction(in interface{}) bool {
 	return IsKind(in, reflect.Func)
 }
 
+// Returns whether the given value represents a numeric value.
+func IsNumeric(in interface{}) bool {
+	return utils.IsNumeric(in)
+}
+
+// Returns whether the given value represents an integer value.
+func IsInteger(in interface{}) bool {
+	return utils.IsInteger(in)
+}
+
+// Returns whether the given value represents a floating point value.
+func IsFloat(in interface{}) bool {
+	return utils.IsFloat(in)
+}
+
 // Returns whether the given value is a function.  If inParams is not -1, the function must
 // accept that number of arguments.  If outParams is not -1, the function must return that
 // number of values.
