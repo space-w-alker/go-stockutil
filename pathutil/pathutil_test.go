@@ -41,4 +41,10 @@ func TestExpandUser(t *testing.T) {
 	v, err = ExpandUser("~" + u.Name + "/test-123/~" + u.Name + "/123")
 	assert.Equal(v, u.HomeDir+"/test-123/~"+u.Name+"/123")
 	assert.Nil(err)
+
+	assert.False(IsNonemptyFile(`/nonexistent.txt`))
+	assert.False(IsNonemptyDir(`/nonexistent/dir`))
+
+	assert.True(IsNonemptyFile(`/etc/fstab`))
+	assert.True(IsNonemptyDir(`/etc`))
 }

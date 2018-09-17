@@ -3,6 +3,7 @@ package pathutil
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"os/user"
 	"strings"
@@ -24,6 +25,26 @@ func ExpandUser(path string) (string, error) {
 	} else {
 		return path, err
 	}
+}
+
+func IsNonemptyFile(path string) bool {
+	if FileExists(path) {
+		if stat, err := os.Stat(path); err == nil && stat.Size() > 0 {
+			return true
+		}
+	}
+
+	return false
+}
+
+func IsNonemptyDir(path string) bool {
+	if DirExists(path) {
+		if entries, err := ioutil.ReadDir(path); err == nil && len(entries) > 0 {
+			return true
+		}
+	}
+
+	return false
 }
 
 func FileExists(path string) bool {
