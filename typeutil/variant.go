@@ -106,6 +106,15 @@ func (self Variant) Time() time.Time {
 	}
 }
 
+// Return the value as a time.Duration if it can be interpreted as such, or zero otherwise.
+func (self Variant) Duration() time.Duration {
+	if v, err := utils.ParseDuration(self.String()); err == nil {
+		return v
+	} else {
+		return 0
+	}
+}
+
 // Return the value at key as a byte slice.
 func (self Variant) Bytes() []byte {
 	if v, err := utils.ConvertToBytes(self.Value); err == nil {

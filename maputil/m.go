@@ -75,6 +75,11 @@ func (self *Map) Time(key string, fallbacks ...interface{}) time.Time {
 	return self.Get(key, fallbacks...).Time()
 }
 
+// Return the value at key interpreted as a Duration.
+func (self *Map) Duration(key string, fallbacks ...interface{}) time.Duration {
+	return self.Get(key, fallbacks...).Duration()
+}
+
 // Return the value at key as a bool.
 func (self *Map) Bool(key string) bool {
 	return self.Get(key).Bool()
