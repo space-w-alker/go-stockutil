@@ -2,11 +2,11 @@ package stringutil
 
 import (
 	"fmt"
+	"math"
 	"strings"
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -163,37 +163,27 @@ func TestConvertToTime(t *testing.T) {
 	assert.Zero(v)
 
 	for in, out := range values {
-		if v, err := ConvertTo(Time, in); err == nil {
-			switch v.(type) {
-			case time.Time:
-				assert.Equal(out, v.(time.Time))
-			default:
-				t.Errorf("Conversion yielded an incorrect result type: expected time.Time, got: %T", v)
-			}
-		} else {
-			t.Errorf("Error during conversion: %v", err)
-		}
+		v, err := ConvertTo(Time, in)
+		assert.NoError(err)
+		assert.IsType(time.Now(), v)
+		assert.Equal(out, v.(time.Time))
 
-		if v, err := ConvertToTime(in); err == nil {
-			assert.Equal(out, v)
-		} else {
-			t.Errorf("Error during conversion: %v", err)
-		}
+		v, err = ConvertToTime(in)
+		assert.NoError(err)
+		assert.Equal(out, v)
 	}
 
 	for _, fail := range []string{`1.5`, `potato`, `false`} {
-		if _, err := ConvertTo(Time, fail); err == nil {
-			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
-		}
+		_, err := ConvertTo(Time, fail)
+		assert.Error(err)
 
-		if _, err := ConvertToTime(fail); err == nil {
-			t.Errorf("Conversion should have failed for value '%s', but didn't", fail)
-		}
+		_, err = ConvertToTime(fail)
+		assert.Error(err)
 	}
 }
 
 func TestAutotypeNil(t *testing.T) {
-	assert := assert.New(t)
+	assert := require.New(t)
 
 	for _, testValue := range []string{
 		``,
@@ -209,38 +199,39 @@ func TestAutotypeNil(t *testing.T) {
 }
 
 func TestAutotypeFloat(t *testing.T) {
+	assert := require.New(t)
+
 	for _, testValue := range []string{
+		`-0.00000000001`,
+		`0.00000000001`,
 		`1.5`,
 		`-1.5`,
+		fmt.Sprintf("%f", math.MaxFloat64),
+		fmt.Sprintf("%f", -1*math.MaxFloat64),
 	} {
-		v := Autotype(testValue)
-
-		switch v.(type) {
-		case float64:
-			return
-		default:
-			t.Errorf("Invalid autotype: expected float64, got %T", v)
-		}
+		assert.IsType(float64(0), Autotype(testValue), testValue)
 	}
 }
 
 func TestAutotypeInt(t *testing.T) {
+	assert := require.New(t)
+
 	for _, testValue := range []string{
+		`-1`,
+		`0`,
+		`1`,
 		`12345`,
 		`-12345`,
+		fmt.Sprintf("%d", math.MaxInt64),
+		fmt.Sprintf("%d", math.MinInt64),
 	} {
-		v := Autotype(testValue)
-
-		switch v.(type) {
-		case int64:
-			continue
-		default:
-			t.Errorf("Invalid autotype: expected int64, got %T", v)
-		}
+		assert.IsType(int64(0), Autotype(testValue))
 	}
 }
 
 func TestAutotypePreserveLeadingZeroes(t *testing.T) {
+	assert := require.New(t)
+
 	for _, testValue := range []string{
 		`00`,
 		`01`,
@@ -248,48 +239,30 @@ func TestAutotypePreserveLeadingZeroes(t *testing.T) {
 		`06094`,
 		`0000000010000000`,
 	} {
-		v := Autotype(testValue)
-
-		switch v.(type) {
-		case string:
-			continue
-		default:
-			t.Errorf("Invalid autotype: expected string, got %T", v)
-		}
+		assert.IsType(``, Autotype(testValue))
 	}
 }
 
 func TestAutotypeDate(t *testing.T) {
+	assert := require.New(t)
+
 	for _, testValue := range TimeFormats {
 		tvS := strings.Replace(string(testValue), `_`, ``, -1)
 		tvS = strings.TrimSuffix(tvS, `07:00`)
-
-		v := Autotype(tvS)
-
-		switch v.(type) {
-		case time.Time:
-			continue
-		default:
-			t.Errorf("Invalid autotype %q: expected time.Time, got %T", testValue, v)
-		}
+		assert.IsType(time.Now(), Autotype(tvS))
 	}
 }
 
 func TestAutotypeBool(t *testing.T) {
+	assert := require.New(t)
+
 	for _, testValue := range []string{
 		`true`,
 		`True`,
 		`false`,
 		`False`,
 	} {
-		v := Autotype(testValue)
-
-		switch v.(type) {
-		case bool:
-			continue
-		default:
-			t.Errorf("Invalid autotype: expected bool, got %T", v)
-		}
+		assert.IsType(true, Autotype(testValue))
 	}
 
 	for _, testValue := range []string{
@@ -297,13 +270,6 @@ func TestAutotypeBool(t *testing.T) {
 		`Falses`,
 		`potato`,
 	} {
-		v := Autotype(testValue)
-
-		switch v.(type) {
-		case string:
-			continue
-		default:
-			t.Errorf("Invalid autotype: expected string, got %T", v)
-		}
+		assert.IsType(``, Autotype(testValue))
 	}
 }
