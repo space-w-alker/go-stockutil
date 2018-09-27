@@ -80,6 +80,7 @@ var TimeFormats = []string{
 	`2006-01-02T15:04:05 -0700 MST`,
 	`2006-01-02T15:04:05Z07:00`,
 	`2006-01-02T15:04:05`,
+	`2006-01-02T15:04`,
 }
 
 func ToString(in interface{}) (string, error) {

@@ -21,6 +21,10 @@ func TestDetectConvertType(t *testing.T) {
 	assert.Equal(Time, DetectConvertType(`01 May 15 00:15 UTC`))
 	assert.Equal(Time, DetectConvertType(`01 May 15 00:15 +0000`))
 	assert.Equal(Time, DetectConvertType(`Friday, 01-May-15 00:15:16 UTC`))
+	assert.Equal(Time, DetectConvertType(`2003-06-08T11:56`))
+	assert.Equal(Time, DetectConvertType(`2003-06-08T11:56:36`))
+	assert.Equal(Time, DetectConvertType(`2003-06-08 11:56`))
+	assert.Equal(Time, DetectConvertType(`2003-06-08 11:56:36`))
 
 	assert.Equal(Integer, DetectConvertType(`1136239445`))
 	assert.Equal(Integer, DetectConvertType(`1136239445000`))
