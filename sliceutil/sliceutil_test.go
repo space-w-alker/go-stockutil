@@ -279,6 +279,12 @@ func TestOrString(t *testing.T) {
 func TestEach(t *testing.T) {
 	assert := require.New(t)
 
+	type testStruct struct {
+		Name  string
+		Hello bool
+		unex  string
+	}
+
 	assert.Nil(Each(nil, nil))
 
 	assert.Nil(Each([]string{`one`, `two`, `three`}, func(i int, v interface{}) error {
@@ -295,7 +301,29 @@ func TestEach(t *testing.T) {
 		}
 	}))
 
-	assert.Equal(1, count)
+	values := []interface{}{}
+
+	assert.Nil(Each(map[string]string{
+		`one`:   `first`,
+		`two`:   `second`,
+		`three`: `third`,
+	}, func(i int, v interface{}) error {
+		values = append(values, v)
+		return nil
+	}))
+
+	values = []interface{}{}
+
+	assert.Nil(Each(&testStruct{
+		Name:  `test`,
+		Hello: true,
+		unex:  `should not see me`,
+	}, func(i int, v interface{}) error {
+		values = append(values, v)
+		return nil
+	}))
+
+	assert.ElementsMatch([]interface{}{`test`, true}, values)
 }
 
 func TestUnique(t *testing.T) {

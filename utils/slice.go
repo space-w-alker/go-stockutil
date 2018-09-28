@@ -34,6 +34,40 @@ func SliceEach(slice interface{}, iterFn IterationFunc) error {
 					}
 				}
 			}
+		case reflect.Map:
+			mapV := reflect.ValueOf(slice)
+
+			for i, key := range mapV.MapKeys() {
+				if valueV := mapV.MapIndex(key); valueV.IsValid() && valueV.CanInterface() {
+					if err := iterFn(i, valueV.Interface()); err != nil {
+						if err == Stop {
+							return nil
+						} else {
+							return err
+						}
+					}
+				}
+			}
+
+		case reflect.Struct:
+			structV := reflect.ValueOf(slice)
+
+			for i := 0; i < structV.Type().NumField(); i++ {
+				field := structV.Type().Field(i)
+
+				if field.Name != `` {
+					if valueV := structV.Field(i); valueV.IsValid() && valueV.CanInterface() {
+						if err := iterFn(i, valueV.Interface()); err != nil {
+							if err == Stop {
+								return nil
+							} else {
+								return err
+							}
+						}
+					}
+				}
+			}
+
 		default:
 			if err := iterFn(0, slice); err != nil {
 				if err == Stop {
