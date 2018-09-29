@@ -40,7 +40,7 @@ func TestM(t *testing.T) {
 	assert.Equal(`test`, input.String(`second.s1`))
 	assert.True(input.Bool(`first`))
 	assert.True(input.Bool(`second.truthy`))
-	assert.False(input.Bool(`second.s1`))
+	assert.True(input.Bool(`second.s1`))
 	assert.Equal(3.1415, input.Float(`third`))
 	assert.Equal(int64(3), input.Int(`third`))
 	assert.Equal(int64(42), input.Int(`fourth`))

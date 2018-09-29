@@ -2,9 +2,8 @@ package typeutil
 
 import (
 	"encoding/json"
-	"fmt"
 	"reflect"
-	"strings"
+	"text/template"
 	"time"
 
 	"github.com/ghetzel/go-stockutil/utils"
@@ -46,15 +45,13 @@ func (self Variant) String() string {
 func (self Variant) Bool() bool {
 	if v, err := utils.ConvertToBool(self.Value); err == nil {
 		return v
+	} else if vF, err := utils.ConvertToFloat(self.Value); err == nil && vF == 0 {
+		return false
 	} else {
 		// use a more relaxed set of values for determining "true" because
 		// the user has very explicitly asked us to try
-		switch strings.ToLower(fmt.Sprintf("%v", self.Value)) {
-		case `on`, `1`, `yes`, `active`, `online`:
-			return true
-		}
-
-		return false
+		truthy, _ := template.IsTrue(self.Value)
+		return truthy
 	}
 }
 
