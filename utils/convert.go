@@ -113,9 +113,9 @@ func ToString(in interface{}) (string, error) {
 	if inT := reflect.TypeOf(in); inT != nil {
 		switch inT.Kind() {
 		case reflect.Float32:
-			return strconv.FormatFloat(float64(in.(float32)), 'f', -1, 32), nil
+			return strconv.FormatFloat(reflect.ValueOf(in).Float(), 'f', -1, 32), nil
 		case reflect.Float64:
-			return strconv.FormatFloat(in.(float64), 'f', -1, 64), nil
+			return strconv.FormatFloat(reflect.ValueOf(in).Float(), 'f', -1, 64), nil
 		case reflect.Bool:
 			return strconv.FormatBool(in.(bool)), nil
 		case reflect.String:
@@ -150,6 +150,30 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 	case Float:
 		if inS == `` {
 			return float64(0), nil
+		} else if v, ok := inI.(float32); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(float64); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(int); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(int8); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(int16); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(int32); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(int64); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(uint); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(uint8); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(uint16); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(uint32); ok {
+			return float64(v), nil
+		} else if v, ok := inI.(uint64); ok {
+			return float64(v), nil
 		}
 
 		return strconv.ParseFloat(inS, 64)
@@ -164,6 +188,28 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 			} else {
 				return nil, err
 			}
+		}
+
+		if v, ok := inI.(int); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(int8); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(int16); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(int32); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(int64); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(uint); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(uint8); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(uint16); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(uint32); ok {
+			return int64(v), nil
+		} else if v, ok := inI.(uint64); ok {
+			return int64(v), nil
 		}
 
 		return strconv.ParseInt(inS, 10, 64)

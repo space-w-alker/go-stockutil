@@ -13,6 +13,13 @@ import (
 func TestConvertToFloat(t *testing.T) {
 	assert := require.New(t)
 
+	type testFloat float64
+	const (
+		testFloatZero testFloat = iota
+		testFloatE              = 2.71828
+		testFloatPi             = 3.141597
+	)
+
 	v, err := ConvertTo(Float, nil)
 	assert.NoError(err)
 	assert.Equal(float64(0), v)
@@ -32,6 +39,18 @@ func TestConvertToFloat(t *testing.T) {
 	v, err = ConvertToFloat("1.0")
 	assert.NoError(err)
 	assert.Equal(float64(1.0), v)
+
+	v, err = ConvertTo(Float, testFloatZero)
+	assert.NoError(err)
+	assert.Equal(float64(0), v)
+
+	v, err = ConvertTo(Float, testFloatE)
+	assert.NoError(err)
+	assert.Equal(float64(2.71828), v)
+
+	v, err = ConvertTo(Float, testFloatPi)
+	assert.NoError(err)
+	assert.Equal(float64(3.141597), v)
 
 	for _, fail := range []string{`potato`, `true`, `2015-05-01 00:15:16`} {
 		_, err := ConvertTo(Float, fail)
@@ -70,6 +89,25 @@ func TestConvertToInteger(t *testing.T) {
 	v, err = ConvertTo(Integer, `2010-02-21 15:14:13`)
 	assert.NoError(err)
 	assert.Equal(tm.UnixNano(), v)
+
+	type testInt int64
+	const (
+		testInt1 testInt = iota
+		testInt2         = 2
+		testInt3         = 3
+	)
+
+	v, err = ConvertTo(Integer, testInt1)
+	assert.NoError(err)
+	assert.Equal(int64(0), v)
+
+	v, err = ConvertTo(Integer, testInt2)
+	assert.NoError(err)
+	assert.Equal(int64(2), v)
+
+	v, err = ConvertTo(Integer, testInt3)
+	assert.NoError(err)
+	assert.Equal(int64(3), v)
 
 	for _, fail := range []string{`0.0`, `1.5`, `potato`, `true`} {
 		_, err := ConvertTo(Integer, fail)
