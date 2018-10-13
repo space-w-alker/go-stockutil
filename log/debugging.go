@@ -6,14 +6,14 @@ import (
 	"strings"
 )
 
+var MaxStackTraceDepth = 32
+
 type StackItem struct {
 	ProgramCounter uintptr
 	Filename       string
 	Line           int
 	Function       string
 }
-
-var MaxStackTraceDepth = 32
 
 func (self StackItem) String() string {
 	var line []string
@@ -29,10 +29,12 @@ func (self StackItem) String() string {
 	return strings.Join(line, "\n")
 }
 
+type StackItems []StackItem
+
 // Retrieves details about the call stack that led to this function call.
-func StackTrace(skip int) []StackItem {
+func StackTrace(skip int) StackItems {
 	pc := make([]uintptr, MaxStackTraceDepth)
-	items := make([]StackItem, 0)
+	items := make(StackItems, 0)
 
 	if n := runtime.Callers(skip, pc); n <= len(pc) {
 		pc = pc[:n]
