@@ -211,6 +211,8 @@ func Confirm(prompt string) bool {
 	return Confirmf(prompt)
 }
 
+// Present a confirmation prompt. The function returns true if the user interactively responds
+// with "yes" or "y". Otherwise the function returns false.
 func Confirmf(format string, args ...interface{}) bool {
 	var response string
 
@@ -232,7 +234,7 @@ func Confirmf(format string, args ...interface{}) bool {
 	return false
 }
 
-// Appends on error to another, allowing for operations that return multiple errors
+// Appends one error to another, allowing for operations that return multiple errors
 // to remain compatible within a single-valued context.
 func AppendError(base error, err error) error {
 	if err == nil {
