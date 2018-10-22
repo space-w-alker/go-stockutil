@@ -583,46 +583,33 @@ func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
 		return rv
 	}
 
-	inV := reflect.ValueOf(sliceOfMaps)
+	Walk(sliceOfMaps, func(value interface{}, path []string, isLeaf bool) error {
+		if isLeaf && len(path) > 1 {
+			var shouldInclude bool
 
-	if inV.IsValid() {
-		if inV.Kind() == reflect.Interface {
-			inV = inV.Elem()
-		}
+			for i, _ := range path {
+				if i == 0 {
+					continue
+				} else if (i - 1) < len(key) {
+					fmt.Printf("[%v]: %v = %v\n", i, path[i], key[i-1])
 
-		if inV.IsValid() {
-			if inV.Kind() == reflect.Ptr {
-				inV = inV.Elem()
-			}
-
-			if inV.IsValid() {
-				switch inV.Kind() {
-				case reflect.Slice, reflect.Array:
-					for i := 0; i < inV.Len(); i++ {
-						if mapV := inV.Index(i); mapV.IsValid() {
-							if mapV.Kind() == reflect.Interface {
-								mapV = mapV.Elem()
-							}
-
-							if mapV.IsValid() {
-								if mapV.Kind() == reflect.Ptr {
-									mapV = mapV.Elem()
-								}
-
-								if mapV.IsValid() {
-									if mapV.Kind() == reflect.Map {
-										if v := DeepGet(mapV.Interface(), key, nil); v != nil {
-											rv = append(rv, v)
-										}
-									}
-								}
-							}
-						}
+					if key[i-1] == `*` || path[i] == key[i-1] {
+						shouldInclude = true
+						continue
+					} else {
+						shouldInclude = false
+						break
 					}
 				}
 			}
+
+			if shouldInclude {
+				rv = append(rv, value)
+			}
 		}
-	}
+
+		return nil
+	})
 
 	return rv
 }
