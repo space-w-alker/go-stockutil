@@ -591,8 +591,6 @@ func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
 				if i == 0 {
 					continue
 				} else if (i - 1) < len(key) {
-					fmt.Printf("[%v]: %v = %v\n", i, path[i], key[i-1])
-
 					if key[i-1] == `*` || path[i] == key[i-1] {
 						shouldInclude = true
 						continue
