@@ -459,58 +459,120 @@ func DeepGetString(data interface{}, path []string) string {
 }
 
 func newDeepSet(data interface{}, path []string, value interface{}) interface{} {
-	if len(path) == 0 {
-		return data
-	}
+	if len(path) > 0 {
+		var root reflect.Value
 
-	first, rest := path[0], path[1:]
-	// fmt.Printf("\nfirst=%v\nrest=%v\ndata=%T\n", first, rest, data)
-
-	if typeutil.IsMap(data) {
-		dataM := M(data).MapValue()
-
-		if len(rest) > 0 {
-			if valueAtKey, ok := dataM[first]; ok {
-				value = DeepSet(valueAtKey, rest, value)
-			} else {
-				value = DeepSet(make(map[string]interface{}), rest, value)
-			}
-		}
-
-		dataM[first] = value
-		return dataM
-
-	} else if typeutil.IsArray(data) {
-		if typeutil.IsInteger(first) {
-			dataArray := sliceutil.Sliceify(data)
-
-			i := int(typeutil.V(first).Int())
-
-			if i >= len(dataArray) {
-				for add := len(dataArray); add <= i; add++ {
-					dataArray = append(dataArray, nil)
-				}
-			}
-
-			if i < len(dataArray) {
-				dataArray[i] = DeepSet(dataArray[i], rest, value)
-			}
-
-			return dataArray
-		} else {
-			panic(fmt.Sprintf("Cannot index array with key '%v'", first))
-		}
-	} else if len(rest) > 0 {
-		if typeutil.IsInteger(first) {
-			data = make([]interface{}, int(typeutil.V(first).Int()))
-		} else {
+		if data == nil {
 			data = make(map[string]interface{})
 		}
 
-		return DeepSet(data, rest, value)
+		root = reflect.ValueOf(data)
+		last := path[len(path)-1]
+
+		if len(path) > 1 {
+			head := path[:len(path)-1]
+
+			for i, key := range head {
+				if root.Kind() == reflect.Map {
+					root = root.MapIndex(reflect.ValueOf(key))
+				} else if typeutil.IsInteger(last) || (i+1) < len(head) && typeutil.IsInteger(head[i+1]) {
+					fmt.Println("create slice", key)
+					newA := make([]interface{}, 0)
+					if err := Set(root, key, &newA); err != nil {
+						panic("Failed to create intermediate slice")
+					}
+				} else {
+					fmt.Println("create map", key)
+					if err := Set(root, key, make(map[string]interface{})); err != nil {
+						panic("Failed to create intermediate map")
+					}
+				}
+			}
+		}
+
+		// if root == nil {
+		// 	dataT := reflect.TypeOf(data)
+		// 	dataV := reflect.ValueOf(data)
+		// 	dataV.Set(reflect.MakeMap(dataT))
+
+		// 	root = dataV.Interface()
+		// }
+
+		fmt.Println("last", last)
+		if root.IsValid() {
+			fmt.Println(typeutil.Dump(root.Interface()))
+		} else if typeutil.IsInteger(last) {
+			newA := make([]interface{}, 0)
+			root = reflect.ValueOf(&newA)
+		} else {
+			root = reflect.ValueOf(make(map[string]interface{}))
+		}
+
+		switch root.Kind() {
+		case reflect.Map:
+			fmt.Printf("set map(%v) %v=%T\n", root.Type(), last, value)
+
+			if err := Set(root, last, value); err != nil {
+				panic(err.Error())
+			}
+		case reflect.Ptr:
+			switch root.Elem().Kind() {
+			case reflect.Array, reflect.Slice:
+				if typeutil.IsInteger(last) {
+					rootE := root.Elem()
+
+					if i := int(typeutil.V(last).Int()); i >= rootE.Len() {
+						ndata := reflect.MakeSlice(rootE.Type(), i+1, (i+1)*2)
+						reflect.Copy(ndata, rootE)
+						rootE.Set(ndata)
+					}
+
+					fmt.Printf("modify array key=%v len=%d\n", last, rootE.Len())
+					fmt.Println(typeutil.Dump(rootE.Interface()))
+
+					if i := int(typeutil.V(last).Int()); i < rootE.Len() {
+						fmt.Printf("set array(%v:%d) %v=%T\n", rootE.Type(), i, last, value)
+
+						if dataI := rootE.Index(i); dataI.CanSet() {
+							if err := typeutil.SetValue(dataI, value); err != nil {
+								panic(err.Error())
+							}
+						} else {
+							panic("Cannot update slice element")
+						}
+					} else {
+						panic(fmt.Sprintf("Cannot append slice element: %d/%d", i, rootE.Len()))
+					}
+				} else {
+					panic("Cannot use non-integer key to update slice")
+				}
+			}
+		default:
+			panic(fmt.Sprintf("Cannot set value of scalar type %v", root.Type()))
+		}
 	}
 
 	return data
+}
+
+func Set(data interface{}, key interface{}, value interface{}) error {
+	var dataM reflect.Value
+
+	for {
+		if v, ok := data.(reflect.Value); ok {
+			dataM = v
+		} else {
+			dataM = reflect.ValueOf(data)
+			break
+		}
+	}
+
+	dataM.SetMapIndex(
+		reflect.ValueOf(key),
+		reflect.ValueOf(value),
+	)
+
+	return nil
 }
 
 func DeepSet(data interface{}, path []string, value interface{}) interface{} {
