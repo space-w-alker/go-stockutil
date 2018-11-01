@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/ghetzel/go-stockutil/sliceutil"
+
 	"github.com/stretchr/testify/require"
 )
 
@@ -145,7 +147,7 @@ func TestDiffuseTypedMultiTierComplex(t *testing.T) {
 		items := i_items.([]interface{})
 
 		for item_id, obj := range items {
-			for k, v := range obj.(map[string]interface{}) {
+			for k, v := range M(obj).MapValue() {
 				switch k {
 				case `name`:
 					assert.Equal(v, input[fmt.Sprintf("str:items.%d.%s", item_id, k)])
@@ -181,8 +183,8 @@ func TestDiffuseTypedMultiTierMixed(t *testing.T) {
 		}
 
 		for item_id, obj := range items {
-			for k, v := range obj.(map[string]interface{}) {
-				vAry := v.([]string)
+			for k, v := range M(obj).MapValue() {
+				vAry := sliceutil.Stringify(v)
 
 				if inValue, ok := input[fmt.Sprintf("items.%d.%s", item_id, k)]; !ok {
 					t.Errorf("Key %s Incorrect, expected %s, got %s", fmt.Sprintf("items.%d.%s", item_id, k), inValue, v)

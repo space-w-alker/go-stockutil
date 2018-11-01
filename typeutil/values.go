@@ -175,7 +175,7 @@ func Len(in interface{}) int {
 
 // Returns a pretty-printed string representation of the given values.
 func Dump(in1 interface{}, in ...interface{}) string {
-	return scs.Sdump(append([]interface{}{in1}, in...))
+	return scs.Sdump(append([]interface{}{in1}, in...)...)
 }
 
 // Returns a pretty-printed string representation of the given values.

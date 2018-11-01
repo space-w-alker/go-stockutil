@@ -58,14 +58,45 @@ func TestDeepSetArray(t *testing.T) {
 	topArray, ok := output["top-array"]
 	assert.True(ok)
 
-	switch topArray.(type) {
-	case []interface{}:
-		for i, val := range topArray.([]interface{}) {
-			assert.Equal(testValues[i], val)
-		}
-	default:
-		t.Errorf("want topArray to be []string, got: %T", topArray)
+	assert.ElementsMatch(testValues, topArray)
+}
+
+func TestDeepSetArrayIndices(t *testing.T) {
+	assert := require.New(t)
+
+	input := map[string]interface{}{
+		`things`: map[string]interface{}{
+			`type1`: []string{
+				`first`,
+				`second`,
+				`third`,
+			},
+			`type2`: []string{
+				`first`,
+				`second`,
+				`third`,
+			},
+		},
 	}
+
+	output := DeepSet(input, []string{`things`, `type1`, `0`}, `First`)
+	output = DeepSet(output, []string{`things`, `type1`, `2`}, `Third`)
+	output = DeepSet(output, []string{`things`, `type2`, `1`}, `Second`)
+
+	assert.Equal(map[string]interface{}{
+		`things`: map[string]interface{}{
+			`type1`: []interface{}{
+				`First`,
+				`second`,
+				`Third`,
+			},
+			`type2`: []interface{}{
+				`first`,
+				`Second`,
+				`third`,
+			},
+		},
+	}, output)
 }
 
 func TestDeepSetNestedMapCreation(t *testing.T) {

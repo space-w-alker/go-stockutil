@@ -39,6 +39,11 @@ func (self *Map) Value() interface{} {
 	return self.data
 }
 
+// Return the value as a map[string]interface{} {
+func (self *Map) MapValue() map[string]interface{} {
+	return DeepCopy(self.data)
+}
+
 // Set a value in the Map at the give dot.separated key.
 func (self *Map) Set(key string, value interface{}) typeutil.Variant {
 	vv := typeutil.V(value)

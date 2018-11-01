@@ -59,18 +59,15 @@ func TestDeepGetArrayElement(t *testing.T) {
 }
 
 func TestDeepGetMapKeyInArray(t *testing.T) {
+	assert := require.New(t)
+
 	input := make(map[string]interface{})
 
 	input = DeepSet(input, []string{"devices", "0", "name"}, "lo").(map[string]interface{})
 	input = DeepSet(input, []string{"devices", "1", "name"}, "eth0").(map[string]interface{})
 
-	if v := DeepGet(input, []string{"devices", "0", "name"}, nil); v != "lo" {
-		t.Errorf("%s\n", v)
-	}
-
-	if v := DeepGet(input, []string{"devices", "1", "name"}, nil); v != "eth0" {
-		t.Errorf("%s\n", v)
-	}
+	assert.Equal(`lo`, DeepGet(input, []string{"devices", "0", "name"}, nil))
+	assert.Equal(`eth0`, DeepGet(input, []string{"devices", "1", "name"}, nil))
 }
 
 func TestDeepGetMapKeyInDeepArray(t *testing.T) {

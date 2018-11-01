@@ -8,6 +8,7 @@ github.com/ghetzel/go-stockutil v0.0.0-20180920223131-19e5e1b1535b h1:LGxLGWyuk4
 github.com/ghetzel/go-stockutil v0.0.0-20180920223131-19e5e1b1535b/go.mod h1:5XebKZZLmF2xxiVn1xgxNTBDlthBKrDjNdCd1E3X4u4=
 github.com/ghetzel/uuid v0.0.0-20171129191014-dec09d789f3d h1:YVJe7KwVYazt90hCc/q2dYJVS3062AY6QdT6iHd+Kh8=
 github.com/ghetzel/uuid v0.0.0-20171129191014-dec09d789f3d/go.mod h1:7CCemW/spiphukVWb/v2WWYeZkydh30TwSRBh48irZQ=
+github.com/graphql-go/graphql v0.7.6 h1:3Bn1IFB5OvPoANEfu03azF8aMyks0G/H6G1XeTfYbM4=
 github.com/hashicorp/errwrap v1.0.0 h1:hLrqtEDnRye3+sgx6z4qVLNuviH3MR5aQ0ykNJa/UYA=
 github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-multierror v1.0.0 h1:iVjPR7a6H0tWELX5NxNe7bYopibicUzc7uPribsnS6o=

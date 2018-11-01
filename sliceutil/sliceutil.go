@@ -418,3 +418,8 @@ func Autotype(in interface{}) []interface{} {
 
 	return out
 }
+
+// Returns a copy of the given slicified value with the given additional values appended.
+func Append(in interface{}, values ...interface{}) []interface{} {
+	return append(Sliceify(in), values...)
+}
