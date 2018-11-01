@@ -458,6 +458,61 @@ func DeepGetString(data interface{}, path []string) string {
 	return ``
 }
 
+func newDeepSet(data interface{}, path []string, value interface{}) interface{} {
+	if len(path) == 0 {
+		return data
+	}
+
+	first, rest := path[0], path[1:]
+	// fmt.Printf("\nfirst=%v\nrest=%v\ndata=%T\n", first, rest, data)
+
+	if typeutil.IsMap(data) {
+		dataM := M(data).MapValue()
+
+		if len(rest) > 0 {
+			if valueAtKey, ok := dataM[first]; ok {
+				value = DeepSet(valueAtKey, rest, value)
+			} else {
+				value = DeepSet(make(map[string]interface{}), rest, value)
+			}
+		}
+
+		dataM[first] = value
+		return dataM
+
+	} else if typeutil.IsArray(data) {
+		if typeutil.IsInteger(first) {
+			dataArray := sliceutil.Sliceify(data)
+
+			i := int(typeutil.V(first).Int())
+
+			if i >= len(dataArray) {
+				for add := len(dataArray); add <= i; add++ {
+					dataArray = append(dataArray, nil)
+				}
+			}
+
+			if i < len(dataArray) {
+				dataArray[i] = DeepSet(dataArray[i], rest, value)
+			}
+
+			return dataArray
+		} else {
+			panic(fmt.Sprintf("Cannot index array with key '%v'", first))
+		}
+	} else if len(rest) > 0 {
+		if typeutil.IsInteger(first) {
+			data = make([]interface{}, int(typeutil.V(first).Int()))
+		} else {
+			data = make(map[string]interface{})
+		}
+
+		return DeepSet(data, rest, value)
+	}
+
+	return data
+}
+
 func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 	if len(path) == 0 {
 		return data
