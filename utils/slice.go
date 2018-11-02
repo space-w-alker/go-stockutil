@@ -13,7 +13,7 @@ type IterationFunc func(i int, value interface{}) error
 // iterFn exactly once for each element.  Otherwise, call iterFn one time
 // with the given input as the argument.
 //
-func SliceEach(slice interface{}, iterFn IterationFunc) error {
+func SliceEach(slice interface{}, iterFn IterationFunc, preserve ...reflect.Kind) error {
 	if iterFn == nil {
 		return nil
 	}
@@ -35,6 +35,20 @@ func SliceEach(slice interface{}, iterFn IterationFunc) error {
 				}
 			}
 		case reflect.Map:
+			for _, p := range preserve {
+				if p == reflect.Map {
+					if err := iterFn(0, slice); err != nil {
+						if err == Stop {
+							return nil
+						} else {
+							return err
+						}
+					} else {
+						return nil
+					}
+				}
+			}
+
 			mapV := reflect.ValueOf(slice)
 
 			for i, key := range mapV.MapKeys() {
@@ -50,6 +64,20 @@ func SliceEach(slice interface{}, iterFn IterationFunc) error {
 			}
 
 		case reflect.Struct:
+			for _, p := range preserve {
+				if p == reflect.Struct {
+					if err := iterFn(0, slice); err != nil {
+						if err == Stop {
+							return nil
+						} else {
+							return err
+						}
+					} else {
+						return nil
+					}
+				}
+			}
+
 			structV := reflect.ValueOf(slice)
 
 			for i := 0; i < structV.Type().NumField(); i++ {
