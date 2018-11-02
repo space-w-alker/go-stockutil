@@ -55,6 +55,7 @@ func TestDeepSetArray(t *testing.T) {
 
 	// output = DeepSet(output, []string{"top-array"}, 3.4).(map[string]interface{})
 
+	// fmt.Println(typeutil.Dump(output))
 	topArray, ok := output["top-array"]
 	assert.True(ok)
 
@@ -85,12 +86,12 @@ func TestDeepSetArrayIndices(t *testing.T) {
 
 	assert.Equal(map[string]interface{}{
 		`things`: map[string]interface{}{
-			`type1`: []interface{}{
+			`type1`: []string{
 				`First`,
 				`second`,
 				`Third`,
 			},
-			`type2`: []interface{}{
+			`type2`: []string{
 				`first`,
 				`Second`,
 				`third`,
