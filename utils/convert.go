@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 	"regexp"
@@ -46,6 +47,25 @@ func (self ConvertType) String() string {
 		return `bytes`
 	default:
 		return ``
+	}
+}
+
+var PassthroughType = errors.New(`passthrough`)
+
+type TypeConvertFunc func(in interface{}) (interface{}, error)
+
+var typeHandlers = make(map[string]TypeConvertFunc)
+
+// Register's a handler used for converting one type to another. Type are checked in the following
+// manner:  The input value's reflect.Type String() value is matched, falling back to its
+// reflect.Kind String() value, finally checking for a special "*" value that matches any type.
+// If the handler function returns nil, its value replaces the input value.  If the special error
+// type PassthroughType is returned, the original value is returned unmodified.
+func RegisterTypeHandler(handler TypeConvertFunc, types ...string) {
+	for _, t := range types {
+		if t != `` {
+			typeHandlers[t] = handler
+		}
 	}
 }
 
@@ -386,7 +406,48 @@ func DetectTimeFormat(in string) string {
 	return ``
 }
 
+// Returns the given value, converted according to any handlers set via RegisterTypeHandler.
+func ConvertCustomType(in interface{}) (interface{}, error) {
+	var convert TypeConvertFunc
+	var inV reflect.Value
+
+	// if we were given a reflect.Value target, then we shouldn't take the reflect.ValueOf that
+	if tV, ok := in.(reflect.Value); ok {
+		inV = tV
+	} else {
+		inV = reflect.ValueOf(in)
+	}
+
+	if inV.IsValid() {
+		// give type handlers a chance to do their work
+		if handler, ok := typeHandlers[inV.Type().String()]; ok {
+			convert = handler
+		} else if handler, ok := typeHandlers[inV.Kind().String()]; ok {
+			convert = handler
+		} else if handler, ok := typeHandlers[`*`]; ok {
+			convert = handler
+		}
+
+		if convert != nil {
+			if out, err := convert(in); err == nil {
+				return out, nil
+			} else {
+				return nil, err
+			}
+		}
+	}
+
+	return in, PassthroughType
+}
+
 func Autotype(in interface{}) interface{} {
+	// perform custom type conversions (if any)
+	if v, err := ConvertCustomType(in); err == nil {
+		return v
+	} else if err != PassthroughType {
+		panic(err.Error())
+	}
+
 	if in == nil {
 		return nil
 	}

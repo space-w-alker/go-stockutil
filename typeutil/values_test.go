@@ -251,11 +251,12 @@ const (
 )
 
 type testSettable struct {
-	Name      string
-	Type      testEnum
-	CreatedAt time.Time
-	UpdatedAt *time.Time
-	Other     *string
+	Name          string
+	Type          testEnum
+	CreatedAt     time.Time
+	UpdatedAt     *time.Time
+	Other         *string
+	CreatedAtNano int64
 }
 
 func TestSetValueStruct(t *testing.T) {
@@ -327,4 +328,13 @@ func TestSetValueStruct(t *testing.T) {
 	st := subtime{}
 	assert.NoError(SetValue(&st, tm))
 	assert.True(st.Time.Equal(tm))
+
+	// -------------------------------------------------------------------------
+	tm = time.Date(2009, time.November, 10, 23, 0, 0, 0, time.UTC)
+	assert.NoError(SetValue(
+		reflect.ValueOf(t1).Elem().Field(5),
+		tm,
+	))
+
+	assert.Equal(tm.UnixNano(), t1.CreatedAtNano)
 }

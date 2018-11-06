@@ -5,15 +5,27 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/ghetzel/go-stockutil/utils"
 )
 
+type TypeConvertFunc = utils.TypeConvertFunc
+
 var scs = spew.ConfigState{
 	Indent:            `    `,
 	DisableCapacities: true,
 	SortKeys:          true,
+}
+
+// Register's a handler used for converting one type to another. Type are checked in the following
+// manner:  The input value's reflect.Type String() value is matched, falling back to its
+// reflect.Kind String() value, finally checking for a special "*" value that matches any type.
+// If the handler function returns nil, its value replaces the input value.  If the special error
+// type PassthroughType is returned, the original value is returned unmodified.
+func RegisterTypeHandler(handler TypeConvertFunc, types ...string) {
+	utils.RegisterTypeHandler(handler, types...)
 }
 
 // Returns whether the given value represents the underlying type's zero value
@@ -206,6 +218,13 @@ func SetValue(target interface{}, value interface{}) error {
 		return fmt.Errorf("Target %T is not valid", target)
 	}
 
+	// perform custom type conversions (if any)
+	if v, err := utils.ConvertCustomType(value); err == nil {
+		value = v
+	} else if err != utils.PassthroughType {
+		return err
+	}
+
 	// if the value we were given was a reflect.Value, just use that
 	if vV, ok := value.(reflect.Value); ok {
 		originalV = vV
@@ -255,6 +274,16 @@ func SetValue(target interface{}, value interface{}) error {
 					if err := SetValue(embeddedV, value); err == nil {
 						return nil
 					}
+				}
+			}
+
+			// handle some well-know, type specific edge cases
+			switch value.(type) {
+			case time.Time:
+				return SetValue(target, value.(time.Time).UnixNano())
+			case *time.Time:
+				if tm := value.(*time.Time); tm != nil {
+					return SetValue(target, tm.UnixNano())
 				}
 			}
 
