@@ -3,8 +3,10 @@ package httputil
 import (
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 
+	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 )
 
@@ -70,6 +72,17 @@ func Q(req *http.Request, key string, fallbacks ...string) string {
 		return fallbacks[0]
 	} else {
 		return ``
+	}
+}
+
+// Parses the named query string from a request as a delimiter-separated string slice.
+func QStrings(req *http.Request, key string, delimiter string, fallbacks ...string) []string {
+	if strs := sliceutil.CompactString(strings.Split(Q(req, key), delimiter)); len(strs) > 0 {
+		return strs
+	} else if len(fallbacks) > 0 {
+		return sliceutil.Stringify(sliceutil.Flatten(fallbacks))
+	} else {
+		return make([]string, 0)
 	}
 }
 
