@@ -14,6 +14,7 @@ require (
 	github.com/mitchellh/mapstructure v1.0.0
 	github.com/mjibson/esc v0.1.0 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
+	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/stretchr/testify v1.2.2
 	github.com/urfave/negroni v1.0.0

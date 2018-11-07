@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net"
 	"time"
+
+	"github.com/phayes/freeport"
 )
 
 var DefaultWaitForOpenConnectionTimeout = 5 * time.Second
@@ -30,4 +32,8 @@ func WaitForOpen(network string, address string, totaltime time.Duration, timeou
 	}
 
 	return fmt.Errorf("Timed out waiting for %s/%s to open", network, address)
+}
+
+func EphemeralPort() (int, error) {
+	return freeport.GetFreePort()
 }
