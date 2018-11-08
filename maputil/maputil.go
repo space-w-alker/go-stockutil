@@ -458,103 +458,6 @@ func DeepGetString(data interface{}, path []string) string {
 	return ``
 }
 
-func newDeepSet(data interface{}, path []string, value interface{}) interface{} {
-	if len(path) > 0 {
-		var root reflect.Value
-
-		if data == nil {
-			data = make(map[string]interface{})
-		}
-
-		root = reflect.ValueOf(data)
-		last := path[len(path)-1]
-
-		if len(path) > 1 {
-			head := path[:len(path)-1]
-
-			for i, key := range head {
-				if root.Kind() == reflect.Map {
-					root = root.MapIndex(reflect.ValueOf(key))
-				} else if typeutil.IsInteger(last) || (i+1) < len(head) && typeutil.IsInteger(head[i+1]) {
-					fmt.Println("create slice", key)
-					newA := make([]interface{}, 0)
-					if err := Set(root, key, &newA); err != nil {
-						panic("Failed to create intermediate slice")
-					}
-				} else {
-					fmt.Println("create map", key)
-					if err := Set(root, key, make(map[string]interface{})); err != nil {
-						panic("Failed to create intermediate map")
-					}
-				}
-			}
-		}
-
-		// if root == nil {
-		// 	dataT := reflect.TypeOf(data)
-		// 	dataV := reflect.ValueOf(data)
-		// 	dataV.Set(reflect.MakeMap(dataT))
-
-		// 	root = dataV.Interface()
-		// }
-
-		fmt.Println("last", last)
-		if root.IsValid() {
-			fmt.Println(typeutil.Dump(root.Interface()))
-		} else if typeutil.IsInteger(last) {
-			newA := make([]interface{}, 0)
-			root = reflect.ValueOf(&newA)
-		} else {
-			root = reflect.ValueOf(make(map[string]interface{}))
-		}
-
-		switch root.Kind() {
-		case reflect.Map:
-			fmt.Printf("set map(%v) %v=%T\n", root.Type(), last, value)
-
-			if err := Set(root, last, value); err != nil {
-				panic(err.Error())
-			}
-		case reflect.Ptr:
-			switch root.Elem().Kind() {
-			case reflect.Array, reflect.Slice:
-				if typeutil.IsInteger(last) {
-					rootE := root.Elem()
-
-					if i := int(typeutil.V(last).Int()); i >= rootE.Len() {
-						ndata := reflect.MakeSlice(rootE.Type(), i+1, (i+1)*2)
-						reflect.Copy(ndata, rootE)
-						rootE.Set(ndata)
-					}
-
-					fmt.Printf("modify array key=%v len=%d\n", last, rootE.Len())
-					fmt.Println(typeutil.Dump(rootE.Interface()))
-
-					if i := int(typeutil.V(last).Int()); i < rootE.Len() {
-						fmt.Printf("set array(%v:%d) %v=%T\n", rootE.Type(), i, last, value)
-
-						if dataI := rootE.Index(i); dataI.CanSet() {
-							if err := typeutil.SetValue(dataI, value); err != nil {
-								panic(err.Error())
-							}
-						} else {
-							panic("Cannot update slice element")
-						}
-					} else {
-						panic(fmt.Sprintf("Cannot append slice element: %d/%d", i, rootE.Len()))
-					}
-				} else {
-					panic("Cannot use non-integer key to update slice")
-				}
-			}
-		default:
-			panic(fmt.Sprintf("Cannot set value of scalar type %v", root.Type()))
-		}
-	}
-
-	return data
-}
-
 func Set(data interface{}, key interface{}, value interface{}) error {
 	var dataM reflect.Value
 
@@ -567,10 +470,27 @@ func Set(data interface{}, key interface{}, value interface{}) error {
 		}
 	}
 
-	dataM.SetMapIndex(
-		reflect.ValueOf(key),
-		reflect.ValueOf(value),
-	)
+	switch dataM.Kind() {
+	case reflect.Map:
+		dataM.SetMapIndex(
+			reflect.ValueOf(key),
+			reflect.ValueOf(value),
+		)
+	case reflect.Struct:
+		field := dataM.FieldByName(fmt.Sprintf("%v", key))
+
+		if field.CanSet() {
+			field.Set(reflect.ValueOf(value))
+		} else {
+			return fmt.Errorf("struct field %v is not settable", field.Type().Name())
+		}
+	case reflect.Slice, reflect.Array:
+		if typeutil.IsInteger(key) {
+			dataM.Index(int(typeutil.Int(key)))
+		} else {
+			return fmt.Errorf("cannot set non-integer array index %q", key)
+		}
+	}
 
 	return nil
 }
@@ -587,63 +507,55 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 		rest = path[1:]
 	}
 
-	//  Leaf Nodes
-	//    this is where the value we're setting actually gets set/appended
+	//  Leaf Nodes: this is where the value we're setting actually gets set/appended
 	if len(rest) == 0 {
-		switch data.(type) {
-		//  parent element is an ARRAY
-		case []interface{}:
-			return append(data.([]interface{}), value)
+		//  parent element is an array; set the correct index or append if the index is out of bounds
+		if typeutil.IsArray(data) {
+			dataArray := sliceutil.Sliceify(data)
 
-			//  parent element is a MAP
-		case map[string]interface{}:
-			dataMap := data.(map[string]interface{})
-			dataMap[first] = value
-
-			return dataMap
-		}
-	} else {
-		//  Array Embedding
-		//    this is where keys that are actually array indices get processed
-		//  ================================
-		//  is `first' numeric (an array index)
-		if stringutil.IsInteger(rest[0]) {
-			switch data.(type) {
-			case map[string]interface{}:
-				dataMap := data.(map[string]interface{})
-
-				//  is the value at `first' in the map isn't present or isn't an array, create it
-				//  -------->
-				curVal, _ := dataMap[first]
-
-				switch curVal.(type) {
-				case []interface{}:
-				default:
-					dataMap[first] = make([]interface{}, 0)
-					curVal, _ = dataMap[first]
-				}
-				//  <--------|
-
-				//  recurse into our cool array and do awesome stuff with it
-				dataMap[first] = DeepSet(curVal.([]interface{}), rest, value).([]interface{})
-				return dataMap
-			default:
-				// log.Printf("WHAT %s/%s", first, rest)
+			if i := int(typeutil.Int(first)); typeutil.IsInteger(first) && i < len(dataArray) {
+				dataArray[i] = value
+			} else {
+				dataArray = append(dataArray, value)
 			}
 
+			return dataArray
+
+		} else if typeutil.IsMap(data) || typeutil.IsStruct(data) {
+			if err := Set(data, first, value); err == nil {
+				return data
+			}
+		}
+	} else {
+		//  Array Embedding: this is where non-terminal array-index key components key processed
+		if typeutil.IsInteger(rest[0]) {
+			if typeutil.IsMap(data) {
+				//  is the value at `first' in the map isn't present or isn't an array, create it
+				curVal := Get(data, first)
+
+				if typeutil.IsArray(curVal) {
+					curVal = sliceutil.Sliceify(curVal)
+				} else {
+					curVal = make([]interface{}, 0)
+					Set(data, first, curVal)
+				}
+
+				//  recurse into our cool array and do awesome stuff with it
+				if err := Set(data, first, DeepSet(curVal, rest, value)); err == nil {
+					return data
+				}
+			}
+
+		} else {
 			//  Intermediate Map Processing
 			//    this is where branch nodes get created and populated via recursion
 			//    depending on the data type of the input `data', non-existent maps
 			//    will be created and either set to `data[first]' (the map)
 			//    or appended to `data[first]' (the array)
-			//  ================================
-		} else {
-			switch data.(type) {
-			//  handle arrays of maps
-			case []interface{}:
-				dataArray := data.([]interface{})
+			if typeutil.IsArray(data) {
+				dataArray := sliceutil.Sliceify(data)
 
-				if curIndex, err := strconv.Atoi(first); err == nil {
+				if curIndex := int(typeutil.Int(first)); typeutil.IsInteger(first) {
 					if curIndex >= len(dataArray) {
 						for add := len(dataArray); add <= curIndex; add++ {
 							dataArray = append(dataArray, make(map[string]interface{}))
@@ -656,21 +568,15 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 					}
 				}
 
+			} else if dataMap, ok := data.(map[string]interface{}); ok {
 				//  handle good old fashioned maps-of-maps
-			case map[string]interface{}:
-				dataMap := data.(map[string]interface{})
-
-				//  is the value at `first' in the map isn't present or isn't a map, create it
-				//  -------->
+				//  is the value at 'first' in the map isn't present or isn't a map, create it
 				curVal, _ := dataMap[first]
 
-				switch curVal.(type) {
-				case map[string]interface{}:
-				default:
+				if !typeutil.IsMap(curVal) {
 					dataMap[first] = make(map[string]interface{})
 					curVal, _ = dataMap[first]
 				}
-				//  <--------|
 
 				dataMap[first] = DeepSet(dataMap[first], rest, value)
 				return dataMap

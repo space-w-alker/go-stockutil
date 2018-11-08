@@ -44,7 +44,7 @@ func EphemeralPort() (int, error) {
 // and gets an ephemeral local port and returns that address (e.g.: ":41327").
 func ExpandPort(address string) string {
 	if host, port, err := net.SplitHostPort(address); err == nil {
-		if p := typeutil.V(port).Int(); p == 0 {
+		if p := typeutil.Int(port); p == 0 {
 			if p, err := EphemeralPort(); err == nil {
 				return fmt.Sprintf("%v:%d", host, p)
 			} else {

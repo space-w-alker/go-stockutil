@@ -86,12 +86,12 @@ func TestDeepSetArrayIndices(t *testing.T) {
 
 	assert.Equal(map[string]interface{}{
 		`things`: map[string]interface{}{
-			`type1`: []string{
+			`type1`: []interface{}{
 				`First`,
 				`second`,
 				`Third`,
 			},
-			`type2`: []string{
+			`type2`: []interface{}{
 				`first`,
 				`Second`,
 				`third`,
