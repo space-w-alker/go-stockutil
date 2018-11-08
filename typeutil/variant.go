@@ -121,7 +121,7 @@ func (self Variant) Bytes() []byte {
 	}
 }
 
-// Return the value as a map[Variant]Variant if it can be interpreted as such, or nil otherwise.
+// Return the value as a map[Variant]Variant if it can be interpreted as such, or an empty map otherwise.
 func (self Variant) Map() map[Variant]Variant {
 	output := make(map[Variant]Variant)
 
@@ -140,7 +140,73 @@ func (self Variant) Map() map[Variant]Variant {
 	return output
 }
 
+// Return the value as a map[string]interface{} if it can be interpreted as such, or an empty map otherwise.
+func (self Variant) MapNative() map[string]interface{} {
+	out := make(map[string]interface{})
+
+	for k, v := range self.Map() {
+		out[k.String()] = v.Value
+	}
+
+	return out
+}
+
 // Satisfy the json.Marshaler interface
 func (self Variant) MarshalJSON() ([]byte, error) {
 	return json.Marshal(self.Auto())
+}
+
+// Package-level string converter
+func String(in interface{}) string {
+	return V(in).String()
+}
+
+// Package-level bool converter
+func Bool(in interface{}) bool {
+	return V(in).Bool()
+}
+
+// Package-level float converter
+func Float(in interface{}) float64 {
+	return V(in).Float()
+}
+
+// Package-level int converter
+func Int(in interface{}) int64 {
+	return V(in).Int()
+}
+
+// Package-level slice converter
+func Slice(in interface{}) []Variant {
+	return V(in).Slice()
+}
+
+// Package-level auto converter
+func Auto(in interface{}) interface{} {
+	return V(in).Auto()
+}
+
+// Package-level time converter
+func Time(in interface{}) time.Time {
+	return V(in).Time()
+}
+
+// Package-level duration converter
+func Duration(in interface{}) time.Duration {
+	return V(in).Duration()
+}
+
+// Package-level bytes converter
+func Bytes(in interface{}) []byte {
+	return V(in).Bytes()
+}
+
+// Package-level map converter
+func Map(in interface{}) map[Variant]Variant {
+	return V(in).Map()
+}
+
+// Package-level map[string]interface{} converter
+func MapNative(in interface{}) map[string]interface{} {
+	return V(in).MapNative()
 }

@@ -40,8 +40,8 @@ func (self *Map) Value() interface{} {
 }
 
 // Return the value as a map[string]interface{} {
-func (self *Map) MapValue() map[string]interface{} {
-	return DeepCopy(self.data)
+func (self *Map) MapNative() map[string]interface{} {
+	return typeutil.V(self.data).MapNative()
 }
 
 // Set a value in the Map at the give dot.separated key.

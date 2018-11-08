@@ -147,7 +147,7 @@ func TestDiffuseTypedMultiTierComplex(t *testing.T) {
 		items := i_items.([]interface{})
 
 		for item_id, obj := range items {
-			for k, v := range M(obj).MapValue() {
+			for k, v := range M(obj).MapNative() {
 				switch k {
 				case `name`:
 					assert.Equal(v, input[fmt.Sprintf("str:items.%d.%s", item_id, k)])
@@ -183,7 +183,7 @@ func TestDiffuseTypedMultiTierMixed(t *testing.T) {
 		}
 
 		for item_id, obj := range items {
-			for k, v := range M(obj).MapValue() {
+			for k, v := range M(obj).MapNative() {
 				vAry := sliceutil.Stringify(v)
 
 				if inValue, ok := input[fmt.Sprintf("items.%d.%s", item_id, k)]; !ok {
