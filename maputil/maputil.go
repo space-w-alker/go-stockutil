@@ -627,11 +627,19 @@ func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
 	return rv
 }
 
+// Recursively walk through the given map, calling walkFn for each intermediate and leaf value.
 func Walk(input interface{}, walkFn WalkFunc) error {
-	return walkGeneric(input, nil, walkFn)
+	return walkGeneric(input, nil, walkFn, false)
 }
 
-func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
+// Recursively walk through the given map, calling walkFn for each intermediate and leaf value.
+// This form behaves identically to Walk(), except that it will also recurse into structs, calling
+// walkFn for all intermediate structs and fields.
+func WalkStruct(input interface{}, walkFn WalkFunc) error {
+	return walkGeneric(input, nil, walkFn, true)
+}
+
+func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStruct bool) error {
 	if parent == nil {
 		return nil
 	}
@@ -658,7 +666,7 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 			valueV := parentV.MapIndex(key)
 			subpath := append(path, fmt.Sprintf("%v", key.Interface()))
 
-			if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
+			if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct); err != nil {
 				return returnSkipOrErr(err)
 			}
 		}
@@ -672,36 +680,38 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc) error {
 			valueV := parentV.Index(i)
 			subpath := append(path, fmt.Sprintf("%v", i))
 
-			if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
+			if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct); err != nil {
 				return returnSkipOrErr(err)
 			}
 		}
 
 	case reflect.Struct:
-		if err := walkFn(parent, path, false); err != nil {
-			return returnSkipOrErr(err)
-		}
+		if includeStruct {
+			if err := walkFn(parent, path, false); err != nil {
+				return returnSkipOrErr(err)
+			}
 
-		for i := 0; i < parentV.NumField(); i++ {
-			fieldV := parentV.Type().Field(i)
+			for i := 0; i < parentV.NumField(); i++ {
+				fieldV := parentV.Type().Field(i)
 
-			// only operate on exported fields
-			if fieldV.PkgPath == `` {
-				valueV := parentV.Field(i)
-				var subpath []string
+				// only operate on exported fields
+				if fieldV.PkgPath == `` {
+					valueV := parentV.Field(i)
+					var subpath []string
 
-				// if this field is embedded, don't add it to the path list because
-				// it should be considered a first-class member of the parent struct
-				if fieldV.Anonymous {
-					subpath = path
-				} else if name := fieldNameFromReflect(fieldV); name != `-` {
-					subpath = append(path, name)
-				} else {
-					continue
-				}
+					// if this field is embedded, don't add it to the path list because
+					// it should be considered a first-class member of the parent struct
+					if fieldV.Anonymous {
+						subpath = path
+					} else if name := fieldNameFromReflect(fieldV); name != `-` {
+						subpath = append(path, name)
+					} else {
+						continue
+					}
 
-				if err := walkGeneric(valueV.Interface(), subpath, walkFn); err != nil {
-					return returnSkipOrErr(err)
+					if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct); err != nil {
+						return returnSkipOrErr(err)
+					}
 				}
 			}
 		}
@@ -832,10 +842,10 @@ func Autotype(input interface{}) map[string]interface{} {
 	return output
 }
 
-func Apply(input interface{}, fn ApplyFunc) map[string]interface{} {
+func apply(includeStruct bool, input interface{}, fn ApplyFunc) map[string]interface{} {
 	output := make(map[string]interface{})
 
-	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
+	wfn := func(value interface{}, path []string, isLeaf bool) error {
 		if isLeaf {
 			if fn != nil {
 				if out, ok := fn(path, value); ok {
@@ -848,15 +858,33 @@ func Apply(input interface{}, fn ApplyFunc) map[string]interface{} {
 		}
 
 		return nil
-	}); err != nil {
+	}
+
+	var err error
+
+	if includeStruct {
+		err = WalkStruct(input, wfn)
+	} else {
+		err = Walk(input, wfn)
+	}
+
+	if err != nil {
 		panic(err.Error())
 	}
 
 	return output
 }
 
+func Apply(input interface{}, fn ApplyFunc) map[string]interface{} {
+	return apply(false, input, fn)
+}
+
 func DeepCopy(input interface{}) map[string]interface{} {
-	return Apply(input, nil)
+	return apply(false, input, nil)
+}
+
+func DeepCopyStruct(input interface{}) map[string]interface{} {
+	return apply(true, input, nil)
 }
 
 func returnSkipOrErr(err error) error {
