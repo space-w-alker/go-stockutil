@@ -6,6 +6,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/ghetzel/go-stockutil/typeutil"
+
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 )
@@ -52,9 +54,11 @@ func QTime(req *http.Request, key string) time.Time {
 }
 
 // Parses the named query string from a request as a boolean value.
-func QBool(req *http.Request, key string) bool {
-	if v, err := stringutil.ConvertToBool(Q(req, key)); err == nil {
-		return v
+func QBool(req *http.Request, key string, fallbacks ...bool) bool {
+	if v := Q(req, key); v == `` && len(fallbacks) > 0 {
+		return fallbacks[0]
+	} else if typeutil.Bool(v) {
+		return true
 	}
 
 	return false
