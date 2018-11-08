@@ -476,14 +476,6 @@ func Set(data interface{}, key interface{}, value interface{}) error {
 			reflect.ValueOf(key),
 			reflect.ValueOf(value),
 		)
-	case reflect.Struct:
-		field := dataM.FieldByName(fmt.Sprintf("%v", key))
-
-		if field.CanSet() {
-			field.Set(reflect.ValueOf(value))
-		} else {
-			return fmt.Errorf("struct field %v is not settable", field.Type().Name())
-		}
 	case reflect.Slice, reflect.Array:
 		if typeutil.IsInteger(key) {
 			dataM.Index(int(typeutil.Int(key)))
@@ -521,7 +513,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 
 			return dataArray
 
-		} else if typeutil.IsMap(data) || typeutil.IsStruct(data) {
+		} else if typeutil.IsMap(data) {
 			if err := Set(data, first, value); err == nil {
 				return data
 			}
