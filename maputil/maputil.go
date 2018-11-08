@@ -598,7 +598,7 @@ func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
 		return rv
 	}
 
-	Walk(sliceOfMaps, func(value interface{}, path []string, isLeaf bool) error {
+	WalkStruct(sliceOfMaps, func(value interface{}, path []string, isLeaf bool) error {
 		if isLeaf && len(path) > 1 {
 			var shouldInclude bool
 
