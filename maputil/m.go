@@ -41,7 +41,7 @@ func (self *Map) Value() interface{} {
 
 // Return the value as a map[string]interface{} {
 func (self *Map) MapNative() map[string]interface{} {
-	return typeutil.V(self.data).MapNative()
+	return typeutil.MapNative(self.data)
 }
 
 // Set a value in the Map at the give dot.separated key.

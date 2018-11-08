@@ -486,7 +486,7 @@ func Set(data interface{}, key interface{}, value interface{}) error {
 		}
 	case reflect.Slice, reflect.Array:
 		if typeutil.IsInteger(key) {
-			dataM.Index(int(typeutil.V(key).Int()))
+			dataM.Index(int(typeutil.Int(key)))
 		} else {
 			return fmt.Errorf("cannot set non-integer array index %q", key)
 		}
@@ -513,7 +513,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 		if typeutil.IsArray(data) {
 			dataArray := sliceutil.Sliceify(data)
 
-			if i := int(typeutil.V(first).Int()); typeutil.IsInteger(first) && i < len(dataArray) {
+			if i := int(typeutil.Int(first)); typeutil.IsInteger(first) && i < len(dataArray) {
 				dataArray[i] = value
 			} else {
 				dataArray = append(dataArray, value)
@@ -555,7 +555,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 			if typeutil.IsArray(data) {
 				dataArray := sliceutil.Sliceify(data)
 
-				if curIndex := int(typeutil.V(first).Int()); typeutil.IsInteger(first) {
+				if curIndex := int(typeutil.Int(first)); typeutil.IsInteger(first) {
 					if curIndex >= len(dataArray) {
 						for add := len(dataArray); add <= curIndex; add++ {
 							dataArray = append(dataArray, make(map[string]interface{}))
