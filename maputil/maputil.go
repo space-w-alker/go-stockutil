@@ -723,6 +723,7 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStru
 	return nil
 }
 
+// Recursively remove all zero and empty values from the given map.
 func Compact(input map[string]interface{}) (map[string]interface{}, error) {
 	output := make(map[string]interface{})
 
@@ -744,6 +745,7 @@ func Compact(input map[string]interface{}) (map[string]interface{}, error) {
 	return output, nil
 }
 
+// Recursively merge the contents of the second map into the first one and return the result.
 func Merge(first interface{}, second interface{}) (map[string]interface{}, error) {
 	if first != nil && !typeutil.IsKind(first, reflect.Map) {
 		return nil, fmt.Errorf("first argument must be a map, got %T", first)
@@ -797,6 +799,7 @@ func Merge(first interface{}, second interface{}) (map[string]interface{}, error
 	return output, nil
 }
 
+// Take the input map and convert all values to strings.
 func Stringify(input map[string]interface{}) map[string]string {
 	output := make(map[string]string)
 
@@ -815,6 +818,7 @@ func Stringify(input map[string]interface{}) map[string]string {
 	return output
 }
 
+// Recursively walk the given map, performing automatic type conversion on all leaf nodes.
 func Autotype(input interface{}) map[string]interface{} {
 	output := make(map[string]interface{})
 
@@ -875,14 +879,24 @@ func apply(includeStruct bool, input interface{}, fn ApplyFunc) map[string]inter
 	return output
 }
 
+// Recursively walk the given map, calling the ApplyFunc for each leaf value.  If the second
+// return value from the function is true, that value in the struct will be replaced with the first
+// return value.  If false, the value will be left as-is.
 func Apply(input interface{}, fn ApplyFunc) map[string]interface{} {
 	return apply(false, input, fn)
 }
 
+// The same as Apply(), but will descend into structs.
+func ApplyStruct(input interface{}, fn ApplyFunc) map[string]interface{} {
+	return apply(true, input, fn)
+}
+
+// Perform a deep copy of the given map.
 func DeepCopy(input interface{}) map[string]interface{} {
 	return apply(false, input, nil)
 }
 
+// Perform a deep copy of the given map or struct, returning a map.
 func DeepCopyStruct(input interface{}) map[string]interface{} {
 	return apply(true, input, nil)
 }
