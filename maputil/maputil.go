@@ -714,6 +714,8 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStru
 					}
 				}
 			}
+		} else {
+			return walkFn(parent, path, true)
 		}
 
 	default:
