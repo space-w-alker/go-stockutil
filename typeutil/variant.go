@@ -89,6 +89,18 @@ func (self Variant) Slice() []Variant {
 	return values
 }
 
+// Same as Slice(), but returns a []string.
+func (self Variant) Strings() []string {
+	values := self.Slice()
+	out := make([]string, len(values))
+
+	for i, value := range values {
+		out[i] = value.String()
+	}
+
+	return out
+}
+
 // Return the value automaticall converted to the appropriate type.
 func (self Variant) Auto() interface{} {
 	return utils.Autotype(self.Value)
@@ -179,6 +191,11 @@ func Int(in interface{}) int64 {
 // Package-level slice converter
 func Slice(in interface{}) []Variant {
 	return V(in).Slice()
+}
+
+// Package-level string slice converter
+func Strings(in interface{}) []string {
+	return V(in).Strings()
 }
 
 // Package-level auto converter

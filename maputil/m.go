@@ -111,6 +111,11 @@ func (self *Map) Slice(key string) []typeutil.Variant {
 	return self.Get(key).Slice()
 }
 
+// Same as Slice(), but returns a []string
+func (self *Map) Strings(key string) []string {
+	return self.Get(key).Strings()
+}
+
 // Return the value at key as a Map.  If the resulting value is nil or not a
 // map type, a null Map will be returned.  All values retrieved from a null
 // Map will return that type's zero value.
