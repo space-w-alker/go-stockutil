@@ -1,6 +1,7 @@
 package pathutil
 
 import (
+	"os"
 	"os/user"
 	"testing"
 
@@ -47,4 +48,8 @@ func TestExpandUser(t *testing.T) {
 
 	assert.True(IsNonemptyFile(`/etc/fstab`))
 	assert.True(IsNonemptyDir(`/etc`))
+
+	x, err := os.Executable()
+	assert.NoError(err)
+	assert.True(IsNonemptyExecutableFile(x))
 }

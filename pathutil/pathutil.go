@@ -27,6 +27,14 @@ func ExpandUser(path string) (string, error) {
 	}
 }
 
+func IsNonemptyExecutableFile(path string) bool {
+	if stat, err := os.Stat(path); err == nil && stat.Size() > 0 && (stat.Mode().Perm()&0111) != 0 {
+		return true
+	}
+
+	return false
+}
+
 func IsNonemptyFile(path string) bool {
 	if FileExists(path) {
 		if stat, err := os.Stat(path); err == nil && stat.Size() > 0 {
