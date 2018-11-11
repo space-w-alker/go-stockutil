@@ -12,8 +12,8 @@ github.com/hashicorp/errwrap v1.0.0 h1:hLrqtEDnRye3+sgx6z4qVLNuviH3MR5aQ0ykNJa/U
 github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-multierror v1.0.0 h1:iVjPR7a6H0tWELX5NxNe7bYopibicUzc7uPribsnS6o=
 github.com/hashicorp/go-multierror v1.0.0/go.mod h1:dHtQlpGsu+cZNNAkkCN/P3hoUDHhCYQXV3UM06sGGrk=
-github.com/jackpal/gateway v1.0.4 h1:LS5EHkLuQ6jzaHwULi0vL+JO0mU/n4yUtK8oUjHHOlM=
-github.com/jackpal/gateway v1.0.4/go.mod h1:lTpwd4ACLXmpyiCTRtfiNyVnUmqT9RivzCDQetPfnjA=
+github.com/jackpal/gateway v1.0.5-0.20180407163008-cbcf4e3f3bae h1:Pq9MY9I/7gvSoJQ4guCgIz1pJIjEes5XYOSRUhIPPT8=
+github.com/jackpal/gateway v1.0.5-0.20180407163008-cbcf4e3f3bae/go.mod h1:lTpwd4ACLXmpyiCTRtfiNyVnUmqT9RivzCDQetPfnjA=
 github.com/jbenet/go-base58 v0.0.0-20150317085156-6237cf65f3a6 h1:4zOlv2my+vf98jT1nQt4bT/yKWUImevYPJ2H344CloE=
 github.com/jbenet/go-base58 v0.0.0-20150317085156-6237cf65f3a6/go.mod h1:r/8JmuR0qjuCiEhAolkfvdZgmPiHTnJaG0UXCSeR1Zo=
 github.com/jdkato/prose v1.1.0 h1:LpvmDGwbKGTgdCH3a8VJL56sr7p/wOFPw/R4lM4PfFg=
