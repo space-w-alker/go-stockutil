@@ -121,7 +121,7 @@ func RoutableAddresses() ([]*Address, error) {
 
 // Retrieves the first routable IP address on any interface that falls inside of the
 // system's default gateway network.  Will return nil if no IP could be found.
-func DefaultAddress() net.IP {
+func DefaultIP() net.IP {
 	if addrs, err := RoutableAddresses(); err == nil && len(addrs) > 0 {
 		return addrs[0].IP()
 	}
