@@ -7,6 +7,7 @@ require (
 	github.com/fatih/structs v1.0.0
 	github.com/ghetzel/uuid v0.0.0-20171129191014-dec09d789f3d
 	github.com/hashicorp/go-multierror v1.0.0
+	github.com/jackpal/gateway v1.0.4
 	github.com/jbenet/go-base58 v0.0.0-20150317085156-6237cf65f3a6
 	github.com/jdkato/prose v1.1.0
 	github.com/juliangruber/go-intersect v1.0.0
