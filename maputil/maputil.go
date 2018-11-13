@@ -805,16 +805,12 @@ func Merge(first interface{}, second interface{}) (map[string]interface{}, error
 func Stringify(input map[string]interface{}) map[string]string {
 	output := make(map[string]string)
 
-	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
-		if isLeaf {
-			if !typeutil.IsEmpty(value) {
-				DeepSet(output, path, stringutil.MustString(value))
-			}
+	for k, v := range input {
+		if str, err := stringutil.ToString(v); err == nil {
+			output[k] = str
+		} else {
+			output[k] = fmt.Sprintf("!#ERR<%v>", err)
 		}
-
-		return nil
-	}); err != nil {
-		panic(err.Error())
 	}
 
 	return output
