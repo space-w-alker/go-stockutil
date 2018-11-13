@@ -534,11 +534,15 @@ func InitMime() {
 				exts := strings.Split(strings.TrimSpace(extset), ` `)
 
 				for _, ext := range exts {
-					if ext[0] != '.' {
-						ext = `.` + ext
-					}
+					ext = strings.TrimSpace(ext)
 
-					mime.AddExtensionType(ext, mimetype)
+					if len(ext) > 0 {
+						if ext[0] != '.' {
+							ext = `.` + ext
+						}
+
+						mime.AddExtensionType(ext, mimetype)
+					}
 				}
 			}
 		}
