@@ -450,7 +450,6 @@ func DeepGetBool(data interface{}, path []string) bool {
 }
 
 func DeepGetString(data interface{}, path []string) string {
-
 	if v, err := stringutil.ToString(DeepGet(data, path)); err == nil {
 		return v
 	}
@@ -461,12 +460,20 @@ func DeepGetString(data interface{}, path []string) string {
 func Set(data interface{}, key interface{}, value interface{}) error {
 	var dataM reflect.Value
 
-	for {
-		if v, ok := data.(reflect.Value); ok {
-			dataM = v
-		} else {
-			dataM = reflect.ValueOf(data)
-			break
+	if v, ok := data.(reflect.Value); ok {
+		dataM = v
+	} else {
+		dataM = reflect.ValueOf(data)
+	}
+
+	// some shortcuts for common cases
+	if asMap, ok := data.(map[string]interface{}); ok {
+		asMap[typeutil.String(key)] = value
+		return nil
+	} else if dataM.CanInterface() {
+		if asMap, ok := dataM.Interface().(map[string]interface{}); ok {
+			asMap[typeutil.String(key)] = value
+			return nil
 		}
 	}
 
@@ -517,6 +524,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 			if err := Set(data, first, value); err == nil {
 				return data
 			}
+
 		}
 	} else {
 		//  Array Embedding: this is where non-terminal array-index key components key processed

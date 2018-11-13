@@ -83,6 +83,8 @@ func TestDeepSetArrayIndices(t *testing.T) {
 	output := DeepSet(input, []string{`things`, `type1`, `0`}, `First`)
 	output = DeepSet(output, []string{`things`, `type1`, `2`}, `Third`)
 	output = DeepSet(output, []string{`things`, `type2`, `1`}, `Second`)
+	output = DeepSet(output, []string{`things`, `type2`, `2`}, nil)
+	output = DeepSet(output, []string{`things`, `type2`, `3`}, `third`)
 
 	assert.Equal(map[string]interface{}{
 		`things`: map[string]interface{}{
@@ -94,6 +96,7 @@ func TestDeepSetArrayIndices(t *testing.T) {
 			`type2`: []interface{}{
 				`first`,
 				`Second`,
+				nil,
 				`third`,
 			},
 		},
