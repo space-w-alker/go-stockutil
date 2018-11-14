@@ -502,3 +502,14 @@ func TestSplitPairFamily(t *testing.T) {
 	assert.Equal(`test.values`, first)
 	assert.Equal(`nested`, rest)
 }
+
+func TestSqueezes(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Empty(Squeeze(``))
+	assert.Equal(` `, Squeeze(`     `))
+	assert.Equal(`Thissss is a test.`, SqueezeSpace(`Thissss   is a      test.`))
+	assert.Equal("\t This is a test. \t ", SqueezeSpace("\t\t  This   is a      test. \t "))
+	assert.Equal(`This is a test.`, Squeeze(`Thissss   is a      test.`))
+	assert.Equal(`勤恳`, Squeeze(`勤勤恳恳`))
+}

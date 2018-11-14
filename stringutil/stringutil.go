@@ -759,3 +759,42 @@ func ElideWords(in string, wordcount uint) string {
 		})
 	}
 }
+
+type OnlySqueezeFunc func(r rune) bool
+
+// Return the given string with sequences of characters matching the given function
+// replaced with a single instance of that character.
+func SqueezeFunc(in string, fn OnlySqueezeFunc) string {
+	out := make([]rune, 0)
+	var previous rune
+
+	for _, char := range in {
+		if fn == nil || fn(char) {
+			if char != previous {
+				out = append(out, char)
+			}
+		} else {
+			out = append(out, char)
+		}
+
+		previous = char
+	}
+
+	return string(out)
+}
+
+// Return the given string with sequences repeating character replaced with a
+// single instance of that character.
+func Squeeze(in string) string {
+	return SqueezeFunc(in, func(r rune) bool {
+		return true
+	})
+}
+
+// Return the given string with sequences of whitespace characters replaced with
+// a single instance of that character.
+func SqueezeSpace(in string) string {
+	return SqueezeFunc(in, func(r rune) bool {
+		return unicode.IsSpace(r)
+	})
+}
