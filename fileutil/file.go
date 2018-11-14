@@ -5,8 +5,33 @@ import (
 	"os"
 	"strings"
 
+	"github.com/ghetzel/go-stockutil/pathutil"
 	isatty "github.com/mattn/go-isatty"
 )
+
+// Alias functions from pathutil as a convenience
+var DirExists = pathutil.DirExists
+var Exists = pathutil.Exists
+var ExpandUser = pathutil.ExpandUser
+var FileExists = pathutil.FileExists
+var IsAppend = pathutil.IsAppend
+var IsAppendable = pathutil.IsAppendable
+var IsCharDevice = pathutil.IsCharDevice
+var IsDevice = pathutil.IsDevice
+var IsExclusive = pathutil.IsExclusive
+var IsNamedPipe = pathutil.IsNamedPipe
+var IsNonemptyDir = pathutil.IsNonemptyDir
+var IsNonemptyExecutableFile = pathutil.IsNonemptyExecutableFile
+var IsNonemptyFile = pathutil.IsNonemptyFile
+var IsReadable = pathutil.IsReadable
+var IsSetgid = pathutil.IsSetgid
+var IsSetuid = pathutil.IsSetuid
+var IsSocket = pathutil.IsSocket
+var IsSticky = pathutil.IsSticky
+var IsSymlink = pathutil.IsSymlink
+var IsTemporary = pathutil.IsTemporary
+var IsWritable = pathutil.IsWritable
+var LinkExists = pathutil.LinkExists
 
 func IsTerminal() bool {
 	return isatty.IsTerminal(os.Stdout.Fd())

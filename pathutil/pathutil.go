@@ -9,6 +9,7 @@ import (
 	"strings"
 )
 
+// ExpandUser replaces the tilde (~) in a path into the current user's home directory.
 func ExpandUser(path string) (string, error) {
 	if u, err := user.Current(); err == nil {
 		fullTilde := fmt.Sprintf("~%s", u.Name)
@@ -27,6 +28,7 @@ func ExpandUser(path string) (string, error) {
 	}
 }
 
+// Returns true if the given path is a regular file, is executable by any user, and has a non-zero size.
 func IsNonemptyExecutableFile(path string) bool {
 	if stat, err := os.Stat(path); err == nil && stat.Size() > 0 && (stat.Mode().Perm()&0111) != 0 {
 		return true
@@ -35,6 +37,7 @@ func IsNonemptyExecutableFile(path string) bool {
 	return false
 }
 
+// Returns true if the given path is a regular file with a non-zero size.
 func IsNonemptyFile(path string) bool {
 	if FileExists(path) {
 		if stat, err := os.Stat(path); err == nil && stat.Size() > 0 {
@@ -45,6 +48,7 @@ func IsNonemptyFile(path string) bool {
 	return false
 }
 
+// Returns true if the given path is a directory with items in it.
 func IsNonemptyDir(path string) bool {
 	if DirExists(path) {
 		if entries, err := ioutil.ReadDir(path); err == nil && len(entries) > 0 {
@@ -55,6 +59,25 @@ func IsNonemptyDir(path string) bool {
 	return false
 }
 
+// Returns true if the given path exists.
+func Exists(path string) bool {
+	if _, err := os.Stat(path); err == nil {
+		return true
+	}
+
+	return false
+}
+
+// Returns true if the given path exists and is a symbolic link.
+func LinkExists(path string) bool {
+	if stat, err := os.Stat(path); err == nil {
+		return IsSymlink(stat.Mode())
+	}
+
+	return false
+}
+
+// Returns true if the given path exists and is a regular file.
 func FileExists(path string) bool {
 	if stat, err := os.Stat(path); err == nil {
 		return stat.Mode().IsRegular()
@@ -63,6 +86,7 @@ func FileExists(path string) bool {
 	return false
 }
 
+// Returns true if the given path exists and is a directory.
 func DirExists(path string) bool {
 	if stat, err := os.Stat(path); err == nil {
 		return stat.IsDir()
@@ -115,6 +139,7 @@ func IsAppend(mode os.FileMode) bool {
 	return (mode&os.ModeAppend != 0)
 }
 
+// Returns true if the given file can be opened for reading by the current user.
 func IsReadable(filename string) bool {
 	if f, err := os.OpenFile(filename, os.O_RDONLY, 0); err == nil {
 		defer f.Close()
@@ -124,8 +149,19 @@ func IsReadable(filename string) bool {
 	}
 }
 
+// Returns true if the given file can be opened for writing by the current user.
 func IsWritable(filename string) bool {
 	if f, err := os.OpenFile(filename, os.O_WRONLY, 0); err == nil {
+		defer f.Close()
+		return true
+	} else {
+		return false
+	}
+}
+
+// Returns true if the given file can be opened for appending by the current user.
+func IsAppendable(filename string) bool {
+	if f, err := os.OpenFile(filename, os.O_APPEND, 0); err == nil {
 		defer f.Close()
 		return true
 	} else {

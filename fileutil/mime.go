@@ -8,33 +8,11 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ghetzel/go-stockutil/pathutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/h2non/filetype"
 )
 
 var once sync.Once // guards InitMime
-
-// Alias functions from pathutil as a convenience
-var ExpandUser = pathutil.ExpandUser
-var IsNonemptyExecutableFile = pathutil.IsNonemptyExecutableFile
-var IsNonemptyFile = pathutil.IsNonemptyFile
-var IsNonemptyDir = pathutil.IsNonemptyDir
-var FileExists = pathutil.FileExists
-var DirExists = pathutil.DirExists
-var IsSymlink = pathutil.IsSymlink
-var IsDevice = pathutil.IsDevice
-var IsCharDevice = pathutil.IsCharDevice
-var IsNamedPipe = pathutil.IsNamedPipe
-var IsSocket = pathutil.IsSocket
-var IsSticky = pathutil.IsSticky
-var IsSetuid = pathutil.IsSetuid
-var IsSetgid = pathutil.IsSetgid
-var IsTemporary = pathutil.IsTemporary
-var IsExclusive = pathutil.IsExclusive
-var IsAppend = pathutil.IsAppend
-var IsReadable = pathutil.IsReadable
-var IsWritable = pathutil.IsWritable
 
 var mimeFiles = []string{
 	`/etc/mime.types`,
