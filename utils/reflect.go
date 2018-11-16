@@ -51,8 +51,16 @@ func ResolveValue(in interface{}) interface{} {
 // Dectect whether the concrete underlying value of the given input is one or more
 // Kinds of value.
 func IsKind(in interface{}, kinds ...reflect.Kind) bool {
-	in = ResolveValue(in)
-	inT := reflect.TypeOf(in)
+	var inT reflect.Type
+
+	if v, ok := in.(reflect.Value); ok {
+		inT = v.Type()
+	} else if v, ok := in.(reflect.Type); ok {
+		inT = v
+	} else {
+		in = ResolveValue(in)
+		inT = reflect.TypeOf(in)
+	}
 
 	if inT == nil {
 		return false
