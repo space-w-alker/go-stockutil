@@ -359,8 +359,8 @@ func IsKindOfString(in interface{}) bool {
 
 	if k, ok := in.(reflect.Kind); ok {
 		kind = k
-	} else {
-		kind = reflect.TypeOf(in).Kind()
+	} else if inT := reflect.TypeOf(in); inT != nil {
+		kind = inT.Kind()
 	}
 
 	return IsKind(kind, reflect.String)
