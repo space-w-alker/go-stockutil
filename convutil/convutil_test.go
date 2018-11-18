@@ -25,3 +25,39 @@ func TestConvert(t *testing.T) {
 	assert.EqualValues(1, MustConvert(9.4607304725808e+15, Meters, Lightyears))
 	assert.EqualValues(9.4607304725808e+15, MustConvert(1, Lightyears, Meters))
 }
+
+func TestByteStringer(t *testing.T) {
+	assert := assert.New(t)
+
+	assert.Equal(`1B`, Byte.String())
+	assert.Equal(`1KB`, Kilobyte.String())
+	assert.Equal(`1MB`, Megabyte.String())
+	assert.Equal(`1GB`, Gigabyte.String())
+	assert.Equal(`1TB`, Terabyte.String())
+	assert.Equal(`1PB`, Petabyte.String())
+	assert.Equal(`1EB`, Exabyte.String())
+	assert.Equal(`1ZB`, Zettabyte.String())
+	assert.Equal(`1YB`, Yottabyte.String())
+	assert.Equal(`1BB`, Brontobyte.String())
+
+	assert.Equal(`512B`, (512 * Byte).String())
+	assert.Equal(`512KB`, (512 * Kilobyte).String())
+	assert.Equal(`512MB`, (512 * Megabyte).String())
+	assert.Equal(`512GB`, (512 * Gigabyte).String())
+	assert.Equal(`512TB`, (512 * Terabyte).String())
+	assert.Equal(`512PB`, (512 * Petabyte).String())
+	assert.Equal(`512EB`, (512 * Exabyte).String())
+	assert.Equal(`512ZB`, (512 * Zettabyte).String())
+	assert.Equal(`512YB`, (512 * Yottabyte).String())
+	assert.Equal(`512BB`, (512 * Brontobyte).String())
+
+	assert.Equal(`0.5KB`, Bytes(512).To(Kilobyte))
+	assert.Equal(`0.0005MB`, Bytes(512).To(Megabyte))
+	assert.Equal(`0.0000005GB`, Bytes(512).To(Gigabyte))
+	assert.Equal(`0.0000000005TB`, Bytes(512).To(Terabyte))
+	assert.Equal(`0.0000000000005PB`, Bytes(512).To(Petabyte))
+	assert.Equal(`0.0000000000000004EB`, Bytes(512).To(Exabyte))
+	// assert.Equal(`0.0000000000000000005ZB`, Bytes(512).To(Zettabyte))
+	// assert.Equal(`0.0000000000000000000005YB`, Bytes(512).To(Yottabyte))
+	// assert.Equal(`0.0000000000000000000000005BB`, Bytes(512).To(Brontobyte))
+}

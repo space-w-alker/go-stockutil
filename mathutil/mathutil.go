@@ -36,6 +36,24 @@ func ClampUpper(value float64, upper float64) float64 {
 }
 
 func RoundPlaces(x float64, places int) float64 {
-	multi := math.Pow(10, Clamp(float64(places), 0, 16))
-	return (Round(x*multi) / multi)
+	if places <= 0 {
+		return Round(x)
+	} else {
+		multi := math.Pow(10, Clamp(float64(places), 0, 16))
+		return (Round(x*multi) / multi)
+	}
+}
+
+func LeadingSignificantZeros(x float64, places int) int {
+	var zcount int
+
+	for _, div := math.Modf(x); div > 0 && div < 1; div = RoundPlaces(div/0.1, places) {
+		zcount += 1
+	}
+
+	if zcount > 0 {
+		return zcount - 1
+	} else {
+		return 0
+	}
 }
