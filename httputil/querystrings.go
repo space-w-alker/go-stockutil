@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ghetzel/go-stockutil/typeutil"
-
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/timeutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 // Parses the named query string from a request as an integer.
@@ -51,6 +51,17 @@ func QTime(req *http.Request, key string) time.Time {
 	}
 
 	return time.Time{}
+}
+
+// Parses the named query string from a request as a duration string.
+func QDuration(req *http.Request, key string) time.Duration {
+	if v := Q(req, key); v != `` {
+		if d, err := timeutil.ParseDuration(v); err == nil {
+			return d
+		}
+	}
+
+	return 0
 }
 
 // Parses the named query string from a request as a boolean value.
