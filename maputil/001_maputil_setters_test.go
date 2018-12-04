@@ -77,14 +77,37 @@ func TestDeepSetArrayIndices(t *testing.T) {
 				`second`,
 				`third`,
 			},
+			`type3`: []interface{}{
+				map[string]interface{}{
+					`name`:  `first`,
+					`index`: 0,
+				},
+				map[string]interface{}{
+					`name`:  `first`,
+					`index`: 1,
+				},
+				map[string]interface{}{
+					`name`:  `first`,
+					`index`: 2,
+				},
+			},
 		},
 	}
 
 	output := DeepSet(input, []string{`things`, `type1`, `0`}, `First`)
-	output = DeepSet(output, []string{`things`, `type1`, `2`}, `Third`)
-	output = DeepSet(output, []string{`things`, `type2`, `1`}, `Second`)
-	output = DeepSet(output, []string{`things`, `type2`, `2`}, nil)
-	output = DeepSet(output, []string{`things`, `type2`, `3`}, `third`)
+	DeepSet(output, []string{`things`, `type1`, `2`}, `Third`)
+	DeepSet(output, []string{`things`, `type2`, `1`}, `Second`)
+	DeepSet(output, []string{`things`, `type2`, `2`}, nil)
+	DeepSet(output, []string{`things`, `type2`, `3`}, `third`)
+	DeepSet(output, []string{`things`, `type3`, `0`, `index`}, map[string]interface{}{
+		`num`: 0,
+	})
+	DeepSet(output, []string{`things`, `type3`, `1`, `index`}, map[string]interface{}{
+		`num`: 1,
+	})
+	DeepSet(output, []string{`things`, `type3`, `2`, `index`}, map[string]interface{}{
+		`num`: 2,
+	})
 
 	assert.Equal(map[string]interface{}{
 		`things`: map[string]interface{}{
@@ -98,6 +121,26 @@ func TestDeepSetArrayIndices(t *testing.T) {
 				`Second`,
 				nil,
 				`third`,
+			},
+			`type3`: []interface{}{
+				map[string]interface{}{
+					`name`: `first`,
+					`index`: map[string]interface{}{
+						`num`: 0,
+					},
+				},
+				map[string]interface{}{
+					`name`: `first`,
+					`index`: map[string]interface{}{
+						`num`: 1,
+					},
+				},
+				map[string]interface{}{
+					`name`: `first`,
+					`index`: map[string]interface{}{
+						`num`: 2,
+					},
+				},
 			},
 		},
 	}, output)
