@@ -35,6 +35,32 @@ var IsTemporary = pathutil.IsTemporary
 var IsWritable = pathutil.IsWritable
 var LinkExists = pathutil.LinkExists
 
+func MustExpandUser(path string) string {
+	if expanded, err := ExpandUser(path); err == nil {
+		return expanded
+	} else {
+		panic(err.Error())
+	}
+}
+
+// Return true if the given FileInfo sports a ModTime later than the current file.
+func IsModifiedAfter(stat os.FileInfo, current string) bool {
+	if Exists(current) {
+		current = MustExpandUser(current)
+
+		if currentStat, err := os.Stat(current); err == nil {
+			// return whether the new file is modified AFTER the current one
+			return stat.ModTime().After(currentStat.ModTime())
+		} else {
+			// fail closed; if we can't stat the existing file then don't assert that we know better
+			return false
+		}
+	} else {
+		// if the current file does not exist, then whatever file we have is newer
+		return true
+	}
+}
+
 func IsTerminal() bool {
 	return isatty.IsTerminal(os.Stdout.Fd())
 }
