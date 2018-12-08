@@ -124,7 +124,7 @@ func WriteFile(reader io.Reader, filename string) (int64, error) {
 
 		// create parent directory automatically
 		if !DirExists(parent) {
-			if err := os.MkdirAll(expanded, 0700); err != nil {
+			if err := os.MkdirAll(parent, 0700); err != nil {
 				return 0, err
 			}
 		}
