@@ -14,15 +14,28 @@ func SetRootCABundle(client *http.Client, caBundle string) error {
 	return updateRootCABundle(false, client, caBundle)
 }
 
-// Configures the given http.Client to accept TLS certificates validated by the given PEM-encoded CA bundle file,
-// appending the certificates to any existing CA bundle.
-func AppendRootCABundle(client *http.Client, caBundle string) error {
-	return updateRootCABundle(true, client, caBundle)
+// Loads certificates from the given file and returns a usable x509.CertPool
+func LoadCertPool(filename string) (*x509.CertPool, error) {
+	if data, err := fileutil.ReadAll(filename); err == nil {
+		pool := x509.NewCertPool()
+
+		if pool.AppendCertsFromPEM(data) {
+			return pool, nil
+		} else {
+			return nil, fmt.Errorf("An error occurred adding the provided certificate(s)")
+		}
+	} else {
+		return nil, fmt.Errorf("failed to read certificate file: %v", err)
+	}
 }
 
 func updateRootCABundle(appendPem bool, client *http.Client, caBundle string) error {
-	if caBundle != `` && client != nil {
-		if data, err := fileutil.ReadAll(caBundle); err == nil {
+	if caBundle == `` {
+		return fmt.Errorf("Must specify a file to read certificates from")
+	} else if client == nil {
+		return fmt.Errorf("Must provide an *http.Client to modify")
+	} else {
+		if pool, err := LoadCertPool(caBundle); err == nil {
 			if client.Transport == nil {
 				client.Transport = &http.Transport{}
 			}
@@ -32,22 +45,13 @@ func updateRootCABundle(appendPem bool, client *http.Client, caBundle string) er
 					htt.TLSClientConfig = &tls.Config{}
 				}
 
-				if htt.TLSClientConfig.RootCAs == nil || !appendPem {
-					htt.TLSClientConfig.RootCAs = x509.NewCertPool()
-				}
-
-				if htt.TLSClientConfig.RootCAs.AppendCertsFromPEM(data) {
-					return nil
-				} else {
-					return fmt.Errorf("An error occurred configuring TLS root CAs")
-				}
+				htt.TLSClientConfig.RootCAs = pool
+				return nil
 			} else {
 				return fmt.Errorf("Cannot configure TLS on HTTP transport %T", client.Transport)
 			}
 		} else {
-			return fmt.Errorf("failed to read CA bundle: %v", err)
+			return err
 		}
-	} else {
-		return nil
 	}
 }
