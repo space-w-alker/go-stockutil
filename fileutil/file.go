@@ -1,8 +1,10 @@
 package fileutil
 
 import (
+	"io"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/ghetzel/go-stockutil/pathutil"
@@ -81,6 +83,42 @@ func MustReadAll(filename string) []byte {
 func MustReadAllString(filename string) string {
 	if data, err := ReadAllString(filename); err == nil {
 		return data
+	} else {
+		panic(err.Error())
+	}
+}
+
+// Write the contents of the given reader to the specified filename.
+// Filename paths containing tilde (~) will automatically expand to the current
+// user's home directory, and all intermediate parent directories will be automatically
+// created.  Will return the number of bytes written, or an error.
+func WriteFile(reader io.Reader, filename string) (int64, error) {
+	if expanded, err := ExpandUser(filename); err == nil {
+		parent := filepath.Dir(expanded)
+
+		// create parent directory automatically
+		if !DirExists(parent) {
+			if err := os.MkdirAll(expanded, 0700); err != nil {
+				return 0, err
+			}
+		}
+
+		// open the destination file for writing
+		if dest, err := os.Create(expanded); err == nil {
+			defer dest.Close()
+			return io.Copy(dest, reader)
+		} else {
+			return 0, err
+		}
+	} else {
+		return 0, err
+	}
+}
+
+// Same as WriteFile, but will panic if the file cannot be written.
+func MustWriteFile(reader io.Reader, filename string) int64 {
+	if n, err := WriteFile(reader, filename); err == nil {
+		return n
 	} else {
 		panic(err.Error())
 	}
