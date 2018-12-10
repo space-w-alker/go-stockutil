@@ -53,7 +53,7 @@ func ResolveValue(in interface{}) interface{} {
 func IsKind(in interface{}, kinds ...reflect.Kind) bool {
 	var inT reflect.Type
 
-	if v, ok := in.(reflect.Value); ok {
+	if v, ok := in.(reflect.Value); ok && v.IsValid() {
 		inT = v.Type()
 	} else if v, ok := in.(reflect.Type); ok {
 		inT = v
