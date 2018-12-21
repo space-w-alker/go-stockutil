@@ -17,6 +17,23 @@ func TestDeepSetNothing(t *testing.T) {
 	assert.Empty(output)
 }
 
+func TestDeepSetReplace(t *testing.T) {
+	assert := require.New(t)
+
+	output := map[string]interface{}{
+		`this`: map[string]interface{}{
+			`test`: `1`,
+		},
+	}
+
+	DeepSet(output, []string{"this", "test"}, `2`)
+	assert.Equal(map[string]interface{}{
+		`this`: map[string]interface{}{
+			`test`: `2`,
+		},
+	}, output)
+}
+
 func TestDeepSetString(t *testing.T) {
 	assert := require.New(t)
 
