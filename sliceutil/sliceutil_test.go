@@ -435,3 +435,44 @@ func TestIntersect(t *testing.T) {
 		IntersectStrings([]string{`a`, `b`, `c`}, []string{`a`, `c`, `e`}),
 	)
 }
+
+func TestSlice(t *testing.T) {
+	assert := require.New(t)
+	in := []interface{}{1, 2, 3, 4, 5}
+
+	assert.EqualValues([]interface{}{}, Slice(in, 99, -1))
+	assert.EqualValues([]interface{}{1}, Slice(in, 0, 1))
+	assert.EqualValues([]interface{}{1, 2}, Slice(in, 0, 2))
+	assert.EqualValues([]interface{}{1, 2, 3, 4}, Slice(in, 0, 4))
+	assert.EqualValues([]interface{}{3, 4}, Slice(in, 2, 4))
+	assert.EqualValues([]interface{}{3, 4}, Slice(in, 2, 4))
+	assert.EqualValues([]interface{}{4, 5}, Slice(in, -2, -1))
+	assert.EqualValues([]interface{}{1, 2, 3, 4, 5}, Slice(in, -5, -1))
+
+	assert.EqualValues([]interface{}{}, Slice(in, -6, -6))
+	assert.EqualValues([]interface{}{1}, Slice(in, -5, -5))
+	assert.EqualValues([]interface{}{2}, Slice(in, -4, -4))
+	assert.EqualValues([]interface{}{3}, Slice(in, -3, -3))
+	assert.EqualValues([]interface{}{4}, Slice(in, -2, -2))
+	assert.EqualValues([]interface{}{5}, Slice(in, -1, -1))
+	assert.EqualValues([]interface{}{1}, Slice(in, 0, 1))
+	assert.EqualValues([]interface{}{2}, Slice(in, 1, 2))
+	assert.EqualValues([]interface{}{3}, Slice(in, 2, 3))
+	assert.EqualValues([]interface{}{4}, Slice(in, 3, 4))
+	assert.EqualValues([]interface{}{5}, Slice(in, 4, 5))
+	assert.EqualValues([]interface{}{}, Slice(in, 5, 6))
+
+	assert.EqualValues([]interface{}{1, 2, 3, 4, 5}, Slice(in, -100, -1))
+	assert.EqualValues([]interface{}{1, 2, 3, 4}, Slice(in, -100, -2))
+	assert.EqualValues([]interface{}{1, 2, 3}, Slice(in, -100, -3))
+	assert.EqualValues([]interface{}{1, 2}, Slice(in, -100, -4))
+	assert.EqualValues([]interface{}{1}, Slice(in, -100, -5))
+	assert.EqualValues([]interface{}{}, Slice(in, -100, -6))
+
+	assert.EqualValues([]interface{}{2, 3, 4, 5}, Slice(in, 1, -1))
+	assert.EqualValues([]interface{}{2, 3, 4}, Slice(in, 1, -2))
+	assert.EqualValues([]interface{}{2, 3}, Slice(in, 1, -3))
+	assert.EqualValues([]interface{}{2}, Slice(in, 1, -4))
+	assert.EqualValues([]interface{}{}, Slice(in, 1, -5))
+	assert.EqualValues([]interface{}{}, Slice(in, 1, -6))
+}

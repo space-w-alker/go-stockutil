@@ -322,6 +322,46 @@ func Sliceify(in interface{}) []interface{} {
 	return out
 }
 
+// Returns a new slice with only the specified subset of items included.  In addition to the
+// normal slice index rules in Golang, negative indices are also supported.  If a negative index is
+// given for the from and/or to values, the index will be treated as being relative to the end of the
+// given slice. For example:
+//
+// 	Slice([]interface{}{1,2,3,4,5}, -5, -1)  // returns []interface{}{1, 2, 3, 4, 5}
+// 	Slice([]interface{}{1,2,3,4,5}, -2, -1)  // returns []interface{}{4, 5}
+// 	Slice([]interface{}{1,2,3,4,5}, -1, -1)  // returns []interface{}{5}
+//
+func Slice(slice interface{}, from int, to int) []interface{} {
+	sliceS := Sliceify(slice)
+
+	if from < 0 {
+		from = len(sliceS) + from
+	}
+
+	if from > len(sliceS) {
+		return make([]interface{}, 0)
+	} else if from < 0 {
+		from = 0
+	}
+
+	if to > len(sliceS) {
+		to = len(sliceS)
+	} else if to < 0 {
+		to = len(sliceS) + to + 1
+	}
+
+	if (from >= 0 && from < len(sliceS)) && (to >= from && to <= len(sliceS)) {
+		return sliceS[from:to]
+	} else {
+		return make([]interface{}, 0)
+	}
+}
+
+// Same as slice, but returns strings.
+func StringSlice(slice interface{}, from int, to int) []string {
+	return Stringify(Slice(slice, from, to))
+}
+
 // Returns a new slice with only unique elements from the given interface included.
 func Unique(in interface{}) []interface{} {
 	return unique(in, StrictEqualityCompare)
