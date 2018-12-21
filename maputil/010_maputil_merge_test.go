@@ -100,6 +100,20 @@ func TestMapMerge(t *testing.T) {
 
 	assert.NoError(err)
 	assert.Equal(map[string]interface{}{
+		`name`: `Second`,
+		`age`:  2,
+	}, out)
+
+	// ------------------------------------------------------------------------
+	out, err = Merge(map[string]interface{}{
+		`name`: `First`,
+	}, map[string]interface{}{
+		`name`: `Second`,
+		`age`:  2,
+	}, AppendValues)
+
+	assert.NoError(err)
+	assert.Equal(map[string]interface{}{
 		`name`: []interface{}{`First`, `Second`},
 		`age`:  2,
 	}, out)
@@ -115,6 +129,21 @@ func TestMapMerge(t *testing.T) {
 
 	assert.NoError(err)
 	assert.Equal(map[string]interface{}{
+		`name`:    `Second`,
+		`enabled`: true,
+	}, out)
+
+	// ------------------------------------------------------------------------
+	out, err = Merge(map[string]interface{}{
+		`name`:    `First`,
+		`enabled`: nil,
+	}, map[string]interface{}{
+		`name`:    `Second`,
+		`enabled`: true,
+	}, AppendValues)
+
+	assert.NoError(err)
+	assert.Equal(map[string]interface{}{
 		`name`:    []interface{}{`First`, `Second`},
 		`enabled`: true,
 	}, out)
@@ -127,6 +156,21 @@ func TestMapMerge(t *testing.T) {
 		`name`: `Second`,
 		`age`:  42,
 	})
+
+	assert.NoError(err)
+	assert.Equal(map[string]interface{}{
+		`name`: `Second`,
+		`age`:  42,
+	}, out)
+
+	// ------------------------------------------------------------------------
+	out, err = Merge(map[string]interface{}{
+		`name`: `First`,
+		`age`:  `yes`,
+	}, map[string]interface{}{
+		`name`: `Second`,
+		`age`:  42,
+	}, AppendValues)
 
 	assert.NoError(err)
 	assert.Equal(map[string]interface{}{

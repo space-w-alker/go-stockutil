@@ -22,8 +22,25 @@ var SkipDescendants = errors.New("skip descendants")
 
 type WalkFunc func(value interface{}, path []string, isLeaf bool) error
 type ApplyFunc func(key []string, value interface{}) (interface{}, bool)
-
 type ConversionFunc func(from reflect.Type, to reflect.Type, data interface{}) (interface{}, error)
+
+type MergeOption int
+
+const (
+	AppendValues MergeOption = iota
+)
+
+type MergeOptions []MergeOption
+
+func (self MergeOptions) Has(option MergeOption) bool {
+	for _, opt := range self {
+		if opt == option {
+			return true
+		}
+	}
+
+	return false
+}
 
 // Return an interface slice of the keys of the given map.
 func Keys(input interface{}) []interface{} {
@@ -756,7 +773,7 @@ func Compact(input map[string]interface{}) (map[string]interface{}, error) {
 }
 
 // Recursively merge the contents of the second map into the first one and return the result.
-func Merge(first interface{}, second interface{}) (map[string]interface{}, error) {
+func Merge(first interface{}, second interface{}, options ...MergeOption) (map[string]interface{}, error) {
 	if first != nil && !typeutil.IsKind(first, reflect.Map) {
 		return nil, fmt.Errorf("first argument must be a map, got %T", first)
 	}
@@ -791,11 +808,11 @@ func Merge(first interface{}, second interface{}) (map[string]interface{}, error
 						DeepSet(output, newPath, value)
 
 					default:
-						if currentValue == value {
-							return nil
+						if MergeOptions(options).Has(AppendValues) {
+							DeepSet(output, path, []interface{}{currentValue, value})
+						} else {
+							DeepSet(output, path, value)
 						}
-
-						DeepSet(output, path, []interface{}{currentValue, value})
 					}
 				}
 			}
