@@ -330,6 +330,7 @@ func Sliceify(in interface{}) []interface{} {
 // 	Slice([]interface{}{1,2,3,4,5}, -5, -1)  // returns []interface{}{1, 2, 3, 4, 5}
 // 	Slice([]interface{}{1,2,3,4,5}, -2, -1)  // returns []interface{}{4, 5}
 // 	Slice([]interface{}{1,2,3,4,5}, -1, -1)  // returns []interface{}{5}
+// 	Slice([]interface{}{1,2,3,4,5}, -4, -2)  // returns []interface{}{2, 3, 4}
 //
 func Slice(slice interface{}, from int, to int) []interface{} {
 	sliceS := Sliceify(slice)

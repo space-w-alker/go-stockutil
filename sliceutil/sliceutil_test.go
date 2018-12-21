@@ -448,6 +448,7 @@ func TestSlice(t *testing.T) {
 	assert.EqualValues([]interface{}{3, 4}, Slice(in, 2, 4))
 	assert.EqualValues([]interface{}{4, 5}, Slice(in, -2, -1))
 	assert.EqualValues([]interface{}{1, 2, 3, 4, 5}, Slice(in, -5, -1))
+	assert.EqualValues([]interface{}{2, 3, 4}, Slice(in, -4, -2))
 
 	assert.EqualValues([]interface{}{}, Slice(in, -6, -6))
 	assert.EqualValues([]interface{}{1}, Slice(in, -5, -5))
