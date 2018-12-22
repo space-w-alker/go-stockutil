@@ -189,10 +189,10 @@ func CopyDir(root string, fn CopyEntryFunc) error {
 			} else {
 				return err
 			}
-		} else if w == nil {
-			return nil
-		} else {
+		} else if err != nil {
 			return err
+		} else {
+			return nil
 		}
 	})
 }
