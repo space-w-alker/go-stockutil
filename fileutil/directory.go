@@ -166,3 +166,33 @@ func (self *DirReader) readDir() (string, []os.FileInfo, error) {
 		return ``, nil, err
 	}
 }
+
+type CopyEntryFunc func(path string, info os.FileInfo, err error) (io.Writer, error)
+
+// Recursively walk the entries of a given directory, calling CopyEntryFunc for each entry.
+// The io.Writer returned from the function will have that file's contents written to it.  If
+// the io.Writer is nil, the file will not be written anywhere but no error will be returned.
+// If CopyEntryFunc returns an error, the behavior will be consistent with filepath.WalkFunc
+func CopyDir(root string, fn CopyEntryFunc) error {
+	if p, err := ExpandUser(root); err == nil {
+		root = p
+	} else {
+		return err
+	}
+
+	return filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+		if w, err := fn(path, info, err); err == nil && w != nil {
+			if file, err := os.Open(path); err == nil {
+				defer file.Close()
+				_, err := io.Copy(w, file)
+				return err
+			} else {
+				return err
+			}
+		} else if w == nil {
+			return nil
+		} else {
+			return err
+		}
+	})
+}
