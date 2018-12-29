@@ -7,6 +7,13 @@ import (
 	"unicode"
 )
 
+type MeasurementSystem string
+
+const (
+	Metric   MeasurementSystem = `metric`
+	Imperial                   = `imperial`
+)
+
 type UnitFamily int
 
 const (
