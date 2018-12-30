@@ -20,6 +20,10 @@ type LocationError struct {
 	Timestamp float64  `json:"timestamp"`
 }
 
+type Locatable interface {
+	GetCoordinates() (float64, float64, time.Time)
+}
+
 // Specifies a three-dimensional location within a coordinate reference system.
 type Location struct {
 	Latitude   float64                `json:"latitude,omitempty"`
@@ -41,6 +45,10 @@ func NewLocation(latitude float64, longitude float64) *Location {
 		Longitude:  longitude,
 		Properties: make(map[string]interface{}),
 	}
+}
+
+func (self Location) GetCoordinates() (float64, float64, time.Time) {
+	return self.Latitude, self.Longitude, self.Timestamp
 }
 
 func (self *Location) String() string {
@@ -86,40 +94,46 @@ func (self *Location) CardinalDirection() CardinalDirection {
 // sphere, this is only reasonably accurate for short-ish distances (is only accurate to
 // within ~0.5%).
 //
-func (self *Location) HaversineDistance(other *Location) Distance {
-	if !self.HasCoordinates() || !other.HasCoordinates() {
+func (self *Location) HaversineDistance(other Locatable) Distance {
+	lat, lng, _ := other.GetCoordinates()
+
+	if !self.HasCoordinates() || (lat == 0 && lng == 0) {
 		panic("Coordinates not specified")
 	}
 
 	return Distance((geo.NewPoint(self.Latitude, self.Longitude).GreatCircleDistance(
-		geo.NewPoint(other.Latitude, other.Longitude),
+		geo.NewPoint(lat, lng),
 	) * Kilometer))
 }
 
-func (self *Location) BearingTo(other *Location) float64 {
-	if !self.HasCoordinates() || !other.HasCoordinates() {
+func (self *Location) BearingTo(other Locatable) float64 {
+	lat, lng, _ := other.GetCoordinates()
+
+	if !self.HasCoordinates() || (lat == 0 && lng == 0) {
 		panic("Coordinates not specified")
 	}
 
 	return geo.NewPoint(self.Latitude, self.Longitude).BearingTo(
-		geo.NewPoint(other.Latitude, other.Longitude),
+		geo.NewPoint(lat, lng),
 	)
 }
 
-func (self *Location) SpeedFrom(other *Location) Speed {
+func (self *Location) SpeedFrom(other Locatable) Speed {
+	_, _, ts := other.GetCoordinates()
+
 	if self.Timestamp.IsZero() {
 		return 0
 	}
 
-	if other.Timestamp.IsZero() {
+	if ts.IsZero() {
 		return 0
 	}
 
-	if !other.Timestamp.Before(self.Timestamp) && !other.Timestamp.Equal(self.Timestamp) {
+	if !ts.Before(self.Timestamp) && !ts.Equal(self.Timestamp) {
 		return 0
 	}
 
-	delta := self.Timestamp.Sub(other.Timestamp)
+	delta := self.Timestamp.Sub(ts)
 	distance := self.HaversineDistance(other)
 
 	// speed is distance (in meters) / time delta (in seconds); meters/sec.
