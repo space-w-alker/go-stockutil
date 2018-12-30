@@ -1,4 +1,4 @@
-package convutil
+package geoutil
 
 import (
 	"encoding/json"
@@ -12,11 +12,11 @@ var SpeedDisplayUnit = MeasurementSystem(Imperial)
 type Speed float64
 
 const (
-	SpeedMetersPerSecond = 1
-	SpeedKPH             = 0.277778
-	SpeedFeetPerSecond   = 0.3048
-	SpeedMPH             = 0.44704
-	SpeedMach            = 340.29
+	MetersPerSecond = 1
+	KPH             = 0.277778
+	FeetPerSecond   = 0.3048
+	MPH             = 0.44704
+	Mach            = 340.29
 )
 
 func (self Speed) SlowerThan(other Speed) bool {
@@ -64,23 +64,23 @@ func (self Speed) String() string {
 	switch SpeedDisplayUnit {
 	case Metric:
 		switch {
-		case self >= SpeedKPH:
-			return fmt.Sprintf("%.0f kph", self/SpeedKPH)
+		case self >= KPH:
+			return fmt.Sprintf("%.0f kph", self/KPH)
 
-		case self >= (SpeedMach * 0.97):
-			return fmt.Sprintf("Mach %1.2f", self/SpeedMach)
+		case self >= (Mach * 0.97):
+			return fmt.Sprintf("Mach %1.2f", self/Mach)
 		}
 
 	case Imperial:
 		switch {
-		case self < SpeedMPH:
-			return fmt.Sprintf("%.0f f/s", self/SpeedFeetPerSecond)
+		case self < MPH:
+			return fmt.Sprintf("%.0f f/s", self/FeetPerSecond)
 
-		case self >= (SpeedMach * 0.97):
-			return fmt.Sprintf("Mach %1.2f", self/SpeedMach)
+		case self >= (Mach * 0.97):
+			return fmt.Sprintf("Mach %1.2f", self/Mach)
 
 		default:
-			return fmt.Sprintf("%.0f mph", self/SpeedMPH)
+			return fmt.Sprintf("%.0f mph", self/MPH)
 		}
 	}
 

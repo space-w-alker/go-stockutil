@@ -1,4 +1,4 @@
-package convutil
+package geoutil
 
 import (
 	"encoding/json"
@@ -15,12 +15,12 @@ var rxDistanceExtract = regexp.MustCompile(`^(?P<number>\d+(?:\.\d+)?)\s*(?P<uni
 type Distance float64
 
 const (
-	DistanceMeter        = 1
-	DistanceKilometer    = 1000
-	DistanceFoot         = 0.3048
-	DistanceYard         = 0.9144
-	DistanceMile         = 1609.344
-	DistanceNauticalMile = 1852
+	Meter        = 1
+	Kilometer    = 1000
+	Foot         = 0.3048
+	Yard         = 0.9144
+	Mile         = 1609.344
+	NauticalMile = 1852
 )
 
 var DistanceDisplayUnit = MeasurementSystem(Imperial)
@@ -49,15 +49,15 @@ func ParseDistance(in interface{}) (Distance, error) {
 			case `meter`, `m`:
 				return Distance(v), nil
 			case `kilometer`, `km`:
-				return Distance(v) * DistanceKilometer, nil
+				return Distance(v) * Kilometer, nil
 			case `mile`, `mi`:
-				return Distance(v) * DistanceMile, nil
+				return Distance(v) * Mile, nil
 			case `feet`, `foot`, `ft`:
-				return Distance(v) * DistanceFoot, nil
+				return Distance(v) * Foot, nil
 			case `yard`, `yd`:
-				return Distance(v) * DistanceYard, nil
+				return Distance(v) * Yard, nil
 			case `nm`, `nautical mile`:
-				return Distance(v) * DistanceNauticalMile, nil
+				return Distance(v) * NauticalMile, nil
 			default:
 				return 0, fmt.Errorf("Unrecognized distance unit %q", unit)
 			}
@@ -85,14 +85,14 @@ func (self Distance) Equal(other Distance) bool {
 
 func (self Distance) MetricString() string {
 	switch {
-	case self >= 10*DistanceKilometer:
-		return fmt.Sprintf("%.0f kilometers", self/DistanceKilometer)
+	case self >= 10*Kilometer:
+		return fmt.Sprintf("%.0f kilometers", self/Kilometer)
 
-	case self > DistanceKilometer:
-		return fmt.Sprintf("%.1f kilometers", self/DistanceKilometer)
+	case self > Kilometer:
+		return fmt.Sprintf("%.1f kilometers", self/Kilometer)
 
-	case self == DistanceKilometer:
-		return fmt.Sprintf("%.0f kilometer", self/DistanceKilometer)
+	case self == Kilometer:
+		return fmt.Sprintf("%.0f kilometer", self/Kilometer)
 
 	default:
 		return fmt.Sprintf("%.0f meters", self)
@@ -102,17 +102,17 @@ func (self Distance) MetricString() string {
 
 func (self Distance) ImperialString() string {
 	switch {
-	case self >= 5*DistanceMile:
-		return fmt.Sprintf("%.0f miles", self/DistanceMile)
+	case self >= 5*Mile:
+		return fmt.Sprintf("%.0f miles", self/Mile)
 
-	case self >= (0.9*DistanceMile) && self <= (1.1*DistanceMile):
-		return fmt.Sprintf("%.0f mile", self/DistanceMile)
+	case self >= (0.9*Mile) && self <= (1.1*Mile):
+		return fmt.Sprintf("%.0f mile", self/Mile)
 
-	case self >= (0.1 * DistanceMile):
-		return fmt.Sprintf("%.1f miles", self/DistanceMile)
+	case self >= (0.1 * Mile):
+		return fmt.Sprintf("%.1f miles", self/Mile)
 
 	default:
-		return fmt.Sprintf("%.0f feet", self/DistanceFoot)
+		return fmt.Sprintf("%.0f feet", self/Foot)
 	}
 }
 
