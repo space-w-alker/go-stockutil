@@ -495,6 +495,8 @@ func InitMime() {
 	mime.AddExtensionType(`.xwd`, `image/x-xwindowdump`)
 	mime.AddExtensionType(`.xyz`, `chemical/x-xyz`)
 	mime.AddExtensionType(`.xz`, `application/x-xz`)
+	mime.AddExtensionType(`.yaml`, `application/x-yaml`)
+	mime.AddExtensionType(`.yml`, `application/x-yaml`)
 	mime.AddExtensionType(`.zip`, `application/zip`)
 	mime.AddExtensionType(`.zmt`, `chemical/x-mopac-input`)
 
