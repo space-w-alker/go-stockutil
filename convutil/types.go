@@ -2,7 +2,6 @@ package convutil
 
 import (
 	"fmt"
-	"math"
 	"strings"
 	"unicode"
 )
@@ -14,7 +13,6 @@ const (
 	TemperatureUnits
 	LengthUnits
 	SpeedUnits
-	AbsoluteUnit = math.MaxInt64
 )
 
 type Unit int

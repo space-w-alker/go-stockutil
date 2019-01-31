@@ -2,7 +2,6 @@ package convutil
 
 import (
 	"fmt"
-	"math"
 
 	"github.com/ghetzel/go-stockutil/mathutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
@@ -86,8 +85,6 @@ func ExactConvert(in interface{}, from interface{}, to interface{}) (float64, er
 				return convertSpeed(v, fromU, toU)
 			case LengthUnits:
 				return convertDistance(v, fromU, toU)
-			case AbsoluteUnit:
-				return math.MaxFloat64
 			}
 
 			return fmt.Errorf("cannot convert from %v to %v", from, to)
