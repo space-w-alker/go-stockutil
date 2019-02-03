@@ -16,6 +16,7 @@ import (
 )
 
 var DefaultInterceptStackDepth int = 5
+var SynchronousIntercepts = false
 
 var backend *logging.LogBackend
 var formatted logging.Backend
@@ -57,7 +58,8 @@ func initLogging() {
 	}
 }
 
-// Append a function to be called (asynchronously in its own goroutine) for every line logged.
+// Append a function to be called (asynchronously in its own goroutine, or
+// synchronously if SynchronousIntercepts is true) for every line logged.
 // Returns a UUID that can be later used to deregister the intercept function.
 func AddLogIntercept(fn LogInterceptFunc) string {
 	id := stringutil.UUID().String()
@@ -274,7 +276,7 @@ func callIntercepts(level Level, line string, stack StackItems) {
 			// panicking and about to tear crap down.  Since these intercepts should run BEFORE
 			// the log line is emitted, this should ensure the intercept definitely runs before
 			// any of that goes down.
-			if level <= CRITICAL {
+			if level <= CRITICAL || SynchronousIntercepts {
 				fn(level, line, stack)
 			} else {
 				go fn(level, line, stack)
