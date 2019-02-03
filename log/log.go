@@ -6,21 +6,28 @@ import (
 	"io"
 	"os"
 	"strings"
+	"sync"
 
+	"github.com/ghetzel/go-stockutil/sliceutil"
+	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	multierror "github.com/hashicorp/go-multierror"
 	"github.com/op/go-logging"
 )
 
+var DefaultInterceptStackDepth int = 5
+
 var backend *logging.LogBackend
 var formatted logging.Backend
 var leveled logging.LeveledBackend
+var intercepts sync.Map
 
 var defaultLogger *logging.Logger
 var ModuleName = ``
 
 type LogFunc func(args ...interface{})
 type FormattedLogFunc func(format string, args ...interface{})
+type LogInterceptFunc func(level Level, line string, stack StackItems)
 
 // The LOGLEVEL environment variable has final say over the effective log level
 // for all users of this package.
@@ -48,6 +55,19 @@ func initLogging() {
 		defaultLogger = logging.MustGetLogger(ModuleName)
 		SetLevel(LogLevel)
 	}
+}
+
+// Append a function to be called (asynchronously in its own goroutine) for every line logged.
+// Returns a UUID that can be later used to deregister the intercept function.
+func AddLogIntercept(fn LogInterceptFunc) string {
+	id := stringutil.UUID().String()
+	intercepts.Store(id, fn)
+	return id
+}
+
+// Remove the previously-added log intercept function.
+func RemoveLogIntercept(id string) {
+	intercepts.Delete(id)
 }
 
 func Debugging() bool {
@@ -87,6 +107,7 @@ func SetLevel(level Level, modules ...string) {
 
 func Logf(level Level, format string, args ...interface{}) {
 	initLogging()
+	callIntercepts(level, fmt.Sprintf(format, args...), StackTrace(DefaultInterceptStackDepth))
 
 	switch level {
 	case PANIC:
@@ -110,6 +131,7 @@ func Logf(level Level, format string, args ...interface{}) {
 
 func Log(level Level, args ...interface{}) {
 	initLogging()
+	callIntercepts(level, strings.Join(sliceutil.Stringify(args), ` `), StackTrace(5))
 
 	switch level {
 	case PANIC:
@@ -242,4 +264,23 @@ func AppendError(base error, err error) error {
 	} else {
 		return multierror.Append(base, err)
 	}
+}
+
+// call all registered intercept functions using the given arguments.
+func callIntercepts(level Level, line string, stack StackItems) {
+	intercepts.Range(func(_ interface{}, value interface{}) bool {
+		if fn, ok := value.(LogInterceptFunc); ok {
+			// for levels CRITICAL and worse, call intercepts synchronously in case we're
+			// panicking and about to tear crap down.  Since these intercepts should run BEFORE
+			// the log line is emitted, this should ensure the intercept definitely runs before
+			// any of that goes down.
+			if level <= CRITICAL {
+				fn(level, line, stack)
+			} else {
+				go fn(level, line, stack)
+			}
+		}
+
+		return true
+	})
 }
