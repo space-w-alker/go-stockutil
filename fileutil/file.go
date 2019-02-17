@@ -1,6 +1,8 @@
 package fileutil
 
 import (
+	"crypto"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
@@ -8,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/ghetzel/go-stockutil/pathutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 	isatty "github.com/mattn/go-isatty"
 )
 
@@ -111,6 +114,76 @@ func MustReadAllString(filename string) string {
 		return data
 	} else {
 		panic(err.Error())
+	}
+}
+
+func ChecksumFile(filename string, fn interface{}) ([]byte, error) {
+	var hash crypto.Hash
+
+	if h, ok := fn.(crypto.Hash); ok {
+		hash = h
+	} else {
+		switch strings.ToLower(typeutil.String(fn)) {
+		case `md4`:
+			hash = crypto.MD4
+		case `md5`:
+			hash = crypto.MD5
+		case `sha1`:
+			hash = crypto.SHA1
+		case `sha224`:
+			hash = crypto.SHA224
+		case `sha256`:
+			hash = crypto.SHA256
+		case `sha384`:
+			hash = crypto.SHA384
+		case `sha512`:
+			hash = crypto.SHA512
+		case `md5sha1`:
+			hash = crypto.MD5SHA1
+		case `ripemd160`:
+			hash = crypto.RIPEMD160
+		case `sha3_224`:
+			hash = crypto.SHA3_224
+		case `sha3_256`:
+			hash = crypto.SHA3_256
+		case `sha3_384`:
+			hash = crypto.SHA3_384
+		case `sha3_512`:
+			hash = crypto.SHA3_512
+		case `sha512_224`:
+			hash = crypto.SHA512_224
+		case `sha512_256`:
+			hash = crypto.SHA512_256
+		case `blake2s_256`:
+			hash = crypto.BLAKE2s_256
+		case `blake2b_256`:
+			hash = crypto.BLAKE2b_256
+		case `blake2b_384`:
+			hash = crypto.BLAKE2b_384
+		case `blake2b_512`:
+			hash = crypto.BLAKE2b_512
+		default:
+			return nil, fmt.Errorf("Unknown hash function %q", fn)
+		}
+	}
+
+	if hash.Available() {
+		hasher := hash.New()
+
+		if file, err := os.Open(filename); err == nil {
+			defer file.Close()
+
+			if _, err := io.Copy(hasher, file); err == nil {
+				sum := hasher.Sum(nil)
+				return sum, nil
+			} else {
+				return nil, err
+			}
+		} else {
+			return nil, err
+		}
+	} else {
+		return nil, fmt.Errorf("Hash function %v is not available", hash)
 	}
 }
 
