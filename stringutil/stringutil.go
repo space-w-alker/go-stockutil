@@ -730,6 +730,19 @@ func SuffixEach(in []string, prefix string, suffix string) []string {
 	return WrapEach(in, ``, suffix)
 }
 
+// Split the given input into lines.
+func SplitLines(in interface{}, delimiter string) []string {
+	var blob string
+
+	if b, ok := in.([]byte); ok {
+		blob = string(b)
+	} else {
+		blob = typeutil.String(in)
+	}
+
+	return strings.Split(blob, delimiter)
+}
+
 // Split the given string into words.
 func SplitWords(in string) []string {
 	tokenizer := tokenize.NewTreebankWordTokenizer()
