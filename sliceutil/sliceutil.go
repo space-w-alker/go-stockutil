@@ -2,7 +2,6 @@
 package sliceutil
 
 import (
-	"fmt"
 	"reflect"
 
 	"github.com/ghetzel/go-stockutil/stringutil"
@@ -173,28 +172,14 @@ func CompactString(in []string) []string {
 // Converts all elements of the given interface slice to strings using the "%v"
 // format string via the fmt package.
 func Stringify(in interface{}) []string {
-	if !typeutil.IsArray(in) {
-		return nil
-	}
+	if arr := Sliceify(in); len(arr) > 0 {
+		out := make([]string, len(arr))
 
-	inV := reflect.ValueOf(in)
-
-	if inV.IsValid() {
-		rv := make([]string, inV.Len())
-
-		for i := 0; i < inV.Len(); i++ {
-			if iV := inV.Index(i); iV.IsValid() {
-				value := iV.Interface()
-
-				if str, ok := value.(fmt.Stringer); ok {
-					rv[i] = str.String()
-				} else {
-					rv[i] = fmt.Sprintf("%v", value)
-				}
-			}
+		for i, item := range arr {
+			out[i] = typeutil.String(item)
 		}
 
-		return rv
+		return out
 	} else {
 		return nil
 	}
