@@ -56,7 +56,13 @@ func (self *Map) Set(key string, value interface{}) typeutil.Variant {
 // value.  Return values are a typeutil.Variant, which can be easily coerced into
 // various types.
 func (self *Map) Get(key string, fallbacks ...interface{}) typeutil.Variant {
-	if v := DeepGet(self.data, strings.Split(key, `.`), fallbacks...); v != nil {
+	native := self.MapNative()
+
+	if v, ok := native[key]; ok && v != nil {
+		return typeutil.Variant{
+			Value: v,
+		}
+	} else if v := DeepGet(self.data, strings.Split(key, `.`), fallbacks...); v != nil {
 		return typeutil.Variant{
 			Value: v,
 		}
