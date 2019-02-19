@@ -27,6 +27,10 @@ func WhichAll(cmdname string, path ...string) []string {
 	dirs := append(path, strings.Split(os.Getenv(`PATH`), `:`)...)
 	found := make([]string, 0)
 
+	if fileutil.IsNonemptyExecutableFile(cmdname) {
+		found = append(found, cmdname)
+	}
+
 	for _, dir := range dirs {
 		candidate := filepath.Join(dir, cmdname)
 
