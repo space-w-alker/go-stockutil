@@ -477,3 +477,10 @@ func TestSlice(t *testing.T) {
 	assert.EqualValues([]interface{}{}, Slice(in, 1, -5))
 	assert.EqualValues([]interface{}{}, Slice(in, 1, -6))
 }
+
+func TestTrimSpace(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Nil(TrimSpace(nil))
+	assert.Equal([]string{`aaa`, `bbb`, `ccc`}, TrimSpace([]string{`aaa`, `   bbb `, ` ccc    `}))
+}

@@ -3,6 +3,7 @@ package sliceutil
 
 import (
 	"reflect"
+	"strings"
 
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
@@ -297,6 +298,10 @@ func Each(slice interface{}, iterFn IterationFunc) error {
 
 // Takes some input value and returns it as a slice.
 func Sliceify(in interface{}) []interface{} {
+	if in == nil {
+		return nil
+	}
+
 	out := make([]interface{}, 0)
 
 	Each(in, func(_ int, v interface{}) error {
@@ -397,14 +402,20 @@ func Map(in interface{}, fn MapFunc) []interface{} {
 // Returns a copy of the given slice with each element modified by the a given function, then
 // converted to a string.
 func MapString(in interface{}, fn MapStringFunc) []string {
-	var out []string
+	out := Stringify(in)
 
-	Each(in, func(i int, v interface{}) error {
-		out = append(out, fn(i, stringutil.MustString(v)))
-		return nil
-	})
+	for i, el := range out {
+		out[i] = fn(i, el)
+	}
 
 	return out
+}
+
+// Trims the whitespace from each element in the given array.
+func TrimSpace(in interface{}) []string {
+	return MapString(in, func(_ int, el string) string {
+		return strings.TrimSpace(el)
+	})
 }
 
 // Divide the given slice into chunks of (at most) a given length
