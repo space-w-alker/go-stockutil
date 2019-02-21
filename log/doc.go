@@ -51,7 +51,11 @@ Foreground Attributes:
 Background Attributes:
 	h: high-intensity (bright text)
 
+
 Examples
+
+Below are some examples showing various formatting options for logs.
+
 
 	log.Info("Hello, world!")
 	// [11:22:33 0001] INFO Hello, world!
