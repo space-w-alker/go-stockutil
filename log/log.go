@@ -12,9 +12,11 @@ import (
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	multierror "github.com/hashicorp/go-multierror"
+	isatty "github.com/mattn/go-isatty"
 	"github.com/op/go-logging"
 )
 
+var EnableColorExpressions = isatty.IsTerminal(os.Stdout.Fd())
 var DefaultInterceptStackDepth int = 5
 var SynchronousIntercepts = false
 
@@ -111,30 +113,22 @@ func Logf(level Level, format string, args ...interface{}) {
 	initLogging()
 	callIntercepts(level, fmt.Sprintf(format, args...), StackTrace(DefaultInterceptStackDepth))
 
-	switch level {
-	case PANIC:
-		defaultLogger.Panicf(format, args...)
-	case FATAL:
-		defaultLogger.Fatalf(format, args...)
-	case CRITICAL:
-		defaultLogger.Criticalf(format, args...)
-	case ERROR:
-		defaultLogger.Errorf(format, args...)
-	case WARNING:
-		defaultLogger.Warningf(format, args...)
-	case NOTICE:
-		defaultLogger.Noticef(format, args...)
-	case INFO:
-		defaultLogger.Infof(format, args...)
-	default:
-		defaultLogger.Debugf(format, args...)
+	// only replace with the actual ANSI escape sequences if we're at a tty
+	// or if colors have been explicitly enabled, otherwise just remove the sequences
+	if EnableColorExpressions {
+		log(level, CSprintf(format, args...))
+	} else {
+		log(level, CStripf(format, args...))
 	}
 }
 
 func Log(level Level, args ...interface{}) {
 	initLogging()
 	callIntercepts(level, strings.Join(sliceutil.Stringify(args), ` `), StackTrace(DefaultInterceptStackDepth))
+	log(level, args...)
+}
 
+func log(level Level, args ...interface{}) {
 	switch level {
 	case PANIC:
 		defaultLogger.Panic(args...)
