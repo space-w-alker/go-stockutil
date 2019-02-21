@@ -222,3 +222,57 @@ func MustWriteFile(reader io.Reader, filename string) int64 {
 		panic(err.Error())
 	}
 }
+
+// Copy a file from one place to another.  Source can be an io.Reader or string.  If source is a
+// string, the string will be passed to the Open() function as a URL.  Destination can be an
+// io.Writer or string.  If destination is a string, it will be treated as a local filesystem path
+// to write the data read from source to.
+//
+// If either source or destination implements io.Closer, thee files will be closed before this
+// function returns.
+//
+func CopyFile(source interface{}, destination interface{}) error {
+	var sreader io.Reader
+	var dwriter io.Writer
+
+	// open or otherwise get the source
+	if sfilename, ok := source.(string); ok {
+		if sr, err := Open(sfilename); err == nil {
+			sreader = sr
+		} else {
+			return err
+		}
+	} else if sr, ok := source.(io.Reader); ok {
+		sreader = sr
+	} else {
+		return fmt.Errorf("Unsupported source %T", source)
+	}
+
+	// open the destination for writing
+	if dfilename, ok := source.(string); ok {
+		if dfile, err := os.Create(dfilename); err == nil {
+			dwriter = dfile
+		} else {
+			return err
+		}
+	} else if dw, ok := destination.(io.Writer); ok {
+		dwriter = dw
+	} else {
+		return fmt.Errorf("Unsupported source %T", source)
+	}
+
+	// defer closing of both source and destination if they support it
+	defer func() {
+		if sc, ok := sreader.(io.Closer); ok {
+			sc.Close()
+		}
+
+		if dc, ok := dwriter.(io.Closer); ok {
+			dc.Close()
+		}
+	}()
+
+	// copy and return
+	_, err := io.Copy(dwriter, sreader)
+	return err
+}

@@ -133,7 +133,7 @@ func Logf(level Level, format string, args ...interface{}) {
 
 func Log(level Level, args ...interface{}) {
 	initLogging()
-	callIntercepts(level, strings.Join(sliceutil.Stringify(args), ` `), StackTrace(5))
+	callIntercepts(level, strings.Join(sliceutil.Stringify(args), ` `), StackTrace(DefaultInterceptStackDepth))
 
 	switch level {
 	case PANIC:
