@@ -133,6 +133,22 @@ func (self Variant) Bytes() []byte {
 	}
 }
 
+func (self Variant) Interface() interface{} {
+	out := self.Value
+
+	for {
+		if subvariant, ok := out.(Variant); ok {
+			out = subvariant.Value
+		} else if subvariant, ok := out.(*Variant); ok {
+			out = subvariant.Value
+		} else {
+			break
+		}
+	}
+
+	return out
+}
+
 // Return the value as a map[Variant]Variant if it can be interpreted as such, or an empty map otherwise.
 func (self Variant) Map() map[Variant]Variant {
 	output := make(map[Variant]Variant)
@@ -157,7 +173,7 @@ func (self Variant) MapNative() map[string]interface{} {
 	out := make(map[string]interface{})
 
 	for k, v := range self.Map() {
-		out[k.String()] = v.Value
+		out[k.String()] = v.Interface()
 	}
 
 	return out

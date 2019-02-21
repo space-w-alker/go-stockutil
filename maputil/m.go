@@ -62,6 +62,16 @@ func (self *Map) SetIfZero(key string, value interface{}) (typeutil.Variant, boo
 	}
 }
 
+// Set a value in the Map at the given dot.separated key to a value, but only if the
+// new value is not a zero value.
+func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Variant, bool) {
+	if !typeutil.IsZero(value) {
+		return self.Set(key, value), true
+	} else {
+		return self.Get(key), false
+	}
+}
+
 // Retrieve a value from the Map by the given dot.separated key, or return a fallback
 // value.  Return values are a typeutil.Variant, which can be easily coerced into
 // various types.
