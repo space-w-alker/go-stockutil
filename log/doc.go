@@ -1,5 +1,3 @@
-package log
-
 /*
 Package log package provides convenient and flexible utilities for logging
 messages to a console or other writable destinations.
@@ -52,3 +50,5 @@ ${expr}.  The general format for color expressions is:
 	Background Attributes
 		h: high-intensity (bright text)
 */
+
+package log
