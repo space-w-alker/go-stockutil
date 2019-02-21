@@ -92,7 +92,13 @@ various sources and the log package.  This is frequently useful in situations li
 output of other programs.  A WritableLogger accepts a custom LogParseFunc that allows individual
 lines being written to the WritableLogger to be parsed, rewritten, and given a log severity level.
 
+	import (
+		"os/exec"
+		"github.com/ghetzel/go-stockutil/log"
+	)
+
 	wr := log.NewWritableLogger(log.INFO, `ls: `)
+
 	wr.SetParserFunc(func(line string) (log.Level, string) {
 		if strings.Contains(line, `root`) {
 			// root-owned files show up as errors
@@ -106,5 +112,8 @@ lines being written to the WritableLogger to be parsed, rewritten, and given a l
 		}
 	})
 
+	ls := exec.Command(`ls`, `-l`)
+	ls.Stdout = wr
+	ls.Run()
 */
 package log
