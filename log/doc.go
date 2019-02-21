@@ -67,5 +67,44 @@ Below are some examples showing various formatting options for logs.
 	// [11:22:33 0003] ERRO There was an error opening file /tmp/file.txt
 	//                                   ^^^^^              ^^^^^^^^^^^^^
 	//                                   red text           blue text on white background
+
+Log Interception
+
+It is sometimes useful to be able to act on logs as they are emitted, especially in cases where this
+package is used in other projects that are imported.  Log Interceptors are called before each log
+line is emitted.  The LogInterceptFunc is called with the level the message was emitted with, the
+message itself as a string, and a stack trace struct that defines exactly where the log was emitted
+from.
+
+	// print a complete stack trace before every debug-level message that is encountered
+	log.AddLogIntercept(func(level log.Level, line string, stack log.StackItems){
+		if level == log.DEBUG {
+			for _, item := range stack {
+				fmt.Println(item.String())
+			}
+		}
+	})
+
+Writable Logger
+
+The WritableLogger implements the io.Writer interface, acting as a bridge between byte streams from
+various sources and the log package.  This is frequently useful in situations like parsing the
+output of other programs.  A WritableLogger accepts a custom LogParseFunc that allows individual
+lines being written to the WritableLogger to be parsed, rewritten, and given a log severity level.
+
+	wr := log.NewWritableLogger(log.INFO, `ls: `)
+	wr.SetParserFunc(func(line string) (log.Level, string) {
+		if strings.Contains(line, `root`) {
+			// root-owned files show up as errors
+			return log.ERROR, line
+		} else if strings.Contains(line, os.Getenv(`USER`)) {
+			// current user files are notices
+			return log.NOTICE, line
+		} else {
+			// all other lines are not logged at all
+			return log.DEBUG, ``
+		}
+	})
+
 */
 package log
