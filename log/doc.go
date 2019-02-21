@@ -1,3 +1,5 @@
+// Standard logging package, batteries included.
+
 /*
 Package log package provides convenient and flexible utilities for logging
 messages to a console or other writable destinations.
