@@ -1,4 +1,3 @@
-// Standard logging package, batteries included.
 package log
 
 import (
