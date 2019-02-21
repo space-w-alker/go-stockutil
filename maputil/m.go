@@ -44,12 +44,22 @@ func (self *Map) MapNative() map[string]interface{} {
 	return typeutil.MapNative(self.data)
 }
 
-// Set a value in the Map at the give dot.separated key.
+// Set a value in the Map at the given dot.separated key to a value.
 func (self *Map) Set(key string, value interface{}) typeutil.Variant {
 	vv := typeutil.V(value)
 	self.data = DeepSet(self.data, strings.Split(key, `.`), vv)
 
 	return vv
+}
+
+// Set a value in the Map at the given dot.separated key to a value, but only if the
+// current value at that key is that type's zero value.
+func (self *Map) SetIfZero(key string, value interface{}) (typeutil.Variant, bool) {
+	if v := self.Get(key); v.IsZero() {
+		return self.Set(key, value), true
+	} else {
+		return v, false
+	}
 }
 
 // Retrieve a value from the Map by the given dot.separated key, or return a fallback
@@ -131,4 +141,9 @@ func (self *Map) Map(key string) map[typeutil.Variant]typeutil.Variant {
 
 func (self *Map) MarshalJSON() ([]byte, error) {
 	return json.Marshal(self.data)
+}
+
+// Return whether the value at the given key is that type's zero value.
+func (self *Map) IsZero(key string) bool {
+	return self.Get(key).IsZero()
 }
