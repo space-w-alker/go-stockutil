@@ -4,6 +4,7 @@ package stringutil
 import (
 	"fmt"
 	"math"
+	"os"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -11,12 +12,14 @@ import (
 	"time"
 	"unicode"
 
+	"github.com/ghetzel/go-stockutil/rxutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/ghetzel/go-stockutil/utils"
 	"github.com/jdkato/prose/tokenize"
 )
 
 var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
+var rxEnvVarExpr = regexp.MustCompile(`(\$\{(?P<env>\w+)(?::(?P<fmt>[^\}]+))?\})`) // ${ENV}, ${ENV:%04s}
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
 
@@ -810,4 +813,28 @@ func SqueezeSpace(in string) string {
 	return SqueezeFunc(in, func(r rune) bool {
 		return unicode.IsSpace(r)
 	})
+}
+
+// Return the given string with environment variable substitution sequences
+// expanded and (optionally) formatted.  This function operates similarly to
+// os.ExpandEnv, but accepts custom fmt.Printf formatting directives.
+func ExpandEnv(in string) string {
+	for {
+		if match := rxutil.Match(rxEnvVarExpr, in); match != nil {
+			format := match.Group(`fmt`)
+			varname := match.Group(`env`)
+
+			if varname != `` {
+				if format == `` {
+					format = `%v`
+				}
+
+				in = match.ReplaceGroup(1, fmt.Sprintf(format, Autotype(os.Getenv(varname))))
+			}
+		} else {
+			break
+		}
+	}
+
+	return in
 }

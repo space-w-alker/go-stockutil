@@ -2,6 +2,7 @@ package stringutil
 
 import (
 	"fmt"
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -512,4 +513,26 @@ func TestSqueezes(t *testing.T) {
 	assert.Equal("\t This is a test. \t ", SqueezeSpace("\t\t  This   is a      test. \t "))
 	assert.Equal(`This is a test.`, Squeeze(`Thissss   is a      test.`))
 	assert.Equal(`勤恳`, Squeeze(`勤勤恳恳`))
+}
+
+func TestExpandEnv(t *testing.T) {
+	assert := require.New(t)
+
+	assert.NoError(os.Setenv(`GOSTOCKUTIL_TEST_INT`, `42`))
+	assert.NoError(os.Setenv(`GOSTOCKUTIL_TEST_FLOAT`, `3.141597625`))
+	assert.NoError(os.Setenv(`GOSTOCKUTIL_TEST_STR`, `hello`))
+	assert.NoError(os.Setenv(`GOSTOCKUTIL_TEST_UNICODE`, `勤恳`))
+
+	assert.Equal(`The answer is 42!`, ExpandEnv("The answer is ${GOSTOCKUTIL_TEST_INT}!"))
+	assert.Equal(`The answer is 42!`, ExpandEnv("The answer is ${GOSTOCKUTIL_TEST_INT:%d}!"))
+
+	assert.Equal(`Pi is about 3.141597625!`, ExpandEnv("Pi is about ${GOSTOCKUTIL_TEST_FLOAT}!"))
+	assert.Equal(`Pi is about 3.14!`, ExpandEnv("Pi is about ${GOSTOCKUTIL_TEST_FLOAT:%.2f}!"))
+	assert.Equal(`Pi is about 3!`, ExpandEnv("Pi is about ${GOSTOCKUTIL_TEST_FLOAT:%.0f}!"))
+
+	assert.Equal(`hello, world!`, ExpandEnv("${GOSTOCKUTIL_TEST_STR}, world!"))
+	assert.Equal(`hello, world!`, ExpandEnv("${GOSTOCKUTIL_TEST_STR:%s}, world!"))
+	assert.Equal(`hello, world!`, ExpandEnv("${GOSTOCKUTIL_TEST_STR:%v}, world!"))
+	assert.Equal(`%!d(string=hello), world!`, ExpandEnv("${GOSTOCKUTIL_TEST_STR:%d}, world!"))
+	assert.Equal(`勤恳`, ExpandEnv("${GOSTOCKUTIL_TEST_UNICODE}"))
 }
