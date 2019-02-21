@@ -1,7 +1,7 @@
-// Standard logging package, batteries included.
-//
 // Package log package provides convenient and flexible utilities for logging
 // messages to a console or other writable destinations.
+//
+// Overview
 //
 // Logging is done by calling functions in this package that correspond to the
 // severity of the log message being output.  At the package level, a minimum
@@ -50,5 +50,4 @@
 //
 // 	Background Attributes
 // 		h: high-intensity (bright text)
-//
 package log
