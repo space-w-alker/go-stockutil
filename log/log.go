@@ -15,7 +15,14 @@ import (
 	"github.com/op/go-logging"
 )
 
-var EnableColorExpressions = isatty.IsTerminal(os.Stdout.Fd())
+var EnableColorExpressions = func() bool {
+	if forceColor := os.Getenv(`FORCE_COLOR`); forceColor != `` {
+		return typeutil.Bool(forceColor)
+	} else {
+		return isatty.IsTerminal(os.Stdout.Fd())
+	}
+}()
+
 var DefaultInterceptStackDepth int = 5
 var SynchronousIntercepts = false
 
