@@ -27,6 +27,15 @@ func TestCSprintf(t *testing.T) {
 	assert.Equal("this \x1b[96mcyan\x1b[0m word", CSprintf("this ${cyan+h}cyan${reset} word"))
 	assert.Equal("this \x1b[97mwhite\x1b[0m word", CSprintf("this ${white+h}white${reset} word"))
 
+	assert.Equal("this \\[\x1b[90m\\]black\\[\x1b[0m\\] word", TermSprintf("this ${black+h}black${reset} word"))
+	assert.Equal("this \\[\x1b[91m\\]red\\[\x1b[0m\\] word", TermSprintf("this ${red+h}red${reset} word"))
+	assert.Equal("this \\[\x1b[92m\\]green\\[\x1b[0m\\] word", TermSprintf("this ${green+h}green${reset} word"))
+	assert.Equal("this \\[\x1b[93m\\]yellow\\[\x1b[0m\\] word", TermSprintf("this ${yellow+h}yellow${reset} word"))
+	assert.Equal("this \\[\x1b[94m\\]blue\\[\x1b[0m\\] word", TermSprintf("this ${blue+h}blue${reset} word"))
+	assert.Equal("this \\[\x1b[95m\\]magenta\\[\x1b[0m\\] word", TermSprintf("this ${magenta+h}magenta${reset} word"))
+	assert.Equal("this \\[\x1b[96m\\]cyan\\[\x1b[0m\\] word", TermSprintf("this ${cyan+h}cyan${reset} word"))
+	assert.Equal("this \\[\x1b[97m\\]white\\[\x1b[0m\\] word", TermSprintf("this ${white+h}white${reset} word"))
+
 	// test color expression stripping
 	assert.Equal("this black word", CStripf("this ${black+h}black${reset} word"))
 	assert.Equal("this red word", CStripf("this ${red+h}red${reset} word"))

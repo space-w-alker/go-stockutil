@@ -6,12 +6,15 @@ import (
 	"regexp"
 
 	"github.com/ghetzel/go-stockutil/rxutil"
+	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/mgutz/ansi"
 )
 
 var rxColorExpr = regexp.MustCompile(`(\$\{(?P<color>[^\}]+)\})`) // ${color}, ${color:mod1:mod2}
+var TerminalEscapePrefix = `\[`
+var TerminalEscapeSuffix = `\]`
 
-func csprintf(colorEnabled bool, format string, args ...interface{}) string {
+func csprintf(termEscape bool, colorEnabled bool, format string, args ...interface{}) string {
 	out := fmt.Sprintf(format, args...)
 
 	for {
@@ -23,6 +26,10 @@ func csprintf(colorEnabled bool, format string, args ...interface{}) string {
 			// or if colors have been explicitly enabled, otherwise just remove the sequences
 			if colorEnabled {
 				repl = ansi.ColorCode(colorExpr)
+
+				if termEscape {
+					repl = stringutil.Wrap(repl, TerminalEscapePrefix, TerminalEscapeSuffix)
+				}
 			}
 
 			out = match.ReplaceGroup(1, repl)
@@ -35,11 +42,7 @@ func csprintf(colorEnabled bool, format string, args ...interface{}) string {
 }
 
 func CSprintf(format string, args ...interface{}) string {
-	return csprintf(true, format, args...)
-}
-
-func CPrintf(format string, args ...interface{}) (int, error) {
-	return fmt.Print(CSprintf(format, args...))
+	return csprintf(false, true, format, args...)
 }
 
 func CFPrintf(w io.Writer, format string, args ...interface{}) (int, error) {
@@ -47,5 +50,11 @@ func CFPrintf(w io.Writer, format string, args ...interface{}) (int, error) {
 }
 
 func CStripf(format string, args ...interface{}) string {
-	return csprintf(false, format, args...)
+	return csprintf(false, false, format, args...)
+}
+
+// Same as CSprintf, but wraps all replaced color sequences with terminal escape sequences
+// as defined in TerminalEscapePrefix and TerminalEscapeSuffix
+func TermSprintf(format string, args ...interface{}) string {
+	return csprintf(true, true, format, args...)
 }
