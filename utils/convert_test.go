@@ -38,3 +38,47 @@ func TestDetectConvertType(t *testing.T) {
 	assert.Equal(Float, DetectConvertType(`3.0001`))
 	assert.Equal(Float, DetectConvertType(`3.1000`))
 }
+
+func TestConvertTypeSpecificity(t *testing.T) {
+	assert := require.New(t)
+
+	assert.False(Nil.IsSupersetOf(Nil))
+	assert.False(Nil.IsSupersetOf(Bytes))
+	assert.False(Nil.IsSupersetOf(String))
+	assert.False(Nil.IsSupersetOf(Float))
+	assert.False(Nil.IsSupersetOf(Integer))
+	assert.False(Nil.IsSupersetOf(Time))
+	assert.False(Nil.IsSupersetOf(Boolean))
+
+	assert.False(Bytes.IsSupersetOf(Bytes))
+	assert.True(Bytes.IsSupersetOf(String))
+	assert.True(Bytes.IsSupersetOf(Float))
+	assert.True(Bytes.IsSupersetOf(Integer))
+	assert.True(Bytes.IsSupersetOf(Time))
+	assert.True(Bytes.IsSupersetOf(Boolean))
+	assert.True(Bytes.IsSupersetOf(Nil))
+
+	assert.False(String.IsSupersetOf(Bytes))
+	assert.False(String.IsSupersetOf(String))
+	assert.True(String.IsSupersetOf(Float))
+	assert.True(String.IsSupersetOf(Integer))
+	assert.True(String.IsSupersetOf(Time))
+	assert.True(String.IsSupersetOf(Boolean))
+	assert.True(String.IsSupersetOf(Nil))
+
+	assert.False(Float.IsSupersetOf(Bytes))
+	assert.False(Float.IsSupersetOf(String))
+	assert.False(Float.IsSupersetOf(Float))
+	assert.True(Float.IsSupersetOf(Integer))
+	assert.True(Float.IsSupersetOf(Time))
+	assert.True(Float.IsSupersetOf(Boolean))
+	assert.True(Float.IsSupersetOf(Nil))
+
+	assert.False(Integer.IsSupersetOf(Bytes))
+	assert.False(Integer.IsSupersetOf(String))
+	assert.False(Integer.IsSupersetOf(Float))
+	assert.False(Integer.IsSupersetOf(Integer))
+	assert.True(Integer.IsSupersetOf(Time))
+	assert.True(Integer.IsSupersetOf(Boolean))
+	assert.True(Integer.IsSupersetOf(Nil))
+}

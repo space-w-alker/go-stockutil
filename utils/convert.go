@@ -22,13 +22,13 @@ type ConvertType int
 
 const (
 	Invalid ConvertType = iota
-	Nil
+	Bytes
 	String
-	Boolean
 	Float
 	Integer
 	Time
-	Bytes
+	Boolean
+	Nil
 )
 
 func (self ConvertType) String() string {
@@ -48,6 +48,10 @@ func (self ConvertType) String() string {
 	default:
 		return ``
 	}
+}
+
+func (self ConvertType) IsSupersetOf(other ConvertType) bool {
+	return self < other
 }
 
 var PassthroughType = errors.New(`passthrough`)
