@@ -3,9 +3,8 @@ package structutil
 
 import (
 	"fmt"
-	"strings"
+	"reflect"
 
-	"github.com/fatih/structs"
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
@@ -19,28 +18,65 @@ func CopyFunc(dest interface{}, source interface{}, fn StructValueFunc) error {
 		return nil
 	}
 
-	destS := structs.New(dest)
-	srcS := structs.New(source)
+	var destV reflect.Value
+	var srcV reflect.Value
 
-	for _, sField := range srcS.Fields() {
-		if sField.IsExported() {
-			if dField, ok := destS.FieldOk(sField.Name()); ok {
-				sValue := sField.Value()
-				dValue := dField.Value()
+	if dV, ok := dest.(reflect.Value); ok {
+		destV = dV
+	} else {
+		destV = reflect.ValueOf(dest)
+	}
 
-				if typeutil.IsStruct(sValue) {
-					if err := CopyFunc(dValue, sValue, fn); err != nil {
-						return err
-					}
-				} else if repl, ok := fn(sField.Name(), sValue, dValue); ok {
-					// set the destination field value to whatever came back from the function
-					if err := dField.Set(repl); err != nil {
-						if strings.HasSuffix(err.Error(), `is not settable`) {
-							return fmt.Errorf("field %q is not settable", dField.Name())
+	if sV, ok := source.(reflect.Value); ok {
+		srcV = sV
+	} else {
+		srcV = reflect.ValueOf(source)
+	}
+
+	if dV, err := validatePtrToStruct(`destination`, destV); err == nil {
+		destV = dV
+	} else {
+		return err
+	}
+
+	if sV, err := validatePtrToStruct(`source`, srcV); err == nil {
+		srcV = sV
+	} else {
+		return err
+	}
+
+	destT := destV.Type()
+	srcT := srcV.Type()
+
+	for s := 0; s < srcT.NumField(); s++ {
+		sFieldT := srcT.Field(s)
+		sFieldV := srcV.Field(s)
+
+		// only exported field names leave this empty, so skip if it's not (i.e.: we have an unexported field)
+		if sFieldT.PkgPath != `` {
+			continue
+		}
+
+		if dFieldT, ok := destT.FieldByName(sFieldT.Name); ok {
+			dFieldV := destV.FieldByName(dFieldT.Name)
+
+			if dFieldT.Anonymous {
+				if err := CopyFunc(dFieldV, sFieldV, fn); err != nil {
+					return err
+				}
+			} else {
+				if sFieldV.CanInterface() && dFieldV.CanInterface() {
+					if repl, ok := fn(dFieldT.Name, sFieldV.Interface(), dFieldV.Interface()); ok {
+						if dFieldV.CanSet() {
+							if err := typeutil.SetValue(dFieldV, repl); err != nil {
+								return err
+							}
 						} else {
-							return err
+							return fmt.Errorf("field %q is not settable", dFieldT.Name)
 						}
 					}
+				} else {
+					return fmt.Errorf("Cannot retrieve field value %q", dFieldT.Name)
 				}
 			}
 		}
@@ -59,4 +95,16 @@ func CopyNonZero(dest interface{}, source interface{}) error {
 			return s, true
 		}
 	})
+}
+
+func validatePtrToStruct(name string, obj reflect.Value) (reflect.Value, error) {
+	if obj.Kind() == reflect.Ptr {
+		if obj.Elem().Kind() == reflect.Struct {
+			return obj.Elem(), nil
+		} else {
+			return reflect.Value{}, fmt.Errorf("bad %s: expected pointer to struct", name)
+		}
+	} else {
+		return reflect.Value{}, fmt.Errorf("bad %s: expected pointer to struct", name)
+	}
 }
