@@ -1,10 +1,15 @@
 package executil
 
 import (
-	"github.com/ghetzel/go-stockutil/fileutil"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/ghetzel/go-stockutil/fileutil"
+	"github.com/ghetzel/go-stockutil/sliceutil"
+	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 // Locates the first path containing the given command. The directories listed
@@ -44,4 +49,25 @@ func WhichAll(cmdname string, path ...string) []string {
 	}
 
 	return found
+}
+
+// Take an *exec.Cmd or []string and return a shell-executable command line string.
+func Join(in interface{}) string {
+	var args []string
+
+	if cmd, ok := in.(*exec.Cmd); ok {
+		args = cmd.Args
+	} else if typeutil.IsArray(in) {
+		args = sliceutil.Stringify(in)
+	} else {
+		return ``
+	}
+
+	for i, arg := range args {
+		if strings.Contains(arg, ` `) {
+			args[i] = stringutil.Wrap(arg, `'`, `'`)
+		}
+	}
+
+	return strings.Join(args, ` `)
 }
