@@ -244,13 +244,16 @@ func (self *Client) Request(
 		return nil, err
 	}
 
-	if url, err := url.Parse(
-		fmt.Sprintf(
-			"%v/%v",
+	reqUrl := self.uri.String()
+
+	if path != `` {
+		reqUrl = strings.Join([]string{
 			strings.TrimSuffix(self.uri.String(), `/`),
 			strings.TrimPrefix(path, `/`),
-		),
-	); err == nil {
+		}, `/`)
+	}
+
+	if url, err := url.Parse(reqUrl); err == nil {
 		// set querystring values
 		// ----------------------
 		qs := url.Query()
