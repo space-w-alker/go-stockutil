@@ -3,11 +3,19 @@ package httputil
 import (
 	"crypto/tls"
 	"crypto/x509"
+	"encoding/base64"
 	"fmt"
 	"net/http"
 
 	"github.com/ghetzel/go-stockutil/fileutil"
 )
+
+// Encode the username and password into a value than can be used in the Authorization HTTP header.
+func EncodeBasicAuth(username string, password string) string {
+	return fmt.Sprintf("Basic %s", base64.StdEncoding.EncodeToString(
+		[]byte(fmt.Sprintf("%s:%s", username, password)),
+	))
+}
 
 // Configures the given http.Client to accept TLS certificates validated by the given PEM-encoded CA bundle file
 func SetRootCABundle(client *http.Client, caBundle string) error {

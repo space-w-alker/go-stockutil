@@ -127,6 +127,11 @@ func (self *Client) SetInsecureTLS(insecure bool) {
 	self.insecure = insecure
 }
 
+// Set the username and password to be included in the Authorization header.
+func (self *Client) SetBasicAuth(username string, password string) {
+	self.SetHeader(`Authorization`, EncodeBasicAuth(username, password))
+}
+
 // Append one or more trusted certificates to the RootCA bundle that is consulted when performing HTTPS requests.
 func (self *Client) AppendTrustedRootCA(pemFilenamesOrData ...interface{}) error {
 	return self.updateRootCA(false, pemFilenamesOrData...)
