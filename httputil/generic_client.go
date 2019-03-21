@@ -1,6 +1,8 @@
 package httputil
 
 import (
+	"crypto/tls"
+	"crypto/x509"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -8,6 +10,7 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/ghetzel/go-stockutil/fileutil"
 	"github.com/ghetzel/go-stockutil/maputil"
 )
 
@@ -21,6 +24,7 @@ type Client struct {
 	headers         map[string]interface{}
 	params          map[string]interface{}
 	httpClient      *http.Client
+	rootCaPool      *x509.CertPool
 }
 
 func NewClient(baseURI string) (*Client, error) {
@@ -114,6 +118,94 @@ func (self *Client) Client(*http.Client) *http.Client {
 // Replace the default HTTP client with a user-provided one
 func (self *Client) SetClient(client *http.Client) {
 	self.httpClient = client
+}
+
+// Append one or more trusted certificates to the RootCA bundle that is consulted when performing HTTPS requests.
+func (self *Client) AppendTrustedRootCA(pemFilenamesOrData ...interface{}) error {
+	return self.updateRootCA(false, pemFilenamesOrData...)
+}
+
+// Replace the existing RootCA bundle with an explicit set of trusted certificates.
+func (self *Client) SetRootCA(pemFilenamesOrData ...interface{}) error {
+	return self.updateRootCA(true, pemFilenamesOrData...)
+}
+
+func (self *Client) updateRootCA(replace bool, pemFilenamesOrData ...interface{}) error {
+	// when we're all done, make sure the http.Client we'll be using knows about our certs
+	defer self.syncCaPool()
+
+	pems := make([][]byte, 0)
+
+	for _, pem := range pemFilenamesOrData {
+		if b, ok := pem.([]byte); ok {
+			pems = append(pems, b)
+		} else if r, ok := pem.(io.Reader); ok {
+			if b, err := ioutil.ReadAll(r); err == nil {
+				pems = append(pems, b)
+			} else {
+				return err
+			}
+		} else if s, ok := pem.(string); ok {
+			if b, err := fileutil.ReadAll(s); err == nil {
+				pems = append(pems, b)
+			} else {
+				return err
+			}
+		} else {
+			return fmt.Errorf("type error: expected []byte, io.Reader, or string; got %T", pem)
+		}
+	}
+
+	// clear out or setup the initial RootCA pool
+	if replace {
+		self.rootCaPool = x509.NewCertPool()
+	} else if self.rootCaPool == nil {
+		// try to inherit the RootCA from any existing client
+		if transport, ok := self.httpClient.Transport.(*http.Transport); ok {
+			if tcc := transport.TLSClientConfig; tcc != nil {
+				self.rootCaPool = tcc.RootCAs
+			}
+		}
+
+		// still nil? get the existing system CA bundle
+		if self.rootCaPool == nil {
+			if syspool, err := x509.SystemCertPool(); err == nil {
+				self.rootCaPool = syspool
+			} else {
+				return fmt.Errorf("Failed to retrieve system CA pool: %v", err)
+			}
+		}
+	}
+
+	// append each cert to the root pool
+	for _, pem := range pems {
+		if !self.rootCaPool.AppendCertsFromPEM(pem) {
+			return fmt.Errorf("Failed to append certificate")
+		}
+	}
+
+	return nil
+}
+
+func (self *Client) syncCaPool() {
+	newTCC := &tls.Config{
+		RootCAs: self.rootCaPool,
+	}
+
+	newTCC.BuildNameToCertificate()
+
+	// handle use cases where an existing client is present
+	if transport, ok := self.httpClient.Transport.(*http.Transport); ok {
+		if tcc := transport.TLSClientConfig; tcc != nil {
+			tcc.RootCAs = newTCC.RootCAs
+		} else {
+			transport.TLSClientConfig = newTCC
+		}
+	} else {
+		self.httpClient.Transport = &http.Transport{
+			TLSClientConfig: newTCC,
+		}
+	}
 }
 
 // Perform an HTTP request
