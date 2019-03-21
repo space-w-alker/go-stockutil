@@ -1,6 +1,8 @@
 package maputil
 
 import (
+	"net/http"
+	"net/url"
 	"testing"
 	"time"
 
@@ -76,4 +78,40 @@ func TestMStruct(t *testing.T) {
 
 	assert.Equal(`tester`, input.String(`Name`))
 	assert.Equal(3.14, input.Float(`Factor`))
+}
+
+func TestMUrlValues(t *testing.T) {
+	assert := require.New(t)
+	input := M(url.Values{
+		`a`: []string{`1`},
+		`b`: []string{},
+		`c`: []string{`2`, `3`},
+	})
+
+	assert.Equal(`1`, input.String(`a`))
+	assert.EqualValues(1, input.Int(`a`))
+
+	assert.Equal(``, input.String(`b`))
+	assert.Equal(float64(0), input.Float(`b`))
+	assert.Nil(input.Auto(`b`))
+
+	assert.Equal([]string{`2`, `3`}, input.Strings(`c`))
+}
+
+func TestMHttpHeader(t *testing.T) {
+	assert := require.New(t)
+	input := M(http.Header{
+		`a`: []string{`1`},
+		`b`: []string{},
+		`c`: []string{`2`, `3`},
+	})
+
+	assert.Equal(`1`, input.String(`a`))
+	assert.EqualValues(1, input.Int(`a`))
+
+	assert.Equal(``, input.String(`b`))
+	assert.Equal(float64(0), input.Float(`b`))
+	assert.Nil(input.Auto(`b`))
+
+	assert.Equal([]string{`2`, `3`}, input.Strings(`c`))
 }

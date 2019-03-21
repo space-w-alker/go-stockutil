@@ -2,9 +2,12 @@ package maputil
 
 import (
 	"encoding/json"
+	"net/http"
+	"net/url"
 	"strings"
 	"time"
 
+	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
@@ -23,6 +26,36 @@ func M(data interface{}) *Map {
 		return dataM
 	} else if dataM, ok := data.(Map); ok {
 		return &dataM
+	} else if uV, ok := data.(url.Values); ok {
+		dataM := make(map[string]interface{})
+
+		for k, v := range uV {
+			switch len(v) {
+			case 0:
+				break
+			case 1:
+				dataM[k] = typeutil.Auto(v[0])
+			default:
+				dataM[k] = sliceutil.Autotype(v)
+			}
+		}
+
+		data = dataM
+	} else if hV, ok := data.(http.Header); ok {
+		dataM := make(map[string]interface{})
+
+		for k, v := range hV {
+			switch len(v) {
+			case 0:
+				break
+			case 1:
+				dataM[k] = typeutil.Auto(v[0])
+			default:
+				dataM[k] = sliceutil.Autotype(v)
+			}
+		}
+
+		data = dataM
 	} else if typeutil.IsStruct(data) {
 		data = DeepCopyStruct(data)
 	} else if data == nil {
