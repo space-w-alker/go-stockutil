@@ -25,6 +25,7 @@ type Client struct {
 	params          map[string]interface{}
 	httpClient      *http.Client
 	rootCaPool      *x509.CertPool
+	insecure        bool
 }
 
 func NewClient(baseURI string) (*Client, error) {
@@ -120,6 +121,12 @@ func (self *Client) SetClient(client *http.Client) {
 	self.httpClient = client
 }
 
+// Set or unset insecure TLS requests that will proceed even if the peer certificate cannot be verified.
+func (self *Client) SetInsecureTLS(insecure bool) {
+	defer self.syncHttpClient()
+	self.insecure = insecure
+}
+
 // Append one or more trusted certificates to the RootCA bundle that is consulted when performing HTTPS requests.
 func (self *Client) AppendTrustedRootCA(pemFilenamesOrData ...interface{}) error {
 	return self.updateRootCA(false, pemFilenamesOrData...)
@@ -132,7 +139,7 @@ func (self *Client) SetRootCA(pemFilenamesOrData ...interface{}) error {
 
 func (self *Client) updateRootCA(replace bool, pemFilenamesOrData ...interface{}) error {
 	// when we're all done, make sure the http.Client we'll be using knows about our certs
-	defer self.syncCaPool()
+	defer self.syncHttpClient()
 
 	pems := make([][]byte, 0)
 
@@ -187,9 +194,10 @@ func (self *Client) updateRootCA(replace bool, pemFilenamesOrData ...interface{}
 	return nil
 }
 
-func (self *Client) syncCaPool() {
+func (self *Client) syncHttpClient() {
 	newTCC := &tls.Config{
-		RootCAs: self.rootCaPool,
+		RootCAs:            self.rootCaPool,
+		InsecureSkipVerify: self.insecure,
 	}
 
 	newTCC.BuildNameToCertificate()
@@ -198,6 +206,7 @@ func (self *Client) syncCaPool() {
 	if transport, ok := self.httpClient.Transport.(*http.Transport); ok {
 		if tcc := transport.TLSClientConfig; tcc != nil {
 			tcc.RootCAs = newTCC.RootCAs
+			tcc.InsecureSkipVerify = self.insecure
 		} else {
 			transport.TLSClientConfig = newTCC
 		}
