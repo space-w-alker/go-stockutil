@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/ghetzel/go-stockutil/sliceutil"
@@ -26,6 +27,14 @@ func M(data interface{}) *Map {
 		return dataM
 	} else if dataM, ok := data.(Map); ok {
 		return &dataM
+	} else if dataSM, ok := data.(*sync.Map); ok {
+		dataM := make(map[string]interface{})
+		dataSM.Range(func(key, value interface{}) bool {
+			dataM[typeutil.String(key)] = value
+			return true
+		})
+
+		data = dataM
 	} else if uV, ok := data.(url.Values); ok {
 		dataM := make(map[string]interface{})
 
