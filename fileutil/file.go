@@ -1,6 +1,7 @@
 package fileutil
 
 import (
+	"bytes"
 	"crypto"
 	"fmt"
 	"io"
@@ -187,11 +188,23 @@ func ChecksumFile(filename string, fn interface{}) ([]byte, error) {
 	}
 }
 
-// Write the contents of the given reader to the specified filename.
+// Write the contents of the given io.Reader, []byte, or string to the specified filename.
 // Filename paths containing tilde (~) will automatically expand to the current
 // user's home directory, and all intermediate parent directories will be automatically
 // created.  Will return the number of bytes written, or an error.
-func WriteFile(reader io.Reader, filename string) (int64, error) {
+func WriteFile(input interface{}, filename string) (int64, error) {
+	var reader io.Reader
+
+	if r, ok := input.(io.Reader); ok {
+		reader = r
+	} else if b, ok := input.([]byte); ok {
+		reader = bytes.NewBuffer(b)
+	} else if s, ok := input.(string); ok {
+		reader = bytes.NewBufferString(s)
+	} else {
+		return 0, fmt.Errorf("Cannot use %T as input", input)
+	}
+
 	if expanded, err := ExpandUser(filename); err == nil {
 		parent := filepath.Dir(expanded)
 
@@ -215,13 +228,46 @@ func WriteFile(reader io.Reader, filename string) (int64, error) {
 }
 
 // Same as WriteFile, but will panic if the file cannot be written.
-func MustWriteFile(reader io.Reader, filename string) int64 {
-	if n, err := WriteFile(reader, filename); err == nil {
+func MustWriteFile(input interface{}, filename string) int64 {
+	if n, err := WriteFile(input, filename); err == nil {
 		return n
 	} else {
 		panic(err.Error())
 	}
 }
+
+// Same as WriteFile, but writes the given input to a temporary file, returning
+// the filename.
+func WriteTempFile(input interface{}, pattern string) (string, error) {
+	if tmp, err := ioutil.TempFile(``, pattern); err == nil {
+		defer tmp.Close()
+
+		if _, err := WriteFile(input, tmp.Name()); err == nil {
+			return tmp.Name(), nil
+		} else {
+			defer os.Remove(tmp.Name())
+			return ``, err
+		}
+	} else {
+
+		return ``, err
+	}
+}
+
+// Same as MustWriteFile, but writes the given input to a temporary file, returning
+// the filename.  The function will panic if the file cannot be written.
+func MustWriteTempFile(input interface{}, prefix string) string {
+	if n, err := WriteTempFile(input, prefix); err == nil {
+		return n
+	} else {
+		panic(err.Error())
+	}
+}
+
+// Write the contents of the given reader to the specified filename.
+// Filename paths containing tilde (~) will automatically expand to the current
+// user's home directory, and all intermediate parent directories will be automatically
+// created.  Will return the number of bytes written, or an error.
 
 // Copy a file from one place to another.  Source can be an io.Reader or string.  If source is a
 // string, the string will be passed to the Open() function as a URL.  Destination can be an

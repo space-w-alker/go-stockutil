@@ -11,6 +11,9 @@ import (
 	"sync"
 	"syscall"
 	"time"
+
+	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 type CommandStatusFunc func(Status)
@@ -60,6 +63,8 @@ func (self Status) String() string {
 type Cmd struct {
 	*exec.Cmd
 	MonitorInterval time.Duration
+	Timeout         time.Duration
+	InheritEnv      bool
 	OnStart         CommandStatusFunc
 	OnMonitor       CommandStatusFunc
 	OnComplete      CommandStatusFunc
@@ -67,10 +72,8 @@ type Cmd struct {
 	OnError         CommandStatusFunc
 	status          Status
 	statusLock      sync.Mutex
-	monitor         *time.Ticker
-	done            chan Status
-	reallyDone      chan bool
-	start           chan bool
+	reallyDone      *sync.WaitGroup
+	finished        chan bool
 	exitError       error
 	inWriter        io.WriteCloser
 }
@@ -83,22 +86,31 @@ func Command(name string, arg ...string) *Cmd {
 	return new(exec.Command(name, arg...))
 }
 
+func ShellCommand(cmdline string) *Cmd {
+	if shell := FindShell(); shell != `` {
+		return Command(shell, `-c`, cmdline)
+	}
+
+	return nil
+}
+
 func new(wrap *exec.Cmd) *Cmd {
-	cmd := &Cmd{
+	return &Cmd{
 		Cmd:             wrap,
 		MonitorInterval: (500 * time.Millisecond),
 		status:          Status{},
-		done:            make(chan Status),
-		start:           make(chan bool),
-		reallyDone:      make(chan bool),
+		finished:        make(chan bool),
+		reallyDone:      &sync.WaitGroup{},
 	}
-
-	go cmd.startMonitoringCommand()
-	return cmd
 }
 
 func (self *Cmd) prestart() error {
-	self.start <- true
+	go self.startMonitoringCommand()
+
+	if self.InheritEnv {
+		self.Cmd.Env = append(os.Environ(), self.Cmd.Env...)
+	}
+
 	return nil
 }
 
@@ -126,6 +138,21 @@ func (self *Cmd) Output() ([]byte, error) {
 	} else {
 		return nil, err
 	}
+}
+
+func (self *Cmd) SetEnv(key string, value interface{}) {
+	kv := fmt.Sprintf("%v=%s", key, typeutil.String(value))
+
+	for i, pair := range self.Cmd.Env {
+		k, _ := stringutil.SplitPair(pair, `=`)
+
+		if k == key {
+			self.Cmd.Env[i] = kv
+			return
+		}
+	}
+
+	self.Cmd.Env = append(self.Cmd.Env, kv)
 }
 
 func (self *Cmd) Run() error {
@@ -163,6 +190,15 @@ func (self *Cmd) Status() Status {
 	return self.status
 }
 
+// Kill the running command.
+func (self *Cmd) Kill() error {
+	if p := self.Process; p != nil {
+		return p.Kill()
+	} else {
+		return nil
+	}
+}
+
 // Wait for the process to complete, then return the last status.
 // Process must have been started using the Start() function.
 func (self *Cmd) WaitStatus() Status {
@@ -172,14 +208,22 @@ func (self *Cmd) WaitStatus() Status {
 }
 
 func (self *Cmd) waitReallyDone() {
-	<-self.reallyDone
+	// this quits the startMonitoringCommand() monitoring loop
+	select {
+	case self.finished <- true:
+	default:
+	}
+
+	// this waits for startMonitoringCommand() to fire callbacks and actually exit
+	self.reallyDone.Wait()
 }
 
+// a goroutine that is launched whenever a command
 func (self *Cmd) startMonitoringCommand() {
-	<-self.start
-
+	self.reallyDone.Add(1)
 	self.statusLock.Lock()
 	self.status.StartedAt = time.Now()
+	self.status.Running = true
 	self.statusLock.Unlock()
 
 	self.updateStatus()
@@ -188,23 +232,37 @@ func (self *Cmd) startMonitoringCommand() {
 		fn(self.status)
 	}
 
-	self.monitor = time.NewTicker(self.MonitorInterval)
+	// if there's a timeout set, and its shorter than our monitor interval,
+	// reduce the monitor interval to that
+	if self.Timeout > 0 && self.Timeout < self.MonitorInterval {
+		self.MonitorInterval = self.Timeout
+	}
+
+	ticker := time.NewTicker(self.MonitorInterval)
 
 MonitorLoop:
-	for {
+	for self.Timeout == 0 || time.Since(self.status.StartedAt) < self.Timeout {
 		select {
-		case <-self.monitor.C:
+		case <-ticker.C:
 			self.updateStatus()
+
+			if !self.status.Running {
+				break MonitorLoop
+			}
 
 			if fn := self.OnMonitor; fn != nil {
 				fn(self.Status())
 			}
-		case <-self.done:
-			self.monitor.Stop()
+
+		case <-self.finished:
+			ticker.Stop()
 			break MonitorLoop
 		}
 	}
 
+	ticker.Stop()
+	self.Kill()
+	self.updateStatus()
 	finalStatus := self.Status()
 
 	// fire off callbacks
@@ -220,7 +278,7 @@ MonitorLoop:
 		fn(finalStatus)
 	}
 
-	self.reallyDone <- true
+	self.reallyDone.Done()
 }
 
 func (self *Cmd) updateStatus() {
@@ -238,7 +296,6 @@ func (self *Cmd) updateStatus() {
 		if xerr, ok := self.exitError.(*exec.ExitError); ok {
 			pstate = xerr.ProcessState
 		} else {
-			self.done <- self.status
 			return
 		}
 	} else if s := self.Cmd.ProcessState; s != nil {
@@ -251,7 +308,6 @@ func (self *Cmd) updateStatus() {
 		self.status.Successful = pstate.Success()
 
 		if status, ok := pstate.Sys().(syscall.WaitStatus); ok {
-
 			if status.Exited() {
 				self.status.Running = false
 				self.status.ExitCode = status.ExitStatus()
@@ -266,8 +322,6 @@ func (self *Cmd) updateStatus() {
 				} else if e := self.status.ExitCode; e != 0 {
 					self.status.Error = fmt.Errorf("Process exited with status %d", e)
 				}
-
-				self.done <- self.status
 			} else if status.Stopped() {
 				self.status.Running = false
 			} else {

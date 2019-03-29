@@ -71,3 +71,18 @@ func Join(in interface{}) string {
 
 	return strings.Join(args, ` `)
 }
+
+// Uses environment variables and other configurations to attempt to locate the
+// path to the user's shell.
+func FindShell() string {
+	shells := []string{os.Getenv(`SHELL`)}
+	shells = append(shells, Which(`sh`))
+
+	for _, shell := range shells {
+		if shell != `` {
+			return shell
+		}
+	}
+
+	return ``
+}
