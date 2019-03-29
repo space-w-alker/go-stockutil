@@ -3,6 +3,7 @@ package executil
 import (
 	"os"
 	"os/exec"
+	"os/user"
 	"path/filepath"
 	"strings"
 
@@ -85,4 +86,33 @@ func FindShell() string {
 	}
 
 	return ``
+}
+
+// Returns whether the current user is root or not.
+func IsRoot() bool {
+	if current, err := user.Current(); err == nil {
+		if current.Uid == `0` {
+			return true
+		}
+	}
+
+	return false
+}
+
+// Returns the first argument if the current user is root, and the second if not.
+func RootOr(ifRoot interface{}, notRoot interface{}) interface{} {
+	if IsRoot() {
+		return ifRoot
+	} else {
+		return notRoot
+	}
+}
+
+// The same as RootOr, but returns a string.
+func RootOrString(ifRoot interface{}, notRoot interface{}) string {
+	if IsRoot() {
+		return typeutil.String(ifRoot)
+	} else {
+		return typeutil.String(notRoot)
+	}
 }
