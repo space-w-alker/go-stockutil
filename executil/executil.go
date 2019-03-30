@@ -3,6 +3,7 @@ package executil
 import (
 	"os"
 	"os/exec"
+	"os/signal"
 	"os/user"
 	"path/filepath"
 	"strings"
@@ -114,5 +115,20 @@ func RootOrString(ifRoot interface{}, notRoot interface{}) string {
 		return typeutil.String(ifRoot)
 	} else {
 		return typeutil.String(notRoot)
+	}
+}
+
+// Registers a list of OS signals to intercept and provides an opportunity to run
+// a function before the program exits.
+func TrapSignals(after func(sig os.Signal) bool, signals ...os.Signal) {
+	signalChan := make(chan os.Signal, 1)
+	signal.Notify(signalChan, signals...)
+
+	for trap := range signalChan {
+		if after != nil {
+			if !after(trap) {
+				return
+			}
+		}
 	}
 }

@@ -15,6 +15,10 @@ type MatchResult struct {
 	all_submatches            [][]string
 }
 
+func IsMatchString(pattern interface{}, source string) bool {
+	return (Match(pattern, source) != nil)
+}
+
 // Returns a MatchResult object representing the leftmost match of pattern against
 // source, or nil if no matches were found.  Pattern can be a string or a
 // previously-compiled *regexp.Regexp.
