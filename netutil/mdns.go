@@ -38,6 +38,7 @@ type Service struct {
 	Domain     string          `json:"domain"`
 	Port       int             `json:"port"`
 	Text       []string        `json:"txt"`
+	Address    string          `json:"address"`
 	Addresses  []net.IP        `json:"addresses,omitempty"`
 	Interfaces []net.Interface `json:"interfaces,omitempty"`
 }
@@ -112,6 +113,11 @@ func ZeroconfDiscover(options *ZeroconfOptions, fn ServiceFunc) error {
 					addrs := make([]net.IP, 0)
 					addrs = append(addrs, entry.AddrIPv4...)
 					addrs = append(addrs, entry.AddrIPv6...)
+					addr := ``
+
+					if len(addrs) > 0 {
+						addr = fmt.Sprintf("%v:%d", addrs[0], entry.Port)
+					}
 
 					// fire off callback for this service
 					if !fn(&Service{
@@ -122,6 +128,7 @@ func ZeroconfDiscover(options *ZeroconfOptions, fn ServiceFunc) error {
 						Domain:    entry.Domain,
 						Text:      entry.Text,
 						Addresses: addrs,
+						Address:   addr,
 					}) {
 						cancel()
 					}
