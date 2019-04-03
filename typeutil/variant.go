@@ -101,7 +101,16 @@ func (self Variant) Strings() []string {
 	return out
 }
 
-// Return the value automaticall converted to the appropriate type.
+// Return the value converted to an error, or nil if it is not an error.
+func (self Variant) Err() error {
+	if err, ok := self.Value.(error); ok {
+		return err
+	} else {
+		return nil
+	}
+}
+
+// Return the value automatically converted to the appropriate type.
 func (self Variant) Auto() interface{} {
 	return utils.Autotype(self.Value)
 }
@@ -212,6 +221,11 @@ func Slice(in interface{}) []Variant {
 // Package-level string slice converter
 func Strings(in interface{}) []string {
 	return V(in).Strings()
+}
+
+// Package-level error converter
+func Err(in interface{}) error {
+	return V(in).Err()
 }
 
 // Package-level auto converter
