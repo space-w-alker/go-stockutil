@@ -115,3 +115,51 @@ func TestMHttpHeader(t *testing.T) {
 
 	assert.Equal([]string{`2`, `3`}, input.Strings(`c`))
 }
+
+func TestMStructNested(t *testing.T) {
+	assert := require.New(t)
+
+	type msecond struct {
+		S1     string
+		Values []int
+		Truthy interface{}
+		Strnum string
+		Then   string
+	}
+
+	type mtop struct {
+		First  bool
+		Second msecond
+		Now    time.Time
+		Third  float64
+		Fourth int
+	}
+
+	input := M(mtop{
+		First: true,
+		Second: msecond{
+			S1:     `test`,
+			Values: []int{1, 2, 3, 4},
+			Truthy: `True`,
+			Strnum: `42`,
+			Then:   `2006-01-02`,
+		},
+		Now:    time.Now(),
+		Third:  3.1415,
+		Fourth: 42,
+	})
+
+	assert.Equal(`test`, input.String(`Second.S1`))
+	assert.True(input.Bool(`First`))
+	assert.True(input.Bool(`Second.Truthy`))
+	assert.True(input.Bool(`Second.S1`))
+	assert.Equal(3.1415, input.Float(`Third`))
+	assert.Equal(int64(3), input.Int(`Third`))
+	assert.Equal(int64(42), input.Int(`Fourth`))
+	assert.Equal(int64(3), input.Int(`Second.Values.2`))
+	assert.Equal(int64(0), input.Int(`Second.Values.99`))
+	assert.Equal(float64(42), input.Float(`Fourth`))
+	assert.Len(input.Slice(`Second.Values`), 4)
+	assert.Equal(int64(42), input.Auto(`Second.Strnum`))
+	assert.Equal(time.Date(2006, 1, 2, 0, 0, 0, 0, time.UTC), input.Time(`Second.Then`))
+}
