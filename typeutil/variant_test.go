@@ -27,6 +27,8 @@ func TestVariant(t *testing.T) {
 	assert.True(time.Unix(1500000000, 0).Equal(Variant{1500000000}.Time()))
 	assert.True(time.Unix(1500000000, 0).Equal(Variant{`1500000000`}.Time()))
 	assert.True(time.Unix(1500000000, 0).Equal(Variant{`2017-07-14T02:40:00Z`}.Time()))
+	assert.True(time.Unix(1500000000, 0).Equal(Variant{`2017-07-14T02:40:00-00:00`}.Time()))
+	assert.True(time.Unix(1500000000, 0).Equal(Variant{`2017-07-13T22:40:00-04:00`}.Time()))
 	assert.Equal([]byte{0x74, 0x65, 0x73, 0x74}, Variant{`test`}.Bytes())
 
 	assert.Equal(map[Variant]Variant{
