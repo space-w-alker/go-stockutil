@@ -127,10 +127,11 @@ func FQDN() string {
 		if responses, err := net.LookupIP(hostname); err == nil {
 			for _, addr := range responses {
 				if ipv4 := addr.To4(); ipv4 != nil {
-					if ip, err := ipv4.MarshalText(); err == nil {
-						if hosts, err := net.LookupAddr(string(ip)); err == nil && len(hosts) > 0 {
-							fqdn := hosts[0]
-							return strings.TrimSuffix(fqdn, ".")
+					if hosts, err := net.LookupAddr(ipv4.String()); err == nil && len(hosts) > 0 {
+						for _, host := range hosts {
+							if fqdn := strings.TrimSuffix(host, "."); fqdn != `` {
+								return fqdn
+							}
 						}
 					}
 				}
