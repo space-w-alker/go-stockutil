@@ -1,10 +1,14 @@
 package httputil
 
 import (
+	"bytes"
+	"errors"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
+	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/stretchr/testify/require"
 )
 
@@ -16,17 +20,27 @@ func testHttpServer() *httptest.Server {
 				`path`: req.URL.Path,
 			})
 		case `POST`:
-			var input interface{}
+			switch ct, _ := stringutil.SplitPair(req.Header.Get(`Content-Type`), `;`); ct {
+			case `multipart/form-data`:
+				if err := req.ParseMultipartForm(1048576); err == nil {
+					RespondJSON(w, req.PostForm, http.StatusAccepted)
+				} else {
+					RespondJSON(w, err, http.StatusBadRequest)
+				}
 
-			if !QBool(req, `thing`) {
-				RespondJSON(w, nil, http.StatusForbidden)
-				return
-			}
+			default:
+				var input interface{}
 
-			if err := ParseJSON(req.Body, &input); err == nil {
-				RespondJSON(w, input, http.StatusCreated)
-			} else {
-				RespondJSON(w, err, http.StatusBadRequest)
+				if !QBool(req, `thing`) {
+					RespondJSON(w, nil, http.StatusForbidden)
+					return
+				}
+
+				if err := ParseJSON(req.Body, &input); err == nil {
+					RespondJSON(w, input, http.StatusCreated)
+				} else {
+					RespondJSON(w, err, http.StatusBadRequest)
+				}
 			}
 
 		case `PUT`:
@@ -102,4 +116,41 @@ func TestClient(t *testing.T) {
 	assert.NoError(err)
 	assert.NotNil(response)
 	assert.Equal(http.StatusNoContent, response.StatusCode)
+}
+
+func TestClientMultipartFormEncoder(t *testing.T) {
+	assert := require.New(t)
+	var out map[string]interface{}
+
+	server := testHttpServer()
+	defer server.Close()
+
+	client, err := NewClient(server.URL)
+	assert.NoError(err)
+	assert.NotNil(client)
+
+	client.SetErrorDecoder(func(res *http.Response) error {
+		assert.NotNil(res.Body)
+
+		return errors.New(typeutil.String(res.Body))
+	})
+
+	response, err := client.WithEncoder(MultipartFormEncoder).Post(`/way/cool`, map[string]interface{}{
+		`file`:   bytes.NewBuffer([]byte("test file 1\n")),
+		`other`:  bytes.NewBuffer([]byte("test file 2\n")),
+		`key`:    `value`,
+		`enable`: true,
+	}, nil, nil)
+
+	assert.NoError(err)
+	assert.NotNil(response)
+	assert.Equal(response.StatusCode, http.StatusAccepted)
+	assert.NoError(ParseJSON(response.Body, &out))
+
+	assert.Equal(map[string]interface{}{
+		`file`:   []interface{}{"test file 1\n"},
+		`other`:  []interface{}{"test file 2\n"},
+		`key`:    []interface{}{"value"},
+		`enable`: []interface{}{"true"},
+	}, out)
 }

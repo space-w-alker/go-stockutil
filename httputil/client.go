@@ -46,6 +46,22 @@ func NewClient(baseURI string) (*Client, error) {
 	return client, nil
 }
 
+// Return a copy of the current client that uses a different encoder.
+func (self *Client) WithEncoder(fn EncoderFunc) *Client {
+	clientWith := new(Client)
+	*clientWith = *self
+	clientWith.encoder = fn
+	return clientWith
+}
+
+// Return a copy of the current client that uses a different decoder.
+func (self *Client) WithDecoder(fn DecoderFunc) *Client {
+	clientWith := new(Client)
+	*clientWith = *self
+	clientWith.decoder = fn
+	return clientWith
+}
+
 // Return the base URI for this client.
 func (self *Client) URI() *url.URL {
 	return self.uri
@@ -271,6 +287,32 @@ func (self *Client) Request(
 				url.String(),
 				encoded,
 			); err == nil {
+				// Okay, this is a little weird...
+				//
+				// the existing signature for EncoderFunc accepts an interface with the original
+				// intention of just having a stateless transformation of one type of data into the
+				// encoded version of that data.
+				//
+				// However, it became clear that it would be useful to ALSO allow encoders to modify
+				// the request data (e.g.: add headers, set Content-Type, etc.)
+				//
+				// So we're going to call encoder _again_, passing it the pointer to the newly-created
+				// request.  We won't check the response for errors, and just assume that if an
+				// EncoderFunc implementation supports doing something with *http.Request, it will
+				// Do What It Needs To Do (TM) and move on.
+				//
+				// This is all in service of not breaking backwards compatibility by changing this
+				// function signature.  Yay.
+				//
+				self.encoder(request)
+
+				// finally, because this wasn't designed right from the start and should be using
+				// a context.Context, we need to special case some things we know about
+				if mpfr, ok := encoded.(*multipartFormRequest); ok {
+					// special case: Multipart Form requests with the boundary value in the content type
+					request.Header.Set(`Content-Type`, mpfr.contentType)
+				}
+
 				for k, v := range headers {
 					request.Header.Set(k, fmt.Sprintf("%v", v))
 				}

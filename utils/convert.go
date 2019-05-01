@@ -3,6 +3,8 @@ package utils
 import (
 	"errors"
 	"fmt"
+	"io"
+	"io/ioutil"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -292,6 +294,13 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 	case Bytes:
 		if inI == nil {
 			return []byte{}, nil
+		} else if inR, ok := inI.(io.Reader); ok {
+			// special case: read all io.Reader, convert resulting bytes to string
+			if data, err := ioutil.ReadAll(inR); err == nil {
+				return data, nil
+			} else {
+				return ``, fmt.Errorf("Cannot convert io.Reader to []byte: %v", err)
+			}
 		} else if inB, ok := inI.([]byte); ok {
 			return inB, nil
 		} else if inB, ok := inI.([]uint8); ok {
@@ -324,8 +333,17 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 		}
 
 	case String:
-		// special case: assume incoming byte slices are actually strings
-		if inB, ok := inI.([]byte); ok {
+		if inI == nil {
+			return ``, nil
+		} else if inR, ok := inI.(io.Reader); ok {
+			// special case: read all io.Reader, convert resulting bytes to string
+			if data, err := ioutil.ReadAll(inR); err == nil {
+				return string(data), nil
+			} else {
+				return ``, fmt.Errorf("Cannot convert io.Reader to string: %v", err)
+			}
+		} else if inB, ok := inI.([]byte); ok {
+			// special case: assume incoming byte slices are actually strings
 			// convert byte slices to strings directly
 			return string(inB), nil
 		} else if inB, ok := inI.([]uint8); ok {
