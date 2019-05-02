@@ -126,13 +126,6 @@ func MultipartFormEncoder(in interface{}) (io.Reader, error) {
 				// everything else is stringified
 				return nil, fmt.Errorf("Cannot encode multipart form field %q: %v", field, err)
 			}
-
-			// if the given value is closable, close it
-			if closer, ok := value.(io.Closer); ok {
-				if err := closer.Close(); err != nil {
-					return nil, fmt.Errorf("Cannot close source for multipart form field %q: %v", field, err)
-				}
-			}
 		}
 
 		return &multipartFormRequest{
