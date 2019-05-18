@@ -1,6 +1,7 @@
 package sliceutil
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -324,6 +325,25 @@ func TestEach(t *testing.T) {
 	}))
 
 	assert.ElementsMatch([]interface{}{`test`, true}, values)
+
+	valchan := make(chan string)
+
+	go func() {
+		defer close(valchan)
+		for i := 0; i < 3; i++ {
+			valchan <- fmt.Sprintf("value%d", i)
+		}
+	}()
+
+	// test Each-ing over a channel
+	valuesS := make([]string, 0)
+
+	assert.Nil(Each(valchan, func(i int, v interface{}) error {
+		valuesS = append(valuesS, fmt.Sprintf("%v", v))
+		return nil
+	}))
+
+	assert.ElementsMatch([]string{`value0`, `value1`, `value2`}, valuesS)
 }
 
 func TestUnique(t *testing.T) {

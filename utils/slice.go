@@ -6,10 +6,11 @@ import (
 )
 
 var Stop = fmt.Errorf("stop iterating")
+var EachChanMaxItems = 1048576
 
 type IterationFunc func(i int, value interface{}) error
 
-// Iterate through each element of the given array or slice, calling
+// Iterate through each element of the given array, slice or channel; calling
 // iterFn exactly once for each element.  Otherwise, call iterFn one time
 // with the given input as the argument.
 //
@@ -93,6 +94,30 @@ func SliceEach(slice interface{}, iterFn IterationFunc, preserve ...reflect.Kind
 							}
 						}
 					}
+				}
+			}
+
+		case reflect.Chan:
+			sliceC := reflect.ValueOf(slice)
+			var i int
+
+			for {
+				if item, ok := sliceC.Recv(); ok {
+					if item.IsValid() && item.CanInterface() {
+						if err := iterFn(i, item.Interface()); err != nil {
+							if err == Stop {
+								return nil
+							} else {
+								return err
+							}
+						} else {
+							i++
+						}
+					}
+				} else if i >= EachChanMaxItems {
+					break
+				} else {
+					break
 				}
 			}
 
