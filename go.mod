@@ -10,7 +10,7 @@ require (
 	github.com/ghetzel/go-defaults v1.2.0
 	github.com/ghetzel/uuid v0.0.0-20171129191014-dec09d789f3d
 	github.com/grandcat/zeroconf v0.0.0-20190118114326-c2d1b4121200
-	github.com/h2non/filetype v1.0.5
+	github.com/h2non/filetype v1.0.8
 	github.com/hashicorp/go-multierror v1.0.0
 	github.com/jackpal/gateway v1.0.5-0.20180407163008-cbcf4e3f3bae
 	github.com/jbenet/go-base58 v0.0.0-20150317085156-6237cf65f3a6
@@ -20,26 +20,25 @@ require (
 	github.com/kellydunn/golang-geo v0.7.0
 	github.com/kr/fs v0.1.0 // indirect
 	github.com/kylelemons/go-gypsy v0.0.0-20160905020020-08cad365cd28 // indirect
-	github.com/lib/pq v1.0.0 // indirect
+	github.com/lib/pq v1.1.0 // indirect
 	github.com/martinlindhe/unit v0.0.0-20180817222220-284ab7627fae
 	github.com/mattn/go-colorable v0.1.0 // indirect
 	github.com/mattn/go-isatty v0.0.4
 	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
-	github.com/miekg/dns v1.1.6 // indirect
+	github.com/miekg/dns v1.1.12 // indirect
 	github.com/mitchellh/mapstructure v1.0.0
 	github.com/neurosnap/sentences v1.0.6 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/pkg/sftp v1.10.0
-	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/stretchr/testify v1.2.2
-	github.com/stretchrcom/testify v1.2.2 // indirect
+	github.com/stretchr/testify v1.3.0
+	github.com/stretchrcom/testify v1.3.0 // indirect
 	github.com/urfave/negroni v1.0.0
 	github.com/ziutek/mymysql v1.5.4 // indirect
 	golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2
-	golang.org/x/net v0.0.0-20190328230028-74de082e2cca // indirect
+	golang.org/x/net v0.0.0-20190420063019-afa5a82059c6 // indirect
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58 // indirect
-	gopkg.in/h2non/filetype.v1 v1.0.5 // indirect
+	golang.org/x/sys v0.0.0-20190422165155-953cdadca894 // indirect
 	gopkg.in/neurosnap/sentences.v1 v1.0.6 // indirect
 )
