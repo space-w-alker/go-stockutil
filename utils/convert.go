@@ -346,9 +346,10 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 			// special case: assume incoming byte slices are actually strings
 			// convert byte slices to strings directly
 			return string(inB), nil
-		} else if inB, ok := inI.([]uint8); ok {
-			// convert byte slices to strings directly
-			return string(inB), nil
+		} else if inSr, ok := inI.(fmt.Stringer); ok {
+			// convert fmt.Stringer to string
+			return inSr.String(), nil
+
 		} else if inV := reflect.ValueOf(inI); inV.Kind() == reflect.Ptr {
 			// dereference pointers to strings and stringify the result
 			inS, inSerr = ToString(inV.Elem())
