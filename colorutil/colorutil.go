@@ -12,6 +12,14 @@ import (
 	"github.com/ghetzel/go-stockutil/stringutil"
 )
 
+type adjustment int
+
+const (
+	hue adjustment = iota
+	saturation
+	lightness
+)
+
 var rgbaPattern = `rgba?\((?P<r>\d+(?:\.\d+)?%?)\s*,\s*(?P<g>\d+(?:\.\d+)?%?)\s*,\s*(?P<b>\d+(?:\.\d+)?%?)\s*(?:,\s*(?P<a>\d+(?:\.\d+)?%?)?\s*)?\)`
 var hslaPattern = `hs(?P<LorV>[lv])a?\((?P<h>\d+(?:\.\d+)?%?)(?:deg)?\s*,\s*(?P<s>\d+(?:\.\d+)?%?)\s*,\s*(?P<lv>\d+(?:\.\d+)?%?)\s*(?:,\s*(?P<a>\d+(?:\.\d+)?%?)?\s*)?\)`
 var hexPattern = `#?(?P<r>[0-9a-fA-F]{2})(?P<g>[0-9a-fA-F]{2})(?P<b>[0-9a-fA-F]{2})(?P<a>[0-9a-fA-F]{2})?`
@@ -123,9 +131,9 @@ func (self Color) HSI() (float64, float64, float64) {
 
 // Return whether the given color is equal to this one in the 24-bit RGB (RGB255) color space
 func (self Color) Equals(other interface{}) bool {
-	if color, err := Parse(other); err == nil {
+	if otherC, err := Parse(other); err == nil {
 		r1, g1, b1, a1 := self.RGBA255()
-		r2, g2, b2, a2 := color.RGBA255()
+		r2, g2, b2, a2 := otherC.RGBA255()
 
 		if r1 == r2 {
 			if g1 == g2 {
@@ -290,17 +298,36 @@ func Equals(first interface{}, second interface{}) bool {
 	return false
 }
 
-// adjust the given color by a specified factor, either positive (lightening) or
-// negative (darkening)
-func adjust(in interface{}, factor float64) (Color, error) {
+// adjust the a property of given color by a specified factor:
+// 	Hue: add/subtract the given number of degrees on the HSL color wheel
+//  Saturation: saturate/desaturate the color by the given amount
+//  Lightness: lighten/darken the color by the given amount
+func adjust(what adjustment, in interface{}, factor float64) (Color, error) {
 	if sample, err := Parse(in); err == nil {
 		h, s, l := sample.HSL()
-		l += factor
 
-		if l < 0 {
-			l = 0
-		} else if l > 1 {
-			l = 1
+		switch what {
+		case lightness:
+			l += factor
+
+			if l < 0 {
+				l = 0
+			} else if l > 1 {
+				l = 1
+			}
+		case saturation:
+			s += factor
+
+			if s < 0 {
+				s = 0
+			} else if s > 1 {
+				s = 1
+			}
+		case hue:
+			h += factor
+
+		default:
+			return Color{}, fmt.Errorf("invalid what value")
 		}
 
 		sample.r, sample.g, sample.b = hsl2rgb(h, s, l)
@@ -314,28 +341,70 @@ func adjust(in interface{}, factor float64) (Color, error) {
 // Darken the given color by a certain percent.  Consistent with the results of the
 // Sass darken() function.
 func Darken(in interface{}, percent int) (Color, error) {
-	return adjust(in, -1*(float64(percent)/100.0))
+	return adjust(lightness, in, -1*(float64(percent)/100.0))
 }
 
 // Lighten the given color by a certain percent.  Consistent with the results of the
 // Sass lighten() function.
 func Lighten(in interface{}, percent int) (Color, error) {
-	return adjust(in, float64(percent)/100.0)
+	return adjust(lightness, in, float64(percent)/100.0)
+}
+
+// Saturate the given color by a certain percent.  Consistent with the results of the
+// Sass saturate() function.
+func Saturate(in interface{}, percent int) (Color, error) {
+	return adjust(saturation, in, float64(percent)/100.0)
+}
+
+// Desaturate the given color by a certain percent.  Consistent with the results of the
+// Sass desaturate() function.
+func Desaturate(in interface{}, percent int) (Color, error) {
+	return adjust(saturation, in, -1*(float64(percent)/100.0))
 }
 
 // Adjust the hue of the given color by the specified number of degrees.
 func AdjustHue(in interface{}, degrees float64) (Color, error) {
-	if sample, err := Parse(in); err == nil {
-		h, s, l := sample.HSL()
+	return adjust(hue, in, degrees)
+}
 
-		h += degrees
+// Mix two colors, producing a third.  The weight value specifies how much of the first color
+// should be included.  Consistent with the results of the Sass mix() function.
+func MixN(first interface{}, second interface{}, weight float64) (Color, error) {
+	if firstC, err := Parse(first); err == nil {
+		if secondC, err := Parse(second); err == nil {
+			factor := 2*weight - 1
+			alpha := firstC.a - secondC.a
 
-		sample.r, sample.g, sample.b = hsl2rgb(h, s, l)
+			var weight1, weight2 float64
 
-		return sample, nil
+			if factor*alpha == -1 {
+				weight1 = factor
+			} else {
+				weight1 = ((factor + alpha) / (1 + factor*alpha)) + 1
+			}
+
+			weight1 = weight1 / 2
+			weight2 = 1 - weight1
+
+			mixed := Color{
+				r: (weight1 * firstC.r) + (weight2 * secondC.r),
+				g: (weight1 * firstC.g) + (weight2 * secondC.g),
+				b: (weight1 * firstC.b) + (weight2 * secondC.b),
+				a: (firstC.a * weight) + (secondC.a * (1 - weight)),
+			}
+
+			return mixed, nil
+		} else {
+			return Color{}, fmt.Errorf("second color: %v", err)
+		}
 	} else {
-		return Color{}, err
+		return Color{}, fmt.Errorf("first color: %v", err)
 	}
+}
+
+// Mix two colors in equal parts, producing a third.
+func Mix(first interface{}, second interface{}) (Color, error) {
+	return MixN(first, second, 0.5)
 }
 
 // Given HSL values (where hue is given in degrees (out of 360°), saturation

@@ -297,6 +297,39 @@ func TestLightenDarken(t *testing.T) {
 	assert.True(color.Equals(`#E60000`), fmt.Sprintf("%v", color))
 }
 
+func TestSaturateDesaturate(t *testing.T) {
+	assert := assert.New(t)
+
+	var color Color
+	var err error
+
+	// Desaturate(#800000, 100%) => #000000
+	color, err = Desaturate(`#800000`, 100)
+	assert.NoError(err)
+	assert.True(color.Equals(`#404040`), fmt.Sprintf("%v", color))
+
+	// Desaturate(#800000, 20%) => #200000
+	color, err = Desaturate(`#ad4038`, 20)
+	assert.NoError(err)
+	assert.True(color.Equals(`#96544f`), fmt.Sprintf("%v", color))
+
+	// Saturate(#800000, 20%) => #E00000
+	color, err = Saturate(`#ad4038`, 20)
+	assert.NoError(err)
+	assert.True(color.Equals(`#c42b21`), fmt.Sprintf("%v", color))
+}
+
+func TestMix(t *testing.T) {
+	assert := assert.New(t)
+
+	var mixed Color
+	var err error
+
+	mixed, err = MixN(`#ad4038`, `#0000ff`, 0.8)
+	assert.NoError(err)
+	assert.True(mixed.Equals(`#8a3360`), fmt.Sprintf("%v", mixed))
+}
+
 func TestColorStringers(t *testing.T) {
 	assert := require.New(t)
 
