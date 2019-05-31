@@ -105,6 +105,17 @@ func new(wrap *exec.Cmd) *Cmd {
 }
 
 func (self *Cmd) prestart() error {
+	self.statusLock.Lock()
+	self.status.StartedAt = time.Now()
+	self.status.Running = true
+	self.statusLock.Unlock()
+
+	self.updateStatus()
+
+	if fn := self.OnStart; fn != nil {
+		fn(self.status)
+	}
+
 	go self.startMonitoringCommand()
 
 	if self.InheritEnv {
@@ -221,16 +232,6 @@ func (self *Cmd) waitReallyDone() {
 // a goroutine that is launched whenever a command
 func (self *Cmd) startMonitoringCommand() {
 	self.reallyDone.Add(1)
-	self.statusLock.Lock()
-	self.status.StartedAt = time.Now()
-	self.status.Running = true
-	self.statusLock.Unlock()
-
-	self.updateStatus()
-
-	if fn := self.OnStart; fn != nil {
-		fn(self.status)
-	}
 
 	// if there's a timeout set, and its shorter than our monitor interval,
 	// reduce the monitor interval to that

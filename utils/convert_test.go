@@ -32,11 +32,57 @@ func TestDetectConvertType(t *testing.T) {
 	assert.Equal(Integer, DetectConvertType(`0`))
 	assert.Equal(Integer, DetectConvertType(`1`))
 	assert.Equal(Integer, DetectConvertType(`17753`))
+	assert.Equal(Integer, DetectConvertType(`0xdeadbeef`))
+	assert.Equal(Integer, DetectConvertType(`0xDEADBEEF`))
+	assert.Equal(String, DetectConvertType(`deadbeef`))
+	assert.Equal(String, DetectConvertType(`DEADBEEF`))
 
 	assert.Equal(Float, DetectConvertType(`0.0`))
 	assert.Equal(Float, DetectConvertType(`3.1415`))
 	assert.Equal(Float, DetectConvertType(`3.0001`))
 	assert.Equal(Float, DetectConvertType(`3.1000`))
+}
+
+func TestConvertToInteger(t *testing.T) {
+	assert := require.New(t)
+
+	var i int64
+	var err error
+
+	i, err = ConvertToInteger(``)
+	assert.NoError(err)
+	assert.EqualValues(0, i)
+
+	i, err = ConvertToInteger(`0`)
+	assert.NoError(err)
+	assert.EqualValues(0, i)
+
+	i, err = ConvertToInteger(`123`)
+	assert.NoError(err)
+	assert.EqualValues(123, i)
+
+	i, err = ConvertToInteger(`0x0`)
+	assert.NoError(err)
+	assert.EqualValues(0, i)
+
+	i, err = ConvertToInteger(`0x1`)
+	assert.NoError(err)
+	assert.EqualValues(1, i)
+
+	i, err = ConvertToInteger(`0xA`)
+	assert.NoError(err)
+	assert.EqualValues(10, i)
+
+	i, err = ConvertToInteger(`0xF`)
+	assert.NoError(err)
+	assert.EqualValues(15, i)
+
+	i, err = ConvertToInteger(`0x10`)
+	assert.NoError(err)
+	assert.EqualValues(16, i)
+
+	i, err = ConvertToInteger(`0xG`)
+	assert.NotNil(err)
 }
 
 func TestConvertTypeSpecificity(t *testing.T) {

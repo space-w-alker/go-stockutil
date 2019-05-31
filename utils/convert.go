@@ -31,6 +31,7 @@ const (
 	Time
 	Boolean
 	Nil
+	UserDefined
 )
 
 func (self ConvertType) String() string {
@@ -47,6 +48,8 @@ func (self ConvertType) String() string {
 		return `time`
 	case Bytes:
 		return `bytes`
+	case UserDefined:
+		return `user`
 	default:
 		return ``
 	}
@@ -200,6 +203,9 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 			return float64(v), nil
 		} else if v, ok := inI.(uint64); ok {
 			return float64(v), nil
+		} else if IsHexadecimal(inI) {
+			v, err := ConvertHexToInteger(inI)
+			return float64(v), err
 		}
 
 		return strconv.ParseFloat(inS, 64)
@@ -214,6 +220,8 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 			} else {
 				return nil, err
 			}
+		} else if IsHexadecimal(inI) {
+			return ConvertHexToInteger(inI)
 		}
 
 		if v, ok := inI.(int); ok {
@@ -362,6 +370,21 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 	}
 }
 
+func ConvertHexToInteger(in interface{}) (int64, error) {
+	if IsHexadecimal(in) {
+		if inS, err := ToString(in); err == nil {
+			inS = strings.ToLower(inS)
+			inS = strings.TrimPrefix(inS, `0x`)
+
+			return strconv.ParseInt(inS, 16, 64)
+		} else {
+			return 0, err
+		}
+	} else {
+		return 0, fmt.Errorf("invalid hexadecimal value '%v'", in)
+	}
+}
+
 func ConvertToInteger(in interface{}) (int64, error) {
 	if v, err := ConvertTo(Integer, in); err == nil {
 		return v.(int64), nil
@@ -463,37 +486,37 @@ func ConvertCustomType(in interface{}) (interface{}, error) {
 	return in, PassthroughType
 }
 
-func Autotype(in interface{}) interface{} {
+func Detect(in interface{}) (ConvertType, interface{}) {
 	// perform custom type conversions (if any)
 	if v, err := ConvertCustomType(in); err == nil {
-		return v
+		return UserDefined, v
 	} else if err != PassthroughType {
 		panic(err.Error())
 	}
 
 	if in == nil {
-		return nil
+		return Nil, nil
 	}
 
 	if IsTime(in) {
 		if v, err := ConvertTo(Time, in); err == nil {
-			return v
+			return Time, v
 		}
 	}
 
 	// effectively, this detects strings that are numeric, but have leading zeroes.
 	// we should treat those as meaningful and return that string outright
 	//
-	// (e.g.: handle the "US Zip Code" problem)
+	// (e.g.: handle the "US Zip Code" problem; i.e.: 07753 _can_ be interpreted as int(7753))
 	if vStr, ok := in.(string); ok {
 		if rxLeadingZeroes.MatchString(vStr) {
-			return vStr
+			return String, vStr
 		}
 
 		// certain known string values should convert to nil directly
 		for _, nilStr := range NilStrings {
 			if vStr == nilStr {
-				return nil
+				return Nil, nil
 			}
 		}
 	}
@@ -505,51 +528,21 @@ func Autotype(in interface{}) interface{} {
 		String,
 	} {
 		if value, err := ConvertTo(ctype, in); err == nil {
-			return value
+			return ctype, value
 		}
 	}
 
-	return in
+	return Invalid, in
+}
+
+func Autotype(in interface{}) interface{} {
+	_, value := Detect(in)
+	return value
 }
 
 func DetectConvertType(in interface{}) ConvertType {
-	if in == nil {
-		return Nil
-	}
-
-	if IsTime(in) {
-		return Time
-	}
-
-	// effectively, this detects strings that are numeric, but have leading zeroes.
-	// we should treat those as meaningful and return that string outright
-	//
-	// (e.g.: handle the "US Zip Code" problem)
-	if vStr, ok := in.(string); ok {
-		if rxLeadingZeroes.MatchString(vStr) {
-			return String
-		}
-
-		// certain known string values should convert to nil directly
-		for _, nilStr := range NilStrings {
-			if vStr == nilStr {
-				return Nil
-			}
-		}
-	}
-
-	for _, ctype := range []ConvertType{
-		Boolean,
-		Integer,
-		Float,
-		String,
-	} {
-		if _, err := ConvertTo(ctype, in); err == nil {
-			return ctype
-		}
-	}
-
-	return Invalid
+	ctype, _ := Detect(in)
+	return ctype
 }
 
 func ParseDuration(in string) (time.Duration, error) {

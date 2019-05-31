@@ -43,6 +43,30 @@ func IsFloat(in interface{}) bool {
 	return false
 }
 
+func IsHexadecimal(in interface{}) bool {
+	if inS, err := ToString(in); err == nil {
+		inS = strings.ToLower(inS)
+
+		if strings.HasPrefix(inS, `0x`) {
+			inS = strings.TrimPrefix(inS, `0x`)
+		} else {
+			return false
+		}
+
+		for _, r := range inS {
+			if r >= '0' && r <= '9' || r >= 'a' && r <= 'f' {
+				continue
+			} else {
+				return false
+			}
+		}
+	} else {
+		return false
+	}
+
+	return true
+}
+
 func IsNumeric(in interface{}) bool {
 	return IsFloat(in)
 }
