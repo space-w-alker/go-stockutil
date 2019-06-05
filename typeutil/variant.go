@@ -3,6 +3,7 @@ package typeutil
 import (
 	"encoding/json"
 	"reflect"
+	"strings"
 	"text/template"
 	"time"
 
@@ -99,6 +100,15 @@ func (self Variant) Strings() []string {
 	}
 
 	return out
+}
+
+// Converts the value to a string, then splits on the given delimiter.
+func (self Variant) Split(on string) []string {
+	if s := self.String(); s == `` {
+		return nil
+	} else {
+		return strings.Split(s, on)
+	}
 }
 
 // Return the value converted to an error, or nil if it is not an error.
@@ -221,6 +231,11 @@ func Slice(in interface{}) []Variant {
 // Package-level string slice converter
 func Strings(in interface{}) []string {
 	return V(in).Strings()
+}
+
+// Package-level string splitter.
+func Split(in interface{}, on string) []string {
+	return V(in).Split(on)
 }
 
 // Package-level error converter
