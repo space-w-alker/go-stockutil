@@ -104,6 +104,32 @@ func Intersect(a interface{}, b interface{}) []interface{} {
 	return Sliceify(intersect.Simple(a, b))
 }
 
+// Return the slice that results from removing elements in second from the first.
+func Difference(first interface{}, second interface{}) []interface{} {
+	diff := make(map[interface{}]bool)
+	out := make([]interface{}, 0)
+	aS := Sliceify(first)
+	bS := Sliceify(second)
+
+	if len(aS) == 0 {
+		return out
+	} else if len(bS) == 0 {
+		return aS
+	}
+
+	for _, item := range bS {
+		diff[item] = true
+	}
+
+	for _, item := range aS {
+		if _, ok := diff[item]; !ok {
+			out = append(out, item)
+		}
+	}
+
+	return out
+}
+
 // Removes all elements from the given interface slice that are "empty", which is
 // defined as being nil, a nil or zero-length array, chan, map, slice, or string.
 //

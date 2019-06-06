@@ -456,6 +456,19 @@ func TestIntersect(t *testing.T) {
 	)
 }
 
+func TestDifference(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Empty(Difference(nil, nil))
+	assert.Empty(Difference(nil, []string{`a`, `c`, `e`}))
+	assert.ElementsMatch([]string{`a`, `b`, `c`}, Difference([]string{`a`, `b`, `c`}, nil))
+
+	assert.ElementsMatch(
+		[]interface{}{`a`},
+		Difference([]string{`a`, `b`, `c`}, []string{`b`, `c`}),
+	)
+}
+
 func TestSlice(t *testing.T) {
 	assert := require.New(t)
 	in := []interface{}{1, 2, 3, 4, 5}
