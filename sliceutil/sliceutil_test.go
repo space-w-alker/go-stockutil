@@ -467,6 +467,10 @@ func TestDifference(t *testing.T) {
 		[]interface{}{`a`},
 		Difference([]string{`a`, `b`, `c`}, []string{`b`, `c`}),
 	)
+
+	assert.ElementsMatch([]string{`a`, `b`, `c`},
+		Difference([]string{`a`, `b`, `c`}, []string{`x`, `y`, `z`}),
+	)
 }
 
 func TestSlice(t *testing.T) {
