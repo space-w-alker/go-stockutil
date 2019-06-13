@@ -268,6 +268,20 @@ func AppendError(base error, err error) error {
 	}
 }
 
+// Invoke Fatal() if the given error is not nil.
+func FatalIf(err error) {
+	if err != nil {
+		Fatal(err)
+	}
+}
+
+// Invoke Fatalf() if the given error is not nil.
+func FatalfIf(format string, err error) {
+	if err != nil {
+		Fatalf(format, err)
+	}
+}
+
 // call all registered intercept functions using the given arguments.
 func callIntercepts(level Level, line string, stack StackItems) {
 	intercepts.Range(func(_ interface{}, value interface{}) bool {
