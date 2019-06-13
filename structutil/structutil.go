@@ -2,16 +2,67 @@
 package structutil
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
+var StopIterating = errors.New(`stop iterating`)
+
 // Receives a struct field name, the value of that field in the source struct, and the value for that field in the destination struct.
 // Returns the value that should be placed in the destination struct fields.  If the returned bool is false, no changes will
 // be made.
 type StructValueFunc func(field string, sourceValue interface{}, destValue interface{}) (interface{}, bool)
+type StructFieldFunc func(field *reflect.StructField, value reflect.Value) error
+
+// Iterates over all exported and embedded fields in the given struct, calling fn for each field.
+func FieldsFunc(in interface{}, fn StructFieldFunc) error {
+	if in == nil || fn == nil {
+		return nil
+	}
+
+	var inValu reflect.Value
+
+	if v, ok := in.(reflect.Value); ok {
+		inValu = v
+	} else {
+		inValu = reflect.ValueOf(in)
+	}
+
+	if _, err := validatePtrToStruct(`input`, inValu); err != nil {
+		return err
+	}
+
+	// because we just validated that this is a pointer to a struct,
+	// we need to get to the struct inside that pointer
+	inValu = inValu.Elem()
+
+	inType := inValu.Type()
+
+FieldLoop:
+	for i := 0; i < inType.NumField(); i++ {
+		fieldT := inType.Field(i)
+		fieldV := inValu.Field(i)
+
+		// only exported field names leave this empty, so skip if it's not (i.e.: we have an unexported field)
+		if fieldT.PkgPath != `` {
+			continue
+		}
+
+		switch err := fn(&fieldT, fieldV); err {
+		case StopIterating:
+			break FieldLoop
+		case nil:
+			continue
+		default:
+			return err
+		}
+	}
+
+	return nil
+}
 
 func CopyFunc(dest interface{}, source interface{}, fn StructValueFunc) error {
 	if dest == nil || source == nil || fn == nil {
