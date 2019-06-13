@@ -54,16 +54,7 @@ func TestReadManipulatorDoNothingFunction(t *testing.T) {
 func TestReadManipulatorRemoveComments(t *testing.T) {
 	assert := require.New(t)
 
-	rm := NewReadManipulator(tt(), func(in []byte) ([]byte, error) {
-		line := string(in)
-		line = strings.TrimSpace(line)
-
-		if strings.HasPrefix(line, `//`) {
-			return nil, nil
-		} else {
-			return in, nil
-		}
-	})
+	rm := NewReadManipulator(tt(), RemoveLinesWithPrefix(`//`, true))
 
 	out, err := ioutil.ReadAll(rm)
 	assert.NoError(err)
@@ -73,13 +64,7 @@ func TestReadManipulatorRemoveComments(t *testing.T) {
 func TestReadManipulatorRemoveBlankLines(t *testing.T) {
 	assert := require.New(t)
 
-	rm := NewReadManipulator(tt(), func(in []byte) ([]byte, error) {
-		if line := strings.TrimSpace(string(in)); len(line) == 0 {
-			return nil, SkipToken
-		} else {
-			return in, nil
-		}
-	})
+	rm := NewReadManipulator(tt(), RemoveBlankLines)
 
 	out, err := ioutil.ReadAll(rm)
 	assert.NoError(err)
@@ -100,4 +85,26 @@ func TestReadManipulatorDolorToBacon(t *testing.T) {
 		strings.Replace(testText, `dolor`, `bacon`, -1),
 		string(out),
 	)
+}
+
+func TestReadManipulatorManipulateAll(t *testing.T) {
+	assert := require.New(t)
+
+	fn1 := ReplaceWith(`dolor`, `bacon`, -1)
+	fn2 := RemoveBlankLines
+	fn3 := func(in []byte) ([]byte, error) {
+		line := strings.Replace(string(in), `nostrud`, `potato`, -1)
+		return []byte(line), nil
+	}
+
+	rm := NewReadManipulator(tt(), ManipulateAll(fn1, fn2, fn3))
+
+	wanted := testText
+	wanted = strings.Replace(wanted, `dolor`, `bacon`, -1)
+	wanted = strings.Replace(wanted, `nostrud`, `potato`, -1)
+	wanted = strings.Replace(wanted, "\n\n", "\n", -1)
+
+	out, err := ioutil.ReadAll(rm)
+	assert.NoError(err)
+	assert.Equal(wanted, string(out))
 }
