@@ -7,6 +7,13 @@ import (
 	"io"
 )
 
+// By default, the underlying bufio.Scanner that tokenizes the input data
+// will discard the tokens that it's splitting on.  however, in most cases, we
+// don't actually want this.  however, if the thing we're removing IS this token,
+// then we will have removed the token, then immediately put it back in the stream.
+//
+// Returning the SkipToken error will tell the ReadManipulator to not put this token
+// back into the stream, but otherwise not produce an actual error during read.
 var SkipToken = errors.New(`skip token`)
 
 type ReadManipulatorFunc func(data []byte) ([]byte, error)
