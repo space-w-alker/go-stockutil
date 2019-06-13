@@ -1,6 +1,8 @@
-.PHONY: test deps
 
-LOCALS :=$(shell find . -type f -name '*.go' -not -path "./vendor/*")
+LOCALS := $(shell find . -type f -name '*.go' -not -path "./vendor/*")
+PKGS   := $(wildcard *util)
+
+.PHONY: test deps $(PKGS)
 
 .EXPORT_ALL_VARIABLES:
 GO111MODULE = on
@@ -14,9 +16,14 @@ deps:
 	-go mod tidy
 
 fmt:
-	gofmt -w $(LOCALS)
-	go vet ./...
+	$(info Formatting)
+	@gofmt -w $(LOCALS)
+	$(info Vetting code)
+	@go vet ./...
 
-test:
-	go test -count=1 ./...
+$(PKGS):
+	$(info Testing $(@))
+	@go test -count=1 ./$(@)/...
+
+test: $(PKGS)
 
