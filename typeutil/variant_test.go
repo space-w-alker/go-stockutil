@@ -38,4 +38,84 @@ func TestVariant(t *testing.T) {
 		`test`:  1,
 		`other`: 2.4,
 	}).Map())
+
+	type vStructOne struct {
+		Name    string
+		Age     int
+		Pi      float64
+		enabled bool
+	}
+
+	assert.Equal(map[Variant]Variant{
+		V(`Name`): V(`test`),
+		V(`Age`):  V(42),
+		V(`Pi`):   V(3.1415),
+	}, V(vStructOne{
+		Name:    `test`,
+		Age:     42,
+		Pi:      3.1415,
+		enabled: true,
+	}).Map())
+
+	assert.Equal(map[Variant]Variant{
+		V(`Name`): V(`test`),
+		V(`Age`):  V(42),
+		V(`Pi`):   V(3.1415),
+	}, V(&vStructOne{
+		Name:    `test`,
+		Age:     42,
+		Pi:      3.1415,
+		enabled: true,
+	}).Map())
+
+	type vStructTagged struct {
+		Name    string
+		Age     int     `testaroo:"age"`
+		Pi      float64 `testaroo:"pi"`
+		enabled bool
+	}
+
+	assert.Equal(map[Variant]Variant{
+		V(`Name`): V(`test`),
+		V(`age`):  V(42),
+		V(`pi`):   V(3.1415),
+	}, V(vStructTagged{
+		Name:    `test`,
+		Age:     42,
+		Pi:      3.1415,
+		enabled: true,
+	}).Map(`testaroo`))
+
+	assert.Equal(map[Variant]Variant{
+		V(`Name`): V(`test`),
+		V(`age`):  V(42),
+		V(`pi`):   V(3.1415),
+	}, V(&vStructTagged{
+		Name:    `test`,
+		Age:     42,
+		Pi:      3.1415,
+		enabled: true,
+	}).Map(`testaroo`))
+
+	assert.Equal(map[Variant]Variant{
+		V(`Name`): V(`test`),
+		V(`Age`):  V(42),
+		V(`Pi`):   V(3.1415),
+	}, V(vStructTagged{
+		Name:    `test`,
+		Age:     42,
+		Pi:      3.1415,
+		enabled: true,
+	}).Map())
+
+	assert.Equal(map[Variant]Variant{
+		V(`Name`): V(`test`),
+		V(`Age`):  V(42),
+		V(`Pi`):   V(3.1415),
+	}, V(&vStructTagged{
+		Name:    `test`,
+		Age:     42,
+		Pi:      3.1415,
+		enabled: true,
+	}).Map())
 }

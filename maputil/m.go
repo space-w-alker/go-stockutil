@@ -81,11 +81,6 @@ func (self *Map) Value() interface{} {
 	return self.data
 }
 
-// Return the value as a map[string]interface{} {
-func (self *Map) MapNative() map[string]interface{} {
-	return typeutil.MapNative(self.data)
-}
-
 // Set a value in the Map at the given dot.separated key to a value.
 func (self *Map) Set(key string, value interface{}) typeutil.Variant {
 	vv := typeutil.V(value)
@@ -192,8 +187,13 @@ func (self *Map) Err(key string) error {
 // Return the value at key as a Map.  If the resulting value is nil or not a
 // map type, a null Map will be returned.  All values retrieved from a null
 // Map will return that type's zero value.
-func (self *Map) Map(key string) map[typeutil.Variant]typeutil.Variant {
-	return self.Get(key).Map()
+func (self *Map) Map(key string, tagName ...string) map[typeutil.Variant]typeutil.Variant {
+	return self.Get(key).Map(tagName...)
+}
+
+// Return the value as a map[string]interface{} {
+func (self *Map) MapNative(tagName ...string) map[string]interface{} {
+	return typeutil.MapNative(self.data, tagName...)
 }
 
 func (self *Map) MarshalJSON() ([]byte, error) {

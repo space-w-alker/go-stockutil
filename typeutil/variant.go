@@ -169,8 +169,15 @@ func (self Variant) Interface() interface{} {
 }
 
 // Return the value as a map[Variant]Variant if it can be interpreted as such, or an empty map otherwise.
-func (self Variant) Map() map[Variant]Variant {
+// If the variant contains a struct, and a tagName is specified, the key names of the output map will be taken
+// from the struct field's tag value, consistent with the rules used in encoding/json.
+func (self Variant) Map(tagName ...string) map[Variant]Variant {
 	output := make(map[Variant]Variant)
+	var tn string
+
+	if len(tagName) > 0 && tagName[0] != `` {
+		tn = tagName[0]
+	}
 
 	if IsMap(self.Value) {
 		mapV := reflect.ValueOf(self.Value)
@@ -182,16 +189,39 @@ func (self Variant) Map() map[Variant]Variant {
 				}
 			}
 		}
+	} else if elem := ResolveValue(self.Value); IsStruct(elem) {
+		structV := reflect.ValueOf(elem)
+		structT := structV.Type()
+
+		for i := 0; i < structT.NumField(); i++ {
+			if structF := structT.Field(i); !structF.Anonymous {
+				if value := structV.Field(i); value.IsValid() {
+					key := structF.Name
+
+					if tn != `` {
+						parts := strings.Split(structF.Tag.Get(tn), `,`)
+
+						if tag := parts[0]; tag != `` {
+							key = tag
+						}
+					}
+
+					if value.CanInterface() {
+						output[V(key)] = V(value.Interface())
+					}
+				}
+			}
+		}
 	}
 
 	return output
 }
 
 // Return the value as a map[string]interface{} if it can be interpreted as such, or an empty map otherwise.
-func (self Variant) MapNative() map[string]interface{} {
+func (self Variant) MapNative(tagName ...string) map[string]interface{} {
 	out := make(map[string]interface{})
 
-	for k, v := range self.Map() {
+	for k, v := range self.Map(tagName...) {
 		out[k.String()] = v.Interface()
 	}
 
@@ -264,11 +294,11 @@ func Bytes(in interface{}) []byte {
 }
 
 // Package-level map converter
-func Map(in interface{}) map[Variant]Variant {
-	return V(in).Map()
+func Map(in interface{}, tagName ...string) map[Variant]Variant {
+	return V(in).Map(tagName...)
 }
 
 // Package-level map[string]interface{} converter
-func MapNative(in interface{}) map[string]interface{} {
-	return V(in).MapNative()
+func MapNative(in interface{}, tagName ...string) map[string]interface{} {
+	return V(in).MapNative(tagName...)
 }
