@@ -71,51 +71,45 @@ func TestVariant(t *testing.T) {
 	type vStructTagged struct {
 		Name    string
 		Age     int     `testaroo:"age"`
-		Pi      float64 `testaroo:"pi"`
+		Pi      float64 `testaroo:"pi,omitempty"`
 		enabled bool
 	}
 
 	assert.Equal(map[Variant]Variant{
 		V(`Name`): V(`test`),
 		V(`age`):  V(42),
-		V(`pi`):   V(3.1415),
 	}, V(vStructTagged{
 		Name:    `test`,
 		Age:     42,
-		Pi:      3.1415,
 		enabled: true,
 	}).Map(`testaroo`))
 
 	assert.Equal(map[Variant]Variant{
 		V(`Name`): V(`test`),
 		V(`age`):  V(42),
-		V(`pi`):   V(3.1415),
 	}, V(&vStructTagged{
 		Name:    `test`,
 		Age:     42,
-		Pi:      3.1415,
 		enabled: true,
 	}).Map(`testaroo`))
 
 	assert.Equal(map[Variant]Variant{
 		V(`Name`): V(`test`),
 		V(`Age`):  V(42),
-		V(`Pi`):   V(3.1415),
+		V(`Pi`):   V(float64(0)),
 	}, V(vStructTagged{
 		Name:    `test`,
 		Age:     42,
-		Pi:      3.1415,
 		enabled: true,
 	}).Map())
 
 	assert.Equal(map[Variant]Variant{
 		V(`Name`): V(`test`),
 		V(`Age`):  V(42),
-		V(`Pi`):   V(3.1415),
+		V(`Pi`):   V(float64(0)),
 	}, V(&vStructTagged{
 		Name:    `test`,
 		Age:     42,
-		Pi:      3.1415,
 		enabled: true,
 	}).Map())
 }

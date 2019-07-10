@@ -193,6 +193,7 @@ func (self Variant) Map(tagName ...string) map[Variant]Variant {
 		structV := reflect.ValueOf(elem)
 		structT := structV.Type()
 
+	FieldLoop:
 		for i := 0; i < structT.NumField(); i++ {
 			if structF := structT.Field(i); !structF.Anonymous {
 				if value := structV.Field(i); value.IsValid() {
@@ -203,6 +204,17 @@ func (self Variant) Map(tagName ...string) map[Variant]Variant {
 
 						if tag := parts[0]; tag != `` {
 							key = tag
+						}
+
+						if len(parts) > 1 {
+							for _, p := range parts {
+								switch p {
+								case `omitempty`:
+									if IsZero(value) {
+										continue FieldLoop
+									}
+								}
+							}
 						}
 					}
 
