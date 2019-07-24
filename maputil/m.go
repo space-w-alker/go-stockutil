@@ -12,6 +12,8 @@ import (
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
+type ItemFunc func(key string, value typeutil.Variant) error
+
 // A Map object (or "M" object) is a utility struct that makes it straightforward to
 // work with interface data types that contain map-like data (has a reflect.Kind equal
 // to reflect.Map).
@@ -203,4 +205,38 @@ func (self *Map) MarshalJSON() ([]byte, error) {
 // Return whether the value at the given key is that type's zero value.
 func (self *Map) IsZero(key string) bool {
 	return self.Get(key).IsZero()
+}
+
+// Return the keys in this Map object.  You may specify the name of a struct tag on the underlying
+// object to use for generating key names.
+func (self *Map) Keys(tagName ...string) []interface{} {
+	return Keys(self.MapNative(tagName...))
+}
+
+// A string slice version of Keys()
+func (self *Map) StringKeys(tagName ...string) []string {
+	return sliceutil.Stringify(self.Keys(tagName...))
+}
+
+// Return the length of the Map.
+func (self *Map) Len() int {
+	return len(self.MapNative())
+}
+
+// Iterate through each item in the map.
+func (self *Map) Each(fn ItemFunc, tagName ...string) error {
+	if fn != nil {
+		for _, key := range self.StringKeys(tagName...) {
+			if err := fn(key, self.Get(key)); err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
+// A recursive walk form of Each()
+func (self *Map) Walk(fn WalkFunc) error {
+	return WalkStruct(self.data, fn)
 }

@@ -6,6 +6,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/stretchr/testify/require"
 )
 
@@ -52,6 +53,18 @@ func TestM(t *testing.T) {
 	assert.Len(input.Slice(`second.values`), 4)
 	assert.Equal(int64(42), input.Auto(`second.strnum`))
 	assert.Equal(time.Date(2006, 1, 2, 0, 0, 0, 0, time.UTC), input.Time(`second.then`))
+
+	assert.Equal(5, input.Len())
+	k := make([]string, 5)
+	i := 0
+
+	assert.NoError(input.Each(func(key string, value typeutil.Variant) error {
+		k[i] = key
+		i++
+		return nil
+	}))
+
+	assert.ElementsMatch(k, []string{`first`, `second`, `third`, `fourth`, `now`})
 }
 
 func TestMSet(t *testing.T) {
