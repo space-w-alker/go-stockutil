@@ -18,7 +18,8 @@ type ItemFunc func(key string, value typeutil.Variant) error
 // work with interface data types that contain map-like data (has a reflect.Kind equal
 // to reflect.Map).
 type Map struct {
-	data interface{}
+	data         interface{}
+	structTagKey string
 }
 
 // Create a new Variant map object from the given value (which should be a map of some kind).
@@ -67,15 +68,21 @@ func M(data interface{}) *Map {
 		}
 
 		data = dataM
-	} else if typeutil.IsStruct(data) {
-		data = DeepCopyStruct(data)
 	} else if data == nil {
 		data = make(map[string]interface{})
 	}
 
 	return &Map{
-		data: data,
+		data:         data,
+		structTagKey: UnmarshalStructTag,
 	}
+}
+
+// Specify which struct tag to honor for generating field names when then
+// underlying data is a struct.
+func (self *Map) Tag(key string) *Map {
+	self.structTagKey = key
+	return self
 }
 
 // Return the underlying value the M-object was created with.
@@ -115,7 +122,7 @@ func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Vari
 // value.  Return values are a typeutil.Variant, which can be easily coerced into
 // various types.
 func (self *Map) Get(key string, fallbacks ...interface{}) typeutil.Variant {
-	native := self.MapNative()
+	native := self.MapNative(self.structTagKey)
 
 	if v, ok := native[key]; ok && v != nil {
 		return typeutil.Variant{
@@ -190,11 +197,19 @@ func (self *Map) Err(key string) error {
 // map type, a null Map will be returned.  All values retrieved from a null
 // Map will return that type's zero value.
 func (self *Map) Map(key string, tagName ...string) map[typeutil.Variant]typeutil.Variant {
+	if len(tagName) == 0 {
+		tagName = []string{self.structTagKey}
+	}
+
 	return self.Get(key).Map(tagName...)
 }
 
 // Return the value as a map[string]interface{} {
 func (self *Map) MapNative(tagName ...string) map[string]interface{} {
+	if len(tagName) == 0 {
+		tagName = []string{self.structTagKey}
+	}
+
 	return typeutil.MapNative(self.data, tagName...)
 }
 

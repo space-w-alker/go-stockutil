@@ -11,8 +11,8 @@ import (
 )
 
 type testMstruct struct {
-	ID     string `maputil:"id"`
-	Name   string
+	ID     string `maputil:"id" json:"_id"`
+	Name   string `json:"NAME"`
 	Factor float64
 }
 
@@ -91,6 +91,18 @@ func TestMStruct(t *testing.T) {
 
 	assert.Equal(`tester`, input.String(`Name`))
 	assert.Equal(3.14, input.Float(`Factor`))
+
+	assert.Equal(map[string]interface{}{
+		`id`:     `123`,
+		`Name`:   `tester`,
+		`Factor`: 3.14,
+	}, input.MapNative())
+
+	assert.Equal(map[string]interface{}{
+		`_id`:    `123`,
+		`NAME`:   `tester`,
+		`Factor`: 3.14,
+	}, input.MapNative(`json`))
 }
 
 func TestMUrlValues(t *testing.T) {
