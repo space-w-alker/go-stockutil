@@ -5,7 +5,7 @@ import (
 	"os/user"
 	"testing"
 
-	"github.com/stretchr/testify/require"
+	"github.com/ghetzel/testify/require"
 )
 
 func TestExpandUser(t *testing.T) {

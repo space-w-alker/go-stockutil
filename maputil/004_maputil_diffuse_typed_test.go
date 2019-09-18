@@ -6,7 +6,7 @@ import (
 
 	"github.com/ghetzel/go-stockutil/sliceutil"
 
-	"github.com/stretchr/testify/require"
+	"github.com/ghetzel/testify/require"
 )
 
 func TestDiffuseTypedOneTierScalar(t *testing.T) {

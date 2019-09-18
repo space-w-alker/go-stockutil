@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/stretchr/testify/require"
+	"github.com/ghetzel/testify/require"
 )
 
 func TestQueryStringModify(t *testing.T) {

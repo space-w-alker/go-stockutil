@@ -8,6 +8,7 @@ require (
 	github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5 // indirect
 	github.com/fatih/structs v1.0.0
 	github.com/ghetzel/go-defaults v1.2.0
+	github.com/ghetzel/testify v1.4.1
 	github.com/ghetzel/uuid v0.0.0-20171129191014-dec09d789f3d
 	github.com/grandcat/zeroconf v0.0.0-20190118114326-c2d1b4121200
 	github.com/h2non/filetype v1.0.8
@@ -33,7 +34,6 @@ require (
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/pkg/sftp v1.10.0
-	github.com/stretchr/testify v1.4.0
 	github.com/urfave/negroni v1.0.0
 	github.com/ziutek/mymysql v1.5.4 // indirect
 	golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2

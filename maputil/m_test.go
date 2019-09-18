@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/ghetzel/go-stockutil/typeutil"
-	"github.com/stretchr/testify/require"
+	"github.com/ghetzel/testify/require"
 )
 
 type testMstruct struct {

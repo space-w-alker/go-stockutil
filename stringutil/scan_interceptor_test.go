@@ -5,7 +5,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/stretchr/testify/require"
+	"github.com/ghetzel/testify/require"
 )
 
 func TestScanInterceptorNothing(t *testing.T) {

@@ -6,7 +6,7 @@ package httputil
 // 	"io/ioutil"
 // 	"testing"
 
-// 	"github.com/stretchr/testify/require"
+// 	"github.com/ghetzel/testify/require"
 // )
 
 // var lipsum = []byte{

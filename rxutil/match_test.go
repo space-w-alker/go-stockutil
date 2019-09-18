@@ -3,7 +3,7 @@ package rxutil
 import (
 	"testing"
 
-	"github.com/stretchr/testify/require"
+	"github.com/ghetzel/testify/require"
 )
 
 func TestMatch(t *testing.T) {

@@ -3,7 +3,7 @@ package stringutil
 import (
 	"testing"
 
-	"github.com/stretchr/testify/require"
+	"github.com/ghetzel/testify/require"
 )
 
 func TestConvertToString(t *testing.T) {

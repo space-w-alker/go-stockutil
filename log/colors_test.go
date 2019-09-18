@@ -3,7 +3,7 @@ package log
 import (
 	"testing"
 
-	"github.com/stretchr/testify/require"
+	"github.com/ghetzel/testify/require"
 )
 
 func TestCSprintf(t *testing.T) {

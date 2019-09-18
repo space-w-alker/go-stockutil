@@ -3,7 +3,7 @@ package convutil
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/ghetzel/testify/assert"
 )
 
 func TestConvert(t *testing.T) {
