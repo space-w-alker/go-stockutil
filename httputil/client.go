@@ -128,7 +128,7 @@ func (self *Client) SetParam(name string, value interface{}) {
 }
 
 // Returns the HTTP client used to perform requests
-func (self *Client) Client(*http.Client) *http.Client {
+func (self *Client) Client() *http.Client {
 	return self.httpClient
 }
 

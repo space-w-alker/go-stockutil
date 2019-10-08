@@ -41,3 +41,5 @@ require (
 	golang.org/x/tools v0.0.0-20190827152308-062dbaebb618 // indirect
 	gopkg.in/neurosnap/sentences.v1 v1.0.6 // indirect
 )
+
+go 1.12
