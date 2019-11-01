@@ -121,3 +121,39 @@ func DelQ(u *url.URL, key string) {
 	qs.Del(key)
 	u.RawQuery = qs.Encode()
 }
+
+// A version of SetQ that accepts a URL string and makes a best-effort to modify it.
+// Will return the modified URL or the original URL if an error occurred.
+func SetQString(u string, key string, value interface{}) string {
+	if ur, err := url.Parse(u); err == nil {
+		SetQ(ur, key, value)
+
+		return ur.String()
+	}
+
+	return u
+}
+
+// A version of AddQ that accepts a URL string and makes a best-effort to modify it.
+// Will return the modified URL or the original URL if an error occurred.
+func AddQString(u string, key string, value interface{}) string {
+	if ur, err := url.Parse(u); err == nil {
+		AddQ(ur, key, value)
+
+		return ur.String()
+	}
+
+	return u
+}
+
+// A version of DelQ that accepts a URL string and makes a best-effort to modify it.
+// Will return the modified URL or the original URL if an error occurred.
+func DelQString(u string, key string) string {
+	if ur, err := url.Parse(u); err == nil {
+		DelQ(ur, key)
+
+		return ur.String()
+	}
+
+	return u
+}

@@ -25,3 +25,25 @@ func TestQueryStringModify(t *testing.T) {
 
 	assert.Equal(u.String(), `https://example.com?test=true&test2=1&test2=3`)
 }
+
+func TestQueryStringStringModify(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(
+		`https://example.com?test=false`,
+		SetQString(`https://example.com`, `test`, false),
+	)
+
+	assert.Equal(
+		`https://example.com?test=true`,
+		SetQString(`https://example.com`, `test`, true),
+	)
+
+	x := `https://example.com`
+	x = AddQString(x, `test2`, 1)
+	x = AddQString(x, `test2`, 3)
+
+	assert.Equal(`https://example.com?test2=1&test2=3`, x)
+
+	assert.Equal(`https://example.com`, DelQString(`https://example.com?nope=lol`, `nope`))
+}
