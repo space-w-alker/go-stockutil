@@ -47,3 +47,25 @@ func TestQueryStringStringModify(t *testing.T) {
 
 	assert.Equal(`https://example.com`, DelQString(`https://example.com?nope=lol`, `nope`))
 }
+
+func TestQueryStringStringModifyPathOnly(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(
+		`/some/path?test=false`,
+		SetQString(`/some/path`, `test`, false),
+	)
+
+	assert.Equal(
+		`/some/path?test=true`,
+		SetQString(`/some/path`, `test`, true),
+	)
+
+	x := `/some/path`
+	x = AddQString(x, `test2`, 1)
+	x = AddQString(x, `test2`, 3)
+
+	assert.Equal(`/some/path?test2=1&test2=3`, x)
+
+	assert.Equal(`/some/path`, DelQString(`/some/path?nope=lol`, `nope`))
+}
