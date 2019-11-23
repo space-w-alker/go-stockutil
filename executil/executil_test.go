@@ -37,3 +37,43 @@ func TestJoin(t *testing.T) {
 		exec.Command(``),
 	))
 }
+
+func TestEventedLineOutput(t *testing.T) {
+	assert := require.New(t)
+
+	stdout := make([]string, 0)
+	stderr := make([]string, 0)
+
+	cmd := Command(`echo`, `-e`, `1\n2\n3\n`)
+	cmd.OnStdout = func(line string, serr bool) {
+		stdout = append(stdout, line)
+	}
+
+	assert.NoError(cmd.Run())
+	assert.Equal([]string{
+		`1`, `2`, `3`, ``,
+	}, stdout)
+	assert.Empty(stderr)
+
+	// test stdout/stderr interleaving
+	cmd = Command(`bash`, `-c`, `echo mock; echo yeah 1>&2; echo ing; echo yeah 1>&2; echo bird; echo yeah 1>&2; echo yeah; echo yeah 1>&2`)
+	stdout = nil
+	stderr = nil
+
+	cmd.OnStdout = func(line string, serr bool) {
+		stdout = append(stdout, line)
+	}
+
+	cmd.OnStderr = func(line string, serr bool) {
+		stderr = append(stderr, line)
+	}
+
+	assert.NoError(cmd.Run())
+	assert.Equal([]string{
+		`mock`, `ing`, `bird`, `yeah`,
+	}, stdout)
+
+	assert.Equal([]string{
+		`yeah`, `yeah`, `yeah`, `yeah`,
+	}, stderr)
+}

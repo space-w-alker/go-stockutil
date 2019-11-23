@@ -2,6 +2,7 @@
 package executil
 
 import (
+	"bufio"
 	"context"
 	"errors"
 	"fmt"
@@ -17,6 +18,7 @@ import (
 )
 
 type CommandStatusFunc func(Status)
+type OutputLineFunc func(string, bool)
 
 type Status struct {
 	StartedAt  time.Time
@@ -70,12 +72,15 @@ type Cmd struct {
 	OnComplete      CommandStatusFunc
 	OnSuccess       CommandStatusFunc
 	OnError         CommandStatusFunc
+	OnStdout        OutputLineFunc
+	OnStderr        OutputLineFunc
+	StdoutSplitFunc bufio.SplitFunc
+	StderrSplitFunc bufio.SplitFunc
 	status          Status
 	statusLock      sync.Mutex
 	reallyDone      *sync.WaitGroup
 	finished        chan bool
 	exitError       error
-	inWriter        io.WriteCloser
 }
 
 func Wrap(cmd *exec.Cmd) *Cmd {
@@ -120,6 +125,54 @@ func (self *Cmd) prestart() error {
 
 	if self.InheritEnv {
 		self.Cmd.Env = append(os.Environ(), self.Cmd.Env...)
+	}
+
+	if fn := self.OnStdout; fn != nil {
+		if out, err := self.StdoutPipe(); err == nil {
+			go func(rc io.ReadCloser) {
+				defer rc.Close()
+
+				splitfn := self.StdoutSplitFunc
+
+				if splitfn == nil {
+					splitfn = bufio.ScanLines
+				}
+
+				splitter := stringutil.NewScanInterceptor(splitfn)
+				scanner := bufio.NewScanner(rc)
+				scanner.Split(splitter.Scan)
+
+				for scanner.Scan() {
+					fn(scanner.Text(), false)
+				}
+			}(out)
+		} else {
+			return fmt.Errorf("stdout: %v", err)
+		}
+	}
+
+	if fn := self.OnStderr; fn != nil {
+		if serr, err := self.StderrPipe(); err == nil {
+			go func(rc io.ReadCloser) {
+				defer rc.Close()
+
+				splitfn := self.StderrSplitFunc
+
+				if splitfn == nil {
+					splitfn = bufio.ScanLines
+				}
+
+				splitter := stringutil.NewScanInterceptor(splitfn)
+				scanner := bufio.NewScanner(rc)
+				scanner.Split(splitter.Scan)
+
+				for scanner.Scan() {
+					fn(scanner.Text(), false)
+				}
+			}(serr)
+		} else {
+			return fmt.Errorf("stdout: %v", err)
+		}
 	}
 
 	return nil
