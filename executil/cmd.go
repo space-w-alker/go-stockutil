@@ -62,25 +62,52 @@ func (self Status) String() string {
 	}
 }
 
+// A wrapper for exec.Cmd that provides helpful callbacks and monitoring details that are challenging
+// to implement.
 type Cmd struct {
 	*exec.Cmd
+
+	// An interval of time on which the command should be actively checked for run and exit status.
 	MonitorInterval time.Duration
-	Timeout         time.Duration
-	InheritEnv      bool
-	OnStart         CommandStatusFunc
-	OnMonitor       CommandStatusFunc
-	OnComplete      CommandStatusFunc
-	OnSuccess       CommandStatusFunc
-	OnError         CommandStatusFunc
-	OnStdout        OutputLineFunc
-	OnStderr        OutputLineFunc
+
+	// How long the command may run for before being killed.
+	Timeout time.Duration
+
+	// Whether the command invocation should inherit the environment variables of the calling process.
+	InheritEnv bool
+
+	// Called when immediately before the command is executed.
+	OnStart CommandStatusFunc
+
+	// Called whenever the monitor check is performed.
+	OnMonitor CommandStatusFunc
+
+	// Called when the command exits, regardless of success or failure.
+	OnComplete CommandStatusFunc
+
+	// Called when the command exits with a non-error status (code 0)
+	OnSuccess CommandStatusFunc
+
+	// Called when the command exits with an error status (non-zero exit code, security, invocation, or resource error)
+	OnError CommandStatusFunc
+
+	// Called when a line of standard output is written.
+	OnStdout OutputLineFunc
+
+	// Called when a line of standard error is written.
+	OnStderr OutputLineFunc
+
+	// If specified, this function will determine how to tokenize the stdout stream and when to call OnStdout.  Defaults to bufio.ScanLines.
 	StdoutSplitFunc bufio.SplitFunc
+
+	// If specified, this function will determine how to tokenize the stderr stream and when to call OnStderr.  Defaults to bufio.ScanLines.
 	StderrSplitFunc bufio.SplitFunc
-	status          Status
-	statusLock      sync.Mutex
-	reallyDone      *sync.WaitGroup
-	finished        chan bool
-	exitError       error
+
+	status     Status
+	statusLock sync.Mutex
+	reallyDone *sync.WaitGroup
+	finished   chan bool
+	exitError  error
 }
 
 func Wrap(cmd *exec.Cmd) *Cmd {
