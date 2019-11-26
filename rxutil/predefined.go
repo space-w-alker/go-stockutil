@@ -5,7 +5,7 @@ import "regexp"
 var Numbers = regexp.MustCompile(`-?\d+(?:\.\d+)?`)
 var Integers = regexp.MustCompile(`-?\d+`)
 var NonNegativeIntegers = regexp.MustCompile(`\d+`)
-var Whitespace = regexp.MustCompile(`\w+`)
+var Whitespace = regexp.MustCompile(`\s+`)
 var LineBreak = regexp.MustCompile(`(?:\n|\r|\n\r)`)
 var LineBreaks = regexp.MustCompile(`[\n\r]+`)
 var LowerCaseLetter = regexp.MustCompile(`\p{Ll}`)
