@@ -838,3 +838,25 @@ func ExpandEnv(in string) string {
 
 	return in
 }
+
+// Takes the given string, splits it into lines, and prefixes each line with the given prefix string.
+func PrefixLines(in interface{}, prefix string) string {
+	lines := SplitLines(in, "\n")
+
+	for i, line := range lines {
+		lines[i] = prefix + line
+	}
+
+	return strings.Join(lines, "\n")
+}
+
+// Takes the given string, splits it into lines, and suffixes each line with the given suffix string.
+func SuffixLines(in interface{}, suffix string) string {
+	lines := SplitLines(in, "\n")
+
+	for i, line := range lines {
+		lines[i] = line + suffix
+	}
+
+	return strings.Join(lines, "\n")
+}

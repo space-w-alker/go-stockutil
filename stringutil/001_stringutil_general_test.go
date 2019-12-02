@@ -536,3 +536,17 @@ func TestExpandEnv(t *testing.T) {
 	assert.Equal(`%!d(string=hello), world!`, ExpandEnv("${GOSTOCKUTIL_TEST_STR:%d}, world!"))
 	assert.Equal(`勤恳`, ExpandEnv("${GOSTOCKUTIL_TEST_UNICODE}"))
 }
+
+func TestPrefixLines(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal("...1\n...2\n...3", PrefixLines("1\n2\n3", `...`))
+	assert.Equal("...1\n...2\n...3\n...", PrefixLines("1\n2\n3\n", `...`))
+}
+
+func TestSuffixLines(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal("1<<<\n2<<<\n3<<<", SuffixLines("1\n2\n3", `<<<`))
+	assert.Equal("1<<<\n2<<<\n3<<<\n<<<", SuffixLines("1\n2\n3\n", `<<<`))
+}
