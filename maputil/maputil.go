@@ -23,6 +23,7 @@ var SkipDescendants = errors.New("skip descendants")
 type WalkFunc func(value interface{}, path []string, isLeaf bool) error
 type ApplyFunc func(key []string, value interface{}) (interface{}, bool)
 type ConversionFunc func(from reflect.Type, to reflect.Type, data interface{}) (interface{}, error)
+type deleteValue bool
 
 type MergeOption int
 
@@ -474,8 +475,19 @@ func DeepGetString(data interface{}, path []string) string {
 	return ``
 }
 
+// Delete a key to a given value in the given map.
+func Delete(data interface{}, key interface{}) error {
+	return Set(data, key, deleteValue(true))
+}
+
+// Set a key to a given value in the given map, reflect.Map Value, or slice/array.
 func Set(data interface{}, key interface{}, value interface{}) error {
 	var dataM reflect.Value
+	var isDelete bool
+
+	if _, ok := value.(deleteValue); ok {
+		isDelete = true
+	}
 
 	if v, ok := data.(reflect.Value); ok {
 		dataM = v
@@ -485,23 +497,41 @@ func Set(data interface{}, key interface{}, value interface{}) error {
 
 	// some shortcuts for common cases
 	if asMap, ok := data.(map[string]interface{}); ok {
-		asMap[typeutil.String(key)] = value
+		if isDelete {
+			delete(asMap, typeutil.String(key))
+		} else {
+			asMap[typeutil.String(key)] = value
+		}
+
 		return nil
 	} else if dataM.CanInterface() {
 		if asMap, ok := dataM.Interface().(map[string]interface{}); ok {
-			asMap[typeutil.String(key)] = value
+			if isDelete {
+				delete(asMap, typeutil.String(key))
+			} else {
+				asMap[typeutil.String(key)] = value
+			}
 			return nil
 		}
 	}
 
 	switch dataM.Kind() {
 	case reflect.Map:
-		dataM.SetMapIndex(
-			reflect.ValueOf(key),
-			reflect.ValueOf(value),
-		)
+		if isDelete {
+			dataM.SetMapIndex(
+				reflect.ValueOf(key),
+				reflect.Value{},
+			)
+		} else {
+			dataM.SetMapIndex(
+				reflect.ValueOf(key),
+				reflect.ValueOf(value),
+			)
+		}
 	case reflect.Slice, reflect.Array:
-		if typeutil.IsInteger(key) {
+		if isDelete {
+			return fmt.Errorf("Array item deletion not implemented")
+		} else if typeutil.IsInteger(key) {
 			dataM.Index(int(typeutil.Int(key)))
 		} else {
 			return fmt.Errorf("cannot set non-integer array index %q", key)

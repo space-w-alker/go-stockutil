@@ -229,3 +229,19 @@ func TestDiffuseMap(t *testing.T) {
 	assert.Equal("base", vArray[0])
 	assert.Equal("other", vArray[1])
 }
+
+func TestDelete(t *testing.T) {
+	assert := require.New(t)
+	in := map[string]interface{}{
+		`a`: 1,
+		`b`: 2,
+		`c`: 3,
+	}
+
+	assert.NoError(Delete(in, `b`))
+
+	assert.EqualValues(map[string]interface{}{
+		`a`: 1,
+		`c`: 3,
+	}, in)
+}
