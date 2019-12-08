@@ -16,6 +16,9 @@ import (
 var DefaultWaitForOpenConnectionTimeout = 5 * time.Second
 var WaitForOpenCheckInterval = time.Second
 
+// Periodically attempts to open a TCP socket to the given address, up to totaltime.  Returns nil if the socket
+// was opened successfully (which will then immediately be closed), or an error if the function timed out.
+// The check interval can be configured using the WaitForOpenCheckInterval package variable.
 func WaitForOpen(network string, address string, totaltime time.Duration, timeouts ...time.Duration) error {
 	started := time.Now()
 	var timeout time.Duration
@@ -75,28 +78,29 @@ type IPAddress struct {
 func RoutableAddresses() ([]*IPAddress, error) {
 	addresses := make([]*IPAddress, 0)
 
-	// get the default gateway
+	var gateways []net.IP
+
+	// get the default gateway (IPv4)
 	if gw, err := DefaultGateway(); err == nil {
+		gateways = append(gateways, gw)
+	}
+
+	// get the default gateway (IPv6)
+	// TODO: need to implement DefaultGateway6()
+	// if gw6, err := DefaultGateway6(); err == nil {
+	// 	gateways = append(gateways, gw6)
+	// }
+
+	if len(gateways) == 0 {
+		return nil, fmt.Errorf("no routable gateways found")
+	}
+
+	for _, gw := range gateways {
 		if ifaces, err := net.Interfaces(); err == nil {
 			// for each interface...
 			for _, iface := range ifaces {
-				if addrs, err := iface.Addrs(); err == nil {
-					// for each address on this interface...
-					for _, addr := range addrs {
-
-						// only consider IP addresses at the moment
-						if network, ok := addr.(*net.IPNet); ok {
-							// if this addresses network contains the gateway, we found a usable address
-							if network.Contains(gw) {
-								addresses = append(addresses, &IPAddress{
-									IP:        network.IP,
-									Mask:      network.Mask,
-									Interface: iface,
-									Gateway:   gw,
-								})
-							}
-						}
-					}
+				if addrs, err := GetRoutableAddresses(gw, &iface); err == nil {
+					addresses = append(addresses, addrs...)
 				} else {
 					return nil, err
 				}
@@ -104,11 +108,45 @@ func RoutableAddresses() ([]*IPAddress, error) {
 		} else {
 			return nil, err
 		}
-	} else {
-		return nil, err
 	}
 
 	return addresses, nil
+}
+
+// Returns all addresses on the given interface that can route to the given gateway.  If gateway is nil,
+// the default gateway will be attempted.
+func GetRoutableAddresses(gateway net.IP, iface *net.Interface) ([]*IPAddress, error) {
+	addresses := make([]*IPAddress, 0)
+
+	if gateway == nil {
+		if gw, err := DefaultGateway(); err == nil {
+			gateway = gw
+		} else {
+			return nil, fmt.Errorf("failed to retrieve default gateway: %v", err)
+		}
+	}
+
+	if addrs, err := iface.Addrs(); err == nil {
+		// for each address on this interface...
+		for _, addr := range addrs {
+			// only consider IP addresses at the moment
+			if network, ok := addr.(*net.IPNet); ok {
+				// if this addresses network contains the gateway, we found a usable address
+				if network.Contains(gateway) {
+					addresses = append(addresses, &IPAddress{
+						IP:        network.IP,
+						Mask:      network.Mask,
+						Interface: *iface,
+						Gateway:   gateway,
+					})
+				}
+			}
+		}
+
+		return addresses, nil
+	} else {
+		return nil, err
+	}
 }
 
 // Retrieves the first routable IP address on any interface that falls inside of the
@@ -116,6 +154,20 @@ func RoutableAddresses() ([]*IPAddress, error) {
 func DefaultAddress() *IPAddress {
 	if addrs, err := RoutableAddresses(); err == nil && len(addrs) > 0 {
 		return addrs[0]
+	}
+
+	return nil
+}
+
+// Like DefaultAddress, but specifically filters on IPv6 addresses.  If no routable
+// IPv6 address is found, returns nil.
+func DefaultAddress6() *IPAddress {
+	if addrs, err := RoutableAddresses(); err == nil && len(addrs) > 0 {
+		for _, addr := range addrs {
+			if len(addr.IP) > 32 {
+				return addr
+			}
+		}
 	}
 
 	return nil
