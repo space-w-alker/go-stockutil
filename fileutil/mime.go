@@ -25,6 +25,10 @@ func AddMimeTypeFile(filename string) {
 	}
 }
 
+func init() {
+	InitMime()
+}
+
 func InitMime() {
 	// generated from Ubuntu 16.04.1 LTS /etc/mime.types
 	mime.AddExtensionType(`.323`, `text/h323`)
