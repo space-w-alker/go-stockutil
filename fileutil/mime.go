@@ -539,13 +539,6 @@ func InitMime() {
 func GetMimeType(filenameOrReader interface{}, fallback ...string) string {
 	once.Do(InitMime)
 
-	// no matter what, close the first argument if its closable
-	defer func() {
-		if closer, ok := filenameOrReader.(io.Closer); ok {
-			closer.Close()
-		}
-	}()
-
 	if filename, ok := filenameOrReader.(string); ok {
 		if mt := mime.TypeByExtension(filepath.Ext(filename)); mt != `` {
 			return mt
