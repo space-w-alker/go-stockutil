@@ -19,7 +19,7 @@ import (
 )
 
 var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
-var rxEnvVarExpr = regexp.MustCompile(`(\$\{(?P<env>\w+)(?::(?P<fmt>[^\}]+))?\})`) // ${ENV}, ${ENV:%04s}
+var rxEnvVarExpr = regexp.MustCompile(`(\$\{(?P<env>\w+)(?:\|(?P<fallback>\w*))?(?::(?P<fmt>[^\}]+))?\})`) // ${ENV}, ${ENV:%04s}, ${ENV|fallback}, ${ENV|fallback:%04s}
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
 
@@ -823,13 +823,26 @@ func ExpandEnv(in string) string {
 		if match := rxutil.Match(rxEnvVarExpr, in); match != nil {
 			format := match.Group(`fmt`)
 			varname := match.Group(`env`)
+			fallback := match.Group(`fallback`)
 
 			if varname != `` {
 				if format == `` {
 					format = `%v`
 				}
 
-				in = match.ReplaceGroup(1, fmt.Sprintf(format, Autotype(os.Getenv(varname))))
+				var typed interface{}
+
+				if val := os.Getenv(varname); val != `` {
+					typed = Autotype(val)
+				} else {
+					typed = Autotype(fallback)
+				}
+
+				if typed != nil {
+					in = match.ReplaceGroup(1, fmt.Sprintf(format, typed))
+				} else {
+					in = match.ReplaceGroup(1, fmt.Sprintf(format, ``))
+				}
 			}
 		} else {
 			break
