@@ -322,3 +322,28 @@ func CopyFile(source interface{}, destination interface{}) error {
 	_, err := io.Copy(dwriter, sreader)
 	return err
 }
+
+// Detects the file extension of the given path and replaces it with the given extension.  The optional
+// second argument allows you to explictly specify the extension (if known).
+func SetExt(path string, ext string, oldexts ...string) string {
+	if ext == `` {
+		return path
+	}
+
+	var oldext string
+
+	if len(oldexts) > 0 && oldexts[0] != `` {
+		oldext = oldexts[0]
+	} else {
+		oldext = filepath.Ext(path)
+	}
+
+	oldext = strings.TrimPrefix(oldext, `.`)
+	ext = strings.TrimPrefix(ext, `.`)
+
+	if strings.HasSuffix(path, `.`+oldext) {
+		path = strings.TrimSuffix(path, `.`+oldext) + `.` + ext
+	}
+
+	return path
+}
