@@ -335,6 +335,7 @@ func InitMime() {
 	mime.AddExtensionType(`.p`, `text/x-pascal`)
 	mime.AddExtensionType(`.py`, `text/x-python`)
 	mime.AddExtensionType(`.qgs`, `application/x-qgis`)
+	mime.AddExtensionType(`.qml`, `text/x-qml`)
 	mime.AddExtensionType(`.qt`, `video/quicktime`)
 	mime.AddExtensionType(`.ra`, `audio/x-pn-realaudio`)
 	mime.AddExtensionType(`.ra`, `audio/x-realaudio`)
