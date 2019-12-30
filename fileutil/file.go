@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/ghetzel/go-stockutil/convutil"
 	"github.com/ghetzel/go-stockutil/pathutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	isatty "github.com/mattn/go-isatty"
@@ -346,4 +347,15 @@ func SetExt(path string, ext string, oldexts ...string) string {
 	}
 
 	return path
+}
+
+// Returns the size of the given filename, or zero if any error is encountered (or if the file is zero length).
+func SizeOf(path string) convutil.Bytes {
+	path = MustExpandUser(path)
+
+	if stat, err := os.Stat(path); err == nil {
+		return convutil.Bytes(stat.Size())
+	}
+
+	return 0
 }
