@@ -3,7 +3,9 @@ package fileutil
 import (
 	"bytes"
 	"crypto"
+	"crypto/sha256"
 	"fmt"
+	"hash"
 	"io"
 	"io/ioutil"
 	"os"
@@ -39,6 +41,7 @@ var IsSymlink = pathutil.IsSymlink
 var IsTemporary = pathutil.IsTemporary
 var IsWritable = pathutil.IsWritable
 var LinkExists = pathutil.LinkExists
+var CompareHasher hash.Hash = sha256.New()
 
 func MustExpandUser(path string) string {
 	if expanded, err := ExpandUser(path); err == nil {
@@ -358,4 +361,86 @@ func SizeOf(path string) convutil.Bytes {
 	}
 
 	return 0
+}
+
+// Compare the binary contents of two io.Reader instances.  The result will be 0 if a==b, -1 if a < b, and +1 if a > b.
+// An optional hash.Hash instance may be given, otherwise the default crypto/sha256 will be used.
+func CompareReaders(a io.Reader, b io.Reader, hasher ...hash.Hash) int {
+	var h hash.Hash
+
+	if len(hasher) > 0 && hasher[0] != nil {
+		h = hasher[0]
+	} else {
+		h = sha256.New()
+	}
+
+	if _, err := io.Copy(h, a); err == nil {
+		s1 := h.Sum(nil)
+		h.Reset()
+
+		if _, err := io.Copy(h, b); err == nil {
+			s2 := h.Sum(nil)
+
+			return bytes.Compare(s1, s2)
+		}
+	}
+
+	return -1
+}
+
+// Returns whether two files represent the same file.  If a string is given for either file, os.Stat will be run on that
+// path.  If os.FileInfo is given for either file, it will be passed to os.SameFile directly.  If either file is an
+// io.Reader, the contents of both files will be read and hashed using CompareHasher.  If the hashes are identical, the
+// files are considered the same.  Any error encountered and this function will return false.
+func SameFile(first interface{}, second interface{}) bool {
+	if first == second {
+		return true
+	}
+
+	var i1, i2 os.FileInfo
+	var r1, r2 io.Reader
+
+	if r, ok := first.(io.Reader); ok {
+		r1 = r
+	} else if i, ok := first.(os.FileInfo); ok {
+		i1 = i
+	} else if stat, err := os.Stat(MustExpandUser(typeutil.String(first))); err == nil {
+		i1 = stat
+	} else {
+		return false
+	}
+
+	if r, ok := second.(io.Reader); ok {
+		r2 = r
+	} else if i, ok := second.(os.FileInfo); ok {
+		i2 = i
+	} else if stat, err := os.Stat(MustExpandUser(typeutil.String(second))); err == nil {
+		i2 = stat
+	} else {
+		return false
+	}
+
+	if r1 == nil && r2 == nil {
+		return os.SameFile(i1, i2)
+	}
+
+	if r1 == nil {
+		if f, err := os.Open(i1.Name()); err == nil {
+			defer f.Close()
+			r1 = f
+		} else {
+			return false
+		}
+	}
+
+	if r2 == nil {
+		if f, err := os.Open(i2.Name()); err == nil {
+			defer f.Close()
+			r2 = f
+		} else {
+			return false
+		}
+	}
+
+	return (CompareReaders(r1, r2, CompareHasher) == 0)
 }
