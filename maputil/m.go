@@ -246,7 +246,7 @@ func xt(value interface{}) string {
 	} else if typeutil.IsArray(value) {
 		return `array`
 	} else {
-		return stringutil.Hyphenate(fmt.Sprintf("%T", value))
+		return strings.TrimPrefix(stringutil.Hyphenate(fmt.Sprintf("%T", value)), `-`)
 	}
 }
 
@@ -277,16 +277,13 @@ func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, k
 	} else if typeutil.IsArray(value) {
 		start := xml.StartElement{
 			Name: xn(g, `item`, key),
-			Attr: []xml.Attr{
-				{
-					Name:  _xn(`type`),
-					Value: xt(value),
-				},
-			},
 		}
 
 		if g {
 			start.Attr = append(start.Attr, xml.Attr{
+				Name:  _xn(`type`),
+				Value: xt(value),
+			}, xml.Attr{
 				Name:  _xn(`key`),
 				Value: key,
 			})
@@ -295,7 +292,7 @@ func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, k
 		tokens = append(tokens, start)
 
 		for i, v := range sliceutil.Sliceify(value) {
-			if ts, err := self.valueToXmlTokens(&start, v, typeutil.String(i)); err == nil {
+			if ts, err := self.valueToXmlTokens(&start, v, `element`); err == nil {
 				tokens = append(tokens, ts...)
 			} else {
 				ferr = fmt.Errorf("[%d]: %v", i, err)
@@ -311,26 +308,24 @@ func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, k
 		ckeys := StringKeys(children)
 		sort.Strings(ckeys)
 
+		start := xml.StartElement{
+			Name: xn(g, `item`, key),
+		}
+
+		if g {
+			start.Attr = append(start.Attr, xml.Attr{
+				Name:  _xn(`type`),
+				Value: xt(value),
+			}, xml.Attr{
+				Name:  _xn(`key`),
+				Value: key,
+			})
+		}
+
+		tokens = append(tokens, start)
+
 		for _, k := range ckeys {
 			v := children[k]
-			start := xml.StartElement{
-				Name: xn(g, `item`, key),
-				Attr: []xml.Attr{
-					{
-						Name:  _xn(`type`),
-						Value: xt(value),
-					},
-				},
-			}
-
-			if g {
-				start.Attr = append(start.Attr, xml.Attr{
-					Name:  _xn(`key`),
-					Value: key,
-				})
-			}
-
-			tokens = append(tokens, start)
 
 			if ts, err := self.valueToXmlTokens(&start, v, k); err == nil {
 				tokens = append(tokens, ts...)
@@ -338,11 +333,11 @@ func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, k
 				ferr = fmt.Errorf("%s: %v", k, err)
 				return
 			}
-
-			tokens = append(tokens, xml.EndElement{
-				Name: start.Name,
-			})
 		}
+
+		tokens = append(tokens, xml.EndElement{
+			Name: start.Name,
+		})
 	}
 
 	return

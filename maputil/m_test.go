@@ -2,7 +2,6 @@ package maputil
 
 import (
 	"encoding/xml"
-	"fmt"
 	"net/http"
 	"net/url"
 	"testing"
@@ -201,20 +200,34 @@ func TestMMarshalXML(t *testing.T) {
 			`kenobi`: true,
 		},
 		`xyz`: []string{`a`, `b`, `c`},
+		`zzz`: []map[string]interface{}{
+			map[string]interface{}{
+				`name`:  `a`,
+				`value`: 0,
+			},
+			map[string]interface{}{
+				`name`:  `b`,
+				`value`: 1,
+			},
+			map[string]interface{}{
+				`name`:  `c`,
+				`value`: 2,
+			},
+		},
 	})
 
 	out, err := xml.Marshal(m)
+
 	assert.NoError(err)
-	assert.Equal([]byte(`<data><general type="object"><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz type="array"><0>a</0><1>b</1><2>c</2></xyz></data>`), out)
+	assert.Equal([]byte(`<data><general><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz><element>a</element><element>b</element><element>c</element></xyz><zzz><element><name>a</name><value>0</value></element><element><name>b</name><value>1</value></element><element><name>c</name><value>2</value></element></zzz></data>`), out)
 
 	m.SetRootTagName(`nubnub`)
 	out, err = xml.Marshal(m)
 	assert.NoError(err)
-	assert.Equal([]byte(`<nubnub><general type="object"><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz type="array"><0>a</0><1>b</1><2>c</2></xyz></nubnub>`), out)
+	assert.Equal([]byte(`<nubnub><general><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz><element>a</element><element>b</element><element>c</element></xyz><zzz><element><name>a</name><value>0</value></element><element><name>b</name><value>1</value></element><element><name>c</name><value>2</value></element></zzz></nubnub>`), out)
 
 	m.SetMarshalXmlGeneric(true)
 	out, err = xml.Marshal(m)
 	assert.NoError(err)
-	fmt.Println(string(out))
-	assert.Equal([]byte(`<nubnub><item type="object" key="general"><item key="kenobi" type="bool">true</item></item><item key="hello" type="int">1</item><item key="there" type="bool">true</item><item type="array" key="xyz"><item key="0" type="str">a</item><item key="1" type="str">b</item><item key="2" type="str">c</item></item></nubnub>`), out)
+	assert.Equal([]byte(`<nubnub><item type="object" key="general"><item key="kenobi" type="bool">true</item></item><item key="hello" type="int">1</item><item key="there" type="bool">true</item><item type="array" key="xyz"><item key="element" type="str">a</item><item key="element" type="str">b</item><item key="element" type="str">c</item></item><item type="array" key="zzz"><item type="object" key="element"><item key="name" type="str">a</item><item key="value" type="int">0</item></item><item type="object" key="element"><item key="name" type="str">b</item><item key="value" type="int">1</item></item><item type="object" key="element"><item key="name" type="str">c</item><item key="value" type="int">2</item></item></item></nubnub>`), out)
 }
