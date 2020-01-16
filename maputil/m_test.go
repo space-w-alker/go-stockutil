@@ -1,6 +1,7 @@
 package maputil
 
 import (
+	"encoding/xml"
 	"net/http"
 	"net/url"
 	"testing"
@@ -187,4 +188,31 @@ func TestMStructNested(t *testing.T) {
 	assert.Len(input.Slice(`Second.Values`), 4)
 	assert.Equal(int64(42), input.Auto(`Second.Strnum`))
 	assert.Equal(time.Date(2006, 1, 2, 0, 0, 0, 0, time.UTC), input.Time(`Second.Then`))
+}
+
+func TestMMarshalXML(t *testing.T) {
+	assert := require.New(t)
+
+	m := M(map[string]interface{}{
+		`hello`: 1,
+		`there`: true,
+		`general`: map[string]interface{}{
+			`kenobi`: true,
+		},
+	})
+
+	out, err := xml.Marshal(m)
+	assert.NoError(err)
+
+	assert.Equal([]byte(`<data><general type="object"><kenobi>true</kenobi></general><hello>1</hello><there>true</there></data>`), out)
+
+	m.SetRootTagName(`nubnub`)
+	out, err = xml.Marshal(m)
+	assert.NoError(err)
+	assert.Equal([]byte(`<nubnub><general type="object"><kenobi>true</kenobi></general><hello>1</hello><there>true</there></nubnub>`), out)
+
+	m.SetMarshalXmlGeneric(true)
+	out, err = xml.Marshal(m)
+	assert.NoError(err)
+	assert.Equal([]byte(`<nubnub><item type="object" key="general"><item key="kenobi" type="bool">true</item></item><item key="hello" type="int">1</item><item key="there" type="bool">true</item></nubnub>`), out)
 }

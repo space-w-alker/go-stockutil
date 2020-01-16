@@ -2,15 +2,22 @@ package maputil
 
 import (
 	"encoding/json"
+	"encoding/xml"
+	"fmt"
 	"net/http"
 	"net/url"
+	"sort"
 	"strings"
 	"sync"
 	"time"
 
 	"github.com/ghetzel/go-stockutil/sliceutil"
+	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
+	utilutil "github.com/ghetzel/go-stockutil/utils"
 )
+
+var MapXmlRootTagName = `data`
 
 type ItemFunc func(key string, value typeutil.Variant) error
 
@@ -18,8 +25,10 @@ type ItemFunc func(key string, value typeutil.Variant) error
 // work with interface data types that contain map-like data (has a reflect.Kind equal
 // to reflect.Map).
 type Map struct {
-	data         interface{}
-	structTagKey string
+	data              interface{}
+	structTagKey      string
+	rootTagName       string
+	xmlMarshalGeneric bool
 }
 
 // Create a new Variant map object from the given value (which should be a map of some kind).
@@ -215,6 +224,145 @@ func (self *Map) MapNative(tagName ...string) map[string]interface{} {
 
 func (self *Map) MarshalJSON() ([]byte, error) {
 	return json.Marshal(self.data)
+}
+
+func xn(generic bool, ifGeneric string, otherwise string) xml.Name {
+	if generic {
+		return _xn(ifGeneric)
+	} else {
+		return _xn(otherwise)
+	}
+}
+
+func _xn(tagName string) xml.Name {
+	return xml.Name{
+		Local: tagName,
+	}
+}
+
+func xt(value interface{}) string {
+	if typeutil.IsMap(value) {
+		return `object`
+	} else if typeutil.IsArray(value) {
+		return `array`
+	} else {
+		return stringutil.Hyphenate(fmt.Sprintf("%T", value))
+	}
+}
+
+func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, key string) (tokens []xml.Token, ferr error) {
+	g := self.xmlMarshalGeneric
+
+	if typeutil.IsMap(value) {
+		children := M(value).MapNative()
+		ckeys := StringKeys(children)
+		sort.Strings(ckeys)
+
+		for _, k := range ckeys {
+			v := children[k]
+			start := xml.StartElement{
+				Name: xn(g, `item`, key),
+				Attr: []xml.Attr{
+					{
+						Name:  _xn(`type`),
+						Value: xt(value),
+					},
+				},
+			}
+
+			if g {
+				start.Attr = append(start.Attr, xml.Attr{
+					Name:  _xn(`key`),
+					Value: key,
+				})
+			}
+
+			tokens = append(tokens, start)
+
+			if ts, err := self.valueToXmlTokens(&start, v, k); err == nil {
+				tokens = append(tokens, ts...)
+			} else {
+				ferr = fmt.Errorf("%s: %v", k, err)
+			}
+
+			tokens = append(tokens, xml.EndElement{
+				Name: start.Name,
+			})
+
+		}
+	} else if typeutil.IsScalar(value) {
+		open := xml.StartElement{
+			Name: xn(g, `item`, key),
+		}
+
+		if g {
+			open.Attr = []xml.Attr{
+				{
+					Name:  _xn(`key`),
+					Value: key,
+				}, {
+					Name:  _xn(`type`),
+					Value: utilutil.DetectConvertType(value).String(),
+				},
+			}
+		}
+
+		tokens = append(tokens, open, xml.CharData(typeutil.String(value)), xml.EndElement{
+			Name: xn(g, `item`, key),
+		})
+	} else {
+		ferr = fmt.Errorf("%s: Unhandled type %T", key, value)
+	}
+
+	return
+}
+
+func (self *Map) SetMarshalXmlGeneric(yes bool) {
+	self.xmlMarshalGeneric = yes
+}
+
+// set the name of the root XML tag, used by MarshalXML.
+func (self *Map) SetRootTagName(root string) {
+	self.rootTagName = root
+}
+
+// Marshals the current data into XML.  Nested maps are output as nested elements.  Map values that
+// are scalars (strings, numbers, bools, dates/times) will appear as attributes on the parent element.
+func (self *Map) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	root := MapXmlRootTagName
+
+	if self.rootTagName != `` {
+		root = self.rootTagName
+	}
+
+	start.Name = _xn(root)
+	tokens := []xml.Token{start}
+
+	children := self.MapNative()
+	ckeys := StringKeys(children)
+	sort.Strings(ckeys)
+
+	for _, k := range ckeys {
+		v := children[k]
+
+		if ts, err := self.valueToXmlTokens(&start, v, k); err == nil {
+			tokens = append(tokens, ts...)
+		} else {
+			return err
+		}
+	}
+
+	tokens = append(tokens, xml.EndElement{
+		Name: start.Name,
+	})
+
+	for _, t := range tokens {
+		if err := e.EncodeToken(t); err != nil {
+			return err
+		}
+	}
+
+	return e.Flush()
 }
 
 // Return whether the value at the given key is that type's zero value.
