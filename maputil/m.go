@@ -21,6 +21,7 @@ var MapXmlRootTagName = `data`
 var MapXmlStructTagName = `xml`
 
 type ItemFunc func(key string, value typeutil.Variant) error
+type KeyTransformFunc func(string) string
 
 // A Map object (or "M" object) is a utility struct that makes it straightforward to
 // work with interface data types that contain map-like data (has a reflect.Kind equal
@@ -30,6 +31,7 @@ type Map struct {
 	structTagKey      string
 	rootTagName       string
 	xmlMarshalGeneric bool
+	xmlKeyTransformFn KeyTransformFunc
 }
 
 // Create a new Variant map object from the given value (which should be a map of some kind).
@@ -254,6 +256,10 @@ func xt(value interface{}) string {
 func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, key string) (tokens []xml.Token, ferr error) {
 	g := self.xmlMarshalGeneric
 
+	if self.xmlKeyTransformFn != nil {
+		key = self.xmlKeyTransformFn(key)
+	}
+
 	if typeutil.IsScalar(value) {
 		open := xml.StartElement{
 			Name: xn(g, `item`, key),
@@ -353,6 +359,12 @@ func (self *Map) SetRootTagName(root string) {
 	self.rootTagName = root
 }
 
+// Set a function that will be used to generate XML tag names when calling MarshalXML.  This works
+// for all keys, including ones that appear inside of maps.
+func (self *Map) SetMarshalXmlKeyFunc(fn KeyTransformFunc) {
+	self.xmlKeyTransformFn = fn
+}
+
 // Marshals the current data into XML.  Nested maps are output as nested elements.  Map values that
 // are scalars (strings, numbers, bools, dates/times) will appear as attributes on the parent element.
 func (self *Map) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -360,6 +372,10 @@ func (self *Map) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 
 	if self.rootTagName != `` {
 		root = self.rootTagName
+	}
+
+	if self.xmlKeyTransformFn != nil {
+		root = self.xmlKeyTransformFn(root)
 	}
 
 	start.Name = _xn(root)

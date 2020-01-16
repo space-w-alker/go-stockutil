@@ -7,6 +7,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/ghetzel/testify/require"
 )
@@ -216,18 +217,36 @@ func TestMMarshalXML(t *testing.T) {
 		},
 	})
 
+	// default marshal
 	out, err := xml.Marshal(m)
-
 	assert.NoError(err)
 	assert.Equal([]byte(`<data><general><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz><element>a</element><element>b</element><element>c</element></xyz><zzz><element><name>a</name><value>0</value></element><element><name>b</name><value>1</value></element><element><name>c</name><value>2</value></element></zzz></data>`), out)
 
-	m.SetRootTagName(`nubnub`)
+	// custom root tagname
+	m.SetRootTagName(`nub_nub`)
 	out, err = xml.Marshal(m)
 	assert.NoError(err)
-	assert.Equal([]byte(`<nubnub><general><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz><element>a</element><element>b</element><element>c</element></xyz><zzz><element><name>a</name><value>0</value></element><element><name>b</name><value>1</value></element><element><name>c</name><value>2</value></element></zzz></nubnub>`), out)
+	assert.Equal([]byte(`<nub_nub><general><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz><element>a</element><element>b</element><element>c</element></xyz><zzz><element><name>a</name><value>0</value></element><element><name>b</name><value>1</value></element><element><name>c</name><value>2</value></element></zzz></nub_nub>`), out)
 
+	// generic XML structure
 	m.SetMarshalXmlGeneric(true)
 	out, err = xml.Marshal(m)
 	assert.NoError(err)
-	assert.Equal([]byte(`<nubnub><item type="object" key="general"><item key="kenobi" type="bool">true</item></item><item key="hello" type="int">1</item><item key="there" type="bool">true</item><item type="array" key="xyz"><item key="element" type="str">a</item><item key="element" type="str">b</item><item key="element" type="str">c</item></item><item type="array" key="zzz"><item type="object" key="element"><item key="name" type="str">a</item><item key="value" type="int">0</item></item><item type="object" key="element"><item key="name" type="str">b</item><item key="value" type="int">1</item></item><item type="object" key="element"><item key="name" type="str">c</item><item key="value" type="int">2</item></item></item></nubnub>`), out)
+	assert.Equal([]byte(`<nub_nub><item type="object" key="general"><item key="kenobi" type="bool">true</item></item><item key="hello" type="int">1</item><item key="there" type="bool">true</item><item type="array" key="xyz"><item key="element" type="str">a</item><item key="element" type="str">b</item><item key="element" type="str">c</item></item><item type="array" key="zzz"><item type="object" key="element"><item key="name" type="str">a</item><item key="value" type="int">0</item></item><item type="object" key="element"><item key="name" type="str">b</item><item key="value" type="int">1</item></item><item type="object" key="element"><item key="name" type="str">c</item><item key="value" type="int">2</item></item></item></nub_nub>`), out)
+
+	// compact structure, custom keyfunc
+	m.SetMarshalXmlGeneric(false)
+	m.SetMarshalXmlKeyFunc(func(in string) string {
+		return stringutil.Camelize(in)
+	})
+
+	out, err = xml.Marshal(m)
+	assert.NoError(err)
+	assert.Equal([]byte(`<NubNub><General><Kenobi>true</Kenobi></General><Hello>1</Hello><There>true</There><Xyz><Element>a</Element><Element>b</Element><Element>c</Element></Xyz><Zzz><Element><Name>a</Name><Value>0</Value></Element><Element><Name>b</Name><Value>1</Value></Element><Element><Name>c</Name><Value>2</Value></Element></Zzz></NubNub>`), out)
+
+	// generic structure, custom keyfunc
+	m.SetMarshalXmlGeneric(true)
+	out, err = xml.Marshal(m)
+	assert.NoError(err)
+	assert.Equal([]byte(`<NubNub><item type="object" key="General"><item key="Kenobi" type="bool">true</item></item><item key="Hello" type="int">1</item><item key="There" type="bool">true</item><item type="array" key="Xyz"><item key="Element" type="str">a</item><item key="Element" type="str">b</item><item key="Element" type="str">c</item></item><item type="array" key="Zzz"><item type="object" key="Element"><item key="Name" type="str">a</item><item key="Value" type="int">0</item></item><item type="object" key="Element"><item key="Name" type="str">b</item><item key="Value" type="int">1</item></item><item type="object" key="Element"><item key="Name" type="str">c</item><item key="Value" type="int">2</item></item></item></NubNub>`), out)
 }
