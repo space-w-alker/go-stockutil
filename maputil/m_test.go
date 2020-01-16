@@ -2,6 +2,7 @@ package maputil
 
 import (
 	"encoding/xml"
+	"fmt"
 	"net/http"
 	"net/url"
 	"testing"
@@ -199,20 +200,21 @@ func TestMMarshalXML(t *testing.T) {
 		`general`: map[string]interface{}{
 			`kenobi`: true,
 		},
+		`xyz`: []string{`a`, `b`, `c`},
 	})
 
 	out, err := xml.Marshal(m)
 	assert.NoError(err)
-
-	assert.Equal([]byte(`<data><general type="object"><kenobi>true</kenobi></general><hello>1</hello><there>true</there></data>`), out)
+	assert.Equal([]byte(`<data><general type="object"><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz type="array"><0>a</0><1>b</1><2>c</2></xyz></data>`), out)
 
 	m.SetRootTagName(`nubnub`)
 	out, err = xml.Marshal(m)
 	assert.NoError(err)
-	assert.Equal([]byte(`<nubnub><general type="object"><kenobi>true</kenobi></general><hello>1</hello><there>true</there></nubnub>`), out)
+	assert.Equal([]byte(`<nubnub><general type="object"><kenobi>true</kenobi></general><hello>1</hello><there>true</there><xyz type="array"><0>a</0><1>b</1><2>c</2></xyz></nubnub>`), out)
 
 	m.SetMarshalXmlGeneric(true)
 	out, err = xml.Marshal(m)
 	assert.NoError(err)
-	assert.Equal([]byte(`<nubnub><item type="object" key="general"><item key="kenobi" type="bool">true</item></item><item key="hello" type="int">1</item><item key="there" type="bool">true</item></nubnub>`), out)
+	fmt.Println(string(out))
+	assert.Equal([]byte(`<nubnub><item type="object" key="general"><item key="kenobi" type="bool">true</item></item><item key="hello" type="int">1</item><item key="there" type="bool">true</item><item type="array" key="xyz"><item key="0" type="str">a</item><item key="1" type="str">b</item><item key="2" type="str">c</item></item></nubnub>`), out)
 }

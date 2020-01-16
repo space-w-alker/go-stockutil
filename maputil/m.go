@@ -253,7 +253,60 @@ func xt(value interface{}) string {
 func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, key string) (tokens []xml.Token, ferr error) {
 	g := self.xmlMarshalGeneric
 
-	if typeutil.IsMap(value) {
+	if typeutil.IsScalar(value) {
+		open := xml.StartElement{
+			Name: xn(g, `item`, key),
+		}
+
+		if g {
+			open.Attr = []xml.Attr{
+				{
+					Name:  _xn(`key`),
+					Value: key,
+				}, {
+					Name:  _xn(`type`),
+					Value: utilutil.DetectConvertType(value).String(),
+				},
+			}
+		}
+
+		tokens = append(tokens, open, xml.CharData(typeutil.String(value)), xml.EndElement{
+			Name: xn(g, `item`, key),
+		})
+
+	} else if typeutil.IsArray(value) {
+		start := xml.StartElement{
+			Name: xn(g, `item`, key),
+			Attr: []xml.Attr{
+				{
+					Name:  _xn(`type`),
+					Value: xt(value),
+				},
+			},
+		}
+
+		if g {
+			start.Attr = append(start.Attr, xml.Attr{
+				Name:  _xn(`key`),
+				Value: key,
+			})
+		}
+
+		tokens = append(tokens, start)
+
+		for i, v := range sliceutil.Sliceify(value) {
+			if ts, err := self.valueToXmlTokens(&start, v, typeutil.String(i)); err == nil {
+				tokens = append(tokens, ts...)
+			} else {
+				ferr = fmt.Errorf("[%d]: %v", i, err)
+				return
+			}
+		}
+
+		tokens = append(tokens, xml.EndElement{
+			Name: start.Name,
+		})
+	} else {
 		children := M(value).MapNative()
 		ckeys := StringKeys(children)
 		sort.Strings(ckeys)
@@ -283,35 +336,13 @@ func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, k
 				tokens = append(tokens, ts...)
 			} else {
 				ferr = fmt.Errorf("%s: %v", k, err)
+				return
 			}
 
 			tokens = append(tokens, xml.EndElement{
 				Name: start.Name,
 			})
-
 		}
-	} else if typeutil.IsScalar(value) {
-		open := xml.StartElement{
-			Name: xn(g, `item`, key),
-		}
-
-		if g {
-			open.Attr = []xml.Attr{
-				{
-					Name:  _xn(`key`),
-					Value: key,
-				}, {
-					Name:  _xn(`type`),
-					Value: utilutil.DetectConvertType(value).String(),
-				},
-			}
-		}
-
-		tokens = append(tokens, open, xml.CharData(typeutil.String(value)), xml.EndElement{
-			Name: xn(g, `item`, key),
-		})
-	} else {
-		ferr = fmt.Errorf("%s: Unhandled type %T", key, value)
 	}
 
 	return
