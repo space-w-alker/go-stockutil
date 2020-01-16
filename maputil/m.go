@@ -18,6 +18,7 @@ import (
 )
 
 var MapXmlRootTagName = `data`
+var MapXmlStructTagName = `xml`
 
 type ItemFunc func(key string, value typeutil.Variant) error
 
@@ -304,7 +305,7 @@ func (self *Map) valueToXmlTokens(parent *xml.StartElement, value interface{}, k
 			Name: start.Name,
 		})
 	} else {
-		children := M(value).MapNative()
+		children := M(value).MapNative(MapXmlStructTagName)
 		ckeys := StringKeys(children)
 		sort.Strings(ckeys)
 
@@ -364,7 +365,7 @@ func (self *Map) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	start.Name = _xn(root)
 	tokens := []xml.Token{start}
 
-	children := self.MapNative()
+	children := self.MapNative(MapXmlStructTagName)
 	ckeys := StringKeys(children)
 	sort.Strings(ckeys)
 
