@@ -250,3 +250,37 @@ func TestMMarshalXML(t *testing.T) {
 	assert.NoError(err)
 	assert.Equal([]byte(`<NubNub><item type="object" key="General"><item key="Kenobi" type="bool">true</item></item><item key="Hello" type="int">1</item><item key="There" type="bool">true</item><item type="array" key="Xyz"><item key="Element" type="str">a</item><item key="Element" type="str">b</item><item key="Element" type="str">c</item></item><item type="array" key="Zzz"><item type="object" key="Element"><item key="Name" type="str">a</item><item key="Value" type="int">0</item></item><item type="object" key="Element"><item key="Name" type="str">b</item><item key="Value" type="int">1</item></item><item type="object" key="Element"><item key="Name" type="str">c</item><item key="Value" type="int">2</item></item></item></NubNub>`), out)
 }
+
+func TestMIter(t *testing.T) {
+	assert := require.New(t)
+	input := M(map[string]interface{}{
+		`a`: 1,
+		`b`: 2,
+		`c`: 3,
+		`d`: 4,
+	})
+
+	var keys []string
+	var vals []int
+
+	for item := range input.Iter() {
+		keys = append(keys, item.K)
+		vals = append(vals, int(item.V.Int()))
+	}
+
+	assert.ElementsMatch([]string{`c`, `d`, `a`, `b`}, keys)
+	assert.ElementsMatch([]int{4, 2, 3, 1}, vals)
+
+	keys = nil
+	vals = nil
+
+	for item := range input.Iter(IterOptions{
+		SortKeys: true,
+	}) {
+		keys = append(keys, item.K)
+		vals = append(vals, int(item.V.Int()))
+	}
+
+	assert.Equal([]string{`a`, `b`, `c`, `d`}, keys)
+	assert.Equal([]int{1, 2, 3, 4}, vals)
+}

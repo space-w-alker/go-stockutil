@@ -20,6 +20,11 @@ import (
 var MapXmlRootTagName = `data`
 var MapXmlStructTagName = `xml`
 
+type IterOptions struct {
+	TagName  string
+	SortKeys bool
+}
+
 type Item struct {
 	Key   interface{}
 	Value interface{}
@@ -438,8 +443,33 @@ func (self *Map) Len() int {
 
 // Iterate through each item in the map.
 func (self *Map) Each(fn ItemFunc, tagName ...string) error {
+	tn := ``
+
+	if len(tagName) > 0 && tagName[0] != `` {
+		tn = tagName[0]
+	}
+
+	return self.each(fn, IterOptions{
+		TagName: tn,
+	})
+}
+
+// Iterate through each item in the map.
+func (self *Map) each(fn ItemFunc, opts IterOptions) error {
 	if fn != nil {
-		for _, key := range self.StringKeys(tagName...) {
+		var tn []string
+
+		if opts.TagName != `` {
+			tn = append(tn, opts.TagName)
+		}
+
+		keys := self.StringKeys(tn...)
+
+		if opts.SortKeys {
+			sort.Strings(keys)
+		}
+
+		for _, key := range keys {
 			if err := fn(key, self.Get(key)); err != nil {
 				return err
 			}
@@ -449,11 +479,15 @@ func (self *Map) Each(fn ItemFunc, tagName ...string) error {
 	return nil
 }
 
-func (self *Map) Iter() <-chan Item {
+func (self *Map) Iter(opts ...IterOptions) <-chan Item {
 	itemchan := make(chan Item)
 
+	if len(opts) == 0 {
+		opts = []IterOptions{IterOptions{}}
+	}
+
 	go func() {
-		self.Each(func(key string, value typeutil.Variant) error {
+		self.each(func(key string, value typeutil.Variant) error {
 			itemchan <- Item{
 				Key:   key,
 				Value: value.Value,
@@ -462,7 +496,7 @@ func (self *Map) Iter() <-chan Item {
 			}
 
 			return nil
-		})
+		}, opts[0])
 
 		close(itemchan)
 	}()
