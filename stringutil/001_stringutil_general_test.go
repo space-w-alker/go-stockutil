@@ -415,6 +415,15 @@ func TestSplitWords(t *testing.T) {
 	}, SplitWords(`Goldenrod adorned log.`))
 }
 
+func TestElide(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(`hello there`, Elide(`hello there`, 100))
+	assert.Equal(`hello there`, ElideRight(`hello there`, 100))
+	assert.Equal(`hello`, Elide(`hello there`, 5))
+	assert.Equal(`there`, ElideRight(`hello there`, 5))
+}
+
 func TestElideWords(t *testing.T) {
 	assert := require.New(t)
 

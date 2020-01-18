@@ -758,17 +758,35 @@ func SplitWords(in string) []string {
 	return out
 }
 
+// Truncate the given string to a certain number of characters.
+func Elide(in string, charcount int) string {
+	if len(in) < charcount {
+		return in
+	}
+
+	return in[0:charcount]
+}
+
+// Truncate the given string to a certain number of characters from the end.
+func ElideRight(in string, charcount int) string {
+	if len(in) < charcount {
+		return in
+	}
+
+	return in[len(in)-charcount:]
+}
+
 // Truncate the given string to a certain number of words.
-func ElideWords(in string, wordcount uint) string {
+func ElideWords(in string, wordcount int) string {
 	words := SplitWords(in)
-	wc := uint(len(words))
+	wc := len(words)
 
 	if wc == 0 {
 		return ``
 	} else if wc <= wordcount {
 		return strings.Join(words, ` `)
 	} else {
-		words = words[0:int(wordcount)]
+		words = words[0:wordcount]
 
 		return strings.TrimRightFunc(strings.Join(words, ` `), func(r rune) bool {
 			return unicode.IsPunct(r) || unicode.IsSpace(r)
