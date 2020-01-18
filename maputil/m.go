@@ -20,6 +20,13 @@ import (
 var MapXmlRootTagName = `data`
 var MapXmlStructTagName = `xml`
 
+type Item struct {
+	Key   interface{}
+	Value interface{}
+	K     string
+	V     typeutil.Variant
+}
+
 type ItemFunc func(key string, value typeutil.Variant) error
 type KeyTransformFunc func(string) string
 
@@ -440,6 +447,27 @@ func (self *Map) Each(fn ItemFunc, tagName ...string) error {
 	}
 
 	return nil
+}
+
+func (self *Map) Iter() <-chan Item {
+	itemchan := make(chan Item)
+
+	go func() {
+		self.Each(func(key string, value typeutil.Variant) error {
+			itemchan <- Item{
+				Key:   key,
+				Value: value.Value,
+				K:     key,
+				V:     value,
+			}
+
+			return nil
+		})
+
+		close(itemchan)
+	}()
+
+	return itemchan
 }
 
 // A recursive walk form of Each()
