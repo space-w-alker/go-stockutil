@@ -759,21 +759,21 @@ func SplitWords(in string) []string {
 }
 
 // Truncate the given string to a certain number of characters.
-func Elide(in string, charcount int) string {
+func Elide(in string, charcount int, trailer ...string) string {
 	if len(in) < charcount {
 		return in
 	}
 
-	return in[0:charcount]
+	return in[0:charcount] + strings.Join(trailer, ``)
 }
 
 // Truncate the given string to a certain number of characters from the end.
-func ElideRight(in string, charcount int) string {
+func ElideRight(in string, charcount int, leader ...string) string {
 	if len(in) < charcount {
 		return in
 	}
 
-	return in[len(in)-charcount:]
+	return strings.Join(leader, ``) + in[len(in)-charcount:]
 }
 
 // Truncate the given string to a certain number of words.
