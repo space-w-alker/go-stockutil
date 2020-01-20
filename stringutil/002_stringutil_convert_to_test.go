@@ -185,7 +185,13 @@ func TestConvertToTime(t *testing.T) {
 		// `01 May 15 00:15 UTC`:            time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 		// `01 May 15 00:15 +0000`:          time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
 		// `Friday, 01-May-15 00:15:16 UTC`: time.Date(2015, 5, 1, 0, 15, 16, 0, time.UTC),
-		`1136239445`: time.Date(2006, 1, 2, 17, 4, 5, 0, time.Now().Location()),
+		`1136239445`:          time.Date(2006, 1, 2, 17, 4, 5, 0, time.Now().Location()),
+		`2038-01-19 03:14:06`: time.Date(2038, 1, 19, 3, 14, 6, 0, time.UTC),
+		`2038-01-19 03:14:07`: time.Date(2038, 1, 19, 3, 14, 7, 0, time.UTC),
+		`2038-01-19 03:14:08`: time.Date(2038, 1, 19, 3, 14, 8, 0, time.UTC),
+		`2147483646`:          time.Date(2038, 1, 19, 3, 14, 6, 0, time.UTC),
+		`2147483647`:          time.Date(2038, 1, 19, 3, 14, 7, 0, time.UTC),
+		`2147483648`:          time.Date(2038, 1, 19, 3, 14, 8, 0, time.UTC),
 	}
 
 	v, err := ConvertToTime(`now`)
@@ -204,11 +210,11 @@ func TestConvertToTime(t *testing.T) {
 		v, err := ConvertTo(Time, in)
 		assert.NoError(err)
 		assert.IsType(time.Now(), v)
-		assert.Equal(out, v.(time.Time))
+		assert.True(out.Equal(v.(time.Time)), in)
 
 		v, err = ConvertToTime(in)
 		assert.NoError(err)
-		assert.Equal(out, v)
+		assert.True(out.Equal(v.(time.Time)), in)
 	}
 
 	for _, fail := range []string{`1.5`, `potato`, `false`} {
