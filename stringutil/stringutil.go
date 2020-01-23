@@ -19,7 +19,7 @@ import (
 )
 
 var rxHexadecimal = regexp.MustCompile(`^[0-9a-fA-F]+$`)
-var rxEnvVarExpr = regexp.MustCompile(`(\$\{(?P<env>\w+)(?:\|(?P<fallback>.*?))?(?::(?P<fmt>[^\}]+))?\})`) // ${ENV}, ${ENV:%04s}, ${ENV|fallback}, ${ENV|fallback:%04s}
+var rxEnvVarExpr = regexp.MustCompile(`(\$\{(?P<env>\w+)(?:\|(?P<fallback>.*?))?(?::(?P<fmt>%[^\}]+))?\})`) // ${ENV}, ${ENV:%04s}, ${ENV|fallback}, ${ENV|fallback:%04s}
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
 
