@@ -551,9 +551,9 @@ func TestExpandEnv(t *testing.T) {
 	assert.Equal(`勤恳`, ExpandEnv("${GOSTOCKUTIL_TEST_UNICODE}"))
 
 	assert.Equal(``, ExpandEnv("${GOSTOCKUTIL_TEST_UNSET}"))
-	assert.Equal(`fallback`, ExpandEnv("${GOSTOCKUTIL_TEST_UNSET|fallback}"))
+	assert.Equal(`fallback.value|y`, ExpandEnv("${GOSTOCKUTIL_TEST_UNSET|fallback.value|y}"))
 	assert.Equal(`                `, ExpandEnv("${GOSTOCKUTIL_TEST_UNSET:%16s}"))
-	assert.Equal(`        fallback`, ExpandEnv("${GOSTOCKUTIL_TEST_UNSET|fallback:%16s}"))
+	assert.Equal(`fallback.value|y`, ExpandEnv("${GOSTOCKUTIL_TEST_UNSET|fallback.value|y:%16s}"))
 }
 
 func TestPrefixLines(t *testing.T) {
