@@ -73,49 +73,118 @@ func IsTerminal() bool {
 	return isatty.IsTerminal(os.Stdout.Fd())
 }
 
-func ReadAll(filename string) ([]byte, error) {
-	if file, err := os.Open(filename); err == nil {
-		defer file.Close()
-		return ioutil.ReadAll(file)
+// Takes the given string filename, io.Reader, or io.ReadCloser and returns
+// the bytes therein.
+func ReadAll(file interface{}) ([]byte, error) {
+	var rc io.ReadCloser
+
+	if r, ok := file.(io.ReadCloser); ok {
+		rc = r
+	} else if r, ok := file.(io.Reader); ok {
+		rc = ioutil.NopCloser(r)
+	} else if filename, ok := file.(string); ok {
+		if f, err := os.Open(filename); err == nil {
+			rc = f
+		} else {
+			return nil, err
+		}
 	} else {
-		return nil, err
+		return nil, fmt.Errorf("must provide a string filename, io.Reader, or io.ReadCloser")
 	}
+
+	defer rc.Close()
+	return ioutil.ReadAll(rc)
 }
 
-func ReadAllString(filename string) (string, error) {
-	if data, err := ReadAll(filename); err == nil {
+// A string version of ReadAll.
+func ReadAllString(file interface{}) (string, error) {
+	if data, err := ReadAll(file); err == nil {
 		return string(data), nil
 	} else {
 		return ``, err
 	}
 }
 
-func ReadAllLines(filename string) ([]string, error) {
-	if data, err := ReadAllString(filename); err == nil {
+// Read all lines of text from the given file and return them as a slice.
+func ReadAllLines(file interface{}) ([]string, error) {
+	if data, err := ReadAllString(file); err == nil {
 		return strings.Split(data, "\n"), nil
 	} else {
 		return nil, err
 	}
 }
 
-func ReadFirstLine(filename string) (string, error) {
-	if lines, err := ReadAllLines(filename); err == nil {
+// A panicky version of ReadAllLines.
+func MustReadAllLines(file interface{}) []string {
+	if lines, err := ReadAllLines(file); err == nil {
+		return lines
+	} else {
+		panic(err.Error())
+	}
+}
+
+// Attempts to call ReadAllLines, but will return an empty slice if there is an error.  Does not panic.
+func ShouldReadAllLines(file interface{}) []string {
+	if lines, err := ReadAllLines(file); err == nil {
+		return lines
+	} else {
+		return nil
+	}
+}
+
+// Attempt to return the nth line (starting from 1) in the given file or reader.
+func GetNthLine(file interface{}, number int) (string, error) {
+	if lines, err := ReadAllLines(file); err == nil {
+		if number < 1 {
+			return ``, fmt.Errorf("line number must be >= 1")
+		}
+
+		if number <= len(lines) {
+			return lines[number-1], nil
+		} else {
+			return ``, fmt.Errorf("line exceeds file line count")
+		}
+	} else {
+		return ``, err
+	}
+}
+
+// A panicky version of GetNthLine.
+func MustGetNthLine(file interface{}, number int) string {
+	if line, err := GetNthLine(file, number); err == nil {
+		return line
+	} else {
+		panic(err.Error())
+	}
+}
+
+// Attempts to call GetNthLine, but will return an empty string if there is an error.  Does not panic.
+func ShouldGetNthLine(file interface{}, number int) string {
+	if line, err := GetNthLine(file, number); err == nil {
+		return line
+	} else {
+		return ``
+	}
+}
+
+func ReadFirstLine(file interface{}) (string, error) {
+	if lines, err := ReadAllLines(file); err == nil {
 		return lines[0], nil
 	} else {
 		return ``, err
 	}
 }
 
-func MustReadAll(filename string) []byte {
-	if data, err := ReadAll(filename); err == nil {
+func MustReadAll(file interface{}) []byte {
+	if data, err := ReadAll(file); err == nil {
 		return data
 	} else {
 		panic(err.Error())
 	}
 }
 
-func MustReadAllString(filename string) string {
-	if data, err := ReadAllString(filename); err == nil {
+func MustReadAllString(file interface{}) string {
+	if data, err := ReadAllString(file); err == nil {
 		return data
 	} else {
 		panic(err.Error())
