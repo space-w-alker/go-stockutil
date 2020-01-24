@@ -25,6 +25,7 @@ require (
 	github.com/martinlindhe/unit v0.0.0-20180817222220-284ab7627fae
 	github.com/mattn/go-colorable v0.1.0 // indirect
 	github.com/mattn/go-isatty v0.0.4
+	github.com/mattn/go-shellwords v1.0.9
 	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
 	github.com/miekg/dns v1.1.12 // indirect
 	github.com/mitchellh/mapstructure v1.0.0

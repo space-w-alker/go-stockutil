@@ -91,3 +91,11 @@ func TestExecFalse(t *testing.T) {
 	assert.Equal(0, successes)
 	assert.Equal(1, failures)
 }
+
+func TestShellOut(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal(`hello there`, string(MustShellOut(`echo`, `-n`, `hello`, `there`)))
+	assert.Equal(`hello there`, string(MustShellOut(`echo -n hello there`)))
+	assert.Equal(`hello there`, string(MustShellOut(`echo -n`, `hello there`)))
+}

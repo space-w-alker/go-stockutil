@@ -9,12 +9,15 @@ import (
 	"io"
 	"os"
 	"os/exec"
+	"strings"
 	"sync"
 	"syscall"
 	"time"
 
+	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
+	"github.com/mattn/go-shellwords"
 )
 
 type CommandStatusFunc func(Status)
@@ -126,6 +129,51 @@ func ShellCommand(cmdline string) *Cmd {
 	return nil
 }
 
+// Run a command and return the standard output.  If the first argument contains
+// a command and its arguments, it will be executed in the user's shell using FindShell.
+// Otherwise, the first argument will be treated as a command and the remaining arguments
+// will be passed in parameterized.
+func ShellOut(cmdOrLine string, args ...interface{}) ([]byte, error) {
+	var cmd *Cmd
+
+	if va, err := shellwords.Parse(cmdOrLine); err == nil {
+		if len(va) == 1 {
+			cmd = Command(va[0], sliceutil.Stringify(args)...)
+		} else {
+			cmd = ShellCommand(strings.Join(
+				append(va, sliceutil.Stringify(args)...),
+				` `,
+			))
+		}
+
+		if out, err := cmd.Output(); err == nil {
+			return out, nil
+		} else {
+			return nil, err
+		}
+	} else {
+		return nil, err
+	}
+}
+
+// A panicky version of ShellOut.
+func MustShellOut(cmdOrLine string, args ...interface{}) []byte {
+	if out, err := ShellOut(cmdOrLine, args...); err == nil {
+		return out
+	} else {
+		panic(err.Error())
+	}
+}
+
+// Attempts to call ShellOut, but will return nil if there is an error.  Does not panic.
+func ShouldShellOut(cmdOrLine string, args ...interface{}) []byte {
+	if out, err := ShellOut(cmdOrLine, args...); err == nil {
+		return out
+	} else {
+		return nil
+	}
+}
+
 func new(wrap *exec.Cmd) *Cmd {
 	return &Cmd{
 		Cmd:             wrap,
@@ -215,6 +263,14 @@ func (self *Cmd) CombinedOutput() ([]byte, error) {
 		return out, err
 	} else {
 		return nil, err
+	}
+}
+
+func (self *Cmd) String() string {
+	if out, err := self.Output(); err == nil {
+		return string(out)
+	} else {
+		return ``
 	}
 }
 
