@@ -73,12 +73,14 @@ func IsTerminal() bool {
 	return isatty.IsTerminal(os.Stdout.Fd())
 }
 
-// Takes the given string filename, io.Reader, or io.ReadCloser and returns
+// Takes the given string filename, []byte, io.Reader, or io.ReadCloser and returns
 // the bytes therein.
 func ReadAll(file interface{}) ([]byte, error) {
 	var rc io.ReadCloser
 
-	if r, ok := file.(io.ReadCloser); ok {
+	if b, ok := file.([]byte); ok {
+		return b, nil
+	} else if r, ok := file.(io.ReadCloser); ok {
 		rc = r
 	} else if r, ok := file.(io.Reader); ok {
 		rc = ioutil.NopCloser(r)
@@ -89,7 +91,7 @@ func ReadAll(file interface{}) ([]byte, error) {
 			return nil, err
 		}
 	} else {
-		return nil, fmt.Errorf("must provide a string filename, io.Reader, or io.ReadCloser")
+		return nil, fmt.Errorf("must provide one of: string, []byte, io.Reader, or io.ReadCloser")
 	}
 
 	defer rc.Close()
