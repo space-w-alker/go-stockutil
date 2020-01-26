@@ -7,6 +7,7 @@ import (
 	"github.com/urfave/negroni"
 )
 
+// Deprecated: this type will go away in 1.9.x
 type RequestLogger struct {
 }
 
