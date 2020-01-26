@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 	"sort"
@@ -239,6 +240,16 @@ func (self *Map) MapNative(tagName ...string) map[string]interface{} {
 
 func (self *Map) MarshalJSON() ([]byte, error) {
 	return json.Marshal(self.data)
+}
+
+// Uses the extended Sprintf in this package, passing this map as the data used in the given format string.
+func (self *Map) Sprintf(format string) string {
+	return Sprintf(format, self.MapNative())
+}
+
+// Uses the extended Fprintf in this package, passing this map as the data used in the given format string.
+func (self *Map) Fprintf(w io.Writer, format string) {
+	Fprintf(w, format, self.MapNative())
 }
 
 func xn(generic bool, ifGeneric string, otherwise string) xml.Name {

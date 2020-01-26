@@ -4,12 +4,16 @@ package maputil
 import (
 	"errors"
 	"fmt"
+	"io"
 	"reflect"
+	"regexp"
 	"sort"
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 
+	"github.com/ghetzel/go-stockutil/rxutil"
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
@@ -19,6 +23,7 @@ import (
 
 var UnmarshalStructTag string = `maputil`
 var SkipDescendants = errors.New("skip descendants")
+var rxMapFmt = regexp.MustCompile(`(\$\{(?P<key>.*?)(?:\|(?P<fallback>.*?))?(?::(?P<fmt>%[^\}]+))?\})`) // ${key}, ${key:%04s}, ${key|fallback}
 
 type WalkFunc func(value interface{}, path []string, isLeaf bool) error
 type ApplyFunc func(key []string, value interface{}) (interface{}, bool)
@@ -970,4 +975,64 @@ func fieldNameFromReflect(field reflect.StructField) string {
 	}
 
 	return field.Name
+}
+
+// Format the given string in the same manner as fmt.Sprintf, except data items that are
+// maps or Map objects will be expanded using special patterns in the format string.
+//
+// Example
+//
+func Sprintf(format string, data ...interface{}) string {
+	var params []interface{}
+
+MatchLoop:
+	for {
+		m := rxutil.Match(rxMapFmt, format)
+
+		if m == nil {
+			break
+		}
+
+		caps := m.NamedCaptures()
+		placeholder := caps[`fmt`]
+
+		if placeholder == `` {
+			placeholder = `%v`
+		}
+
+		for _, d := range data {
+			dm := M(d)
+
+			if tm, ok := dm.Get(caps[`key`]).Value.(time.Time); ok {
+				tmfmt := strings.TrimPrefix(placeholder, `%`)
+
+				if tmfmt == `v` {
+					tmfmt = time.RFC3339
+				}
+
+				params = append(params, tm.Format(tmfmt))
+				format = m.ReplaceGroup(1, `%s`)
+				continue MatchLoop
+			} else if v := dm.String(caps[`key`]); v != `` {
+				params = append(params, v)
+				format = m.ReplaceGroup(1, placeholder)
+				continue MatchLoop
+			}
+		}
+
+		params = append(params, caps[`fallback`])
+		format = m.ReplaceGroup(1, placeholder)
+	}
+
+	return fmt.Sprintf(format, params...)
+}
+
+// Same as Sprintf, but prints its output to standard output.
+func Printf(format string, data ...interface{}) {
+	fmt.Print(Sprintf(format, data...))
+}
+
+// Same as Sprintf, but writes output to the given writer.
+func Fprintf(w io.Writer, format string, data ...interface{}) {
+	fmt.Fprint(w, Sprintf(format, data...))
 }

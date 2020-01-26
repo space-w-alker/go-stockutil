@@ -94,3 +94,38 @@ func TestFormatTimer(t *testing.T) {
 	out = FormatTimer(23*time.Hour + 4*time.Minute + 13*time.Second)
 	assert.Equal(`23:04:13`, out)
 }
+
+func ExampleFormatTimer_e1() {
+	fmt.Print(FormatTimer(0))
+	// Output: 0:00
+}
+
+func ExampleFormatTimer_e2() {
+	fmt.Print(FormatTimer(time.Second))
+	// Output: 0:01
+}
+
+func ExampleFormatTimer_e3() {
+	fmt.Print(FormatTimer(time.Minute))
+	// Output: 1:00
+}
+
+func ExampleFormatTimer_e4() {
+	fmt.Print(FormatTimer(time.Hour))
+	// Output: 1:00:00
+}
+
+func ExampleFormatTimer_e5() {
+	fmt.Print(FormatTimer(59 * time.Second))
+	// Output: 0:59
+}
+
+func ExampleFormatTimer_e6() {
+	fmt.Print(FormatTimer(119 * time.Second))
+	// Output: 1:59
+}
+
+func ExampleFormatTimer_e7() {
+	fmt.Print(FormatTimer(23*time.Hour + 4*time.Minute + 13*time.Second))
+	// Output: 23:04:13
+}
