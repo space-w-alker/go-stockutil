@@ -9,10 +9,39 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 
 	"github.com/ghetzel/go-stockutil/fileutil"
 	"github.com/ghetzel/go-stockutil/maputil"
 )
+
+var WaitForPollInterval = time.Second
+
+// Periodically performs a GET request against the given URL, waiting up to timeout
+// for a 200-series HTTP response code.
+func WaitForHTTP(url string, timeout time.Duration, c ...*http.Client) error {
+	var client *http.Client
+
+	if len(c) > 0 && c[0] != nil {
+		client = c[0]
+	} else {
+		client = http.DefaultClient
+	}
+
+	start := time.Now()
+
+	for time.Since(start) < timeout {
+		if res, err := client.Get(url); err == nil {
+			if res.StatusCode < 400 {
+				return nil
+			}
+		}
+
+		time.Sleep(WaitForPollInterval)
+	}
+
+	return fmt.Errorf("Request to %s did not succeed in %v", url, timeout)
+}
 
 type Client struct {
 	encoder         EncoderFunc
