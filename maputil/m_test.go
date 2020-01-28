@@ -105,6 +105,17 @@ func TestMStruct(t *testing.T) {
 		`NAME`:   `tester`,
 		`Factor`: 3.14,
 	}, input.MapNative(`json`))
+
+	var keys []string
+	var values []interface{}
+
+	for item := range input.Iter() {
+		keys = append(keys, item.K)
+		values = append(values, item.Value)
+	}
+
+	assert.ElementsMatch([]string{`id`, `Name`, `Factor`}, keys)
+	assert.ElementsMatch([]interface{}{`123`, `tester`, float64(3.14)}, values)
 }
 
 func TestMUrlValues(t *testing.T) {
