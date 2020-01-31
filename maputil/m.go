@@ -242,6 +242,10 @@ func (self *Map) MarshalJSON() ([]byte, error) {
 	return json.Marshal(self.data)
 }
 
+func (self *Map) UnmarshalJSON(data []byte) error {
+	return json.Unmarshal(data, &self.data)
+}
+
 // Uses the extended Sprintf in this package, passing this map as the data used in the given format string.
 func (self *Map) Sprintf(format string) string {
 	return Sprintf(format, self.MapNative())

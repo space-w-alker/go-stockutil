@@ -1,6 +1,7 @@
 package maputil
 
 import (
+	"encoding/json"
 	"encoding/xml"
 	"net/http"
 	"net/url"
@@ -200,6 +201,74 @@ func TestMStructNested(t *testing.T) {
 	assert.Len(input.Slice(`Second.Values`), 4)
 	assert.Equal(int64(42), input.Auto(`Second.Strnum`))
 	assert.Equal(time.Date(2006, 1, 2, 0, 0, 0, 0, time.UTC), input.Time(`Second.Then`))
+}
+
+func TestMMarshalJSON(t *testing.T) {
+	assert := require.New(t)
+
+	m := M(map[string]interface{}{
+		`hello`: 1,
+		`there`: true,
+		`general`: map[string]interface{}{
+			`kenobi`: true,
+		},
+		`xyz`: []string{`a`, `b`, `c`},
+		`zzz`: []map[string]interface{}{
+			map[string]interface{}{
+				`name`:  `a`,
+				`value`: 0,
+			},
+			map[string]interface{}{
+				`name`:  `b`,
+				`value`: 1,
+			},
+			map[string]interface{}{
+				`name`:  `c`,
+				`value`: 2,
+			},
+		},
+	})
+
+	out, err := json.Marshal(m)
+	assert.NoError(err)
+	assert.Equal([]byte(`{"general":{"kenobi":true},"hello":1,"there":true,"xyz":["a","b","c"],"zzz":[{"name":"a","value":0},{"name":"b","value":1},{"name":"c","value":2}]}`), out)
+}
+
+func TestMUnmarshalJSON(t *testing.T) {
+	assert := require.New(t)
+
+	js := []byte(`{"general":{"kenobi":true},"hello":1,"there":true,"xyz":["a","b","c"],"zzz":[{"name":"a","value":0},{"name":"b","value":1},{"name":"c","value":2}]}`)
+
+	var m Map
+
+	assert.NoError(json.Unmarshal(js, &m))
+	assert.Equal(map[string]interface{}{
+		`hello`: float64(1),
+		`there`: true,
+		`general`: map[string]interface{}{
+			`kenobi`: true,
+		},
+		`xyz`: []interface{}{`a`, `b`, `c`},
+		`zzz`: []interface{}{
+			map[string]interface{}{
+				`name`:  `a`,
+				`value`: float64(0),
+			},
+			map[string]interface{}{
+				`name`:  `b`,
+				`value`: float64(1),
+			},
+			map[string]interface{}{
+				`name`:  `c`,
+				`value`: float64(2),
+			},
+		},
+	}, m.data)
+
+	assert.EqualValues(1, m.Int(`hello`))
+	assert.True(m.Bool(`there`))
+	assert.Equal(true, m.Bool(`general.kenobi`))
+	assert.EqualValues(2, m.Float(`zzz.2.value`))
 }
 
 func TestMMarshalXML(t *testing.T) {
