@@ -43,7 +43,7 @@ func ExampleIsMediaType_SingleMediaType() {
 	// Output: true
 }
 
-func ExampleIsMediaType_multiple_media_types() {
+func ExampleIsMediaType_multipleMediaTypes() {
 	req := httptest.NewRequest(`GET`, `/`, nil)
 	req.Header.Set(`Content-Type`, `text/html; charset=utf-8`)
 
