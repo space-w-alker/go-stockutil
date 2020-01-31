@@ -35,7 +35,7 @@ func TestIsMediaType(t *testing.T) {
 	assert.False(IsMediaType(req, `text/html`))
 }
 
-func ExampleIsMediaType_SingleMediaType() {
+func ExampleIsMediaType_singleMediaType() {
 	req := httptest.NewRequest(`GET`, `/`, nil)
 	req.Header.Set(`Content-Type`, `text/html; charset=utf-8`)
 
@@ -51,7 +51,7 @@ func ExampleIsMediaType_multipleMediaTypes() {
 	// Output: true
 }
 
-func ExampleIsMediaType_MediaTypePrefix() {
+func ExampleIsMediaType_mediaTypePrefix() {
 	req := httptest.NewRequest(`GET`, `/`, nil)
 	req.Header.Set(`Content-Type`, `text/html; charset=utf-8`)
 
@@ -59,7 +59,7 @@ func ExampleIsMediaType_MediaTypePrefix() {
 	// Output: true
 }
 
-func ExampleIsMediaType_NonMatchingPrefix() {
+func ExampleIsMediaType_nonMatchingPrefix() {
 	req := httptest.NewRequest(`GET`, `/`, nil)
 	req.Header.Set(`Content-Type`, `text/html; charset=utf-8`)
 
