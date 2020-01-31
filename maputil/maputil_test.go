@@ -164,12 +164,12 @@ func TestSprintfFormatTime(t *testing.T) {
 	)
 }
 
-func ExamplePrintf_e1() {
+func ExamplePrintf_UsingDefaultValues() {
 	Printf("Hello ${username|guest}! Your IP is: ${ipaddress|(unknown)}")
 	// Output: Hello guest! Your IP is: (unknown)
 }
 
-func ExamplePrintf_e2() {
+func ExamplePrintf_SuppliedWithData() {
 	Printf("Hello ${username|guest}! Your IP is: ${ipaddress|(unknown)}", map[string]interface{}{
 		`username`:  `friend`,
 		`ipaddress`: `127.0.0.1`,

@@ -95,37 +95,37 @@ func TestFormatTimer(t *testing.T) {
 	assert.Equal(`23:04:13`, out)
 }
 
-func ExampleFormatTimer_e1() {
+func ExampleFormatTimer_ZeroValue() {
 	fmt.Print(FormatTimer(0))
 	// Output: 0:00
 }
 
-func ExampleFormatTimer_e2() {
+func ExampleFormatTimer_OneSecond() {
 	fmt.Print(FormatTimer(time.Second))
 	// Output: 0:01
 }
 
-func ExampleFormatTimer_e3() {
+func ExampleFormatTimer_OneMinute() {
 	fmt.Print(FormatTimer(time.Minute))
 	// Output: 1:00
 }
 
-func ExampleFormatTimer_e4() {
+func ExampleFormatTimer_OneHour() {
 	fmt.Print(FormatTimer(time.Hour))
 	// Output: 1:00:00
 }
 
-func ExampleFormatTimer_e5() {
+func ExampleFormatTimer_UnderOneMinute() {
 	fmt.Print(FormatTimer(59 * time.Second))
 	// Output: 0:59
 }
 
-func ExampleFormatTimer_e6() {
+func ExampleFormatTimer_OverOneMinute() {
 	fmt.Print(FormatTimer(119 * time.Second))
 	// Output: 1:59
 }
 
-func ExampleFormatTimer_e7() {
+func ExampleFormatTimer_Complete() {
 	fmt.Print(FormatTimer(23*time.Hour + 4*time.Minute + 13*time.Second))
 	// Output: 23:04:13
 }
