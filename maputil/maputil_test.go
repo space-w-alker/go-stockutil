@@ -177,3 +177,19 @@ func ExamplePrintf_suppliedWithData() {
 
 	// Output: Hello friend! Your IP is: 127.0.0.1
 }
+
+func ExamplePrintf_deeplyNestedKeys() {
+	Printf("Hello ${details.0.value|guest}! Your IP is: ${details.1.value|(unknown)}", map[string]interface{}{
+		`details`: []map[string]interface{}{
+			{
+				`key`:   `username`,
+				`value`: `friend`,
+			}, {
+				`key`:   `ipaddress`,
+				`value`: `127.0.0.1`,
+			},
+		},
+	})
+
+	// Output: Hello friend! Your IP is: 127.0.0.1
+}

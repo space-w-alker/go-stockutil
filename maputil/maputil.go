@@ -980,8 +980,6 @@ func fieldNameFromReflect(field reflect.StructField) string {
 // Format the given string in the same manner as fmt.Sprintf, except data items that are
 // maps or Map objects will be expanded using special patterns in the format string.
 //
-// Example
-//
 func Sprintf(format string, data ...interface{}) string {
 	var params []interface{}
 
