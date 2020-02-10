@@ -129,6 +129,15 @@ func Logf(level Level, format string, args ...interface{}) {
 }
 
 func Log(level Level, args ...interface{}) {
+	// handle this special case where we are handling a fatal-level unformatted nil value,
+	// in which case we don't actually want to end the program.
+	//
+	// NOTE: this obviates the need for FatalfIf, making Fatal() behave in the same way
+	//
+	if level == FATAL && len(args) == 1 && args[0] == nil {
+		return
+	}
+
 	initLogging()
 	callIntercepts(level, strings.Join(sliceutil.Stringify(args), ` `), StackTrace(DefaultInterceptStackDepth))
 	log(level, args...)
