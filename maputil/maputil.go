@@ -577,7 +577,32 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 				return data
 			}
 
+		} else if typeutil.IsStruct(data) {
+			// we only accept a pointer to a struct here
+			if dV := reflect.ValueOf(data); dV.Kind() == reflect.Ptr {
+				// make sure dV is the underlying struct Value
+				if dE := dV.Elem(); dE.Kind() == reflect.Struct {
+					dV = dE
+				} else {
+					return data
+				}
+
+				dT := dV.Type()
+
+				for i := 0; i < dT.NumField(); i++ {
+					if fT := dT.Field(i); fT.Name == first {
+						if fV := dV.Field(i); fV.IsValid() && fV.CanSet() {
+							typeutil.SetValue(dV.Field(i), value)
+						}
+
+						break
+					}
+				}
+			}
+
+			return data
 		}
+
 	} else {
 		//  Array Embedding: this is where non-terminal array-index key components key processed
 		if typeutil.IsInteger(rest[0]) {

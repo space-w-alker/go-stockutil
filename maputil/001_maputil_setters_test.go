@@ -187,6 +187,28 @@ func TestDeepSetNestedMapCreation(t *testing.T) {
 	assert.True(ok)
 }
 
+func TestDeepSetStructField(t *testing.T) {
+	assert := require.New(t)
+	type testStructDeepSet struct {
+		String string
+		Int    int
+		Float  float64
+		Bool   bool
+	}
+
+	var instance testStructDeepSet
+
+	DeepSet(&instance, []string{"String"}, `Hello`)
+	DeepSet(&instance, []string{"Int"}, 123)
+	DeepSet(&instance, []string{"Float"}, 3.14)
+	DeepSet(&instance, []string{"Bool"}, true)
+
+	assert.Equal(`Hello`, instance.String)
+	assert.Equal(123, instance.Int)
+	assert.Equal(3.14, instance.Float)
+	assert.True(instance.Bool)
+}
+
 func TestDiffuseMap(t *testing.T) {
 	assert := require.New(t)
 

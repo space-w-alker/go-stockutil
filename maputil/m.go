@@ -31,6 +31,18 @@ type Item struct {
 	Value interface{}
 	K     string
 	V     typeutil.Variant
+	m     *Map
+}
+
+func (self *Item) Set(value interface{}) error {
+	if self.m == nil {
+		return fmt.Errorf("cannot set value: no parent Map")
+	} else {
+		nv := self.m.Set(self.K, value)
+		self.V = nv
+		self.Value = self.V.Value
+		return nil
+	}
 }
 
 type ItemFunc func(key string, value typeutil.Variant) error
@@ -508,6 +520,7 @@ func (self *Map) Iter(opts ...IterOptions) <-chan Item {
 				Value: value.Value,
 				K:     key,
 				V:     value,
+				m:     self,
 			}
 
 			return nil
