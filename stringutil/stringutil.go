@@ -891,3 +891,25 @@ func SuffixLines(in interface{}, suffix string) string {
 
 	return strings.Join(lines, "\n")
 }
+
+// HasPrefix tests whether the string s begins with any prefix in prefixes.
+func HasAnyPrefix(s string, prefixes ...string) bool {
+	for _, p := range prefixes {
+		if strings.HasPrefix(s, p) {
+			return true
+		}
+	}
+
+	return false
+}
+
+// HasSuffix tests whether the string s begins with any suffix in suffixes.
+func HasAnySuffix(s string, suffixes ...string) bool {
+	for _, p := range suffixes {
+		if strings.HasSuffix(s, p) {
+			return true
+		}
+	}
+
+	return false
+}
