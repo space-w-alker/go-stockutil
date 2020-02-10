@@ -129,3 +129,28 @@ func ParseRequest(req *http.Request, into interface{}) error {
 		return err
 	}
 }
+
+// Returns whether the given status code is 100 <= s <= 199
+func Is1xx(code int) bool {
+	return (code >= 100) && (code <= 199)
+}
+
+// Returns whether the given status code is 200 <= s <= 299
+func Is2xx(code int) bool {
+	return (code >= 200) && (code <= 299)
+}
+
+// Returns whether the given status code is 300 <= s <= 399
+func Is3xx(code int) bool {
+	return (code >= 300) && (code <= 399)
+}
+
+// Returns whether the given status code is 400 <= s <= 499
+func Is4xx(code int) bool {
+	return (code >= 400) && (code <= 499)
+}
+
+// Returns whether the given status code is 500 <= s <= 599
+func Is5xx(code int) bool {
+	return (code >= 500) && (code <= 599)
+}
