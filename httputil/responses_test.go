@@ -8,12 +8,15 @@ import (
 )
 
 type testOutputOne struct {
-	Name  string `json:"name"`
-	URL   string `json:"url"`
-	Count int64
-	Ok1   bool `json:"OK1" maputil:"ok1"`
-	Ok2   bool `json:"OK2" maputil:"ok2"`
-	Ok3   bool `json:"OK3"`
+	Name          string `json:"name"`
+	URL           string `json:"url"`
+	Count         int64
+	Ok1           bool     `json:"OK1" maputil:"ok1"`
+	Ok2           bool     `json:"OK2" maputil:"ok2"`
+	Ok3           bool     `json:"OK3"`
+	LOL           []string `json:"lol"`
+	NonIndexedLOL []string `json:"nilol"`
+	Onesie        []string `json:"onesie"`
 }
 
 func TestParseFormValues(t *testing.T) {
@@ -24,16 +27,24 @@ func TestParseFormValues(t *testing.T) {
 	}
 
 	assert.NoError(ParseFormValues(url.Values{
-		`name`:  []string{`Tester`},
-		`Count`: []string{`42`},
-		`ok1`:   []string{`true`},
-		`ok2`:   []string{`on`},
-		`OK3`:   []string{`yes`},
+		`name`:     []string{`Tester`},
+		`Count`:    []string{`42`},
+		`ok1`:      []string{`true`},
+		`ok2`:      []string{`on`},
+		`OK3`:      []string{`yes`},
+		`lol.0`:    []string{`zero`},
+		`lol.1`:    []string{`one`},
+		`lol.2`:    []string{`two`},
+		`nilol[]`:  []string{`first`, `second`, `third`},
+		`onesie[]`: []string{`uno`},
 	}, &t1))
 
 	assert.Equal(`Tester`, t1.Name)
 	assert.Equal(`http://test`, t1.URL)
 	assert.Equal(int64(42), t1.Count)
+	assert.Equal([]string{`zero`, `one`, `two`}, t1.LOL)
+	assert.Equal([]string{`first`, `second`, `third`}, t1.NonIndexedLOL)
+	assert.Equal([]string{`uno`}, t1.Onesie)
 	assert.True(t1.Ok1)
 	assert.True(t1.Ok2)
 	assert.True(t1.Ok3)
