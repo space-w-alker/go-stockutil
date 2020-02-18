@@ -1,0 +1,1004 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">sliceutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 89%</span>
+<h2 id="pkg-overview">package sliceutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/sliceutil"</code>
+</p>
+
+
+<p>Utilities for converting, manipulating, and iterating over slices</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#Append">func Append(in interface{}, values ...interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#At">func At(in interface{}, index int) (interface{}, bool)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Autotype">func Autotype(in interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Chunks">func Chunks(in interface{}, size int) [][]interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Compact">func Compact(in interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#CompactString">func CompactString(in []string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Contains">func Contains(in interface{}, value interface{}, comparators ...CompareFunc) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ContainsAllStrings">func ContainsAllStrings(list []string, elems ...string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ContainsAnyString">func ContainsAnyString(list []string, elems ...string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ContainsString">func ContainsString(list []string, elem string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Difference">func Difference(first interface{}, second interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Each">func Each(slice interface{}, iterFn IterationFunc) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#First">func First(in interface{}) interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Flatten">func Flatten(in interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Get">func Get(in interface{}, index int) interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Intersect">func Intersect(a interface{}, b interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IntersectStrings">func IntersectStrings(a []string, b []string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Last">func Last(in interface{}) interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Len">func Len(in interface{}) int</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Map">func Map(in interface{}, fn MapFunc) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MapString">func MapString(in interface{}, fn MapStringFunc) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Or">func Or(in ...interface{}) interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#OrString">func OrString(in ...string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Rest">func Rest(in interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Slice">func Slice(slice interface{}, from int, to int) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Sliceify">func Sliceify(in interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#StringSlice">func StringSlice(slice interface{}, from int, to int) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Stringify">func Stringify(in interface{}) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#TrimSpace">func TrimSpace(in interface{}) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Unique">func Unique(in interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#UniqueStrings">func UniqueStrings(in interface{}) []string</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#CompareFunc">type CompareFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#IterationFunc">type IterationFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#MapFunc">type MapFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#MapStringFunc">type MapStringFunc </a>
+
+		
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="sliceutil.go">sliceutil.go</a>
+			
+		</td>
+		<td class="text-right">11KB</td>
+		<td class="text-right">333</td>
+		<td class="text-right">31</td>
+		<td class="text-right">4</td>
+		<td class="text-right"></td>
+		<td class="text-right">3</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="sliceutil_test.go">sliceutil_test.go</a>
+			
+		</td>
+		<td class="text-right">13KB</td>
+		<td class="text-right">420</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="RelaxedEqualityCompare">RelaxedEqualityCompare</span> = 
+var <span id="Stop">Stop                  </span> = utils.Stop
+var <span id="StrictEqualityCompare">StrictEqualityCompare </span> = 
+</pre>
+</div>
+
+
+
+
+
+<h3 id="Append" data-kind="f">
+	func <a title="View Source" href="">Append</a>
+	<a class="permalink" href="#Append">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Append(in interface{}, values ...interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Returns a copy of the given slicified value with the given additional values appended.</p>
+</p>
+
+
+<h3 id="At" data-kind="f">
+	func <a title="View Source" href="">At</a>
+	<a class="permalink" href="#At">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func At(in interface{}, index int) (interface{}, bool)</pre>
+</div>
+
+
+<p><p>Returns the element in the given indexable value at the given index.  If the<br>index is present, the second return value will be true.  If the index is not<br>present, or the given input is not indexable, the second return value will be<br>false.</p>
+</p>
+
+
+<h3 id="Autotype" data-kind="f">
+	func <a title="View Source" href="">Autotype</a>
+	<a class="permalink" href="#Autotype">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Autotype(in interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Returns a copy of the given slice with each element’s value passed to stringutil.Autotype</p>
+</p>
+
+
+<h3 id="Chunks" data-kind="f">
+	func <a title="View Source" href="">Chunks</a>
+	<a class="permalink" href="#Chunks">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Chunks(in interface{}, size int) [][]interface{}</pre>
+</div>
+
+
+<p><p>Divide the given slice into chunks of (at most) a given length</p>
+</p>
+
+
+<h3 id="Compact" data-kind="f">
+	func <a title="View Source" href="">Compact</a>
+	<a class="permalink" href="#Compact">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Compact(in interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Removes all elements from the given interface slice that are “empty”, which is<br>defined as being nil, a nil or zero-length array, chan, map, slice, or string.<br><br>The zero values of any other type are not considered empty and will remain in<br>the return value.</p>
+</p>
+
+
+<h3 id="CompactString" data-kind="f">
+	func <a title="View Source" href="">CompactString</a>
+	<a class="permalink" href="#CompactString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CompactString(in []string) []string</pre>
+</div>
+
+
+<p><p>Removes all zero-length strings from the given string slice, returning a new<br>slice with the values removed.</p>
+</p>
+
+
+<h3 id="Contains" data-kind="f">
+	func <a title="View Source" href="">Contains</a>
+	<a class="permalink" href="#Contains">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Contains(in interface{}, value interface{}, comparators ...CompareFunc) bool</pre>
+</div>
+
+
+<p><p>Return whether the given slice contains the given value.  If a comparator is provided, it will<br>be used to compare the elements.</p>
+</p>
+
+
+<h3 id="ContainsAllStrings" data-kind="f">
+	func <a title="View Source" href="">ContainsAllStrings</a>
+	<a class="permalink" href="#ContainsAllStrings">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ContainsAllStrings(list []string, elems ...string) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given string slice contains all of the following strings.</p>
+</p>
+
+
+<h3 id="ContainsAnyString" data-kind="f">
+	func <a title="View Source" href="">ContainsAnyString</a>
+	<a class="permalink" href="#ContainsAnyString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ContainsAnyString(list []string, elems ...string) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given string slice contains any of the following strings.</p>
+</p>
+
+
+<h3 id="ContainsString" data-kind="f">
+	func <a title="View Source" href="">ContainsString</a>
+	<a class="permalink" href="#ContainsString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ContainsString(list []string, elem string) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given string slice contains a given string.</p>
+</p>
+
+
+<h3 id="Difference" data-kind="f">
+	func <a title="View Source" href="">Difference</a>
+	<a class="permalink" href="#Difference">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Difference(first interface{}, second interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Return the slice that results from removing elements in second from the first.</p>
+</p>
+
+
+<h3 id="Each" data-kind="f">
+	func <a title="View Source" href="">Each</a>
+	<a class="permalink" href="#Each">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Each(slice interface{}, iterFn IterationFunc) error</pre>
+</div>
+
+
+<p><p>Iterate through each element of the given array or slice, calling<br>iterFn exactly once for each element.  Otherwise, call iterFn one time<br>with the given input as the argument.</p>
+</p>
+
+
+<h3 id="First" data-kind="f">
+	func <a title="View Source" href="">First</a>
+	<a class="permalink" href="#First">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func First(in interface{}) interface{}</pre>
+</div>
+
+
+<p><p>Returns the first element from the given slice, array or string; or nil.</p>
+</p>
+
+
+<h3 id="Flatten" data-kind="f">
+	func <a title="View Source" href="">Flatten</a>
+	<a class="permalink" href="#Flatten">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Flatten(in interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Returns the given slice as a single-level flattened array.</p>
+</p>
+
+
+<h3 id="Get" data-kind="f">
+	func <a title="View Source" href="">Get</a>
+	<a class="permalink" href="#Get">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Get(in interface{}, index int) interface{}</pre>
+</div>
+
+
+<p><p>Returns the nth element from the given slice, array or string; or nil.</p>
+</p>
+
+
+<h3 id="Intersect" data-kind="f">
+	func <a title="View Source" href="">Intersect</a>
+	<a class="permalink" href="#Intersect">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Intersect(a interface{}, b interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Return the intersection of two slices.</p>
+</p>
+
+
+<h3 id="IntersectStrings" data-kind="f">
+	func <a title="View Source" href="">IntersectStrings</a>
+	<a class="permalink" href="#IntersectStrings">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IntersectStrings(a []string, b []string) []string</pre>
+</div>
+
+
+<p><p>Return the intersection of two string slices.</p>
+</p>
+
+
+<h3 id="Last" data-kind="f">
+	func <a title="View Source" href="">Last</a>
+	<a class="permalink" href="#Last">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Last(in interface{}) interface{}</pre>
+</div>
+
+
+<p><p>Returns the last element from the given slice, array or string; or nil.</p>
+</p>
+
+
+<h3 id="Len" data-kind="f">
+	func <a title="View Source" href="">Len</a>
+	<a class="permalink" href="#Len">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Len(in interface{}) int</pre>
+</div>
+
+
+<p><p>Returns the length of the given slice, array, or string.</p>
+</p>
+
+
+<h3 id="Map" data-kind="f">
+	func <a title="View Source" href="">Map</a>
+	<a class="permalink" href="#Map">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Map(in interface{}, fn MapFunc) []interface{}</pre>
+</div>
+
+
+<p><p>Returns a copy of the given slice with each element modified by the a given function.</p>
+</p>
+
+
+<h3 id="MapString" data-kind="f">
+	func <a title="View Source" href="">MapString</a>
+	<a class="permalink" href="#MapString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MapString(in interface{}, fn MapStringFunc) []string</pre>
+</div>
+
+
+<p><p>Returns a copy of the given slice with each element modified by the a given function, then<br>converted to a string.</p>
+</p>
+
+
+<h3 id="Or" data-kind="f">
+	func <a title="View Source" href="">Or</a>
+	<a class="permalink" href="#Or">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Or(in ...interface{}) interface{}</pre>
+</div>
+
+
+<p><p>Returns the first item that is not the zero value for that value’s type.</p>
+</p>
+
+
+<h3 id="OrString" data-kind="f">
+	func <a title="View Source" href="">OrString</a>
+	<a class="permalink" href="#OrString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrString(in ...string) string</pre>
+</div>
+
+
+<p><p>Returns the first item that is not a zero-length string.</p>
+</p>
+
+
+<h3 id="Rest" data-kind="f">
+	func <a title="View Source" href="">Rest</a>
+	<a class="permalink" href="#Rest">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Rest(in interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Returns the all but the first element from the given slice, array or string; or nil.</p>
+</p>
+
+
+<h3 id="Slice" data-kind="f">
+	func <a title="View Source" href="">Slice</a>
+	<a class="permalink" href="#Slice">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Slice(slice interface{}, from int, to int) []interface{}</pre>
+</div>
+
+
+<p><p>Returns a new slice with only the specified subset of items included.  In addition to the<br>normal slice index rules in Golang, negative indices are also supported.  If a negative index is<br>given for the from and/or to values, the index will be treated as being relative to the end of the<br>given slice. For example:<br><br>	Slice([]interface{}{1,2,3,4,5}, -5, -1)  // returns []interface{}{1, 2, 3, 4, 5}<br>	Slice([]interface{}{1,2,3,4,5}, -2, -1)  // returns []interface{}{4, 5}<br>	Slice([]interface{}{1,2,3,4,5}, -1, -1)  // returns []interface{}{5}<br>	Slice([]interface{}{1,2,3,4,5}, -4, -2)  // returns []interface{}{2, 3, 4}</p>
+</p>
+
+
+<h3 id="Sliceify" data-kind="f">
+	func <a title="View Source" href="">Sliceify</a>
+	<a class="permalink" href="#Sliceify">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Sliceify(in interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Takes some input value and returns it as a slice.</p>
+</p>
+
+
+<h3 id="StringSlice" data-kind="f">
+	func <a title="View Source" href="">StringSlice</a>
+	<a class="permalink" href="#StringSlice">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func StringSlice(slice interface{}, from int, to int) []string</pre>
+</div>
+
+
+<p><p>Same as slice, but returns strings.</p>
+</p>
+
+
+<h3 id="Stringify" data-kind="f">
+	func <a title="View Source" href="">Stringify</a>
+	<a class="permalink" href="#Stringify">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Stringify(in interface{}) []string</pre>
+</div>
+
+
+<p><p>Converts all elements of the given interface slice to strings using the “%v”<br>format string via the fmt package.</p>
+</p>
+
+
+<h3 id="TrimSpace" data-kind="f">
+	func <a title="View Source" href="">TrimSpace</a>
+	<a class="permalink" href="#TrimSpace">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func TrimSpace(in interface{}) []string</pre>
+</div>
+
+
+<p><p>Trims the whitespace from each element in the given array.</p>
+</p>
+
+
+<h3 id="Unique" data-kind="f">
+	func <a title="View Source" href="">Unique</a>
+	<a class="permalink" href="#Unique">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Unique(in interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Returns a new slice with only unique elements from the given interface included.</p>
+</p>
+
+
+<h3 id="UniqueStrings" data-kind="f">
+	func <a title="View Source" href="">UniqueStrings</a>
+	<a class="permalink" href="#UniqueStrings">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func UniqueStrings(in interface{}) []string</pre>
+</div>
+
+
+<p><p>Returns a new slice with only unique string elements from the given interface included.</p>
+</p>
+
+
+
+
+
+<h3 id="CompareFunc" data-kind="t">
+	type
+	<a title="View Source" href="">CompareFunc</a>
+	<a class="permalink" href="#CompareFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type CompareFunc func(i int, first interface{}, second interface{}) bool // {}
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="IterationFunc" data-kind="t">
+	type
+	<a title="View Source" href="">IterationFunc</a>
+	<a class="permalink" href="#IterationFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type IterationFunc = utils.IterationFunc</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="MapFunc" data-kind="t">
+	type
+	<a title="View Source" href="">MapFunc</a>
+	<a class="permalink" href="#MapFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type MapFunc func(i int, value interface{}) interface{}</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="MapStringFunc" data-kind="t">
+	type
+	<a title="View Source" href="">MapStringFunc</a>
+	<a class="permalink" href="#MapStringFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type MapStringFunc func(i int, value string) string</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

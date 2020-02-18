@@ -1,0 +1,696 @@
+{
+    "Name": "convutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/convutil",
+    "ImportPath": "convutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "",
+    "MainFunction": false,
+    "CommentWordCount": 0,
+    "LineCount": 580,
+    "SourceLineCount": 496,
+    "FunctionCount": 15,
+    "TypeCount": 4,
+    "ConstantCount": 49,
+    "VariableCount": 1,
+    "Statistics": {
+        "Mean": 0,
+        "StdDev": 0,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0,
+        "Minimum": 0,
+        "Maximum": 0
+    },
+    "Files": [
+        {
+            "Name": "convutil.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/mathutil",
+                    "Alias": "mathutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/martinlindhe/unit",
+                    "Alias": "unit"
+                }
+            ],
+            "Size": 3732,
+            "LineCount": 192,
+            "SourceLineCount": 161,
+            "FunctionCount": 4,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 1
+        },
+        {
+            "Name": "convutil_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/assert",
+                    "Alias": "assert"
+                }
+            ],
+            "Size": 2478,
+            "LineCount": 64,
+            "SourceLineCount": 49,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "si.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/mathutil",
+                    "Alias": "mathutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                }
+            ],
+            "Size": 2690,
+            "LineCount": 120,
+            "SourceLineCount": 101,
+            "FunctionCount": 5,
+            "TypeCount": 2,
+            "ConstantCount": 30,
+            "VariableCount": 0
+        },
+        {
+            "Name": "types.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "unicode",
+                    "Alias": "unicode"
+                }
+            ],
+            "Size": 3813,
+            "LineCount": 204,
+            "SourceLineCount": 185,
+            "FunctionCount": 6,
+            "TypeCount": 2,
+            "ConstantCount": 19,
+            "VariableCount": 0
+        }
+    ],
+    "Constants": [
+        {
+            "Name": "AU",
+            "Immutable": true
+        },
+        {
+            "Name": "Atto",
+            "Immutable": true,
+            "Expression": "-18"
+        },
+        {
+            "Name": "Brontobyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1237940039285380274899124224"
+        },
+        {
+            "Name": "Byte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1"
+        },
+        {
+            "Name": "Celsius",
+            "Immutable": true
+        },
+        {
+            "Name": "Centi",
+            "Immutable": true,
+            "Expression": "-2"
+        },
+        {
+            "Name": "Deca",
+            "Immutable": true,
+            "Expression": "1"
+        },
+        {
+            "Name": "Deci",
+            "Immutable": true,
+            "Expression": "-1"
+        },
+        {
+            "Name": "Exa",
+            "Immutable": true,
+            "Expression": "18"
+        },
+        {
+            "Name": "Exabyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1152921504606846976"
+        },
+        {
+            "Name": "Fahrenheit",
+            "Immutable": true
+        },
+        {
+            "Name": "Feet",
+            "Immutable": true
+        },
+        {
+            "Name": "Femto",
+            "Immutable": true,
+            "Expression": "-15"
+        },
+        {
+            "Name": "GeneralUnits",
+            "Type": "UnitFamily",
+            "Immutable": true,
+            "Expression": "iota"
+        },
+        {
+            "Name": "Giga",
+            "Immutable": true,
+            "Expression": "9"
+        },
+        {
+            "Name": "Gigabyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1073741824"
+        },
+        {
+            "Name": "Hecto",
+            "Immutable": true,
+            "Expression": "2"
+        },
+        {
+            "Name": "Invalid",
+            "Type": "Unit",
+            "Immutable": true,
+            "Expression": "iota"
+        },
+        {
+            "Name": "Kelvin",
+            "Immutable": true
+        },
+        {
+            "Name": "Kilo",
+            "Immutable": true,
+            "Expression": "3"
+        },
+        {
+            "Name": "Kilobyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1024"
+        },
+        {
+            "Name": "KilometersPerHour",
+            "Immutable": true
+        },
+        {
+            "Name": "LengthUnits",
+            "Immutable": true
+        },
+        {
+            "Name": "Lightminutes",
+            "Immutable": true
+        },
+        {
+            "Name": "Lightseconds",
+            "Immutable": true
+        },
+        {
+            "Name": "Lightyears",
+            "Immutable": true
+        },
+        {
+            "Name": "Mega",
+            "Immutable": true,
+            "Expression": "6"
+        },
+        {
+            "Name": "Megabyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1048576"
+        },
+        {
+            "Name": "Meters",
+            "Immutable": true
+        },
+        {
+            "Name": "MetersPerSecond",
+            "Immutable": true
+        },
+        {
+            "Name": "Micro",
+            "Immutable": true,
+            "Expression": "-6"
+        },
+        {
+            "Name": "Miles",
+            "Immutable": true
+        },
+        {
+            "Name": "MilesPerHour",
+            "Immutable": true
+        },
+        {
+            "Name": "Milli",
+            "Immutable": true,
+            "Expression": "-3"
+        },
+        {
+            "Name": "Nano",
+            "Immutable": true,
+            "Expression": "-9"
+        },
+        {
+            "Name": "NauticalMiles",
+            "Immutable": true
+        },
+        {
+            "Name": "Peta",
+            "Immutable": true,
+            "Expression": "15"
+        },
+        {
+            "Name": "Petabyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1125899906842624"
+        },
+        {
+            "Name": "Pico",
+            "Immutable": true,
+            "Expression": "-12"
+        },
+        {
+            "Name": "SpeedUnits",
+            "Immutable": true
+        },
+        {
+            "Name": "TemperatureUnits",
+            "Immutable": true
+        },
+        {
+            "Name": "Tera",
+            "Immutable": true,
+            "Expression": "12"
+        },
+        {
+            "Name": "Terabyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1099511627776"
+        },
+        {
+            "Name": "Yocto",
+            "Immutable": true,
+            "Expression": "-24"
+        },
+        {
+            "Name": "Yotta",
+            "Type": "SIExponents",
+            "Immutable": true,
+            "Expression": "24"
+        },
+        {
+            "Name": "Yottabyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1208925819614629174706176"
+        },
+        {
+            "Name": "Zepto",
+            "Immutable": true,
+            "Expression": "-21"
+        },
+        {
+            "Name": "Zetta",
+            "Immutable": true,
+            "Expression": "21"
+        },
+        {
+            "Name": "Zettabyte",
+            "Type": "Bytes",
+            "Immutable": true,
+            "Expression": "1180591620717411303424"
+        }
+    ],
+    "Variables": [
+        {
+            "Name": "ConvertRoundToPlaces",
+            "Expression": "6"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "Convert",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "from",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "to",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "Convert(in interface{}, from interface{}, to interface{}) (float64, error)",
+            "Source": "ewoJaWYgdiwgZXJyIDo9IEV4YWN0Q29udmVydChpbiwgZnJvbSwgdG8pOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gbWF0aHV0aWwuUm91bmRQbGFjZXModiwgQ29udmVydFJvdW5kVG9QbGFjZXMpLCBuaWwKCX0gZWxzZSB7CgkJcmV0dXJuIDAsIGVycgoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExactConvert",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "from",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "to",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ExactConvert(in interface{}, from interface{}, to interface{}) (float64, error)",
+            "Source": "ewoJZnJvbVUgOj0gcGFyc2VVbml0KGZyb20pCgl0b1UgOj0gcGFyc2VVbml0KHRvKQoJaWYgIWZyb21VLklzVmFsaWQoKSB7CgkJcmV0dXJuIDAsIGZtdC5FcnJvcmYoImludmFsaWQgJ2Zyb20nIHVuaXQiKQoJfQoJaWYgIXRvVS5Jc1ZhbGlkKCkgewoJCXJldHVybiAwLCBmbXQuRXJyb3JmKCJpbnZhbGlkICd0bycgdW5pdCIpCgl9CglpZiB2LCBlcnIgOj0gc3RyaW5ndXRpbC5Db252ZXJ0VG9GbG9hdChpbik7IGVyciA9PSBuaWwgewoJCWlmIGZyb20gPT0gdG8gewoJCQlyZXR1cm4gdiwgbmlsCgkJfQoJCWlmIGZyb21VLkZhbWlseSgpICE9IHRvVS5GYW1pbHkoKSB7CgkJCXJldHVybiAwLCBmbXQuRXJyb3JmKCJ1bml0cyAnJXYnIGFuZCAnJXYnIGFyZSBub3QgY29udmVydGlibGUgdG8gZWFjaCBvdGhlciIsIGZyb21VLCB0b1UpCgkJfQoJCWJhc2VDb252ZXJ0IDo9IGZ1bmMoKSBpbnRlcmZhY2V7fSB7CgkJCXN3aXRjaCBmcm9tVS5GYW1pbHkoKSB7CgkJCWNhc2UgVGVtcGVyYXR1cmVVbml0czoKCQkJCXJldHVybiBjb252ZXJ0VGVtcGVyYXR1cmUodiwgZnJvbVUsIHRvVSkKCQkJY2FzZSBTcGVlZFVuaXRzOgoJCQkJcmV0dXJuIGNvbnZlcnRTcGVlZCh2LCBmcm9tVSwgdG9VKQoJCQljYXNlIExlbmd0aFVuaXRzOgoJCQkJcmV0dXJuIGNvbnZlcnREaXN0YW5jZSh2LCBmcm9tVSwgdG9VKQoJCQl9CgkJCXJldHVybiBmbXQuRXJyb3JmKCJjYW5ub3QgY29udmVydCBmcm9tICV2IHRvICV2IiwgZnJvbSwgdG8pCgkJfQoJCWNvbnZlcnRlZCA6PSBiYXNlQ29udmVydCgpCgkJaWYgdkYsIG9rIDo9IGNvbnZlcnRlZC4oZmxvYXQ2NCk7IG9rIHsKCQkJcmV0dXJuIHZGLCBuaWwKCQl9IGVsc2UgaWYgZXJyLCBvayA6PSBjb252ZXJ0ZWQuKGVycm9yKTsgb2sgewoJCQlyZXR1cm4gMCwgZXJyCgkJfSBlbHNlIHsKCQkJcmV0dXJuIDAsIGZtdC5FcnJvcmYoInVuc3BlY2lmaWVkIGVycm9yIikKCQl9Cgl9IGVsc2UgewoJCXJldHVybiAwLCBlcnIKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustConvert",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "from",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "to",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "MustConvert(in interface{}, from interface{}, to interface{}) float64",
+            "Source": "ewoJaWYgdmFsdWUsIGVyciA6PSBDb252ZXJ0KGluLCBmcm9tLCB0byk7IGVyciA9PSBuaWwgewoJCXJldHVybiB2YWx1ZQoJfSBlbHNlIHsKCQlwYW5pYyhlcnIuRXJyb3IoKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustExactConvert",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "from",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "to",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "MustExactConvert(in interface{}, from interface{}, to interface{}) float64",
+            "Source": "ewoJaWYgdmFsdWUsIGVyciA6PSBDb252ZXJ0KGluLCBmcm9tLCB0byk7IGVyciA9PSBuaWwgewoJCXJldHVybiB2YWx1ZQoJfSBlbHNlIHsKCQlwYW5pYyhlcnIuRXJyb3IoKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestByteStringer",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestByteStringer(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IGFzc2VydC5OZXcodCkKCWFzc2VydC5FcXVhbChgMUJgLCBCeXRlLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGAxS0JgLCBLaWxvYnl0ZS5TdHJpbmcoKSkKCWFzc2VydC5FcXVhbChgMU1CYCwgTWVnYWJ5dGUuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDFHQmAsIEdpZ2FieXRlLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGAxVEJgLCBUZXJhYnl0ZS5TdHJpbmcoKSkKCWFzc2VydC5FcXVhbChgMVBCYCwgUGV0YWJ5dGUuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDFFQmAsIEV4YWJ5dGUuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDFaQmAsIFpldHRhYnl0ZS5TdHJpbmcoKSkKCWFzc2VydC5FcXVhbChgMVlCYCwgWW90dGFieXRlLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGAxQkJgLCBCcm9udG9ieXRlLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGA1MTJCYCwgKDUxMiAqIEJ5dGUpLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGA1MTJLQmAsICg1MTIgKiBLaWxvYnl0ZSkuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDUxMk1CYCwgKDUxMiAqIE1lZ2FieXRlKS5TdHJpbmcoKSkKCWFzc2VydC5FcXVhbChgNTEyR0JgLCAoNTEyICogR2lnYWJ5dGUpLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGA1MTJUQmAsICg1MTIgKiBUZXJhYnl0ZSkuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDUxMlBCYCwgKDUxMiAqIFBldGFieXRlKS5TdHJpbmcoKSkKCWFzc2VydC5FcXVhbChgNTEyRUJgLCAoNTEyICogRXhhYnl0ZSkuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDUxMlpCYCwgKDUxMiAqIFpldHRhYnl0ZSkuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDUxMllCYCwgKDUxMiAqIFlvdHRhYnl0ZSkuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDUxMkJCYCwgKDUxMiAqIEJyb250b2J5dGUpLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGAwLjVLQmAsIEJ5dGVzKDUxMikuVG8oS2lsb2J5dGUpKQoJYXNzZXJ0LkVxdWFsKGAwLjAwMDVNQmAsIEJ5dGVzKDUxMikuVG8oTWVnYWJ5dGUpKQoJYXNzZXJ0LkVxdWFsKGAwLjAwMDAwMDVHQmAsIEJ5dGVzKDUxMikuVG8oR2lnYWJ5dGUpKQoJYXNzZXJ0LkVxdWFsKGAwLjAwMDAwMDAwMDVUQmAsIEJ5dGVzKDUxMikuVG8oVGVyYWJ5dGUpKQoJYXNzZXJ0LkVxdWFsKGAwLjAwMDAwMDAwMDAwMDVQQmAsIEJ5dGVzKDUxMikuVG8oUGV0YWJ5dGUpKQoJYXNzZXJ0LkVxdWFsKGAwLjAwMDAwMDAwMDAwMDAwMDRFQmAsIEJ5dGVzKDUxMikuVG8oRXhhYnl0ZSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestConvert",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestConvert(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IGFzc2VydC5OZXcodCkKCWFzc2VydC5FcXVhbFZhbHVlcygwLCBNdXN0Q29udmVydCgzMiwgRmFocmVuaGVpdCwgQ2Vsc2l1cykpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMCwgTXVzdENvbnZlcnQoLTQ1OS42NywgRmFocmVuaGVpdCwgS2VsdmluKSkKCWFzc2VydC5FcXVhbFZhbHVlcygzMiwgTXVzdENvbnZlcnQoMCwgQ2Vsc2l1cywgRmFocmVuaGVpdCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMjczLjE1LCBNdXN0Q29udmVydCgwLCBDZWxzaXVzLCBLZWx2aW4pKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKC0yNzMuMTUsIE11c3RDb252ZXJ0KDAsIEtlbHZpbiwgQ2Vsc2l1cykpCglhc3NlcnQuRXF1YWxWYWx1ZXMoLTQ1OS42NywgTXVzdENvbnZlcnQoMCwgS2VsdmluLCBGYWhyZW5oZWl0KSkKCWFzc2VydC5FcXVhbFZhbHVlcygxNjA5LjM0NCwgTXVzdENvbnZlcnQoMSwgTWlsZXMsIE1ldGVycykpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMSwgTXVzdENvbnZlcnQoMTYwOS4zNDQsIE1ldGVycywgTWlsZXMpKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDQyMDAsIE11c3RDb252ZXJ0KDIuNjA5NzU5MDA3Mzk3LCBNaWxlcywgTWV0ZXJzKSkKCWFzc2VydC5FcXVhbFZhbHVlcygyLjYwOTc1OTAwMDAwMCwgTXVzdENvbnZlcnQoNDIwMCwgTWV0ZXJzLCBNaWxlcykpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMSwgTXVzdENvbnZlcnQoOS40NjA3MzA0NzI1ODA4ZSsxNSwgTWV0ZXJzLCBMaWdodHllYXJzKSkKCWFzc2VydC5FcXVhbFZhbHVlcyg5LjQ2MDczMDQ3MjU4MDhlKzE1LCBNdXN0Q29udmVydCgxLCBMaWdodHllYXJzLCBNZXRlcnMpKQp9",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "Bytes": {
+            "Name": "Bytes",
+            "MetaType": "float64",
+            "Methods": [
+                {
+                    "Name": "Auto",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Auto() (float64, string)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Convert",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "to",
+                            "Type": "Bytes"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Convert(to Bytes) (float64, string)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Format",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "format",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "as",
+                            "Type": "...Bytes"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Format(format string, as ...Bytes) string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "String",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "To",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "unit",
+                            "Type": "Bytes"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "To(unit Bytes) string",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Source": "dHlwZSBCeXRlcyBmbG9hdDY0"
+        },
+        "SIExponents": {
+            "Name": "SIExponents",
+            "MetaType": "int",
+            "Source": "dHlwZSBTSUV4cG9uZW50cyBpbnQ="
+        },
+        "Unit": {
+            "Name": "Unit",
+            "MetaType": "int",
+            "Methods": [
+                {
+                    "Name": "Family",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "UnitFamily"
+                        }
+                    ],
+                    "Signature": "Family() UnitFamily",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "IsValid",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "IsValid() bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "LongString",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "LongString() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "String",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MustParseUnit",
+                    "Arguments": [
+                        {
+                            "Name": "unit",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Unit"
+                        }
+                    ],
+                    "Signature": "MustParseUnit(unit string) Unit",
+                    "Source": "ewoJaWYgdW5pdCwgZXJyIDo9IFBhcnNlVW5pdCh1bml0KTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIHVuaXQKCX0gZWxzZSB7CgkJcGFuaWMoZXJyLkVycm9yKCkpCgl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "ParseUnit",
+                    "Arguments": [
+                        {
+                            "Name": "unit",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Unit"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "ParseUnit(unit string) (Unit, error)",
+                    "Source": "ewoJdW5pdCA9IHN0cmluZ3MuVHJpbVNwYWNlKHVuaXQpCglzd2l0Y2ggdW5pdCB7CgljYXNlIGBDYDoKCQlyZXR1cm4gQ2Vsc2l1cywgbmlsCgljYXNlIGBGYDoKCQlyZXR1cm4gRmFocmVuaGVpdCwgbmlsCgljYXNlIGBLYDoKCQlyZXR1cm4gS2VsdmluLCBuaWwKCWNhc2UgYEtQSGA6CgkJcmV0dXJuIEtpbG9tZXRlcnNQZXJIb3VyLCBuaWwKCWNhc2UgYE1QSGA6CgkJcmV0dXJuIE1pbGVzUGVySG91ciwgbmlsCgljYXNlIGBMeWA6CgkJcmV0dXJuIExpZ2h0eWVhcnMsIG5pbAoJY2FzZSBgTG1gOgoJCXJldHVybiBMaWdodG1pbnV0ZXMsIG5pbAoJY2FzZSBgTHNgOgoJCXJldHVybiBMaWdodHNlY29uZHMsIG5pbAoJY2FzZSBgTWAsIGBOTWA6CgkJcmV0dXJuIE5hdXRpY2FsTWlsZXMsIG5pbAoJfQoJdW5pdCA9IHN0cmluZ3MuVG9Mb3dlcih1bml0KQoJdW5pdCA9IHN0cmluZ3MuTWFwKGZ1bmMociBydW5lKSBydW5lIHsKCQlzd2l0Y2ggciB7CgkJY2FzZSAnLScsICcvJywgJ8KwJzoKCQkJcmV0dXJuIHIKCQlkZWZhdWx0OgoJCQlpZiB1bmljb2RlLklzTGV0dGVyKHIpIHx8IHVuaWNvZGUuSXNOdW1iZXIocikgewoJCQkJcmV0dXJuIHIKCQkJfQoJCX0KCQlyZXR1cm4gLTEKCX0sIHVuaXQpCglzd2l0Y2ggdW5pdCB7CgljYXNlIGBhdWAsIGBhc3Ryb25vbWljYWwgdW5pdGAsIGBhc3Ryb25vbWljYWwgdW5pdHNgOgoJCXJldHVybiBBVSwgbmlsCgljYXNlIGBjZWxzaXVzYCwgYMKwY2AsIGBjwrBgOgoJCXJldHVybiBDZWxzaXVzLCBuaWwKCWNhc2UgYGZhaHJlbmhlaXRgLCBgwrBmYCwgYGbCsGA6CgkJcmV0dXJuIEZhaHJlbmhlaXQsIG5pbAoJY2FzZSBgZm9vdGAsIGBmZWV0YDoKCQlyZXR1cm4gRmVldCwgbmlsCgljYXNlIGBrZWx2aW5gLCBgwrBrYCwgYGvCsGA6CgkJcmV0dXJuIEtlbHZpbiwgbmlsCgljYXNlIGBraWxvbWV0ZXIvaG91cmAsIGBraWxvbWV0ZXIgcGVyIGhvdXJgLCBga2lsb21ldGVycy9ob3VyYCwgYGtpbG9tZXRlcnMgcGVyIGhvdXJgLCBga3BoYCwgYGttL2hgOgoJCXJldHVybiBLaWxvbWV0ZXJzUGVySG91ciwgbmlsCgljYXNlIGBsaWdodG1pbnV0ZWAsIGBsaWdodG1pbnV0ZXNgLCBgbG1gOgoJCXJldHVybiBMaWdodG1pbnV0ZXMsIG5pbAoJY2FzZSBgbGlnaHRzZWNvbmRgLCBgbGlnaHRzZWNvbmRzYCwgYGxzYDoKCQlyZXR1cm4gTGlnaHRzZWNvbmRzLCBuaWwKCWNhc2UgYGxpZ2h0eWVhcmAsIGBsaWdodHllYXJzYCwgYGx5YDoKCQlyZXR1cm4gTGlnaHR5ZWFycywgbmlsCgljYXNlIGBtZXRlcmAsIGBtZXRlcnNgLCBgbWA6CgkJcmV0dXJuIE1ldGVycywgbmlsCgljYXNlIGBtaWxlYCwgYG1pbGVzYCwgYG1pYDoKCQlyZXR1cm4gTWlsZXMsIG5pbAoJY2FzZSBgbWlsZS9ob3VyYCwgYG1pbGUgcGVyIGhvdXJgLCBgbWlsZXMvaG91cmAsIGBtaWxlcyBwZXIgaG91cmAsIGBtcGhgOgoJCXJldHVybiBNaWxlc1BlckhvdXIsIG5pbAoJY2FzZSBgbWV0ZXIgcGVyIHNlY29uZGAsIGBtZXRlci9zZWNvbmRgLCBgbWV0ZXJzIHBlciBzZWNvbmRgLCBgbWV0ZXJzL3NlY29uZGAsIGBtcHNgLCBgbS9zYDoKCQlyZXR1cm4gTWV0ZXJzUGVyU2Vjb25kLCBuaWwKCWNhc2UgYG5hdXRpY2FsIG1pbGVgLCBgbmF1dGljYWwgbWlsZXNgLCBgbm1gLCBgbm1pYDoKCQlyZXR1cm4gTmF1dGljYWxNaWxlcywgbmlsCgl9CglyZXR1cm4gSW52YWxpZCwgZm10LkVycm9yZigiQ2Fubm90IHBhcnNlIHVuaXQgJyVzJyIsIHVuaXQpCn0=",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Source": "dHlwZSBVbml0IGludA=="
+        },
+        "UnitFamily": {
+            "Name": "UnitFamily",
+            "MetaType": "int",
+            "Source": "dHlwZSBVbml0RmFtaWx5IGludA=="
+        }
+    }
+}

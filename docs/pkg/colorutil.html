@@ -1,0 +1,1041 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">colorutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 84%</span>
+<h2 id="pkg-overview">package colorutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/colorutil"</code>
+</p>
+
+
+<p>Utilities for parsing and manipulating colors.</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#BenchmarkKelvinToColor">func BenchmarkKelvinToColor(b *testing.B)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Equals">func Equals(first interface{}, second interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#HslToRgb">func HslToRgb(hue float64, saturation float64, lightness float64) (uint8, uint8, uint8)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#HsvToRgb">func HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#KelvinToColor">func KelvinToColor(kelvin int) color Color</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RgbToHsl">func RgbToHsl(r float64, g float64, b float64) (float64, float64, float64)</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#Color">type Color</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.MustParse">
+					func MustParse(value interface{}) Color
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.Parse">
+					func Parse(value interface{}) (Color, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.Darken">
+					func Darken(in interface{}, percent int) (Color, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.Lighten">
+					func Lighten(in interface{}, percent int) (Color, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.Saturate">
+					func Saturate(in interface{}, percent int) (Color, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.Desaturate">
+					func Desaturate(in interface{}, percent int) (Color, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.AdjustHue">
+					func AdjustHue(in interface{}, degrees float64) (Color, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.MixN">
+					func MixN(first interface{}, second interface{}, weight float64) (Color, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.Mix">
+					func Mix(first interface{}, second interface{}) (Color, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.Equals">
+					func
+					(self Color)
+					Equals(other interface{}) bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.HSI">
+					func
+					(self Color)
+					HSI() (float64, float64, float64)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.HSL">
+					func
+					(self Color)
+					HSL() (float64, float64, float64)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.HSV">
+					func
+					(self Color)
+					HSV() (float64, float64, float64)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.RGBA">
+					func
+					(self Color)
+					RGBA() (uint32, uint32, uint32, uint32)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Color.RGBA255">
+					func
+					(self Color)
+					RGBA255() (uint8, uint8, uint8, uint8)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Color.String">
+					func
+					(self Color)
+					String() string
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Color.StringHSLA">
+					func
+					(self Color)
+					StringHSLA() string
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Color.StringRGBA">
+					func
+					(self Color)
+					StringRGBA() string
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="colortemp.go">colortemp.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">88</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="colortemp_test.go">colortemp_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">76</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="colorutil.go">colorutil.go</a>
+			
+		</td>
+		<td class="text-right">14KB</td>
+		<td class="text-right">454</td>
+		<td class="text-right">22</td>
+		<td class="text-right">1</td>
+		<td class="text-right">4</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="colorutil_test.go">colorutil_test.go</a>
+			
+		</td>
+		<td class="text-right">12KB</td>
+		<td class="text-right">270</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="HSI">HSI    </span> = 
+const <span id="HSL">HSL    </span> = 
+const <span id="HSV">HSV    </span> = 
+const <span id="Invalid">Invalid</span> = iota
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="BenchmarkKelvinToColor" data-kind="f">
+	func <a title="View Source" href="">BenchmarkKelvinToColor</a>
+	<a class="permalink" href="#BenchmarkKelvinToColor">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func BenchmarkKelvinToColor(b *testing.B)</pre>
+</div>
+
+
+<p><p>This benchmark is here both to validate the speed, but also to ensure none of this<br>wild floating point math accumulates any noticable errors.</p>
+</p>
+
+
+<h3 id="Equals" data-kind="f">
+	func <a title="View Source" href="">Equals</a>
+	<a class="permalink" href="#Equals">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Equals(first interface{}, second interface{}) bool</pre>
+</div>
+
+
+<p><p>Return whether two colors are equivalent in the 24-bit RGB (RGB255) color space.</p>
+</p>
+
+
+<h3 id="HslToRgb" data-kind="f">
+	func <a title="View Source" href="">HslToRgb</a>
+	<a class="permalink" href="#HslToRgb">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func HslToRgb(hue float64, saturation float64, lightness float64) (uint8, uint8, uint8)</pre>
+</div>
+
+
+<p><p>Given HSL values (where hue is given in degrees (out of 360°), saturation<br>and lightness are [0, 1]), return the corresponding RGB values (where each value<br>is [0, 255]).</p>
+</p>
+
+
+<h3 id="HsvToRgb" data-kind="f">
+	func <a title="View Source" href="">HsvToRgb</a>
+	<a class="permalink" href="#HsvToRgb">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)</pre>
+</div>
+
+
+<p><p>Given HSL values (where hue is given in degrees (out of 360°), saturation<br>and value are [0, 1]), return the corresponding RGB values (where each value<br>is [0, 255]).</p>
+</p>
+
+
+<h3 id="KelvinToColor" data-kind="f">
+	func <a title="View Source" href="">KelvinToColor</a>
+	<a class="permalink" href="#KelvinToColor">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func KelvinToColor(kelvin int) color Color</pre>
+</div>
+
+
+<p><p>Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.<br>This function works best between 1000K and 40000K.</p>
+</p>
+
+
+<h3 id="RgbToHsl" data-kind="f">
+	func <a title="View Source" href="">RgbToHsl</a>
+	<a class="permalink" href="#RgbToHsl">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RgbToHsl(r float64, g float64, b float64) (float64, float64, float64)</pre>
+</div>
+
+
+<p><p>Given RGB values (where each value is [0, 255]), return the hue (in degrees), saturation,<br>and lightness (where each is [0, 1]).</p>
+</p>
+
+
+
+
+
+<h3 id="Color" data-kind="t">
+	type
+	<a title="View Source" href="">Color</a>
+	<a class="permalink" href="#Color">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type Color struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="MustParse" data-kind="f">
+	func <a title="View Source" href="">MustParse</a>
+	<a class="permalink" href="#MustParse">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustParse(value interface{}) Color</pre>
+</div>
+
+<p><p>Parse the given value into a Color or panic.</p>
+</p>
+
+
+
+
+<h4 id="Parse" data-kind="f">
+	func <a title="View Source" href="">Parse</a>
+	<a class="permalink" href="#Parse">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Parse(value interface{}) (Color, error)</pre>
+</div>
+
+<p><p>Parse the given value into a Color or return an error.</p>
+</p>
+
+
+
+
+<h4 id="Darken" data-kind="f">
+	func <a title="View Source" href="">Darken</a>
+	<a class="permalink" href="#Darken">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Darken(in interface{}, percent int) (Color, error)</pre>
+</div>
+
+<p><p>Darken the given color by a certain percent.  Consistent with the results of the<br>Sass darken() function.</p>
+</p>
+
+
+
+
+<h4 id="Lighten" data-kind="f">
+	func <a title="View Source" href="">Lighten</a>
+	<a class="permalink" href="#Lighten">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Lighten(in interface{}, percent int) (Color, error)</pre>
+</div>
+
+<p><p>Lighten the given color by a certain percent.  Consistent with the results of the<br>Sass lighten() function.</p>
+</p>
+
+
+
+
+<h4 id="Saturate" data-kind="f">
+	func <a title="View Source" href="">Saturate</a>
+	<a class="permalink" href="#Saturate">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Saturate(in interface{}, percent int) (Color, error)</pre>
+</div>
+
+<p><p>Saturate the given color by a certain percent.  Consistent with the results of the<br>Sass saturate() function.</p>
+</p>
+
+
+
+
+<h4 id="Desaturate" data-kind="f">
+	func <a title="View Source" href="">Desaturate</a>
+	<a class="permalink" href="#Desaturate">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Desaturate(in interface{}, percent int) (Color, error)</pre>
+</div>
+
+<p><p>Desaturate the given color by a certain percent.  Consistent with the results of the<br>Sass desaturate() function.</p>
+</p>
+
+
+
+
+<h4 id="AdjustHue" data-kind="f">
+	func <a title="View Source" href="">AdjustHue</a>
+	<a class="permalink" href="#AdjustHue">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func AdjustHue(in interface{}, degrees float64) (Color, error)</pre>
+</div>
+
+<p><p>Adjust the hue of the given color by the specified number of degrees.</p>
+</p>
+
+
+
+
+<h4 id="MixN" data-kind="f">
+	func <a title="View Source" href="">MixN</a>
+	<a class="permalink" href="#MixN">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MixN(first interface{}, second interface{}, weight float64) (Color, error)</pre>
+</div>
+
+<p><p>Mix two colors, producing a third.  The weight value specifies how much of the first color<br>should be included.  Consistent with the results of the Sass mix() function.</p>
+</p>
+
+
+
+
+<h4 id="Mix" data-kind="f">
+	func <a title="View Source" href="">Mix</a>
+	<a class="permalink" href="#Mix">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Mix(first interface{}, second interface{}) (Color, error)</pre>
+</div>
+
+<p><p>Mix two colors in equal parts, producing a third.</p>
+</p>
+
+
+
+
+
+
+
+<h4 id="Color.Equals" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">Equals</a>
+	<a class="permalink" href="#Equals">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) Equals(other interface{}) bool</pre>
+</div>
+
+<p><p>Return whether the given color is equal to this one in the 24-bit RGB (RGB255) color space</p>
+</p>
+
+
+
+
+<h4 id="Color.HSI" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">HSI</a>
+	<a class="permalink" href="#HSI">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) HSI() (float64, float64, float64)</pre>
+</div>
+
+<p><p>Return the current color as hue (out of 360°), saturation [0, 1], and intensity [0, 1].</p>
+</p>
+
+
+
+
+<h4 id="Color.HSL" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">HSL</a>
+	<a class="permalink" href="#HSL">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) HSL() (float64, float64, float64)</pre>
+</div>
+
+<p><p>Return the current color as hue (out of 360°), saturation [0, 1], and lightness [0, 1].</p>
+</p>
+
+
+
+
+<h4 id="Color.HSV" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">HSV</a>
+	<a class="permalink" href="#HSV">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) HSV() (float64, float64, float64)</pre>
+</div>
+
+<p><p>Return the current color as hue (out of 360°), saturation [0, 1], and value [0, 1].</p>
+</p>
+
+
+
+
+<h4 id="Color.RGBA" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">RGBA</a>
+	<a class="permalink" href="#RGBA">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) RGBA() (uint32, uint32, uint32, uint32)</pre>
+</div>
+
+<p><p>Return the current color as a 32-bit uint quad, implementing the color.Color interface.</p>
+</p>
+
+
+
+
+<h4 id="Color.RGBA255" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">RGBA255</a>
+	<a class="permalink" href="#RGBA255">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) RGBA255() (uint8, uint8, uint8, uint8)</pre>
+</div>
+
+<p><p>Return the current color as 4x 8-bit RGB values, each [0, 255].</p>
+</p>
+
+
+
+
+<h4 id="Color.String" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) String() string</pre>
+</div>
+
+
+
+
+<h4 id="Color.StringHSLA" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">StringHSLA</a>
+	<a class="permalink" href="#StringHSLA">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) StringHSLA() string</pre>
+</div>
+
+
+
+
+<h4 id="Color.StringRGBA" data-kind="f">
+	func
+	(self Color)
+	<a title="View Source" href="">StringRGBA</a>
+	<a class="permalink" href="#StringRGBA">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Color) StringRGBA() string</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

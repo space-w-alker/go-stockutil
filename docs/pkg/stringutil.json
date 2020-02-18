@@ -1,0 +1,2529 @@
+{
+    "Name": "stringutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/stringutil",
+    "ImportPath": "stringutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Utilities for converting and manipulating data to and from strings\n",
+    "MainFunction": false,
+    "CommentWordCount": 636,
+    "LineCount": 2440,
+    "SourceLineCount": 1893,
+    "FunctionCount": 79,
+    "TypeCount": 6,
+    "ConstantCount": 17,
+    "VariableCount": 6,
+    "Statistics": {
+        "Mean": 0.35,
+        "StdDev": 0.4661,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "001_stringutil_general_test.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 16026,
+            "LineCount": 572,
+            "SourceLineCount": 452,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "002_stringutil_convert_to_test.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "math",
+                    "Alias": "math"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 7134,
+            "LineCount": 320,
+            "SourceLineCount": 250,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "003_stringutil_tostring_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 2540,
+            "LineCount": 115,
+            "SourceLineCount": 92,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "004_stringutil_tobytestring_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                }
+            ],
+            "Size": 918,
+            "LineCount": 42,
+            "SourceLineCount": 36,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "scan_interceptor.go",
+            "Imports": [
+                {
+                    "PackageName": "bufio",
+                    "Alias": "bufio"
+                },
+                {
+                    "PackageName": "bytes",
+                    "Alias": "bytes"
+                }
+            ],
+            "Size": 4337,
+            "LineCount": 137,
+            "SourceLineCount": 83,
+            "FunctionCount": 5,
+            "TypeCount": 2,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "scan_interceptor_test.go",
+            "Imports": [
+                {
+                    "PackageName": "bufio",
+                    "Alias": "bufio"
+                },
+                {
+                    "PackageName": "bytes",
+                    "Alias": "bytes"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 6317,
+            "LineCount": 246,
+            "SourceLineCount": 195,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "stringutil.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "math",
+                    "Alias": "math"
+                },
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                },
+                {
+                    "PackageName": "regexp",
+                    "Alias": "regexp"
+                },
+                {
+                    "PackageName": "strconv",
+                    "Alias": "strconv"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "unicode",
+                    "Alias": "unicode"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
+                    "Alias": "rxutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/utils",
+                    "Alias": "utils"
+                },
+                {
+                    "PackageName": "github.com/jdkato/prose/tokenize",
+                    "Alias": "tokenize"
+                }
+            ],
+            "Size": 20449,
+            "LineCount": 916,
+            "SourceLineCount": 712,
+            "FunctionCount": 66,
+            "TypeCount": 3,
+            "ConstantCount": 17,
+            "VariableCount": 6
+        },
+        {
+            "Name": "uuid.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/base64",
+                    "Alias": "base64"
+                },
+                {
+                    "PackageName": "encoding/hex",
+                    "Alias": "hex"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/uuid",
+                    "Alias": "uuid"
+                },
+                {
+                    "PackageName": "github.com/jbenet/go-base58",
+                    "Alias": "go-base58"
+                }
+            ],
+            "Size": 1022,
+            "LineCount": 64,
+            "SourceLineCount": 52,
+            "FunctionCount": 8,
+            "TypeCount": 1,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "uuid_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 601,
+            "LineCount": 28,
+            "SourceLineCount": 21,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Constants": [
+        {
+            "Name": "Boolean",
+            "Immutable": true,
+            "Expression": "utils.Boolean"
+        },
+        {
+            "Name": "Bytes",
+            "Immutable": true,
+            "Expression": "utils.Bytes"
+        },
+        {
+            "Name": "Exa",
+            "Immutable": true,
+            "Expression": "6"
+        },
+        {
+            "Name": "Float",
+            "Immutable": true,
+            "Expression": "utils.Float"
+        },
+        {
+            "Name": "Giga",
+            "Immutable": true,
+            "Expression": "3"
+        },
+        {
+            "Name": "Integer",
+            "Immutable": true,
+            "Expression": "utils.Integer"
+        },
+        {
+            "Name": "Invalid",
+            "Type": "ConvertType",
+            "Immutable": true,
+            "Expression": "utils.Invalid"
+        },
+        {
+            "Name": "Kilo",
+            "Immutable": true,
+            "Expression": "1"
+        },
+        {
+            "Name": "Mega",
+            "Immutable": true,
+            "Expression": "2"
+        },
+        {
+            "Name": "Nil",
+            "Immutable": true,
+            "Expression": "utils.Nil"
+        },
+        {
+            "Name": "None",
+            "Type": "SiPrefix",
+            "Immutable": true,
+            "Expression": "0"
+        },
+        {
+            "Name": "Peta",
+            "Immutable": true,
+            "Expression": "5"
+        },
+        {
+            "Name": "String",
+            "Immutable": true,
+            "Expression": "utils.String"
+        },
+        {
+            "Name": "Tera",
+            "Immutable": true,
+            "Expression": "4"
+        },
+        {
+            "Name": "Time",
+            "Immutable": true,
+            "Expression": "utils.Time"
+        },
+        {
+            "Name": "Yotta",
+            "Immutable": true,
+            "Expression": "8"
+        },
+        {
+            "Name": "Zetta",
+            "Immutable": true,
+            "Expression": "7"
+        }
+    ],
+    "Variables": [
+        {
+            "Name": "BooleanFalseValues",
+            "Expression": "utils.BooleanFalseValues"
+        },
+        {
+            "Name": "BooleanTrueValues",
+            "Expression": "utils.BooleanTrueValues"
+        },
+        {
+            "Name": "DefaultDecimalSeparator",
+            "Expression": "`.`",
+            "Value": "."
+        },
+        {
+            "Name": "DefaultThousandsSeparator",
+            "Expression": "`,`",
+            "Value": ","
+        },
+        {
+            "Name": "NilStrings",
+            "Expression": "utils.NilStrings"
+        },
+        {
+            "Name": "TimeFormats",
+            "Expression": "utils.TimeFormats"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "Autotype",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "Autotype(in interface{}) interface{}",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkF1dG90eXBlKGluKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Camelize",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Camelize(in interface{}) string",
+            "Source": "ewoJcmV0dXJuIHN0cmluZ3MuSm9pbihUb2tlbml6ZUZ1bmMoTXVzdFN0cmluZyhpbiksIElzU2VwYXJhdG9yLCBmdW5jKHBhcnQgc3RyaW5nKSBbXXN0cmluZyB7CgkJcGFydCA9IHN0cmluZ3MuVHJpbVNwYWNlKHBhcnQpCgkJcGFydCA9IHN0cmluZ3MuVGl0bGUocGFydCkKCQlyZXR1cm4gW11zdHJpbmd7cGFydH0KCX0pLCBgYCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ConvertTo",
+            "Arguments": [
+                {
+                    "Name": "toType",
+                    "Type": "ConvertType"
+                },
+                {
+                    "Name": "inI",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ConvertTo(toType ConvertType, inI interface{}) (interface{}, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkNvbnZlcnRUbyh0b1R5cGUsIGluSSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ConvertToBool",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ConvertToBool(in interface{}) (bool, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkNvbnZlcnRUb0Jvb2woaW4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ConvertToBytes",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]byte"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ConvertToBytes(in interface{}) ([]byte, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkNvbnZlcnRUb0J5dGVzKGluKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ConvertToFloat",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ConvertToFloat(in interface{}) (float64, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkNvbnZlcnRUb0Zsb2F0KGluKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ConvertToInteger",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int64"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ConvertToInteger(in interface{}) (int64, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkNvbnZlcnRUb0ludGVnZXIoaW4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ConvertToString",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ConvertToString(in interface{}) (string, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkNvbnZlcnRUb1N0cmluZyhpbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ConvertToTime",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "time.Time"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ConvertToTime(in interface{}) (time.Time, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkNvbnZlcnRUb1RpbWUoaW4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DetectTimeFormat",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "DetectTimeFormat(in string) string",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkRldGVjdFRpbWVGb3JtYXQoaW4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Elide",
+            "Comment": "Truncate the given string to a certain number of characters.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "charcount",
+                    "Type": "int"
+                },
+                {
+                    "Name": "trailer",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Elide(in string, charcount int, trailer ...string) string",
+            "Source": "ewoJaWYgbGVuKGluKSA8IGNoYXJjb3VudCB7CgkJcmV0dXJuIGluCgl9CglyZXR1cm4gaW5bMDpjaGFyY291bnRdICsgc3RyaW5ncy5Kb2luKHRyYWlsZXIsIGBgKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ElideRight",
+            "Comment": "Truncate the given string to a certain number of characters from the end.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "charcount",
+                    "Type": "int"
+                },
+                {
+                    "Name": "leader",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "ElideRight(in string, charcount int, leader ...string) string",
+            "Source": "ewoJaWYgbGVuKGluKSA8IGNoYXJjb3VudCB7CgkJcmV0dXJuIGluCgl9CglyZXR1cm4gc3RyaW5ncy5Kb2luKGxlYWRlciwgYGApICsgaW5bbGVuKGluKS1jaGFyY291bnQ6XQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ElideWords",
+            "Comment": "Truncate the given string to a certain number of words.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "wordcount",
+                    "Type": "int"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "ElideWords(in string, wordcount int) string",
+            "Source": "ewoJd29yZHMgOj0gU3BsaXRXb3JkcyhpbikKCXdjIDo9IGxlbih3b3JkcykKCWlmIHdjID09IDAgewoJCXJldHVybiBgYAoJfSBlbHNlIGlmIHdjIDw9IHdvcmRjb3VudCB7CgkJcmV0dXJuIHN0cmluZ3MuSm9pbih3b3JkcywgYCBgKQoJfSBlbHNlIHsKCQl3b3JkcyA9IHdvcmRzWzA6d29yZGNvdW50XQoJCXJldHVybiBzdHJpbmdzLlRyaW1SaWdodEZ1bmMoc3RyaW5ncy5Kb2luKHdvcmRzLCBgIGApLCBmdW5jKHIgcnVuZSkgYm9vbCB7CgkJCXJldHVybiB1bmljb2RlLklzUHVuY3QocikgfHwgdW5pY29kZS5Jc1NwYWNlKHIpCgkJfSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExpandEnv",
+            "Comment": "Return the given string with environment variable substitution sequences\nexpanded and (optionally) formatted.  This function operates similarly to\nos.ExpandEnv, but accepts custom fmt.Printf formatting directives.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "ExpandEnv(in string) string",
+            "Source": "ewoJZm9yIHsKCQlpZiBtYXRjaCA6PSByeHV0aWwuTWF0Y2gocnhFbnZWYXJFeHByLCBpbik7IG1hdGNoICE9IG5pbCB7CgkJCWZvcm1hdCA6PSBtYXRjaC5Hcm91cChgZm10YCkKCQkJdmFybmFtZSA6PSBtYXRjaC5Hcm91cChgZW52YCkKCQkJZmFsbGJhY2sgOj0gbWF0Y2guR3JvdXAoYGZhbGxiYWNrYCkKCQkJaWYgdmFybmFtZSAhPSBgYCB7CgkJCQlpZiBmb3JtYXQgPT0gYGAgewoJCQkJCWZvcm1hdCA9IGAldmAKCQkJCX0KCQkJCXZhciB0eXBlZCBpbnRlcmZhY2V7fQoJCQkJaWYgdmFsIDo9IG9zLkdldGVudih2YXJuYW1lKTsgdmFsICE9IGBgIHsKCQkJCQl0eXBlZCA9IEF1dG90eXBlKHZhbCkKCQkJCX0gZWxzZSB7CgkJCQkJdHlwZWQgPSBBdXRvdHlwZShmYWxsYmFjaykKCQkJCX0KCQkJCWlmIHR5cGVkICE9IG5pbCB7CgkJCQkJaW4gPSBtYXRjaC5SZXBsYWNlR3JvdXAoMSwgZm10LlNwcmludGYoZm9ybWF0LCB0eXBlZCkpCgkJCQl9IGVsc2UgewoJCQkJCWluID0gbWF0Y2guUmVwbGFjZUdyb3VwKDEsIGZtdC5TcHJpbnRmKGZvcm1hdCwgYGApKQoJCQkJfQoJCQl9CgkJfSBlbHNlIHsKCQkJYnJlYWsKCQl9Cgl9CglyZXR1cm4gaW4KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "HasAnyPrefix",
+            "Comment": "HasPrefix tests whether the string s begins with any prefix in prefixes.",
+            "Arguments": [
+                {
+                    "Name": "s",
+                    "Type": "string"
+                },
+                {
+                    "Name": "prefixes",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "HasAnyPrefix(s string, prefixes ...string) bool",
+            "Source": "ewoJZm9yIF8sIHAgOj0gcmFuZ2UgcHJlZml4ZXMgewoJCWlmIHN0cmluZ3MuSGFzUHJlZml4KHMsIHApIHsKCQkJcmV0dXJuIHRydWUKCQl9Cgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "HasAnySuffix",
+            "Comment": "HasSuffix tests whether the string s begins with any suffix in suffixes.",
+            "Arguments": [
+                {
+                    "Name": "s",
+                    "Type": "string"
+                },
+                {
+                    "Name": "suffixes",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "HasAnySuffix(s string, suffixes ...string) bool",
+            "Source": "ewoJZm9yIF8sIHAgOj0gcmFuZ2Ugc3VmZml4ZXMgewoJCWlmIHN0cmluZ3MuSGFzU3VmZml4KHMsIHApIHsKCQkJcmV0dXJuIHRydWUKCQl9Cgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Hyphenate",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Hyphenate(in interface{}) string",
+            "Source": "ewoJcmV0dXJuIFNuYWtlaWZ5KGluLCAnLScpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsBoolean",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsBoolean(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzQm9vbGVhbihpbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsBooleanFalse",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsBooleanFalse(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzQm9vbGVhbkZhbHNlKGluKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsBooleanTrue",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsBooleanTrue(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzQm9vbGVhblRydWUoaW4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsFloat",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsFloat(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzRmxvYXQoaW4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsHexadecimal",
+            "Comment": "Returns whether the given string is a hexadecimal number. If the string is\nprefixed with \"0x\", the prefix is removed first. If length is greater than 0,\nthe length of the input (excluding prefix) is checked as well.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "length",
+                    "Type": "int"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsHexadecimal(in string, length int) bool",
+            "Source": "ewoJaW4gPSBzdHJpbmdzLlRyaW1QcmVmaXgoaW4sIGAweGApCglpZiBJc01peGVkQ2FzZShpbikgewoJCXJldHVybiBmYWxzZQoJfQoJaWYgcnhIZXhhZGVjaW1hbC5NYXRjaFN0cmluZyhpbikgewoJCWlmIGxlbmd0aCA8PSAwIHsKCQkJcmV0dXJuIHRydWUKCQl9IGVsc2UgaWYgbGVuKGluKSA9PSBsZW5ndGggewoJCQlyZXR1cm4gdHJ1ZQoJCX0KCX0KCXJldHVybiBmYWxzZQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsInteger",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsInteger(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzSW50ZWdlcihpbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsMixedCase",
+            "Comment": "Returns whether the letters (Unicode Catgeory 'L') in a given string are\nhomogenous in case (all upper-case or all lower-case).",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsMixedCase(in string) bool",
+            "Source": "ewoJdmFyIGhhc0xvd2VyIGJvb2wKCXZhciBoYXNVcHBlciBib29sCglmb3IgXywgYyA6PSByYW5nZSBpbiB7CgkJaWYgdW5pY29kZS5Jc0xldHRlcihjKSB7CgkJCWlmIHVuaWNvZGUuSXNMb3dlcihjKSB7CgkJCQloYXNMb3dlciA9IHRydWUKCQkJCWlmIGhhc1VwcGVyIHsKCQkJCQlyZXR1cm4gdHJ1ZQoJCQkJfQoJCQl9IGVsc2UgaWYgdW5pY29kZS5Jc1VwcGVyKGMpIHsKCQkJCWhhc1VwcGVyID0gdHJ1ZQoJCQkJaWYgaGFzTG93ZXIgewoJCQkJCXJldHVybiB0cnVlCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsNumeric",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsNumeric(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzTnVtZXJpYyhpbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsSeparator",
+            "Arguments": [
+                {
+                    "Name": "r",
+                    "Type": "rune"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsSeparator(r rune) bool",
+            "Source": "ewoJaWYgciA8PSAweDdGIHsKCQlzd2l0Y2ggewoJCWNhc2UgJzAnIDw9IHIgJiYgciA8PSAnOSc6CgkJCXJldHVybiBmYWxzZQoJCWNhc2UgJ2EnIDw9IHIgJiYgciA8PSAneic6CgkJCXJldHVybiBmYWxzZQoJCWNhc2UgJ0EnIDw9IHIgJiYgciA8PSAnWic6CgkJCXJldHVybiBmYWxzZQoJCX0KCQlyZXR1cm4gdHJ1ZQoJfQoJaWYgdW5pY29kZS5Jc0xldHRlcihyKSB8fCB1bmljb2RlLklzRGlnaXQocikgewoJCXJldHVybiBmYWxzZQoJfQoJcmV0dXJuIHVuaWNvZGUuSXNTcGFjZShyKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsSurroundedBy",
+            "Arguments": [
+                {
+                    "Name": "inI",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                },
+                {
+                    "Name": "suffix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsSurroundedBy(inI interface{}, prefix string, suffix string) bool",
+            "Source": "ewoJaWYgaW4sIGVyciA6PSBUb1N0cmluZyhpbkkpOyBlcnIgPT0gbmlsIHsKCQlpZiBzdHJpbmdzLkhhc1ByZWZpeChpbiwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChpbiwgc3VmZml4KSB7CgkJCXJldHVybiB0cnVlCgkJfQoJfQoJcmV0dXJuIGZhbHNlCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsTime",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsTime(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzVGltZShpbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "LongestCommonPrefix",
+            "Arguments": [
+                {
+                    "Name": "inputs",
+                    "Type": "[]string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "LongestCommonPrefix(inputs []string) string",
+            "Source": "ewoJb3V0cHV0IDo9IGBgCglzaG9ydGVzdElucHV0TGVuIDo9IDAKCWZvciBfLCBpbiA6PSByYW5nZSBpbnB1dHMgewoJCWlmIHNob3J0ZXN0SW5wdXRMZW4gPT0gMCB8fCBsZW4oaW4pIDwgc2hvcnRlc3RJbnB1dExlbiB7CgkJCXNob3J0ZXN0SW5wdXRMZW4gPSBsZW4oaW4pCgkJfQoJfQpMQ1BMb29wOgoJZm9yIGkgOj0gMDsgaSA8IHNob3J0ZXN0SW5wdXRMZW47IGkrKyB7CgkJdmFyIGN1cnJlbnQgYnl0ZQoJCWZvciBfLCBpbnB1dCA6PSByYW5nZSBpbnB1dHMgewoJCQlpZiBpIDwgbGVuKGlucHV0KSB7CgkJCQlpZiBjdXJyZW50ID09IDAgewoJCQkJCWN1cnJlbnQgPSBpbnB1dFtpXQoJCQkJfSBlbHNlIGlmIGN1cnJlbnQgIT0gaW5wdXRbaV0gewoJCQkJCWJyZWFrIExDUExvb3AKCQkJCX0KCQkJfQoJCX0KCQlpZiBjdXJyZW50ID09IDAgewoJCQlicmVhawoJCX0KCQlvdXRwdXQgPSBvdXRwdXQgKyBzdHJpbmcoY3VycmVudCkKCX0KCXJldHVybiBvdXRwdXQKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustBool",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fallbackOpt",
+                    "Type": "...bool"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "MustBool(in interface{}, fallbackOpt ...bool) bool",
+            "Source": "ewoJaWYgdiwgZXJyIDo9IENvbnZlcnRUb0Jvb2woaW4pOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gdgoJfSBlbHNlIGlmIGxlbihmYWxsYmFja09wdCkgPiAwIHsKCQlyZXR1cm4gZmFsbGJhY2tPcHRbMF0KCX0gZWxzZSB7CgkJcGFuaWMoZXJyLkVycm9yKCkpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustFloat",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fallbackOpt",
+                    "Type": "...float64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "MustFloat(in interface{}, fallbackOpt ...float64) float64",
+            "Source": "ewoJaWYgdiwgZXJyIDo9IENvbnZlcnRUb0Zsb2F0KGluKTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIHYKCX0gZWxzZSBpZiBsZW4oZmFsbGJhY2tPcHQpID4gMCB7CgkJcmV0dXJuIGZhbGxiYWNrT3B0WzBdCgl9IGVsc2UgewoJCXBhbmljKGVyci5FcnJvcigpKQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustInteger",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fallbackOpt",
+                    "Type": "...int64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int64"
+                }
+            ],
+            "Signature": "MustInteger(in interface{}, fallbackOpt ...int64) int64",
+            "Source": "ewoJaWYgdiwgZXJyIDo9IENvbnZlcnRUb0ludGVnZXIoaW4pOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gdgoJfSBlbHNlIGlmIGxlbihmYWxsYmFja09wdCkgPiAwIHsKCQlyZXR1cm4gZmFsbGJhY2tPcHRbMF0KCX0gZWxzZSB7CgkJcGFuaWMoZXJyLkVycm9yKCkpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustString",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fallbackOpt",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "MustString(in interface{}, fallbackOpt ...string) string",
+            "Source": "ewoJaWYgdiwgZXJyIDo9IFRvU3RyaW5nKGluKTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIHYKCX0gZWxzZSBpZiBsZW4oZmFsbGJhY2tPcHQpID4gMCB7CgkJcmV0dXJuIGZhbGxiYWNrT3B0WzBdCgl9IGVsc2UgewoJCXBhbmljKGVyci5FcnJvcigpKQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustTime",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fallbackOpt",
+                    "Type": "...time.Time"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "time.Time"
+                }
+            ],
+            "Signature": "MustTime(in interface{}, fallbackOpt ...time.Time) time.Time",
+            "Source": "ewoJaWYgdiwgZXJyIDo9IENvbnZlcnRUb1RpbWUoaW4pOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gdgoJfSBlbHNlIGlmIGxlbihmYWxsYmFja09wdCkgPiAwIHsKCQlyZXR1cm4gZmFsbGJhY2tPcHRbMF0KCX0gZWxzZSB7CgkJcGFuaWMoZXJyLkVycm9yKCkpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "PrefixEach",
+            "Comment": "Prefix each element in the given string slice with prefix.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "[]string"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "PrefixEach(in []string, prefix string) []string",
+            "Source": "ewoJcmV0dXJuIFdyYXBFYWNoKGluLCBwcmVmaXgsIGBgKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "PrefixIf",
+            "Comment": "Prefix the given string if it is non-empty",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "PrefixIf(in string, prefix string) string",
+            "Source": "ewoJaWYgIXR5cGV1dGlsLklzWmVybyhpbikgewoJCWluID0gcHJlZml4ICsgaW4KCX0KCXJldHVybiBpbgp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "PrefixLines",
+            "Comment": "Takes the given string, splits it into lines, and prefixes each line with the given prefix string.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "PrefixLines(in interface{}, prefix string) string",
+            "Source": "ewoJbGluZXMgOj0gU3BsaXRMaW5lcyhpbiwgIlxuIikKCWZvciBpLCBsaW5lIDo9IHJhbmdlIGxpbmVzIHsKCQlsaW5lc1tpXSA9IHByZWZpeCArIGxpbmUKCX0KCXJldHVybiBzdHJpbmdzLkpvaW4obGluZXMsICJcbiIpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "RelaxedEqual",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "second",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "RelaxedEqual(first interface{}, second interface{}) (bool, error)",
+            "Source": "ewoJaWYgcmVmbGVjdC5EZWVwRXF1YWwoZmlyc3QsIHNlY29uZCkgewoJCXJldHVybiB0cnVlLCBuaWwKCX0gZWxzZSBpZiBJc051bWVyaWMoZmlyc3QpICYmIElzTnVtZXJpYyhzZWNvbmQpIHsKCQlpZiBmViwgZXJyIDo9IENvbnZlcnRUb0Zsb2F0KGZpcnN0KTsgZXJyID09IG5pbCB7CgkJCWlmIHNWLCBlcnIgOj0gQ29udmVydFRvRmxvYXQoc2Vjb25kKTsgZXJyID09IG5pbCB7CgkJCQlyZXR1cm4gKGZWID09IHNWKSwgbmlsCgkJCX0gZWxzZSB7CgkJCQlyZXR1cm4gZmFsc2UsIGVycgoJCQl9CgkJfSBlbHNlIHsKCQkJcmV0dXJuIGZhbHNlLCBlcnIKCQl9Cgl9IGVsc2UgaWYgSXNCb29sZWFuVHJ1ZShmaXJzdCkgJiYgSXNCb29sZWFuVHJ1ZShzZWNvbmQpIHsKCQlyZXR1cm4gdHJ1ZSwgbmlsCgl9IGVsc2UgaWYgSXNCb29sZWFuRmFsc2UoZmlyc3QpICYmIElzQm9vbGVhbkZhbHNlKHNlY29uZCkgewoJCXJldHVybiB0cnVlLCBuaWwKCX0gZWxzZSBpZiBJc1RpbWUoZmlyc3QpICYmIElzVGltZShzZWNvbmQpIHsKCQlpZiBmViwgZXJyIDo9IENvbnZlcnRUb1RpbWUoZmlyc3QpOyBlcnIgPT0gbmlsIHsKCQkJaWYgc1YsIGVyciA6PSBDb252ZXJ0VG9UaW1lKHNlY29uZCk7IGVyciA9PSBuaWwgewoJCQkJcmV0dXJuIGZWLkVxdWFsKHNWKSwgbmlsCgkJCX0gZWxzZSB7CgkJCQlyZXR1cm4gZmFsc2UsIGVycgoJCQl9CgkJfSBlbHNlIHsKCQkJcmV0dXJuIGZhbHNlLCBlcnIKCQl9Cgl9IGVsc2UgewoJCWlmIGZWLCBlcnIgOj0gVG9TdHJpbmcoZmlyc3QpOyBlcnIgPT0gbmlsIHsKCQkJaWYgc1YsIGVyciA6PSBUb1N0cmluZyhzZWNvbmQpOyBlcnIgPT0gbmlsIHsKCQkJCXJldHVybiAoZlYgPT0gc1YpLCBuaWwKCQkJfSBlbHNlIHsKCQkJCXJldHVybiBmYWxzZSwgZXJyCgkJCX0KCQl9IGVsc2UgewoJCQlyZXR1cm4gZmFsc2UsIGVycgoJCX0KCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Snakeify",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "separator",
+                    "Type": "rune"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Snakeify(in interface{}, separator rune) string",
+            "Source": "ewoJaW5TIDo9IHN0cmluZ3MuTWFwKGZ1bmMociBydW5lKSBydW5lIHsKCQlpZiB1bmljb2RlLklzU3BhY2UocikgewoJCQlyZXR1cm4gc2VwYXJhdG9yCgkJfSBlbHNlIGlmIHVuaWNvZGUuSXNQdW5jdChyKSAmJiBzZXBhcmF0b3IgIT0gciB7CgkJCXJldHVybiBzZXBhcmF0b3IKCQl9IGVsc2UgewoJCQlyZXR1cm4gcgoJCX0KCX0sIE11c3RTdHJpbmcoaW4pKQoJb3V0IDo9IG1ha2UoW11ydW5lLCAwKQoJcnVuZXMgOj0gW11ydW5lKGluUykKCXNlcGZuIDo9IGZ1bmMoaSBpbnQpIGJvb2wgewoJCXJldHVybiBpID49IDAgJiYgaSA8IGxlbihydW5lcykgJiYgdW5pY29kZS5Jc0xvd2VyKHJ1bmVzW2ldKQoJfQoJZm9yIGksIHIgOj0gcmFuZ2UgcnVuZXMgewoJCWlmIHVuaWNvZGUuSXNVcHBlcihyKSB7CgkJCXIgPSB1bmljb2RlLlRvTG93ZXIocikKCQkJaWYgaSA+IDAgJiYgcnVuZXNbaS0xXSAhPSBzZXBhcmF0b3IgJiYgKHNlcGZuKGktMSkgfHwgc2VwZm4oaSsxKSkgewoJCQkJb3V0ID0gYXBwZW5kKG91dCwgc2VwYXJhdG9yKQoJCQl9CgkJfQoJCW91dCA9IGFwcGVuZChvdXQsIHIpCgl9CglyZXR1cm4gc3RyaW5nKG91dCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SplitLines",
+            "Comment": "Split the given input into lines.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "delimiter",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "SplitLines(in interface{}, delimiter string) []string",
+            "Source": "ewoJdmFyIGJsb2Igc3RyaW5nCglpZiBiLCBvayA6PSBpbi4oW11ieXRlKTsgb2sgewoJCWJsb2IgPSBzdHJpbmcoYikKCX0gZWxzZSB7CgkJYmxvYiA9IHR5cGV1dGlsLlN0cmluZyhpbikKCX0KCXJldHVybiBzdHJpbmdzLlNwbGl0KGJsb2IsIGRlbGltaXRlcikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SplitPair",
+            "Comment": "Split the given string into two parts.  If there is only one resulting part,\nthat part will be the first return value and the second return value will be empty.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "delimiter",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SplitPair(in string, delimiter string) (string, string)",
+            "Source": "ewoJcGFydHMgOj0gc3RyaW5ncy5TcGxpdChpbiwgZGVsaW1pdGVyKQoJc3dpdGNoIGxlbihwYXJ0cykgewoJY2FzZSAxOgoJCXJldHVybiBwYXJ0c1swXSwgYGAKCWRlZmF1bHQ6CgkJcmV0dXJuIHBhcnRzWzBdLCBzdHJpbmdzLkpvaW4ocGFydHNbMTpdLCBkZWxpbWl0ZXIpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SplitPairRight",
+            "Comment": "Split the given string into two parts from the right. If there is only one resulting part,\nthat part will be the first return value and the second return value will be empty.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "delimiter",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SplitPairRight(in string, delimiter string) (string, string)",
+            "Source": "ewoJcGFydHMgOj0gc3RyaW5ncy5TcGxpdChpbiwgZGVsaW1pdGVyKQoJc3dpdGNoIGxlbihwYXJ0cykgewoJY2FzZSAxOgoJCXJldHVybiBwYXJ0c1swXSwgYGAKCWRlZmF1bHQ6CgkJcmV0dXJuIHN0cmluZ3MuSm9pbihwYXJ0c1swOmxlbihwYXJ0cyktMV0sIGRlbGltaXRlciksIHBhcnRzW2xlbihwYXJ0cyktMV0KCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SplitPairRightTrailing",
+            "Comment": "Split the given string into two parts.  If there is only one resulting part,\nthat part will be the second return value and the first return value will be empty.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "delimiter",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SplitPairRightTrailing(in string, delimiter string) (string, string)",
+            "Source": "ewoJZmlyc3QsIHJlc3QgOj0gU3BsaXRQYWlyUmlnaHQoaW4sIGRlbGltaXRlcikKCWlmIHJlc3QgPT0gYGAgewoJCXJldHVybiByZXN0LCBmaXJzdAoJfSBlbHNlIHsKCQlyZXR1cm4gZmlyc3QsIHJlc3QKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SplitPairTrailing",
+            "Comment": "Split the given string into two parts.  If there is only one resulting part,\nthat part will be the second return value and the first return value will be empty.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "delimiter",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SplitPairTrailing(in string, delimiter string) (string, string)",
+            "Source": "ewoJZmlyc3QsIHJlc3QgOj0gU3BsaXRQYWlyKGluLCBkZWxpbWl0ZXIpCglpZiByZXN0ID09IGBgIHsKCQlyZXR1cm4gcmVzdCwgZmlyc3QKCX0gZWxzZSB7CgkJcmV0dXJuIGZpcnN0LCByZXN0Cgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SplitTriple",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "delimiter",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SplitTriple(in string, delimiter string) (string, string, string)",
+            "Source": "ewoJcGFydHMgOj0gc3RyaW5ncy5TcGxpdChpbiwgZGVsaW1pdGVyKQoJc3dpdGNoIGxlbihwYXJ0cykgewoJY2FzZSAxOgoJCXJldHVybiBwYXJ0c1swXSwgYGAsIGBgCgljYXNlIDI6CgkJcmV0dXJuIHBhcnRzWzBdLCBwYXJ0c1sxXSwgYGAKCWRlZmF1bHQ6CgkJcmV0dXJuIHBhcnRzWzBdLCBwYXJ0c1sxXSwgc3RyaW5ncy5Kb2luKHBhcnRzWzI6XSwgZGVsaW1pdGVyKQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SplitWords",
+            "Comment": "Split the given string into words.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "SplitWords(in string) []string",
+            "Source": "ewoJdG9rZW5pemVyIDo9IHRva2VuaXplLk5ld1RyZWViYW5rV29yZFRva2VuaXplcigpCglvdXQgOj0gbWFrZShbXXN0cmluZywgMCkKCWZvciBfLCB3b3JkIDo9IHJhbmdlIHRva2VuaXplci5Ub2tlbml6ZShpbikgewoJCW91dCA9IGFwcGVuZChvdXQsIHdvcmQpCgl9CglyZXR1cm4gb3V0Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Squeeze",
+            "Comment": "Return the given string with sequences repeating character replaced with a\nsingle instance of that character.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Squeeze(in string) string",
+            "Source": "ewoJcmV0dXJuIFNxdWVlemVGdW5jKGluLCBmdW5jKHIgcnVuZSkgYm9vbCB7CgkJcmV0dXJuIHRydWUKCX0pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SqueezeFunc",
+            "Comment": "Return the given string with sequences of characters matching the given function\nreplaced with a single instance of that character.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "fn",
+                    "Type": "OnlySqueezeFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SqueezeFunc(in string, fn OnlySqueezeFunc) string",
+            "Source": "ewoJb3V0IDo9IG1ha2UoW11ydW5lLCAwKQoJdmFyIHByZXZpb3VzIHJ1bmUKCWZvciBfLCBjaGFyIDo9IHJhbmdlIGluIHsKCQlpZiBmbiA9PSBuaWwgfHwgZm4oY2hhcikgewoJCQlpZiBjaGFyICE9IHByZXZpb3VzIHsKCQkJCW91dCA9IGFwcGVuZChvdXQsIGNoYXIpCgkJCX0KCQl9IGVsc2UgewoJCQlvdXQgPSBhcHBlbmQob3V0LCBjaGFyKQoJCX0KCQlwcmV2aW91cyA9IGNoYXIKCX0KCXJldHVybiBzdHJpbmcob3V0KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SqueezeSpace",
+            "Comment": "Return the given string with sequences of whitespace characters replaced with\na single instance of that character.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SqueezeSpace(in string) string",
+            "Source": "ewoJcmV0dXJuIFNxdWVlemVGdW5jKGluLCBmdW5jKHIgcnVuZSkgYm9vbCB7CgkJcmV0dXJuIHVuaWNvZGUuSXNTcGFjZShyKQoJfSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SuffixEach",
+            "Comment": "Suffix each element in the given string slice with suffix.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "[]string"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                },
+                {
+                    "Name": "suffix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "SuffixEach(in []string, prefix string, suffix string) []string",
+            "Source": "ewoJcmV0dXJuIFdyYXBFYWNoKGluLCBgYCwgc3VmZml4KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SuffixIf",
+            "Comment": "Suffix the given string if it is non-empty",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "suffix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SuffixIf(in string, suffix string) string",
+            "Source": "ewoJaWYgIXR5cGV1dGlsLklzWmVybyhpbikgewoJCWluID0gaW4gKyBzdWZmaXgKCX0KCXJldHVybiBpbgp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SuffixLines",
+            "Comment": "Takes the given string, splits it into lines, and suffixes each line with the given suffix string.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "suffix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "SuffixLines(in interface{}, suffix string) string",
+            "Source": "ewoJbGluZXMgOj0gU3BsaXRMaW5lcyhpbiwgIlxuIikKCWZvciBpLCBsaW5lIDo9IHJhbmdlIGxpbmVzIHsKCQlsaW5lc1tpXSA9IGxpbmUgKyBzdWZmaXgKCX0KCXJldHVybiBzdHJpbmdzLkpvaW4obGluZXMsICJcbiIpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Thousandify",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "separator",
+                    "Type": "string"
+                },
+                {
+                    "Name": "decimal",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Thousandify(in interface{}, separator string, decimal string) string",
+            "Source": "ewoJaWYgc2VwYXJhdG9yID09IGBgIHsKCQlzZXBhcmF0b3IgPSBEZWZhdWx0VGhvdXNhbmRzU2VwYXJhdG9yCgl9CglpZiBkZWNpbWFsID09IGBgIHsKCQlkZWNpbWFsID0gRGVmYXVsdERlY2ltYWxTZXBhcmF0b3IKCX0KCWlmIGluU3RyLCBlcnIgOj0gVG9TdHJpbmcoaW4pOyBlcnIgPT0gbmlsIHsKCQlpZiBJc051bWVyaWMoaW4pIHsKCQkJdmFyIGJ1ZmZlciBbXXJ1bmUKCQkJbGFzdEluZGV4QmVmb3JlRGVjaW1hbCA6PSBzdHJpbmdzLkluZGV4KGluU3RyLCBkZWNpbWFsKSAtIDEKCQkJZGVjaW1hbEFuZEFmdGVyIDo9IHN0cmluZ3MuSW5kZXgoaW5TdHIsIGRlY2ltYWwpCgkJCWlmIGxhc3RJbmRleEJlZm9yZURlY2ltYWwgPCAwIHsKCQkJCWxhc3RJbmRleEJlZm9yZURlY2ltYWwgPSBsZW4oaW5TdHIpIC0gMQoJCQl9CgkJCWogOj0gMAoJCQlmb3IgaSA6PSBsYXN0SW5kZXhCZWZvcmVEZWNpbWFsOyBpID49IDA7IGktLSB7CgkJCQlqKysKCQkJCWJ1ZmZlciA9IGFwcGVuZChbXXJ1bmV7cnVuZShpblN0cltpXSl9LCBidWZmZXIuLi4pCgkJCQlpZiBqID09IDMgJiYgaSA+IDAgJiYgIShpID09IDEgJiYgaW5TdHJbMF0gPT0gJy0nKSB7CgkJCQkJYnVmZmVyID0gYXBwZW5kKFtdcnVuZShzZXBhcmF0b3IpLCBidWZmZXIuLi4pCgkJCQkJaiA9IDAKCQkJCX0KCQkJfQoJCQlpZiBkZWNpbWFsQW5kQWZ0ZXIgPj0gMCB7CgkJCQlmb3IgXywgciA6PSByYW5nZSBpblN0cltkZWNpbWFsQW5kQWZ0ZXI6XSB7CgkJCQkJYnVmZmVyID0gYXBwZW5kKGJ1ZmZlciwgcnVuZShyKSkKCQkJCX0KCQkJfQoJCQlyZXR1cm4gc3RyaW5nKGJ1ZmZlcls6XSkKCQl9IGVsc2UgewoJCQlyZXR1cm4gaW5TdHIKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBgYAoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ToByteString",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "formatString",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ToByteString(in interface{}, formatString ...string) (string, error)",
+            "Source": "ewoJaWYgYXNCeXRlcywgZXJyIDo9IENvbnZlcnRUb0ludGVnZXIoaW4pOyBlcnIgPT0gbmlsIHsKCQlmb3IgaSA6PSAwOyBpIDwgOTsgaSsrIHsKCQkJaWYgY29udmVydGVkIDo9IChmbG9hdDY0KGFzQnl0ZXMpIC8gbWF0aC5Qb3coMTAyNCwgZmxvYXQ2NChpKSkpOyBjb252ZXJ0ZWQgPCAxMDI0IHsKCQkJCXByZWZpeCA6PSBTaVByZWZpeChpKQoJCQkJZiA6PSBgJWdgCgkJCQlpZiBsZW4oZm9ybWF0U3RyaW5nKSA+IDAgewoJCQkJCWYgPSBmb3JtYXRTdHJpbmdbMF0KCQkJCX0KCQkJCXJldHVybiBmbXQuU3ByaW50ZihmKyIlc0IiLCBjb252ZXJ0ZWQsIHByZWZpeC5TdHJpbmcoKSksIG5pbAoJCQl9CgkJfQoJCXJldHVybiBmbXQuU3ByaW50ZigiJWRCIiwgYXNCeXRlcyksIG5pbAoJfSBlbHNlIHsKCQlyZXR1cm4gYGAsIGVycgoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ToBytes",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ToBytes(input string) (float64, error)",
+            "Source": "ewoJaWYgc3RyaW5ncy5IYXNTdWZmaXgoaW5wdXQsICJpYiIpIHx8IHN0cmluZ3MuSGFzU3VmZml4KGlucHV0LCAiaUIiKSB7CgkJaW5wdXQgPSBpbnB1dFswIDogbGVuKGlucHV0KS0yXQoJfSBlbHNlIGlmIGxlbihpbnB1dCkgPiAyICYmIElzSW50ZWdlcihzdHJpbmcoaW5wdXRbbGVuKGlucHV0KS0zXSkpICYmIChpbnB1dFtsZW4oaW5wdXQpLTFdID09ICdiJyB8fCBpbnB1dFtsZW4oaW5wdXQpLTFdID09ICdCJykgewoJCWlucHV0ID0gaW5wdXRbMCA6IGxlbihpbnB1dCktMV0KCX0KCWlmIHByZWZpeCwgZXJyIDo9IEdldFNpUHJlZml4KHN0cmluZyhpbnB1dFtsZW4oaW5wdXQpLTFdKSk7IGVyciA9PSBuaWwgewoJCWlmIHYsIGVyciA6PSBzdHJjb252LlBhcnNlRmxvYXQoaW5wdXRbMDpsZW4oaW5wdXQpLTFdLCA2NCk7IGVyciA9PSBuaWwgewoJCQlyZXR1cm4gdiAqIG1hdGguUG93KDEwMjQsIGZsb2F0NjQocHJlZml4KSksIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiAwLCBlcnIKCQl9Cgl9IGVsc2UgewoJCWlmIHYsIGVyciA6PSBzdHJjb252LlBhcnNlRmxvYXQoaW5wdXQsIDY0KTsgZXJyID09IG5pbCB7CgkJCXJldHVybiB2LCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gMCwgZm10LkVycm9yZigiVW5yZWNvZ25pemVkIGlucHV0IHN0cmluZyAnJXMnIiwgaW5wdXQpCgkJfQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ToString",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ToString(in interface{}) (string, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLlRvU3RyaW5nKGluKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ToStringSlice",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ToStringSlice(in interface{}) ([]string, error)",
+            "Source": "ewoJdmFsdWVzIDo9IG1ha2UoW11zdHJpbmcsIDApCglpZiBpbiAhPSBuaWwgewoJCWlmIHYsIG9rIDo9IGluLihbXXN0cmluZyk7IG9rIHsKCQkJcmV0dXJuIHYsIG5pbAoJCX0KCQlpblYgOj0gcmVmbGVjdC5WYWx1ZU9mKGluKQoJCWlmIGluVi5Jc1ZhbGlkKCkgewoJCQlpZiBpblYuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJCWluViA9IGluVi5FbGVtKCkKCQkJfQoJCQlpZiBpblYuSXNWYWxpZCgpIHsKCQkJCXN3aXRjaCBpblYuS2luZCgpIHsKCQkJCWNhc2UgcmVmbGVjdC5BcnJheSwgcmVmbGVjdC5TbGljZToKCQkJCQlmb3IgaSA6PSAwOyBpIDwgaW5WLkxlbigpOyBpKysgewoJCQkJCQlpZiBpbmRleFYgOj0gaW5WLkluZGV4KGkpOyBpbmRleFYuSXNWYWxpZCgpIHsKCQkJCQkJCWlmIHYsIGVyciA6PSBUb1N0cmluZyhpbmRleFYuSW50ZXJmYWNlKCkpOyBlcnIgPT0gbmlsIHsKCQkJCQkJCQl2YWx1ZXMgPSBhcHBlbmQodmFsdWVzLCB2KQoJCQkJCQkJfSBlbHNlIHsKCQkJCQkJCQlyZXR1cm4gbmlsLCBlcnIKCQkJCQkJCX0KCQkJCQkJfSBlbHNlIHsKCQkJCQkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoIkVsZW1lbnQgJWQgaW4gc2xpY2UgaXMgaW52YWxpZCIsIGkpCgkJCQkJCX0KCQkJCQl9CgkJCQlkZWZhdWx0OgoJCQkJCWlmIHYsIGVyciA6PSBUb1N0cmluZyhpbik7IGVyciA9PSBuaWwgewoJCQkJCQl2YWx1ZXMgPSBhcHBlbmQodmFsdWVzLCB2KQoJCQkJCX0gZWxzZSB7CgkJCQkJCXJldHVybiBuaWwsIGVycgoJCQkJCX0KCQkJCX0KCQkJfSBlbHNlIHsKCQkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoIkNhbm5vdCBwYXJzZSB2YWx1ZSBwb2ludGVkIHRvIGJ5IGdpdmVuIHZhbHVlLiIpCgkJCX0KCQl9IGVsc2UgewoJCQlyZXR1cm4gbmlsLCBmbXQuRXJyb3JmKCJDYW5ub3QgcGFyc2UgZ2l2ZW4gdmFsdWUuIikKCQl9Cgl9CglyZXR1cm4gdmFsdWVzLCBuaWwKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TokenizeFunc",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "tokenizer",
+                    "Type": ""
+                },
+                {
+                    "Name": "partfn",
+                    "Type": ""
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "TokenizeFunc(in string, tokenizer , partfn ) []string",
+            "Source": "ewoJcGFydHMgOj0gc3RyaW5ncy5GaWVsZHNGdW5jKGluLCB0b2tlbml6ZXIpCglvdXQgOj0gbWFrZShbXXN0cmluZywgMCkKCWZvciBfLCBwYXJ0IDo9IHJhbmdlIHBhcnRzIHsKCQlwYXJ0T3V0IDo9IHBhcnRmbihwYXJ0KQoJCWlmIHBhcnRPdXQgIT0gbmlsIHsKCQkJZm9yIF8sIHYgOj0gcmFuZ2UgcGFydE91dCB7CgkJCQlpZiB2ICE9IGBgIHsKCQkJCQlvdXQgPSBhcHBlbmQob3V0LCB2KQoJCQkJfQoJCQl9CgkJfQoJfQoJcmV0dXJuIG91dAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Underscore",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Underscore(in interface{}) string",
+            "Source": "ewoJcmV0dXJuIFNuYWtlaWZ5KGluLCAnXycpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Unwrap",
+            "Comment": "Return the given string with the given prefix and suffix removed.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                },
+                {
+                    "Name": "suffix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Unwrap(in string, prefix string, suffix string) string",
+            "Source": "ewoJaW4gPSBzdHJpbmdzLlRyaW1QcmVmaXgoaW4sIHByZWZpeCkKCWluID0gc3RyaW5ncy5UcmltU3VmZml4KGluLCBzdWZmaXgpCglyZXR1cm4gaW4KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Wrap",
+            "Comment": "Return the given string with prefixed and suffixed with other strings.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                },
+                {
+                    "Name": "suffix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Wrap(in string, prefix string, suffix string) string",
+            "Source": "ewoJcmV0dXJuIHByZWZpeCArIGluICsgc3VmZml4Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "WrapEach",
+            "Comment": "Wrap each element in the given string slice with prefix and suffix.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "[]string"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                },
+                {
+                    "Name": "suffix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "WrapEach(in []string, prefix string, suffix string) []string",
+            "Source": "ewoJb3V0IDo9IG1ha2UoW11zdHJpbmcsIGxlbihpbikpCglmb3IgaSwgdiA6PSByYW5nZSBpbiB7CgkJb3V0W2ldID0gV3JhcCh2LCBwcmVmaXgsIHN1ZmZpeCkKCX0KCXJldHVybiBvdXQKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "WrapIf",
+            "Comment": "Wrap the given string if it is non-empty",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "prefix",
+                    "Type": "string"
+                },
+                {
+                    "Name": "suffix",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "WrapIf(in string, prefix string, suffix string) string",
+            "Source": "ewoJaWYgIXR5cGV1dGlsLklzWmVybyhpbikgewoJCWluID0gV3JhcChpbiwgcHJlZml4LCBzdWZmaXgpCgl9CglyZXR1cm4gaW4KfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestAutotypeBool",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestAutotypeBool(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglmb3IgXywgdGVzdFZhbHVlIDo9IHJhbmdlIFtdc3RyaW5ne2B0cnVlYCwgYFRydWVgLCBgZmFsc2VgLCBgRmFsc2VgfSB7CgkJYXNzZXJ0LklzVHlwZSh0cnVlLCBBdXRvdHlwZSh0ZXN0VmFsdWUpKQoJfQoJZm9yIF8sIHRlc3RWYWx1ZSA6PSByYW5nZSBbXXN0cmluZ3tgdHJ1ZXNgLCBgRmFsc2VzYCwgYHBvdGF0b2B9IHsKCQlhc3NlcnQuSXNUeXBlKGBgLCBBdXRvdHlwZSh0ZXN0VmFsdWUpKQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestAutotypeDate",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestAutotypeDate(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglmb3IgXywgdGVzdFZhbHVlIDo9IHJhbmdlIFRpbWVGb3JtYXRzIHsKCQl0dlMgOj0gc3RyaW5ncy5SZXBsYWNlKHN0cmluZyh0ZXN0VmFsdWUpLCBgX2AsIGBgLCAtMSkKCQl0dlMgPSBzdHJpbmdzLlRyaW1TdWZmaXgodHZTLCBgMDc6MDBgKQoJCWFzc2VydC5Jc1R5cGUodGltZS5Ob3coKSwgQXV0b3R5cGUodHZTKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestAutotypeFloat",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestAutotypeFloat(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglmb3IgXywgdGVzdFZhbHVlIDo9IHJhbmdlIFtdc3RyaW5ne2AtMC4wMDAwMDAwMDAwMWAsIGAwLjAwMDAwMDAwMDAxYCwgYDEuNWAsIGAtMS41YCwgZm10LlNwcmludGYoIiVmIiwgbWF0aC5NYXhGbG9hdDY0KSwgZm10LlNwcmludGYoIiVmIiwgLTEqbWF0aC5NYXhGbG9hdDY0KX0gewoJCWFzc2VydC5Jc1R5cGUoZmxvYXQ2NCgwKSwgQXV0b3R5cGUodGVzdFZhbHVlKSwgdGVzdFZhbHVlKQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestAutotypeInt",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestAutotypeInt(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglmb3IgXywgdGVzdFZhbHVlIDo9IHJhbmdlIFtdc3RyaW5ne2AtMWAsIGAwYCwgYDFgLCBgMTIzNDVgLCBgLTEyMzQ1YCwgZm10LlNwcmludGYoIiVkIiwgbWF0aC5NYXhJbnQ2NCksIGZtdC5TcHJpbnRmKCIlZCIsIG1hdGguTWluSW50NjQpfSB7CgkJYXNzZXJ0LklzVHlwZShpbnQ2NCgwKSwgQXV0b3R5cGUodGVzdFZhbHVlKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestAutotypeNil",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestAutotypeNil(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglmb3IgXywgdGVzdFZhbHVlIDo9IHJhbmdlIFtdc3RyaW5ne2BgLCBgbmlsYCwgYG51bGxgLCBgTmlsYCwgYE5VTExgLCBgTm9uZWAsIGB1bmRlZmluZWRgfSB7CgkJYXNzZXJ0Lk5pbChBdXRvdHlwZSh0ZXN0VmFsdWUpLCBmbXQuU3ByaW50ZigiJXEgd2FzIG5vdCBhdXRvdHlwZWQgdG8gbmlsIiwgdGVzdFZhbHVlKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestAutotypePreserveLeadingZeroes",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestAutotypePreserveLeadingZeroes(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglmb3IgXywgdGVzdFZhbHVlIDo9IHJhbmdlIFtdc3RyaW5ne2AwMGAsIGAwMWAsIGAwNzc1M2AsIGAwNjA5NGAsIGAwMDAwMDAwMDEwMDAwMDAwYH0gewoJCWFzc2VydC5Jc1R5cGUoYGAsIEF1dG90eXBlKHRlc3RWYWx1ZSkpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCamelize",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCamelize(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0ZXN0cyA6PSBtYXBbc3RyaW5nXXN0cmluZ3tgVGVzdGA6IGBUZXN0YCwgYHRlc3RgOiBgVGVzdGAsIGB0ZXN0X3ZhbHVlYDogYFRlc3RWYWx1ZWAsIGB0ZXN0LVZhbHVlYDogYFRlc3RWYWx1ZWAsIGB0ZXN0LVZhbF91ZWA6IGBUZXN0VmFsVWVgLCBgdGVzdCB2YWx1ZWA6IGBUZXN0VmFsdWVgLCBgVGVzdFZhbHVlYDogYFRlc3RWYWx1ZWAsIGB0ZXN0VmFsdWVgOiBgVGVzdFZhbHVlYCwgYFRlU3QgVmFMdWVgOiBgVGVTdFZhTHVlYH0KCWZvciBoYXZlLCB3YW50IDo9IHJhbmdlIHRlc3RzIHsKCQlhc3NlcnQuRXF1YWwod2FudCwgQ2FtZWxpemUoaGF2ZSkpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestConvertToBoolean",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestConvertToBoolean(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2LCBlcnIgOj0gQ29udmVydFRvKEJvb2xlYW4sIG5pbCkKCWFzc2VydC5FcXVhbChmYWxzZSwgdikKCXYsIGVyciA9IENvbnZlcnRUbyhCb29sZWFuLCBgdHJ1ZWApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwodHJ1ZSwgdikKCXYsIGVyciA9IENvbnZlcnRUbyhCb29sZWFuLCBgZmFsc2VgKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGZhbHNlLCB2KQoJdiwgZXJyID0gQ29udmVydFRvQm9vbChgdHJ1ZWApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwodHJ1ZSwgdikKCXYsIGVyciA9IENvbnZlcnRUb0Jvb2woYGZhbHNlYCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChmYWxzZSwgdikKCWZvciBfLCBmYWlsIDo9IHJhbmdlIFtdc3RyaW5ne2AxLjVgLCBgcG90YXRvYCwgYDAxYCwgYDIwMTUtMDUtMDEgMDA6MTU6MTZgfSB7CgkJXywgZXJyIDo9IENvbnZlcnRUbyhCb29sZWFuLCBmYWlsKQoJCWFzc2VydC5FcnJvcihlcnIpCgkJXywgZXJyID0gQ29udmVydFRvQm9vbChmYWlsKQoJCWFzc2VydC5FcnJvcihlcnIpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestConvertToBytes",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestConvertToBytes(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2LCBlcnIgOj0gQ29udmVydFRvKEJ5dGVzLCBuaWwpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoW11ieXRle30sIHYpCgl2LCBlcnIgPSBDb252ZXJ0VG8oQnl0ZXMsIFtdYnl0ZXt9KQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKFtdYnl0ZXt9LCB2KQoJdiwgZXJyID0gQ29udmVydFRvKEJ5dGVzLCBbXWJ5dGV7MSwgMiwgM30pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoW11ieXRlezEsIDIsIDN9LCB2KQoJdiwgZXJyID0gQ29udmVydFRvKEJ5dGVzLCBgdGVzdGApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoW11ieXRlezB4NzQsIDB4NjUsIDB4NzMsIDB4NzR9LCB2KQoJdiwgZXJyID0gQ29udmVydFRvKEJ5dGVzLCBbXWludHsweDc0LCAweDY1LCAweDczLCAweDc0fSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChgdGVzdGAsIHN0cmluZyh2LihbXWJ5dGUpKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestConvertToFloat",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestConvertToFloat(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0eXBlIHRlc3RGbG9hdCBmbG9hdDY0Cgljb25zdCAoCgkJdGVzdEZsb2F0WmVybyB0ZXN0RmxvYXQgPSBpb3RhCgkJdGVzdEZsb2F0RSAgICAgICAgICAgICAgPSAyLjcxODI4CgkJdGVzdEZsb2F0UGkgICAgICAgICAgICAgPSAzLjE0MTU5NwoJKQoJdiwgZXJyIDo9IENvbnZlcnRUbyhGbG9hdCwgbmlsKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMCksIHYpCgl2LCBlcnIgPSBDb252ZXJ0VG8oRmxvYXQsICIxLjUiKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMS41KSwgdikKCXYsIGVyciA9IENvbnZlcnRUbyhGbG9hdCwgIjEiKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMS4wKSwgdikKCXYsIGVyciA9IENvbnZlcnRUb0Zsb2F0KCIxLjUiKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMS41KSwgdikKCXYsIGVyciA9IENvbnZlcnRUb0Zsb2F0KCIxLjAiKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMS4wKSwgdikKCXYsIGVyciA9IENvbnZlcnRUbyhGbG9hdCwgdGVzdEZsb2F0WmVybykKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChmbG9hdDY0KDApLCB2KQoJdiwgZXJyID0gQ29udmVydFRvKEZsb2F0LCB0ZXN0RmxvYXRFKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMi43MTgyOCksIHYpCgl2LCBlcnIgPSBDb252ZXJ0VG8oRmxvYXQsIHRlc3RGbG9hdFBpKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMy4xNDE1OTcpLCB2KQoJZm9yIF8sIGZhaWwgOj0gcmFuZ2UgW11zdHJpbmd7YHBvdGF0b2AsIGB0cnVlYCwgYDIwMTUtMDUtMDEgMDA6MTU6MTZgfSB7CgkJXywgZXJyIDo9IENvbnZlcnRUbyhGbG9hdCwgZmFpbCkKCQlhc3NlcnQuRXJyb3IoZXJyKQoJCV8sIGVyciA9IENvbnZlcnRUb0Zsb2F0KGZhaWwpCgkJYXNzZXJ0LkVycm9yKGVycikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestConvertToInteger",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestConvertToInteger(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2LCBlcnIgOj0gQ29udmVydFRvKEludGVnZXIsIG5pbCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChpbnQ2NCgwKSwgdikKCXYsIGVyciA9IENvbnZlcnRUbyhJbnRlZ2VyLCAiNyIpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoaW50NjQoNyksIHYpCgl2LCBlcnIgPSBDb252ZXJ0VG9JbnRlZ2VyKCI3IikKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChpbnQ2NCg3KSwgdikKCXRtIDo9IHRpbWUuRGF0ZSgyMDEwLCAyLCAyMSwgMTUsIDE0LCAxMywgMCwgdGltZS5VVEMpCgl2LCBlcnIgPSBDb252ZXJ0VG8oSW50ZWdlciwgdG0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwodG0uVW5peE5hbm8oKSwgdikKCXYsIGVyciA9IENvbnZlcnRUb0ludGVnZXIodG0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwodG0uVW5peE5hbm8oKSwgdikKCXYsIGVyciA9IENvbnZlcnRUbyhJbnRlZ2VyLCBgMjAxMC0wMi0yMSAxNToxNDoxM2ApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwodG0uVW5peE5hbm8oKSwgdikKCXR5cGUgdGVzdEludCBpbnQ2NAoJY29uc3QgKAoJCXRlc3RJbnQxIHRlc3RJbnQgPSBpb3RhCgkJdGVzdEludDIgICAgICAgICA9IDIKCQl0ZXN0SW50MyAgICAgICAgID0gMwoJKQoJdiwgZXJyID0gQ29udmVydFRvKEludGVnZXIsIHRlc3RJbnQxKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGludDY0KDApLCB2KQoJdiwgZXJyID0gQ29udmVydFRvKEludGVnZXIsIHRlc3RJbnQyKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGludDY0KDIpLCB2KQoJdiwgZXJyID0gQ29udmVydFRvKEludGVnZXIsIHRlc3RJbnQzKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGludDY0KDMpLCB2KQoJZm9yIF8sIGZhaWwgOj0gcmFuZ2UgW11zdHJpbmd7YDAuMGAsIGAxLjVgLCBgcG90YXRvYCwgYHRydWVgfSB7CgkJXywgZXJyIDo9IENvbnZlcnRUbyhJbnRlZ2VyLCBmYWlsKQoJCWFzc2VydC5FcnJvcihlcnIpCgkJXywgZXJyID0gQ29udmVydFRvSW50ZWdlcihmYWlsKQoJCWFzc2VydC5FcnJvcihlcnIpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestConvertToString",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestConvertToString(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2LCBlcnIgOj0gQ29udmVydFRvKFN0cmluZywgbmlsKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGBgLCB2KQoJdiwgZXJyID0gQ29udmVydFRvKFN0cmluZywgW11ieXRlezB4NzQsIDB4NjUsIDB4NzMsIDB4NzR9KQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgdikKCXYsIGVyciA9IENvbnZlcnRUbyhTdHJpbmcsIFtddWludDh7MHg3NCwgMHg2NSwgMHg3MywgMHg3NH0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCB2KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestConvertToTime",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestConvertToTime(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhdExlYXN0Tm93IDo9IHRpbWUuTm93KCkKCXZhbHVlcyA6PSBtYXBbc3RyaW5nXXRpbWUuVGltZXtgMjAxNS0wNS0wMSAwMDoxNToxNmA6IHRpbWUuRGF0ZSgyMDE1LCA1LCAxLCAwLCAxNSwgMTYsIDAsIHRpbWUuVVRDKSwgYEZyaSBNYXkgMSAwMDoxNToxNiBVVEMgMjAxNWA6IHRpbWUuRGF0ZSgyMDE1LCA1LCAxLCAwLCAxNSwgMTYsIDAsIHRpbWUuVVRDKSwgYDExMzYyMzk0NDVgOiB0aW1lLkRhdGUoMjAwNiwgMSwgMiwgMTcsIDQsIDUsIDAsIHRpbWUuTm93KCkuTG9jYXRpb24oKSksIGAyMDM4LTAxLTE5IDAzOjE0OjA2YDogdGltZS5EYXRlKDIwMzgsIDEsIDE5LCAzLCAxNCwgNiwgMCwgdGltZS5VVEMpLCBgMjAzOC0wMS0xOSAwMzoxNDowN2A6IHRpbWUuRGF0ZSgyMDM4LCAxLCAxOSwgMywgMTQsIDcsIDAsIHRpbWUuVVRDKSwgYDIwMzgtMDEtMTkgMDM6MTQ6MDhgOiB0aW1lLkRhdGUoMjAzOCwgMSwgMTksIDMsIDE0LCA4LCAwLCB0aW1lLlVUQyksIGAyMTQ3NDgzNjQ2YDogdGltZS5EYXRlKDIwMzgsIDEsIDE5LCAzLCAxNCwgNiwgMCwgdGltZS5VVEMpLCBgMjE0NzQ4MzY0N2A6IHRpbWUuRGF0ZSgyMDM4LCAxLCAxOSwgMywgMTQsIDcsIDAsIHRpbWUuVVRDKSwgYDIxNDc0ODM2NDhgOiB0aW1lLkRhdGUoMjAzOCwgMSwgMTksIDMsIDE0LCA4LCAwLCB0aW1lLlVUQyl9Cgl2LCBlcnIgOj0gQ29udmVydFRvVGltZShgbm93YCkKCWFzc2VydC5OaWwoZXJyKQoJYXNzZXJ0LlRydWUodi5BZnRlcihhdExlYXN0Tm93KSkKCXYsIGVyciA9IENvbnZlcnRUb1RpbWUodGltZS5Ob3coKSkKCWFzc2VydC5OaWwoZXJyKQoJYXNzZXJ0LlRydWUodi5BZnRlcihhdExlYXN0Tm93KSkKCXYsIGVyciA9IENvbnZlcnRUb1RpbWUoYDAwMDAtMDAtMDAgMDA6MDA6MDBgKQoJYXNzZXJ0Lk5pbChlcnIpCglhc3NlcnQuWmVybyh2KQoJZm9yIGluLCBvdXQgOj0gcmFuZ2UgdmFsdWVzIHsKCQl2LCBlcnIgOj0gQ29udmVydFRvKFRpbWUsIGluKQoJCWFzc2VydC5Ob0Vycm9yKGVycikKCQlhc3NlcnQuSXNUeXBlKHRpbWUuTm93KCksIHYpCgkJYXNzZXJ0LlRydWUob3V0LkVxdWFsKHYuKHRpbWUuVGltZSkpLCBpbikKCQl2LCBlcnIgPSBDb252ZXJ0VG9UaW1lKGluKQoJCWFzc2VydC5Ob0Vycm9yKGVycikKCQlhc3NlcnQuVHJ1ZShvdXQuRXF1YWwodi4odGltZS5UaW1lKSksIGluKQoJfQoJZm9yIF8sIGZhaWwgOj0gcmFuZ2UgW11zdHJpbmd7YDEuNWAsIGBwb3RhdG9gLCBgZmFsc2VgfSB7CgkJXywgZXJyIDo9IENvbnZlcnRUbyhUaW1lLCBmYWlsKQoJCWFzc2VydC5FcnJvcihlcnIpCgkJXywgZXJyID0gQ29udmVydFRvVGltZShmYWlsKQoJCWFzc2VydC5FcnJvcihlcnIpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestElide",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestElide(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGhlbGxvIHRoZXJlYCwgRWxpZGUoYGhlbGxvIHRoZXJlYCwgMTAwKSkKCWFzc2VydC5FcXVhbChgaGVsbG8gdGhlcmVgLCBFbGlkZVJpZ2h0KGBoZWxsbyB0aGVyZWAsIDEwMCkpCglhc3NlcnQuRXF1YWwoYGhlbGxvYCwgRWxpZGUoYGhlbGxvIHRoZXJlYCwgNSkpCglhc3NlcnQuRXF1YWwoYHRoZXJlYCwgRWxpZGVSaWdodChgaGVsbG8gdGhlcmVgLCA1KSkKCWFzc2VydC5FcXVhbChgaGVsbG8gdGhlcmVgLCBFbGlkZShgaGVsbG8gdGhlcmVgLCAxMDAsIGAuLi5gKSkKCWFzc2VydC5FcXVhbChgaGVsbG8gdGhlcmVgLCBFbGlkZVJpZ2h0KGBoZWxsbyB0aGVyZWAsIDEwMCwgYC4uLmApKQoJYXNzZXJ0LkVxdWFsKGBoZWxsby4uLmAsIEVsaWRlKGBoZWxsbyB0aGVyZWAsIDUsIGAuLi5gKSkKCWFzc2VydC5FcXVhbChgLi4udGhlcmVgLCBFbGlkZVJpZ2h0KGBoZWxsbyB0aGVyZWAsIDUsIGAuLi5gKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestElideWords",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestElideWords(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGAsIEVsaWRlV29yZHMoYGAsIDApKQoJYXNzZXJ0LkVxdWFsKGAuYCwgRWxpZGVXb3JkcyhgLmAsIDEpKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgRWxpZGVXb3JkcyhgdGVzdC5gLCAxKSkKCWFzc2VydC5FcXVhbChgVGhpcyBpcyB0aGUgc29uZyB0aGF0IG5ldmVyIGVuZHNgLCBFbGlkZVdvcmRzKGBUaGlzIGlzIHRoZSBzb25nIHRoYXQgbmV2ZXIgZW5kcywgaXQganVzdCBnb2VzIG9uIGFuZCBvbiBteSBmcmllbmRzLmAsIDcpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestExpandEnv",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestExpandEnv(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuTm9FcnJvcihvcy5TZXRlbnYoYEdPU1RPQ0tVVElMX1RFU1RfSU5UYCwgYDQyYCkpCglhc3NlcnQuTm9FcnJvcihvcy5TZXRlbnYoYEdPU1RPQ0tVVElMX1RFU1RfRkxPQVRgLCBgMy4xNDE1OTc2MjVgKSkKCWFzc2VydC5Ob0Vycm9yKG9zLlNldGVudihgR09TVE9DS1VUSUxfVEVTVF9TVFJgLCBgaGVsbG9gKSkKCWFzc2VydC5Ob0Vycm9yKG9zLlNldGVudihgR09TVE9DS1VUSUxfVEVTVF9VTklDT0RFYCwgYOWLpOaBs2ApKQoJYXNzZXJ0LkVxdWFsKGBUaGUgYW5zd2VyIGlzIDQyIWAsIEV4cGFuZEVudigiVGhlIGFuc3dlciBpcyAke0dPU1RPQ0tVVElMX1RFU1RfSU5UfSEiKSkKCWFzc2VydC5FcXVhbChgVGhlIGFuc3dlciBpcyA0MiFgLCBFeHBhbmRFbnYoIlRoZSBhbnN3ZXIgaXMgJHtHT1NUT0NLVVRJTF9URVNUX0lOVDolZH0hIikpCglhc3NlcnQuRXF1YWwoYFBpIGlzIGFib3V0IDMuMTQxNTk3NjI1IWAsIEV4cGFuZEVudigiUGkgaXMgYWJvdXQgJHtHT1NUT0NLVVRJTF9URVNUX0ZMT0FUfSEiKSkKCWFzc2VydC5FcXVhbChgUGkgaXMgYWJvdXQgMy4xNCFgLCBFeHBhbmRFbnYoIlBpIGlzIGFib3V0ICR7R09TVE9DS1VUSUxfVEVTVF9GTE9BVDolLjJmfSEiKSkKCWFzc2VydC5FcXVhbChgUGkgaXMgYWJvdXQgMyFgLCBFeHBhbmRFbnYoIlBpIGlzIGFib3V0ICR7R09TVE9DS1VUSUxfVEVTVF9GTE9BVDolLjBmfSEiKSkKCWFzc2VydC5FcXVhbChgaGVsbG8sIHdvcmxkIWAsIEV4cGFuZEVudigiJHtHT1NUT0NLVVRJTF9URVNUX1NUUn0sIHdvcmxkISIpKQoJYXNzZXJ0LkVxdWFsKGBoZWxsbywgd29ybGQhYCwgRXhwYW5kRW52KCIke0dPU1RPQ0tVVElMX1RFU1RfU1RSOiVzfSwgd29ybGQhIikpCglhc3NlcnQuRXF1YWwoYGhlbGxvLCB3b3JsZCFgLCBFeHBhbmRFbnYoIiR7R09TVE9DS1VUSUxfVEVTVF9TVFI6JXZ9LCB3b3JsZCEiKSkKCWFzc2VydC5FcXVhbChgJSFkKHN0cmluZz1oZWxsbyksIHdvcmxkIWAsIEV4cGFuZEVudigiJHtHT1NUT0NLVVRJTF9URVNUX1NUUjolZH0sIHdvcmxkISIpKQoJYXNzZXJ0LkVxdWFsKGDli6TmgbNgLCBFeHBhbmRFbnYoIiR7R09TVE9DS1VUSUxfVEVTVF9VTklDT0RFfSIpKQoJYXNzZXJ0LkVxdWFsKGBgLCBFeHBhbmRFbnYoIiR7R09TVE9DS1VUSUxfVEVTVF9VTlNFVH0iKSkKCWFzc2VydC5FcXVhbChgZmFsbGJhY2sudmFsdWV8eWAsIEV4cGFuZEVudigiJHtHT1NUT0NLVVRJTF9URVNUX1VOU0VUfGZhbGxiYWNrLnZhbHVlfHl9IikpCglhc3NlcnQuRXF1YWwoYCAgICAgICAgICAgICAgICBgLCBFeHBhbmRFbnYoIiR7R09TVE9DS1VUSUxfVEVTVF9VTlNFVDolMTZzfSIpKQoJYXNzZXJ0LkVxdWFsKGBmYWxsYmFjay52YWx1ZXx5YCwgRXhwYW5kRW52KCIke0dPU1RPQ0tVVElMX1RFU1RfVU5TRVR8ZmFsbGJhY2sudmFsdWV8eTolMTZzfSIpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestHyphenate",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestHyphenate(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0ZXN0cyA6PSBtYXBbc3RyaW5nXXN0cmluZ3tgVGVzdGA6IGB0ZXN0YCwgYHRlc3RgOiBgdGVzdGAsIGB0ZXN0X3ZhbHVlYDogYHRlc3QtdmFsdWVgLCBgdGVzdC1WYWx1ZWA6IGB0ZXN0LXZhbHVlYCwgYHRlc3QgdmFsdWVgOiBgdGVzdC12YWx1ZWAsIGBUZXN0VmFsdWVgOiBgdGVzdC12YWx1ZWAsIGB0ZXN0VmFsdWVgOiBgdGVzdC12YWx1ZWAsIGBUZVN0IFZhTHVlYDogYHRlLXN0LXZhLWx1ZWB9Cglmb3IgaGF2ZSwgd2FudCA6PSByYW5nZSB0ZXN0cyB7CgkJYXNzZXJ0LkVxdWFsKHdhbnQsIEh5cGhlbmF0ZShoYXZlKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestIsHexadecimal",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestIsHexadecimal(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglmb3IgaSA6PSAwOyBpIDwgMTY7IGkrKyB7CgkJYXNzZXJ0LlRydWUoSXNIZXhhZGVjaW1hbChmbXQuU3ByaW50ZigiJXgiLCBpKSwgLTEpKQoJCWFzc2VydC5UcnVlKElzSGV4YWRlY2ltYWwoZm10LlNwcmludGYoIiVYIiwgaSksIC0xKSkKCX0KCWZvciBpIDo9IDEwOyBpIDwgMTY7IGkrKyB7CgkJYXNzZXJ0LkZhbHNlKElzSGV4YWRlY2ltYWwoZm10LlNwcmludGYoIiV4JVgiLCBpLCBpKSwgLTEpKQoJCWFzc2VydC5GYWxzZShJc0hleGFkZWNpbWFsKGZtdC5TcHJpbnRmKCIlWCV4IiwgaSwgaSksIC0xKSkKCQlhc3NlcnQuRmFsc2UoSXNIZXhhZGVjaW1hbChmbXQuU3ByaW50ZigiJXgiLCBpKSwgMikpCgkJYXNzZXJ0LkZhbHNlKElzSGV4YWRlY2ltYWwoZm10LlNwcmludGYoIiVYIiwgaSksIDIpKQoJfQoJYXNzZXJ0LlRydWUoSXNIZXhhZGVjaW1hbChgYWJjMTIzYCwgLTEpKQoJYXNzZXJ0LlRydWUoSXNIZXhhZGVjaW1hbChgQUJDMTIzYCwgLTEpKQoJYXNzZXJ0LlRydWUoSXNIZXhhZGVjaW1hbChgYWJjMTIzYCwgNikpCglhc3NlcnQuVHJ1ZShJc0hleGFkZWNpbWFsKGBBQkMxMjNgLCA2KSkKCWFzc2VydC5UcnVlKElzSGV4YWRlY2ltYWwoYGIyNjI1Mjg2MmExMWRkMzIyMTQyN2JkYmFlNjAyNTYwNGIxNzYwZTRgLCA0MCkpCglhc3NlcnQuRmFsc2UoSXNIZXhhZGVjaW1hbChgYUJjMTIzYCwgLTEpKQoJYXNzZXJ0LkZhbHNlKElzSGV4YWRlY2ltYWwoYGFiYzEyM2AsIDMyKSkKCWFzc2VydC5GYWxzZShJc0hleGFkZWNpbWFsKGBBQkMxMjNgLCAzMikpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestIsMixedCase",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestIsMixedCase(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRmFsc2UoSXNNaXhlZENhc2UoYGApKQoJYXNzZXJ0LkZhbHNlKElzTWl4ZWRDYXNlKGAwMTIzNDU2Nzg5YCkpCglhc3NlcnQuRmFsc2UoSXNNaXhlZENhc2UoYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6YCkpCglhc3NlcnQuRmFsc2UoSXNNaXhlZENhc2UoYGFiY2RlZmdoaWprbG0wMTIzNDU2Nzg5bm9wcXJzdHV2d3h5emApKQoJYXNzZXJ0LkZhbHNlKElzTWl4ZWRDYXNlKGBBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWmApKQoJYXNzZXJ0LkZhbHNlKElzTWl4ZWRDYXNlKGBBQkNERUZHSElKS0xNMDEyMzQ1Njc4OU5PUFFSU1RVVldYWVpgKSkKCWFzc2VydC5GYWxzZShJc01peGVkQ2FzZShgIEFCQ0RFRkdISUpLTE0gMDEyMzQ1Njc4OSBOT1BRUlNUVVZXWFlaIGApKQoJYXNzZXJ0LkZhbHNlKElzTWl4ZWRDYXNlKGDRgdC+0Y7MgdC3YCkpCglhc3NlcnQuRmFsc2UoSXNNaXhlZENhc2UoYNCh0J7QrsyB0JdgKSkKCWFzc2VydC5UcnVlKElzTWl4ZWRDYXNlKGBBYkNkRWZHaElqS2xNbk9wUXJTdFV2V3hZemApKQoJYXNzZXJ0LlRydWUoSXNNaXhlZENhc2UoYEFCQ0RFRkdISUpLTE0wMTIzNDU2Nzg5bm9wcXJzdHV2d3h5emApKQoJYXNzZXJ0LlRydWUoSXNNaXhlZENhc2UoYNCh0L7RjsyB0LdgKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestLongestCommonPrefix",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestLongestCommonPrefix(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGAsIExvbmdlc3RDb21tb25QcmVmaXgobmlsKSkKCWFzc2VydC5FcXVhbChgaW50ZXJzdGVsbGFyYCwgTG9uZ2VzdENvbW1vblByZWZpeChbXXN0cmluZ3tgaW50ZXJzdGVsbGFyYH0pKQoJYXNzZXJ0LkVxdWFsKGBpbnRlcnNgLCBMb25nZXN0Q29tbW9uUHJlZml4KFtdc3RyaW5ne2BpbnRlcnN0ZWxsYXJgLCBgaW50ZXJzcGFjZWAsIGBpbnRlcnN0aXRpYWxgfSkpCglhc3NlcnQuRXF1YWwoYGludGVyYCwgTG9uZ2VzdENvbW1vblByZWZpeChbXXN0cmluZ3tgaW50ZXJzdGVsbGFyYCwgYGludGVyc3BhY2VgLCBgaW50ZXJzdGl0aWFsYCwgYGludGVyZXN0aW5nYCwgYGludGVyZXN0YH0pKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0LmAsIExvbmdlc3RDb21tb25QcmVmaXgoW11zdHJpbmd7YHRlc3QudmFsdWVgLCBgdGVzdC5kZWJ1Z2AsIGB0ZXN0LnRlc3RgfSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestPrefixLines",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestPrefixLines(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoIi4uLjFcbi4uLjJcbi4uLjMiLCBQcmVmaXhMaW5lcygiMVxuMlxuMyIsIGAuLi5gKSkKCWFzc2VydC5FcXVhbCgiLi4uMVxuLi4uMlxuLi4uM1xuLi4uIiwgUHJlZml4TGluZXMoIjFcbjJcbjNcbiIsIGAuLi5gKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestRelaxedEqual",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestRelaxedEqual(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgllcSwgZXJyIDo9IFJlbGF4ZWRFcXVhbChuaWwsIG5pbCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5UcnVlKGVxKQoJZXEsIGVyciA9IFJlbGF4ZWRFcXVhbCgxLCAxKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LlRydWUoZXEpCgllcSwgZXJyID0gUmVsYXhlZEVxdWFsKGludCgxKSwgaW50NjQoMSkpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuVHJ1ZShlcSkKCWVxLCBlcnIgPSBSZWxheGVkRXF1YWwoZmxvYXQ2NCgxKSwgYnl0ZSgxKSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5UcnVlKGVxKQoJZXEsIGVyciA9IFJlbGF4ZWRFcXVhbChmbG9hdDY0KDEuMDApLCBgMWApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuVHJ1ZShlcSkKCWVxLCBlcnIgPSBSZWxheGVkRXF1YWwodHJ1ZSwgdHJ1ZSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5UcnVlKGVxKQoJZXEsIGVyciA9IFJlbGF4ZWRFcXVhbChmYWxzZSwgZmFsc2UpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuVHJ1ZShlcSkKCWVxLCBlcnIgPSBSZWxheGVkRXF1YWwoYHRydWVgLCBgb25gKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LlRydWUoZXEpCgllcSwgZXJyID0gUmVsYXhlZEVxdWFsKGB0cnVlYCwgYHllc2ApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuVHJ1ZShlcSkKCWVxLCBlcnIgPSBSZWxheGVkRXF1YWwoYGJvb2AsIGBib29gKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LlRydWUoZXEpCgllcSwgZXJyID0gUmVsYXhlZEVxdWFsKDEsIHRydWUpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRmFsc2UoZXEpCgllcSwgZXJyID0gUmVsYXhlZEVxdWFsKHRydWUsIGZhbHNlKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkZhbHNlKGVxKQoJZXEsIGVyciA9IFJlbGF4ZWRFcXVhbChmYWxzZSwgdHJ1ZSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5GYWxzZShlcSkKCWVxLCBlcnIgPSBSZWxheGVkRXF1YWwoYHRydWVgLCBgbm9gKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkZhbHNlKGVxKQoJZXEsIGVyciA9IFJlbGF4ZWRFcXVhbChgZmFsc2VgLCBgeWVzYCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5GYWxzZShlcSkKCWVxLCBlcnIgPSBSZWxheGVkRXF1YWwoYGJvb2AsIGBCb29gKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkZhbHNlKGVxKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestScanInterceptorAddIntercept",
+            "Comment": "test add intercept after the fact\n---------------------------------------------------------------------------------------------",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestScanInterceptorAddIntercept(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgllcnJvcnMgOj0gMAoJd2FybmluZ3MgOj0gMAoJdmFyIGxpbmVzIFtdc3RyaW5nCglzcGxpdHRlciA6PSBOZXdTY2FuSW50ZXJjZXB0b3IoYnVmaW8uU2NhbkxpbmVzLCBtYXBbc3RyaW5nXUludGVyY2VwdEZ1bmN7YFtlcnJvcl0gYDogZnVuYyhzZXEgW11ieXRlKSB7CgkJZXJyb3JzICs9IDEKCX19KQoJZGF0YSA6PSBieXRlcy5OZXdCdWZmZXIoW11ieXRlKCJXYXJuaW5nOiBQZXJtYW5lbnRseSBhZGRlZCAnWzEyNy4wLjAuMV06MjIwMCcgKEVDRFNBKSB0byB0aGUgbGlzdCBvZiBrbm93biBob3N0cy5cbiIgKyAiW2Vycm9yXSBzb21ldGhpbmcgY29vbCB3ZW50IHdyb25nXG4iKSkKCXNjYW5uZXIgOj0gYnVmaW8uTmV3U2Nhbm5lcihkYXRhKQoJc2Nhbm5lci5TcGxpdChzcGxpdHRlci5TY2FuKQoJZm9yIHNjYW5uZXIuU2NhbigpIHsKCQlsaW5lcyA9IGFwcGVuZChsaW5lcywgc2Nhbm5lci5UZXh0KCkpCgl9Cglhc3NlcnQuTm9FcnJvcihzY2FubmVyLkVycigpKQoJYXNzZXJ0LkVxdWFsKDEsIGVycm9ycykKCWFzc2VydC5FcXVhbCgwLCB3YXJuaW5ncykKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgV2FybmluZzogUGVybWFuZW50bHkgYWRkZWQgJ1sxMjcuMC4wLjFdOjIyMDAnIChFQ0RTQSkgdG8gdGhlIGxpc3Qgb2Yga25vd24gaG9zdHMuYCwgYFtlcnJvcl0gc29tZXRoaW5nIGNvb2wgd2VudCB3cm9uZ2B9LCBsaW5lcykKCXNjYW5uZXIgPSBidWZpby5OZXdTY2FubmVyKGRhdGEpCglzY2FubmVyLlNwbGl0KHNwbGl0dGVyLlNjYW4pCglzcGxpdHRlci5JbnRlcmNlcHQoYFdhcm5pbmc6YCwgZnVuYyhzZXEgW11ieXRlKSB7CgkJd2FybmluZ3MgKz0gMQoJfSkKCWxpbmVzID0gbmlsCglkYXRhLldyaXRlU3RyaW5nKCJzb21lIGNvb2wgc3R1ZmYgZ29pbmcgb24gT0ggTk9PT08gV2FybmluZzogTk9PT09PT09cbiIpCglmb3Igc2Nhbm5lci5TY2FuKCkgewoJCWxpbmVzID0gYXBwZW5kKGxpbmVzLCBzY2FubmVyLlRleHQoKSkKCX0KCWFzc2VydC5Ob0Vycm9yKHNjYW5uZXIuRXJyKCkpCglhc3NlcnQuRXF1YWwoMSwgd2FybmluZ3MpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YHNvbWUgY29vbCBzdHVmZiBnb2luZyBvbiBPSCBOT09PTyBXYXJuaW5nOiBOT09PT09PT2B9LCBsaW5lcykKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestScanInterceptorBinarySubsequence",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestScanInterceptorBinarySubsequence(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0ZXJtaW5hdG9ycyA6PSAwCglzcGxpdHRlciA6PSBOZXdTY2FuSW50ZXJjZXB0b3IoYnVmaW8uU2NhbkJ5dGVzKQoJZGF0YSA6PSBieXRlcy5OZXdCdWZmZXIoW11ieXRlezB4NzEsIDB4MDAsIDB4NWQsIDB4MTMsIDB4ZmUsIDB4MDUsIDB4ZmYsIDB4ZmYsIDB4ZTcsIDB4ZmUsIDB4MDAsIDB4MTYsIDB4MjAsIDB4MDIsIDB4MDcsIDB4NWQsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4MDAsIDB4YWEsIDB4NTV9KQoJc3BsaXR0ZXIuSW50ZXJjZXB0KHN0cmluZyhbXWJ5dGV7MHhBQSwgMHg1NX0pLCBmdW5jKHNlcSBbXWJ5dGUpIHsKCQl0ZXJtaW5hdG9ycyArPSAxCgl9KQoJc2Nhbm5lciA6PSBidWZpby5OZXdTY2FubmVyKGRhdGEpCglzY2FubmVyLlNwbGl0KHNwbGl0dGVyLlNjYW4pCglmb3Igc2Nhbm5lci5TY2FuKCkgewoJCWNvbnRpbnVlCgl9Cglhc3NlcnQuTm9FcnJvcihzY2FubmVyLkVycigpKQoJYXNzZXJ0LkVxdWFsKDEsIHRlcm1pbmF0b3JzKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestScanInterceptorMultiple",
+            "Comment": "test multiple subsequences\n---------------------------------------------------------------------------------------------",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestScanInterceptorMultiple(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgllcnJvcnMgOj0gMAoJcHJvbXB0cyA6PSAwCgl2YXIgbGluZXMgW11zdHJpbmcKCXNwbGl0dGVyIDo9IE5ld1NjYW5JbnRlcmNlcHRvcihidWZpby5TY2FuTGluZXMsIG1hcFtzdHJpbmddSW50ZXJjZXB0RnVuY3tgW2Vycm9yXSBgOiBmdW5jKHNlcSBbXWJ5dGUpIHsKCQllcnJvcnMgKz0gMQoJfSwgYCBwYXNzd29yZDogYDogZnVuYyhzZXEgW11ieXRlKSB7CgkJcHJvbXB0cyArPSAxCgl9LCBgUGFzc3dvcmQ6IGA6IGZ1bmMoc2VxIFtdYnl0ZSkgewoJCXByb21wdHMgKz0gMQoJfX0pCglkYXRhIDo9IGJ5dGVzLk5ld0J1ZmZlcihbXWJ5dGUoIlBhc3N3b3JkOiBbZXJyb3JdIHNvbWV0aGluZyBjb29sIHdlbnQgd3JvbmdcbiIgKyAidGVzdEAxMjcuMC4wLjEncyBwYXNzd29yZDogIikpCglzY2FubmVyIDo9IGJ1ZmlvLk5ld1NjYW5uZXIoZGF0YSkKCXNjYW5uZXIuU3BsaXQoc3BsaXR0ZXIuU2NhbikKCWZvciBzY2FubmVyLlNjYW4oKSB7CgkJbGluZXMgPSBhcHBlbmQobGluZXMsIHNjYW5uZXIuVGV4dCgpKQoJfQoJYXNzZXJ0Lk5vRXJyb3Ioc2Nhbm5lci5FcnIoKSkKCWFzc2VydC5FcXVhbCgxLCBlcnJvcnMpCglhc3NlcnQuRXF1YWwoMiwgcHJvbXB0cykKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgUGFzc3dvcmQ6IFtlcnJvcl0gc29tZXRoaW5nIGNvb2wgd2VudCB3cm9uZ2AsIGB0ZXN0QDEyNy4wLjAuMSdzIHBhc3N3b3JkOiBgfSwgbGluZXMpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestScanInterceptorNothing",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestScanInterceptorNothing(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgbGluZXMgW11zdHJpbmcKCXNwbGl0dGVyIDo9IE5ld1NjYW5JbnRlcmNlcHRvcihidWZpby5TY2FuTGluZXMpCglkYXRhIDo9IGJ5dGVzLk5ld0J1ZmZlcihbXWJ5dGUoImZpcnN0XG5zZWNvbmRcbnRoaXJkXG4iKSkKCXNjYW5uZXIgOj0gYnVmaW8uTmV3U2Nhbm5lcihkYXRhKQoJc2Nhbm5lci5TcGxpdChzcGxpdHRlci5TY2FuKQoJZm9yIHNjYW5uZXIuU2NhbigpIHsKCQlsaW5lcyA9IGFwcGVuZChsaW5lcywgc2Nhbm5lci5UZXh0KCkpCgl9Cglhc3NlcnQuTm9FcnJvcihzY2FubmVyLkVycigpKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2BmaXJzdGAsIGBzZWNvbmRgLCBgdGhpcmRgfSwgbGluZXMpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestScanInterceptorRepeats",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestScanInterceptorRepeats(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0aGUgOj0gMAoJZmF0aGVyIDo9IDAKCWhhZCA6PSAwCglzcGxpdHRlciA6PSBOZXdTY2FuSW50ZXJjZXB0b3IoYnVmaW8uU2NhbkxpbmVzLCBtYXBbc3RyaW5nXUludGVyY2VwdEZ1bmN7YHRoZWA6IGZ1bmMoc2VxIFtdYnl0ZSkgewoJCXRoZSArPSAxCgl9LCBgRmF0aGVyYDogZnVuYyhzZXEgW11ieXRlKSB7CgkJZmF0aGVyICs9IDEKCX0sIGBoYWRgOiBmdW5jKHNlcSBbXWJ5dGUpIHsKCQloYWQgKz0gMQoJfX0pCglkYXRhIDo9IGJ5dGVzLk5ld0J1ZmZlcihbXWJ5dGUoIkl0IHdhcyBOb3ZlbWJlci4gQWx0aG91Z2ggaXQgd2FzIG5vdCB5ZXQgbGF0ZSwgdGhlIHNreSB3YXMgZGFyayB3aGVuIEkgdHVybmVkIGludG8gTGF1bmRyZXNzICIgKyAiUGFzc2FnZS4gRmF0aGVyIGhhZCBmaW5pc2hlZCBmb3IgdGhlIGRheSwgc3dpdGNoZWQgb2ZmIHRoZSBzaG9wIGxpZ2h0cyBhbmQgY2xvc2VkIHRoZSBzaHV0dGVyczsgIiArICJidXQgc28gSSB3b3VsZCBub3QgY29tZSBob21lIHRvIGRhcmtuZXNzIGhlIGhhZCBsZWZ0IG9uIHRoZSBsaWdodCBvdmVyIHRoZSBzdGFpcnMgdG8gdGhlIGZsYXQuICIgKyAiVGhyb3VnaCB0aGUgZ2xhc3MgaW4gdGhlIGRvb3IgaXQgY2FzdCBhIGZvb2xzY2FwIHJlY3RhbmdsZSBvZiBwYWxlbmVzcyBvbnRvIHRoZSB3ZXQgcGF2ZW1lbnQsIGFuZCAiICsgIml0IHdhcyB3aGlsZSBJIHdhcyBzdGFuZGluZyBpbiB0aGF0IHJlY3RhbmdsZSwgYWJvdXQgdG8gdHVybiBteSBrZXkgaW4gdGhlIGRvb3IsIHRoYXQgSSBmaXJzdCBzYXcgIiArICJ0aGUgbGV0dGVyLiBBbm90aGVyIHdoaXRlIHJlY3RhbmdsZSwgaXQgd2FzIG9uIHRoZSBmaWZ0aCBzdGVwIGZyb20gdGhlIGJvdHRvbSwgd2hlcmUgSSBjb3VsZG4ndCBtaXNzIGl0LlxuIiArICJcbiIgKyAiSSBjbG9zZWQgdGhlIGRvb3IgYW5kIHB1dCB0aGUgc2hvcCBrZXkgaW4gaXRzIHVzdWFsIHBsYWNlIGJlaGluZCBCYWlsZXkncyBBZHZhbmNlZCBQcmluY2lwbGVzIG9mIEdlb21ldHJ5LiAiICsgIlBvb3IgQmFpbGV5LiBObyBvbmUgaGFzIHdhbnRlZCBoaXMgZmF0IGdyYXkgYm9vayBmb3IgdGhpcnR5IHllYXJzLiBTb21ldGltZXMgSSB3b25kZXIgd2hhdCBoZSBtYWtlcyBvZiBoaXMgIiArICJyb2xlIGFzIGd1YXJkaWFuIG9mIHRoZSBib29rc2hvcCBrZXlzLiBJIGRvbid0IHN1cHBvc2UgaXQncyB0aGUgZGVzdGlueSBoZSBoYWQgaW4gbWluZCBmb3IgdGhlIG1hc3RlcndvcmsgIiArICJ0aGF0IGhlIHNwZW50IHR3byBkZWNhZGVzIHdyaXRpbmcuIikpCglzY2FubmVyIDo9IGJ1ZmlvLk5ld1NjYW5uZXIoZGF0YSkKCXNjYW5uZXIuU3BsaXQoc3BsaXR0ZXIuU2NhbikKCWZvciBzY2FubmVyLlNjYW4oKSB7CgkJY29udGludWUKCX0KCWFzc2VydC5Ob0Vycm9yKHNjYW5uZXIuRXJyKCkpCglhc3NlcnQuRXF1YWwoMjEsIHRoZSkKCWFzc2VydC5FcXVhbCgxLCBmYXRoZXIpCglhc3NlcnQuRXF1YWwoMywgaGFkKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestScanInterceptorSingle",
+            "Comment": "test single subsequence\n---------------------------------------------------------------------------------------------",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestScanInterceptorSingle(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgllcnJvcnMgOj0gMAoJcHJvbXB0cyA6PSAwCgl2YXIgbGluZXMgW11zdHJpbmcKCXNwbGl0dGVyIDo9IE5ld1NjYW5JbnRlcmNlcHRvcihidWZpby5TY2FuTGluZXMsIG1hcFtzdHJpbmddSW50ZXJjZXB0RnVuY3tgW2Vycm9yXSBgOiBmdW5jKHNlcSBbXWJ5dGUpIHsKCQllcnJvcnMgKz0gMQoJfSwgYCBwYXNzd29yZDogYDogZnVuYyhzZXEgW11ieXRlKSB7CgkJcHJvbXB0cyArPSAxCgl9LCBgUGFzc3dvcmQ6IGA6IGZ1bmMoc2VxIFtdYnl0ZSkgewoJCXByb21wdHMgKz0gMQoJfX0pCglkYXRhIDo9IGJ5dGVzLk5ld0J1ZmZlcihbXWJ5dGUoIldhcm5pbmc6IFBlcm1hbmVudGx5IGFkZGVkICdbMTI3LjAuMC4xXToyMjAwJyAoRUNEU0EpIHRvIHRoZSBsaXN0IG9mIGtub3duIGhvc3RzLlxuIiArICJ0ZXN0QDEyNy4wLjAuMSdzIHBhc3N3b3JkOiAiKSkKCXNjYW5uZXIgOj0gYnVmaW8uTmV3U2Nhbm5lcihkYXRhKQoJc2Nhbm5lci5TcGxpdChzcGxpdHRlci5TY2FuKQoJZm9yIHNjYW5uZXIuU2NhbigpIHsKCQlsaW5lcyA9IGFwcGVuZChsaW5lcywgc2Nhbm5lci5UZXh0KCkpCgl9Cglhc3NlcnQuTm9FcnJvcihzY2FubmVyLkVycigpKQoJYXNzZXJ0LkVxdWFsKDAsIGVycm9ycykKCWFzc2VydC5FcXVhbCgxLCBwcm9tcHRzKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2BXYXJuaW5nOiBQZXJtYW5lbnRseSBhZGRlZCAnWzEyNy4wLjAuMV06MjIwMCcgKEVDRFNBKSB0byB0aGUgbGlzdCBvZiBrbm93biBob3N0cy5gLCBgdGVzdEAxMjcuMC4wLjEncyBwYXNzd29yZDogYH0sIGxpbmVzKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSnakeify",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSnakeify(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0ZXN0cyA6PSBtYXBbc3RyaW5nXXN0cmluZ3tgVGVzdGA6IGB0ZXN0YCwgYHRlc3RgOiBgdGVzdGAsIGB0ZXN0X3ZhbHVlYDogYHRlc3Q6dmFsdWVgLCBgdGVzdC1WYWx1ZWA6IGB0ZXN0OnZhbHVlYCwgYHRlc3QgdmFsdWVgOiBgdGVzdDp2YWx1ZWAsIGBUZXN0VmFsdWVgOiBgdGVzdDp2YWx1ZWAsIGB0ZXN0VmFsdWVgOiBgdGVzdDp2YWx1ZWAsIGBUZVN0IFZhTHVlYDogYHRlOnN0OnZhOmx1ZWB9Cglmb3IgaGF2ZSwgd2FudCA6PSByYW5nZSB0ZXN0cyB7CgkJYXNzZXJ0LkVxdWFsKHdhbnQsIFNuYWtlaWZ5KGhhdmUsICc6JykpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSplitPairFamily",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSplitPairFamily(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZmlyc3QsIHJlc3Qgc3RyaW5nCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyYWlsaW5nKGBgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmFpbGluZyhgdGVzdGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmFpbGluZyhgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYHRlc3QudmFsdWVzLm5lc3RlZGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXMubmVzdGVkYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHQoYGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0KGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0KGB0ZXN0LnZhbHVlc2AsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXNgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgdGVzdC52YWx1ZXMubmVzdGVkYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0LnZhbHVlc2AsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBuZXN0ZWRgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodFRyYWlsaW5nKGBgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodFRyYWlsaW5nKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0VHJhaWxpbmcoYHRlc3QudmFsdWVzYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0VHJhaWxpbmcoYHRlc3QudmFsdWVzLm5lc3RlZGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdC52YWx1ZXNgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgbmVzdGVkYCwgcmVzdCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSplitWords",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSplitWords(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YEdvbGRlbnJvZC1hZG9ybmVkYCwgYGxvZ2AsIGAuYH0sIFNwbGl0V29yZHMoYEdvbGRlbnJvZC1hZG9ybmVkIGxvZy5gKSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgR29sZGVucm9kYCwgYGFkb3JuZWRgLCBgbG9nYCwgYC5gfSwgU3BsaXRXb3JkcyhgR29sZGVucm9kIGFkb3JuZWQgbG9nLmApKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSqueezes",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSqueezes(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRW1wdHkoU3F1ZWV6ZShgYCkpCglhc3NlcnQuRXF1YWwoYCBgLCBTcXVlZXplKGAgICAgIGApKQoJYXNzZXJ0LkVxdWFsKGBUaGlzc3NzIGlzIGEgdGVzdC5gLCBTcXVlZXplU3BhY2UoYFRoaXNzc3MgICBpcyBhICAgICAgdGVzdC5gKSkKCWFzc2VydC5FcXVhbCgiXHQgVGhpcyBpcyBhIHRlc3QuIFx0ICIsIFNxdWVlemVTcGFjZSgiXHRcdCAgVGhpcyAgIGlzIGEgICAgICB0ZXN0LiBcdCAiKSkKCWFzc2VydC5FcXVhbChgVGhpcyBpcyBhIHRlc3QuYCwgU3F1ZWV6ZShgVGhpc3NzcyAgIGlzIGEgICAgICB0ZXN0LmApKQoJYXNzZXJ0LkVxdWFsKGDli6TmgbNgLCBTcXVlZXplKGDli6Tli6TmgbPmgbNgKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSuffixLines",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSuffixLines(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoIjE8PDxcbjI8PDxcbjM8PDwiLCBTdWZmaXhMaW5lcygiMVxuMlxuMyIsIGA8PDxgKSkKCWFzc2VydC5FcXVhbCgiMTw8PFxuMjw8PFxuMzw8PFxuPDw8IiwgU3VmZml4TGluZXMoIjFcbjJcbjNcbiIsIGA8PDxgKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestThousandify",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestThousandify(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGAsIFRob3VzYW5kaWZ5KGBgLCBgYCwgYGApKQoJYXNzZXJ0LkVxdWFsKGAwYCwgVGhvdXNhbmRpZnkoYDBgLCBgYCwgYGApKQoJYXNzZXJ0LkVxdWFsKGAxYCwgVGhvdXNhbmRpZnkoYDFgLCBgYCwgYGApKQoJYXNzZXJ0LkVxdWFsKGAxLDAwMGAsIFRob3VzYW5kaWZ5KGAxMDAwYCwgYGAsIGBgKSkKCWFzc2VydC5FcXVhbChgMSwwMDAuMDAwYCwgVGhvdXNhbmRpZnkoYDEwMDAuMDAwYCwgYGAsIGBgKSkKCWFzc2VydC5FcXVhbChgMSwwMDAuMDAxYCwgVGhvdXNhbmRpZnkoYDEwMDAuMDAxYCwgYGAsIGBgKSkKCWFzc2VydC5FcXVhbChgOSwyMjMsMzcyLDAzNiw4NTQsNzc1LDgwN2AsIFRob3VzYW5kaWZ5KGA5MjIzMzcyMDM2ODU0Nzc1ODA3YCwgYGAsIGBgKSkKCWFzc2VydC5FcXVhbChgLTksMjIzLDM3MiwwMzYsODU0LDc3NSw4MDlgLCBUaG91c2FuZGlmeShgLTkyMjMzNzIwMzY4NTQ3NzU4MDlgLCBgYCwgYGApKQoJYXNzZXJ0LkVxdWFsKGAtOSwyMjMsMzcyLDAzNiw4NTQsNzc1LDgwOSw5MjIsMzM3LDIwMyw2ODUsNDc3LDU4MCw5OTIsMjMzLDcyMCwzNjgsNTQ3LDc1OCwwOTksMjIzLDM3MiwwMzYsODU0LDc3NSw4MDlgLCBUaG91c2FuZGlmeShgLTkyMjMzNzIwMzY4NTQ3NzU4MDk5MjIzMzcyMDM2ODU0Nzc1ODA5OTIyMzM3MjAzNjg1NDc3NTgwOTkyMjMzNzIwMzY4NTQ3NzU4MDlgLCBgYCwgYGApKQoJYXNzZXJ0LkVxdWFsKGAwYCwgVGhvdXNhbmRpZnkoMCwgYGAsIGBgKSkKCWFzc2VydC5FcXVhbChgMWAsIFRob3VzYW5kaWZ5KDEsIGBgLCBgYCkpCglhc3NlcnQuRXF1YWwoYDEsMDAwYCwgVGhvdXNhbmRpZnkoMTAwMCwgYGAsIGBgKSkKCWFzc2VydC5FcXVhbChgMSwwMDBgLCBUaG91c2FuZGlmeSgxMDAwLjAwMCwgYGAsIGBgKSkKCWFzc2VydC5FcXVhbChgMSwwMDAuMDAxYCwgVGhvdXNhbmRpZnkoMTAwMC4wMDEsIGBgLCBgYCkpCglhc3NlcnQuRXF1YWwoYDksMjIzLDM3MiwwMzYsODU0LDc3NSw4MDdgLCBUaG91c2FuZGlmeSg5MjIzMzcyMDM2ODU0Nzc1ODA3LCBgYCwgYGApKQoJYXNzZXJ0LkVxdWFsKGAtOSwyMjMsMzcyLDAzNiw4NTQsNzc1LDgwOGAsIFRob3VzYW5kaWZ5KC05MjIzMzcyMDM2ODU0Nzc1ODA4LCBgYCwgYGApKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestToByteString",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestToByteString(t *testing.T)",
+            "Source": "ewoJdGVzdHZhbHVlcyA6PSBtYXBbaW50ZXJmYWNle31dc3RyaW5nezA6IGAwQmAsIDE6IGAxQmAsIDEwMjM6IGAxMDIzQmAsIDEwMjQ6IGAxS0JgLCAxNTM2OiBgMS41S0JgLCAyMDQ4OiBgMktCYCwgMTA0ODU3NTogYDEwMjMuOTk5MDIzNDM3NUtCYCwgMTA0ODU3NjogYDFNQmB9Cglmb3IgaW4sIG91dCA6PSByYW5nZSB0ZXN0dmFsdWVzIHsKCQlpZiB2LCBlcnIgOj0gVG9CeXRlU3RyaW5nKGluKTsgZXJyICE9IG5pbCB8fCB2ICE9IG91dCB7CgkJCXQuRXJyb3JmKCJWYWx1ZSAldiAoJVQpIFRvQnl0ZVN0cmluZyBmYWlsZWQ6IGV4cGVjdGVkICclcycsIGdvdCAnJXMnIChlcnI6ICV2KSIsIGluLCBpbiwgb3V0LCB2LCBlcnIpCgkJfQoJfQoJdGVzdHZhbHVlcyA9IG1hcFtpbnRlcmZhY2V7fV1zdHJpbmd7MDogYDAuMDBCYCwgMTogYDEuMDBCYCwgMTAyMzogYDEwMjMuMDBCYCwgMTAyNDogYDEuMDBLQmAsIDE1MzY6IGAxLjUwS0JgLCAyMDQ4OiBgMi4wMEtCYCwgMTA0ODU3NTogYDEwMjQuMDBLQmAsIDEwNDg1NzY6IGAxLjAwTUJgfQoJZm9yIGluLCBvdXQgOj0gcmFuZ2UgdGVzdHZhbHVlcyB7CgkJaWYgdiwgZXJyIDo9IFRvQnl0ZVN0cmluZyhpbiwgYCUuMmZgKTsgZXJyICE9IG5pbCB8fCB2ICE9IG91dCB7CgkJCXQuRXJyb3JmKCJWYWx1ZSAldiAoJVQpIFRvQnl0ZVN0cmluZyBmYWlsZWQ6IGV4cGVjdGVkICclcycsIGdvdCAnJXMnIChlcnI6ICV2KSIsIGluLCBpbiwgb3V0LCB2LCBlcnIpCgkJfQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestToBytes",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestToBytes(t *testing.T)",
+            "Source": "ewoJZXhwZWN0ZWQgOj0gbWFwW3N0cmluZ11tYXBbc3RyaW5nXWZsb2F0NjR7YGA6IG1hcFtzdHJpbmddZmxvYXQ2NHtgLTFgOiAtMSwgYDBgOiAwLCBgMWA6IDEsIGA0NjExNjg2MDE4NDI3Mzg3OTAzYDogNDYxMTY4NjAxODQyNzM4NzkwMywgYDQ2MTE2ODYwMTg0MjczODc5MDRgOiA0NjExNjg2MDE4NDI3Mzg3OTA0LCBgNDYxMTY4NjAxODQyNzM4NzkwNWA6IDQ2MTE2ODYwMTg0MjczODc5MDUsIGA5MjIzMzcyMDM2ODU0Nzc1ODA3YDogOTIyMzM3MjAzNjg1NDc3NTgwNywgYC00NjExNjg2MDE4NDI3Mzg3OTAzYDogLTQ2MTE2ODYwMTg0MjczODc5MDMsIGAtNDYxMTY4NjAxODQyNzM4NzkwNGA6IC00NjExNjg2MDE4NDI3Mzg3OTA0LCBgLTQ2MTE2ODYwMTg0MjczODc5MDVgOiAtNDYxMTY4NjAxODQyNzM4NzkwNSwgYC05MjIzMzcyMDM2ODU0Nzc1ODA3YDogLTkyMjMzNzIwMzY4NTQ3NzU4MDcsIGAtOTIyMzM3MjAzNjg1NDc3NTgwOGA6IC05MjIzMzcyMDM2ODU0Nzc1ODA4fSwgYGJgOiBtYXBbc3RyaW5nXWZsb2F0NjR7YC0xYDogLTEsIGAwYDogMCwgYDFgOiAxLCBgNDYxMTY4NjAxODQyNzM4NzkwM2A6IDQ2MTE2ODYwMTg0MjczODc5MDMsIGA0NjExNjg2MDE4NDI3Mzg3OTA0YDogNDYxMTY4NjAxODQyNzM4NzkwNCwgYDQ2MTE2ODYwMTg0MjczODc5MDVgOiA0NjExNjg2MDE4NDI3Mzg3OTA1LCBgOTIyMzM3MjAzNjg1NDc3NTgwN2A6IDkyMjMzNzIwMzY4NTQ3NzU4MDcsIGAtNDYxMTY4NjAxODQyNzM4NzkwM2A6IC00NjExNjg2MDE4NDI3Mzg3OTAzLCBgLTQ2MTE2ODYwMTg0MjczODc5MDRgOiAtNDYxMTY4NjAxODQyNzM4NzkwNCwgYC00NjExNjg2MDE4NDI3Mzg3OTA1YDogLTQ2MTE2ODYwMTg0MjczODc5MDUsIGAtOTIyMzM3MjAzNjg1NDc3NTgwN2A6IC05MjIzMzcyMDM2ODU0Nzc1ODA3LCBgLTkyMjMzNzIwMzY4NTQ3NzU4MDhgOiAtOTIyMzM3MjAzNjg1NDc3NTgwOH0sIGBrYDogbWFwW3N0cmluZ11mbG9hdDY0e2AtMWA6IC0xMDI0LCBgMGA6IDAsIGAxYDogMTAyNCwgYDAuNWA6IDUxMiwgYDJgOiAyMDQ4LCBgOTAwNzE5OTI1NDc0MDk5MmA6IDkyMjMzNzIwMzY4NTQ3NzU4MDh9LCBgbWA6IG1hcFtzdHJpbmddZmxvYXQ2NHtgLTFgOiAtMTA0ODU3NiwgYDBgOiAwLCBgMWA6IDEwNDg1NzYsIGAwLjVgOiA1MjQyODgsIGA4Nzk2MDkzMDIyMjA4YDogOTIyMzM3MjAzNjg1NDc3NTgwOH0sIGBnYDogbWFwW3N0cmluZ11mbG9hdDY0e2AtMWA6IC0xMDczNzQxODI0LCBgMGA6IDAsIGAxYDogMTA3Mzc0MTgyNCwgYDAuNWA6IDUzNjg3MDkxMiwgYDg1ODk5MzQ1OTJgOiA5MjIzMzcyMDM2ODU0Nzc1ODA4fSwgYHRgOiBtYXBbc3RyaW5nXWZsb2F0NjR7YC0xYDogLTEwOTk1MTE2Mjc3NzYsIGAwYDogMCwgYDFgOiAxMDk5NTExNjI3Nzc2LCBgMC41YDogNTQ5NzU1ODEzODg4LCBgODM4ODYwOGA6IDkyMjMzNzIwMzY4NTQ3NzU4MDh9LCBgcGA6IG1hcFtzdHJpbmddZmxvYXQ2NHtgLTFgOiAtMTEyNTg5OTkwNjg0MjYyNCwgYDBgOiAwLCBgMWA6IDExMjU4OTk5MDY4NDI2MjQsIGAwLjVgOiA1NjI5NDk5NTM0MjEzMTIsIGA4MTkyYDogOTIyMzM3MjAzNjg1NDc3NTgwOH0sIGBlYDogbWFwW3N0cmluZ11mbG9hdDY0e2AtMWA6IC0xMTUyOTIxNTA0NjA2ODQ2OTc2LCBgMGA6IDAsIGAxYDogMTE1MjkyMTUwNDYwNjg0Njk3NiwgYDAuNWA6IDU3NjQ2MDc1MjMwMzQyMzQ4OCwgYDhgOiA5MjIzMzcyMDM2ODU0Nzc1ODA4fSwgYHpgOiBtYXBbc3RyaW5nXWZsb2F0NjR7YC0xYDogLTExODA1OTE2MjA3MTc0MTEzMDM0MjQsIGAwYDogMCwgYDFgOiAxMTgwNTkxNjIwNzE3NDExMzAzNDI0LCBgMC41YDogNTkwMjk1ODEwMzU4NzA1NjUxNzEyfSwgYHlgOiBtYXBbc3RyaW5nXWZsb2F0NjR7YC0xYDogLTEyMDg5MjU4MTk2MTQ2MjkxNzQ3MDYxNzYsIGAwYDogMCwgYDFgOiAxMjA4OTI1ODE5NjE0NjI5MTc0NzA2MTc2LCBgMC41YDogNjA0NDYyOTA5ODA3MzE0NTg3MzUzMDg4fX0KCXRlc3RFeHBlY3RhdGlvbnMgOj0gZnVuYyhleHBlY3RlZFZhbHVlcyBtYXBbc3RyaW5nXWZsb2F0NjQsIGFwcGVuZFRvSW5wdXQgc3RyaW5nKSB7CgkJZm9yIGluLCBvdXQgOj0gcmFuZ2UgZXhwZWN0ZWRWYWx1ZXMgewoJCQlpbiA9IGluICsgYXBwZW5kVG9JbnB1dAoJCQlpZiB2LCBlcnIgOj0gVG9CeXRlcyhpbik7IGVyciA9PSBuaWwgewoJCQkJaWYgdiAhPSBvdXQgewoJCQkJCXQuRXJyb3JmKCJDb252ZXJzaW9uIGVycm9yIG9uICclcyc6IGV4cGVjdGVkICVmLCBnb3QgJWYiLCBpbiwgb3V0LCB2KQoJCQkJfQoJCQl9IGVsc2UgewoJCQkJdC5FcnJvcmYoIkdvdCBlcnJvciBjb252ZXJ0aW5nICclcycgdG8gYnl0ZXM6ICV2IiwgaW4sIGVycikKCQkJfQoJCX0KCX0KCWZvciBzdWZmaXgsIGV4cGVjdGF0aW9ucyA6PSByYW5nZSBleHBlY3RlZCB7CgkJdGVzdEV4cGVjdGF0aW9ucyhleHBlY3RhdGlvbnMsIHN1ZmZpeCkKCQlpZiBzdWZmaXggIT0gYGAgJiYgc3VmZml4ICE9IGBiYCB7CgkJCXRlc3RFeHBlY3RhdGlvbnMoZXhwZWN0YXRpb25zLCBzdWZmaXgrYGJgKQoJCQl0ZXN0RXhwZWN0YXRpb25zKGV4cGVjdGF0aW9ucywgc3VmZml4K2BCYCkKCQkJdGVzdEV4cGVjdGF0aW9ucyhleHBlY3RhdGlvbnMsIHN1ZmZpeCtgaWJgKQoJCQl0ZXN0RXhwZWN0YXRpb25zKGV4cGVjdGF0aW9ucywgc3VmZml4K2BpQmApCgkJfQoJfQoJaWYgdiwgZXJyIDo9IFRvQnl0ZXMoYHBvdGF0b2ApOyBlcnIgPT0gbmlsIHsKCQl0LkVycm9yZigiVmFsdWUgJ3BvdGF0bycgaW5leHBsaWNhYmx5IHJldHVybmVkIGEgdmFsdWUgKCV2KSIsIHYpCgl9CglpZiB2LCBlcnIgOj0gVG9CeXRlcyhgcG90YXRvR2ApOyBlcnIgPT0gbmlsIHsKCQl0LkVycm9yZigiVmFsdWUgJ3BvdGF0b0cnIGluZXhwbGljYWJseSByZXR1cm5lZCBhIHZhbHVlICgldikiLCB2KQoJfQoJaWYgdiwgZXJyIDo9IFRvQnl0ZXMoYDEyM1hgKTsgZXJyID09IG5pbCB7CgkJdC5FcnJvcmYoIkludmFsaWQgU0kgc3VmZml4ICdYJyBkaWQgbm90IGVycm9yLCBnb3Q6ICV2IiwgdikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestToString",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestToString(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0ZXN0dmFsdWVzIDo9IG1hcFtpbnRlcmZhY2V7fV1zdHJpbmd7bmlsOiBgYCwgaW50KDApOiBgMGAsIGludCgxKTogYDFgLCBpbnQ4KDApOiBgMGAsIGludDgoMSk6IGAxYCwgaW50MTYoMCk6IGAwYCwgaW50MTYoMSk6IGAxYCwgaW50MzIoMCk6IGAwYCwgaW50MzIoMSk6IGAxYCwgaW50NjQoMCk6IGAwYCwgaW50NjQoMSk6IGAxYCwgdWludCgwKTogYDBgLCB1aW50KDEpOiBgMWAsIHVpbnQ4KDApOiBgMGAsIHVpbnQ4KDEpOiBgMWAsIHVpbnQxNigwKTogYDBgLCB1aW50MTYoMSk6IGAxYCwgdWludDMyKDApOiBgMGAsIHVpbnQzMigxKTogYDFgLCB1aW50NjQoMCk6IGAwYCwgdWludDY0KDEpOiBgMWAsIGZsb2F0MzIoMC4wKTogYDBgLCBmbG9hdDMyKDEuMCk6IGAxYCwgZmxvYXQ2NCgwLjApOiBgMGAsIGZsb2F0NjQoMS4wKTogYDFgLCBmbG9hdDMyKDAuNSk6IGAwLjVgLCBmbG9hdDMyKDEuNyk6IGAxLjdgLCBmbG9hdDY0KDAuNik6IGAwLjZgLCBmbG9hdDY0KDEuMik6IGAxLjJgfQoJZm9yIGluLCBvdXQgOj0gcmFuZ2UgdGVzdHZhbHVlcyB7CgkJaWYgdiwgZXJyIDo9IFRvU3RyaW5nKGluKTsgZXJyICE9IG5pbCB8fCB2ICE9IG91dCB7CgkJCXQuRXJyb3JmKCJWYWx1ZSAldiAoJVQpIFRvU3RyaW5nIGZhaWxlZDogZXhwZWN0ZWQgJyVzJywgZ290ICclcycgKGVycjogJXYpIiwgaW4sIGluLCBvdXQsIHYsIGVycikKCQl9Cgl9CglzLCBlcnIgOj0gVG9TdHJpbmcoW111aW50OHsweDc0LCAweDY1LCAweDczLCAweDc0fSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChgdGVzdGAsIHMpCglzLCBlcnIgPSBUb1N0cmluZyhbXWJ5dGV7MHg3NCwgMHg2NSwgMHg3MywgMHg3NH0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBzKQoJcywgZXJyID0gVG9TdHJpbmcoW11ydW5leyd0JywgJ2UnLCAncycsICd0J30pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBzKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestToStringSlice",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestToStringSlice(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2LCBlcnIgOj0gVG9TdHJpbmdTbGljZShbXXN0cmluZ3tgYWAsIGBiYCwgYGNgfSkKCWFzc2VydC5OaWwoZXJyKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2BhYCwgYGJgLCBgY2B9LCB2KQoJdiwgZXJyID0gVG9TdHJpbmdTbGljZShbXWludHsxLCAyLCAzfSkKCWFzc2VydC5OaWwoZXJyKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2AxYCwgYDJgLCBgM2B9LCB2KQoJdiwgZXJyID0gVG9TdHJpbmdTbGljZShbXWZsb2F0MzJ7MS41LCAyLjcsIDMuMDAzMjQ3N30pCglhc3NlcnQuTmlsKGVycikKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgMS41YCwgYDIuN2AsIGAzLjAwMzI0NzdgfSwgdikKCXYsIGVyciA9IFRvU3RyaW5nU2xpY2UoW11mbG9hdDY0ezEuNSwgMi43LCAzLjk4MzI0MTI3NTQ4OTIxMzd9KQoJYXNzZXJ0Lk5pbChlcnIpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YDEuNWAsIGAyLjdgLCBgMy45ODMyNDEyNzU0ODkyMTM3YH0sIHYpCgl2LCBlcnIgPSBUb1N0cmluZ1NsaWNlKFtdaW50ZXJmYWNle317MSwgdHJ1ZSwgMy45ODMyNDEyNzU0ODkyMTM3LCBgZm91cmB9KQoJYXNzZXJ0Lk5pbChlcnIpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YDFgLCBgdHJ1ZWAsIGAzLjk4MzI0MTI3NTQ4OTIxMzdgLCBgZm91cmB9LCB2KQoJdiwgZXJyID0gVG9TdHJpbmdTbGljZSh0cnVlKQoJYXNzZXJ0Lk5pbChlcnIpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YHRydWVgfSwgdikKCXYsIGVyciA9IFRvU3RyaW5nU2xpY2UodHJ1ZSkKCWFzc2VydC5OaWwoZXJyKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2B0cnVlYH0sIHYpCgl2LCBlcnIgPSBUb1N0cmluZ1NsaWNlKG5pbCkKCWFzc2VydC5OaWwoZXJyKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne30sIHYpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestUUID",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestUUID(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBbXWJ5dGV7MHgwMSwgMHgwMiwgMHgwMywgMHgwMSwgMHgwMiwgMHgwMywgMHgwMSwgMHgwMiwgMHgwMywgMHgwMSwgMHgwMiwgMHgwMywgMHgwMSwgMHgwMiwgMHgwMywgMHgwMX0KCXV1aWQsIGVyciA6PSBVdWlkRnJvbUJ5dGVzKGlucHV0KQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGAwMTAyMDMwMS0wMjAzLTAxMDItMDMwMS0wMjAzMDEwMjAzMDFgLCB1dWlkLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGlucHV0LCB1dWlkLkJ5dGVzKCkpCglhc3NlcnQuRXF1YWwoYDAxMDIwMzAxMDIwMzAxMDIwMzAxMDIwMzAxMDIwMzAxYCwgdXVpZC5IZXgoKSkKCWFzc2VydC5FcXVhbChgQVFJREFRSURBUUlEQVFJREFRSURBUT09YCwgdXVpZC5CYXNlNjQoKSkKCWFzc2VydC5FcXVhbChgOERmYlV5VHIyelpBQlZaZGJtZG82YCwgdXVpZC5CYXNlNTgoKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestUnderscore",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestUnderscore(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0ZXN0cyA6PSBtYXBbc3RyaW5nXXN0cmluZ3tgVGVzdGA6IGB0ZXN0YCwgYHRlc3RgOiBgdGVzdGAsIGB0ZXN0X3ZhbHVlYDogYHRlc3RfdmFsdWVgLCBgdGVzdC1WYWx1ZWA6IGB0ZXN0X3ZhbHVlYCwgYHRlc3QgdmFsdWVgOiBgdGVzdF92YWx1ZWAsIGBUZXN0VmFsdWVgOiBgdGVzdF92YWx1ZWAsIGB0ZXN0VmFsdWVgOiBgdGVzdF92YWx1ZWAsIGBUZVN0IFZhTHVlYDogYHRlX3N0X3ZhX2x1ZWB9Cglmb3IgaGF2ZSwgd2FudCA6PSByYW5nZSB0ZXN0cyB7CgkJYXNzZXJ0LkVxdWFsKHdhbnQsIFVuZGVyc2NvcmUoaGF2ZSkpCgl9Cn0=",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "ConvertType": {
+            "Name": "ConvertType",
+            "Methods": [
+                {
+                    "Name": "ParseType",
+                    "Arguments": [
+                        {
+                            "Name": "name",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "ConvertType"
+                        }
+                    ],
+                    "Signature": "ParseType(name string) ConvertType",
+                    "Source": "ewoJc3dpdGNoIHN0cmluZ3MuVG9Mb3dlcihuYW1lKSB7CgljYXNlIGBzdHJgOgoJCXJldHVybiB1dGlscy5TdHJpbmcKCWNhc2UgYGJvb2xgOgoJCXJldHVybiB1dGlscy5Cb29sZWFuCgljYXNlIGBmbG9hdGA6CgkJcmV0dXJuIHV0aWxzLkZsb2F0CgljYXNlIGBpbnRgOgoJCXJldHVybiB1dGlscy5JbnRlZ2VyCgljYXNlIGB0aW1lYDoKCQlyZXR1cm4gdXRpbHMuVGltZQoJY2FzZSBgYnl0ZXNgOgoJCXJldHVybiB1dGlscy5CeXRlcwoJZGVmYXVsdDoKCQlyZXR1cm4gdXRpbHMuSW52YWxpZAoJfQp9",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Source": "dHlwZSBDb252ZXJ0VHlwZSA9IHV0aWxzLkNvbnZlcnRUeXBl"
+        },
+        "InterceptFunc": {
+            "Name": "InterceptFunc",
+            "Source": "dHlwZSBJbnRlcmNlcHRGdW5jIGZ1bmMoc2VxIFtdYnl0ZSk="
+        },
+        "OnlySqueezeFunc": {
+            "Name": "OnlySqueezeFunc",
+            "Source": "dHlwZSBPbmx5U3F1ZWV6ZUZ1bmMgZnVuYyhyIHJ1bmUpIGJvb2w="
+        },
+        "ScanInterceptor": {
+            "Name": "ScanInterceptor",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "BytesScanned",
+                    "Comment": "Return the total number of bytes this scanner has scanned.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "int64"
+                        }
+                    ],
+                    "Signature": "BytesScanned() int64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Intercept",
+                    "Comment": "Add an intercept sequence and handler.  If the sequence is already registered, its handler\nfunction will be replaced with this one.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "sequence",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "handler",
+                            "Type": "InterceptFunc"
+                        }
+                    ],
+                    "Signature": "Intercept(sequence string, handler InterceptFunc)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "InterceptCounts",
+                    "Comment": "Returns a map of intercept sequences and the number of times each one was fired.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "map[string]int64"
+                        }
+                    ],
+                    "Signature": "InterceptCounts() map[string]int64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "NewScanInterceptor",
+                    "Arguments": [
+                        {
+                            "Name": "passthrough",
+                            "Type": "bufio.SplitFunc"
+                        },
+                        {
+                            "Name": "intercepts",
+                            "Type": "...map[string]InterceptFunc"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*ScanInterceptor"
+                        }
+                    ],
+                    "Signature": "NewScanInterceptor(passthrough bufio.SplitFunc, intercepts ...map[string]InterceptFunc) *ScanInterceptor",
+                    "Source": "ewoJdmFyIGludGVyY2VwdCBtYXBbc3RyaW5nXUludGVyY2VwdEZ1bmMKCWlmIGxlbihpbnRlcmNlcHRzKSA9PSAwIHsKCQlpbnRlcmNlcHQgPSBtYWtlKG1hcFtzdHJpbmddSW50ZXJjZXB0RnVuYykKCX0gZWxzZSB7CgkJaW50ZXJjZXB0ID0gaW50ZXJjZXB0c1swXQoJfQoJcmV0dXJuICZTY2FuSW50ZXJjZXB0b3J7cGFzc3Rocm91Z2g6IHBhc3N0aHJvdWdoLCBhY2N1bXVsYXRvcjogYnl0ZXMuTmV3QnVmZmVyKG5pbCksIHN1YnNlcXVlbmNlczogaW50ZXJjZXB0LCBoaWdoV2F0ZXJNYXJrOiBtYWtlKG1hcFtzdHJpbmddaW50NjQpLCBpbnRlcmNlcHRTdGF0czogbWFrZShtYXBbc3RyaW5nXWludDY0KX0KfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Scan",
+                    "Comment": "Implements the bufio.SplitFunc function signature for use in a bufio.Scanner.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "data",
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Name": "atEOF",
+                            "Type": "bool"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Name": "advance",
+                            "Type": "int"
+                        },
+                        {
+                            "Name": "token",
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Name": "err",
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Scan(data []byte, atEOF bool) (advance int, token []byte, err error)",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "Disabled",
+                    "Type": "bool"
+                }
+            ],
+            "Comment": "A ScanInterceptor is used as a SplitFunc on a bufio.Scanner.  It will look at the stream of bytes being scanned for\nspecific substrings.  The registered handler function associated with a substring will be called whenever it is seen\nin the stream.  The passthrough SplitFunc is called as normal.  This allows for a stream to be\nsplit and processed while also being inspected for specific content, allowing the user to react to that content\nas it comes by.",
+            "Source": "dHlwZSBTY2FuSW50ZXJjZXB0b3Igc3RydWN0IHsKCURpc2FibGVkIGJvb2wKCn0vLyBBIFNjYW5JbnRlcmNlcHRvciBpcyB1c2VkIGFzIGEgU3BsaXRGdW5jIG9uIGEgYnVmaW8uU2Nhbm5lci4gIEl0IHdpbGwgbG9vayBhdCB0aGUgc3RyZWFtIG9mIGJ5dGVzIGJlaW5nIHNjYW5uZWQgZm9yCi8vIHNwZWNpZmljIHN1YnN0cmluZ3MuICBUaGUgcmVnaXN0ZXJlZCBoYW5kbGVyIGZ1bmN0aW9uIGFzc29jaWF0ZWQgd2l0aCBhIHN1YnN0cmluZyB3aWxsIGJlIGNhbGxlZCB3aGVuZXZlciBpdCBpcyBzZWVuCi8vIGluIHRoZSBzdHJlYW0uICBUaGUgcGFzc3Rocm91Z2ggU3BsaXRGdW5jIGlzIGNhbGxlZCBhcyBub3JtYWwuICBUaGlzIGFsbG93cyBmb3IgYSBzdHJlYW0gdG8gYmUKLy8gc3BsaXQgYW5kIHByb2Nlc3NlZCB3aGlsZSBhbHNvIGJlaW5nIGluc3BlY3RlZCBmb3Igc3BlY2lmaWMgY29udGVudCwgYWxsb3dpbmcgdGhlIHVzZXIgdG8gcmVhY3QgdG8gdGhhdCBjb250ZW50Ci8vIGFzIGl0IGNvbWVzIGJ5LgoK",
+            "HasUnexportedFields": true
+        },
+        "SiPrefix": {
+            "Name": "SiPrefix",
+            "MetaType": "int",
+            "Methods": [
+                {
+                    "Name": "String",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "GetSiPrefix",
+                    "Arguments": [
+                        {
+                            "Name": "input",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "SiPrefix"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "GetSiPrefix(input string) (SiPrefix, error)",
+                    "Source": "ewoJc3dpdGNoIGlucHV0IHsKCWNhc2UgIiIsICJiIiwgIkIiOgoJCXJldHVybiBOb25lLCBuaWwKCWNhc2UgImsiLCAiSyI6CgkJcmV0dXJuIEtpbG8sIG5pbAoJY2FzZSAibSIsICJNIjoKCQlyZXR1cm4gTWVnYSwgbmlsCgljYXNlICJnIiwgIkciOgoJCXJldHVybiBHaWdhLCBuaWwKCWNhc2UgInQiLCAiVCI6CgkJcmV0dXJuIFRlcmEsIG5pbAoJY2FzZSAicCIsICJQIjoKCQlyZXR1cm4gUGV0YSwgbmlsCgljYXNlICJlIiwgIkUiOgoJCXJldHVybiBFeGEsIG5pbAoJY2FzZSAieiIsICJaIjoKCQlyZXR1cm4gWmV0dGEsIG5pbAoJY2FzZSAieSIsICJZIjoKCQlyZXR1cm4gWW90dGEsIG5pbAoJZGVmYXVsdDoKCQlyZXR1cm4gTm9uZSwgZm10LkVycm9yZigiVW5yZWNvZ25pemVkIFNJIHVuaXQgJyVzJyIsIGlucHV0KQoJfQp9",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Source": "dHlwZSBTaVByZWZpeCBpbnQ="
+        },
+        "Uuid": {
+            "Name": "Uuid",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "Base58",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Base58() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Base64",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Base64() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Bytes",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Signature": "Bytes() []byte",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Hex",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Hex() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MustUUID",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Uuid"
+                        }
+                    ],
+                    "Signature": "MustUUID(in string) *Uuid",
+                    "Source": "ewoJaWYgdXVpZCwgZXJyIDo9IHV1aWQuUGFyc2UoaW4pOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gJlV1aWR7VVVJRDogdXVpZH0KCX0gZWxzZSB7CgkJcGFuaWMoZXJyKQoJfQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "ParseUUID",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Uuid"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "ParseUUID(in string) (*Uuid, error)",
+                    "Source": "ewoJaWYgdXVpZCwgZXJyIDo9IHV1aWQuUGFyc2UoaW4pOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gJlV1aWR7VVVJRDogdXVpZH0sIG5pbAoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "UUID",
+                    "Returns": [
+                        {
+                            "Type": "*Uuid"
+                        }
+                    ],
+                    "Signature": "UUID() *Uuid",
+                    "Source": "ewoJcmV0dXJuICZVdWlke1VVSUQ6IHV1aWQuTmV3KCl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "UuidFromBytes",
+                    "Arguments": [
+                        {
+                            "Name": "b",
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Uuid"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "UuidFromBytes(b []byte) (*Uuid, error)",
+                    "Source": "ewoJaWYgdXVpZCwgZXJyIDo9IHV1aWQuRnJvbUJ5dGVzKGIpOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gJlV1aWR7dXVpZH0sIG5pbAoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KfQ==",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Source": "dHlwZSBVdWlkIHN0cnVjdHsgdXVpZC5VVUlEIH0="
+        }
+    }
+}

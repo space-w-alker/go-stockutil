@@ -1,0 +1,212 @@
+{
+    "Name": "structutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/structutil",
+    "ImportPath": "structutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Utilities for working with and manipulating structs.\n",
+    "MainFunction": false,
+    "CommentWordCount": 52,
+    "LineCount": 236,
+    "SourceLineCount": 182,
+    "FunctionCount": 3,
+    "TypeCount": 3,
+    "ConstantCount": 0,
+    "VariableCount": 1,
+    "Statistics": {
+        "Mean": 0.25,
+        "StdDev": 0.433,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "structutil.go",
+            "Imports": [
+                {
+                    "PackageName": "errors",
+                    "Alias": "errors"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                }
+            ],
+            "Size": 4045,
+            "LineCount": 162,
+            "SourceLineCount": 122,
+            "FunctionCount": 3,
+            "TypeCount": 2,
+            "ConstantCount": 0,
+            "VariableCount": 1
+        },
+        {
+            "Name": "structutil_test.go",
+            "Imports": [
+                {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 1093,
+            "LineCount": 74,
+            "SourceLineCount": 60,
+            "FunctionCount": 0,
+            "TypeCount": 1,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Variables": [
+        {
+            "Name": "StopIterating",
+            "Expression": "errors.New(`stop iterating`)"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "CopyFunc",
+            "Arguments": [
+                {
+                    "Name": "dest",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "source",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fn",
+                    "Type": "StructValueFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "CopyFunc(dest interface{}, source interface{}, fn StructValueFunc) error",
+            "Source": "ewoJaWYgZGVzdCA9PSBuaWwgfHwgc291cmNlID09IG5pbCB8fCBmbiA9PSBuaWwgewoJCXJldHVybiBuaWwKCX0KCXZhciBkZXN0ViByZWZsZWN0LlZhbHVlCgl2YXIgc3JjViByZWZsZWN0LlZhbHVlCglpZiBkViwgb2sgOj0gZGVzdC4ocmVmbGVjdC5WYWx1ZSk7IG9rIHsKCQlkZXN0ViA9IGRWCgl9IGVsc2UgewoJCWRlc3RWID0gcmVmbGVjdC5WYWx1ZU9mKGRlc3QpCgl9CglpZiBzViwgb2sgOj0gc291cmNlLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCXNyY1YgPSBzVgoJfSBlbHNlIHsKCQlzcmNWID0gcmVmbGVjdC5WYWx1ZU9mKHNvdXJjZSkKCX0KCWlmIGRWLCBlcnIgOj0gdmFsaWRhdGVQdHJUb1N0cnVjdChgZGVzdGluYXRpb25gLCBkZXN0Vik7IGVyciA9PSBuaWwgewoJCWRlc3RWID0gZFYKCX0gZWxzZSB7CgkJcmV0dXJuIGVycgoJfQoJaWYgc1YsIGVyciA6PSB2YWxpZGF0ZVB0clRvU3RydWN0KGBzb3VyY2VgLCBzcmNWKTsgZXJyID09IG5pbCB7CgkJc3JjViA9IHNWCgl9IGVsc2UgewoJCXJldHVybiBlcnIKCX0KCWRlc3RUIDo9IGRlc3RWLlR5cGUoKQoJc3JjVCA6PSBzcmNWLlR5cGUoKQoJZm9yIHMgOj0gMDsgcyA8IHNyY1QuTnVtRmllbGQoKTsgcysrIHsKCQlzRmllbGRUIDo9IHNyY1QuRmllbGQocykKCQlzRmllbGRWIDo9IHNyY1YuRmllbGQocykKCQlpZiBzRmllbGRULlBrZ1BhdGggIT0gYGAgewoJCQljb250aW51ZQoJCX0KCQlpZiBkRmllbGRULCBvayA6PSBkZXN0VC5GaWVsZEJ5TmFtZShzRmllbGRULk5hbWUpOyBvayB7CgkJCWRGaWVsZFYgOj0gZGVzdFYuRmllbGRCeU5hbWUoZEZpZWxkVC5OYW1lKQoJCQlpZiBkRmllbGRULkFub255bW91cyB7CgkJCQlpZiBlcnIgOj0gQ29weUZ1bmMoZEZpZWxkViwgc0ZpZWxkViwgZm4pOyBlcnIgIT0gbmlsIHsKCQkJCQlyZXR1cm4gZXJyCgkJCQl9CgkJCX0gZWxzZSB7CgkJCQlpZiBzRmllbGRWLkNhbkludGVyZmFjZSgpICYmIGRGaWVsZFYuQ2FuSW50ZXJmYWNlKCkgewoJCQkJCWlmIHJlcGwsIG9rIDo9IGZuKGRGaWVsZFQuTmFtZSwgc0ZpZWxkVi5JbnRlcmZhY2UoKSwgZEZpZWxkVi5JbnRlcmZhY2UoKSk7IG9rIHsKCQkJCQkJaWYgZEZpZWxkVi5DYW5TZXQoKSB7CgkJCQkJCQlpZiBlcnIgOj0gdHlwZXV0aWwuU2V0VmFsdWUoZEZpZWxkViwgcmVwbCk7IGVyciAhPSBuaWwgewoJCQkJCQkJCXJldHVybiBlcnIKCQkJCQkJCX0KCQkJCQkJfSBlbHNlIHsKCQkJCQkJCXJldHVybiBmbXQuRXJyb3JmKCJmaWVsZCAlcSBpcyBub3Qgc2V0dGFibGUiLCBkRmllbGRULk5hbWUpCgkJCQkJCX0KCQkJCQl9CgkJCQl9IGVsc2UgewoJCQkJCXJldHVybiBmbXQuRXJyb3JmKCJDYW5ub3QgcmV0cmlldmUgZmllbGQgdmFsdWUgJXEiLCBkRmllbGRULk5hbWUpCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gbmlsCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "CopyNonZero",
+            "Comment": "Copy all values from the source into the destination, provided the source value for the corresponding\nfield is not that type's zero value.",
+            "Arguments": [
+                {
+                    "Name": "dest",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "source",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "CopyNonZero(dest interface{}, source interface{}) error",
+            "Source": "ewoJcmV0dXJuIENvcHlGdW5jKGRlc3QsIHNvdXJjZSwgZnVuYyhuYW1lIHN0cmluZywgcyBpbnRlcmZhY2V7fSwgZCBpbnRlcmZhY2V7fSkgKGludGVyZmFjZXt9LCBib29sKSB7CgkJaWYgdHlwZXV0aWwuSXNaZXJvKHMpIHsKCQkJcmV0dXJuIG5pbCwgZmFsc2UKCQl9IGVsc2UgewoJCQlyZXR1cm4gcywgdHJ1ZQoJCX0KCX0pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "FieldsFunc",
+            "Comment": "Iterates over all exported and embedded fields in the given struct, calling fn for each field.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fn",
+                    "Type": "StructFieldFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "FieldsFunc(in interface{}, fn StructFieldFunc) error",
+            "Source": "ewoJaWYgaW4gPT0gbmlsIHx8IGZuID09IG5pbCB7CgkJcmV0dXJuIG5pbAoJfQoJdmFyIGluVmFsdSByZWZsZWN0LlZhbHVlCglpZiB2LCBvayA6PSBpbi4ocmVmbGVjdC5WYWx1ZSk7IG9rIHsKCQlpblZhbHUgPSB2Cgl9IGVsc2UgewoJCWluVmFsdSA9IHJlZmxlY3QuVmFsdWVPZihpbikKCX0KCWlmIF8sIGVyciA6PSB2YWxpZGF0ZVB0clRvU3RydWN0KGBpbnB1dGAsIGluVmFsdSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBlcnIKCX0KCWluVmFsdSA9IGluVmFsdS5FbGVtKCkKCWluVHlwZSA6PSBpblZhbHUuVHlwZSgpCkZpZWxkTG9vcDoKCWZvciBpIDo9IDA7IGkgPCBpblR5cGUuTnVtRmllbGQoKTsgaSsrIHsKCQlmaWVsZFQgOj0gaW5UeXBlLkZpZWxkKGkpCgkJZmllbGRWIDo9IGluVmFsdS5GaWVsZChpKQoJCWlmIGZpZWxkVC5Qa2dQYXRoICE9IGBgIHsKCQkJY29udGludWUKCQl9CgkJc3dpdGNoIGVyciA6PSBmbigmZmllbGRULCBmaWVsZFYpOyBlcnIgewoJCWNhc2UgU3RvcEl0ZXJhdGluZzoKCQkJYnJlYWsgRmllbGRMb29wCgkJY2FzZSBuaWw6CgkJCWNvbnRpbnVlCgkJZGVmYXVsdDoKCQkJcmV0dXJuIGVycgoJCX0KCX0KCXJldHVybiBuaWwKfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestCopyFunc",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCopyFunc(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglkZXN0IDo9IHRQZXJzb257VEJhc2U6ICZUQmFzZXtFbmFibGVkOiB0cnVlfX0KCXNyYyA6PSB0UGVyc29ue1RCYXNlOiAmVEJhc2V7TmFtZTogYEJvYiBKb2huc29uYCwgQWdlOiA0Mn0sIEFkZHJlc3M6IGAxMjMgRmFrZSBTdC5gfQoJYXNzZXJ0Lk5vRXJyb3IoQ29weU5vblplcm8oJmRlc3QsICZzcmMpKQoJYXNzZXJ0LkVxdWFsKHRQZXJzb257QWRkcmVzczogYDEyMyBGYWtlIFN0LmAsIFRCYXNlOiAmVEJhc2V7QWdlOiA0MiwgRW5hYmxlZDogdHJ1ZSwgTmFtZTogYEJvYiBKb2huc29uYH19LCBkZXN0KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestFieldsFunc",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestFieldsFunc(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJRmllbGRzRnVuYygmVEJhc2V7TmFtZTogYGhlbGxvYCwgQWdlOiAzMiwgRW5hYmxlZDogdHJ1ZSwgaGlkZGVuOiB0cnVlfSwgZnVuYyhmaWVsZCAqcmVmbGVjdC5TdHJ1Y3RGaWVsZCwgdmFsdWUgcmVmbGVjdC5WYWx1ZSkgZXJyb3IgewoJCWlmIHZhbHVlLkNhbkludGVyZmFjZSgpIHsKCQkJb3V0W2ZpZWxkLk5hbWVdID0gdmFsdWUuSW50ZXJmYWNlKCkKCQl9CgkJcmV0dXJuIG5pbAoJfSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BOYW1lYDogYGhlbGxvYCwgYEFnZWA6IDMyLCBgRW5hYmxlZGA6IHRydWV9LCBvdXQpCn0=",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "StructFieldFunc": {
+            "Name": "StructFieldFunc",
+            "Source": "dHlwZSBTdHJ1Y3RGaWVsZEZ1bmMgZnVuYyhmaWVsZCAqcmVmbGVjdC5TdHJ1Y3RGaWVsZCwgdmFsdWUgcmVmbGVjdC5WYWx1ZSkgZXJyb3I="
+        },
+        "StructValueFunc": {
+            "Name": "StructValueFunc",
+            "Source": "dHlwZSBTdHJ1Y3RWYWx1ZUZ1bmMgZnVuYyhmaWVsZCBzdHJpbmcsIHNvdXJjZVZhbHVlIGludGVyZmFjZXt9LCBkZXN0VmFsdWUgaW50ZXJmYWNle30pIChpbnRlcmZhY2V7fSwgYm9vbCkgLy8gUmVjZWl2ZXMgYSBzdHJ1Y3QgZmllbGQgbmFtZSwgdGhlIHZhbHVlIG9mIHRoYXQgZmllbGQgaW4gdGhlIHNvdXJjZSBzdHJ1Y3QsIGFuZCB0aGUgdmFsdWUgZm9yIHRoYXQgZmllbGQgaW4gdGhlIGRlc3RpbmF0aW9uIHN0cnVjdC4KLy8gUmV0dXJucyB0aGUgdmFsdWUgdGhhdCBzaG91bGQgYmUgcGxhY2VkIGluIHRoZSBkZXN0aW5hdGlvbiBzdHJ1Y3QgZmllbGRzLiAgSWYgdGhlIHJldHVybmVkIGJvb2wgaXMgZmFsc2UsIG5vIGNoYW5nZXMgd2lsbAovLyBiZSBtYWRlLgo="
+        },
+        "TBase": {
+            "Name": "TBase",
+            "MetaType": "struct",
+            "Fields": [
+                {
+                    "Name": "Name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Age",
+                    "Type": "int"
+                },
+                {
+                    "Name": "Enabled",
+                    "Type": "bool"
+                }
+            ],
+            "Source": "dHlwZSBUQmFzZSBzdHJ1Y3QgewoJTmFtZSAgICBzdHJpbmcKCUFnZSAgICAgaW50CglFbmFibGVkIGJvb2wKCn0K",
+            "HasUnexportedFields": true
+        }
+    }
+}

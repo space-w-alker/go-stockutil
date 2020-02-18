@@ -1,0 +1,1839 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">log</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 20%</span>
+<h2 id="pkg-overview">package log</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/log"</code>
+</p>
+
+
+<p>Package log package provides convenient and flexible utilities for logging messages.</p>
+
+<p>Overview</p>
+
+<p>Logging is done by calling functions in this package that correspond to the
+severity of the log message being output.  At the package level, a minimum
+severity can be set.  Messages less severe than this minimum logging level will
+not be output.</p>
+
+<p>Color Expressions</p>
+
+<p>In addition to the standard printf-style formatting options (as defined in the
+standard fmt package), this package supports inline expressions that control the
+output of ANSI terminal escape sequences.  These expressions allow for a simple
+mechanism to colorize log output, as well as applying graphical effects like
+bold, underline, and blinking text (for terminals that support it).</p>
+
+<p>By default, color expressions will only be honored if os.Stdin is attached to a
+pseudoterminal.  This is the case when the program is run on the command line
+and is not piped or redirected to another file.  This default ensures that the
+colors are visible only in a visual context, but do not corrupt files or
+pipelines with ANSI escape sequences.  Color sequences can be explicitly enabled
+or disabled by setting the EnableColorExpressions package variable.</p>
+
+<p>Using color expressions in format strings is done by wrapping the expression in
+${expr}.  The general format for color expressions is:</p>
+
+<pre><code>foregroundColor[+attributes[:backgroundColor[+attributes]]]
+</code></pre>
+
+<p>Colors (foreground and background):
+	black
+	red
+	green
+	yellow
+	blue
+	magenta
+	cyan
+	white
+	[0-255]: numeric 8-bit color (for 256 color terminals)
+	reset: Reset all color and graphics attributes to their defaults</p>
+
+<p>Foreground Attributes:
+	b: bold text
+	B: blinking text
+	h: high-intensity (bright text)
+	i: inverted/reverse colors
+	s: strikethrough
+	u: underline</p>
+
+<p>Background Attributes:
+	h: high-intensity (bright text)</p>
+
+<p>Examples</p>
+
+<p>Below are some examples showing various formatting options for logs.</p>
+
+<pre><code>log.Info(&#34;Hello, world!&#34;)
+// [11:22:33 0001] INFO Hello, world!
+
+log.Warningf(&#34;The %q operation could not be completed.&#34;, &#34;add&#34;)
+// [11:22:33 0002] WARN The &#34;add&#34; operation could not be completed.
+
+log.Errorf(&#34;There was an ${red}error${reset} opening file ${blue+b:white}%s${reset}&#34;, filename)
+// [11:22:33 0003] ERRO There was an error opening file /tmp/file.txt
+//                                   ^^^^^              ^^^^^^^^^^^^^
+//                                   red text           blue text on white background
+</code></pre>
+
+<p>Log Interception</p>
+
+<p>It is sometimes useful to be able to act on logs as they are emitted, especially in cases where this
+package is used in other projects that are imported.  Log Interceptors are called before each log
+line is emitted.  The LogInterceptFunc is called with the level the message was emitted with, the
+message itself as a string, and a stack trace struct that defines exactly where the log was emitted
+from.</p>
+
+<pre><code>// print a complete stack trace before every debug-level message that is encountered
+log.AddLogIntercept(func(level log.Level, line string, stack log.StackItems){
+	if level == log.DEBUG {
+		for _, item := range stack {
+			fmt.Println(item.String())
+		}
+	}
+})
+</code></pre>
+
+<p>Writable Logger</p>
+
+<p>The WritableLogger implements the io.Writer interface, acting as a bridge between byte streams from
+various sources and the log package.  This is frequently useful in situations like parsing the
+output of other programs.  A WritableLogger accepts a custom LogParseFunc that allows individual
+lines being written to the WritableLogger to be parsed, rewritten, and given a log severity level.</p>
+
+<pre><code>import (
+	&#34;os/exec&#34;
+	&#34;github.com/ghetzel/go-stockutil/log&#34;
+)
+
+wr := log.NewWritableLogger(log.INFO, `ls: `)
+
+wr.SetParserFunc(func(line string) (log.Level, string) {
+	if strings.Contains(line, `root`) {
+		// root-owned files show up as errors
+		return log.ERROR, line
+	} else if strings.Contains(line, os.Getenv(`USER`)) {
+		// current user files are notices
+		return log.NOTICE, line
+	} else {
+		// all other lines are not logged at all
+		return log.DEBUG, ``
+	}
+})
+
+ls := exec.Command(`ls`, `-l`)
+ls.Stdout = wr
+ls.Run()
+</code></pre>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#AddLogIntercept">func AddLogIntercept(fn LogInterceptFunc) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#AppendError">func AppendError(base error, err error) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#CFPrintf">func CFPrintf(w io.Writer, format string, args ...interface{}) (int, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#CSprintf">func CSprintf(format string, args ...interface{}) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#CStripf">func CStripf(format string, args ...interface{}) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Confirm">func Confirm(prompt string) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Confirmf">func Confirmf(format string, args ...interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Critical">func Critical(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Criticalf">func Criticalf(format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Debug">func Debug(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DebugStack">func DebugStack()</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Debugf">func Debugf(format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Debugging">func Debugging() bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Dump">func Dump(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Dumpf">func Dumpf(format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ErrContains">func ErrContains(err error, message interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ErrHasPrefix">func ErrHasPrefix(err error, message interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ErrHasSuffix">func ErrHasSuffix(err error, message interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Error">func Error(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Errorf">func Errorf(format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Fatal">func Fatal(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FatalIf">func FatalIf(err error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Fatalf">func Fatalf(format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FatalfIf">func FatalfIf(format string, err error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Info">func Info(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Infof">func Infof(format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Log">func Log(level Level, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Logf">func Logf(level Level, format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Logger">func Logger() *logging.Logger</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Notice">func Notice(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Noticef">func Noticef(format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Panic">func Panic(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Panicf">func Panicf(format string, args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RemoveLogIntercept">func RemoveLogIntercept(id string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#SetLevel">func SetLevel(level Level, modules ...string)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#SetLevelString">func SetLevelString(level string, modules ...string)</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SetOutput">func SetOutput(w io.Writer)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#TermSprintf">func TermSprintf(format string, args ...interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Warning">func Warning(args ...interface{})</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Warningf">func Warningf(format string, args ...interface{})</a>
+		
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#FormattedLogFunc">type FormattedLogFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Level">type Level int</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#LogFunc">type LogFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#LogInterceptFunc">type LogInterceptFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#LogParseFunc">type LogParseFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#StackItem">type StackItem</a>
+
+		
+		
+		<ul>
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#StackItem.String">
+					func
+					(self StackItem)
+					String() string
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#StackItems">type StackItems </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Timing">type Timing</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Timing.Time">
+					func Time(name string) *Timing
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Timing.TimeFunc">
+					func TimeFunc(name string, fn ) *Timing
+				</a>
+				
+			</li>
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Timing.Done">
+					func
+					(self *Timing)
+					Done() time.Duration
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Timing.Reset">
+					func
+					(self *Timing)
+					Reset()
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Timing.Then">
+					func
+					(self *Timing)
+					Then(name string) *Timing
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#WritableLogger">type WritableLogger</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			<li>
+				
+				<a href="#WritableLogger.NewWritableLogger">
+					func NewWritableLogger(level Level, prefix ...string) *WritableLogger
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#WritableLogger.SetParserFunc">
+					func
+					(self *WritableLogger)
+					SetParserFunc(fn LogParseFunc) *WritableLogger
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#WritableLogger.Write">
+					func
+					(self *WritableLogger)
+					Write(p []byte) (int, error)
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="colors.go">colors.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">43</td>
+		<td class="text-right">4</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">2</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="colors_test.go">colors_test.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">40</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="debugging.go">debugging.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">58</td>
+		<td class="text-right">3</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="doc.go">doc.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">84</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="errors.go">errors.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">36</td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="errors_test.go">errors_test.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">43</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="levels.go">levels.go</a>
+			
+		</td>
+		<td class="text-right">803B</td>
+		<td class="text-right">55</td>
+		<td class="text-right">2</td>
+		<td class="text-right">1</td>
+		<td class="text-right">8</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="log.go">log.go</a>
+			
+		</td>
+		<td class="text-right">7KB</td>
+		<td class="text-right">232</td>
+		<td class="text-right">32</td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+		<td class="text-right">5</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="timing.go">timing.go</a>
+			
+		</td>
+		<td class="text-right">738B</td>
+		<td class="text-right">39</td>
+		<td class="text-right">5</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="writable.go">writable.go</a>
+			
+		</td>
+		<td class="text-right">787B</td>
+		<td class="text-right">35</td>
+		<td class="text-right">3</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="CRITICAL">CRITICAL</span> = 
+const <span id="DEBUG">DEBUG   </span> = 
+const <span id="ERROR">ERROR   </span> = 
+const <span id="FATAL">FATAL   </span> = 
+const <span id="INFO">INFO    </span> = 
+const <span id="NOTICE">NOTICE  </span> = 
+const <span id="PANIC">PANIC   </span> = iota
+const <span id="WARNING">WARNING </span> = 
+</pre>
+</div>
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="DefaultInterceptStackDepth">DefaultInterceptStackDepth</span> = 5
+var <span id="EnableColorExpressions">EnableColorExpressions    </span> = 
+var <span id="LogLevel">LogLevel                  </span> = 
+var <span id="MaxStackTraceDepth">MaxStackTraceDepth        </span> = 32
+var <span id="ModuleName">ModuleName                </span> = ``
+var <span id="SynchronousIntercepts">SynchronousIntercepts     </span> = false
+var <span id="TerminalEscapePrefix">TerminalEscapePrefix      </span> = `\[`
+var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
+</pre>
+</div>
+
+
+
+
+
+<h3 id="AddLogIntercept" data-kind="f">
+	func <a title="View Source" href="">AddLogIntercept</a>
+	<a class="permalink" href="#AddLogIntercept">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func AddLogIntercept(fn LogInterceptFunc) string</pre>
+</div>
+
+
+<p><p>Append a function to be called (asynchronously in its own goroutine, or<br>synchronously if SynchronousIntercepts is true) for every line logged.<br>Returns a UUID that can be later used to deregister the intercept function.</p>
+</p>
+
+
+<h3 id="AppendError" data-kind="f">
+	func <a title="View Source" href="">AppendError</a>
+	<a class="permalink" href="#AppendError">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func AppendError(base error, err error) error</pre>
+</div>
+
+
+<p><p>Appends one error to another, allowing for operations that return multiple errors<br>to remain compatible within a single-valued context.</p>
+</p>
+
+
+<h3 id="CFPrintf" data-kind="f">
+	func <a title="View Source" href="">CFPrintf</a>
+	<a class="permalink" href="#CFPrintf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CFPrintf(w io.Writer, format string, args ...interface{}) (int, error)</pre>
+</div>
+
+
+
+<h3 id="CSprintf" data-kind="f">
+	func <a title="View Source" href="">CSprintf</a>
+	<a class="permalink" href="#CSprintf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CSprintf(format string, args ...interface{}) string</pre>
+</div>
+
+
+
+<h3 id="CStripf" data-kind="f">
+	func <a title="View Source" href="">CStripf</a>
+	<a class="permalink" href="#CStripf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CStripf(format string, args ...interface{}) string</pre>
+</div>
+
+
+
+<h3 id="Confirm" data-kind="f">
+	func <a title="View Source" href="">Confirm</a>
+	<a class="permalink" href="#Confirm">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Confirm(prompt string) bool</pre>
+</div>
+
+
+
+<h3 id="Confirmf" data-kind="f">
+	func <a title="View Source" href="">Confirmf</a>
+	<a class="permalink" href="#Confirmf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Confirmf(format string, args ...interface{}) bool</pre>
+</div>
+
+
+<p><p>Present a confirmation prompt. The function returns true if the user interactively responds<br>with “yes” or “y”. Otherwise the function returns false.</p>
+</p>
+
+
+<h3 id="Critical" data-kind="f">
+	func <a title="View Source" href="">Critical</a>
+	<a class="permalink" href="#Critical">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Critical(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Criticalf" data-kind="f">
+	func <a title="View Source" href="">Criticalf</a>
+	<a class="permalink" href="#Criticalf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Criticalf(format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Debug" data-kind="f">
+	func <a title="View Source" href="">Debug</a>
+	<a class="permalink" href="#Debug">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Debug(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="DebugStack" data-kind="f">
+	func <a title="View Source" href="">DebugStack</a>
+	<a class="permalink" href="#DebugStack">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DebugStack()</pre>
+</div>
+
+
+<p><p>Logs the current stack trace as debug log output.</p>
+</p>
+
+
+<h3 id="Debugf" data-kind="f">
+	func <a title="View Source" href="">Debugf</a>
+	<a class="permalink" href="#Debugf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Debugf(format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Debugging" data-kind="f">
+	func <a title="View Source" href="">Debugging</a>
+	<a class="permalink" href="#Debugging">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Debugging() bool</pre>
+</div>
+
+
+
+<h3 id="Dump" data-kind="f">
+	func <a title="View Source" href="">Dump</a>
+	<a class="permalink" href="#Dump">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Dump(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Dumpf" data-kind="f">
+	func <a title="View Source" href="">Dumpf</a>
+	<a class="permalink" href="#Dumpf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Dumpf(format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="ErrContains" data-kind="f">
+	func <a title="View Source" href="">ErrContains</a>
+	<a class="permalink" href="#ErrContains">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ErrContains(err error, message interface{}) bool</pre>
+</div>
+
+
+<p><p>Return whether the given error contains with the given message.  Message can<br>be a string or another error.  If either is nil, this function returns false.</p>
+</p>
+
+
+<h3 id="ErrHasPrefix" data-kind="f">
+	func <a title="View Source" href="">ErrHasPrefix</a>
+	<a class="permalink" href="#ErrHasPrefix">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ErrHasPrefix(err error, message interface{}) bool</pre>
+</div>
+
+
+<p><p>Return whether the given error is prefixed with the given message.  Message can<br>be a string or another error.  If either is nil, this function returns false.</p>
+</p>
+
+
+<h3 id="ErrHasSuffix" data-kind="f">
+	func <a title="View Source" href="">ErrHasSuffix</a>
+	<a class="permalink" href="#ErrHasSuffix">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ErrHasSuffix(err error, message interface{}) bool</pre>
+</div>
+
+
+<p><p>Return whether the given error is suffixed with the given message.  Message can<br>be a string or another error.  If either is nil, this function returns false.</p>
+</p>
+
+
+<h3 id="Error" data-kind="f">
+	func <a title="View Source" href="">Error</a>
+	<a class="permalink" href="#Error">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Error(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Errorf" data-kind="f">
+	func <a title="View Source" href="">Errorf</a>
+	<a class="permalink" href="#Errorf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Errorf(format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Fatal" data-kind="f">
+	func <a title="View Source" href="">Fatal</a>
+	<a class="permalink" href="#Fatal">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Fatal(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="FatalIf" data-kind="f">
+	func <a title="View Source" href="">FatalIf</a>
+	<a class="permalink" href="#FatalIf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FatalIf(err error)</pre>
+</div>
+
+
+<p><p>Invoke Fatal() if the given error is not nil.</p>
+</p>
+
+
+<h3 id="Fatalf" data-kind="f">
+	func <a title="View Source" href="">Fatalf</a>
+	<a class="permalink" href="#Fatalf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Fatalf(format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="FatalfIf" data-kind="f">
+	func <a title="View Source" href="">FatalfIf</a>
+	<a class="permalink" href="#FatalfIf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FatalfIf(format string, err error)</pre>
+</div>
+
+
+<p><p>Invoke Fatalf() if the given error is not nil.</p>
+</p>
+
+
+<h3 id="Info" data-kind="f">
+	func <a title="View Source" href="">Info</a>
+	<a class="permalink" href="#Info">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Info(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Infof" data-kind="f">
+	func <a title="View Source" href="">Infof</a>
+	<a class="permalink" href="#Infof">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Infof(format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Log" data-kind="f">
+	func <a title="View Source" href="">Log</a>
+	<a class="permalink" href="#Log">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Log(level Level, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Logf" data-kind="f">
+	func <a title="View Source" href="">Logf</a>
+	<a class="permalink" href="#Logf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Logf(level Level, format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Logger" data-kind="f">
+	func <a title="View Source" href="">Logger</a>
+	<a class="permalink" href="#Logger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Logger() *logging.Logger</pre>
+</div>
+
+
+
+<h3 id="Notice" data-kind="f">
+	func <a title="View Source" href="">Notice</a>
+	<a class="permalink" href="#Notice">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Notice(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Noticef" data-kind="f">
+	func <a title="View Source" href="">Noticef</a>
+	<a class="permalink" href="#Noticef">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Noticef(format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Panic" data-kind="f">
+	func <a title="View Source" href="">Panic</a>
+	<a class="permalink" href="#Panic">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Panic(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Panicf" data-kind="f">
+	func <a title="View Source" href="">Panicf</a>
+	<a class="permalink" href="#Panicf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Panicf(format string, args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="RemoveLogIntercept" data-kind="f">
+	func <a title="View Source" href="">RemoveLogIntercept</a>
+	<a class="permalink" href="#RemoveLogIntercept">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLogIntercept(id string)</pre>
+</div>
+
+
+<p><p>Remove the previously-added log intercept function.</p>
+</p>
+
+
+<h3 id="SetLevel" data-kind="f">
+	func <a title="View Source" href="">SetLevel</a>
+	<a class="permalink" href="#SetLevel">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetLevel(level Level, modules ...string)</pre>
+</div>
+
+
+
+<h3 id="SetLevelString" data-kind="f">
+	func <a title="View Source" href="">SetLevelString</a>
+	<a class="permalink" href="#SetLevelString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetLevelString(level string, modules ...string)</pre>
+</div>
+
+
+
+<h3 id="SetOutput" data-kind="f">
+	func <a title="View Source" href="">SetOutput</a>
+	<a class="permalink" href="#SetOutput">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetOutput(w io.Writer)</pre>
+</div>
+
+
+<p><p>Set the destination Writer where logs will henceforth be written.</p>
+</p>
+
+
+<h3 id="TermSprintf" data-kind="f">
+	func <a title="View Source" href="">TermSprintf</a>
+	<a class="permalink" href="#TermSprintf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func TermSprintf(format string, args ...interface{}) string</pre>
+</div>
+
+
+<p><p>Same as CSprintf, but wraps all replaced color sequences with terminal escape sequences<br>as defined in TerminalEscapePrefix and TerminalEscapeSuffix</p>
+</p>
+
+
+<h3 id="Warning" data-kind="f">
+	func <a title="View Source" href="">Warning</a>
+	<a class="permalink" href="#Warning">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Warning(args ...interface{})</pre>
+</div>
+
+
+
+<h3 id="Warningf" data-kind="f">
+	func <a title="View Source" href="">Warningf</a>
+	<a class="permalink" href="#Warningf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Warningf(format string, args ...interface{})</pre>
+</div>
+
+
+
+
+
+
+<h3 id="FormattedLogFunc" data-kind="t">
+	type
+	<a title="View Source" href="">FormattedLogFunc</a>
+	<a class="permalink" href="#FormattedLogFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type FormattedLogFunc func(format string, args ...interface{})</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Level" data-kind="t">
+	type
+	<a title="View Source" href="">Level</a>
+	<a class="permalink" href="#Level">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Level int</pre>
+</div>
+
+
+
+
+
+
+<h4 id="GetLevel" data-kind="f">
+	func <a title="View Source" href="">GetLevel</a>
+	<a class="permalink" href="#GetLevel">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func GetLevel(level string) Level</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="Level.String" data-kind="f">
+	func
+	(self Level)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Level) String() string</pre>
+</div>
+
+
+
+
+
+
+<h3 id="LogFunc" data-kind="t">
+	type
+	<a title="View Source" href="">LogFunc</a>
+	<a class="permalink" href="#LogFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type LogFunc func(args ...interface{})</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="LogInterceptFunc" data-kind="t">
+	type
+	<a title="View Source" href="">LogInterceptFunc</a>
+	<a class="permalink" href="#LogInterceptFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type LogInterceptFunc func(level Level, line string, stack StackItems)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="LogParseFunc" data-kind="t">
+	type
+	<a title="View Source" href="">LogParseFunc</a>
+	<a class="permalink" href="#LogParseFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type LogParseFunc func(line string) (Level, string)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="StackItem" data-kind="t">
+	type
+	<a title="View Source" href="">StackItem</a>
+	<a class="permalink" href="#StackItem">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type StackItem struct {
+	ProgramCounter uintptr
+	Filename       string
+	Line           int
+	Function       string
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="StackItem.String" data-kind="f">
+	func
+	(self StackItem)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self StackItem) String() string</pre>
+</div>
+
+
+
+
+<h3 id="StackItems" data-kind="t">
+	type
+	<a title="View Source" href="">StackItems</a>
+	<a class="permalink" href="#StackItems">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type StackItems []StackItem</pre>
+</div>
+
+
+
+
+<h4 id="StackTrace" data-kind="f">
+	func <a title="View Source" href="">StackTrace</a>
+	<a class="permalink" href="#StackTrace">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func StackTrace(skip int) StackItems</pre>
+</div>
+
+<p><p>Retrieves details about the call stack that led to this function call.</p>
+</p>
+
+
+
+
+
+
+
+
+
+<h3 id="Timing" data-kind="t">
+	type
+	<a title="View Source" href="">Timing</a>
+	<a class="permalink" href="#Timing">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type Timing struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+<h4 id="Time" data-kind="f">
+	func <a title="View Source" href="">Time</a>
+	<a class="permalink" href="#Time">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Time(name string) *Timing</pre>
+</div>
+
+
+
+
+<h4 id="TimeFunc" data-kind="f">
+	func <a title="View Source" href="">TimeFunc</a>
+	<a class="permalink" href="#TimeFunc">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func TimeFunc(name string, fn ) *Timing</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="Timing.Done" data-kind="f">
+	func
+	(self *Timing)
+	<a title="View Source" href="">Done</a>
+	<a class="permalink" href="#Done">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Timing) Done() time.Duration</pre>
+</div>
+
+
+
+
+<h4 id="Timing.Reset" data-kind="f">
+	func
+	(self *Timing)
+	<a title="View Source" href="">Reset</a>
+	<a class="permalink" href="#Reset">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Timing) Reset()</pre>
+</div>
+
+
+
+
+<h4 id="Timing.Then" data-kind="f">
+	func
+	(self *Timing)
+	<a title="View Source" href="">Then</a>
+	<a class="permalink" href="#Then">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Timing) Then(name string) *Timing</pre>
+</div>
+
+
+
+
+
+
+
+
+<h3 id="WritableLogger" data-kind="t">
+	type
+	<a title="View Source" href="">WritableLogger</a>
+	<a class="permalink" href="#WritableLogger">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type WritableLogger struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+<h4 id="NewWritableLogger" data-kind="f">
+	func <a title="View Source" href="">NewWritableLogger</a>
+	<a class="permalink" href="#NewWritableLogger">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewWritableLogger(level Level, prefix ...string) *WritableLogger</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="WritableLogger.SetParserFunc" data-kind="f">
+	func
+	(self *WritableLogger)
+	<a title="View Source" href="">SetParserFunc</a>
+	<a class="permalink" href="#SetParserFunc">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *WritableLogger) SetParserFunc(fn LogParseFunc) *WritableLogger</pre>
+</div>
+
+
+
+
+<h4 id="WritableLogger.Write" data-kind="f">
+	func
+	(self *WritableLogger)
+	<a title="View Source" href="">Write</a>
+	<a class="permalink" href="#Write">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *WritableLogger) Write(p []byte) (int, error)</pre>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

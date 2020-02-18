@@ -1,0 +1,1486 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">utils</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 24%</span>
+<h2 id="pkg-overview">package utils</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/utils"</code>
+</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#AppendError">func AppendError(base error, err error) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Autotype">func Autotype(in interface{}) interface{}</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ConvertCustomType">func ConvertCustomType(in interface{}) (interface{}, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertHexToInteger">func ConvertHexToInteger(in interface{}) (int64, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertTo">func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToBool">func ConvertToBool(in interface{}) (bool, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToBytes">func ConvertToBytes(in interface{}) ([]byte, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToFloat">func ConvertToFloat(in interface{}) (float64, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToInteger">func ConvertToInteger(in interface{}) (int64, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToString">func ConvertToString(in interface{}) (string, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToTime">func ConvertToTime(in interface{}) (time.Time, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#DetectTimeFormat">func DetectTimeFormat(in string) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#GenericMarshalJSON">func GenericMarshalJSON(in interface{}, extraData ...map[string]interface{}) ([]byte, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsBoolean">func IsBoolean(inI interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsBooleanFalse">func IsBooleanFalse(inI interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsBooleanTrue">func IsBooleanTrue(inI interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsFloat">func IsFloat(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsHexadecimal">func IsHexadecimal(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsInteger">func IsInteger(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsKind">func IsKind(in interface{}, kinds ...reflect.Kind) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsNumeric">func IsNumeric(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsTime">func IsTime(inI interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsZero">func IsZero(value interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#ParseDuration">func ParseDuration(in string) (time.Duration, error)</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RegisterTypeHandler">func RegisterTypeHandler(handler TypeConvertFunc, types ...string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#ResolveValue">func ResolveValue(in interface{}) interface{}</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SliceEach">func SliceEach(slice interface{}, iterFn IterationFunc, preserve ...reflect.Kind) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#ToString">func ToString(in interface{}) (string, error)</a>
+		
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#ConvertType">type ConvertType int</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#IterationFunc">type IterationFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#TimedReadCloser">type TimedReadCloser</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#TimedReadCloser.NewTimedReadCloser">
+					func NewTimedReadCloser(rc io.ReadCloser) *TimedReadCloser
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#TimedReadCloser.BytesRead">
+					func
+					(self *TimedReadCloser)
+					BytesRead() int64
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#TimedReadCloser.Close">
+					func
+					(self *TimedReadCloser)
+					Close() err error
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#TimedReadCloser.CloseDuration">
+					func
+					(self *TimedReadCloser)
+					CloseDuration() time.Duration
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#TimedReadCloser.Duration">
+					func
+					(self *TimedReadCloser)
+					Duration() time.Duration
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#TimedReadCloser.LastReadAt">
+					func
+					(self *TimedReadCloser)
+					LastReadAt() time.Time
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#TimedReadCloser.Read">
+					func
+					(self *TimedReadCloser)
+					Read(b []byte) (int, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#TimedReadCloser.ReadDuration">
+					func
+					(self *TimedReadCloser)
+					ReadDuration() time.Duration
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#TimedReadCloser.Reset">
+					func
+					(self *TimedReadCloser)
+					Reset()
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#TimedReadCloser.SetReadCloser">
+					func
+					(self *TimedReadCloser)
+					SetReadCloser(rc io.ReadCloser)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#TimedReadCloser.SinceLastRead">
+					func
+					(self *TimedReadCloser)
+					SinceLastRead() time.Duration
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#TimedReadCloser.StartedAt">
+					func
+					(self *TimedReadCloser)
+					StartedAt() time.Time
+				</a>
+				</strong>
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#TypeConvertFunc">type TypeConvertFunc </a>
+
+		
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="convert.go">convert.go</a>
+			
+		</td>
+		<td class="text-right">14KB</td>
+		<td class="text-right">505</td>
+		<td class="text-right">18</td>
+		<td class="text-right">2</td>
+		<td class="text-right">9</td>
+		<td class="text-right">5</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="convert_test.go">convert_test.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">105</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="detect.go">detect.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">95</td>
+		<td class="text-right">8</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="detect_test.go">detect_test.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">107</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="io.go">io.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">72</td>
+		<td class="text-right">12</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="reflect.go">reflect.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">73</td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">2</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="reflect_test.go">reflect_test.go</a>
+			
+		</td>
+		<td class="text-right">252B</td>
+		<td class="text-right">11</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="slice.go">slice.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">115</td>
+		<td class="text-right">1</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right">2</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="utils.go">utils.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">59</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="utils_test.go">utils_test.go</a>
+			
+		</td>
+		<td class="text-right">904B</td>
+		<td class="text-right">44</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="Boolean">Boolean    </span> = 
+const <span id="Bytes">Bytes      </span> = 
+const <span id="Float">Float      </span> = 
+const <span id="Integer">Integer    </span> = 
+const <span id="Invalid">Invalid    </span> = iota
+const <span id="Nil">Nil        </span> = 
+const <span id="String">String     </span> = 
+const <span id="Time">Time       </span> = 
+const <span id="UserDefined">UserDefined</span> = 
+const <span id="Value1">Value1     </span> = iota
+const <span id="Value2">Value2     </span> = 
+const <span id="Value3">Value3     </span> = 
+</pre>
+</div>
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="BooleanFalseValues">BooleanFalseValues</span> = []string{`false`, `no`, `off`}
+var <span id="BooleanTrueValues">BooleanTrueValues </span> = []string{`true`, `yes`, `on`}
+var <span id="CompoundTypes">CompoundTypes     </span> = 
+var <span id="EachChanMaxItems">EachChanMaxItems  </span> = 1048576
+var <span id="NilStrings">NilStrings        </span> = 
+var <span id="PassthroughType">PassthroughType   </span> = errors.New(`passthrough`)
+var <span id="ReferenceTime">ReferenceTime     </span> = 
+var <span id="SliceTypes">SliceTypes        </span> = []reflect.Kind{reflect.Slice, reflect.Array}
+var <span id="Stop">Stop              </span> = fmt.Errorf(&#34;stop iterating&#34;)
+var <span id="TimeFormats">TimeFormats       </span> = 
+</pre>
+</div>
+
+
+
+
+
+<h3 id="AppendError" data-kind="f">
+	func <a title="View Source" href="">AppendError</a>
+	<a class="permalink" href="#AppendError">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func AppendError(base error, err error) error</pre>
+</div>
+
+
+<p><p>Appends on error to another, allowing for operations that return multiple errors<br>to remain compatible within a single-valued context.</p>
+</p>
+
+
+<h3 id="Autotype" data-kind="f">
+	func <a title="View Source" href="">Autotype</a>
+	<a class="permalink" href="#Autotype">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Autotype(in interface{}) interface{}</pre>
+</div>
+
+
+
+<h3 id="ConvertCustomType" data-kind="f">
+	func <a title="View Source" href="">ConvertCustomType</a>
+	<a class="permalink" href="#ConvertCustomType">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertCustomType(in interface{}) (interface{}, error)</pre>
+</div>
+
+
+<p><p>Returns the given value, converted according to any handlers set via RegisterTypeHandler.</p>
+</p>
+
+
+<h3 id="ConvertHexToInteger" data-kind="f">
+	func <a title="View Source" href="">ConvertHexToInteger</a>
+	<a class="permalink" href="#ConvertHexToInteger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertHexToInteger(in interface{}) (int64, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertTo" data-kind="f">
+	func <a title="View Source" href="">ConvertTo</a>
+	<a class="permalink" href="#ConvertTo">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToBool" data-kind="f">
+	func <a title="View Source" href="">ConvertToBool</a>
+	<a class="permalink" href="#ConvertToBool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToBool(in interface{}) (bool, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToBytes" data-kind="f">
+	func <a title="View Source" href="">ConvertToBytes</a>
+	<a class="permalink" href="#ConvertToBytes">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToBytes(in interface{}) ([]byte, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToFloat" data-kind="f">
+	func <a title="View Source" href="">ConvertToFloat</a>
+	<a class="permalink" href="#ConvertToFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToFloat(in interface{}) (float64, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToInteger" data-kind="f">
+	func <a title="View Source" href="">ConvertToInteger</a>
+	<a class="permalink" href="#ConvertToInteger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToInteger(in interface{}) (int64, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToString" data-kind="f">
+	func <a title="View Source" href="">ConvertToString</a>
+	<a class="permalink" href="#ConvertToString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToString(in interface{}) (string, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToTime" data-kind="f">
+	func <a title="View Source" href="">ConvertToTime</a>
+	<a class="permalink" href="#ConvertToTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToTime(in interface{}) (time.Time, error)</pre>
+</div>
+
+
+
+<h3 id="DetectTimeFormat" data-kind="f">
+	func <a title="View Source" href="">DetectTimeFormat</a>
+	<a class="permalink" href="#DetectTimeFormat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DetectTimeFormat(in string) string</pre>
+</div>
+
+
+
+<h3 id="GenericMarshalJSON" data-kind="f">
+	func <a title="View Source" href="">GenericMarshalJSON</a>
+	<a class="permalink" href="#GenericMarshalJSON">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func GenericMarshalJSON(in interface{}, extraData ...map[string]interface{}) ([]byte, error)</pre>
+</div>
+
+
+
+<h3 id="IsBoolean" data-kind="f">
+	func <a title="View Source" href="">IsBoolean</a>
+	<a class="permalink" href="#IsBoolean">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsBoolean(inI interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsBooleanFalse" data-kind="f">
+	func <a title="View Source" href="">IsBooleanFalse</a>
+	<a class="permalink" href="#IsBooleanFalse">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsBooleanFalse(inI interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsBooleanTrue" data-kind="f">
+	func <a title="View Source" href="">IsBooleanTrue</a>
+	<a class="permalink" href="#IsBooleanTrue">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsBooleanTrue(inI interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsFloat" data-kind="f">
+	func <a title="View Source" href="">IsFloat</a>
+	<a class="permalink" href="#IsFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsFloat(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsHexadecimal" data-kind="f">
+	func <a title="View Source" href="">IsHexadecimal</a>
+	<a class="permalink" href="#IsHexadecimal">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsHexadecimal(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsInteger" data-kind="f">
+	func <a title="View Source" href="">IsInteger</a>
+	<a class="permalink" href="#IsInteger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsInteger(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsKind" data-kind="f">
+	func <a title="View Source" href="">IsKind</a>
+	<a class="permalink" href="#IsKind">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsKind(in interface{}, kinds ...reflect.Kind) bool</pre>
+</div>
+
+
+<p><p>Dectect whether the concrete underlying value of the given input is one or more<br>Kinds of value.</p>
+</p>
+
+
+<h3 id="IsNumeric" data-kind="f">
+	func <a title="View Source" href="">IsNumeric</a>
+	<a class="permalink" href="#IsNumeric">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsNumeric(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsTime" data-kind="f">
+	func <a title="View Source" href="">IsTime</a>
+	<a class="permalink" href="#IsTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsTime(inI interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsZero" data-kind="f">
+	func <a title="View Source" href="">IsZero</a>
+	<a class="permalink" href="#IsZero">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsZero(value interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value represents the underlying type’s zero value</p>
+</p>
+
+
+<h3 id="ParseDuration" data-kind="f">
+	func <a title="View Source" href="">ParseDuration</a>
+	<a class="permalink" href="#ParseDuration">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseDuration(in string) (time.Duration, error)</pre>
+</div>
+
+
+
+<h3 id="RegisterTypeHandler" data-kind="f">
+	func <a title="View Source" href="">RegisterTypeHandler</a>
+	<a class="permalink" href="#RegisterTypeHandler">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RegisterTypeHandler(handler TypeConvertFunc, types ...string)</pre>
+</div>
+
+
+<p><p>Register’s a handler used for converting one type to another. Type are checked in the following<br>manner:  The input value’s reflect.Type String() value is matched, falling back to its<br>reflect.Kind String() value, finally checking for a special “*” value that matches any type.<br>If the handler function returns nil, its value replaces the input value.  If the special error<br>type PassthroughType is returned, the original value is returned unmodified.</p>
+</p>
+
+
+<h3 id="ResolveValue" data-kind="f">
+	func <a title="View Source" href="">ResolveValue</a>
+	<a class="permalink" href="#ResolveValue">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ResolveValue(in interface{}) interface{}</pre>
+</div>
+
+
+
+<h3 id="SliceEach" data-kind="f">
+	func <a title="View Source" href="">SliceEach</a>
+	<a class="permalink" href="#SliceEach">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SliceEach(slice interface{}, iterFn IterationFunc, preserve ...reflect.Kind) error</pre>
+</div>
+
+
+<p><p>Iterate through each element of the given array, slice or channel; calling<br>iterFn exactly once for each element.  Otherwise, call iterFn one time<br>with the given input as the argument.</p>
+</p>
+
+
+<h3 id="ToString" data-kind="f">
+	func <a title="View Source" href="">ToString</a>
+	<a class="permalink" href="#ToString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ToString(in interface{}) (string, error)</pre>
+</div>
+
+
+
+
+
+
+<h3 id="ConvertType" data-kind="t">
+	type
+	<a title="View Source" href="">ConvertType</a>
+	<a class="permalink" href="#ConvertType">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ConvertType int</pre>
+</div>
+
+
+
+
+
+
+
+
+<h4 id="Detect" data-kind="f">
+	func <a title="View Source" href="">Detect</a>
+	<a class="permalink" href="#Detect">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Detect(in interface{}) (ConvertType, interface{})</pre>
+</div>
+
+
+
+
+<h4 id="DetectConvertType" data-kind="f">
+	func <a title="View Source" href="">DetectConvertType</a>
+	<a class="permalink" href="#DetectConvertType">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DetectConvertType(in interface{}) ConvertType</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="ConvertType.IsSupersetOf" data-kind="f">
+	func
+	(self ConvertType)
+	<a title="View Source" href="">IsSupersetOf</a>
+	<a class="permalink" href="#IsSupersetOf">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self ConvertType) IsSupersetOf(other ConvertType) bool</pre>
+</div>
+
+
+
+
+<h4 id="ConvertType.String" data-kind="f">
+	func
+	(self ConvertType)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self ConvertType) String() string</pre>
+</div>
+
+
+
+
+
+
+
+
+<h3 id="IterationFunc" data-kind="t">
+	type
+	<a title="View Source" href="">IterationFunc</a>
+	<a class="permalink" href="#IterationFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type IterationFunc func(i int, value interface{}) error</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="TimedReadCloser" data-kind="t">
+	type
+	<a title="View Source" href="">TimedReadCloser</a>
+	<a class="permalink" href="#TimedReadCloser">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type TimedReadCloser struct {
+
+}// A TimedReadCloser wraps an io.ReadCloser, keeping track of how long actually
+// reading from and closing the ReadCloser took, as well as how many bytes were read.
+//
+// Measurement starts from the first call to Read(), and ends when Close() is called.
+
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="NewTimedReadCloser" data-kind="f">
+	func <a title="View Source" href="">NewTimedReadCloser</a>
+	<a class="permalink" href="#NewTimedReadCloser">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewTimedReadCloser(rc io.ReadCloser) *TimedReadCloser</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="TimedReadCloser.BytesRead" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">BytesRead</a>
+	<a class="permalink" href="#BytesRead">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) BytesRead() int64</pre>
+</div>
+
+
+
+
+<h4 id="TimedReadCloser.Close" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">Close</a>
+	<a class="permalink" href="#Close">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) Close() err error</pre>
+</div>
+
+
+
+
+<h4 id="TimedReadCloser.CloseDuration" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">CloseDuration</a>
+	<a class="permalink" href="#CloseDuration">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) CloseDuration() time.Duration</pre>
+</div>
+
+
+
+
+<h4 id="TimedReadCloser.Duration" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">Duration</a>
+	<a class="permalink" href="#Duration">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) Duration() time.Duration</pre>
+</div>
+
+
+
+
+<h4 id="TimedReadCloser.LastReadAt" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">LastReadAt</a>
+	<a class="permalink" href="#LastReadAt">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) LastReadAt() time.Time</pre>
+</div>
+
+<p><p>Return the time of the last call to Read()</p>
+</p>
+
+
+
+
+
+
+<h4 id="TimedReadCloser.Read" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">Read</a>
+	<a class="permalink" href="#Read">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) Read(b []byte) (int, error)</pre>
+</div>
+
+
+
+
+<h4 id="TimedReadCloser.ReadDuration" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">ReadDuration</a>
+	<a class="permalink" href="#ReadDuration">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) ReadDuration() time.Duration</pre>
+</div>
+
+<p><p>Return a running duration of how long reading has been happening.  Updated on<br>every call to Read().</p>
+</p>
+
+
+
+
+<h4 id="TimedReadCloser.Reset" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">Reset</a>
+	<a class="permalink" href="#Reset">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) Reset()</pre>
+</div>
+
+<p><p>Reset the internal counters to zero.  Useful after calling SetReadCloser().</p>
+</p>
+
+
+
+
+<h4 id="TimedReadCloser.SetReadCloser" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">SetReadCloser</a>
+	<a class="permalink" href="#SetReadCloser">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) SetReadCloser(rc io.ReadCloser)</pre>
+</div>
+
+<p><p>Set the underlying io.ReadCloser.  Does not call Reset(), so multiple ReadClosers<br>can be cumulitively tracked.</p>
+</p>
+
+
+
+
+<h4 id="TimedReadCloser.SinceLastRead" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">SinceLastRead</a>
+	<a class="permalink" href="#SinceLastRead">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) SinceLastRead() time.Duration</pre>
+</div>
+
+<p><p>Return the duration of time since the last Read() occurred.</p>
+</p>
+
+
+
+
+<h4 id="TimedReadCloser.StartedAt" data-kind="f">
+	func
+	(self *TimedReadCloser)
+	<a title="View Source" href="">StartedAt</a>
+	<a class="permalink" href="#StartedAt">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *TimedReadCloser) StartedAt() time.Time</pre>
+</div>
+
+<p><p>Return the time of the first call to Read().</p>
+</p>
+
+
+
+
+<h3 id="TypeConvertFunc" data-kind="t">
+	type
+	<a title="View Source" href="">TypeConvertFunc</a>
+	<a class="permalink" href="#TypeConvertFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type TypeConvertFunc func(in interface{}) (interface{}, error)</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

@@ -1,0 +1,1143 @@
+{
+    "Name": "executil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/executil",
+    "ImportPath": "executil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Utilities that make executing commands on the local system a little bit easier.\n",
+    "MainFunction": false,
+    "CommentWordCount": 567,
+    "LineCount": 915,
+    "SourceLineCount": 689,
+    "FunctionCount": 37,
+    "TypeCount": 4,
+    "ConstantCount": 0,
+    "VariableCount": 3,
+    "Statistics": {
+        "Mean": 0.4689,
+        "StdDev": 0.484,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "cmd.go",
+            "Imports": [
+                {
+                    "PackageName": "bufio",
+                    "Alias": "bufio"
+                },
+                {
+                    "PackageName": "context",
+                    "Alias": "context"
+                },
+                {
+                    "PackageName": "errors",
+                    "Alias": "errors"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "io",
+                    "Alias": "io"
+                },
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "os/exec",
+                    "Alias": "exec"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "sync",
+                    "Alias": "sync"
+                },
+                {
+                    "PackageName": "syscall",
+                    "Alias": "syscall"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                    "Alias": "sliceutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                },
+                {
+                    "PackageName": "github.com/mattn/go-shellwords",
+                    "Alias": "go-shellwords"
+                }
+            ],
+            "Size": 10992,
+            "LineCount": 478,
+            "SourceLineCount": 360,
+            "FunctionCount": 18,
+            "TypeCount": 4,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "cmd_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 2526,
+            "LineCount": 102,
+            "SourceLineCount": 82,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "env.go",
+            "Imports": [
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                }
+            ],
+            "Size": 938,
+            "LineCount": 43,
+            "SourceLineCount": 33,
+            "FunctionCount": 6,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "executil.go",
+            "Imports": [
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "os/exec",
+                    "Alias": "exec"
+                },
+                {
+                    "PackageName": "os/signal",
+                    "Alias": "signal"
+                },
+                {
+                    "PackageName": "os/user",
+                    "Alias": "user"
+                },
+                {
+                    "PackageName": "path/filepath",
+                    "Alias": "filepath"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
+                    "Alias": "fileutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                    "Alias": "sliceutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                }
+            ],
+            "Size": 3326,
+            "LineCount": 135,
+            "SourceLineCount": 97,
+            "FunctionCount": 8,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "executil_test.go",
+            "Imports": [
+                {
+                    "PackageName": "os/exec",
+                    "Alias": "exec"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 1745,
+            "LineCount": 80,
+            "SourceLineCount": 60,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "log.go",
+            "Imports": [
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/log",
+                    "Alias": "log"
+                }
+            ],
+            "Size": 365,
+            "LineCount": 22,
+            "SourceLineCount": 18,
+            "FunctionCount": 2,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "terminal.go",
+            "Imports": [
+                {
+                    "PackageName": "bytes",
+                    "Alias": "bytes"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "io",
+                    "Alias": "io"
+                },
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "syscall",
+                    "Alias": "syscall"
+                },
+                {
+                    "PackageName": "golang.org/x/crypto/ssh/terminal",
+                    "Alias": "terminal"
+                }
+            ],
+            "Size": 1279,
+            "LineCount": 55,
+            "SourceLineCount": 39,
+            "FunctionCount": 3,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 3
+        }
+    ],
+    "Variables": [
+        {
+            "Name": "PasswordPrompt",
+            "Expression": "`Enter password: `",
+            "Value": "Enter password: "
+        },
+        {
+            "Name": "PasswordVerifyPrompt",
+            "Expression": "`Verify password: `",
+            "Value": "Verify password: "
+        },
+        {
+            "Name": "PromptWriter",
+            "Type": "io.Writer",
+            "Expression": "os.Stdout"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "Env",
+            "Arguments": [
+                {
+                    "Name": "name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "fallback",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Env(name string, fallback ...interface{}) string",
+            "Source": "ewoJcmV0dXJuIGVudihuYW1lLCBmYWxsYmFjay4uLikuU3RyaW5nKCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "EnvBool",
+            "Arguments": [
+                {
+                    "Name": "name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "fallback",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "EnvBool(name string, fallback ...interface{}) bool",
+            "Source": "ewoJcmV0dXJuIGVudihuYW1lLCBmYWxsYmFjay4uLikuQm9vbCgpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "EnvDuration",
+            "Arguments": [
+                {
+                    "Name": "name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "fallback",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "time.Duration"
+                }
+            ],
+            "Signature": "EnvDuration(name string, fallback ...interface{}) time.Duration",
+            "Source": "ewoJcmV0dXJuIGVudihuYW1lLCBmYWxsYmFjay4uLikuRHVyYXRpb24oKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "EnvFloat",
+            "Arguments": [
+                {
+                    "Name": "name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "fallback",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "EnvFloat(name string, fallback ...interface{}) float64",
+            "Source": "ewoJcmV0dXJuIGVudihuYW1lLCBmYWxsYmFjay4uLikuRmxvYXQoKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "EnvInt",
+            "Arguments": [
+                {
+                    "Name": "name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "fallback",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int64"
+                }
+            ],
+            "Signature": "EnvInt(name string, fallback ...interface{}) int64",
+            "Source": "ewoJcmV0dXJuIGVudihuYW1lLCBmYWxsYmFjay4uLikuSW50KCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "EnvTime",
+            "Arguments": [
+                {
+                    "Name": "name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "fallback",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "time.Time"
+                }
+            ],
+            "Signature": "EnvTime(name string, fallback ...interface{}) time.Time",
+            "Source": "ewoJcmV0dXJuIGVudihuYW1lLCBmYWxsYmFjay4uLikuVGltZSgpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "FindShell",
+            "Comment": "Uses environment variables and other configurations to attempt to locate the\npath to the user's shell.",
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "FindShell() string",
+            "Source": "ewoJc2hlbGxzIDo9IFtdc3RyaW5ne29zLkdldGVudihgU0hFTExgKX0KCXNoZWxscyA9IGFwcGVuZChzaGVsbHMsIFdoaWNoKGBzaGApKQoJZm9yIF8sIHNoZWxsIDo9IHJhbmdlIHNoZWxscyB7CgkJaWYgc2hlbGwgIT0gYGAgewoJCQlyZXR1cm4gc2hlbGwKCQl9Cgl9CglyZXR1cm4gYGAKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsRoot",
+            "Comment": "Returns whether the current user is root or not.",
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsRoot() bool",
+            "Source": "ewoJaWYgY3VycmVudCwgZXJyIDo9IHVzZXIuQ3VycmVudCgpOyBlcnIgPT0gbmlsIHsKCQlpZiBjdXJyZW50LlVpZCA9PSBgMGAgewoJCQlyZXR1cm4gdHJ1ZQoJCX0KCX0KCXJldHVybiBmYWxzZQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Join",
+            "Comment": "Take an *exec.Cmd or []string and return a shell-executable command line string.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Join(in interface{}) string",
+            "Source": "ewoJdmFyIGFyZ3MgW11zdHJpbmcKCWlmIGNtZCwgb2sgOj0gaW4uKCpleGVjLkNtZCk7IG9rIHsKCQlhcmdzID0gY21kLkFyZ3MKCX0gZWxzZSBpZiB0eXBldXRpbC5Jc0FycmF5KGluKSB7CgkJYXJncyA9IHNsaWNldXRpbC5TdHJpbmdpZnkoaW4pCgl9IGVsc2UgewoJCXJldHVybiBgYAoJfQoJZm9yIGksIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBzdHJpbmdzLkNvbnRhaW5zKGFyZywgYCBgKSB7CgkJCWFyZ3NbaV0gPSBzdHJpbmd1dGlsLldyYXAoYXJnLCBgJ2AsIGAnYCkKCQl9Cgl9CglyZXR1cm4gc3RyaW5ncy5Kb2luKGFyZ3MsIGAgYCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "LogOutputFunc",
+            "Arguments": [
+                {
+                    "Name": "line",
+                    "Type": "string"
+                },
+                {
+                    "Name": "err",
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "LogOutputFunc(line string, err bool)",
+            "Source": "ewoJaWYgZXJyIHsKCQlsb2cuRXJyb3IobGluZSkKCX0gZWxzZSB7CgkJbG9nLkRlYnVnKGxpbmUpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustShellOut",
+            "Comment": "A panicky version of ShellOut.",
+            "Arguments": [
+                {
+                    "Name": "cmdOrLine",
+                    "Type": "string"
+                },
+                {
+                    "Name": "args",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]byte"
+                }
+            ],
+            "Signature": "MustShellOut(cmdOrLine string, args ...interface{}) []byte",
+            "Source": "ewoJaWYgb3V0LCBlcnIgOj0gU2hlbGxPdXQoY21kT3JMaW5lLCBhcmdzLi4uKTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIG91dAoJfSBlbHNlIHsKCQlwYW5pYyhlcnIuRXJyb3IoKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "PromptPassword",
+            "Comment": "Generic password prompt that takes the input file descriptor and verify flag as options.",
+            "Arguments": [
+                {
+                    "Name": "writer",
+                    "Type": "io.Writer"
+                },
+                {
+                    "Name": "fd",
+                    "Type": "int"
+                },
+                {
+                    "Name": "verify",
+                    "Type": "bool"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "PromptPassword(writer io.Writer, fd int, verify bool) (string, bool)",
+            "Source": "ewoJZm10LkZwcmludCh3cml0ZXIsIFBhc3N3b3JkUHJvbXB0KQoJaWYgcHcxLCBlcnIgOj0gdGVybWluYWwuUmVhZFBhc3N3b3JkKGZkKTsgZXJyID09IG5pbCB7CgkJZm10LkZwcmludCh3cml0ZXIsICJcbiIpCgkJaWYgdmVyaWZ5IHsKCQkJZm10LkZwcmludCh3cml0ZXIsIFBhc3N3b3JkVmVyaWZ5UHJvbXB0KQoJCQlpZiBwdzIsIGVyciA6PSB0ZXJtaW5hbC5SZWFkUGFzc3dvcmQoZmQpOyBlcnIgPT0gbmlsIHsKCQkJCWZtdC5GcHJpbnQod3JpdGVyLCAiXG4iKQoJCQkJaWYgYnl0ZXMuRXF1YWwocHcxLCBwdzIpIHsKCQkJCQlyZXR1cm4gc3RyaW5nKHB3MSksIHRydWUKCQkJCX0gZWxzZSB7CgkJCQkJcmV0dXJuIHN0cmluZyhwdzEpLCBmYWxzZQoJCQkJfQoJCQl9CgkJfSBlbHNlIHsKCQkJcmV0dXJuIHN0cmluZyhwdzEpLCB0cnVlCgkJfQoJfQoJcmV0dXJuIGBgLCBmYWxzZQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ReadAndVerifyPassword",
+            "Comment": "Read a password from standard input, disabling echo and prompting twice.  The\nsecond return argument is falseif the two passwords do not match.",
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "ReadAndVerifyPassword() (string, bool)",
+            "Source": "ewoJcmV0dXJuIFByb21wdFBhc3N3b3JkKFByb21wdFdyaXRlciwgaW50KHN5c2NhbGwuU3RkaW4pLCB0cnVlKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ReadPassword",
+            "Comment": "Read a password from standard input, disabling echo.",
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "ReadPassword() string",
+            "Source": "ewoJcHcsIF8gOj0gUHJvbXB0UGFzc3dvcmQoUHJvbXB0V3JpdGVyLCBpbnQoc3lzY2FsbC5TdGRpbiksIGZhbHNlKQoJcmV0dXJuIHB3Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "RootOr",
+            "Comment": "Returns the first argument if the current user is root, and the second if not.",
+            "Arguments": [
+                {
+                    "Name": "ifRoot",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "notRoot",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "RootOr(ifRoot interface{}, notRoot interface{}) interface{}",
+            "Source": "ewoJaWYgSXNSb290KCkgewoJCXJldHVybiBpZlJvb3QKCX0gZWxzZSB7CgkJcmV0dXJuIG5vdFJvb3QKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "RootOrString",
+            "Comment": "The same as RootOr, but returns a string.",
+            "Arguments": [
+                {
+                    "Name": "ifRoot",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "notRoot",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "RootOrString(ifRoot interface{}, notRoot interface{}) string",
+            "Source": "ewoJaWYgSXNSb290KCkgewoJCXJldHVybiB0eXBldXRpbC5TdHJpbmcoaWZSb290KQoJfSBlbHNlIHsKCQlyZXR1cm4gdHlwZXV0aWwuU3RyaW5nKG5vdFJvb3QpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ShellOut",
+            "Comment": "Run a command and return the standard output.  If the first argument contains\na command and its arguments, it will be executed in the user's shell using FindShell.\nOtherwise, the first argument will be treated as a command and the remaining arguments\nwill be passed in parameterized.",
+            "Arguments": [
+                {
+                    "Name": "cmdOrLine",
+                    "Type": "string"
+                },
+                {
+                    "Name": "args",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]byte"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ShellOut(cmdOrLine string, args ...interface{}) ([]byte, error)",
+            "Source": "ewoJdmFyIGNtZCAqQ21kCglpZiB2YSwgZXJyIDo9IHNoZWxsd29yZHMuUGFyc2UoY21kT3JMaW5lKTsgZXJyID09IG5pbCB7CgkJaWYgbGVuKHZhKSA9PSAxIHsKCQkJY21kID0gQ29tbWFuZCh2YVswXSwgc2xpY2V1dGlsLlN0cmluZ2lmeShhcmdzKS4uLikKCQl9IGVsc2UgewoJCQljbWQgPSBTaGVsbENvbW1hbmQoc3RyaW5ncy5Kb2luKGFwcGVuZCh2YSwgc2xpY2V1dGlsLlN0cmluZ2lmeShhcmdzKS4uLiksIGAgYCkpCgkJfQoJCWlmIG91dCwgZXJyIDo9IGNtZC5PdXRwdXQoKTsgZXJyID09IG5pbCB7CgkJCXJldHVybiBvdXQsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBuaWwsIGVycgoJCX0KCX0gZWxzZSB7CgkJcmV0dXJuIG5pbCwgZXJyCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ShouldShellOut",
+            "Comment": "Attempts to call ShellOut, but will return nil if there is an error.  Does not panic.",
+            "Arguments": [
+                {
+                    "Name": "cmdOrLine",
+                    "Type": "string"
+                },
+                {
+                    "Name": "args",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]byte"
+                }
+            ],
+            "Signature": "ShouldShellOut(cmdOrLine string, args ...interface{}) []byte",
+            "Source": "ewoJaWYgb3V0LCBlcnIgOj0gU2hlbGxPdXQoY21kT3JMaW5lLCBhcmdzLi4uKTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIG91dAoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TrapSignals",
+            "Comment": "Registers a list of OS signals to intercept and provides an opportunity to run\na function before the program exits.",
+            "Arguments": [
+                {
+                    "Name": "after",
+                    "Type": ""
+                },
+                {
+                    "Name": "signals",
+                    "Type": "...os.Signal"
+                }
+            ],
+            "Signature": "TrapSignals(after , signals ...os.Signal)",
+            "Source": "ewoJc2lnbmFsQ2hhbiA6PSBtYWtlKGNoYW4gb3MuU2lnbmFsLCAxKQoJc2lnbmFsLk5vdGlmeShzaWduYWxDaGFuLCBzaWduYWxzLi4uKQoJZm9yIHRyYXAgOj0gcmFuZ2Ugc2lnbmFsQ2hhbiB7CgkJaWYgYWZ0ZXIgIT0gbmlsIHsKCQkJaWYgIWFmdGVyKHRyYXApIHsKCQkJCXJldHVybgoJCQl9CgkJfQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Which",
+            "Comment": "Locates the first path containing the given command. The directories listed\nin the environment variable \"PATH\" will be checked, in order.  If additional\ndirectories are specified in the path variadic argument, they will be checked\nfirst.  If the command is not in any path, an empty string will be returned.",
+            "Arguments": [
+                {
+                    "Name": "cmdname",
+                    "Type": "string"
+                },
+                {
+                    "Name": "path",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Which(cmdname string, path ...string) string",
+            "Source": "ewoJaWYgZm91bmQgOj0gV2hpY2hBbGwoY21kbmFtZSwgcGF0aC4uLik7IGxlbihmb3VuZCkgPiAwIHsKCQlyZXR1cm4gZm91bmRbMF0KCX0gZWxzZSB7CgkJcmV0dXJuIGBgCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "WhichAll",
+            "Comment": "Locates the all paths containing the given command. The directories listed\nin the environment variable \"PATH\" will be checked, in order.  If additional\ndirectories are specified in the path variadic argument, they will be checked\nfirst.  If the command is not in any path, an empty slice will be returned.",
+            "Arguments": [
+                {
+                    "Name": "cmdname",
+                    "Type": "string"
+                },
+                {
+                    "Name": "path",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "WhichAll(cmdname string, path ...string) []string",
+            "Source": "ewoJZGlycyA6PSBhcHBlbmQocGF0aCwgc3RyaW5ncy5TcGxpdChvcy5HZXRlbnYoYFBBVEhgKSwgYDpgKS4uLikKCWZvdW5kIDo9IG1ha2UoW11zdHJpbmcsIDApCglpZiBmaWxldXRpbC5Jc05vbmVtcHR5RXhlY3V0YWJsZUZpbGUoY21kbmFtZSkgewoJCWZvdW5kID0gYXBwZW5kKGZvdW5kLCBjbWRuYW1lKQoJfQoJZm9yIF8sIGRpciA6PSByYW5nZSBkaXJzIHsKCQljYW5kaWRhdGUgOj0gZmlsZXBhdGguSm9pbihkaXIsIGNtZG5hbWUpCgkJaWYgbGVuKHN0cmluZ3MuVHJpbVNwYWNlKGRpcikpID09IDAgewoJCQljb250aW51ZQoJCX0gZWxzZSBpZiAhZmlsZXV0aWwuRGlyRXhpc3RzKGRpcikgewoJCQljb250aW51ZQoJCX0gZWxzZSBpZiBmaWxldXRpbC5Jc05vbmVtcHR5RXhlY3V0YWJsZUZpbGUoY2FuZGlkYXRlKSB7CgkJCWZvdW5kID0gYXBwZW5kKGZvdW5kLCBjYW5kaWRhdGUpCgkJfQoJfQoJcmV0dXJuIGZvdW5kCn0=",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestEventedLineOutput",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestEventedLineOutput(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzdGRvdXQgOj0gbWFrZShbXXN0cmluZywgMCkKCXN0ZGVyciA6PSBtYWtlKFtdc3RyaW5nLCAwKQoJY21kIDo9IENvbW1hbmQoYGVjaG9gLCBgLWVgLCBgMVxuMlxuM1xuYCkKCWNtZC5PblN0ZG91dCA9IGZ1bmMobGluZSBzdHJpbmcsIHNlcnIgYm9vbCkgewoJCXN0ZG91dCA9IGFwcGVuZChzdGRvdXQsIGxpbmUpCgl9Cglhc3NlcnQuTm9FcnJvcihjbWQuUnVuKCkpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YDFgLCBgMmAsIGAzYCwgYGB9LCBzdGRvdXQpCglhc3NlcnQuRW1wdHkoc3RkZXJyKQoJY21kID0gQ29tbWFuZChgYmFzaGAsIGAtY2AsIGBlY2hvIG1vY2s7IGVjaG8geWVhaCAxPiYyOyBlY2hvIGluZzsgZWNobyB5ZWFoIDE+JjI7IGVjaG8gYmlyZDsgZWNobyB5ZWFoIDE+JjI7IGVjaG8geWVhaDsgZWNobyB5ZWFoIDE+JjJgKQoJc3Rkb3V0ID0gbmlsCglzdGRlcnIgPSBuaWwKCWNtZC5PblN0ZG91dCA9IGZ1bmMobGluZSBzdHJpbmcsIHNlcnIgYm9vbCkgewoJCXN0ZG91dCA9IGFwcGVuZChzdGRvdXQsIGxpbmUpCgl9CgljbWQuT25TdGRlcnIgPSBmdW5jKGxpbmUgc3RyaW5nLCBzZXJyIGJvb2wpIHsKCQlzdGRlcnIgPSBhcHBlbmQoc3RkZXJyLCBsaW5lKQoJfQoJYXNzZXJ0Lk5vRXJyb3IoY21kLlJ1bigpKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2Btb2NrYCwgYGluZ2AsIGBiaXJkYCwgYHllYWhgfSwgc3Rkb3V0KQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2B5ZWFoYCwgYHllYWhgLCBgeWVhaGAsIGB5ZWFoYH0sIHN0ZGVycikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestExecFalse",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestExecFalse(t *testing.T)",
+            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgL2Jpbi9mYWxzZWApCgljbWQuT25TdGFydCA9IGluY3IoJnN0YXJ0cykKCWNtZC5PbkNvbXBsZXRlID0gaW5jcigmY29tcGxldGVzKQoJY21kLk9uU3VjY2VzcyA9IGluY3IoJnN1Y2Nlc3NlcykKCWNtZC5PbkVycm9yID0gaW5jcigmZmFpbHVyZXMpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuUElEKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWNtZC5SdW4oKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5QSUQgPT0gMCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuVG9vaygpID4gMCkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5FeGl0Q29kZSA9PSAxKQoJYXNzZXJ0LkVxdWFsRXJyb3IoY21kLlN0YXR1cygpLkVycm9yLCBgUHJvY2VzcyBleGl0ZWQgd2l0aCBzdGF0dXMgMWApCglhc3NlcnQuRXF1YWwoMSwgc3RhcnRzKQoJYXNzZXJ0LkVxdWFsKDEsIGNvbXBsZXRlcykKCWFzc2VydC5FcXVhbCgwLCBzdWNjZXNzZXMpCglhc3NlcnQuRXF1YWwoMSwgZmFpbHVyZXMpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestExecTrue",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestExecTrue(t *testing.T)",
+            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgL2Jpbi90cnVlYCkKCWNtZC5PblN0YXJ0ID0gaW5jcigmc3RhcnRzKQoJY21kLk9uQ29tcGxldGUgPSBpbmNyKCZjb21wbGV0ZXMpCgljbWQuT25TdWNjZXNzID0gaW5jcigmc3VjY2Vzc2VzKQoJY21kLk9uRXJyb3IgPSBpbmNyKCZmYWlsdXJlcykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5aZXJvKGNtZC5TdGF0dXMoKS5QSUQpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5aZXJvKGNtZC5TdGF0dXMoKS5FeGl0Q29kZSkKCWFzc2VydC5OaWwoY21kLlN0YXR1cygpLkVycm9yKQoJY21kLlJ1bigpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUElEID09IDApCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlRvb2soKSA+IDApCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWFzc2VydC5FcXVhbCgxLCBzdGFydHMpCglhc3NlcnQuRXF1YWwoMSwgY29tcGxldGVzKQoJYXNzZXJ0LkVxdWFsKDEsIHN1Y2Nlc3NlcykKCWFzc2VydC5FcXVhbCgwLCBmYWlsdXJlcykKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestJoin",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestJoin(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGAsIEpvaW4obmlsKSkKCWFzc2VydC5FcXVhbChgYCwgSm9pbihgYCkpCglhc3NlcnQuRXF1YWwoYGAsIEpvaW4oW11zdHJpbmd7fSkpCglhc3NlcnQuRXF1YWwoYGxzIC1sYCwgSm9pbihbXXN0cmluZ3tgbHNgLCBgLWxgfSkpCglhc3NlcnQuRXF1YWwoYGxzIC1sICcvdGhpcyBpcyBhIGZvbGRlcidgLCBKb2luKFtdc3RyaW5ne2Bsc2AsIGAtbGAsIGAvdGhpcyBpcyBhIGZvbGRlcmB9KSkKCWFzc2VydC5FcXVhbChgbHMgLWwgJy90aGlzIGlzIGEgZm9sZGVyJ2AsIEpvaW4oZXhlYy5Db21tYW5kKGBsc2AsIGAtbGAsIGAvdGhpcyBpcyBhIGZvbGRlcmApKSkKCWFzc2VydC5FcXVhbChgd2hvYW1pYCwgSm9pbihleGVjLkNvbW1hbmQoYHdob2FtaWApKSkKCWFzc2VydC5FcXVhbChgYCwgSm9pbihleGVjLkNvbW1hbmQoYGApKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestShellOut",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestShellOut(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGhlbGxvIHRoZXJlYCwgc3RyaW5nKE11c3RTaGVsbE91dChgZWNob2AsIGAtbmAsIGBoZWxsb2AsIGB0aGVyZWApKSkKCWFzc2VydC5FcXVhbChgaGVsbG8gdGhlcmVgLCBzdHJpbmcoTXVzdFNoZWxsT3V0KGBlY2hvIC1uIGhlbGxvIHRoZXJlYCkpKQoJYXNzZXJ0LkVxdWFsKGBoZWxsbyB0aGVyZWAsIHN0cmluZyhNdXN0U2hlbGxPdXQoYGVjaG8gLW5gLCBgaGVsbG8gdGhlcmVgKSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestWhich",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestWhich(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYC9iaW4vbHNgLCBXaGljaChgL2Jpbi9sc2ApKQoJYXNzZXJ0LkVxdWFsKGAvYmluL2xzYCwgV2hpY2goYGxzYCkpCglhc3NlcnQuRXF1YWwoYC91c3IvYmluL3RhaWxgLCBXaGljaChgdGFpbGApKQoJYXNzZXJ0LkVtcHR5KFdoaWNoKGBhYnNvbHV0ZWx5LW5vdC1hLWNvbW1hbmQtQCMkJV4mKmApKQp9",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "Cmd": {
+            "Name": "Cmd",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "CombinedOutput",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "CombinedOutput() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Command",
+                    "Arguments": [
+                        {
+                            "Name": "name",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "arg",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Cmd"
+                        }
+                    ],
+                    "Signature": "Command(name string, arg ...string) *Cmd",
+                    "Source": "ewoJcmV0dXJuIG5ldyhleGVjLkNvbW1hbmQobmFtZSwgYXJnLi4uKSkKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Kill",
+                    "Comment": "Kill the running command.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Kill() error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Output",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Output() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Run",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Run() error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "SetEnv",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "value",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Signature": "SetEnv(key string, value interface{})",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "ShellCommand",
+                    "Arguments": [
+                        {
+                            "Name": "cmdline",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Cmd"
+                        }
+                    ],
+                    "Signature": "ShellCommand(cmdline string) *Cmd",
+                    "Source": "ewoJaWYgc2hlbGwgOj0gRmluZFNoZWxsKCk7IHNoZWxsICE9IGBgIHsKCQlyZXR1cm4gQ29tbWFuZChzaGVsbCwgYC1jYCwgY21kbGluZSkKCX0KCXJldHVybiBuaWwKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Start",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Start() error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Status",
+                    "Comment": "Return the current status of the process.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "Status"
+                        }
+                    ],
+                    "Signature": "Status() Status",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "String",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "WaitStatus",
+                    "Comment": "Wait for the process to complete, then return the last status.\nProcess must have been started using the Start() function.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "Status"
+                        }
+                    ],
+                    "Signature": "WaitStatus() Status",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Wrap",
+                    "Arguments": [
+                        {
+                            "Name": "cmd",
+                            "Type": "*exec.Cmd"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Cmd"
+                        }
+                    ],
+                    "Signature": "Wrap(cmd *exec.Cmd) *Cmd",
+                    "Source": "ewoJcmV0dXJuIG5ldyhjbWQpCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "CommandContext",
+                    "Arguments": [
+                        {
+                            "Name": "ctx",
+                            "Type": "context.Context"
+                        },
+                        {
+                            "Name": "name",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "arg",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Cmd"
+                        }
+                    ],
+                    "Signature": "CommandContext(ctx context.Context, name string, arg ...string) *Cmd",
+                    "Source": "ewoJcmV0dXJuICZDbWR7Q21kOiBleGVjLkNvbW1hbmRDb250ZXh0KGN0eCwgbmFtZSwgYXJnLi4uKX0KfQ==",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "MonitorInterval",
+                    "Type": "time.Duration",
+                    "Comment": "An interval of time on which the command should be actively checked for run and exit status."
+                },
+                {
+                    "Name": "Timeout",
+                    "Type": "time.Duration",
+                    "Comment": "How long the command may run for before being killed."
+                },
+                {
+                    "Name": "InheritEnv",
+                    "Type": "bool",
+                    "Comment": "Whether the command invocation should inherit the environment variables of the calling process."
+                },
+                {
+                    "Name": "OnStart",
+                    "Type": "CommandStatusFunc",
+                    "Comment": "Called when immediately before the command is executed."
+                },
+                {
+                    "Name": "OnMonitor",
+                    "Type": "CommandStatusFunc",
+                    "Comment": "Called whenever the monitor check is performed."
+                },
+                {
+                    "Name": "OnComplete",
+                    "Type": "CommandStatusFunc",
+                    "Comment": "Called when the command exits, regardless of success or failure."
+                },
+                {
+                    "Name": "OnSuccess",
+                    "Type": "CommandStatusFunc",
+                    "Comment": "Called when the command exits with a non-error status (code 0)"
+                },
+                {
+                    "Name": "OnError",
+                    "Type": "CommandStatusFunc",
+                    "Comment": "Called when the command exits with an error status (non-zero exit code, security, invocation, or resource error)"
+                },
+                {
+                    "Name": "OnStdout",
+                    "Type": "OutputLineFunc",
+                    "Comment": "Called when a line of standard output is written."
+                },
+                {
+                    "Name": "OnStderr",
+                    "Type": "OutputLineFunc",
+                    "Comment": "Called when a line of standard error is written."
+                },
+                {
+                    "Name": "StdoutSplitFunc",
+                    "Type": "bufio.SplitFunc",
+                    "Comment": "If specified, this function will determine how to tokenize the stdout stream and when to call OnStdout.  Defaults to bufio.ScanLines."
+                },
+                {
+                    "Name": "StderrSplitFunc",
+                    "Type": "bufio.SplitFunc",
+                    "Comment": "If specified, this function will determine how to tokenize the stderr stream and when to call OnStderr.  Defaults to bufio.ScanLines."
+                }
+            ],
+            "Comment": "A wrapper for exec.Cmd that provides helpful callbacks and monitoring details that are challenging\nto implement.",
+            "Source": "dHlwZSBDbWQgc3RydWN0IHsKCSpleGVjLkNtZAoJTW9uaXRvckludGVydmFsIHRpbWUuRHVyYXRpb24KCVRpbWVvdXQgICAgICAgICB0aW1lLkR1cmF0aW9uCglJbmhlcml0RW52ICAgICAgYm9vbAoJT25TdGFydCAgICAgICAgIENvbW1hbmRTdGF0dXNGdW5jCglPbk1vbml0b3IgICAgICAgQ29tbWFuZFN0YXR1c0Z1bmMKCU9uQ29tcGxldGUgICAgICBDb21tYW5kU3RhdHVzRnVuYwoJT25TdWNjZXNzICAgICAgIENvbW1hbmRTdGF0dXNGdW5jCglPbkVycm9yICAgICAgICAgQ29tbWFuZFN0YXR1c0Z1bmMKCU9uU3Rkb3V0ICAgICAgICBPdXRwdXRMaW5lRnVuYwoJT25TdGRlcnIgICAgICAgIE91dHB1dExpbmVGdW5jCglTdGRvdXRTcGxpdEZ1bmMgYnVmaW8uU3BsaXRGdW5jCglTdGRlcnJTcGxpdEZ1bmMgYnVmaW8uU3BsaXRGdW5jCgp9Ly8gQSB3cmFwcGVyIGZvciBleGVjLkNtZCB0aGF0IHByb3ZpZGVzIGhlbHBmdWwgY2FsbGJhY2tzIGFuZCBtb25pdG9yaW5nIGRldGFpbHMgdGhhdCBhcmUgY2hhbGxlbmdpbmcKLy8gdG8gaW1wbGVtZW50LgoK",
+            "HasUnexportedFields": true
+        },
+        "CommandStatusFunc": {
+            "Name": "CommandStatusFunc",
+            "Source": "dHlwZSBDb21tYW5kU3RhdHVzRnVuYyBmdW5jKFN0YXR1cyk="
+        },
+        "OutputLineFunc": {
+            "Name": "OutputLineFunc",
+            "Methods": [
+                {
+                    "Name": "LogOutput",
+                    "Arguments": [
+                        {
+                            "Name": "outlevel",
+                            "Type": "log.Level"
+                        },
+                        {
+                            "Name": "errlevel",
+                            "Type": "log.Level"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "OutputLineFunc"
+                        }
+                    ],
+                    "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                    "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
+        },
+        "Status": {
+            "Name": "Status",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "String",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Took",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "time.Duration"
+                        }
+                    ],
+                    "Signature": "Took() time.Duration",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "StartedAt",
+                    "Type": "time.Time"
+                },
+                {
+                    "Name": "StoppedAt",
+                    "Type": "time.Time"
+                },
+                {
+                    "Name": "Running",
+                    "Type": "bool"
+                },
+                {
+                    "Name": "Successful",
+                    "Type": "bool"
+                },
+                {
+                    "Name": "ExitCode",
+                    "Type": "int"
+                },
+                {
+                    "Name": "Error",
+                    "Type": "error"
+                },
+                {
+                    "Name": "PID",
+                    "Type": "int"
+                }
+            ],
+            "Source": "dHlwZSBTdGF0dXMgc3RydWN0IHsKCVN0YXJ0ZWRBdCAgdGltZS5UaW1lCglTdG9wcGVkQXQgIHRpbWUuVGltZQoJUnVubmluZyAgICBib29sCglTdWNjZXNzZnVsIGJvb2wKCUV4aXRDb2RlICAgaW50CglFcnJvciAgICAgIGVycm9yCglQSUQgICAgICAgIGludAp9"
+        }
+    }
+}

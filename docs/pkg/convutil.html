@@ -1,0 +1,720 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">convutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 0%</span>
+<h2 id="pkg-overview">package convutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/convutil"</code>
+</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		
+		<a href="#Convert">func Convert(in interface{}, from interface{}, to interface{}) (float64, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ExactConvert">func ExactConvert(in interface{}, from interface{}, to interface{}) (float64, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#MustConvert">func MustConvert(in interface{}, from interface{}, to interface{}) float64</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#MustExactConvert">func MustExactConvert(in interface{}, from interface{}, to interface{}) float64</a>
+		
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#Bytes">type Bytes float64</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#SIExponents">type SIExponents int</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Unit">type Unit int</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#UnitFamily">type UnitFamily int</a>
+
+		
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="convutil.go">convutil.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">161</td>
+		<td class="text-right">4</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="convutil_test.go">convutil_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">49</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="si.go">si.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">101</td>
+		<td class="text-right">5</td>
+		<td class="text-right">2</td>
+		<td class="text-right">30</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="types.go">types.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">185</td>
+		<td class="text-right">6</td>
+		<td class="text-right">2</td>
+		<td class="text-right">19</td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="AU">AU               </span> = 
+const <span id="Atto">Atto             </span> = -18
+const <span id="Brontobyte">Brontobyte       </span> = 1237940039285380274899124224
+const <span id="Byte">Byte             </span> = 1
+const <span id="Celsius">Celsius          </span> = 
+const <span id="Centi">Centi            </span> = -2
+const <span id="Deca">Deca             </span> = 1
+const <span id="Deci">Deci             </span> = -1
+const <span id="Exa">Exa              </span> = 18
+const <span id="Exabyte">Exabyte          </span> = 1152921504606846976
+const <span id="Fahrenheit">Fahrenheit       </span> = 
+const <span id="Feet">Feet             </span> = 
+const <span id="Femto">Femto            </span> = -15
+const <span id="GeneralUnits">GeneralUnits     </span> = iota
+const <span id="Giga">Giga             </span> = 9
+const <span id="Gigabyte">Gigabyte         </span> = 1073741824
+const <span id="Hecto">Hecto            </span> = 2
+const <span id="Invalid">Invalid          </span> = iota
+const <span id="Kelvin">Kelvin           </span> = 
+const <span id="Kilo">Kilo             </span> = 3
+const <span id="Kilobyte">Kilobyte         </span> = 1024
+const <span id="KilometersPerHour">KilometersPerHour</span> = 
+const <span id="LengthUnits">LengthUnits      </span> = 
+const <span id="Lightminutes">Lightminutes     </span> = 
+const <span id="Lightseconds">Lightseconds     </span> = 
+const <span id="Lightyears">Lightyears       </span> = 
+const <span id="Mega">Mega             </span> = 6
+const <span id="Megabyte">Megabyte         </span> = 1048576
+const <span id="Meters">Meters           </span> = 
+const <span id="MetersPerSecond">MetersPerSecond  </span> = 
+const <span id="Micro">Micro            </span> = -6
+const <span id="Miles">Miles            </span> = 
+const <span id="MilesPerHour">MilesPerHour     </span> = 
+const <span id="Milli">Milli            </span> = -3
+const <span id="Nano">Nano             </span> = -9
+const <span id="NauticalMiles">NauticalMiles    </span> = 
+const <span id="Peta">Peta             </span> = 15
+const <span id="Petabyte">Petabyte         </span> = 1125899906842624
+const <span id="Pico">Pico             </span> = -12
+const <span id="SpeedUnits">SpeedUnits       </span> = 
+const <span id="TemperatureUnits">TemperatureUnits </span> = 
+const <span id="Tera">Tera             </span> = 12
+const <span id="Terabyte">Terabyte         </span> = 1099511627776
+const <span id="Yocto">Yocto            </span> = -24
+const <span id="Yotta">Yotta            </span> = 24
+const <span id="Yottabyte">Yottabyte        </span> = 1208925819614629174706176
+const <span id="Zepto">Zepto            </span> = -21
+const <span id="Zetta">Zetta            </span> = 21
+const <span id="Zettabyte">Zettabyte        </span> = 1180591620717411303424
+</pre>
+</div>
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="ConvertRoundToPlaces">ConvertRoundToPlaces</span> = 6
+</pre>
+</div>
+
+
+
+
+
+<h3 id="Convert" data-kind="f">
+	func <a title="View Source" href="">Convert</a>
+	<a class="permalink" href="#Convert">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Convert(in interface{}, from interface{}, to interface{}) (float64, error)</pre>
+</div>
+
+
+
+<h3 id="ExactConvert" data-kind="f">
+	func <a title="View Source" href="">ExactConvert</a>
+	<a class="permalink" href="#ExactConvert">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ExactConvert(in interface{}, from interface{}, to interface{}) (float64, error)</pre>
+</div>
+
+
+
+<h3 id="MustConvert" data-kind="f">
+	func <a title="View Source" href="">MustConvert</a>
+	<a class="permalink" href="#MustConvert">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustConvert(in interface{}, from interface{}, to interface{}) float64</pre>
+</div>
+
+
+
+<h3 id="MustExactConvert" data-kind="f">
+	func <a title="View Source" href="">MustExactConvert</a>
+	<a class="permalink" href="#MustExactConvert">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustExactConvert(in interface{}, from interface{}, to interface{}) float64</pre>
+</div>
+
+
+
+
+
+
+<h3 id="Bytes" data-kind="t">
+	type
+	<a title="View Source" href="">Bytes</a>
+	<a class="permalink" href="#Bytes">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Bytes float64</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="Bytes.Auto" data-kind="f">
+	func
+	(self Bytes)
+	<a title="View Source" href="">Auto</a>
+	<a class="permalink" href="#Auto">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Bytes) Auto() (float64, string)</pre>
+</div>
+
+
+
+
+<h4 id="Bytes.Convert" data-kind="f">
+	func
+	(self Bytes)
+	<a title="View Source" href="">Convert</a>
+	<a class="permalink" href="#Convert">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Bytes) Convert(to Bytes) (float64, string)</pre>
+</div>
+
+
+
+
+<h4 id="Bytes.Format" data-kind="f">
+	func
+	(self Bytes)
+	<a title="View Source" href="">Format</a>
+	<a class="permalink" href="#Format">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Bytes) Format(format string, as ...Bytes) string</pre>
+</div>
+
+
+
+
+<h4 id="Bytes.String" data-kind="f">
+	func
+	(self Bytes)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Bytes) String() string</pre>
+</div>
+
+
+
+
+<h4 id="Bytes.To" data-kind="f">
+	func
+	(self Bytes)
+	<a title="View Source" href="">To</a>
+	<a class="permalink" href="#To">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Bytes) To(unit Bytes) string</pre>
+</div>
+
+
+
+
+<h3 id="SIExponents" data-kind="t">
+	type
+	<a title="View Source" href="">SIExponents</a>
+	<a class="permalink" href="#SIExponents">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type SIExponents int</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Unit" data-kind="t">
+	type
+	<a title="View Source" href="">Unit</a>
+	<a class="permalink" href="#Unit">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Unit int</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="MustParseUnit" data-kind="f">
+	func <a title="View Source" href="">MustParseUnit</a>
+	<a class="permalink" href="#MustParseUnit">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustParseUnit(unit string) Unit</pre>
+</div>
+
+
+
+
+<h4 id="ParseUnit" data-kind="f">
+	func <a title="View Source" href="">ParseUnit</a>
+	<a class="permalink" href="#ParseUnit">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseUnit(unit string) (Unit, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="Unit.Family" data-kind="f">
+	func
+	(self Unit)
+	<a title="View Source" href="">Family</a>
+	<a class="permalink" href="#Family">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Unit) Family() UnitFamily</pre>
+</div>
+
+
+
+
+<h4 id="Unit.IsValid" data-kind="f">
+	func
+	(self Unit)
+	<a title="View Source" href="">IsValid</a>
+	<a class="permalink" href="#IsValid">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Unit) IsValid() bool</pre>
+</div>
+
+
+
+
+<h4 id="Unit.LongString" data-kind="f">
+	func
+	(self Unit)
+	<a title="View Source" href="">LongString</a>
+	<a class="permalink" href="#LongString">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Unit) LongString() string</pre>
+</div>
+
+
+
+
+<h4 id="Unit.String" data-kind="f">
+	func
+	(self Unit)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Unit) String() string</pre>
+</div>
+
+
+
+
+
+
+
+
+<h3 id="UnitFamily" data-kind="t">
+	type
+	<a title="View Source" href="">UnitFamily</a>
+	<a class="permalink" href="#UnitFamily">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type UnitFamily int</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

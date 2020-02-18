@@ -1,0 +1,429 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">structutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 25%</span>
+<h2 id="pkg-overview">package structutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/structutil"</code>
+</p>
+
+
+<p>Utilities for working with and manipulating structs.</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		
+		<a href="#CopyFunc">func CopyFunc(dest interface{}, source interface{}, fn StructValueFunc) error</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#CopyNonZero">func CopyNonZero(dest interface{}, source interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FieldsFunc">func FieldsFunc(in interface{}, fn StructFieldFunc) error</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#StructFieldFunc">type StructFieldFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#StructValueFunc">type StructValueFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#TBase">type TBase</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="structutil.go">structutil.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">122</td>
+		<td class="text-right">3</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="structutil_test.go">structutil_test.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">60</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="StopIterating">StopIterating</span> = errors.New(`stop iterating`)
+</pre>
+</div>
+
+
+
+
+
+<h3 id="CopyFunc" data-kind="f">
+	func <a title="View Source" href="">CopyFunc</a>
+	<a class="permalink" href="#CopyFunc">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CopyFunc(dest interface{}, source interface{}, fn StructValueFunc) error</pre>
+</div>
+
+
+
+<h3 id="CopyNonZero" data-kind="f">
+	func <a title="View Source" href="">CopyNonZero</a>
+	<a class="permalink" href="#CopyNonZero">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CopyNonZero(dest interface{}, source interface{}) error</pre>
+</div>
+
+
+<p><p>Copy all values from the source into the destination, provided the source value for the corresponding<br>field is not that type’s zero value.</p>
+</p>
+
+
+<h3 id="FieldsFunc" data-kind="f">
+	func <a title="View Source" href="">FieldsFunc</a>
+	<a class="permalink" href="#FieldsFunc">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FieldsFunc(in interface{}, fn StructFieldFunc) error</pre>
+</div>
+
+
+<p><p>Iterates over all exported and embedded fields in the given struct, calling fn for each field.</p>
+</p>
+
+
+
+
+
+<h3 id="StructFieldFunc" data-kind="t">
+	type
+	<a title="View Source" href="">StructFieldFunc</a>
+	<a class="permalink" href="#StructFieldFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type StructFieldFunc func(field *reflect.StructField, value reflect.Value) error</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="StructValueFunc" data-kind="t">
+	type
+	<a title="View Source" href="">StructValueFunc</a>
+	<a class="permalink" href="#StructValueFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type StructValueFunc func(field string, sourceValue interface{}, destValue interface{}) (interface{}, bool) // Receives a struct field name, the value of that field in the source struct, and the value for that field in the destination struct.
+// Returns the value that should be placed in the destination struct fields.  If the returned bool is false, no changes will
+// be made.
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="TBase" data-kind="t">
+	type
+	<a title="View Source" href="">TBase</a>
+	<a class="permalink" href="#TBase">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type TBase struct {
+	Name    string
+	Age     int
+	Enabled bool
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

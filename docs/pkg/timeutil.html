@@ -1,0 +1,469 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">timeutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 98%</span>
+<h2 id="pkg-overview">package timeutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/timeutil"</code>
+</p>
+
+
+<p>Utilities for messing with time.</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#DurationHMS">func DurationHMS(d time.Duration) (int, int, int)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FormatTimer">func FormatTimer(d time.Duration) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FormatTimerf">func FormatTimerf(format string, d time.Duration) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ParseDuration">func ParseDuration(in string) (time.Duration, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ReferenceTime">func ReferenceTime() time.Time</a>
+		</strong>
+	</li>
+	
+
+	
+	
+</ul>
+
+
+<h4 id="pkg-examples">
+	Examples
+	<a class="permalink" href="#pkg-examples">&#182;</a>
+</h4>
+
+<ul class="list-unstyled">
+	
+	<li>
+		<a
+			href="#example-FormatTimer--Complete"
+			onclick="
+				$('#ex-FormatTimer--Complete')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			FormatTimer (Complete)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-FormatTimer--OneHour"
+			onclick="
+				$('#ex-FormatTimer--OneHour')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			FormatTimer (OneHour)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-FormatTimer--OneMinute"
+			onclick="
+				$('#ex-FormatTimer--OneMinute')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			FormatTimer (OneMinute)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-FormatTimer--OneSecond"
+			onclick="
+				$('#ex-FormatTimer--OneSecond')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			FormatTimer (OneSecond)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-FormatTimer--OverOneMinute"
+			onclick="
+				$('#ex-FormatTimer--OverOneMinute')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			FormatTimer (OverOneMinute)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-FormatTimer--UnderOneMinute"
+			onclick="
+				$('#ex-FormatTimer--UnderOneMinute')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			FormatTimer (UnderOneMinute)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-FormatTimer--ZeroValue"
+			onclick="
+				$('#ex-FormatTimer--ZeroValue')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			FormatTimer (ZeroValue)
+		</a>
+	</li>
+	
+</ul>
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="timeutil.go">timeutil.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">34</td>
+		<td class="text-right">5</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="timeutil_test.go">timeutil_test.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">96</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h3 id="DurationHMS" data-kind="f">
+	func <a title="View Source" href="">DurationHMS</a>
+	<a class="permalink" href="#DurationHMS">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DurationHMS(d time.Duration) (int, int, int)</pre>
+</div>
+
+
+<p><p>Extracts the hours, minutes, and seconds from the given duration.</p>
+</p>
+
+
+<h3 id="FormatTimer" data-kind="f">
+	func <a title="View Source" href="">FormatTimer</a>
+	<a class="permalink" href="#FormatTimer">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FormatTimer(d time.Duration) string</pre>
+</div>
+
+
+<p><p>Formats the given duration in a colon-separated timer format in the form<br>[HH:]MM:SS.</p>
+</p>
+
+
+<h3 id="FormatTimerf" data-kind="f">
+	func <a title="View Source" href="">FormatTimerf</a>
+	<a class="permalink" href="#FormatTimerf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FormatTimerf(format string, d time.Duration) string</pre>
+</div>
+
+
+<p><p>Formats the given duration using the given format string.  The string follows<br>the same formatting rules as described in the fmt package, and will receive<br>three integer arguments: hours, minutes, and seconds.</p>
+</p>
+
+
+<h3 id="ParseDuration" data-kind="f">
+	func <a title="View Source" href="">ParseDuration</a>
+	<a class="permalink" href="#ParseDuration">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseDuration(in string) (time.Duration, error)</pre>
+</div>
+
+
+<p><p>Provides an API-compatible version of time.ParseDuration that accepts additional<br>formats for parsing durations:<br><br>  1y, 3year, 5years: Expands to (n*24*365) hours<br>  1w, 3weeks, 5wks:  Expands to (n*24*7) hours<br>  1d, 1day, 5days:   Expands to (n*24) hours</p>
+</p>
+
+
+<h3 id="ReferenceTime" data-kind="f">
+	func <a title="View Source" href="">ReferenceTime</a>
+	<a class="permalink" href="#ReferenceTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReferenceTime() time.Time</pre>
+</div>
+
+
+<p><p>Return the standard Golang reference time (2006-01-02T15:04:05.999999999Z07:00)</p>
+</p>
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

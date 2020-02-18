@@ -1,0 +1,331 @@
+{
+    "Name": "rxutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/rxutil",
+    "ImportPath": "rxutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Utilities to make working with regular expressions easier.\n",
+    "MainFunction": false,
+    "CommentWordCount": 150,
+    "LineCount": 221,
+    "SourceLineCount": 162,
+    "FunctionCount": 7,
+    "TypeCount": 1,
+    "ConstantCount": 0,
+    "VariableCount": 12,
+    "Statistics": {
+        "Mean": 0.29,
+        "StdDev": 0.4449,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "match.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "regexp",
+                    "Alias": "regexp"
+                }
+            ],
+            "Size": 3431,
+            "LineCount": 133,
+            "SourceLineCount": 96,
+            "FunctionCount": 7,
+            "TypeCount": 1,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "match_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 1935,
+            "LineCount": 71,
+            "SourceLineCount": 52,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "predefined.go",
+            "Imports": [
+                {
+                    "PackageName": "regexp",
+                    "Alias": "regexp"
+                }
+            ],
+            "Size": 633,
+            "LineCount": 17,
+            "SourceLineCount": 14,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 12
+        }
+    ],
+    "Variables": [
+        {
+            "Name": "Integers",
+            "Expression": "regexp.MustCompile(`-?\\d+`)"
+        },
+        {
+            "Name": "Letter",
+            "Expression": "regexp.MustCompile(`[\\p{Lu}\\p{Ll}]`)"
+        },
+        {
+            "Name": "Letters",
+            "Expression": "regexp.MustCompile(`[\\p{Lu}\\p{Ll}]+`)"
+        },
+        {
+            "Name": "LineBreak",
+            "Expression": "regexp.MustCompile(`(?:\\n|\\r|\\n\\r)`)"
+        },
+        {
+            "Name": "LineBreaks",
+            "Expression": "regexp.MustCompile(`[\\n\\r]+`)"
+        },
+        {
+            "Name": "LowerCaseLetter",
+            "Expression": "regexp.MustCompile(`\\p{Ll}`)"
+        },
+        {
+            "Name": "LowerCaseLetters",
+            "Expression": "regexp.MustCompile(`\\p{Ll}+`)"
+        },
+        {
+            "Name": "NonNegativeIntegers",
+            "Expression": "regexp.MustCompile(`\\d+`)"
+        },
+        {
+            "Name": "Numbers",
+            "Expression": "regexp.MustCompile(`-?\\d+(?:\\.\\d+)?`)"
+        },
+        {
+            "Name": "UpperCaseLetter",
+            "Expression": "regexp.MustCompile(`\\p{Lu}`)"
+        },
+        {
+            "Name": "UpperCaseLetters",
+            "Expression": "regexp.MustCompile(`\\p{Lu}+`)"
+        },
+        {
+            "Name": "Whitespace",
+            "Expression": "regexp.MustCompile(`\\s+`)"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "IsMatchString",
+            "Arguments": [
+                {
+                    "Name": "pattern",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "source",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsMatchString(pattern interface{}, source string) bool",
+            "Source": "ewoJcmV0dXJuIChNYXRjaChwYXR0ZXJuLCBzb3VyY2UpICE9IG5pbCkKfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestMatch",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMatch(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltYXRjaCA6PSBNYXRjaChgKD9QPGZpcnN0PlxkKylcLihcZCspLig/UDxzZWNvbmQ+XGQrKWAsIGAxMjM0LjU2NzguOWApCglhc3NlcnQuTm90TmlsKG1hdGNoKQoJYXNzZXJ0LkVxdWFsKGAxMjM0LjU2NzguOWAsIG1hdGNoLkdyb3VwKDApKQoJYXNzZXJ0LkVxdWFsKGAxMjM0YCwgbWF0Y2guR3JvdXAoMSkpCglhc3NlcnQuRXF1YWwoYDU2NzhgLCBtYXRjaC5Hcm91cCgyKSkKCWFzc2VydC5FcXVhbChgOWAsIG1hdGNoLkdyb3VwKDMpKQoJYXNzZXJ0LkVtcHR5KG1hdGNoLkdyb3VwKDQpKQoJYXNzZXJ0LkVxdWFsKGAxMjM0YCwgbWF0Y2guR3JvdXAoYGZpcnN0YCkpCglhc3NlcnQuRXF1YWwoYDlgLCBtYXRjaC5Hcm91cChgc2Vjb25kYCkpCglhc3NlcnQuRW1wdHkobWF0Y2guR3JvdXAoYHBvdGF0b2ApKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMatchAndMap",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMatchAndMap(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltYXRjaCA6PSBNYXRjaChgKD9QPGZpcnN0PlxkKylcLihcZCspLig/UDxzZWNvbmQ+XGQrKWAsIGAxMjM0LjU2NzguOWApCglhc3NlcnQuTm90TmlsKG1hdGNoKQoJYXNzZXJ0LkVxdWFsKGAxMjM0LjU2NzguOWAsIG1hdGNoLkdyb3VwKDApKQoJYXNzZXJ0LkVxdWFsKG1hcFtzdHJpbmddc3RyaW5ne2BmaXJzdGA6IGAxMjM0YCwgYHNlY29uZGA6IGA5YH0sIG1hdGNoLk5hbWVkQ2FwdHVyZXMoKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMatchCaptures",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMatchCaptures(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltYXRjaCA6PSBNYXRjaChgKD9QPGZpcnN0PlxkKylcLihcZCspLig/UDxzZWNvbmQ+XGQrKWAsIGAxMjM0LjU2NzguOWApCglhc3NlcnQuTm90TmlsKG1hdGNoKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2AxMjM0LjU2NzguOWAsIGAxMjM0YCwgYDU2NzhgLCBgOWB9LCBtYXRjaC5DYXB0dXJlcygpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestReplaceGroup",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestReplaceGroup(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltYXRjaCA6PSBNYXRjaChgKD9QPGZpcnN0PlxkKylcLihcZCspLig/UDxzZWNvbmQ+XGQrKWAsIGAxMjM0LjU2NzguOWApCglhc3NlcnQuTm90TmlsKG1hdGNoKQoJYXNzZXJ0LkVxdWFsKGByZXBsYCwgbWF0Y2guUmVwbGFjZUdyb3VwKDAsIGByZXBsYCkpCglhc3NlcnQuRXF1YWwoYGZpcnN0LjU2NzguOWAsIG1hdGNoLlJlcGxhY2VHcm91cCgxLCBgZmlyc3RgKSkKCWFzc2VydC5FcXVhbChgMTIzNC5zZWNvbmQuOWAsIG1hdGNoLlJlcGxhY2VHcm91cCgyLCBgc2Vjb25kYCkpCglhc3NlcnQuRXF1YWwoYDEyMzQuNTY3OC50aGlyZGAsIG1hdGNoLlJlcGxhY2VHcm91cCgzLCBgdGhpcmRgKSkKCWFzc2VydC5FcXVhbChgMTIzNC41Njc4LjlgLCBtYXRjaC5SZXBsYWNlR3JvdXAoNCwgYGZvdXJ0aGApKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestReplaceGroupNamed",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestReplaceGroupNamed(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltYXRjaCA6PSBNYXRjaChgKD9QPGZpcnN0PlxkKylcLihcZCspLig/UDxzZWNvbmQ+XGQrKWAsIGAxMjM0LjU2NzguOWApCglhc3NlcnQuTm90TmlsKG1hdGNoKQoJYXNzZXJ0LkVxdWFsKGBmaXJzdC41Njc4LjlgLCBtYXRjaC5SZXBsYWNlR3JvdXAoYGZpcnN0YCwgYGZpcnN0YCkpCglhc3NlcnQuRXF1YWwoYDEyMzQuNTY3OC5zZWNvbmRgLCBtYXRjaC5SZXBsYWNlR3JvdXAoYHNlY29uZGAsIGBzZWNvbmRgKSkKCWFzc2VydC5FcXVhbChgMTIzNC41Njc4LjlgLCBtYXRjaC5SZXBsYWNlR3JvdXAoYHRoaXJkYCwgYHRoaXJkYCkpCn0=",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "MatchResult": {
+            "Name": "MatchResult",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "AllCaptures",
+                    "Comment": "Returns all captures from all matches appended together.  The full match string\nfrom match is omitted, so only the actual values appearing within capture groups\nare returned.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]string"
+                        }
+                    ],
+                    "Signature": "AllCaptures() []string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Captures",
+                    "Comment": "Return a slice of all capture groups.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]string"
+                        }
+                    ],
+                    "Signature": "Captures() []string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Group",
+                    "Comment": "Return the value of the numbered capture group (if given an int), or the\nnamed capture group (if given a string).  Returns an empty string if the\ngiven group name or index does not exist.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "nameOrIndex",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Group(nameOrIndex interface{}) string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Match",
+                    "Comment": "Returns a MatchResult object representing the leftmost match of pattern against\nsource, or nil if no matches were found.  Pattern can be a string or a\npreviously-compiled *regexp.Regexp.",
+                    "Arguments": [
+                        {
+                            "Name": "pattern",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "source",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*MatchResult"
+                        }
+                    ],
+                    "Signature": "Match(pattern interface{}, source string) *MatchResult",
+                    "Source": "ewoJdmFyIHJ4ICpyZWdleHAuUmVnZXhwCglpZiByLCBvayA6PSBwYXR0ZXJuLigqcmVnZXhwLlJlZ2V4cCk7IG9rIHsKCQlyeCA9IHIKCX0gZWxzZSBpZiByLCBvayA6PSBwYXR0ZXJuLihyZWdleHAuUmVnZXhwKTsgb2sgewoJCXJ4ID0gJnIKCX0gZWxzZSB7CgkJcnggPSByZWdleHAuTXVzdENvbXBpbGUoZm10LlNwcmludGYoIiV2IiwgcGF0dGVybikpCgl9CglpZiByeC5NYXRjaFN0cmluZyhzb3VyY2UpIHsKCQlyZXR1cm4gJk1hdGNoUmVzdWx0e3J4OiByeCwgc291cmNlOiBzb3VyY2UsIG5hbWVzOiByeC5TdWJleHBOYW1lcygpLCBsZWZ0bW9zdF9zdWJtYXRjaGVzOiByeC5GaW5kU3RyaW5nU3VibWF0Y2goc291cmNlKSwgbGVmdG1vc3Rfc3VibWF0Y2hfaW5kaWNlczogcnguRmluZFN0cmluZ1N1Ym1hdGNoSW5kZXgoc291cmNlKSwgYWxsX3N1Ym1hdGNoZXM6IHJ4LkZpbmRBbGxTdHJpbmdTdWJtYXRjaChzb3VyY2UsIC0xKX0KCX0KCXJldHVybiBuaWwKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "NamedCaptures",
+                    "Comment": "Returns a map of all named capture matches, keyed on capture group name.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "map[string]string"
+                        }
+                    ],
+                    "Signature": "NamedCaptures() map[string]string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "ReplaceGroup",
+                    "Comment": "Return a copy of source string with the given numbered or named group replaced\nwith repl.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "nameOrIndex",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "repl",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "ReplaceGroup(nameOrIndex interface{}, repl string) string",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Source": "dHlwZSBNYXRjaFJlc3VsdCBzdHJ1Y3QgewoKfQo=",
+            "HasUnexportedFields": true
+        }
+    }
+}

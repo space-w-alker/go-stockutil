@@ -1,0 +1,787 @@
+{
+    "Name": "netutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/netutil",
+    "ImportPath": "netutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Utilities for working with networks and network accessories.\n\nUtilities for working with networks and network accessories.\n",
+    "MainFunction": false,
+    "CommentWordCount": 461,
+    "LineCount": 735,
+    "SourceLineCount": 517,
+    "FunctionCount": 22,
+    "TypeCount": 4,
+    "ConstantCount": 0,
+    "VariableCount": 4,
+    "Statistics": {
+        "Mean": 0.3673,
+        "StdDev": 0.4586,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "icmp.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "net",
+                    "Alias": "net"
+                },
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "runtime",
+                    "Alias": "runtime"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "golang.org/x/net/icmp",
+                    "Alias": "icmp"
+                },
+                {
+                    "PackageName": "golang.org/x/net/ipv4",
+                    "Alias": "ipv4"
+                },
+                {
+                    "PackageName": "golang.org/x/net/ipv6",
+                    "Alias": "ipv6"
+                }
+            ],
+            "Size": 3669,
+            "LineCount": 141,
+            "SourceLineCount": 110,
+            "FunctionCount": 4,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 2
+        },
+        {
+            "Name": "mdns.go",
+            "Imports": [
+                {
+                    "PackageName": "context",
+                    "Alias": "context"
+                },
+                {
+                    "PackageName": "crypto/sha256",
+                    "Alias": "sha256"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "net",
+                    "Alias": "net"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "sync",
+                    "Alias": "sync"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-defaults",
+                    "Alias": "go-defaults"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
+                    "Alias": "rxutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                },
+                {
+                    "PackageName": "github.com/grandcat/zeroconf",
+                    "Alias": "zeroconf"
+                }
+            ],
+            "Size": 5441,
+            "LineCount": 214,
+            "SourceLineCount": 174,
+            "FunctionCount": 5,
+            "TypeCount": 3,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "nettest.go",
+            "Imports": [
+                {
+                    "PackageName": "net",
+                    "Alias": "net"
+                }
+            ],
+            "Size": 3719,
+            "LineCount": 121,
+            "SourceLineCount": 79,
+            "FunctionCount": 4,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "netutil.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "net",
+                    "Alias": "net"
+                },
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                },
+                {
+                    "PackageName": "github.com/jackpal/gateway",
+                    "Alias": "gateway"
+                },
+                {
+                    "PackageName": "github.com/phayes/freeport",
+                    "Alias": "freeport"
+                }
+            ],
+            "Size": 5142,
+            "LineCount": 198,
+            "SourceLineCount": 141,
+            "FunctionCount": 9,
+            "TypeCount": 1,
+            "ConstantCount": 0,
+            "VariableCount": 2
+        },
+        {
+            "Name": "netutil_test.go",
+            "Imports": [
+                {
+                    "PackageName": "os/exec",
+                    "Alias": "exec"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 1684,
+            "LineCount": 61,
+            "SourceLineCount": 13,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Variables": [
+        {
+            "Name": "DefaultWaitForOpenConnectionTimeout",
+            "Expression": "5 * time.Second"
+        },
+        {
+            "Name": "WaitForOpenCheckInterval",
+            "Expression": "time.Second"
+        },
+        {
+            "Name": "WaitForPingCheckInterval",
+            "Expression": "time.Second"
+        },
+        {
+            "Name": "WaitForPingReply",
+            "Expression": "5 * time.Second"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "DefaultGateway",
+            "Comment": "Retrieves the default gateway interface.",
+            "Returns": [
+                {
+                    "Type": "net.IP"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "DefaultGateway() (net.IP, error)",
+            "Source": "ewoJcmV0dXJuIGdhdGV3YXkuRGlzY292ZXJHYXRld2F5KCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "EphemeralPort",
+            "Comment": "Retrieve an open ephemeral port.",
+            "Returns": [
+                {
+                    "Type": "int"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "EphemeralPort() (int, error)",
+            "Source": "ewoJcmV0dXJuIGZyZWVwb3J0LkdldEZyZWVQb3J0KCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExpandPort",
+            "Comment": "Takes an address in the form of \"host:port\", looks for port zero (e.g: \":0\"),\nand gets an ephemeral local port and returns that address (e.g.: \":41327\").",
+            "Arguments": [
+                {
+                    "Name": "address",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "ExpandPort(address string) string",
+            "Source": "ewoJaWYgaG9zdCwgcG9ydCwgZXJyIDo9IG5ldC5TcGxpdEhvc3RQb3J0KGFkZHJlc3MpOyBlcnIgPT0gbmlsIHsKCQlpZiBwIDo9IHR5cGV1dGlsLkludChwb3J0KTsgcCA9PSAwIHsKCQkJaWYgcCwgZXJyIDo9IEVwaGVtZXJhbFBvcnQoKTsgZXJyID09IG5pbCB7CgkJCQlyZXR1cm4gZm10LlNwcmludGYoIiV2OiVkIiwgaG9zdCwgcCkKCQkJfSBlbHNlIHsKCQkJCXBhbmljKGVyci5FcnJvcigpKQoJCQl9CgkJfQoJfQoJcmV0dXJuIGFkZHJlc3MKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "FQDN",
+            "Comment": "Return the current machine's Fully-qualified domain name,",
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "FQDN() string",
+            "Source": "ewoJaWYgaG9zdG5hbWUsIGVyciA6PSBvcy5Ib3N0bmFtZSgpOyBlcnIgPT0gbmlsIHsKCQlpZiByZXNwb25zZXMsIGVyciA6PSBuZXQuTG9va3VwSVAoaG9zdG5hbWUpOyBlcnIgPT0gbmlsIHsKCQkJZm9yIF8sIGFkZHIgOj0gcmFuZ2UgcmVzcG9uc2VzIHsKCQkJCWlmIGlwdjQgOj0gYWRkci5UbzQoKTsgaXB2NCAhPSBuaWwgewoJCQkJCWlmIGhvc3RzLCBlcnIgOj0gbmV0Lkxvb2t1cEFkZHIoaXB2NC5TdHJpbmcoKSk7IGVyciA9PSBuaWwgJiYgbGVuKGhvc3RzKSA+IDAgewoJCQkJCQlmb3IgXywgaG9zdCA6PSByYW5nZSBob3N0cyB7CgkJCQkJCQlpZiBmcWRuIDo9IHN0cmluZ3MuVHJpbVN1ZmZpeChob3N0LCAiLiIpOyBmcWRuICE9IGBgIHsKCQkJCQkJCQlyZXR1cm4gZnFkbgoJCQkJCQkJfQoJCQkJCQl9CgkJCQkJfQoJCQkJfQoJCQl9CgkJfQoJCXJldHVybiBob3N0bmFtZQoJfSBlbHNlIHsKCQlyZXR1cm4gYGAKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "GetRoutableAddresses",
+            "Comment": "Returns all addresses on the given interface that can route to the given gateway.  If gateway is nil,\nthe default gateway will be attempted.",
+            "Arguments": [
+                {
+                    "Name": "gateway",
+                    "Type": "net.IP"
+                },
+                {
+                    "Name": "iface",
+                    "Type": "*net.Interface"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]*IPAddress"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "GetRoutableAddresses(gateway net.IP, iface *net.Interface) ([]*IPAddress, error)",
+            "Source": "ewoJYWRkcmVzc2VzIDo9IG1ha2UoW10qSVBBZGRyZXNzLCAwKQoJaWYgZ2F0ZXdheSA9PSBuaWwgewoJCWlmIGd3LCBlcnIgOj0gRGVmYXVsdEdhdGV3YXkoKTsgZXJyID09IG5pbCB7CgkJCWdhdGV3YXkgPSBndwoJCX0gZWxzZSB7CgkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoImZhaWxlZCB0byByZXRyaWV2ZSBkZWZhdWx0IGdhdGV3YXk6ICV2IiwgZXJyKQoJCX0KCX0KCWlmIGFkZHJzLCBlcnIgOj0gaWZhY2UuQWRkcnMoKTsgZXJyID09IG5pbCB7CgkJZm9yIF8sIGFkZHIgOj0gcmFuZ2UgYWRkcnMgewoJCQlpZiBuZXR3b3JrLCBvayA6PSBhZGRyLigqbmV0LklQTmV0KTsgb2sgewoJCQkJaWYgbmV0d29yay5Db250YWlucyhnYXRld2F5KSB7CgkJCQkJYWRkcmVzc2VzID0gYXBwZW5kKGFkZHJlc3NlcywgJklQQWRkcmVzc3tJUDogbmV0d29yay5JUCwgTWFzazogbmV0d29yay5NYXNrLCBJbnRlcmZhY2U6ICppZmFjZSwgR2F0ZXdheTogZ2F0ZXdheX0pCgkJCQl9CgkJCX0KCQl9CgkJcmV0dXJuIGFkZHJlc3NlcywgbmlsCgl9IGVsc2UgewoJCXJldHVybiBuaWwsIGVycgoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "HasRoutableIP",
+            "Comment": "Returns the first routable address on the given interface.",
+            "Arguments": [
+                {
+                    "Name": "network",
+                    "Type": "string"
+                },
+                {
+                    "Name": "ifi",
+                    "Type": "*net.Interface"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "net.IP"
+                },
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "HasRoutableIP(network string, ifi *net.Interface) (net.IP, bool)",
+            "Source": "ewoJaWZhdCwgZXJyIDo9IGlmaS5BZGRycygpCglpZiBlcnIgIT0gbmlsIHsKCQlyZXR1cm4gbmlsLCBmYWxzZQoJfQoJZm9yIF8sIGlmYSA6PSByYW5nZSBpZmF0IHsKCQlzd2l0Y2ggaWZhIDo9IGlmYS4odHlwZSkgewoJCWNhc2UgKm5ldC5JUEFkZHI6CgkJCWlmIGlwIDo9IElzUm91dGFibGVJUChuZXR3b3JrLCBpZmEuSVApOyBpcCAhPSBuaWwgewoJCQkJcmV0dXJuIGlwLCB0cnVlCgkJCX0KCQljYXNlICpuZXQuSVBOZXQ6CgkJCWlmIGlwIDo9IElzUm91dGFibGVJUChuZXR3b3JrLCBpZmEuSVApOyBpcCAhPSBuaWwgewoJCQkJcmV0dXJuIGlwLCB0cnVlCgkJCX0KCQl9Cgl9CglyZXR1cm4gbmlsLCBmYWxzZQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsMulticastCapable",
+            "Comment": "IsMulticastCapable reports whether ifi is an IP multicast-capable\nnetwork interface. Network must be \"ip\", \"ip4\" or \"ip6\".",
+            "Arguments": [
+                {
+                    "Name": "network",
+                    "Type": "string"
+                },
+                {
+                    "Name": "ifi",
+                    "Type": "*net.Interface"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "net.IP"
+                },
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsMulticastCapable(network string, ifi *net.Interface) (net.IP, bool)",
+            "Source": "ewoJc3dpdGNoIG5ldHdvcmsgewoJY2FzZSAiaXAiLCAiaXA0IiwgImlwNiI6CglkZWZhdWx0OgoJCXJldHVybiBuaWwsIGZhbHNlCgl9CglpZiBpZmkgPT0gbmlsIHx8IGlmaS5GbGFncyZuZXQuRmxhZ1VwID09IDAgfHwgaWZpLkZsYWdzJm5ldC5GbGFnTXVsdGljYXN0ID09IDAgewoJCXJldHVybiBuaWwsIGZhbHNlCgl9CglyZXR1cm4gSGFzUm91dGFibGVJUChuZXR3b3JrLCBpZmkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsRoutableIP",
+            "Comment": "Returns true when the given address is unicast routable beyond the current machine.",
+            "Arguments": [
+                {
+                    "Name": "network",
+                    "Type": "string"
+                },
+                {
+                    "Name": "ip",
+                    "Type": "net.IP"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "net.IP"
+                }
+            ],
+            "Signature": "IsRoutableIP(network string, ip net.IP) net.IP",
+            "Source": "ewoJaWYgIWlwLklzTG9vcGJhY2soKSAmJiAhaXAuSXNMaW5rTG9jYWxVbmljYXN0KCkgJiYgIWlwLklzR2xvYmFsVW5pY2FzdCgpIHsKCQlyZXR1cm4gbmlsCgl9Cglzd2l0Y2ggbmV0d29yayB7CgljYXNlICJpcDQiOgoJCWlmIGlwIDo9IGlwLlRvNCgpOyBpcCAhPSBuaWwgewoJCQlyZXR1cm4gaXAKCQl9CgljYXNlICJpcDYiOgoJCWlmIGlwLklzTG9vcGJhY2soKSB7CgkJCXJldHVybiBuaWwKCQl9CgkJaWYgaXAgOj0gaXAuVG8xNigpOyBpcCAhPSBuaWwgJiYgaXAuVG80KCkgPT0gbmlsIHsKCQkJcmV0dXJuIGlwCgkJfQoJZGVmYXVsdDoKCQlpZiBpcCA6PSBpcC5UbzQoKTsgaXAgIT0gbmlsIHsKCQkJcmV0dXJuIGlwCgkJfQoJCWlmIGlwIDo9IGlwLlRvMTYoKTsgaXAgIT0gbmlsIHsKCQkJcmV0dXJuIGlwCgkJfQoJfQoJcmV0dXJuIG5pbAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OnePingOnly",
+            "Comment": "Send a single ICMP ECHO request packet to the given address on the given interface and wait for\nup to timeout for a reply.",
+            "Arguments": [
+                {
+                    "Name": "dest",
+                    "Type": "net.IP"
+                },
+                {
+                    "Name": "source",
+                    "Type": "*IPAddress"
+                },
+                {
+                    "Name": "timeout",
+                    "Type": "time.Duration"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "OnePingOnly(dest net.IP, source *IPAddress, timeout time.Duration) error",
+            "Source": "ewoJc3dpdGNoIHJ1bnRpbWUuR09PUyB7CgljYXNlIGBkYXJ3aW5gOgoJY2FzZSBgbGludXhgOgoJZGVmYXVsdDoKCQlyZXR1cm4gZm10LkVycm9yZigiZmF0YWw6IG5vdCBzdXBwb3J0ZWQgb24gJXYiLCBydW50aW1lLkdPT1MpCgl9Cgl2YXIgcHJvdG8gc3RyaW5nCgl2YXIgaWNtcHR5cCBpY21wLlR5cGUKCWlmIHNvdXJjZSA9PSBuaWwgewoJCXNvdXJjZSA9IERlZmF1bHRBZGRyZXNzKCkKCQlpZiBzb3VyY2UgPT0gbmlsIHsKCQkJcmV0dXJuIGZtdC5FcnJvcmYoImZhdGFsOiBubyBkZWZhdWx0IGludGVyZmFjZSB0byBwaW5nIGZyb20iKQoJCX0KCX0KCWlmIGxlbihzb3VyY2UuSVApID4gMzIgewoJCXByb3RvID0gYHVkcDZgCgkJaWNtcHR5cCA9IGlwdjYuSUNNUFR5cGVFY2hvUmVxdWVzdAoJfSBlbHNlIHsKCQlwcm90byA9IGB1ZHA0YAoJCWljbXB0eXAgPSBpcHY0LklDTVBUeXBlRWNobwoJfQoJaWYgY29ubiwgZXJyIDo9IGljbXAuTGlzdGVuUGFja2V0KHByb3RvLCBzb3VyY2UuSVAuU3RyaW5nKCkrYCVgK3NvdXJjZS5JbnRlcmZhY2UuTmFtZSk7IGVyciA9PSBuaWwgewoJCWRlZmVyIGNvbm4uQ2xvc2UoKQoJCWlmIGVyciA6PSBjb25uLlNldERlYWRsaW5lKHRpbWUuTm93KCkuQWRkKHRpbWVvdXQpKTsgZXJyICE9IG5pbCB7CgkJCXJldHVybiBmbXQuRXJyb3JmKCJiYWQgdGltZW91dDogJXYiLCBlcnIpCgkJfQoJCXJlcSA6PSBpY21wLk1lc3NhZ2V7VHlwZTogaWNtcHR5cCwgQ29kZTogMCwgQm9keTogJmljbXAuRWNob3tJRDogb3MuR2V0cGlkKCkgJiAweGZmZmYsIFNlcTogMSwgRGF0YTogW11ieXRlKCJIRUxMTy1SLVUtVEhFUkUiKX19CgkJaWYgaWNtcGJpbiwgZXJyIDo9IHJlcS5NYXJzaGFsKG5pbCk7IGVyciA9PSBuaWwgewoJCQlpZiBfLCBlcnIgOj0gY29ubi5Xcml0ZVRvKGljbXBiaW4sICZuZXQuVURQQWRkcntJUDogc291cmNlLklQLCBab25lOiBzb3VyY2UuSW50ZXJmYWNlLk5hbWV9KTsgZXJyICE9IG5pbCB7CgkJCQlyZXR1cm4gZm10LkVycm9yZigiZmFpbGVkIHRvIHNlbmQgcGluZzogJXYiLCBlcnIpCgkJCX0KCQkJcmVwbHliaW4gOj0gbWFrZShbXWJ5dGUsIDE1MDApCgkJCWlmIG4sIF8sIGVyciA6PSBjb25uLlJlYWRGcm9tKHJlcGx5YmluKTsgZXJyID09IG5pbCB7CgkJCQlpZiBfLCBlcnIgOj0gaWNtcC5QYXJzZU1lc3NhZ2UoNTgsIHJlcGx5YmluWzpuXSk7IGVyciA9PSBuaWwgewoJCQkJCXJldHVybiBuaWwKCQkJCX0gZWxzZSB7CgkJCQkJcmV0dXJuIGZtdC5FcnJvcmYoImJhZCBJQ01QIHJlcGx5OiAldiIsIGVycikKCQkJCX0KCQkJfSBlbHNlIHsKCQkJCXJldHVybiBmbXQuRXJyb3JmKCJmYWlsZWQgdG8gcmVhZCByZXBseTogJXYiLCBlcnIpCgkJCX0KCQl9IGVsc2UgewoJCQlyZXR1cm4gZm10LkVycm9yZigiZmF0YWw6IGJhZCBvdXRnb2luZyBJQ01QIHBhY2tldDogJXYiLCBlcnIpCgkJfQoJfSBlbHNlIHsKCQlyZXR1cm4gZm10LkVycm9yZigiZmF0YWw6IGZhaWxlZCB0byBzZXR1cCBwaW5nIHJlcGx5IGxpc3RlbmVyOiAldiIsIGVycikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "RoutableAddresses",
+            "Comment": "Return a list of routable IP addresses, along with their associated gateways and interfaces.",
+            "Returns": [
+                {
+                    "Type": "[]*IPAddress"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "RoutableAddresses() ([]*IPAddress, error)",
+            "Source": "ewoJYWRkcmVzc2VzIDo9IG1ha2UoW10qSVBBZGRyZXNzLCAwKQoJdmFyIGdhdGV3YXlzIFtdbmV0LklQCglpZiBndywgZXJyIDo9IERlZmF1bHRHYXRld2F5KCk7IGVyciA9PSBuaWwgewoJCWdhdGV3YXlzID0gYXBwZW5kKGdhdGV3YXlzLCBndykKCX0KCWlmIGxlbihnYXRld2F5cykgPT0gMCB7CgkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigibm8gcm91dGFibGUgZ2F0ZXdheXMgZm91bmQiKQoJfQoJZm9yIF8sIGd3IDo9IHJhbmdlIGdhdGV3YXlzIHsKCQlpZiBpZmFjZXMsIGVyciA6PSBuZXQuSW50ZXJmYWNlcygpOyBlcnIgPT0gbmlsIHsKCQkJZm9yIF8sIGlmYWNlIDo9IHJhbmdlIGlmYWNlcyB7CgkJCQlpZiBhZGRycywgZXJyIDo9IEdldFJvdXRhYmxlQWRkcmVzc2VzKGd3LCAmaWZhY2UpOyBlcnIgPT0gbmlsIHsKCQkJCQlhZGRyZXNzZXMgPSBhcHBlbmQoYWRkcmVzc2VzLCBhZGRycy4uLikKCQkJCX0gZWxzZSB7CgkJCQkJcmV0dXJuIG5pbCwgZXJyCgkJCQl9CgkJCX0KCQl9IGVsc2UgewoJCQlyZXR1cm4gbmlsLCBlcnIKCQl9Cgl9CglyZXR1cm4gYWRkcmVzc2VzLCBuaWwKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "RoutedInterface",
+            "Comment": "RoutedInterface returns a network interface that can route IP\ntraffic and satisfies flags. It returns nil when an appropriate\nnetwork interface is not found. Network must be \"ip\", \"ip4\" or\n\"ip6\".",
+            "Arguments": [
+                {
+                    "Name": "network",
+                    "Type": "string"
+                },
+                {
+                    "Name": "flags",
+                    "Type": "net.Flags"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "*net.Interface"
+                }
+            ],
+            "Signature": "RoutedInterface(network string, flags net.Flags) *net.Interface",
+            "Source": "ewoJc3dpdGNoIG5ldHdvcmsgewoJY2FzZSAiaXAiLCAiaXA0IiwgImlwNiI6CglkZWZhdWx0OgoJCXJldHVybiBuaWwKCX0KCWlmdCwgZXJyIDo9IG5ldC5JbnRlcmZhY2VzKCkKCWlmIGVyciAhPSBuaWwgewoJCXJldHVybiBuaWwKCX0KCWZvciBfLCBpZmkgOj0gcmFuZ2UgaWZ0IHsKCQlpZiBpZmkuRmxhZ3MmZmxhZ3MgIT0gZmxhZ3MgewoJCQljb250aW51ZQoJCX0KCQlpZiBfLCBvayA6PSBIYXNSb3V0YWJsZUlQKG5ldHdvcmssICZpZmkpOyAhb2sgewoJCQljb250aW51ZQoJCX0KCQlyZXR1cm4gJmlmaQoJfQoJcmV0dXJuIG5pbAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "WaitForGatewayPing",
+            "Comment": "Like WaitForPing, but will identify the default gateway and ping that address.",
+            "Arguments": [
+                {
+                    "Name": "totaltime",
+                    "Type": "time.Duration"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "WaitForGatewayPing(totaltime time.Duration) error",
+            "Source": "ewoJaWYgYWRkciA6PSBEZWZhdWx0QWRkcmVzcygpOyBhZGRyICE9IG5pbCB7CgkJcmV0dXJuIFdhaXRGb3JQaW5nKGFkZHIuR2F0ZXdheSwgdG90YWx0aW1lKQoJfSBlbHNlIHsKCQlyZXR1cm4gZm10LkVycm9yZigibm8gZGVmYXVsdCBnYXRld2F5IGZvdW5kIikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "WaitForGatewayPing6",
+            "Comment": "Like WaitForGatewayPing, but specifically pings an IPv6 gateway",
+            "Arguments": [
+                {
+                    "Name": "totaltime",
+                    "Type": "time.Duration"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "WaitForGatewayPing6(totaltime time.Duration) error",
+            "Source": "ewoJaWYgYWRkciA6PSBEZWZhdWx0QWRkcmVzczYoKTsgYWRkciAhPSBuaWwgewoJCXJldHVybiBXYWl0Rm9yUGluZyhhZGRyLkdhdGV3YXksIHRvdGFsdGltZSkKCX0gZWxzZSB7CgkJcmV0dXJuIGZtdC5FcnJvcmYoIm5vIGRlZmF1bHQgZ2F0ZXdheSBmb3VuZCIpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "WaitForOpen",
+            "Comment": "Periodically attempts to open a TCP socket to the given address, up to totaltime.  Returns nil if the socket\nwas opened successfully (which will then immediately be closed), or an error if the function timed out.\nThe check interval can be configured using the WaitForOpenCheckInterval package variable.",
+            "Arguments": [
+                {
+                    "Name": "network",
+                    "Type": "string"
+                },
+                {
+                    "Name": "address",
+                    "Type": "string"
+                },
+                {
+                    "Name": "totaltime",
+                    "Type": "time.Duration"
+                },
+                {
+                    "Name": "timeouts",
+                    "Type": "...time.Duration"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "WaitForOpen(network string, address string, totaltime time.Duration, timeouts ...time.Duration) error",
+            "Source": "ewoJc3RhcnRlZCA6PSB0aW1lLk5vdygpCgl2YXIgdGltZW91dCB0aW1lLkR1cmF0aW9uCglpZiBsZW4odGltZW91dHMpID4gMCB7CgkJdGltZW91dCA9IHRpbWVvdXRzWzBdCgl9IGVsc2UgewoJCXRpbWVvdXQgPSBEZWZhdWx0V2FpdEZvck9wZW5Db25uZWN0aW9uVGltZW91dAoJfQoJZm9yIHRpbWUuU2luY2Uoc3RhcnRlZCkgPCB0b3RhbHRpbWUgewoJCWlmIGNvbm4sIF8gOj0gbmV0LkRpYWxUaW1lb3V0KCJ0Y3AiLCBhZGRyZXNzLCB0aW1lb3V0KTsgY29ubiAhPSBuaWwgewoJCQljb25uLkNsb3NlKCkKCQkJcmV0dXJuIG5pbAoJCX0KCQl0aW1lLlNsZWVwKFdhaXRGb3JPcGVuQ2hlY2tJbnRlcnZhbCkKCX0KCXJldHVybiBmbXQuRXJyb3JmKCJUaW1lZCBvdXQgd2FpdGluZyBmb3IgJXMvJXMgdG8gb3BlbiIsIG5ldHdvcmssIGFkZHJlc3MpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "WaitForPing",
+            "Comment": "Periodically attempts to send an ICMP ECHO request (a \"ping\") to the given IP address, up to totaltime.\nReturns nil if an ECHO reply was received, or an error if the function timed out.\nThe check interval can be configured using the WaitForPingCheckInterval package variable.",
+            "Arguments": [
+                {
+                    "Name": "addr",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "totaltime",
+                    "Type": "time.Duration"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "WaitForPing(addr interface{}, totaltime time.Duration) error",
+            "Source": "ewoJc3RhcnRlZCA6PSB0aW1lLk5vdygpCgl2YXIgYWRkcmVzcyBuZXQuSVAKCWlmIGEsIG9rIDo9IGFkZHIuKG5ldC5JUCk7IG9rIHsKCQlhZGRyZXNzID0gYQoJfSBlbHNlIGlmIGEsIG9rIDo9IGFkZHIuKHN0cmluZyk7IG9rIHsKCQlhZGRyZXNzID0gbmV0LlBhcnNlSVAoYSkKCX0gZWxzZSBpZiBhLCBvayA6PSBhZGRyLigqSVBBZGRyZXNzKTsgb2sgewoJCWFkZHJlc3MgPSBhLklQCgl9IGVsc2UgewoJCXJldHVybiBmbXQuRXJyb3JmKCJBZGRyZXNzIG11c3QgYmUgYSBzdHJpbmcsIG5ldC5JUCwgb3IgKklQQWRkcmVzcyIpCgl9Cglmb3IgdGltZS5TaW5jZShzdGFydGVkKSA8IHRvdGFsdGltZSB7CgkJaWYgZXJyIDo9IE9uZVBpbmdPbmx5KGFkZHJlc3MsIG5pbCwgV2FpdEZvclBpbmdSZXBseSk7IGVyciA9PSBuaWwgewoJCQlyZXR1cm4gbmlsCgkJfSBlbHNlIGlmIHN0cmluZ3MuSGFzUHJlZml4KGVyci5FcnJvcigpLCBgZmF0YWw6YCkgewoJCQlyZXR1cm4gZXJyCgkJfQoJCXRpbWUuU2xlZXAoV2FpdEZvck9wZW5DaGVja0ludGVydmFsKQoJfQoJcmV0dXJuIGZtdC5FcnJvcmYoIlRpbWVkIG91dCBhdHRlbXB0aW5nIHRvIHBpbmcgJXMgYWZ0ZXIgJXYiLCBhZGRyZXNzLCB0aW1lLlNpbmNlKHN0YXJ0ZWQpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ZeroconfDiscover",
+            "Comment": "Perform Multicast DNS discovery on the local network, calling the fn callback for each\ndiscovered service.",
+            "Arguments": [
+                {
+                    "Name": "options",
+                    "Type": "*ZeroconfOptions"
+                },
+                {
+                    "Name": "fn",
+                    "Type": "ServiceFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ZeroconfDiscover(options *ZeroconfOptions, fn ServiceFunc) error",
+            "Source": "ewoJaWYgZm4gPT0gbmlsIHsKCQlyZXR1cm4gZm10LkVycm9yZigiTXVzdCBwcm92aWRlIGEgY2FsbGJhY2sgZnVuY3Rpb24gdG8gcmVjZWl2ZSBkaXNjb3ZlciBzZXJ2aWNlcyIpCgl9CglpZiBvcHRpb25zID09IG5pbCB7CgkJb3B0aW9ucyA9IG5ldyhaZXJvY29uZk9wdGlvbnMpCgl9CglkZWZhdWx0cy5TZXREZWZhdWx0cyhvcHRpb25zKQoJaWYgb3B0aW9ucy5Db250ZXh0ID09IG5pbCB7CgkJb3B0aW9ucy5Db250ZXh0ID0gY29udGV4dC5CYWNrZ3JvdW5kKCkKCX0KCWZvdW5kIDo9IDAKCWlmIHJlc29sdmVyLCBlcnIgOj0gemVyb2NvbmYuTmV3UmVzb2x2ZXIoemVyb2NvbmYuU2VsZWN0SVBUcmFmZmljKHplcm9jb25mLklQdjRBbmRJUHY2KSk7IGVyciA9PSBuaWwgewoJCWVudHJpZXMgOj0gbWFrZShjaGFuICp6ZXJvY29uZi5TZXJ2aWNlRW50cnkpCgkJY3R4LCBjYW5jZWwgOj0gY29udGV4dC5XaXRoVGltZW91dChvcHRpb25zLkNvbnRleHQsIG9wdGlvbnMuVGltZW91dCkKCQlkZWZlciBjYW5jZWwoKQoJCWdvIGZ1bmMocmVzdWx0cyA8LWNoYW4gKnplcm9jb25mLlNlcnZpY2VFbnRyeSkgewoJCQlmb3IgZW50cnkgOj0gcmFuZ2UgcmVzdWx0cyB7CgkJCQlpZiBpc0VudHJ5TWF0Y2gob3B0aW9ucywgZW50cnkpIHsKCQkJCQlmb3VuZCArPSAxCgkJCQkJYWRkcnMgOj0gbWFrZShbXW5ldC5JUCwgMCkKCQkJCQlhZGRycyA9IGFwcGVuZChhZGRycywgZW50cnkuQWRkcklQdjQuLi4pCgkJCQkJYWRkcnMgPSBhcHBlbmQoYWRkcnMsIGVudHJ5LkFkZHJJUHY2Li4uKQoJCQkJCWFkZHIgOj0gYGAKCQkJCQlpZiBsZW4oYWRkcnMpID4gMCB7CgkJCQkJCWFkZHIgPSBmbXQuU3ByaW50ZigiJXY6JWQiLCBhZGRyc1swXSwgZW50cnkuUG9ydCkKCQkJCQl9CgkJCQkJaWYgIWZuKCZTZXJ2aWNle0hvc3RuYW1lOiBlbnRyeS5Ib3N0TmFtZSwgSW5zdGFuY2U6IGVudHJ5Lkluc3RhbmNlLCBTZXJ2aWNlOiBlbnRyeS5TZXJ2aWNlLCBQb3J0OiBlbnRyeS5Qb3J0LCBEb21haW46IGVudHJ5LkRvbWFpbiwgVGV4dDogZW50cnkuVGV4dCwgQWRkcmVzc2VzOiBhZGRycywgQWRkcmVzczogYWRkcn0pIHsKCQkJCQkJY2FuY2VsKCkKCQkJCQl9CgkJCQl9CgkJCQlpZiBvcHRpb25zLkxpbWl0ID4gMCAmJiBmb3VuZCA+PSBvcHRpb25zLkxpbWl0IHsKCQkJCQljYW5jZWwoKQoJCQkJfQoJCQl9CgkJfShlbnRyaWVzKQoJCWlmIGVyciA6PSByZXNvbHZlci5Ccm93c2UoY3R4LCBvcHRpb25zLlNlcnZpY2UsIG9wdGlvbnMuRG9tYWluLCBlbnRyaWVzKTsgZXJyID09IG5pbCB7CgkJCXNlbGVjdCB7CgkJCWNhc2UgPC1jdHguRG9uZSgpOgoJCQl9CgkJCXJldHVybiBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZm10LkVycm9yZigiYnJvd3NlIGVycm9yOiAldiIsIGVycikKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBlcnIKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ZeroconfRegister",
+            "Comment": "Register the given service in Multicast DNS.  Returns an ID that can be used to unregister\nthe service later.",
+            "Arguments": [
+                {
+                    "Name": "svc",
+                    "Type": "*Service"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ZeroconfRegister(svc *Service) (string, error)",
+            "Source": "ewoJaWYgc3ZjID09IG5pbCB7CgkJcmV0dXJuIGBgLCBmbXQuRXJyb3JmKCJNdXN0IHByb3ZpZGUgYSBzZXJ2aWNlIGNvbmZpZ3VyYXRpb24gdG8gcmVnaXN0ZXIgbUROUyIpCgl9IGVsc2UgaWYgc3ZjLkluc3RhbmNlID09IGBgIHsKCQlzdmMuSW5zdGFuY2UgPSBzdHJpbmd1dGlsLlVVSUQoKS5TdHJpbmcoKQoJfSBlbHNlIGlmIHN2Yy5TZXJ2aWNlID09IGBgIHsKCQlyZXR1cm4gYGAsIGZtdC5FcnJvcmYoIk11c3QgcHJvdmlkZSBhIHNlcnZpY2UgdHlwZSIpCgl9IGVsc2UgaWYgc3ZjLkRvbWFpbiA9PSBgYCB7CgkJcmV0dXJuIGBgLCBmbXQuRXJyb3JmKCJNdXN0IHByb3ZpZGUgYSBzZXJ2aWNlIGRvbWFpbiIpCgl9IGVsc2UgaWYgc3ZjLlBvcnQgPT0gMCB7CgkJcmV0dXJuIGBgLCBmbXQuRXJyb3JmKCJNdXN0IHNwZWNpZnkgYSBzZXJ2aWNlIHBvcnQiKQoJfQoJc2x1ZyA6PSBmbXQuU3ByaW50ZigiJXgiLCBzaGEyNTYuU3VtMjU2KFtdYnl0ZShmbXQuU3ByaW50ZigiJXMuJXMlczolZCIsIHN2Yy5JbnN0YW5jZSwgc3ZjLlNlcnZpY2UsIHN2Yy5Eb21haW4sIHN2Yy5Qb3J0KSkpKQoJaWYgXywgb2sgOj0gcmVnaXN0ZXJlZC5Mb2FkKHNsdWcpOyBvayB7CgkJcmV0dXJuIHNsdWcsIGZtdC5FcnJvcmYoIkEgc2VydmljZSBtYXRjaGluZyB0aGVzZSBwYXJhbWV0ZXJzIGlzIGFscmVhZHkgcmVnaXN0ZXJlZCIpCgl9CglpZiBzZXJ2ZXIsIGVyciA6PSB6ZXJvY29uZi5SZWdpc3RlcihzdmMuSW5zdGFuY2UsIHN2Yy5TZXJ2aWNlLCBzdmMuRG9tYWluLCBzdmMuUG9ydCwgc3ZjLlRleHQsIHN2Yy5JbnRlcmZhY2VzKTsgZXJyID09IG5pbCB7CgkJcmVnaXN0ZXJlZC5TdG9yZShzbHVnLCBzZXJ2ZXIpCgkJcmV0dXJuIHNsdWcsIG5pbAoJfSBlbHNlIHsKCQlyZXR1cm4gYGAsIGVycgoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ZeroconfUnregister",
+            "Comment": "Unregister a previously-registered service.",
+            "Arguments": [
+                {
+                    "Name": "id",
+                    "Type": "string"
+                }
+            ],
+            "Signature": "ZeroconfUnregister(id string)",
+            "Source": "ewoJZGVmZXIgcmVnaXN0ZXJlZC5EZWxldGUoaWQpCglpZiBzLCBvayA6PSByZWdpc3RlcmVkLkxvYWQoaWQpOyBvayB7CgkJaWYgc2VydmVyLCBvayA6PSBzLigqemVyb2NvbmYuU2VydmVyKTsgb2sgewoJCQlzZXJ2ZXIuU2h1dGRvd24oKQoJCX0KCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ZeroconfUnregisterAll",
+            "Comment": "Unregister all Multicast DNS services.",
+            "Signature": "ZeroconfUnregisterAll()",
+            "Source": "ewoJcmVnaXN0ZXJlZC5SYW5nZShmdW5jKGtleSwgdmFsdWUgaW50ZXJmYWNle30pIGJvb2wgewoJCVplcm9jb25mVW5yZWdpc3Rlcih0eXBldXRpbC5TdHJpbmcoa2V5KSkKCQlyZXR1cm4gdHJ1ZQoJfSkKfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestFQDN",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestFQDN(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChzdHJpbmdzLlRyaW1TcGFjZShzdHJpbmcoc3lzKSksIEZRRE4oKSkKfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "IPAddress": {
+            "Name": "IPAddress",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "DefaultAddress",
+                    "Comment": "Retrieves the first routable IP address on any interface that falls inside of the\nsystem's default gateway network.  Will return nil if no IP could be found.",
+                    "Returns": [
+                        {
+                            "Type": "*IPAddress"
+                        }
+                    ],
+                    "Signature": "DefaultAddress() *IPAddress",
+                    "Source": "ewoJaWYgYWRkcnMsIGVyciA6PSBSb3V0YWJsZUFkZHJlc3NlcygpOyBlcnIgPT0gbmlsICYmIGxlbihhZGRycykgPiAwIHsKCQlyZXR1cm4gYWRkcnNbMF0KCX0KCXJldHVybiBuaWwKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "DefaultAddress6",
+                    "Comment": "Like DefaultAddress, but specifically filters on IPv6 addresses.  If no routable\nIPv6 address is found, returns nil.",
+                    "Returns": [
+                        {
+                            "Type": "*IPAddress"
+                        }
+                    ],
+                    "Signature": "DefaultAddress6() *IPAddress",
+                    "Source": "ewoJaWYgYWRkcnMsIGVyciA6PSBSb3V0YWJsZUFkZHJlc3NlcygpOyBlcnIgPT0gbmlsICYmIGxlbihhZGRycykgPiAwIHsKCQlmb3IgXywgYWRkciA6PSByYW5nZSBhZGRycyB7CgkJCWlmIGxlbihhZGRyLklQKSA+IDMyIHsKCQkJCXJldHVybiBhZGRyCgkJCX0KCQl9Cgl9CglyZXR1cm4gbmlsCn0=",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "IP",
+                    "Type": "net.IP"
+                },
+                {
+                    "Name": "Mask",
+                    "Type": "net.IPMask"
+                },
+                {
+                    "Name": "Interface",
+                    "Type": "net.Interface"
+                },
+                {
+                    "Name": "Gateway",
+                    "Type": "net.IP"
+                }
+            ],
+            "Source": "dHlwZSBJUEFkZHJlc3Mgc3RydWN0IHsKCUlQICAgICAgICBuZXQuSVAKCU1hc2sgICAgICBuZXQuSVBNYXNrCglJbnRlcmZhY2UgbmV0LkludGVyZmFjZQoJR2F0ZXdheSAgIG5ldC5JUAp9"
+        },
+        "Service": {
+            "Name": "Service",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "String",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "Hostname",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Instance",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Service",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Domain",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Port",
+                    "Type": "int"
+                },
+                {
+                    "Name": "Text",
+                    "Type": "[]string"
+                },
+                {
+                    "Name": "Address",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Addresses",
+                    "Type": "[]net.IP"
+                },
+                {
+                    "Name": "Interfaces",
+                    "Type": "[]net.Interface"
+                }
+            ],
+            "Source": "dHlwZSBTZXJ2aWNlIHN0cnVjdCB7CglIb3N0bmFtZSAgIHN0cmluZyAgICAgICAgICBganNvbjoiaG9zdG5hbWUiYAoJSW5zdGFuY2UgICBzdHJpbmcgICAgICAgICAgYGpzb246Imluc3RhbmNlImAKCVNlcnZpY2UgICAgc3RyaW5nICAgICAgICAgIGBqc29uOiJzZXJ2aWNlImAKCURvbWFpbiAgICAgc3RyaW5nICAgICAgICAgIGBqc29uOiJkb21haW4iYAoJUG9ydCAgICAgICBpbnQgICAgICAgICAgICAgYGpzb246InBvcnQiYAoJVGV4dCAgICAgICBbXXN0cmluZyAgICAgICAgYGpzb246InR4dCJgCglBZGRyZXNzICAgIHN0cmluZyAgICAgICAgICBganNvbjoiYWRkcmVzcyJgCglBZGRyZXNzZXMgIFtdbmV0LklQICAgICAgICBganNvbjoiYWRkcmVzc2VzLG9taXRlbXB0eSJgCglJbnRlcmZhY2VzIFtdbmV0LkludGVyZmFjZSBganNvbjoiaW50ZXJmYWNlcyxvbWl0ZW1wdHkiYAp9"
+        },
+        "ServiceFunc": {
+            "Name": "ServiceFunc",
+            "Source": "dHlwZSBTZXJ2aWNlRnVuYyBmdW5jKCpTZXJ2aWNlKSBib29s"
+        },
+        "ZeroconfOptions": {
+            "Name": "ZeroconfOptions",
+            "MetaType": "struct",
+            "Fields": [
+                {
+                    "Name": "Context",
+                    "Type": "context.Context"
+                },
+                {
+                    "Name": "Limit",
+                    "Type": "int"
+                },
+                {
+                    "Name": "Timeout",
+                    "Type": "time.Duration"
+                },
+                {
+                    "Name": "Service",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Domain",
+                    "Type": "string"
+                },
+                {
+                    "Name": "CheckInterval",
+                    "Type": "time.Duration"
+                },
+                {
+                    "Name": "MatchInstance",
+                    "Type": "string"
+                },
+                {
+                    "Name": "MatchPort",
+                    "Type": "string"
+                },
+                {
+                    "Name": "MatchHostname",
+                    "Type": "string"
+                },
+                {
+                    "Name": "MatchAddress",
+                    "Type": "string"
+                }
+            ],
+            "Source": "dHlwZSBaZXJvY29uZk9wdGlvbnMgc3RydWN0IHsKCUNvbnRleHQgICAgICAgY29udGV4dC5Db250ZXh0CglMaW1pdCAgICAgICAgIGludAoJVGltZW91dCAgICAgICB0aW1lLkR1cmF0aW9uIGBkZWZhdWx0OiIzMHMiYAoJU2VydmljZSAgICAgICBzdHJpbmcgICAgICAgIGBkZWZhdWx0OiJfaHR0cC5fdGNwImAKCURvbWFpbiAgICAgICAgc3RyaW5nICAgICAgICBgZGVmYXVsdDoiLmxvY2FsImAKCUNoZWNrSW50ZXJ2YWwgdGltZS5EdXJhdGlvbiBgZGVmYXVsdDoiMTAwbXMiYAoJTWF0Y2hJbnN0YW5jZSBzdHJpbmcKCU1hdGNoUG9ydCAgICAgc3RyaW5nCglNYXRjaEhvc3RuYW1lIHN0cmluZwoJTWF0Y2hBZGRyZXNzICBzdHJpbmcKfQ=="
+        }
+    }
+}

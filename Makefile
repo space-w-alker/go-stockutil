@@ -2,7 +2,7 @@
 LOCALS := $(shell find . -type f -name '*.go' -not -path "./vendor/*")
 PKGS   := $(wildcard *util)
 
-.PHONY: test deps $(PKGS)
+.PHONY: test deps docs $(PKGS)
 
 .EXPORT_ALL_VARIABLES:
 GO111MODULE = on
@@ -20,6 +20,9 @@ fmt:
 	@gofmt -w $(LOCALS)
 	$(info Vetting code)
 	@go vet ./...
+
+docs:
+	owndoc render --property rootpath=/go-stockutil/
 
 $(PKGS):
 	$(info Testing $(@))

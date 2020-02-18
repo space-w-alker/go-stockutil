@@ -1,0 +1,1338 @@
+{
+    "Name": "typeutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/typeutil",
+    "ImportPath": "typeutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
+    "MainFunction": false,
+    "CommentWordCount": 820,
+    "LineCount": 1190,
+    "SourceLineCount": 867,
+    "FunctionCount": 56,
+    "TypeCount": 3,
+    "ConstantCount": 3,
+    "VariableCount": 0,
+    "Statistics": {
+        "Mean": 0.682,
+        "StdDev": 0.3953,
+        "GeometricMean": 0.8921,
+        "HarmonicMean": 1,
+        "Median": 1,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "reflect.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                }
+            ],
+            "Size": 341,
+            "LineCount": 18,
+            "SourceLineCount": 13,
+            "FunctionCount": 1,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "reflect_test.go",
+            "Imports": [
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 511,
+            "LineCount": 30,
+            "SourceLineCount": 23,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "values.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/davecgh/go-spew/spew",
+                    "Alias": "spew"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/utils",
+                    "Alias": "utils"
+                }
+            ],
+            "Size": 9312,
+            "LineCount": 368,
+            "SourceLineCount": 260,
+            "FunctionCount": 22,
+            "TypeCount": 1,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "values_test.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 8594,
+            "LineCount": 341,
+            "SourceLineCount": 246,
+            "FunctionCount": 0,
+            "TypeCount": 1,
+            "ConstantCount": 3,
+            "VariableCount": 0
+        },
+        {
+            "Name": "variant.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/json",
+                    "Alias": "json"
+                },
+                {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "text/template",
+                    "Alias": "template"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/utils",
+                    "Alias": "utils"
+                }
+            ],
+            "Size": 7325,
+            "LineCount": 317,
+            "SourceLineCount": 223,
+            "FunctionCount": 33,
+            "TypeCount": 1,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "variant_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 2720,
+            "LineCount": 116,
+            "SourceLineCount": 102,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Constants": [
+        {
+            "Name": "Value1",
+            "Type": "testEnum",
+            "Immutable": true,
+            "Expression": "`value-1`",
+            "Value": "value-1"
+        },
+        {
+            "Name": "Value2",
+            "Type": "testEnum",
+            "Immutable": true,
+            "Expression": "`value-2`",
+            "Value": "value-2"
+        },
+        {
+            "Name": "Value3",
+            "Type": "testEnum",
+            "Immutable": true,
+            "Expression": "`value-3`",
+            "Value": "value-3"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "Auto",
+            "Comment": "Package-level auto converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "Auto(in interface{}) interface{}",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLkF1dG8oKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Bool",
+            "Comment": "Package-level bool converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "Bool(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLkJvb2woKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Bytes",
+            "Comment": "Package-level bytes converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]byte"
+                }
+            ],
+            "Signature": "Bytes(in interface{}) []byte",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLkJ5dGVzKCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Dump",
+            "Comment": "Returns a pretty-printed string representation of the given values.",
+            "Arguments": [
+                {
+                    "Name": "in1",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "in",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Dump(in1 interface{}, in ...interface{}) string",
+            "Source": "ewoJcmV0dXJuIHNjcy5TZHVtcChhcHBlbmQoW11pbnRlcmZhY2V7fXtpbjF9LCBpbi4uLikuLi4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Dumpf",
+            "Comment": "Returns a pretty-printed string representation of the given values.",
+            "Arguments": [
+                {
+                    "Name": "format",
+                    "Type": "string"
+                },
+                {
+                    "Name": "in",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Dumpf(format string, in ...interface{}) string",
+            "Source": "ewoJcmV0dXJuIGZtdC5TcHJpbnRmKGZvcm1hdCwgc2NzLlNkdW1wKGluLi4uKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Duration",
+            "Comment": "Package-level duration converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "time.Duration"
+                }
+            ],
+            "Signature": "Duration(in interface{}) time.Duration",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLkR1cmF0aW9uKCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Err",
+            "Comment": "Package-level error converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "Err(in interface{}) error",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLkVycigpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Float",
+            "Comment": "Package-level float converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "Float(in interface{}) float64",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLkZsb2F0KCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "FunctionArity",
+            "Comment": "Returns the number of input and return arguments a given function has.",
+            "Arguments": [
+                {
+                    "Name": "fn",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int"
+                },
+                {
+                    "Type": "int"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "FunctionArity(fn interface{}) (int, int, error)",
+            "Source": "ewoJaWYgSXNGdW5jdGlvbihmbikgewoJCWZuVCA6PSByZWZsZWN0LlR5cGVPZihmbikKCQlyZXR1cm4gZm5ULk51bUluKCksIGZuVC5OdW1PdXQoKSwgbmlsCgl9IGVsc2UgewoJCXJldHVybiAwLCAwLCBmbXQuRXJyb3JmKCJleHBlY3RlZCBmdW5jdGlvbiwgZ290ICVUIiwgZm4pCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Int",
+            "Comment": "Package-level int converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int64"
+                }
+            ],
+            "Signature": "Int(in interface{}) int64",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLkludCgpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsArray",
+            "Comment": "Returns whether the given value is a slice or array.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsArray(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIElzS2luZChpbiwgdXRpbHMuU2xpY2VUeXBlcy4uLikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsEmpty",
+            "Comment": "Returns whether the given value is \"empty\" in the semantic sense. Zero values\nare considered empty, as are arrays, slices, and maps containing only empty\nvalues (called recursively). Finally, strings are trimmed of whitespace and\nconsidered empty if the result is zero-length.",
+            "Arguments": [
+                {
+                    "Name": "value",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsEmpty(value interface{}) bool",
+            "Source": "ewoJdmFsdWVWIDo9IHJlZmxlY3QuVmFsdWVPZih2YWx1ZSkKCWlmIHZhbHVlVi5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCXZhbHVlViA9IHZhbHVlVi5FbGVtKCkKCX0KCXN3aXRjaCB2YWx1ZVYuS2luZCgpIHsKCWNhc2UgcmVmbGVjdC5TdHJ1Y3Q6CgkJaWYgSXNaZXJvKHZhbHVlKSB7CgkJCXJldHVybiB0cnVlCgkJfQoJfQoJc3dpdGNoIHZhbHVlVi5LaW5kKCkgewoJY2FzZSByZWZsZWN0LkFycmF5LCByZWZsZWN0LlNsaWNlOgoJCWlmIHZhbHVlVi5MZW4oKSA9PSAwIHsKCQkJcmV0dXJuIHRydWUKCQl9IGVsc2UgewoJCQlmb3IgaSA6PSAwOyBpIDwgdmFsdWVWLkxlbigpOyBpKysgewoJCQkJaWYgaW5kZXhWIDo9IHZhbHVlVi5JbmRleChpKTsgaW5kZXhWLklzVmFsaWQoKSAmJiAhSXNFbXB0eShpbmRleFYuSW50ZXJmYWNlKCkpIHsKCQkJCQlyZXR1cm4gZmFsc2UKCQkJCX0KCQkJfQoJCQlyZXR1cm4gdHJ1ZQoJCX0KCWNhc2UgcmVmbGVjdC5NYXA6CgkJaWYgdmFsdWVWLkxlbigpID09IDAgewoJCQlyZXR1cm4gdHJ1ZQoJCX0gZWxzZSB7CgkJCWZvciBfLCBrZXlWIDo9IHJhbmdlIHZhbHVlVi5NYXBLZXlzKCkgewoJCQkJaWYgaW5kZXhWIDo9IHZhbHVlVi5NYXBJbmRleChrZXlWKTsgaW5kZXhWLklzVmFsaWQoKSAmJiAhSXNFbXB0eShpbmRleFYuSW50ZXJmYWNlKCkpIHsKCQkJCQlyZXR1cm4gZmFsc2UKCQkJCX0KCQkJfQoJCQlyZXR1cm4gdHJ1ZQoJCX0KCWNhc2UgcmVmbGVjdC5DaGFuOgoJCWlmIHZhbHVlVi5MZW4oKSA9PSAwIHsKCQkJcmV0dXJuIHRydWUKCQl9CgljYXNlIHJlZmxlY3QuU3RyaW5nOgoJCWlmIGxlbihzdHJpbmdzLlRyaW1TcGFjZShmbXQuU3ByaW50ZigiJXYiLCB2YWx1ZSkpKSA9PSAwIHsKCQkJcmV0dXJuIHRydWUKCQl9Cgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsFloat",
+            "Comment": "Returns whether the given value represents a floating point value.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsFloat(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzRmxvYXQoaW4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsFunction",
+            "Comment": "Returns whether the given value is a function of any kind",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsFunction(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIElzS2luZChpbiwgcmVmbGVjdC5GdW5jKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsFunctionArity",
+            "Comment": "Returns whether the given value is a function.  If inParams is not -1, the function must\naccept that number of arguments.  If outParams is not -1, the function must return that\nnumber of values.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "inParams",
+                    "Type": "int"
+                },
+                {
+                    "Name": "outParams",
+                    "Type": "int"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsFunctionArity(in interface{}, inParams int, outParams int) bool",
+            "Source": "ewoJaWYgSXNLaW5kKGluLCByZWZsZWN0LkZ1bmMpIHsKCQlpblQgOj0gcmVmbGVjdC5UeXBlT2YoaW4pCgkJaWYgaW5QYXJhbXMgPCAwIHx8IGluUGFyYW1zID49IDAgJiYgaW5ULk51bUluKCkgPT0gaW5QYXJhbXMgewoJCQlpZiBvdXRQYXJhbXMgPCAwIHx8IG91dFBhcmFtcyA+PSAwICYmIGluVC5OdW1PdXQoKSA9PSBvdXRQYXJhbXMgewoJCQkJcmV0dXJuIHRydWUKCQkJfQoJCX0KCX0KCXJldHVybiBmYWxzZQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsInteger",
+            "Comment": "Returns whether the given value represents an integer value.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsInteger(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzSW50ZWdlcihpbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsKind",
+            "Comment": "Dectect whether the concrete underlying value of the given input is one or more\nKinds of value.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "kinds",
+                    "Type": "...reflect.Kind"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsKind(in interface{}, kinds ...reflect.Kind) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzS2luZChpbiwga2luZHMuLi4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsKindOfBool",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsKindOfBool(in interface{}) bool",
+            "Source": "ewoJdmFyIGtpbmQgcmVmbGVjdC5LaW5kCglpZiBrLCBvayA6PSBpbi4ocmVmbGVjdC5LaW5kKTsgb2sgewoJCWtpbmQgPSBrCgl9IGVsc2UgewoJCWtpbmQgPSByZWZsZWN0LlR5cGVPZihpbikuS2luZCgpCgl9CglyZXR1cm4gSXNLaW5kKGtpbmQsIHJlZmxlY3QuQm9vbCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsKindOfFloat",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsKindOfFloat(in interface{}) bool",
+            "Source": "ewoJdmFyIGtpbmQgcmVmbGVjdC5LaW5kCglpZiBrLCBvayA6PSBpbi4ocmVmbGVjdC5LaW5kKTsgb2sgewoJCWtpbmQgPSBrCgl9IGVsc2UgewoJCWtpbmQgPSByZWZsZWN0LlR5cGVPZihpbikuS2luZCgpCgl9CglyZXR1cm4gSXNLaW5kKGtpbmQsIHJlZmxlY3QuRmxvYXQzMiwgcmVmbGVjdC5GbG9hdDY0KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsKindOfInteger",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsKindOfInteger(in interface{}) bool",
+            "Source": "ewoJdmFyIGtpbmQgcmVmbGVjdC5LaW5kCglpZiBrLCBvayA6PSBpbi4ocmVmbGVjdC5LaW5kKTsgb2sgewoJCWtpbmQgPSBrCgl9IGVsc2UgewoJCWtpbmQgPSByZWZsZWN0LlR5cGVPZihpbikuS2luZCgpCgl9CglyZXR1cm4gSXNLaW5kKGtpbmQsIHJlZmxlY3QuSW50LCByZWZsZWN0LkludDgsIHJlZmxlY3QuSW50MTYsIHJlZmxlY3QuSW50MzIsIHJlZmxlY3QuSW50NjQsIHJlZmxlY3QuVWludCwgcmVmbGVjdC5VaW50OCwgcmVmbGVjdC5VaW50MTYsIHJlZmxlY3QuVWludDMyLCByZWZsZWN0LlVpbnQ2NCwgcmVmbGVjdC5VaW50cHRyKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsKindOfString",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsKindOfString(in interface{}) bool",
+            "Source": "ewoJdmFyIGtpbmQgcmVmbGVjdC5LaW5kCglpZiBrLCBvayA6PSBpbi4ocmVmbGVjdC5LaW5kKTsgb2sgewoJCWtpbmQgPSBrCgl9IGVsc2UgaWYgaW5UIDo9IHJlZmxlY3QuVHlwZU9mKGluKTsgaW5UICE9IG5pbCB7CgkJa2luZCA9IGluVC5LaW5kKCkKCX0KCXJldHVybiBJc0tpbmQoa2luZCwgcmVmbGVjdC5TdHJpbmcpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsMap",
+            "Comment": "Returns whether the given value is a map.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsMap(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIElzS2luZChpbiwgcmVmbGVjdC5NYXApCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsNumeric",
+            "Comment": "Returns whether the given value represents a numeric value.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsNumeric(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzTnVtZXJpYyhpbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsScalar",
+            "Comment": "Return whether the given input is a discrete scalar value (ints, floats, bools,\nstrings), otherwise known as \"primitive types\" in some other languages.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsScalar(in interface{}) bool",
+            "Source": "ewoJaWYgIUlzS2luZChpbiwgdXRpbHMuQ29tcG91bmRUeXBlcy4uLikgewoJCXJldHVybiB0cnVlCgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsStruct",
+            "Comment": "Returns whether the given value is a struct.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsStruct(in interface{}) bool",
+            "Source": "ewoJcmV0dXJuIElzS2luZChpbiwgcmVmbGVjdC5TdHJ1Y3QpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsZero",
+            "Comment": "Returns whether the given value represents the underlying type's zero value",
+            "Arguments": [
+                {
+                    "Name": "value",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsZero(value interface{}) bool",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLklzWmVybyh2YWx1ZSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Len",
+            "Comment": "Returns the length of the given value that could have a length (strings, slices, arrays,\nmaps, and channels).  If the value is not a type that has a length, -1 is returned.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int"
+                }
+            ],
+            "Signature": "Len(in interface{}) int",
+            "Source": "ewoJaWYgSXNLaW5kKGluLCByZWZsZWN0LkFycmF5LCByZWZsZWN0LkNoYW4sIHJlZmxlY3QuTWFwLCByZWZsZWN0LlNsaWNlLCByZWZsZWN0LlN0cmluZykgewoJCXJldHVybiByZWZsZWN0LlZhbHVlT2YoaW4pLkxlbigpCgl9IGVsc2UgewoJCXJldHVybiAtMQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Map",
+            "Comment": "Package-level map converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "tagName",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[Variant]Variant"
+                }
+            ],
+            "Signature": "Map(in interface{}, tagName ...string) map[Variant]Variant",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLk1hcCh0YWdOYW1lLi4uKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MapNative",
+            "Comment": "Package-level map[string]interface{} converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "tagName",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Signature": "MapNative(in interface{}, tagName ...string) map[string]interface{}",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLk1hcE5hdGl2ZSh0YWdOYW1lLi4uKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "RegisterTypeHandler",
+            "Comment": "Register's a handler used for converting one type to another. Type are checked in the following\nmanner:  The input value's reflect.Type String() value is matched, falling back to its\nreflect.Kind String() value, finally checking for a special \"*\" value that matches any type.\nIf the handler function returns nil, its value replaces the input value.  If the special error\ntype PassthroughType is returned, the original value is returned unmodified.",
+            "Arguments": [
+                {
+                    "Name": "handler",
+                    "Type": "TypeConvertFunc"
+                },
+                {
+                    "Name": "types",
+                    "Type": "...string"
+                }
+            ],
+            "Signature": "RegisterTypeHandler(handler TypeConvertFunc, types ...string)",
+            "Source": "ewoJdXRpbHMuUmVnaXN0ZXJUeXBlSGFuZGxlcihoYW5kbGVyLCB0eXBlcy4uLikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ResolveValue",
+            "Comment": "Return the concrete value pointed to by a pointer type, or within an\ninterface type.  Allows functions receiving pointers to supported types\nto work with those types without doing reflection.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "ResolveValue(in interface{}) interface{}",
+            "Source": "ewoJaWYgaW5WLCBvayA6PSBpbi4oVmFyaWFudCk7IG9rIHsKCQlpbiA9IGluVi5WYWx1ZQoJfQoJcmV0dXJuIHV0aWxzLlJlc29sdmVWYWx1ZShpbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SetValue",
+            "Comment": "Attempts to set the given reflect.Value to the given interface value",
+            "Arguments": [
+                {
+                    "Name": "target",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "value",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "SetValue(target interface{}, value interface{}) error",
+            "Source": "ewoJdmFyIHRhcmdldFYsIHZhbHVlViwgb3JpZ2luYWxWIHJlZmxlY3QuVmFsdWUKCWlmIHRWLCBvayA6PSB0YXJnZXQuKHJlZmxlY3QuVmFsdWUpOyBvayB7CgkJdGFyZ2V0ViA9IHRWCgl9IGVsc2UgewoJCXRhcmdldFYgPSByZWZsZWN0LlZhbHVlT2YodGFyZ2V0KQoJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJcmV0dXJuIGZtdC5FcnJvcmYoIk11c3QgcGFzcyBhIHBvaW50ZXIgdG8gYSBzdHJ1Y3QgaW5zdGFuY2UsIGdvdCAlVCIsIHRhcmdldCkKCQl9IGVsc2UgaWYgdGFyZ2V0Vi5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCQl0YXJnZXRWID0gdGFyZ2V0Vi5FbGVtKCkKCQl9Cgl9CglpZiAhdGFyZ2V0Vi5Jc1ZhbGlkKCkgewoJCXJldHVybiBmbXQuRXJyb3JmKCJUYXJnZXQgJVQgaXMgbm90IHZhbGlkIiwgdGFyZ2V0KQoJfQoJaWYgdiwgZXJyIDo9IHV0aWxzLkNvbnZlcnRDdXN0b21UeXBlKHZhbHVlKTsgZXJyID09IG5pbCB7CgkJdmFsdWUgPSB2Cgl9IGVsc2UgaWYgZXJyICE9IHV0aWxzLlBhc3N0aHJvdWdoVHlwZSB7CgkJcmV0dXJuIGVycgoJfQoJaWYgdlYsIG9rIDo9IHZhbHVlLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCW9yaWdpbmFsViA9IHZWCgkJdmFsdWVWID0gdlYKCX0gZWxzZSB7CgkJb3JpZ2luYWxWID0gcmVmbGVjdC5WYWx1ZU9mKHZhbHVlKQoJCXZhbHVlViA9IHJlZmxlY3QuVmFsdWVPZihSZXNvbHZlVmFsdWUodmFsdWUpKQoJfQoJaWYgdmFsdWVWLklzVmFsaWQoKSB7CgkJdGFyZ2V0VCA6PSB0YXJnZXRWLlR5cGUoKQoJCXZhbHVlVCA6PSB2YWx1ZVYuVHlwZSgpCgkJaWYgdGFyZ2V0VC5LaW5kKCkgPT0gcmVmbGVjdC5TdHJpbmcgJiYgdmFsdWVWLkNhbkludGVyZmFjZSgpIHsKCQkJdmFsdWVWID0gcmVmbGVjdC5WYWx1ZU9mKGZtdC5TcHJpbnRmKCIldiIsIHZhbHVlVi5JbnRlcmZhY2UoKSkpCgkJCXZhbHVlVCA9IHZhbHVlVi5UeXBlKCkKCQkJaWYgIXZhbHVlVi5Jc1ZhbGlkKCkgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIkNvbnZlcnRpbmcgJVQgdG8gJXYgcHJvZHVjZWQgYW4gaW52YWxpZCB2YWx1ZSIsIHZhbHVlLCB0YXJnZXRUKQoJCQl9CgkJfQoJCWlmIHZhbHVlVC5Bc3NpZ25hYmxlVG8odGFyZ2V0VCkgewoJCQl0YXJnZXRWLlNldCh2YWx1ZVYpCgkJfSBlbHNlIGlmIHZhbHVlVC5Db252ZXJ0aWJsZVRvKHRhcmdldFQpIHsKCQkJdGFyZ2V0Vi5TZXQodmFsdWVWLkNvbnZlcnQodGFyZ2V0VCkpCgkJfSBlbHNlIGlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJaWYgb3JpZ2luYWxWLktpbmQoKSA9PSByZWZsZWN0LlB0ciB7CgkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0Viwgb3JpZ2luYWxWKQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIlVuYWJsZSB0byBzZXQgdGFyZ2V0OiB2YWx1ZSBmb3IgdGFyZ2V0ICV2IG11c3QgYmUgZ2l2ZW4gYXMgYSBwb2ludGVyIiwgdGFyZ2V0VCkKCQkJfQoJCX0gZWxzZSB7CgkJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJCWlmIGVtYmVkZGVkViA6PSB0YXJnZXRWLkZpZWxkQnlOYW1lKHZhbHVlVC5OYW1lKCkpOyBlbWJlZGRlZFYuSXNWYWxpZCgpIHsKCQkJCQlpZiBlcnIgOj0gU2V0VmFsdWUoZW1iZWRkZWRWLCB2YWx1ZSk7IGVyciA9PSBuaWwgewoJCQkJCQlyZXR1cm4gbmlsCgkJCQkJfQoJCQkJfQoJCQl9CgkJCXN3aXRjaCB2YWx1ZS4odHlwZSkgewoJCQljYXNlIHRpbWUuVGltZToKCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXQsIHZhbHVlLih0aW1lLlRpbWUpLlVuaXhOYW5vKCkpCgkJCWNhc2UgKnRpbWUuVGltZToKCQkJCWlmIHRtIDo9IHZhbHVlLigqdGltZS5UaW1lKTsgdG0gIT0gbmlsIHsKCQkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0LCB0bS5Vbml4TmFubygpKQoJCQkJfQoJCQl9CgkJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldDogJVQgaGFzIG5vIHBhdGggdG8gYmVjb21pbmcgJXYiLCB2YWx1ZSwgdGFyZ2V0VCkKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldCB0byB0aGUgZ2l2ZW4gJVQgdmFsdWUiLCB2YWx1ZSkKCX0KCXJldHVybiBuaWwKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Slice",
+            "Comment": "Package-level slice converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]Variant"
+                }
+            ],
+            "Signature": "Slice(in interface{}) []Variant",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLlNsaWNlKCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Split",
+            "Comment": "Package-level string splitter.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "on",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "Split(in interface{}, on string) []string",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLlNwbGl0KG9uKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "String",
+            "Comment": "Package-level string converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "String(in interface{}) string",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLlN0cmluZygpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Strings",
+            "Comment": "Package-level string slice converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "Strings(in interface{}) []string",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLlN0cmluZ3MoKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Time",
+            "Comment": "Package-level time converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "time.Time"
+                }
+            ],
+            "Signature": "Time(in interface{}) time.Time",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLlRpbWUoKQp9",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestFunctionArity",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestFunctionArity(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpLCBvLCBlcnIgOj0gRnVuY3Rpb25Bcml0eShzdHJpbmdzLkNvbXBhcmUpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoMiwgaSkKCWFzc2VydC5FcXVhbCgxLCBvKQoJZjBfMCA6PSBmdW5jKCkgewoJfQoJaSwgbywgZXJyID0gRnVuY3Rpb25Bcml0eShmMF8wKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKDAsIGkpCglhc3NlcnQuRXF1YWwoMCwgbykKCWYwXzEgOj0gZnVuYygpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9CglpLCBvLCBlcnIgPSBGdW5jdGlvbkFyaXR5KGYwXzEpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoMCwgaSkKCWFzc2VydC5FcXVhbCgxLCBvKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestIsArray",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestIsArray(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRmFsc2UoSXNBcnJheShuaWwpKQoJdmFyIGEgW11zdHJpbmcKCWFzc2VydC5UcnVlKElzQXJyYXkoYSkpCglhc3NlcnQuVHJ1ZShJc0FycmF5KFtdc3RyaW5ne2AxYH0pKQoJYXNzZXJ0LlRydWUoSXNBcnJheSgmW11zdHJpbmd7YDFgfSkpCgl2YXIgYiBpbnRlcmZhY2V7fQoJYiA9IFtdc3RyaW5ne2AxYH0KCWFzc2VydC5UcnVlKElzQXJyYXkoYikpCglhc3NlcnQuVHJ1ZShJc0FycmF5KCZiKSkKCWFzc2VydC5GYWxzZShJc0FycmF5KGBgKSkKCWFzc2VydC5GYWxzZShJc0FycmF5KGAxMjNgKSkKCWFzc2VydC5GYWxzZShJc0FycmF5KDEyMykpCglhc3NlcnQuRmFsc2UoSXNBcnJheSh0cnVlKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestIsEmpty",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestIsEmpty(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0aGluZ3MgOj0gbWFrZShbXVRoaW5nLCA0KQoJdGhpbmdtYXAgOj0gbWFrZShtYXBbc3RyaW5nXVRoaW5nKQoJc3RyaW5nbWFwIDo9IG1hcFtpbnRdc3RyaW5nezE6IGBgLCAyOiBgICAgIGAsIDM6ICJcdCJ9Cglhc3NlcnQuVHJ1ZShJc0VtcHR5KHRoaW5ncykpCglhc3NlcnQuVHJ1ZShJc0VtcHR5KGBgKSkKCWFzc2VydC5UcnVlKElzRW1wdHkoYCBgKSkKCWFzc2VydC5UcnVlKElzRW1wdHkoYCAgICAgYCkpCglhc3NlcnQuVHJ1ZShJc0VtcHR5KCJcdFxuICBcblx0IikpCglhc3NlcnQuVHJ1ZShJc0VtcHR5KHRoaW5nbWFwKSkKCWFzc2VydC5UcnVlKElzRW1wdHkoc3RyaW5nbWFwKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestIsFunction",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestIsFunction(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRmFsc2UoSXNGdW5jdGlvbihuaWwpKQoJYXNzZXJ0LkZhbHNlKElzRnVuY3Rpb24oMSkpCglhc3NlcnQuRmFsc2UoSXNGdW5jdGlvbih0cnVlKSkKCWFzc2VydC5GYWxzZShJc0Z1bmN0aW9uKGB0aHJlZWApKQoJYXNzZXJ0LlRydWUoSXNGdW5jdGlvbihmdW5jKCkgewoJfSkpCglhc3NlcnQuVHJ1ZShJc0Z1bmN0aW9uQXJpdHkoZnVuYygpIHsKCX0sIDAsIDApKQoJYXNzZXJ0LlRydWUoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoKSB7Cgl9LCAwLCAtMSkpCglhc3NlcnQuVHJ1ZShJc0Z1bmN0aW9uQXJpdHkoZnVuYygpIHsKCX0sIC0xLCAwKSkKCWFzc2VydC5UcnVlKElzRnVuY3Rpb25Bcml0eShmdW5jKCkgewoJfSwgLTEsIC0xKSkKCWFzc2VydC5GYWxzZShJc0Z1bmN0aW9uQXJpdHkoZnVuYygpIHsKCX0sIDk5LCAwKSkKCWFzc2VydC5GYWxzZShJc0Z1bmN0aW9uQXJpdHkoZnVuYygpIHsKCX0sIDAsIDk5KSkKCWFzc2VydC5GYWxzZShJc0Z1bmN0aW9uQXJpdHkoZnVuYygpIHsKCX0sIDk5LCA5OSkpCglhc3NlcnQuVHJ1ZShJc0Z1bmN0aW9uKGZ1bmMoaW50ZXJmYWNle30pIHsKCX0pKQoJYXNzZXJ0LlRydWUoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoaW50ZXJmYWNle30pIHsKCX0sIDEsIDApKQoJYXNzZXJ0LlRydWUoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoaW50ZXJmYWNle30pIHsKCX0sIDEsIC0xKSkKCWFzc2VydC5UcnVlKElzRnVuY3Rpb25Bcml0eShmdW5jKGludGVyZmFjZXt9KSB7Cgl9LCAtMSwgMCkpCglhc3NlcnQuVHJ1ZShJc0Z1bmN0aW9uQXJpdHkoZnVuYyhpbnRlcmZhY2V7fSkgewoJfSwgLTEsIC0xKSkKCWFzc2VydC5GYWxzZShJc0Z1bmN0aW9uQXJpdHkoZnVuYyhpbnRlcmZhY2V7fSkgewoJfSwgOTksIDApKQoJYXNzZXJ0LkZhbHNlKElzRnVuY3Rpb25Bcml0eShmdW5jKGludGVyZmFjZXt9KSB7Cgl9LCAwLCA5OSkpCglhc3NlcnQuRmFsc2UoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoaW50ZXJmYWNle30pIHsKCX0sIDk5LCA5OSkpCglhc3NlcnQuVHJ1ZShJc0Z1bmN0aW9uKGZ1bmMoaW50ZXJmYWNle30pIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9KSkKCWFzc2VydC5UcnVlKElzRnVuY3Rpb25Bcml0eShmdW5jKGludGVyZmFjZXt9KSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgMSwgMSkpCglhc3NlcnQuVHJ1ZShJc0Z1bmN0aW9uQXJpdHkoZnVuYyhpbnRlcmZhY2V7fSkgZXJyb3IgewoJCXJldHVybiBuaWwKCX0sIDEsIC0xKSkKCWFzc2VydC5UcnVlKElzRnVuY3Rpb25Bcml0eShmdW5jKGludGVyZmFjZXt9KSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgLTEsIDEpKQoJYXNzZXJ0LlRydWUoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoaW50ZXJmYWNle30pIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCAtMSwgLTEpKQoJYXNzZXJ0LkZhbHNlKElzRnVuY3Rpb25Bcml0eShmdW5jKGludGVyZmFjZXt9KSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgOTksIDEpKQoJYXNzZXJ0LkZhbHNlKElzRnVuY3Rpb25Bcml0eShmdW5jKGludGVyZmFjZXt9KSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgMCwgOTkpKQoJYXNzZXJ0LkZhbHNlKElzRnVuY3Rpb25Bcml0eShmdW5jKGludGVyZmFjZXt9KSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgOTksIDk5KSkKCWFzc2VydC5UcnVlKElzRnVuY3Rpb24oZnVuYygpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9KSkKCWFzc2VydC5UcnVlKElzRnVuY3Rpb25Bcml0eShmdW5jKCkgZXJyb3IgewoJCXJldHVybiBuaWwKCX0sIDAsIDEpKQoJYXNzZXJ0LlRydWUoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoKSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgMCwgLTEpKQoJYXNzZXJ0LlRydWUoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoKSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgLTEsIDEpKQoJYXNzZXJ0LlRydWUoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoKSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgLTEsIC0xKSkKCWFzc2VydC5GYWxzZShJc0Z1bmN0aW9uQXJpdHkoZnVuYygpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCA5OSwgMCkpCglhc3NlcnQuRmFsc2UoSXNGdW5jdGlvbkFyaXR5KGZ1bmMoKSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSwgMCwgOTkpKQoJYXNzZXJ0LkZhbHNlKElzRnVuY3Rpb25Bcml0eShmdW5jKCkgZXJyb3IgewoJCXJldHVybiBuaWwKCX0sIDk5LCA5OSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestIsScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestIsScalar(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuVHJ1ZShJc1NjYWxhcigxKSkKCWFzc2VydC5UcnVlKElzU2NhbGFyKHRydWUpKQoJYXNzZXJ0LlRydWUoSXNTY2FsYXIoMy4xNCkpCglhc3NlcnQuVHJ1ZShJc1NjYWxhcihgZm91cmApKQoJYXNzZXJ0LkZhbHNlKElzU2NhbGFyKFtdc3RyaW5ne2AxYH0pKQoJYXNzZXJ0LkZhbHNlKElzU2NhbGFyKG1hcFtzdHJpbmddc3RyaW5ne30pKQoJYXNzZXJ0LkZhbHNlKElzU2NhbGFyKG1ha2UoY2hhbiBzdHJpbmcpKSkKCWFzc2VydC5GYWxzZShJc1NjYWxhcih0aW1lLlRpbWV7fSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestIsStruct",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestIsStruct(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRmFsc2UoSXNTdHJ1Y3QoMSkpCglhc3NlcnQuRmFsc2UoSXNTdHJ1Y3QodHJ1ZSkpCglhc3NlcnQuRmFsc2UoSXNTdHJ1Y3QoMy4xNCkpCglhc3NlcnQuRmFsc2UoSXNTdHJ1Y3QoYGZvdXJgKSkKCWFzc2VydC5GYWxzZShJc1N0cnVjdChbXXN0cmluZ3tgMWB9KSkKCWFzc2VydC5GYWxzZShJc1N0cnVjdChtYXBbc3RyaW5nXXN0cmluZ3t9KSkKCWFzc2VydC5GYWxzZShJc1N0cnVjdChtYWtlKGNoYW4gc3RyaW5nKSkpCglhc3NlcnQuVHJ1ZShJc1N0cnVjdCh0aW1lLlRpbWV7fSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestIsZero",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestIsZero(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgdGhpbmcgVGhpbmcKCXZhciB0aGluZ3MgW11UaGluZwoJbWFkZVRoaW5ncyA6PSBtYWtlKFtdVGhpbmcsIDApCglhc3NlcnQuVHJ1ZShJc1plcm8obmlsKSkKCWFzc2VydC5UcnVlKElzWmVybygwKSkKCWFzc2VydC5UcnVlKElzWmVybygwLjApKQoJYXNzZXJ0LlRydWUoSXNaZXJvKGZhbHNlKSkKCWFzc2VydC5UcnVlKElzWmVybyhgYCkpCglhc3NlcnQuVHJ1ZShJc1plcm8odGhpbmcpKQoJYXNzZXJ0LlRydWUoSXNaZXJvKFRoaW5ne30pKQoJYXNzZXJ0LlRydWUoSXNaZXJvKHRoaW5ncykpCgl0aGluZ3MgPSBhcHBlbmQodGhpbmdzLCBUaGluZ3t9KQoJYXNzZXJ0LkZhbHNlKElzWmVybygxKSkKCWFzc2VydC5GYWxzZShJc1plcm8oMC4xKSkKCWFzc2VydC5GYWxzZShJc1plcm8odHJ1ZSkpCglhc3NlcnQuRmFsc2UoSXNaZXJvKGB2YWx1ZWApKQoJYXNzZXJ0LkZhbHNlKElzWmVybyhUaGluZ3tgdmFsdWVgLCB0cnVlfSkpCglhc3NlcnQuRmFsc2UoSXNaZXJvKCZUaGluZ3t9KSkKCWFzc2VydC5GYWxzZShJc1plcm8odGhpbmdzKSkKCWFzc2VydC5GYWxzZShJc1plcm8obWFkZVRoaW5ncykpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSetValueInt",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSetValueInt(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgaSBpbnQKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpLCBpbnQoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIGludDgoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIGludDE2KDQyKSkpCglhc3NlcnQuRXF1YWwoaW50KDQyKSwgaSkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpLCBpbnQzMig0MikpKQoJYXNzZXJ0LkVxdWFsKGludCg0MiksIGkpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaSwgaW50NjQoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIHVpbnQoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIHVpbnQ4KDQyKSkpCglhc3NlcnQuRXF1YWwoaW50KDQyKSwgaSkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpLCB1aW50MTYoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIHVpbnQzMig0MikpKQoJYXNzZXJ0LkVxdWFsKGludCg0MiksIGkpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaSwgdWludDY0KDQyKSkpCglhc3NlcnQuRXF1YWwoaW50KDQyKSwgaSkKCXZhciBpOCBpbnQ4Cglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaTgsIGludCg0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgaW50OCg0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgaW50MTYoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQ4KDQyKSwgaTgpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaTgsIGludDMyKDQyKSkpCglhc3NlcnQuRXF1YWwoaW50OCg0MiksIGk4KQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmk4LCBpbnQ2NCg0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgdWludCg0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgdWludDgoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQ4KDQyKSwgaTgpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaTgsIHVpbnQxNig0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgdWludDMyKDQyKSkpCglhc3NlcnQuRXF1YWwoaW50OCg0MiksIGk4KQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmk4LCB1aW50NjQoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQ4KDQyKSwgaTgpCglhc3NlcnQuTm90TmlsKFNldFZhbHVlKHRpbWUuVGltZXt9LCB0aW1lLk5vdygpKSkKfS8vIElOVAovLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCg==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSetValueStruct",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSetValueStruct(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0MSA6PSAmdGVzdFNldHRhYmxle05hbWU6IGB0MWAsIFR5cGU6IFZhbHVlMn0KCWFzc2VydC5FcXVhbChWYWx1ZTIsIHQxLlR5cGUpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgwKSwgNDIpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUocmVmbGVjdC5WYWx1ZU9mKHQxKS5FbGVtKCkuRmllbGQoMSksIFZhbHVlMykpCglhc3NlcnQuRXF1YWwoYDQyYCwgdDEuTmFtZSkKCWFzc2VydC5FcXVhbChWYWx1ZTMsIHQxLlR5cGUpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgxKSwgYHZhbHVlLTRgKSkKCWFzc2VydC5FcXVhbCh0ZXN0RW51bShgdmFsdWUtNGApLCB0MS5UeXBlKQoJdG0gOj0gdGltZS5EYXRlKDIwMDksIHRpbWUuTm92ZW1iZXIsIDEwLCAyMywgMCwgMCwgMCwgdGltZS5VVEMpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgyKSwgdG0pKQoJYXNzZXJ0LlRydWUodDEuQ3JlYXRlZEF0LkVxdWFsKHRtKSkKCXZhciB0bUkgaW50ZXJmYWNle30KCXRtSSA9IHRtCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgyKSwgdG1JKSkKCWFzc2VydC5UcnVlKHQxLkNyZWF0ZWRBdC5FcXVhbCh0bSkpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgzKSwgJnRtKSkKCWFzc2VydC5UcnVlKHQxLlVwZGF0ZWRBdC5FcXVhbCh0bSksIGZtdC5TcHJpbnRmKCIldiIsIHQxLlVwZGF0ZWRBdCkpCglhc3NlcnQuRXJyb3IoU2V0VmFsdWUocmVmbGVjdC5WYWx1ZU9mKHQxKS5FbGVtKCkuRmllbGQoMyksIHRtKSkKCXN0IDo9IHN1YnRpbWV7fQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJnN0LCB0bSkpCglhc3NlcnQuVHJ1ZShzdC5UaW1lLkVxdWFsKHRtKSkKCXRtID0gdGltZS5EYXRlKDIwMDksIHRpbWUuTm92ZW1iZXIsIDEwLCAyMywgMCwgMCwgMCwgdGltZS5VVEMpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCg1KSwgdG0pKQoJYXNzZXJ0LkVxdWFsKHRtLlVuaXhOYW5vKCksIHQxLkNyZWF0ZWRBdE5hbm8pCn0vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCg==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestVariant",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestVariant(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBWYXJpYW50e2B0ZXN0YH0uU3RyaW5nKCkpCglhc3NlcnQuVHJ1ZShWYXJpYW50e2BUcnVlYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgdHJ1ZWB9LkJvb2woKSkKCWFzc2VydC5UcnVlKFZhcmlhbnR7YFRSVUVgfS5Cb29sKCkpCglhc3NlcnQuVHJ1ZShWYXJpYW50e2AxYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgZGVubmlzYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgMC4wMDAwMDAwMDFgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgRmFsc2VgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgZmFsc2VgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgMGB9LkJvb2woKSkKCWFzc2VydC5GYWxzZShWYXJpYW50e2AwLjBgfS5Cb29sKCkpCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIFZhcmlhbnR7MX0uSW50KCkpCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIFZhcmlhbnR7MS45fS5JbnQoKSkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDEuOSksIFZhcmlhbnR7MS45fS5GbG9hdCgpKQoJYXNzZXJ0LlRydWUodGltZS5Vbml4KDE1MDAwMDAwMDAsIDApLkVxdWFsKFZhcmlhbnR7MTUwMDAwMDAwMH0uVGltZSgpKSkKCWFzc2VydC5UcnVlKHRpbWUuVW5peCgxNTAwMDAwMDAwLCAwKS5FcXVhbChWYXJpYW50e2AxNTAwMDAwMDAwYH0uVGltZSgpKSkKCWFzc2VydC5UcnVlKHRpbWUuVW5peCgxNTAwMDAwMDAwLCAwKS5FcXVhbChWYXJpYW50e2AyMDE3LTA3LTE0VDAyOjQwOjAwWmB9LlRpbWUoKSkpCglhc3NlcnQuVHJ1ZSh0aW1lLlVuaXgoMTUwMDAwMDAwMCwgMCkuRXF1YWwoVmFyaWFudHtgMjAxNy0wNy0xNFQwMjo0MDowMC0wMDowMGB9LlRpbWUoKSkpCglhc3NlcnQuVHJ1ZSh0aW1lLlVuaXgoMTUwMDAwMDAwMCwgMCkuRXF1YWwoVmFyaWFudHtgMjAxNy0wNy0xM1QyMjo0MDowMC0wNDowMGB9LlRpbWUoKSkpCglhc3NlcnQuRXF1YWwoW11ieXRlezB4NzQsIDB4NjUsIDB4NzMsIDB4NzR9LCBWYXJpYW50e2B0ZXN0YH0uQnl0ZXMoKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYHRlc3RgKTogVigxKSwgVihgb3RoZXJgKTogVigyLjQpfSwgVihtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0ZXN0YDogMSwgYG90aGVyYDogMi40fSkuTWFwKCkpCgl0eXBlIHZTdHJ1Y3RPbmUgc3RydWN0IHsKCQlOYW1lICAgIHN0cmluZwoJCUFnZSAgICAgaW50CgkJUGkgICAgICBmbG9hdDY0CgkJZW5hYmxlZCBib29sCgl9Cglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKDMuMTQxNSl9LCBWKHZTdHJ1Y3RPbmV7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBQaTogMy4xNDE1LCBlbmFibGVkOiB0cnVlfSkuTWFwKCkpCglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKDMuMTQxNSl9LCBWKCZ2U3RydWN0T25le05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgUGk6IDMuMTQxNSwgZW5hYmxlZDogdHJ1ZX0pLk1hcCgpKQoJdHlwZSB2U3RydWN0VGFnZ2VkIHN0cnVjdCB7CgkJTmFtZSAgICBzdHJpbmcKCQlBZ2UgICAgIGludCAgICAgYHRlc3Rhcm9vOiJhZ2UiYAoJCVBpICAgICAgZmxvYXQ2NCBgdGVzdGFyb286InBpLG9taXRlbXB0eSJgCgkJZW5hYmxlZCBib29sCgl9Cglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgYWdlYCk6IFYoNDIpfSwgVih2U3RydWN0VGFnZ2Vke05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgZW5hYmxlZDogdHJ1ZX0pLk1hcChgdGVzdGFyb29gKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYE5hbWVgKTogVihgdGVzdGApLCBWKGBhZ2VgKTogVig0Mil9LCBWKCZ2U3RydWN0VGFnZ2Vke05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgZW5hYmxlZDogdHJ1ZX0pLk1hcChgdGVzdGFyb29gKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYE5hbWVgKTogVihgdGVzdGApLCBWKGBBZ2VgKTogVig0MiksIFYoYFBpYCk6IFYoZmxvYXQ2NCgwKSl9LCBWKHZTdHJ1Y3RUYWdnZWR7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBlbmFibGVkOiB0cnVlfSkuTWFwKCkpCglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKGZsb2F0NjQoMCkpfSwgVigmdlN0cnVjdFRhZ2dlZHtOYW1lOiBgdGVzdGAsIEFnZTogNDIsIGVuYWJsZWQ6IHRydWV9KS5NYXAoKSkKfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "Thing": {
+            "Name": "Thing",
+            "MetaType": "struct",
+            "Fields": [
+                {
+                    "Name": "Name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Value",
+                    "Type": "interface{}"
+                }
+            ],
+            "Source": "dHlwZSBUaGluZyBzdHJ1Y3QgewoJTmFtZSAgc3RyaW5nCglWYWx1ZSBpbnRlcmZhY2V7fQp9"
+        },
+        "TypeConvertFunc": {
+            "Name": "TypeConvertFunc",
+            "Source": "dHlwZSBUeXBlQ29udmVydEZ1bmMgPSB1dGlscy5UeXBlQ29udmVydEZ1bmM="
+        },
+        "Variant": {
+            "Name": "Variant",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "Auto",
+                    "Comment": "Return the value automatically converted to the appropriate type.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Signature": "Auto() interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Bool",
+                    "Comment": "Return true if the value can be interpreted as a boolean true value, or false otherwise.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "Bool() bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Bytes",
+                    "Comment": "Return the value at key as a byte slice.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Signature": "Bytes() []byte",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Duration",
+                    "Comment": "Return the value as a time.Duration if it can be interpreted as such, or zero otherwise.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "time.Duration"
+                        }
+                    ],
+                    "Signature": "Duration() time.Duration",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Err",
+                    "Comment": "Return the value converted to an error, or nil if it is not an error.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Err() error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Float",
+                    "Comment": "Return the value as a float if it can be interpreted as such, or 0 otherwise.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        }
+                    ],
+                    "Signature": "Float() float64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Int",
+                    "Comment": "Return the value as an integer if it can be interpreted as such, or 0 otherwise. Float values\nwill be truncated to integers.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "int64"
+                        }
+                    ],
+                    "Signature": "Int() int64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Interface",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Signature": "Interface() interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "IsNil",
+                    "Comment": "Returns whether the underlying value is nil.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "IsNil() bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "IsZero",
+                    "Comment": "Returns whether the underlying value is a zero value.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "IsZero() bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Map",
+                    "Comment": "Return the value as a map[Variant]Variant if it can be interpreted as such, or an empty map otherwise.\nIf the variant contains a struct, and a tagName is specified, the key names of the output map will be taken\nfrom the struct field's tag value, consistent with the rules used in encoding/json.",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "tagName",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "map[Variant]Variant"
+                        }
+                    ],
+                    "Signature": "Map(tagName ...string) map[Variant]Variant",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MapNative",
+                    "Comment": "Return the value as a map[string]interface{} if it can be interpreted as such, or an empty map otherwise.",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "tagName",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "map[string]interface{}"
+                        }
+                    ],
+                    "Signature": "MapNative(tagName ...string) map[string]interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MarshalJSON",
+                    "Comment": "Satisfy the json.Marshaler interface",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "MarshalJSON() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Slice",
+                    "Comment": "Return the value as a slice of Variants. Scalar types will return a slice containing\na single Variant element representing the value.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]Variant"
+                        }
+                    ],
+                    "Signature": "Slice() []Variant",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Split",
+                    "Comment": "Converts the value to a string, then splits on the given delimiter.",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "on",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]string"
+                        }
+                    ],
+                    "Signature": "Split(on string) []string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "String",
+                    "Comment": "Return the value as a string, or an empty string if the value could not be converted.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Strings",
+                    "Comment": "Same as Slice(), but returns a []string.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]string"
+                        }
+                    ],
+                    "Signature": "Strings() []string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Time",
+                    "Comment": "Return the value as a time.Time if it can be interpreted as such, or zero time otherwise.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "time.Time"
+                        }
+                    ],
+                    "Signature": "Time() time.Time",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "V",
+                    "Comment": "Shortcut for creating a Variant.",
+                    "Arguments": [
+                        {
+                            "Name": "value",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Variant"
+                        }
+                    ],
+                    "Signature": "V(value interface{}) Variant",
+                    "Source": "ewoJcmV0dXJuIFZhcmlhbnR7VmFsdWU6IHZhbHVlfQp9",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "Value",
+                    "Type": "interface{}"
+                }
+            ],
+            "Comment": "Represents an interface type with helper functions for making it easy to do\ntype conversions.",
+            "Source": "dHlwZSBWYXJpYW50IHN0cnVjdHsgVmFsdWUgaW50ZXJmYWNle30gfSAvLyBSZXByZXNlbnRzIGFuIGludGVyZmFjZSB0eXBlIHdpdGggaGVscGVyIGZ1bmN0aW9ucyBmb3IgbWFraW5nIGl0IGVhc3kgdG8gZG8KLy8gdHlwZSBjb252ZXJzaW9ucy4K"
+        }
+    }
+}

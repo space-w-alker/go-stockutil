@@ -1,0 +1,2997 @@
+{
+    "Name": "maputil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/maputil",
+    "ImportPath": "maputil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
+    "MainFunction": false,
+    "CommentWordCount": 1152,
+    "LineCount": 4232,
+    "SourceLineCount": 3231,
+    "FunctionCount": 72,
+    "TypeCount": 13,
+    "ConstantCount": 1,
+    "VariableCount": 4,
+    "Statistics": {
+        "Mean": 0.5615,
+        "StdDev": 0.4834,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0.9,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "001_maputil_setters_test.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/json",
+                    "Alias": "_"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 5872,
+            "LineCount": 270,
+            "SourceLineCount": 213,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "002_maputil_getters_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 5312,
+            "LineCount": 191,
+            "SourceLineCount": 146,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "003_maputil_diffuse_test.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                    "Alias": "sliceutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 3612,
+            "LineCount": 178,
+            "SourceLineCount": 124,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "004_maputil_diffuse_typed_test.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                    "Alias": "sliceutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 5130,
+            "LineCount": 207,
+            "SourceLineCount": 158,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "005_maputil_coalesce_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                }
+            ],
+            "Size": 3717,
+            "LineCount": 149,
+            "SourceLineCount": 111,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "006_maputil_coalesce_typed_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 3506,
+            "LineCount": 145,
+            "SourceLineCount": 109,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "007_maputil_general_test.go",
+            "Imports": [
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "sync",
+                    "Alias": "sync"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 7356,
+            "LineCount": 334,
+            "SourceLineCount": 266,
+            "FunctionCount": 0,
+            "TypeCount": 3,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "008_maputil_walk_test.go",
+            "Imports": [
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 5849,
+            "LineCount": 253,
+            "SourceLineCount": 194,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "009_maputil_pluck_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 2858,
+            "LineCount": 160,
+            "SourceLineCount": 147,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "010_maputil_merge_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 4355,
+            "LineCount": 181,
+            "SourceLineCount": 127,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "m.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/json",
+                    "Alias": "json"
+                },
+                {
+                    "PackageName": "encoding/xml",
+                    "Alias": "xml"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "io",
+                    "Alias": "io"
+                },
+                {
+                    "PackageName": "net/http",
+                    "Alias": "http"
+                },
+                {
+                    "PackageName": "net/url",
+                    "Alias": "url"
+                },
+                {
+                    "PackageName": "sort",
+                    "Alias": "sort"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "sync",
+                    "Alias": "sync"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                    "Alias": "sliceutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/utils",
+                    "Alias": "utilutil"
+                }
+            ],
+            "Size": 12788,
+            "LineCount": 539,
+            "SourceLineCount": 397,
+            "FunctionCount": 36,
+            "TypeCount": 5,
+            "ConstantCount": 0,
+            "VariableCount": 2
+        },
+        {
+            "Name": "m_test.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/json",
+                    "Alias": "json"
+                },
+                {
+                    "PackageName": "encoding/xml",
+                    "Alias": "xml"
+                },
+                {
+                    "PackageName": "net/http",
+                    "Alias": "http"
+                },
+                {
+                    "PackageName": "net/url",
+                    "Alias": "url"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 10763,
+            "LineCount": 367,
+            "SourceLineCount": 304,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "maputil.go",
+            "Imports": [
+                {
+                    "PackageName": "errors",
+                    "Alias": "errors"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "io",
+                    "Alias": "io"
+                },
+                {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                },
+                {
+                    "PackageName": "regexp",
+                    "Alias": "regexp"
+                },
+                {
+                    "PackageName": "sort",
+                    "Alias": "sort"
+                },
+                {
+                    "PackageName": "strconv",
+                    "Alias": "strconv"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "sync",
+                    "Alias": "sync"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
+                    "Alias": "rxutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                    "Alias": "sliceutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/utils",
+                    "Alias": "utils"
+                },
+                {
+                    "PackageName": "github.com/mitchellh/mapstructure",
+                    "Alias": "mapstructure"
+                }
+            ],
+            "Size": 27097,
+            "LineCount": 1062,
+            "SourceLineCount": 773,
+            "FunctionCount": 36,
+            "TypeCount": 5,
+            "ConstantCount": 1,
+            "VariableCount": 2
+        },
+        {
+            "Name": "maputil_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
+                    "Alias": "rxutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/timeutil",
+                    "Alias": "timeutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 5081,
+            "LineCount": 196,
+            "SourceLineCount": 162,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Constants": [
+        {
+            "Name": "AppendValues",
+            "Type": "MergeOption",
+            "Immutable": true,
+            "Expression": "iota"
+        }
+    ],
+    "Variables": [
+        {
+            "Name": "MapXmlRootTagName",
+            "Expression": "`data`",
+            "Value": "data"
+        },
+        {
+            "Name": "MapXmlStructTagName",
+            "Expression": "`xml`",
+            "Value": "xml"
+        },
+        {
+            "Name": "SkipDescendants",
+            "Expression": "errors.New(\"skip descendants\")"
+        },
+        {
+            "Name": "UnmarshalStructTag",
+            "Type": "string",
+            "Expression": "`maputil`",
+            "Value": "maputil"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "Append",
+            "Arguments": [
+                {
+                    "Name": "maps",
+                    "Type": "...map[string]interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Signature": "Append(maps ...map[string]interface{}) map[string]interface{}",
+            "Source": "ewoJb3V0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWZvciBfLCBtYXBWIDo9IHJhbmdlIG1hcHMgewoJCWZvciBrLCB2IDo9IHJhbmdlIG1hcFYgewoJCQlvdXRba10gPSB2CgkJfQoJfQoJcmV0dXJuIG91dAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Apply",
+            "Comment": "Recursively walk the given map, calling the ApplyFunc for each leaf value.  If the second\nreturn value from the function is true, that value in the struct will be replaced with the first\nreturn value.  If false, the value will be left as-is.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fn",
+                    "Type": "ApplyFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Signature": "Apply(input interface{}, fn ApplyFunc) map[string]interface{}",
+            "Source": "ewoJcmV0dXJuIGFwcGx5KGZhbHNlLCBpbnB1dCwgZm4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ApplyStruct",
+            "Comment": "The same as Apply(), but will descend into structs.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "fn",
+                    "Type": "ApplyFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Signature": "ApplyStruct(input interface{}, fn ApplyFunc) map[string]interface{}",
+            "Source": "ewoJcmV0dXJuIGFwcGx5KHRydWUsIGlucHV0LCBmbikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Autotype",
+            "Comment": "Recursively walk the given map, performing automatic type conversion on all leaf nodes.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Signature": "Autotype(input interface{}) map[string]interface{}",
+            "Source": "ewoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlmIGVyciA6PSBXYWxrKGlucHV0LCBmdW5jKHZhbHVlIGludGVyZmFjZXt9LCBwYXRoIFtdc3RyaW5nLCBpc0xlYWYgYm9vbCkgZXJyb3IgewoJCWlmIHZhbHVlVmFyLCBvayA6PSB2YWx1ZS4odHlwZXV0aWwuVmFyaWFudCk7IG9rIHsKCQkJdmFsdWUgPSB2YWx1ZVZhci5BdXRvKCkKCQkJaWYgIXR5cGV1dGlsLklzRW1wdHkodmFsdWUpIHsKCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJfQoJCQlyZXR1cm4gU2tpcERlc2NlbmRhbnRzCgkJfSBlbHNlIGlmIGlzTGVhZiB7CgkJCWlmICF0eXBldXRpbC5Jc0VtcHR5KHZhbHVlKSB7CgkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgc3RyaW5ndXRpbC5BdXRvdHlwZSh2YWx1ZSkpCgkJCX0KCQl9CgkJcmV0dXJuIG5pbAoJfSk7IGVyciAhPSBuaWwgewoJCXBhbmljKGVyci5FcnJvcigpKQoJfQoJcmV0dXJuIG91dHB1dAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "CoalesceMap",
+            "Comment": "Take a deeply-nested map and return a flat (non-nested) map with keys whose intermediate tiers are joined with fieldJoiner",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Name": "fieldJoiner",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "CoalesceMap(data map[string]interface{}, fieldJoiner string) (map[string]interface{}, error)",
+            "Source": "ewoJcmV0dXJuIGRlZXBHZXRWYWx1ZXMoW11zdHJpbmd7fSwgZmllbGRKb2luZXIsIGRhdGEpLCBuaWwKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "CoalesceMapTyped",
+            "Comment": "Take a deeply-nested map and return a flat (non-nested) map with keys whose intermediate tiers are joined with fieldJoiner\nAdditionally, values will be converted to strings and keys will be prefixed with the datatype of the value",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Name": "fieldJoiner",
+                    "Type": "string"
+                },
+                {
+                    "Name": "typePrefixSeparator",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Type": "[]error"
+                }
+            ],
+            "Signature": "CoalesceMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error)",
+            "Source": "ewoJZXJycyA6PSBtYWtlKFtdZXJyb3IsIDApCglydiA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglmb3IgaywgdiA6PSByYW5nZSBkZWVwR2V0VmFsdWVzKFtdc3RyaW5ne30sIGZpZWxkSm9pbmVyLCBkYXRhKSB7CgkJaWYgc3RyaW5nVmFsLCBlcnIgOj0gc3RyaW5ndXRpbC5Ub1N0cmluZyh2KTsgZXJyID09IG5pbCB7CgkJCXJ2W3ByZXBhcmVDb2FsZXNjZWRLZXkoaywgdiwgdHlwZVByZWZpeFNlcGFyYXRvcildID0gc3RyaW5nVmFsCgkJfSBlbHNlIHsKCQkJZXJycyA9IGFwcGVuZChlcnJzLCBlcnIpCgkJfQoJfQoJcmV0dXJuIHJ2LCBlcnJzCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Compact",
+            "Comment": "Recursively remove all zero and empty values from the given map.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "Compact(input map[string]interface{}) (map[string]interface{}, error)",
+            "Source": "ewoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlmIGVyciA6PSBXYWxrKGlucHV0LCBmdW5jKHZhbHVlIGludGVyZmFjZXt9LCBwYXRoIFtdc3RyaW5nLCBpc0xlYWYgYm9vbCkgZXJyb3IgewoJCWlmICF0eXBldXRpbC5Jc0VtcHR5KHZhbHVlKSB7CgkJCWlmIHR5cGV1dGlsLklzQXJyYXkodmFsdWUpIHsKCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJCXJldHVybiBTa2lwRGVzY2VuZGFudHMKCQkJfSBlbHNlIGlmIGlzTGVhZiB7CgkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgdmFsdWUpCgkJCX0KCQl9CgkJcmV0dXJuIG5pbAoJfSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBuaWwsIGVycgoJfQoJcmV0dXJuIG91dHB1dCwgbmlsCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DeepCopy",
+            "Comment": "Perform a deep copy of the given map.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Signature": "DeepCopy(input interface{}) map[string]interface{}",
+            "Source": "ewoJcmV0dXJuIGFwcGx5KGZhbHNlLCBpbnB1dCwgbmlsKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DeepCopyStruct",
+            "Comment": "Perform a deep copy of the given map or struct, returning a map.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Signature": "DeepCopyStruct(input interface{}) map[string]interface{}",
+            "Source": "ewoJcmV0dXJuIGFwcGx5KHRydWUsIGlucHV0LCBuaWwpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DeepGet",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "path",
+                    "Type": "[]string"
+                },
+                {
+                    "Name": "fallbacks",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "DeepGet(data interface{}, path []string, fallbacks ...interface{}) interface{}",
+            "Source": "ewoJY3VycmVudCA6PSB0eXBldXRpbC5SZXNvbHZlVmFsdWUoZGF0YSkKCWlmIGxlbihmYWxsYmFja3MpID09IDAgewoJCWZhbGxiYWNrcyA9IFtdaW50ZXJmYWNle317bmlsfQoJfQoJZmFsbGJhY2sgOj0gZmFsbGJhY2tzWzBdCglmb3IgaSA6PSAwOyBpIDwgbGVuKHBhdGgpOyBpKysgewoJCXBhcnQgOj0gcGF0aFtpXQoJCWRWYWx1ZSA6PSByZWZsZWN0LlZhbHVlT2YoY3VycmVudCkKCQlpZiAhZFZhbHVlLklzVmFsaWQoKSB7CgkJCXJldHVybiBmYWxsYmFjawoJCX0KCQlkVHlwZSA6PSBkVmFsdWUuVHlwZSgpCgkJc3dpdGNoIGRUeXBlLktpbmQoKSB7CgkJY2FzZSByZWZsZWN0LkludGVyZmFjZSwgcmVmbGVjdC5QdHI6CgkJCWRUeXBlID0gZFR5cGUuRWxlbSgpCgkJfQoJCXN3aXRjaCBkVHlwZS5LaW5kKCkgewoJCWNhc2UgcmVmbGVjdC5TbGljZSwgcmVmbGVjdC5BcnJheToKCQkJaWYgc3RyaW5ndXRpbC5Jc0ludGVnZXIocGFydCkgewoJCQkJaWYgcGFydEluZGV4LCBlcnIgOj0gc3RyY29udi5BdG9pKHBhcnQpOyBlcnIgPT0gbmlsIHsKCQkJCQlpZiBwYXJ0SW5kZXggPCBkVmFsdWUuTGVuKCkgewoJCQkJCQlpZiB2YWx1ZSA6PSBkVmFsdWUuSW5kZXgocGFydEluZGV4KS5JbnRlcmZhY2UoKTsgdmFsdWUgIT0gbmlsIHsKCQkJCQkJCWN1cnJlbnQgPSB2YWx1ZQoJCQkJCQkJY29udGludWUKCQkJCQkJfQoJCQkJCX0KCQkJCX0KCQkJfSBlbHNlIGlmIHBhcnQgPT0gYCpgIHsKCQkJCXN1Yml0ZW1zIDo9IG1ha2UoW11pbnRlcmZhY2V7fSwgZFZhbHVlLkxlbigpKQoJCQkJZm9yIGogOj0gMDsgaiA8IGRWYWx1ZS5MZW4oKTsgaisrIHsKCQkJCQlpZiB2YWx1ZSA6PSBkVmFsdWUuSW5kZXgoaikuSW50ZXJmYWNlKCk7IHZhbHVlICE9IG5pbCB7CgkJCQkJCWlmIGkrMSA8IGxlbihwYXRoKSB7CgkJCQkJCQlzdWJpdGVtc1tqXSA9IERlZXBHZXQodmFsdWUsIHBhdGhbKGkrMSk6XSwgZmFsbGJhY2tzLi4uKQoJCQkJCQl9IGVsc2UgewoJCQkJCQkJc3ViaXRlbXNbal0gPSB2YWx1ZQoJCQkJCQl9CgkJCQkJfSBlbHNlIHsKCQkJCQkJc3ViaXRlbXNbal0gPSBmYWxsYmFjawoJCQkJCX0KCQkJCX0KCQkJCXJldHVybiBzdWJpdGVtcwoJCQl9CgkJCXJldHVybiBmYWxsYmFjawoJCWNhc2UgcmVmbGVjdC5NYXA6CgkJCWlmIG1hcFZhbHVlIDo9IGRWYWx1ZS5NYXBJbmRleChyZWZsZWN0LlZhbHVlT2YocGFydCkpOyBtYXBWYWx1ZS5Jc1ZhbGlkKCkgewoJCQkJY3VycmVudCA9IG1hcFZhbHVlLkludGVyZmFjZSgpCgkJCX0gZWxzZSB7CgkJCQlyZXR1cm4gZmFsbGJhY2sKCQkJfQoJCWNhc2UgcmVmbGVjdC5TdHJ1Y3Q6CgkJCWlmIGRWYWx1ZS5UeXBlKCkuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJCWRWYWx1ZSA9IGRWYWx1ZS5FbGVtKCkKCQkJfQoJCQlpZiBzdHJ1Y3RGaWVsZCA6PSBkVmFsdWUuRmllbGRCeU5hbWUocGFydCk7IHN0cnVjdEZpZWxkLklzVmFsaWQoKSAmJiBzdHJ1Y3RGaWVsZC5DYW5JbnRlcmZhY2UoKSB7CgkJCQljdXJyZW50ID0gc3RydWN0RmllbGQuSW50ZXJmYWNlKCkKCQkJCWNvbnRpbnVlCgkJCX0KCQlkZWZhdWx0OgoJCQlyZXR1cm4gZmFsbGJhY2sKCQl9Cgl9CglyZXR1cm4gY3VycmVudAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DeepGetBool",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "path",
+                    "Type": "[]string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "DeepGetBool(data interface{}, path []string) bool",
+            "Source": "ewoJdkkgOj0gRGVlcEdldChkYXRhLCBwYXRoLCBmYWxzZSkKCWlmIHYsIG9rIDo9IHZJLihib29sKTsgb2sgJiYgdiB7CgkJcmV0dXJuIHRydWUKCX0KCXJldHVybiBmYWxzZQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DeepGetString",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "path",
+                    "Type": "[]string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "DeepGetString(data interface{}, path []string) string",
+            "Source": "ewoJaWYgdiwgZXJyIDo9IHN0cmluZ3V0aWwuVG9TdHJpbmcoRGVlcEdldChkYXRhLCBwYXRoKSk7IGVyciA9PSBuaWwgewoJCXJldHVybiB2Cgl9CglyZXR1cm4gYGAKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DeepJoin",
+            "Comment": "Join the given map, using innerJoiner to join keys and values, and outerJoiner to join the resulting key-value lines.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "innerJoiner",
+                    "Type": "string"
+                },
+                {
+                    "Name": "outerJoiner",
+                    "Type": "string"
+                },
+                {
+                    "Name": "nestedSeparator",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "DeepJoin(input interface{}, innerJoiner string, outerJoiner string, nestedSeparator string) string",
+            "Source": "ewoJcGFydHMgOj0gbWFrZShbXXN0cmluZywgMCkKCVdhbGsoaW5wdXQsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmIHsKCQkJcGFydHMgPSBhcHBlbmQocGFydHMsIHN0cmluZ3MuSm9pbihwYXRoLCBuZXN0ZWRTZXBhcmF0b3IpK2lubmVySm9pbmVyK3N0cmluZ3V0aWwuTXVzdFN0cmluZyh2YWx1ZSkpCgkJfQoJCXJldHVybiBuaWwKCX0pCglyZXR1cm4gc3RyaW5ncy5Kb2luKHBhcnRzLCBvdXRlckpvaW5lcikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DeepSet",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "path",
+                    "Type": "[]string"
+                },
+                {
+                    "Name": "value",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "DeepSet(data interface{}, path []string, value interface{}) interface{}",
+            "Source": "ewoJaWYgbGVuKHBhdGgpID09IDAgewoJCXJldHVybiBkYXRhCgl9Cgl2YXIgZmlyc3QgPSBwYXRoWzBdCgl2YXIgcmVzdCA9IG1ha2UoW11zdHJpbmcsIDApCglpZiBsZW4ocGF0aCkgPiAxIHsKCQlyZXN0ID0gcGF0aFsxOl0KCX0KCWlmIGxlbihyZXN0KSA9PSAwIHsKCQlpZiB0eXBldXRpbC5Jc0FycmF5KGRhdGEpIHsKCQkJZGF0YUFycmF5IDo9IHNsaWNldXRpbC5TbGljZWlmeShkYXRhKQoJCQlpZiBpIDo9IGludCh0eXBldXRpbC5JbnQoZmlyc3QpKTsgdHlwZXV0aWwuSXNJbnRlZ2VyKGZpcnN0KSAmJiBpIDwgbGVuKGRhdGFBcnJheSkgewoJCQkJZGF0YUFycmF5W2ldID0gdmFsdWUKCQkJfSBlbHNlIHsKCQkJCWRhdGFBcnJheSA9IGFwcGVuZChkYXRhQXJyYXksIHZhbHVlKQoJCQl9CgkJCXJldHVybiBkYXRhQXJyYXkKCQl9IGVsc2UgaWYgdHlwZXV0aWwuSXNNYXAoZGF0YSkgewoJCQlpZiBlcnIgOj0gU2V0KGRhdGEsIGZpcnN0LCB2YWx1ZSk7IGVyciA9PSBuaWwgewoJCQkJcmV0dXJuIGRhdGEKCQkJfQoJCX0gZWxzZSBpZiB0eXBldXRpbC5Jc1N0cnVjdChkYXRhKSB7CgkJCWlmIGRWIDo9IHJlZmxlY3QuVmFsdWVPZihkYXRhKTsgZFYuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJCWlmIGRFIDo9IGRWLkVsZW0oKTsgZEUuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJCQlkViA9IGRFCgkJCQl9IGVsc2UgewoJCQkJCXJldHVybiBkYXRhCgkJCQl9CgkJCQlkVCA6PSBkVi5UeXBlKCkKCQkJCWZvciBpIDo9IDA7IGkgPCBkVC5OdW1GaWVsZCgpOyBpKysgewoJCQkJCWlmIGZUIDo9IGRULkZpZWxkKGkpOyBmVC5OYW1lID09IGZpcnN0IHsKCQkJCQkJaWYgZlYgOj0gZFYuRmllbGQoaSk7IGZWLklzVmFsaWQoKSAmJiBmVi5DYW5TZXQoKSB7CgkJCQkJCQl0eXBldXRpbC5TZXRWYWx1ZShkVi5GaWVsZChpKSwgdmFsdWUpCgkJCQkJCX0KCQkJCQkJYnJlYWsKCQkJCQl9CgkJCQl9CgkJCX0KCQkJcmV0dXJuIGRhdGEKCQl9Cgl9IGVsc2UgewoJCWlmIHR5cGV1dGlsLklzSW50ZWdlcihyZXN0WzBdKSB7CgkJCWlmIHR5cGV1dGlsLklzTWFwKGRhdGEpIHsKCQkJCWN1clZhbCA6PSBHZXQoZGF0YSwgZmlyc3QpCgkJCQlpZiB0eXBldXRpbC5Jc0FycmF5KGN1clZhbCkgewoJCQkJCWN1clZhbCA9IHNsaWNldXRpbC5TbGljZWlmeShjdXJWYWwpCgkJCQl9IGVsc2UgewoJCQkJCWN1clZhbCA9IG1ha2UoW11pbnRlcmZhY2V7fSwgMCkKCQkJCQlTZXQoZGF0YSwgZmlyc3QsIGN1clZhbCkKCQkJCX0KCQkJCWlmIGVyciA6PSBTZXQoZGF0YSwgZmlyc3QsIERlZXBTZXQoY3VyVmFsLCByZXN0LCB2YWx1ZSkpOyBlcnIgPT0gbmlsIHsKCQkJCQlyZXR1cm4gZGF0YQoJCQkJfQoJCQl9CgkJfSBlbHNlIHsKCQkJaWYgdHlwZXV0aWwuSXNBcnJheShkYXRhKSB7CgkJCQlkYXRhQXJyYXkgOj0gc2xpY2V1dGlsLlNsaWNlaWZ5KGRhdGEpCgkJCQlpZiBjdXJJbmRleCA6PSBpbnQodHlwZXV0aWwuSW50KGZpcnN0KSk7IHR5cGV1dGlsLklzSW50ZWdlcihmaXJzdCkgewoJCQkJCWlmIGN1ckluZGV4ID49IGxlbihkYXRhQXJyYXkpIHsKCQkJCQkJZm9yIGFkZCA6PSBsZW4oZGF0YUFycmF5KTsgYWRkIDw9IGN1ckluZGV4OyBhZGQrKyB7CgkJCQkJCQlkYXRhQXJyYXkgPSBhcHBlbmQoZGF0YUFycmF5LCBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pKQoJCQkJCQl9CgkJCQkJfQoJCQkJCWlmIGN1ckluZGV4IDwgbGVuKGRhdGFBcnJheSkgewoJCQkJCQlkYXRhQXJyYXlbY3VySW5kZXhdID0gRGVlcFNldChkYXRhQXJyYXlbY3VySW5kZXhdLCByZXN0LCB2YWx1ZSkKCQkJCQkJcmV0dXJuIGRhdGFBcnJheQoJCQkJCX0KCQkJCX0KCQkJfSBlbHNlIGlmIGRhdGFNYXAsIG9rIDo9IGRhdGEuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pOyBvayB7CgkJCQljdXJWYWwsIF8gOj0gZGF0YU1hcFtmaXJzdF0KCQkJCWlmICF0eXBldXRpbC5Jc01hcChjdXJWYWwpIHsKCQkJCQlkYXRhTWFwW2ZpcnN0XSA9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCQkJCQljdXJWYWwsIF8gPSBkYXRhTWFwW2ZpcnN0XQoJCQkJfQoJCQkJZGF0YU1hcFtmaXJzdF0gPSBEZWVwU2V0KGRhdGFNYXBbZmlyc3RdLCByZXN0LCB2YWx1ZSkKCQkJCXJldHVybiBkYXRhTWFwCgkJCX0KCQl9Cgl9CglyZXR1cm4gZGF0YQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Delete",
+            "Comment": "Delete a key to a given value in the given map.",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "key",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "Delete(data interface{}, key interface{}) error",
+            "Source": "ewoJcmV0dXJuIFNldChkYXRhLCBrZXksIGRlbGV0ZVZhbHVlKHRydWUpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DiffuseMap",
+            "Comment": "Take a flat (non-nested) map keyed with fields joined on fieldJoiner and return a\ndeeply-nested map",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Name": "fieldJoiner",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "DiffuseMap(data map[string]interface{}, fieldJoiner string) (map[string]interface{}, error)",
+            "Source": "ewoJcnYsIF8gOj0gRGlmZnVzZU1hcFR5cGVkKGRhdGEsIGZpZWxkSm9pbmVyLCAiIikKCXJldHVybiBydiwgbmlsCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "DiffuseMapTyped",
+            "Comment": "Take a flat (non-nested) map keyed with fields joined on fieldJoiner and return a\ndeeply-nested map",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Name": "fieldJoiner",
+                    "Type": "string"
+                },
+                {
+                    "Name": "typePrefixSeparator",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Type": "[]error"
+                }
+            ],
+            "Signature": "DiffuseMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error)",
+            "Source": "ewoJZXJycyA6PSBtYWtlKFtdZXJyb3IsIDApCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJZGF0YUtleXMgOj0gU3RyaW5nS2V5cyhkYXRhKQoJc29ydC5TdHJpbmdzKGRhdGFLZXlzKQoJZm9yIF8sIGtleSA6PSByYW5nZSBkYXRhS2V5cyB7CgkJdmFyIGtleVBhcnRzIFtdc3RyaW5nCgkJdmFsdWUsIF8gOj0gZGF0YVtrZXldCgkJaWYgdHlwZVByZWZpeFNlcGFyYXRvciAhPSAiIiB7CgkJCXZhciB0eXBlTmFtZSBzdHJpbmcKCQkJdHlwZU5hbWUsIGtleSA9IHN0cmluZ3V0aWwuU3BsaXRQYWlyVHJhaWxpbmcoa2V5LCB0eXBlUHJlZml4U2VwYXJhdG9yKQoJCQlpZiB0eXBlTmFtZSA9PSBgYCB7CgkJCQl0eXBlTmFtZSA9IGBzdHJgCgkJCX0KCQkJaWYgdiwgZXJyIDo9IGNvZXJjZUludG9UeXBlKHZhbHVlLCB0eXBlTmFtZSk7IGVyciA9PSBuaWwgewoJCQkJdmFsdWUgPSB2CgkJCX0gZWxzZSB7CgkJCQllcnJzID0gYXBwZW5kKGVycnMsIGVycikKCQkJfQoJCX0KCQlrZXlQYXJ0cyA9IHN0cmluZ3MuU3BsaXQoa2V5LCBmaWVsZEpvaW5lcikKCQlvdXRwdXQgPSBEZWVwU2V0KG91dHB1dCwga2V5UGFydHMsIHZhbHVlKS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCX0KCXJldHVybiBvdXRwdXQsIGVycnMKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Fprintf",
+            "Comment": "Same as Sprintf, but writes output to the given writer.",
+            "Arguments": [
+                {
+                    "Name": "w",
+                    "Type": "io.Writer"
+                },
+                {
+                    "Name": "format",
+                    "Type": "string"
+                },
+                {
+                    "Name": "data",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Signature": "Fprintf(w io.Writer, format string, data ...interface{})",
+            "Source": "ewoJZm10LkZwcmludCh3LCBTcHJpbnRmKGZvcm1hdCwgZGF0YS4uLikpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Get",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "key",
+                    "Type": "string"
+                },
+                {
+                    "Name": "fallback",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "Get(data interface{}, key string, fallback ...interface{}) interface{}",
+            "Source": "ewoJZGF0YSA9IHR5cGV1dGlsLlJlc29sdmVWYWx1ZShkYXRhKQoJaWYgdHlwZXV0aWwuSXNLaW5kKGRhdGEsIHJlZmxlY3QuTWFwKSB7CgkJZGF0YVYgOj0gcmVmbGVjdC5WYWx1ZU9mKGRhdGEpCgkJaWYgdmFsdWVWIDo9IGRhdGFWLk1hcEluZGV4KHJlZmxlY3QuVmFsdWVPZihrZXkpKTsgdmFsdWVWLklzVmFsaWQoKSB7CgkJCWlmIHZhbHVlSSA6PSB2YWx1ZVYuSW50ZXJmYWNlKCk7ICF0eXBldXRpbC5Jc1plcm8odmFsdWVJKSB7CgkJCQlyZXR1cm4gdmFsdWVJCgkJCX0KCQl9Cgl9CglpZiBsZW4oZmFsbGJhY2spID4gMCB7CgkJcmV0dXJuIGZhbGxiYWNrWzBdCgl9IGVsc2UgewoJCXJldHVybiBuaWwKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Join",
+            "Comment": "Join the given map, using innerJoiner to join keys and values, and outerJoiner to join the resulting key-value lines.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "innerJoiner",
+                    "Type": "string"
+                },
+                {
+                    "Name": "outerJoiner",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Join(input interface{}, innerJoiner string, outerJoiner string) string",
+            "Source": "ewoJcmV0dXJuIERlZXBKb2luKGlucHV0LCBpbm5lckpvaW5lciwgb3V0ZXJKb2luZXIsIGAuYCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Keys",
+            "Comment": "Return an interface slice of the keys of the given map.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]interface{}"
+                }
+            ],
+            "Signature": "Keys(input interface{}) []interface{}",
+            "Source": "ewoJa2V5cyA6PSBtYWtlKFtdaW50ZXJmYWNle30sIDApCglpbnB1dCA9IHR5cGV1dGlsLlJlc29sdmVWYWx1ZShpbnB1dCkKCWlmIGlucHV0ID09IG5pbCB7CgkJcmV0dXJuIGtleXMKCX0KCWlucHV0ViA6PSByZWZsZWN0LlZhbHVlT2YoaW5wdXQpCglpZiBpbnB1dFYuS2luZCgpID09IHJlZmxlY3QuTWFwIHsKCQlrZXlzViA6PSBpbnB1dFYuTWFwS2V5cygpCgkJZm9yIF8sIGtleVYgOj0gcmFuZ2Uga2V5c1YgewoJCQlrZXlzID0gYXBwZW5kKGtleXMsIGtleVYpCgkJfQoJfSBlbHNlIGlmIHN5bmNNYXAsIG9rIDo9IGlucHV0LihzeW5jLk1hcCk7IG9rIHsKCQlzeW5jTWFwLlJhbmdlKGZ1bmMoa2V5IGludGVyZmFjZXt9LCBfIGludGVyZmFjZXt9KSBib29sIHsKCQkJa2V5cyA9IGFwcGVuZChrZXlzLCBrZXkpCgkJCXJldHVybiB0cnVlCgkJfSkKCX0KCXJldHVybiBrZXlzCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MapValues",
+            "Comment": "Return the values from the given map.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]interface{}"
+                }
+            ],
+            "Signature": "MapValues(input interface{}) []interface{}",
+            "Source": "ewoJdmFsdWVzIDo9IG1ha2UoW11pbnRlcmZhY2V7fSwgMCkKCWlucHV0ViA6PSByZWZsZWN0LlZhbHVlT2YoaW5wdXQpCglzd2l0Y2ggaW5wdXRWLktpbmQoKSB7CgljYXNlIHJlZmxlY3QuTWFwOgoJCWZvciBfLCBtYXBLZXlWIDo9IHJhbmdlIGlucHV0Vi5NYXBLZXlzKCkgewoJCQlpZiBtYXBWIDo9IGlucHV0Vi5NYXBJbmRleChtYXBLZXlWKTsgbWFwVi5Jc1ZhbGlkKCkgJiYgbWFwVi5DYW5JbnRlcmZhY2UoKSB7CgkJCQl2YWx1ZXMgPSBhcHBlbmQodmFsdWVzLCBtYXBWLkludGVyZmFjZSgpKQoJCQl9CgkJfQoJfQoJcmV0dXJuIHZhbHVlcwp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Merge",
+            "Comment": "Recursively merge the contents of the second map into the first one and return the result.",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "second",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "options",
+                    "Type": "...MergeOption"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "Merge(first interface{}, second interface{}, options ...MergeOption) (map[string]interface{}, error)",
+            "Source": "ewoJaWYgZmlyc3QgIT0gbmlsICYmICF0eXBldXRpbC5Jc0tpbmQoZmlyc3QsIHJlZmxlY3QuTWFwKSB7CgkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiZmlyc3QgYXJndW1lbnQgbXVzdCBiZSBhIG1hcCwgZ290ICVUIiwgZmlyc3QpCgl9CglpZiBzZWNvbmQgIT0gbmlsICYmICF0eXBldXRpbC5Jc0tpbmQoc2Vjb25kLCByZWZsZWN0Lk1hcCkgewoJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoInNlY29uZCBhcmd1bWVudCBtdXN0IGJlIGEgbWFwLCBnb3QgJVQiLCBzZWNvbmQpCgl9CglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaWYgZXJyIDo9IFdhbGsoZmlyc3QsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmIHsKCQkJRGVlcFNldChvdXRwdXQsIHBhdGgsIHZhbHVlKQoJCX0KCQlyZXR1cm4gbmlsCgl9KTsgZXJyICE9IG5pbCB7CgkJcmV0dXJuIG5pbCwgZXJyCgl9CglpZiBlcnIgOj0gV2FsayhzZWNvbmQsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmIHsKCQkJaWYgdmFsdWUgIT0gbmlsIHsKCQkJCWlmIGN1cnJlbnRWYWx1ZSA6PSBEZWVwR2V0KG91dHB1dCwgcGF0aCwgbmlsKTsgY3VycmVudFZhbHVlID09IG5pbCB7CgkJCQkJRGVlcFNldChvdXRwdXQsIHBhdGgsIHZhbHVlKQoJCQkJfSBlbHNlIHsKCQkJCQljdXJyZW50ViA6PSByZWZsZWN0LlZhbHVlT2YoY3VycmVudFZhbHVlKQoJCQkJCXN3aXRjaCBjdXJyZW50Vi5UeXBlKCkuS2luZCgpIHsKCQkJCQljYXNlIHJlZmxlY3QuU2xpY2UsIHJlZmxlY3QuQXJyYXk6CgkJCQkJCW5ld1BhdGggOj0gYXBwZW5kKHBhdGgsIGZtdC5TcHJpbnRmKCIlZCIsIGN1cnJlbnRWLkxlbigpKSkKCQkJCQkJRGVlcFNldChvdXRwdXQsIG5ld1BhdGgsIHZhbHVlKQoJCQkJCWRlZmF1bHQ6CgkJCQkJCWlmIE1lcmdlT3B0aW9ucyhvcHRpb25zKS5IYXMoQXBwZW5kVmFsdWVzKSB7CgkJCQkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgW11pbnRlcmZhY2V7fXtjdXJyZW50VmFsdWUsIHZhbHVlfSkKCQkJCQkJfSBlbHNlIHsKCQkJCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJCQkJfQoJCQkJCX0KCQkJCX0KCQkJfQoJCX0KCQlyZXR1cm4gbmlsCgl9KTsgZXJyICE9IG5pbCB7CgkJcmV0dXJuIG5pbCwgZXJyCgl9CglyZXR1cm4gb3V0cHV0LCBuaWwKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Pluck",
+            "Arguments": [
+                {
+                    "Name": "sliceOfMaps",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "key",
+                    "Type": "[]string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]interface{}"
+                }
+            ],
+            "Signature": "Pluck(sliceOfMaps interface{}, key []string) []interface{}",
+            "Source": "ewoJcnYgOj0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJaWYgc2xpY2VPZk1hcHMgPT0gbmlsIHsKCQlyZXR1cm4gcnYKCX0KCVdhbGtTdHJ1Y3Qoc2xpY2VPZk1hcHMsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmICYmIGxlbihwYXRoKSA+IDEgewoJCQl2YXIgc2hvdWxkSW5jbHVkZSBib29sCgkJCWZvciBpLCBfIDo9IHJhbmdlIHBhdGggewoJCQkJaWYgaSA9PSAwIHsKCQkJCQljb250aW51ZQoJCQkJfSBlbHNlIGlmIChpIC0gMSkgPCBsZW4oa2V5KSB7CgkJCQkJaWYga2V5W2ktMV0gPT0gYCpgIHx8IHBhdGhbaV0gPT0ga2V5W2ktMV0gewoJCQkJCQlzaG91bGRJbmNsdWRlID0gdHJ1ZQoJCQkJCQljb250aW51ZQoJCQkJCX0gZWxzZSB7CgkJCQkJCXNob3VsZEluY2x1ZGUgPSBmYWxzZQoJCQkJCQlicmVhawoJCQkJCX0KCQkJCX0KCQkJfQoJCQlpZiBzaG91bGRJbmNsdWRlIHsKCQkJCXJ2ID0gYXBwZW5kKHJ2LCB2YWx1ZSkKCQkJfQoJCX0KCQlyZXR1cm4gbmlsCgl9KQoJcmV0dXJuIHJ2Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Printf",
+            "Comment": "Same as Sprintf, but prints its output to standard output.",
+            "Arguments": [
+                {
+                    "Name": "format",
+                    "Type": "string"
+                },
+                {
+                    "Name": "data",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Signature": "Printf(format string, data ...interface{})",
+            "Source": "ewoJZm10LlByaW50KFNwcmludGYoZm9ybWF0LCBkYXRhLi4uKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Set",
+            "Comment": "Set a key to a given value in the given map, reflect.Map Value, or slice/array.",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "key",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "value",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "Set(data interface{}, key interface{}, value interface{}) error",
+            "Source": "ewoJdmFyIGRhdGFNIHJlZmxlY3QuVmFsdWUKCXZhciBpc0RlbGV0ZSBib29sCglpZiBfLCBvayA6PSB2YWx1ZS4oZGVsZXRlVmFsdWUpOyBvayB7CgkJaXNEZWxldGUgPSB0cnVlCgl9CglpZiB2LCBvayA6PSBkYXRhLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCWRhdGFNID0gdgoJfSBlbHNlIHsKCQlkYXRhTSA9IHJlZmxlY3QuVmFsdWVPZihkYXRhKQoJfQoJaWYgYXNNYXAsIG9rIDo9IGRhdGEuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pOyBvayB7CgkJaWYgaXNEZWxldGUgewoJCQlkZWxldGUoYXNNYXAsIHR5cGV1dGlsLlN0cmluZyhrZXkpKQoJCX0gZWxzZSB7CgkJCWFzTWFwW3R5cGV1dGlsLlN0cmluZyhrZXkpXSA9IHZhbHVlCgkJfQoJCXJldHVybiBuaWwKCX0gZWxzZSBpZiBkYXRhTS5DYW5JbnRlcmZhY2UoKSB7CgkJaWYgYXNNYXAsIG9rIDo9IGRhdGFNLkludGVyZmFjZSgpLihtYXBbc3RyaW5nXWludGVyZmFjZXt9KTsgb2sgewoJCQlpZiBpc0RlbGV0ZSB7CgkJCQlkZWxldGUoYXNNYXAsIHR5cGV1dGlsLlN0cmluZyhrZXkpKQoJCQl9IGVsc2UgewoJCQkJYXNNYXBbdHlwZXV0aWwuU3RyaW5nKGtleSldID0gdmFsdWUKCQkJfQoJCQlyZXR1cm4gbmlsCgkJfQoJfQoJc3dpdGNoIGRhdGFNLktpbmQoKSB7CgljYXNlIHJlZmxlY3QuTWFwOgoJCWlmIGlzRGVsZXRlIHsKCQkJZGF0YU0uU2V0TWFwSW5kZXgocmVmbGVjdC5WYWx1ZU9mKGtleSksIHJlZmxlY3QuVmFsdWV7fSkKCQl9IGVsc2UgewoJCQlkYXRhTS5TZXRNYXBJbmRleChyZWZsZWN0LlZhbHVlT2Yoa2V5KSwgcmVmbGVjdC5WYWx1ZU9mKHZhbHVlKSkKCQl9CgljYXNlIHJlZmxlY3QuU2xpY2UsIHJlZmxlY3QuQXJyYXk6CgkJaWYgaXNEZWxldGUgewoJCQlyZXR1cm4gZm10LkVycm9yZigiQXJyYXkgaXRlbSBkZWxldGlvbiBub3QgaW1wbGVtZW50ZWQiKQoJCX0gZWxzZSBpZiB0eXBldXRpbC5Jc0ludGVnZXIoa2V5KSB7CgkJCWRhdGFNLkluZGV4KGludCh0eXBldXRpbC5JbnQoa2V5KSkpCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGZtdC5FcnJvcmYoImNhbm5vdCBzZXQgbm9uLWludGVnZXIgYXJyYXkgaW5kZXggJXEiLCBrZXkpCgkJfQoJfQoJcmV0dXJuIG5pbAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Split",
+            "Comment": "Split the given string, first on outerJoiner to form key-value lines, then each line on innerJoiner.\nPopulates a map and returns the result.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "string"
+                },
+                {
+                    "Name": "innerJoiner",
+                    "Type": "string"
+                },
+                {
+                    "Name": "outerJoiner",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Signature": "Split(input string, innerJoiner string, outerJoiner string) map[string]interface{}",
+            "Source": "ewoJcnYgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJcGFpcnMgOj0gc3RyaW5ncy5TcGxpdChpbnB1dCwgb3V0ZXJKb2luZXIpCglmb3IgXywgcGFpciA6PSByYW5nZSBwYWlycyB7CgkJa3YgOj0gc3RyaW5ncy5TcGxpdE4ocGFpciwgaW5uZXJKb2luZXIsIDIpCgkJaWYgbGVuKGt2KSA9PSAyIHsKCQkJcnZba3ZbMF1dID0ga3ZbMV0KCQl9Cgl9CglyZXR1cm4gcnYKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Sprintf",
+            "Comment": "Format the given string in the same manner as fmt.Sprintf, except data items that are\nmaps or Map objects will be expanded using special patterns in the format string.",
+            "Arguments": [
+                {
+                    "Name": "format",
+                    "Type": "string"
+                },
+                {
+                    "Name": "data",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "Sprintf(format string, data ...interface{}) string",
+            "Source": "ewoJdmFyIHBhcmFtcyBbXWludGVyZmFjZXt9Ck1hdGNoTG9vcDoKCWZvciB7CgkJbSA6PSByeHV0aWwuTWF0Y2gocnhNYXBGbXQsIGZvcm1hdCkKCQlpZiBtID09IG5pbCB7CgkJCWJyZWFrCgkJfQoJCWNhcHMgOj0gbS5OYW1lZENhcHR1cmVzKCkKCQlwbGFjZWhvbGRlciA6PSBjYXBzW2BmbXRgXQoJCWlmIHBsYWNlaG9sZGVyID09IGBgIHsKCQkJcGxhY2Vob2xkZXIgPSBgJXZgCgkJfQoJCWZvciBfLCBkIDo9IHJhbmdlIGRhdGEgewoJCQlkbSA6PSBNKGQpCgkJCWlmIHRtLCBvayA6PSBkbS5HZXQoY2Fwc1tga2V5YF0pLlZhbHVlLih0aW1lLlRpbWUpOyBvayB7CgkJCQl0bWZtdCA6PSBzdHJpbmdzLlRyaW1QcmVmaXgocGxhY2Vob2xkZXIsIGAlYCkKCQkJCWlmIHRtZm10ID09IGB2YCB7CgkJCQkJdG1mbXQgPSB0aW1lLlJGQzMzMzkKCQkJCX0KCQkJCXBhcmFtcyA9IGFwcGVuZChwYXJhbXMsIHRtLkZvcm1hdCh0bWZtdCkpCgkJCQlmb3JtYXQgPSBtLlJlcGxhY2VHcm91cCgxLCBgJXNgKQoJCQkJY29udGludWUgTWF0Y2hMb29wCgkJCX0gZWxzZSBpZiB2IDo9IGRtLlN0cmluZyhjYXBzW2BrZXlgXSk7IHYgIT0gYGAgewoJCQkJcGFyYW1zID0gYXBwZW5kKHBhcmFtcywgdikKCQkJCWZvcm1hdCA9IG0uUmVwbGFjZUdyb3VwKDEsIHBsYWNlaG9sZGVyKQoJCQkJY29udGludWUgTWF0Y2hMb29wCgkJCX0KCQl9CgkJcGFyYW1zID0gYXBwZW5kKHBhcmFtcywgY2Fwc1tgZmFsbGJhY2tgXSkKCQlmb3JtYXQgPSBtLlJlcGxhY2VHcm91cCgxLCBwbGFjZWhvbGRlcikKCX0KCXJldHVybiBmbXQuU3ByaW50Zihmb3JtYXQsIHBhcmFtcy4uLikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "StringKeys",
+            "Comment": "Return a slice of strings representing the keys of the given map.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "StringKeys(input interface{}) []string",
+            "Source": "ewoJa2V5cyA6PSBzbGljZXV0aWwuU3RyaW5naWZ5KEtleXMoaW5wdXQpKQoJc29ydC5TdHJpbmdzKGtleXMpCglyZXR1cm4ga2V5cwp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Stringify",
+            "Comment": "Take the input map and convert all values to strings.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "map[string]string"
+                }
+            ],
+            "Signature": "Stringify(input map[string]interface{}) map[string]string",
+            "Source": "ewoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11zdHJpbmcpCglmb3IgaywgdiA6PSByYW5nZSBpbnB1dCB7CgkJaWYgc3RyLCBlcnIgOj0gc3RyaW5ndXRpbC5Ub1N0cmluZyh2KTsgZXJyID09IG5pbCB7CgkJCW91dHB1dFtrXSA9IHN0cgoJCX0gZWxzZSB7CgkJCW91dHB1dFtrXSA9IGZtdC5TcHJpbnRmKCIhI0VSUjwldj4iLCBlcnIpCgkJfQoJfQoJcmV0dXJuIG91dHB1dAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "StructFromMap",
+            "Comment": "Same as TaggedStructFromMapFunc, but no value conversion and uses the \"maputil\" struct tag.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Name": "populate",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "StructFromMap(input map[string]interface{}, populate interface{}) error",
+            "Source": "ewoJcmV0dXJuIFRhZ2dlZFN0cnVjdEZyb21NYXAoaW5wdXQsIHBvcHVsYXRlLCBgYCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TaggedStructFromMap",
+            "Comment": "Same as TaggedStructFromMapFunc, but does not perform any value conversion.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "populate",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "tagname",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "TaggedStructFromMap(input interface{}, populate interface{}, tagname string) error",
+            "Source": "ewoJcmV0dXJuIFRhZ2dlZFN0cnVjdEZyb21NYXBGdW5jKGlucHV0LCBwb3B1bGF0ZSwgdGFnbmFtZSwgbmlsKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TaggedStructFromMapFunc",
+            "Comment": "Take an input map, and populate the struct instance pointed to by \"populate\".  Use the values of the tagname tag\nto inform which map keys should be used to fill struct fields, and if a Conversion function is given, that\nfunction will be used to allow values to be converted in preparation for becoming struct field values.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "populate",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "tagname",
+                    "Type": "string"
+                },
+                {
+                    "Name": "converter",
+                    "Type": "ConversionFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname string, converter ConversionFunc) error",
+            "Source": "ewoJaWYgdGFnbmFtZSA9PSBgYCB7CgkJdGFnbmFtZSA9IFVubWFyc2hhbFN0cnVjdFRhZwoJfQoJaWYgY29udmVydGVyID09IG5pbCB7CgkJY29udmVydGVyID0gZnVuYyhmcm9tIHJlZmxlY3QuVHlwZSwgdG8gcmVmbGVjdC5UeXBlLCBkYXRhIGludGVyZmFjZXt9KSAoaW50ZXJmYWNle30sIGVycm9yKSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9CglpZiBwb3B1bGF0ZVYsIG9rIDo9IHBvcHVsYXRlLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCWlmIHBvcHVsYXRlVi5Jc1ZhbGlkKCkgewoJCQlwb3B1bGF0ZSA9IHBvcHVsYXRlVi5JbnRlcmZhY2UoKQoJCX0gZWxzZSB7CgkJCXJldHVybiBmbXQuRXJyb3JmKCJEZXN0aW5hdGlvbiB2YWx1ZSBpcyBpbnZhbGlkIG9yIG5vbi1hZGRyZXNzYWJsZSIpCgkJfQoJfQoJaWYgZGVjb2RlciwgZXJyIDo9IG1hcHN0cnVjdHVyZS5OZXdEZWNvZGVyKCZtYXBzdHJ1Y3R1cmUuRGVjb2RlckNvbmZpZ3tSZXN1bHQ6IHBvcHVsYXRlLCBUYWdOYW1lOiB0YWduYW1lLCBEZWNvZGVIb29rOiBjb252ZXJ0ZXJ9KTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIGRlY29kZXIuRGVjb2RlKGlucHV0KQoJfSBlbHNlIHsKCQlyZXR1cm4gZXJyCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Walk",
+            "Comment": "Recursively walk through the given map, calling walkFn for each intermediate and leaf value.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "walkFn",
+                    "Type": "WalkFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "Walk(input interface{}, walkFn WalkFunc) error",
+            "Source": "ewoJcmV0dXJuIHdhbGtHZW5lcmljKGlucHV0LCBuaWwsIHdhbGtGbiwgZmFsc2UpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "WalkStruct",
+            "Comment": "Recursively walk through the given map, calling walkFn for each intermediate and leaf value.\nThis form behaves identically to Walk(), except that it will also recurse into structs, calling\nwalkFn for all intermediate structs and fields.",
+            "Arguments": [
+                {
+                    "Name": "input",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "walkFn",
+                    "Type": "WalkFunc"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "WalkStruct(input interface{}, walkFn WalkFunc) error",
+            "Source": "ewoJcmV0dXJuIHdhbGtHZW5lcmljKGlucHV0LCBuaWwsIHdhbGtGbiwgdHJ1ZSkKfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Examples": [
+        {
+            "Name": "ExamplePrintf_deeplyNestedKeys",
+            "Label": "DeeplyNestedKeys",
+            "For": "Printf",
+            "Signature": "ExamplePrintf_deeplyNestedKeys()",
+            "Source": "ewoJUHJpbnRmKCJIZWxsbyAke2RldGFpbHMuMC52YWx1ZXxndWVzdH0hIFlvdXIgSVAgaXM6ICR7ZGV0YWlscy4xLnZhbHVlfCh1bmtub3duKX0iLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BkZXRhaWxzYDogW11tYXBbc3RyaW5nXWludGVyZmFjZXt9e3tga2V5YDogYHVzZXJuYW1lYCwgYHZhbHVlYDogYGZyaWVuZGB9LCB7YGtleWA6IGBpcGFkZHJlc3NgLCBgdmFsdWVgOiBgMTI3LjAuMC4xYH19fSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExamplePrintf_suppliedWithData",
+            "Label": "SuppliedWithData",
+            "For": "Printf",
+            "Signature": "ExamplePrintf_suppliedWithData()",
+            "Source": "ewoJUHJpbnRmKCJIZWxsbyAke3VzZXJuYW1lfGd1ZXN0fSEgWW91ciBJUCBpczogJHtpcGFkZHJlc3N8KHVua25vd24pfSIsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YHVzZXJuYW1lYDogYGZyaWVuZGAsIGBpcGFkZHJlc3NgOiBgMTI3LjAuMC4xYH0pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExamplePrintf_usingDefaultValues",
+            "Label": "UsingDefaultValues",
+            "For": "Printf",
+            "Signature": "ExamplePrintf_usingDefaultValues()",
+            "Source": "ewoJUHJpbnRmKCJIZWxsbyAke3VzZXJuYW1lfGd1ZXN0fSEgWW91ciBJUCBpczogJHtpcGFkZHJlc3N8KHVua25vd24pfSIpCn0=",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestApply",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestApply(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEwLCBgYmA6IDIwLCBgY2A6IDMwfSwgQXBwbHkobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogMiwgYGNgOiAzfSwgZnVuYyhfIFtdc3RyaW5nLCB2YWx1ZSBpbnRlcmZhY2V7fSkgKGludGVyZmFjZXt9LCBib29sKSB7CgkJcmV0dXJuIHZhbHVlLihpbnQpICogMTAsIHRydWUKCX0pKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCoalesceArrayWithNestedMap",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCoalesceArrayWithNestedMap(t *testing.T)",
+            "Source": "ewoJdmFyIGVyciBlcnJvcgoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCW51bWJlcnMgOj0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9eyJuYW1lIjogInRlc3QiLCAiY291bnQiOiAyfSkKCW51bWJlcnMgPSBhcHBlbmQobnVtYmVycywgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXsibmFtZSI6ICJ0ZXN0MiIsICJjb3VudCI6IDR9KQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9eyJuYW1lIjogInRlc3QzIiwgImNvdW50IjogOH0pCglpbnB1dFsibnVtYmVycyJdID0gbnVtYmVycwoJaWYgb3V0cHV0LCBlcnIgPSBDb2FsZXNjZU1hcChpbnB1dCwgIi4iKTsgZXJyICE9IG5pbCB7CgkJdC5FcnJvcmYoIiVzXG4iLCBlcnIpCgl9CglpZiB2LCBvayA6PSBvdXRwdXRbIm51bWJlcnMuMC5uYW1lIl07ICFvayB8fCB2ICE9ICJ0ZXN0IiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAibnVtYmVycy4wLm5hbWUiKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJudW1iZXJzLjAuY291bnQiXTsgIW9rIHx8IHYgIT0gMiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAibnVtYmVycy4wLmNvdW50IikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsibnVtYmVycy4xLm5hbWUiXTsgIW9rIHx8IHYgIT0gInRlc3QyIiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAibnVtYmVycy4xLm5hbWUiKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJudW1iZXJzLjEuY291bnQiXTsgIW9rIHx8IHYgIT0gNCB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAibnVtYmVycy4xLmNvdW50IikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsibnVtYmVycy4yLm5hbWUiXTsgIW9rIHx8IHYgIT0gInRlc3QzIiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAibnVtYmVycy4yLm5hbWUiKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJudW1iZXJzLjIuY291bnQiXTsgIW9rIHx8IHYgIT0gOCB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAibnVtYmVycy4yLmNvdW50IikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCoalesceMultiTierScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCoalesceMultiTierScalar(t *testing.T)",
+            "Source": "ewoJdmFyIGVyciBlcnJvcgoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlucHV0WyJpZCJdID0gInRvcCIKCWlucHV0WyJuZXN0ZWQiXSA9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlucHV0WyJuZXN0ZWQiXS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSlbImRhdGEiXSA9IHRydWUKCWlucHV0WyJuZXN0ZWQiXS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSlbInZhbHVlIl0gPSA0LjkKCWlucHV0WyJuZXN0ZWQiXS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSlbImF3ZXNvbWUiXSA9ICJ2ZXJ5IHllcyIKCWlmIG91dHB1dCwgZXJyID0gQ29hbGVzY2VNYXAoaW5wdXQsICIuIik7IGVyciAhPSBuaWwgewoJCXQuRXJyb3JmKCIlc1xuIiwgZXJyKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJpZCJdOyAhb2sgfHwgdiAhPSAidG9wIiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAiaWQiKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJuZXN0ZWQuZGF0YSJdOyAhb2sgfHwgdiAhPSB0cnVlIHsKCQl0LkVycm9yZigiSW5jb3JyZWN0IHZhbHVlICclcycgZm9yIGtleSAlcyIsIHYsICJuZXN0ZWQuZGF0YSIpCgl9CglpZiB2LCBvayA6PSBvdXRwdXRbIm5lc3RlZC52YWx1ZSJdOyAhb2sgfHwgdiAhPSA0LjkgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgIm5lc3RlZC52YWx1ZSIpCgl9CglpZiB2LCBvayA6PSBvdXRwdXRbIm5lc3RlZC5hd2Vzb21lIl07ICFvayB8fCB2ICE9ICJ2ZXJ5IHllcyIgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgIm5lc3RlZC5hd2Vzb21lIikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCoalesceOneTierScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCoalesceOneTierScalar(t *testing.T)",
+            "Source": "ewoJdmFyIGVyciBlcnJvcgoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlucHV0WyJpZCJdID0gInRlc3QiCglpbnB1dFsiZW5hYmxlZCJdID0gdHJ1ZQoJaW5wdXRbImZsb2F0Il0gPSAyLjcKCWlmIG91dHB1dCwgZXJyID0gQ29hbGVzY2VNYXAoaW5wdXQsICIuIik7IGVyciAhPSBuaWwgewoJCXQuRXJyb3JmKCIlc1xuIiwgZXJyKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJpZCJdOyAhb2sgfHwgdiAhPSAidGVzdCIgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgImlkIikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsiZW5hYmxlZCJdOyAhb2sgfHwgdiAhPSB0cnVlIHsKCQl0LkVycm9yZigiSW5jb3JyZWN0IHZhbHVlICclcycgZm9yIGtleSAlcyIsIHYsICJlbmFibGVkIikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsiZmxvYXQiXTsgIW9rIHx8IHYgIT0gMi43IHsKCQl0LkVycm9yZigiSW5jb3JyZWN0IHZhbHVlICclcycgZm9yIGtleSAlcyIsIHYsICJmbG9hdCIpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCoalesceTopLevelArray",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCoalesceTopLevelArray(t *testing.T)",
+            "Source": "ewoJdmFyIGVyciBlcnJvcgoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCW51bWJlcnMgOj0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCAxKQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCAyKQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCAzKQoJaW5wdXRbIm51bWJlcnMiXSA9IG51bWJlcnMKCWlmIG91dHB1dCwgZXJyID0gQ29hbGVzY2VNYXAoaW5wdXQsICIuIik7IGVyciAhPSBuaWwgewoJCXQuRXJyb3JmKCIlc1xuIiwgZXJyKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJudW1iZXJzLjAiXTsgIW9rIHx8IHYgIT0gMSB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAibnVtYmVycy4wIikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsibnVtYmVycy4xIl07ICFvayB8fCB2ICE9IDIgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgIm51bWJlcnMuMSIpCgl9CglpZiB2LCBvayA6PSBvdXRwdXRbIm51bWJlcnMuMiJdOyAhb2sgfHwgdiAhPSAzIHsKCQl0LkVycm9yZigiSW5jb3JyZWN0IHZhbHVlICclcycgZm9yIGtleSAlcyIsIHYsICJudW1iZXJzLjIiKQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCoalesceTypedArrayWithNestedMap",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCoalesceTypedArrayWithNestedMap(t *testing.T)",
+            "Source": "ewoJdmFyIGVycnMgW11lcnJvcgoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCW51bWJlcnMgOj0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9eyJuYW1lIjogInRlc3QiLCAiY291bnQiOiAyfSkKCW51bWJlcnMgPSBhcHBlbmQobnVtYmVycywgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXsibmFtZSI6ICJ0ZXN0MiIsICJjb3VudCI6IDR9KQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9eyJuYW1lIjogInRlc3QzIiwgImNvdW50IjogOH0pCglpbnB1dFsibnVtYmVycyJdID0gbnVtYmVycwoJaWYgb3V0cHV0LCBlcnJzID0gQ29hbGVzY2VNYXBUeXBlZChpbnB1dCwgIi4iLCAiOiIpOyBsZW4oZXJycykgPiAwIHsKCQlmb3IgXywgZXJyIDo9IHJhbmdlIGVycnMgewoJCQl0LkVycm9yZigiJXNcbiIsIGVycikKCQl9Cgl9CglpZiB2LCBvayA6PSBvdXRwdXRbInN0cjpudW1iZXJzLjAubmFtZSJdOyAhb2sgfHwgdiAhPSAidGVzdCIgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgIm51bWJlcnMuMC5uYW1lIikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsiaW50Om51bWJlcnMuMC5jb3VudCJdOyAhb2sgfHwgdiAhPSAiMiIgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgImludDpudW1iZXJzLjAuY291bnQiKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJzdHI6bnVtYmVycy4xLm5hbWUiXTsgIW9rIHx8IHYgIT0gInRlc3QyIiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAic3RyOm51bWJlcnMuMS5uYW1lIikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsiaW50Om51bWJlcnMuMS5jb3VudCJdOyAhb2sgfHwgdiAhPSAiNCIgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgImludDpudW1iZXJzLjEuY291bnQiKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJzdHI6bnVtYmVycy4yLm5hbWUiXTsgIW9rIHx8IHYgIT0gInRlc3QzIiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAic3RyOm51bWJlcnMuMi5uYW1lIikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsiaW50Om51bWJlcnMuMi5jb3VudCJdOyAhb2sgfHwgdiAhPSAiOCIgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgImludDpudW1iZXJzLjIuY291bnQiKQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCoalesceTypedMultiTierScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCoalesceTypedMultiTierScalar(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJycyBbXWVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbImlkIl0gPSAidG9wIgoJaW5wdXRbIm5lc3RlZCJdID0gbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgZGF0YWA6IHRydWUsIGB2YWx1ZWA6IDQuOSwgYGF3ZXNvbWVgOiAidmVyeSB5ZXMifQoJaWYgb3V0cHV0LCBlcnJzID0gQ29hbGVzY2VNYXBUeXBlZChpbnB1dCwgIl9fIiwgInwiKTsgbGVuKGVycnMpID4gMCB7CgkJZm9yIF8sIGVyciA6PSByYW5nZSBlcnJzIHsKCQkJdC5FcnJvcmYoIiVzXG4iLCBlcnIpCgkJfQoJfQoJYXNzZXJ0LkVxdWFsKGB0b3BgLCBvdXRwdXRbYHN0cnxpZGBdKQoJYXNzZXJ0LkVxdWFsKGB0cnVlYCwgb3V0cHV0W2Bib29sfG5lc3RlZF9fZGF0YWBdKQoJYXNzZXJ0LkVxdWFsKGA0LjlgLCBvdXRwdXRbYGZsb2F0fG5lc3RlZF9fdmFsdWVgXSkKCWFzc2VydC5FcXVhbChgdmVyeSB5ZXNgLCBvdXRwdXRbYHN0cnxuZXN0ZWRfX2F3ZXNvbWVgXSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCoalesceTypedOneTierScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCoalesceTypedOneTierScalar(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJycyBbXWVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbImlkIl0gPSAidGVzdCIKCWlucHV0WyJlbmFibGVkIl0gPSB0cnVlCglpbnB1dFsiZmxvYXQiXSA9IDIuNwoJaWYgb3V0cHV0LCBlcnJzID0gQ29hbGVzY2VNYXBUeXBlZChpbnB1dCwgIi4iLCAiOiIpOyBsZW4oZXJycykgPiAwIHsKCQlmb3IgXywgZXJyIDo9IHJhbmdlIGVycnMgewoJCQl0LkVycm9yZigiJXNcbiIsIGVycikKCQl9Cgl9Cglhc3NlcnQuRXF1YWwoYHRlc3RgLCBvdXRwdXRbYHN0cjppZGBdKQoJYXNzZXJ0LkVxdWFsKGB0cnVlYCwgb3V0cHV0W2Bib29sOmVuYWJsZWRgXSkKCWFzc2VydC5FcXVhbChgMi43YCwgb3V0cHV0W2BmbG9hdDpmbG9hdGBdKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestCoalesceTypedTopLevelArray",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCoalesceTypedTopLevelArray(t *testing.T)",
+            "Source": "ewoJdmFyIGVycnMgW11lcnJvcgoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCW51bWJlcnMgOj0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCAxKQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCAyKQoJbnVtYmVycyA9IGFwcGVuZChudW1iZXJzLCAzKQoJaW5wdXRbIm51bWJlcnMiXSA9IG51bWJlcnMKCWlmIG91dHB1dCwgZXJycyA9IENvYWxlc2NlTWFwVHlwZWQoaW5wdXQsICIuIiwgIjoiKTsgbGVuKGVycnMpID4gMCB7CgkJZm9yIF8sIGVyciA6PSByYW5nZSBlcnJzIHsKCQkJdC5FcnJvcmYoIiVzXG4iLCBlcnIpCgkJfQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJpbnQ6bnVtYmVycy4wIl07ICFvayB8fCB2ICE9ICIxIiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAiaW50Om51bWJlcnMuMCIpCgl9CglpZiB2LCBvayA6PSBvdXRwdXRbImludDpudW1iZXJzLjEiXTsgIW9rIHx8IHYgIT0gIjIiIHsKCQl0LkVycm9yZigiSW5jb3JyZWN0IHZhbHVlICclcycgZm9yIGtleSAlcyIsIHYsICJpbnQ6bnVtYmVycy4xIikKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsiaW50Om51bWJlcnMuMiJdOyAhb2sgfHwgdiAhPSAiMyIgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgImludDpudW1iZXJzLjIiKQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepGetArrayElement",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepGetArrayElement(t *testing.T)",
+            "Source": "ewoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXQgPSBEZWVwU2V0KGlucHV0LCBbXXN0cmluZ3sidGFncyIsICIwIn0sICJiYXNlIikuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglpbnB1dCA9IERlZXBTZXQoaW5wdXQsIFtdc3RyaW5neyJ0YWdzIiwgIjEifSwgIm90aGVyIikuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglpZiB2IDo9IERlZXBHZXQoaW5wdXQsIFtdc3RyaW5neyJ0YWdzIiwgIjAifSwgbmlsKTsgdiAhPSAiYmFzZSIgewoJCXQuRXJyb3JmKCIlc1xuIiwgdikKCX0KCWlmIHYgOj0gRGVlcEdldChpbnB1dCwgW11zdHJpbmd7InRhZ3MiLCAiMSJ9LCBuaWwpOyB2ICE9ICJvdGhlciIgewoJCXQuRXJyb3JmKCIlc1xuIiwgdikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepGetBool",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepGetBool(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgaW5wdXQgaW50ZXJmYWNle30KCWlucHV0ID0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXQgPSBEZWVwU2V0KGlucHV0LCBbXXN0cmluZ3siZGVlcGx5IiwgIm5lc3RlZCIsICJ2YWx1ZSJ9LCB0cnVlKQoJaW5wdXQgPSBEZWVwU2V0KGlucHV0LCBbXXN0cmluZ3siZGVlcGx5IiwgIm5lc3RlZCIsICJ0aGluZyJ9LCAibm9wZSIpCglhc3NlcnQuVHJ1ZShEZWVwR2V0Qm9vbChpbnB1dCwgW11zdHJpbmd7ImRlZXBseSIsICJuZXN0ZWQiLCAidmFsdWUifSkpCglhc3NlcnQuRmFsc2UoRGVlcEdldEJvb2woaW5wdXQsIFtdc3RyaW5neyJkZWVwbHkiLCAibmVzdGVkIiwgIm90aGVyIn0pKQoJYXNzZXJ0LkZhbHNlKERlZXBHZXRCb29sKGlucHV0LCBbXXN0cmluZ3siZGVlcGx5IiwgIm5lc3RlZCIsICJub3BlIn0pKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepGetMapInMap",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepGetMapInMap(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbiA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2Bva2A6IHRydWUsIGBhbHdheXNgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BmaW5pc2hpbmdgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BlYWNoX290aGVyc2A6IGBzZW50ZW5jZXNgfX19Cglhc3NlcnQuRXF1YWwoYHNlbnRlbmNlc2AsIERlZXBHZXQoaW4sIFtdc3RyaW5ne2BhbHdheXNgLCBgZmluaXNoaW5nYCwgYGVhY2hfb3RoZXJzYH0pKQoJYXNzZXJ0Lk5pbChEZWVwR2V0KGluLCBbXXN0cmluZ3tgYWx3YXlzYCwgYGZpbmlzaGluZ2AsIGBlYWNoX290aGVyc2AsIGBzYW5kd2ljaGVzYH0pKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepGetMapKeyInArray",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepGetMapKeyInArray(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglpbnB1dCA9IERlZXBTZXQoaW5wdXQsIFtdc3RyaW5neyJkZXZpY2VzIiwgIjAiLCAibmFtZSJ9LCAibG8iKS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlucHV0ID0gRGVlcFNldChpbnB1dCwgW11zdHJpbmd7ImRldmljZXMiLCAiMSIsICJuYW1lIn0sICJldGgwIikuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglhc3NlcnQuRXF1YWwoYGxvYCwgRGVlcEdldChpbnB1dCwgW11zdHJpbmd7ImRldmljZXMiLCAiMCIsICJuYW1lIn0sIG5pbCkpCglhc3NlcnQuRXF1YWwoYGV0aDBgLCBEZWVwR2V0KGlucHV0LCBbXXN0cmluZ3siZGV2aWNlcyIsICIxIiwgIm5hbWUifSwgbmlsKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepGetMapKeyInDeepArray",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepGetMapKeyInDeepArray(t *testing.T)",
+            "Source": "ewoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXQgPSBEZWVwU2V0KGlucHV0LCBbXXN0cmluZ3siZGV2aWNlcyIsICIwIiwgInN3aXRjaCIsICJwZWVycyIsICIwIn0sICIwLjAuMC4wIikuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglpbnB1dCA9IERlZXBTZXQoaW5wdXQsIFtdc3RyaW5neyJkZXZpY2VzIiwgIjAiLCAic3dpdGNoIiwgInBlZXJzIiwgIjEifSwgIjAuMC4xLjEiKS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlucHV0ID0gRGVlcFNldChpbnB1dCwgW11zdHJpbmd7ImRldmljZXMiLCAiMSIsICJzd2l0Y2giLCAicGVlcnMiLCAiMCJ9LCAiMS4xLjAuMCIpLihtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXQgPSBEZWVwU2V0KGlucHV0LCBbXXN0cmluZ3siZGV2aWNlcyIsICIxIiwgInN3aXRjaCIsICJwZWVycyIsICIxIn0sICIxLjEuMS4xIikuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglpZiB2IDo9IERlZXBHZXQoaW5wdXQsIFtdc3RyaW5neyJkZXZpY2VzIiwgIjAiLCAic3dpdGNoIiwgInBlZXJzIiwgIjAifSwgbmlsKTsgdiAhPSAiMC4wLjAuMCIgewoJCXQuRXJyb3JmKCIlc1xuIiwgdikKCX0KCWlmIHYgOj0gRGVlcEdldChpbnB1dCwgW11zdHJpbmd7ImRldmljZXMiLCAiMCIsICJzd2l0Y2giLCAicGVlcnMiLCAiMSJ9LCBuaWwpOyB2ICE9ICIwLjAuMS4xIiB7CgkJdC5FcnJvcmYoIiVzXG4iLCB2KQoJfQoJaWYgdiA6PSBEZWVwR2V0KGlucHV0LCBbXXN0cmluZ3siZGV2aWNlcyIsICIxIiwgInN3aXRjaCIsICJwZWVycyIsICIwIn0sIG5pbCk7IHYgIT0gIjEuMS4wLjAiIHsKCQl0LkVycm9yZigiJXNcbiIsIHYpCgl9CglpZiB2IDo9IERlZXBHZXQoaW5wdXQsIFtdc3RyaW5neyJkZXZpY2VzIiwgIjEiLCAic3dpdGNoIiwgInBlZXJzIiwgIjEifSwgbmlsKTsgdiAhPSAiMS4xLjEuMSIgewoJCXQuRXJyb3JmKCIlc1xuIiwgdikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepGetNestedArrayElements",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepGetNestedArrayElements(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BpbnRlcmZhY2VzYDogW11zdHJpbmd7YGxvMGAsIGBlbjFgLCBgd2xhbjBgfX0KCWFzc2VydC5FcXVhbFZhbHVlcyhbXWludGVyZmFjZXt9e2BsbzBgLCBgZW4xYCwgYHdsYW4wYH0sIERlZXBHZXQoaW5wdXQsIFtdc3RyaW5ne2BpbnRlcmZhY2VzYCwgYCpgfSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepGetNestedArrayOfMaps",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepGetNestedArrayOfMaps(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BpbnRlcmZhY2VzYDogW11tYXBbc3RyaW5nXWludGVyZmFjZXt9e3tgbmFtZWA6IGBsbzBgLCBgdHlwZWA6IGBsb29wYmFja2B9LCB7YG5hbWVgOiBgZW4xYCwgYHR5cGVgOiBgZXRoZXJuZXRgfSwge2BuYW1lYDogYHdsYW4wYCwgYHR5cGVgOiBgZXRoZXJuZXRgLCBgd2lyZWxlc3NgOiB0cnVlfX19Cglhc3NlcnQuRXF1YWxWYWx1ZXMoW11pbnRlcmZhY2V7fXtgbG9vcGJhY2tgLCBgZXRoZXJuZXRgLCBgZXRoZXJuZXRgfSwgRGVlcEdldChpbnB1dCwgW11zdHJpbmd7YGludGVyZmFjZXNgLCBgKmAsIGB0eXBlYH0pKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKFtdaW50ZXJmYWNle317ZmFsc2UsIGZhbHNlLCB0cnVlfSwgRGVlcEdldChpbnB1dCwgW11zdHJpbmd7YGludGVyZmFjZXNgLCBgKmAsIGB3aXJlbGVzc2B9LCBmYWxzZSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepGetScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepGetScalar(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglpbnB1dCA9IERlZXBTZXQoaW5wdXQsIFtdc3RyaW5neyJkZWVwbHkiLCAibmVzdGVkIiwgInZhbHVlIn0sIDEuNCkuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglhc3NlcnQuTm90TmlsKERlZXBHZXQoaW5wdXQsIFtdc3RyaW5neyJkZWVwbHkiLCAibmVzdGVkIiwgInZhbHVlIn0sIG5pbCkpCglhc3NlcnQuRXF1YWwodHJ1ZSwgRGVlcEdldChpbnB1dCwgW11zdHJpbmd7ImRlZXBseSIsICJuZXN0ZWQiLCAidmFsdWUyIn0sIHRydWUpKQoJYXNzZXJ0LkVxdWFsKGBmYWxsYmFja2AsIERlZXBHZXQoaW5wdXQsIFtdc3RyaW5neyJkZWVwbHkiLCAibmVzdGVkIiwgInZhbHVlMiJ9LCAiZmFsbGJhY2siKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepSetArray",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepSetArray(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJdGVzdFZhbHVlcyA6PSBbXXN0cmluZ3siZmlyc3QiLCAic2Vjb25kIn0KCWZvciBpLCB0diA6PSByYW5nZSB0ZXN0VmFsdWVzIHsKCQlvdXRwdXQgPSBEZWVwU2V0KG91dHB1dCwgW11zdHJpbmd7InRvcC1hcnJheSIsIGZtdC5TcHJpbnQoaSl9LCB0dikuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCgl9Cgl0b3BBcnJheSwgb2sgOj0gb3V0cHV0WyJ0b3AtYXJyYXkiXQoJYXNzZXJ0LlRydWUob2spCglhc3NlcnQuRWxlbWVudHNNYXRjaCh0ZXN0VmFsdWVzLCB0b3BBcnJheSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepSetArrayIndices",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepSetArrayIndices(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0aGluZ3NgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0eXBlMWA6IFtdc3RyaW5ne2BmaXJzdGAsIGBzZWNvbmRgLCBgdGhpcmRgfSwgYHR5cGUyYDogW11zdHJpbmd7YGZpcnN0YCwgYHNlY29uZGAsIGB0aGlyZGB9LCBgdHlwZTNgOiBbXWludGVyZmFjZXt9e21hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgZmlyc3RgLCBgaW5kZXhgOiAwfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBmaXJzdGAsIGBpbmRleGA6IDF9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYGZpcnN0YCwgYGluZGV4YDogMn19fX0KCW91dHB1dCA6PSBEZWVwU2V0KGlucHV0LCBbXXN0cmluZ3tgdGhpbmdzYCwgYHR5cGUxYCwgYDBgfSwgYEZpcnN0YCkKCURlZXBTZXQob3V0cHV0LCBbXXN0cmluZ3tgdGhpbmdzYCwgYHR5cGUxYCwgYDJgfSwgYFRoaXJkYCkKCURlZXBTZXQob3V0cHV0LCBbXXN0cmluZ3tgdGhpbmdzYCwgYHR5cGUyYCwgYDFgfSwgYFNlY29uZGApCglEZWVwU2V0KG91dHB1dCwgW11zdHJpbmd7YHRoaW5nc2AsIGB0eXBlMmAsIGAyYH0sIG5pbCkKCURlZXBTZXQob3V0cHV0LCBbXXN0cmluZ3tgdGhpbmdzYCwgYHR5cGUyYCwgYDNgfSwgYHRoaXJkYCkKCURlZXBTZXQob3V0cHV0LCBbXXN0cmluZ3tgdGhpbmdzYCwgYHR5cGUzYCwgYDBgLCBgaW5kZXhgfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbnVtYDogMH0pCglEZWVwU2V0KG91dHB1dCwgW11zdHJpbmd7YHRoaW5nc2AsIGB0eXBlM2AsIGAxYCwgYGluZGV4YH0sIG1hcFtzdHJpbmddaW50ZXJmYWNle317YG51bWA6IDF9KQoJRGVlcFNldChvdXRwdXQsIFtdc3RyaW5ne2B0aGluZ3NgLCBgdHlwZTNgLCBgMmAsIGBpbmRleGB9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BudW1gOiAyfSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0aGluZ3NgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0eXBlMWA6IFtdaW50ZXJmYWNle317YEZpcnN0YCwgYHNlY29uZGAsIGBUaGlyZGB9LCBgdHlwZTJgOiBbXWludGVyZmFjZXt9e2BmaXJzdGAsIGBTZWNvbmRgLCBuaWwsIGB0aGlyZGB9LCBgdHlwZTNgOiBbXWludGVyZmFjZXt9e21hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgZmlyc3RgLCBgaW5kZXhgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BudW1gOiAwfX0sIG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgZmlyc3RgLCBgaW5kZXhgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BudW1gOiAxfX0sIG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgZmlyc3RgLCBgaW5kZXhgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BudW1gOiAyfX19fX0sIG91dHB1dCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepSetBool",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepSetBool(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJdGVzdFZhbHVlIDo9IHRydWUKCW91dHB1dCA9IERlZXBTZXQob3V0cHV0LCBbXXN0cmluZ3siYm9vbCJ9LCB0ZXN0VmFsdWUpLihtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJdmFsdWUsIG9rIDo9IG91dHB1dFsiYm9vbCJdCglhc3NlcnQuVHJ1ZShvaykKCWFzc2VydC5FcXVhbCh0ZXN0VmFsdWUsIHZhbHVlKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepSetNestedMapCreation",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepSetNestedMapCreation(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0ID0gRGVlcFNldChvdXRwdXQsIFtdc3RyaW5neyJkZWVwbHkiLCAibmVzdGVkIiwgIm1hcCJ9LCB0cnVlKS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCW91dHB1dCA9IERlZXBTZXQob3V0cHV0LCBbXXN0cmluZ3siZGVlcGx5IiwgIm5lc3RlZCIsICJjb3VudCJ9LCAyKS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWRlZXBseSwgb2sgOj0gb3V0cHV0WyJkZWVwbHkiXQoJYXNzZXJ0LlRydWUob2spCglkZWVwbHlNYXAgOj0gZGVlcGx5LihtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJbmVzdGVkLCBvayA6PSBkZWVwbHlNYXBbIm5lc3RlZCJdCglhc3NlcnQuVHJ1ZShvaykKCW5lc3RlZE1hcCA6PSBuZXN0ZWQuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglfLCBvayA9IG5lc3RlZE1hcFsibWFwIl0KCWFzc2VydC5UcnVlKG9rKQoJXywgb2sgPSBuZXN0ZWRNYXBbImNvdW50Il0KCWFzc2VydC5UcnVlKG9rKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepSetNothing",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepSetNothing(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0ID0gRGVlcFNldChvdXRwdXQsIFtdc3RyaW5ne30sICJ5YXkiKS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWFzc2VydC5FbXB0eShvdXRwdXQpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepSetReplace",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepSetReplace(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXRwdXQgOj0gbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgdGhpc2A6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YHRlc3RgOiBgMWB9fQoJRGVlcFNldChvdXRwdXQsIFtdc3RyaW5neyJ0aGlzIiwgInRlc3QifSwgYDJgKQoJYXNzZXJ0LkVxdWFsKG1hcFtzdHJpbmddaW50ZXJmYWNle317YHRoaXNgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0ZXN0YDogYDJgfX0sIG91dHB1dCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepSetString",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepSetString(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJdGVzdFZhbHVlIDo9ICJ0ZXN0LXN0cmluZyIKCW91dHB1dCA9IERlZXBTZXQob3V0cHV0LCBbXXN0cmluZ3sic3RyIn0sIHRlc3RWYWx1ZSkuKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCgl2YWx1ZSwgb2sgOj0gb3V0cHV0WyJzdHIiXQoJYXNzZXJ0LlRydWUob2spCglhc3NlcnQuRXF1YWwodGVzdFZhbHVlLCB2YWx1ZSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepSetStructField",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepSetStructField(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0eXBlIHRlc3RTdHJ1Y3REZWVwU2V0IHN0cnVjdCB7CgkJU3RyaW5nIHN0cmluZwoJCUludCAgICBpbnQKCQlGbG9hdCAgZmxvYXQ2NAoJCUJvb2wgICBib29sCgl9Cgl2YXIgaW5zdGFuY2UgdGVzdFN0cnVjdERlZXBTZXQKCURlZXBTZXQoJmluc3RhbmNlLCBbXXN0cmluZ3siU3RyaW5nIn0sIGBIZWxsb2ApCglEZWVwU2V0KCZpbnN0YW5jZSwgW11zdHJpbmd7IkludCJ9LCAxMjMpCglEZWVwU2V0KCZpbnN0YW5jZSwgW11zdHJpbmd7IkZsb2F0In0sIDMuMTQpCglEZWVwU2V0KCZpbnN0YW5jZSwgW11zdHJpbmd7IkJvb2wifSwgdHJ1ZSkKCWFzc2VydC5FcXVhbChgSGVsbG9gLCBpbnN0YW5jZS5TdHJpbmcpCglhc3NlcnQuRXF1YWwoMTIzLCBpbnN0YW5jZS5JbnQpCglhc3NlcnQuRXF1YWwoMy4xNCwgaW5zdGFuY2UuRmxvYXQpCglhc3NlcnQuVHJ1ZShpbnN0YW5jZS5Cb29sKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDeepStructs",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDeepStructs(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbiA6PSAmbWFwVGVzdFN0cnVjdHtOYW1lOiBgdG9wbGV2ZWxgLCBOZXN0ZWRQOiAmbWFwVGVzdFN1YnN0cnVjdHtOYW1lOiBgb25lLXB0cmAsIFZhbHVlOiB0cnVlfSwgTmVzdGVkOiBtYXBUZXN0U3Vic3RydWN0e05hbWU6IGBvbmUtdmFsdWVgLCBWYWx1ZTogMy4xNH19Cglhc3NlcnQuRXF1YWwoYHRvcGxldmVsYCwgRGVlcEdldChpbiwgW11zdHJpbmd7YE5hbWVgfSkpCglhc3NlcnQuRXF1YWwoYG9uZS1wdHJgLCBEZWVwR2V0KGluLCBbXXN0cmluZ3tgTmVzdGVkUGAsIGBOYW1lYH0pKQoJYXNzZXJ0LkVxdWFsKHRydWUsIERlZXBHZXQoaW4sIFtdc3RyaW5ne2BOZXN0ZWRQYCwgYFZhbHVlYH0pKQoJYXNzZXJ0LkVxdWFsKGBvbmUtdmFsdWVgLCBEZWVwR2V0KGluLCBbXXN0cmluZ3tgTmVzdGVkYCwgYE5hbWVgfSkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgzLjE0KSwgRGVlcEdldChpbiwgW11zdHJpbmd7YE5lc3RlZGAsIGBWYWx1ZWB9KSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDelete",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDelete(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbiA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BhYDogMSwgYGJgOiAyLCBgY2A6IDN9Cglhc3NlcnQuTm9FcnJvcihEZWxldGUoaW4sIGBiYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBjYDogM30sIGluKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseMap",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseMap(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0WyJuYW1lIl0gPSAidGVzdC50aGluZy5uYW1lIgoJb3V0cHV0WyJlbmFibGVkIl0gPSB0cnVlCglvdXRwdXRbImNvb2wuYmVhbnMiXSA9ICJ5ZXAiCglvdXRwdXRbInRhZ3MuMCJdID0gImJhc2UiCglvdXRwdXRbInRhZ3MuMSJdID0gIm90aGVyIgoJb3V0cHV0WyJkZXZpY2VzLjAubmFtZSJdID0gImxvIgoJb3V0cHV0WyJkZXZpY2VzLjEubmFtZSJdID0gImV0aDAiCglvdXRwdXRbImRldmljZXMuMS5wZWVycy4wIl0gPSAiMC4wLjAuMCIKCW91dHB1dFsiZGV2aWNlcy4xLnBlZXJzLjEiXSA9ICIxLjEuMS4xIgoJb3V0cHV0WyJkZXZpY2VzLjEucGVlcnMuMiJdID0gIjIuMi4yLjIiCglvdXRwdXRbImRldmljZXMuMS5zd2l0Y2guMC5uYW1lIl0gPSAiYWE6YmI6Y2M6ZGQ6ZWU6ZmYiCglvdXRwdXRbImRldmljZXMuMS5zd2l0Y2guMC5pcCJdID0gIjExMS4yMjIuMC4xIgoJb3V0cHV0WyJkZXZpY2VzLjEuc3dpdGNoLjEubmFtZSJdID0gImNjOmRkOmVlOmZmOmJiOmRkIgoJb3V0cHV0WyJkZXZpY2VzLjEuc3dpdGNoLjEuaXAiXSA9ICIxMTEuMjIyLjAuMiIKCW91dHB1dCwgZXJyIDo9IERpZmZ1c2VNYXAob3V0cHV0LCAiLiIpCglhc3NlcnQuTm9FcnJvcihlcnIpCgl2LCBfIDo9IG91dHB1dFsibmFtZSJdCglhc3NlcnQuRXF1YWwoInRlc3QudGhpbmcubmFtZSIsIHYpCgl2LCBfID0gb3V0cHV0WyJlbmFibGVkIl0KCWFzc2VydC5FcXVhbCh0cnVlLCB2KQoJdiwgb2sgOj0gb3V0cHV0WyJ0YWdzIl0KCWFzc2VydC5UcnVlKG9rKQoJYXNzZXJ0Lkxlbih2LCAyKQoJdkFycmF5IDo9IHYuKFtdaW50ZXJmYWNle30pCglhc3NlcnQuRXF1YWwoImJhc2UiLCB2QXJyYXlbMF0pCglhc3NlcnQuRXF1YWwoIm90aGVyIiwgdkFycmF5WzFdKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseMultiTierComplex",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseMultiTierComplex(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJyIGVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbIml0ZW1zLjAubmFtZSJdID0gIkZpcnN0IgoJaW5wdXRbIml0ZW1zLjAuYWdlIl0gPSA1NAoJaW5wdXRbIml0ZW1zLjEubmFtZSJdID0gIlNlY29uZCIKCWlucHV0WyJpdGVtcy4xLmFnZSJdID0gNzcKCWlucHV0WyJpdGVtcy4yLm5hbWUiXSA9ICJUaGlyZCIKCWlucHV0WyJpdGVtcy4yLmFnZSJdID0gODIKCW91dHB1dCwgZXJyID0gRGlmZnVzZU1hcChpbnB1dCwgIi4iKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJaV9pdGVtcywgb2sgOj0gb3V0cHV0WyJpdGVtcyJdCglhc3NlcnQuVHJ1ZShvaykKCWl0ZW1zIDo9IGlfaXRlbXMuKFtdaW50ZXJmYWNle30pCglhc3NlcnQuTGVuKGl0ZW1zLCAzKQoJZm9yIGl0ZW1faWQsIG9iaiA6PSByYW5nZSBpdGVtcyB7CgkJZm9yIGssIHYgOj0gcmFuZ2UgTShvYmopLk1hcE5hdGl2ZSgpIHsKCQkJaW5WYWx1ZSwgb2sgOj0gaW5wdXRbZm10LlNwcmludGYoIml0ZW1zLiVkLiVzIiwgaXRlbV9pZCwgayldCgkJCWFzc2VydC5UcnVlKG9rKQoJCQlhc3NlcnQuRXF1YWwodiwgaW5WYWx1ZSkKCQl9Cgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseMultiTierMixed",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseMultiTierMixed(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJyIGVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbIml0ZW1zLjAudGFncyJdID0gW11zdHJpbmd7ImJhc2UiLCAib3RoZXIifQoJaW5wdXRbIml0ZW1zLjEudGFncyJdID0gW11zdHJpbmd7InRoaW5nIiwgInN0aWxsLW90aGVyIiwgIm1vcmUtb3RoZXIifQoJaW5wdXRbIml0ZW1zLjIudGFncyJdID0gW11zdHJpbmd7Imxhc3QifQoJb3V0cHV0LCBlcnIgPSBEaWZmdXNlTWFwKGlucHV0LCAiLiIpCglhc3NlcnQuTm9FcnJvcihlcnIpCglpX2l0ZW1zLCBvayA6PSBvdXRwdXRbIml0ZW1zIl0KCWFzc2VydC5UcnVlKG9rKQoJaXRlbXMgOj0gaV9pdGVtcy4oW11pbnRlcmZhY2V7fSkKCWFzc2VydC5MZW4oaXRlbXMsIDMpCglmb3IgaXRlbV9pZCwgb2JqIDo9IHJhbmdlIGl0ZW1zIHsKCQlmb3IgaywgdiA6PSByYW5nZSBNKG9iaikuTWFwTmF0aXZlKCkgewoJCQl2QXJ5IDo9IHNsaWNldXRpbC5TdHJpbmdpZnkodikKCQkJaW5WYWx1ZSwgb2sgOj0gaW5wdXRbZm10LlNwcmludGYoIml0ZW1zLiVkLiVzIiwgaXRlbV9pZCwgayldCgkJCWFzc2VydC5UcnVlKG9rKQoJCQlpblZhbHVlQXJ5IDo9IGluVmFsdWUuKFtdc3RyaW5nKQoJCQlmb3IgaSwgdkFyeVYgOj0gcmFuZ2UgdkFyeSB7CgkJCQlhc3NlcnQuRXF1YWwoaW5WYWx1ZUFyeVtpXSwgdkFyeVYpCgkJCX0KCQl9Cgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseMultiTierScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseMultiTierScalar(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJyIGVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbIml0ZW1zLjAiXSA9IDU0CglpbnB1dFsiaXRlbXMuMSJdID0gNzcKCWlucHV0WyJpdGVtcy4yIl0gPSA4MgoJb3V0cHV0LCBlcnIgPSBEaWZmdXNlTWFwKGlucHV0LCAiLiIpCglhc3NlcnQuTm9FcnJvcihlcnIpCglpX2l0ZW1zLCBvayA6PSBvdXRwdXRbIml0ZW1zIl0KCWFzc2VydC5UcnVlKG9rKQoJaXRlbXMgOj0gaV9pdGVtcy4oW11pbnRlcmZhY2V7fSkKCWZvciBpLCB2IDo9IHJhbmdlIFtdaW50ezU0LCA3NywgODJ9IHsKCQlhc3NlcnQuVHJ1ZShpIDwgbGVuKGl0ZW1zKSkKCQlhc3NlcnQuRXF1YWwodiwgaXRlbXNbaV0uKGludCkpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseOneTierComplex",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseOneTierComplex(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJyIGVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbImFycmF5Il0gPSBbXXN0cmluZ3siZmlyc3QiLCAidGhpcmQiLCAiZmlmdGgifQoJaW5wdXRbIm51bWFyeSJdID0gW11pbnR7OSwgNywgM30KCWlucHV0WyJ0aGluZ3MiXSA9IG1hcFtzdHJpbmddaW50eyJvbmUiOiAxLCAidHdvIjogMiwgInRocmVlIjogM30KCW91dHB1dCwgZXJyID0gRGlmZnVzZU1hcChpbnB1dCwgIi4iKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJXywgb2sgOj0gb3V0cHV0WyJhcnJheSJdCglhc3NlcnQuVHJ1ZShvaykKCWZvciBpLCB2IDo9IHJhbmdlIG91dHB1dFsiYXJyYXkiXS4oW11zdHJpbmcpIHsKCQlhc3NlcnQuRXF1YWwodiwgaW5wdXRbImFycmF5Il0uKFtdc3RyaW5nKVtpXSkKCX0KCV8sIG9rID0gb3V0cHV0WyJudW1hcnkiXQoJYXNzZXJ0LlRydWUob2spCglmb3IgaSwgdiA6PSByYW5nZSBvdXRwdXRbIm51bWFyeSJdLihbXWludCkgewoJCWFzc2VydC5FcXVhbCh2LCBpbnB1dFsibnVtYXJ5Il0uKFtdaW50KVtpXSkKCX0KCV8sIG9rID0gb3V0cHV0WyJ0aGluZ3MiXQoJYXNzZXJ0LlRydWUob2spCglmb3IgaywgdiA6PSByYW5nZSBvdXRwdXRbInRoaW5ncyJdLihtYXBbc3RyaW5nXWludCkgewoJCWlucHV0VmFsdWUsIG9rIDo9IGlucHV0WyJ0aGluZ3MiXS4obWFwW3N0cmluZ11pbnQpW2tdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKHYsIGlucHV0VmFsdWUpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseOneTierScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseOneTierScalar(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJyIGVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbImlkIl0gPSAidGVzdCIKCWlucHV0WyJlbmFibGVkIl0gPSB0cnVlCglpbnB1dFsiZmxvYXQiXSA9IDIuNwoJb3V0cHV0LCBlcnIgPSBEaWZmdXNlTWFwKGlucHV0LCAiLiIpCglhc3NlcnQuTm9FcnJvcihlcnIpCgl2LCBvayA6PSBvdXRwdXRbImlkIl0KCWFzc2VydC5UcnVlKG9rKQoJYXNzZXJ0LkVxdWFsKCJ0ZXN0IiwgdikKCXYsIG9rID0gb3V0cHV0WyJlbmFibGVkIl0KCWFzc2VydC5UcnVlKG9rKQoJYXNzZXJ0LkVxdWFsKHRydWUsIHYpCgl2LCBvayA9IG91dHB1dFsiZmxvYXQiXQoJYXNzZXJ0LlRydWUob2spCglhc3NlcnQuRXF1YWwoMi43LCB2KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseTypedMultiTierComplex",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseTypedMultiTierComplex(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJycyBbXWVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbInN0cjppdGVtcy4wLm5hbWUiXSA9ICJGaXJzdCIKCWlucHV0WyJpbnQ6aXRlbXMuMC5hZ2UiXSA9IDU0CglpbnB1dFsic3RyOml0ZW1zLjEubmFtZSJdID0gIlNlY29uZCIKCWlucHV0WyJpbnQ6aXRlbXMuMS5hZ2UiXSA9IDc3CglpbnB1dFsic3RyOml0ZW1zLjIubmFtZSJdID0gIlRoaXJkIgoJaW5wdXRbImludDppdGVtcy4yLmFnZSJdID0gODIKCW91dHB1dCwgZXJycyA9IERpZmZ1c2VNYXBUeXBlZChpbnB1dCwgIi4iLCAiOiIpCglhc3NlcnQuTGVuKGVycnMsIDApCglhc3NlcnQuTGVuKG91dHB1dFsiaXRlbXMiXSwgMykKCWlmIGlfaXRlbXMsIG9rIDo9IG91dHB1dFsiaXRlbXMiXTsgb2sgewoJCWl0ZW1zIDo9IGlfaXRlbXMuKFtdaW50ZXJmYWNle30pCgkJZm9yIGl0ZW1faWQsIG9iaiA6PSByYW5nZSBpdGVtcyB7CgkJCWZvciBrLCB2IDo9IHJhbmdlIE0ob2JqKS5NYXBOYXRpdmUoKSB7CgkJCQlzd2l0Y2ggayB7CgkJCQljYXNlIGBuYW1lYDoKCQkJCQlhc3NlcnQuRXF1YWwodiwgaW5wdXRbZm10LlNwcmludGYoInN0cjppdGVtcy4lZC4lcyIsIGl0ZW1faWQsIGspXSkKCQkJCWNhc2UgYGFnZWA6CgkJCQkJYXNzZXJ0LkVxdWFsVmFsdWVzKHYsIGlucHV0W2ZtdC5TcHJpbnRmKCJpbnQ6aXRlbXMuJWQuJXMiLCBpdGVtX2lkLCBrKV0pCgkJCQl9CgkJCX0KCQl9Cgl9IGVsc2UgewoJCXQuRXJyb3JmKCJLZXkgJ2l0ZW1zJyBpcyBtaXNzaW5nIGZyb20gb3V0cHV0OiAldiIsIG91dHB1dCkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseTypedMultiTierMixed",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseTypedMultiTierMixed(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJycyBbXWVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbIml0ZW1zLjAudGFncyJdID0gW11zdHJpbmd7ImJhc2UiLCAib3RoZXIifQoJaW5wdXRbIml0ZW1zLjEudGFncyJdID0gW11zdHJpbmd7InRoaW5nIiwgInN0aWxsLW90aGVyIiwgIm1vcmUtb3RoZXIifQoJaW5wdXRbIml0ZW1zLjIudGFncyJdID0gW11zdHJpbmd7Imxhc3QifQoJb3V0cHV0LCBlcnJzID0gRGlmZnVzZU1hcFR5cGVkKGlucHV0LCAiLiIsICI6IikKCWFzc2VydC5MZW4oZXJycywgMCkKCWlmIGlfaXRlbXMsIG9rIDo9IG91dHB1dFsiaXRlbXMiXTsgb2sgewoJCWl0ZW1zIDo9IGlfaXRlbXMuKFtdaW50ZXJmYWNle30pCgkJaWYgbGVuKGl0ZW1zKSAhPSAzIHsKCQkJdC5FcnJvcmYoIktleSAnaXRlbXMnIHNob3VsZCBiZSBhbiBhcnJheSB3aXRoIDMgZWxlbWVudHMsIGdvdCAldiIsIGlfaXRlbXMpCgkJfQoJCWZvciBpdGVtX2lkLCBvYmogOj0gcmFuZ2UgaXRlbXMgewoJCQlmb3IgaywgdiA6PSByYW5nZSBNKG9iaikuTWFwTmF0aXZlKCkgewoJCQkJdkFyeSA6PSBzbGljZXV0aWwuU3RyaW5naWZ5KHYpCgkJCQlpZiBpblZhbHVlLCBvayA6PSBpbnB1dFtmbXQuU3ByaW50ZigiaXRlbXMuJWQuJXMiLCBpdGVtX2lkLCBrKV07ICFvayB7CgkJCQkJdC5FcnJvcmYoIktleSAlcyBJbmNvcnJlY3QsIGV4cGVjdGVkICVzLCBnb3QgJXMiLCBmbXQuU3ByaW50ZigiaXRlbXMuJWQuJXMiLCBpdGVtX2lkLCBrKSwgaW5WYWx1ZSwgdikKCQkJCX0gZWxzZSB7CgkJCQkJaW5WYWx1ZUFyeSA6PSBpblZhbHVlLihbXXN0cmluZykKCQkJCQlmb3IgaSwgdkFyeVYgOj0gcmFuZ2UgdkFyeSB7CgkJCQkJCWlmIHZBcnlWICE9IGluVmFsdWVBcnlbaV0gewoJCQkJCQkJdC5FcnJvcmYoIktleSAlc1slZF0gSW5jb3JyZWN0LCBleHBlY3RlZCAlcywgZ290ICVzIiwgZm10LlNwcmludGYoIml0ZW1zLiVkLiVzIiwgaXRlbV9pZCwgayksIGksIGluVmFsdWVBcnlbaV0sIHZBcnlWKQoJCQkJCQl9CgkJCQkJfQoJCQkJfQoJCQl9CgkJfQoJfSBlbHNlIHsKCQl0LkVycm9yZigiS2V5ICdpdGVtcycgaXMgbWlzc2luZyBmcm9tIG91dHB1dDogJXYiLCBvdXRwdXQpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseTypedMultiTierScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseTypedMultiTierScalar(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJycyBbXWVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbImludDppdGVtcy4wIl0gPSA1NAoJaW5wdXRbImludDppdGVtcy4xIl0gPSA3NwoJaW5wdXRbImludDppdGVtcy4yIl0gPSA4MgoJb3V0cHV0LCBlcnJzID0gRGlmZnVzZU1hcFR5cGVkKGlucHV0LCAiLiIsICI6IikKCWFzc2VydC5MZW4oZXJycywgMCkKCWFzc2VydC5FbGVtZW50c01hdGNoKG91dHB1dFsiaXRlbXMiXSwgW11pbnQ2NHs1NCwgNzcsIDgyfSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseTypedOneTierComplex",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseTypedOneTierComplex(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZXJycyBbXWVycm9yCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaW5wdXRbInN0cjphcnJheSJdID0gW11zdHJpbmd7ImZpcnN0IiwgInRoaXJkIiwgImZpZnRoIn0KCWlucHV0WyJhcnJheTIiXSA9IFtdc3RyaW5neyJmaXJzdCIsICJ0aGlyZCIsICJmaWZ0aCJ9CglpbnB1dFsiaW50Om51bWFyeS4wIl0gPSAiOSIKCWlucHV0WyJpbnQ6bnVtYXJ5LjEiXSA9ICI3IgoJaW5wdXRbImludDpudW1hcnkuMiJdID0gIjMiCglpbnB1dFsiaW50OnRoaW5ncy5vbmUiXSA9ICIxIgoJaW5wdXRbImludDp0aGluZ3MudHdvIl0gPSAiMiIKCWlucHV0WyJpbnQ6dGhpbmdzLnRocmVlIl0gPSAiMyIKCWlmIG91dHB1dCwgZXJycyA9IERpZmZ1c2VNYXBUeXBlZChpbnB1dCwgIi4iLCAiOiIpOyBsZW4oZXJycykgPiAwIHsKCQlmb3IgXywgZXJyIDo9IHJhbmdlIGVycnMgewoJCQlhc3NlcnQuTm9FcnJvcihlcnIpCgkJfQoJfQoJYXNzZXJ0LkNvbnRhaW5zKG91dHB1dCwgYGFycmF5YCkKCWFzc2VydC5MZW4ob3V0cHV0W2BhcnJheWBdLCAzKQoJZm9yIGksIHYgOj0gcmFuZ2Ugb3V0cHV0WyJhcnJheSJdLihbXXN0cmluZykgewoJCWFzc2VydC5FcXVhbCh2LCBpbnB1dFsic3RyOmFycmF5Il0uKFtdc3RyaW5nKVtpXSkKCX0KCWFzc2VydC5Db250YWlucyhvdXRwdXQsIGBhcnJheTJgKQoJYXNzZXJ0LkxlbihvdXRwdXRbYGFycmF5MmBdLCAzKQoJZm9yIGksIHYgOj0gcmFuZ2Ugb3V0cHV0WyJhcnJheTIiXS4oW11zdHJpbmcpIHsKCQlhc3NlcnQuRXF1YWwodiwgaW5wdXRbImFycmF5MiJdLihbXXN0cmluZylbaV0pCgl9Cglhc3NlcnQuQ29udGFpbnMob3V0cHV0LCBgbnVtYXJ5YCkKCWFzc2VydC5MZW4ob3V0cHV0W2BudW1hcnlgXSwgMykKCWFzc2VydC5FbGVtZW50c01hdGNoKG91dHB1dFsibnVtYXJ5Il0sIFtdaW50NjR7OSwgNywgM30pCglhc3NlcnQuQ29udGFpbnMob3V0cHV0LCBgdGhpbmdzYCkKCWZvciBrLCB2IDo9IHJhbmdlIG91dHB1dFsidGhpbmdzIl0uKG1hcFtzdHJpbmddaW50ZXJmYWNle30pIHsKCQlzd2l0Y2ggayB7CgkJY2FzZSBgb25lYDoKCQkJaWYgdi4oaW50NjQpICE9IDEgewoJCQkJdC5FcnJvcmYoIkV4cGVjdGVkIHRoaW5nc1snb25lJ10gPSAxLCBnb3QgJXYiLCB2KQoJCQl9CgkJY2FzZSBgdHdvYDoKCQkJaWYgdi4oaW50NjQpICE9IDIgewoJCQkJdC5FcnJvcmYoIkV4cGVjdGVkIHRoaW5nc1sndHdvJ10gPSAyLCBnb3QgJXYiLCB2KQoJCQl9CgkJY2FzZSBgdGhyZWVgOgoJCQlpZiB2LihpbnQ2NCkgIT0gMyB7CgkJCQl0LkVycm9yZigiRXhwZWN0ZWQgdGhpbmdzWyd0aHJlZSddID0gMywgZ290ICV2IiwgdikKCQkJfQoJCX0KCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestDiffuseTypedOneTierScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDiffuseTypedOneTierScalar(t *testing.T)",
+            "Source": "ewoJdmFyIGVycnMgW11lcnJvcgoJaW5wdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlucHV0WyJzdHI6aWQiXSA9ICJ0ZXN0IgoJaW5wdXRbIm5hbWUiXSA9ICJkZWZhdWx0LXN0cmluZyIKCWlucHV0WyJib29sOmVuYWJsZWQiXSA9ICJ0cnVlIgoJaW5wdXRbImZsb2F0OmZsb2F0Il0gPSAiMi43IgoJaWYgb3V0cHV0LCBlcnJzID0gRGlmZnVzZU1hcFR5cGVkKGlucHV0LCAiLiIsICI6Iik7IGxlbihlcnJzKSA+IDAgewoJCWZvciBfLCBlcnIgOj0gcmFuZ2UgZXJycyB7CgkJCXQuRXJyb3JmKCIlc1xuIiwgZXJyKQoJCX0KCX0KCWlmIHYsIG9rIDo9IG91dHB1dFsiaWQiXTsgIW9rIHx8IHYgIT0gInRlc3QiIHsKCQl0LkVycm9yZigiSW5jb3JyZWN0IHZhbHVlICclcycgZm9yIGtleSAlcyIsIHYsICJpZCIpCgl9CglpZiB2LCBvayA6PSBvdXRwdXRbIm5hbWUiXTsgIW9rIHx8IHYgIT0gImRlZmF1bHQtc3RyaW5nIiB7CgkJdC5FcnJvcmYoIkluY29ycmVjdCB2YWx1ZSAnJXMnIGZvciBrZXkgJXMiLCB2LCAiZGVmYXVsdC1zdHJpbmciKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJlbmFibGVkIl07ICFvayB8fCB2ICE9IHRydWUgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgImVuYWJsZWQiKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0WyJmbG9hdCJdOyAhb2sgfHwgdiAhPSAyLjcgewoJCXQuRXJyb3JmKCJJbmNvcnJlY3QgdmFsdWUgJyVzJyBmb3Iga2V5ICVzIiwgdiwgImZsb2F0IikKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestGetNil",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestGetNil(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglsZXZlbDEgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJbGV2ZWwxWyJuaWx2YWx1ZSJdID0gbmlsCglpbnB1dFsidGVzdCJdID0gbGV2ZWwxCglhc3NlcnQuTmlsKERlZXBHZXQoaW5wdXQsIFtdc3RyaW5neyJ0ZXN0IiwgIm5pbHZhbHVlIn0sICJub3BlIikpCglhc3NlcnQuTmlsKERlZXBHZXQoaW5wdXQsIFtdc3RyaW5neyJ0ZXN0IiwgIm5pbHZhbHVlIn0sIG5pbCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestM",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestM(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKG1hcFtzdHJpbmddaW50ZXJmYWNle317YGZpcnN0YDogdHJ1ZSwgYHNlY29uZGA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YHMxYDogYHRlc3RgLCBgdmFsdWVzYDogW11pbnR7MSwgMiwgMywgNH0sIGB0cnV0aHlgOiBgVHJ1ZWAsIGBzdHJudW1gOiBgNDJgLCBgdGhlbmA6IGAyMDA2LTAxLTAyYH0sIGBub3dgOiB0aW1lLk5vdygpLCBgdGhpcmRgOiAzLjE0MTUsIGBmb3VydGhgOiA0Mn0pCglhc3NlcnQuRXF1YWwoYGAsIE0obmlsKS5TdHJpbmcoYGxvbGApKQoJYXNzZXJ0LkZhbHNlKE0obmlsKS5Cb29sKGBsb2xgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgwKSwgTShuaWwpLkludChgbG9sYCkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgwKSwgTShuaWwpLkZsb2F0KGBsb2xgKSkKCWFzc2VydC5MZW4oTShuaWwpLlNsaWNlKGBsb2xgKSwgMCkKCWFzc2VydC5OaWwoTShuaWwpLkF1dG8oYHNlY29uZC5zdHJudW1gKSkKCWFzc2VydC5aZXJvKE0obmlsKS5UaW1lKGBub3dgKSkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGlucHV0LlN0cmluZyhgc2Vjb25kLnMxYCkpCglhc3NlcnQuVHJ1ZShpbnB1dC5Cb29sKGBmaXJzdGApKQoJYXNzZXJ0LlRydWUoaW5wdXQuQm9vbChgc2Vjb25kLnRydXRoeWApKQoJYXNzZXJ0LlRydWUoaW5wdXQuQm9vbChgc2Vjb25kLnMxYCkpCglhc3NlcnQuRXF1YWwoMy4xNDE1LCBpbnB1dC5GbG9hdChgdGhpcmRgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgzKSwgaW5wdXQuSW50KGB0aGlyZGApKQoJYXNzZXJ0LkVxdWFsKGludDY0KDQyKSwgaW5wdXQuSW50KGBmb3VydGhgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgzKSwgaW5wdXQuSW50KGBzZWNvbmQudmFsdWVzLjJgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgwKSwgaW5wdXQuSW50KGBzZWNvbmQudmFsdWVzLjk5YCkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCg0MiksIGlucHV0LkZsb2F0KGBmb3VydGhgKSkKCWFzc2VydC5MZW4oaW5wdXQuU2xpY2UoYHNlY29uZC52YWx1ZXNgKSwgNCkKCWFzc2VydC5FcXVhbChpbnQ2NCg0MiksIGlucHV0LkF1dG8oYHNlY29uZC5zdHJudW1gKSkKCWFzc2VydC5FcXVhbCh0aW1lLkRhdGUoMjAwNiwgMSwgMiwgMCwgMCwgMCwgMCwgdGltZS5VVEMpLCBpbnB1dC5UaW1lKGBzZWNvbmQudGhlbmApKQoJYXNzZXJ0LkVxdWFsKDUsIGlucHV0LkxlbigpKQoJayA6PSBtYWtlKFtdc3RyaW5nLCA1KQoJaSA6PSAwCglhc3NlcnQuTm9FcnJvcihpbnB1dC5FYWNoKGZ1bmMoa2V5IHN0cmluZywgdmFsdWUgdHlwZXV0aWwuVmFyaWFudCkgZXJyb3IgewoJCWtbaV0gPSBrZXkKCQlpKysKCQlyZXR1cm4gbmlsCgl9KSkKCWFzc2VydC5FbGVtZW50c01hdGNoKGssIFtdc3RyaW5ne2BmaXJzdGAsIGBzZWNvbmRgLCBgdGhpcmRgLCBgZm91cnRoYCwgYG5vd2B9KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMHttpHeader",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMHttpHeader(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKGh0dHAuSGVhZGVye2BhYDogW11zdHJpbmd7YDFgfSwgYGJgOiBbXXN0cmluZ3t9LCBgY2A6IFtdc3RyaW5ne2AyYCwgYDNgfX0pCglhc3NlcnQuRXF1YWwoYDFgLCBpbnB1dC5TdHJpbmcoYGFgKSkKCWFzc2VydC5FcXVhbFZhbHVlcygxLCBpbnB1dC5JbnQoYGFgKSkKCWFzc2VydC5FcXVhbChgYCwgaW5wdXQuU3RyaW5nKGBiYCkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgwKSwgaW5wdXQuRmxvYXQoYGJgKSkKCWFzc2VydC5OaWwoaW5wdXQuQXV0byhgYmApKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2AyYCwgYDNgfSwgaW5wdXQuU3RyaW5ncyhgY2ApKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMIter",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMIter(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKG1hcFtzdHJpbmddaW50ZXJmYWNle317YGFgOiAxLCBgYmA6IDIsIGBjYDogMywgYGRgOiA0fSkKCXZhciBrZXlzIFtdc3RyaW5nCgl2YXIgdmFscyBbXWludAoJZm9yIGl0ZW0gOj0gcmFuZ2UgaW5wdXQuSXRlcigpIHsKCQlrZXlzID0gYXBwZW5kKGtleXMsIGl0ZW0uSykKCQl2YWxzID0gYXBwZW5kKHZhbHMsIGludChpdGVtLlYuSW50KCkpKQoJfQoJYXNzZXJ0LkVsZW1lbnRzTWF0Y2goW11zdHJpbmd7YGNgLCBgZGAsIGBhYCwgYGJgfSwga2V5cykKCWFzc2VydC5FbGVtZW50c01hdGNoKFtdaW50ezQsIDIsIDMsIDF9LCB2YWxzKQoJa2V5cyA9IG5pbAoJdmFscyA9IG5pbAoJZm9yIGl0ZW0gOj0gcmFuZ2UgaW5wdXQuSXRlcihJdGVyT3B0aW9uc3tTb3J0S2V5czogdHJ1ZX0pIHsKCQlrZXlzID0gYXBwZW5kKGtleXMsIGl0ZW0uSykKCQl2YWxzID0gYXBwZW5kKHZhbHMsIGludChpdGVtLlYuSW50KCkpKQoJfQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2BhYCwgYGJgLCBgY2AsIGBkYH0sIGtleXMpCglhc3NlcnQuRXF1YWwoW11pbnR7MSwgMiwgMywgNH0sIHZhbHMpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMMarshalJSON",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMMarshalJSON(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltIDo9IE0obWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgaGVsbG9gOiAxLCBgdGhlcmVgOiB0cnVlLCBgZ2VuZXJhbGA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YGtlbm9iaWA6IHRydWV9LCBgeHl6YDogW11zdHJpbmd7YGFgLCBgYmAsIGBjYH0sIGB6enpgOiBbXW1hcFtzdHJpbmddaW50ZXJmYWNle317bWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBhYCwgYHZhbHVlYDogMH0sIG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgYmAsIGB2YWx1ZWA6IDF9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYGNgLCBgdmFsdWVgOiAyfX19KQoJb3V0LCBlcnIgOj0ganNvbi5NYXJzaGFsKG0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoW11ieXRlKGB7ImdlbmVyYWwiOnsia2Vub2JpIjp0cnVlfSwiaGVsbG8iOjEsInRoZXJlIjp0cnVlLCJ4eXoiOlsiYSIsImIiLCJjIl0sInp6eiI6W3sibmFtZSI6ImEiLCJ2YWx1ZSI6MH0seyJuYW1lIjoiYiIsInZhbHVlIjoxfSx7Im5hbWUiOiJjIiwidmFsdWUiOjJ9XX1gKSwgb3V0KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMMarshalXML",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMMarshalXML(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltIDo9IE0obWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgaGVsbG9gOiAxLCBgdGhlcmVgOiB0cnVlLCBgZ2VuZXJhbGA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YGtlbm9iaWA6IHRydWV9LCBgeHl6YDogW11zdHJpbmd7YGFgLCBgYmAsIGBjYH0sIGB6enpgOiBbXW1hcFtzdHJpbmddaW50ZXJmYWNle317bWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBhYCwgYHZhbHVlYDogMH0sIG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgYmAsIGB2YWx1ZWA6IDF9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYGNgLCBgdmFsdWVgOiAyfX19KQoJb3V0LCBlcnIgOj0geG1sLk1hcnNoYWwobSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChbXWJ5dGUoYDxkYXRhPjxnZW5lcmFsPjxrZW5vYmk+dHJ1ZTwva2Vub2JpPjwvZ2VuZXJhbD48aGVsbG8+MTwvaGVsbG8+PHRoZXJlPnRydWU8L3RoZXJlPjx4eXo+PGVsZW1lbnQ+YTwvZWxlbWVudD48ZWxlbWVudD5iPC9lbGVtZW50PjxlbGVtZW50PmM8L2VsZW1lbnQ+PC94eXo+PHp6ej48ZWxlbWVudD48bmFtZT5hPC9uYW1lPjx2YWx1ZT4wPC92YWx1ZT48L2VsZW1lbnQ+PGVsZW1lbnQ+PG5hbWU+YjwvbmFtZT48dmFsdWU+MTwvdmFsdWU+PC9lbGVtZW50PjxlbGVtZW50PjxuYW1lPmM8L25hbWU+PHZhbHVlPjI8L3ZhbHVlPjwvZWxlbWVudD48L3p6ej48L2RhdGE+YCksIG91dCkKCW0uU2V0Um9vdFRhZ05hbWUoYG51Yl9udWJgKQoJb3V0LCBlcnIgPSB4bWwuTWFyc2hhbChtKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKFtdYnl0ZShgPG51Yl9udWI+PGdlbmVyYWw+PGtlbm9iaT50cnVlPC9rZW5vYmk+PC9nZW5lcmFsPjxoZWxsbz4xPC9oZWxsbz48dGhlcmU+dHJ1ZTwvdGhlcmU+PHh5ej48ZWxlbWVudD5hPC9lbGVtZW50PjxlbGVtZW50PmI8L2VsZW1lbnQ+PGVsZW1lbnQ+YzwvZWxlbWVudD48L3h5ej48enp6PjxlbGVtZW50PjxuYW1lPmE8L25hbWU+PHZhbHVlPjA8L3ZhbHVlPjwvZWxlbWVudD48ZWxlbWVudD48bmFtZT5iPC9uYW1lPjx2YWx1ZT4xPC92YWx1ZT48L2VsZW1lbnQ+PGVsZW1lbnQ+PG5hbWU+YzwvbmFtZT48dmFsdWU+MjwvdmFsdWU+PC9lbGVtZW50Pjwvenp6PjwvbnViX251Yj5gKSwgb3V0KQoJbS5TZXRNYXJzaGFsWG1sR2VuZXJpYyh0cnVlKQoJb3V0LCBlcnIgPSB4bWwuTWFyc2hhbChtKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKFtdYnl0ZShgPG51Yl9udWI+PGl0ZW0gdHlwZT0ib2JqZWN0IiBrZXk9ImdlbmVyYWwiPjxpdGVtIGtleT0ia2Vub2JpIiB0eXBlPSJib29sIj50cnVlPC9pdGVtPjwvaXRlbT48aXRlbSBrZXk9ImhlbGxvIiB0eXBlPSJpbnQiPjE8L2l0ZW0+PGl0ZW0ga2V5PSJ0aGVyZSIgdHlwZT0iYm9vbCI+dHJ1ZTwvaXRlbT48aXRlbSB0eXBlPSJhcnJheSIga2V5PSJ4eXoiPjxpdGVtIGtleT0iZWxlbWVudCIgdHlwZT0ic3RyIj5hPC9pdGVtPjxpdGVtIGtleT0iZWxlbWVudCIgdHlwZT0ic3RyIj5iPC9pdGVtPjxpdGVtIGtleT0iZWxlbWVudCIgdHlwZT0ic3RyIj5jPC9pdGVtPjwvaXRlbT48aXRlbSB0eXBlPSJhcnJheSIga2V5PSJ6enoiPjxpdGVtIHR5cGU9Im9iamVjdCIga2V5PSJlbGVtZW50Ij48aXRlbSBrZXk9Im5hbWUiIHR5cGU9InN0ciI+YTwvaXRlbT48aXRlbSBrZXk9InZhbHVlIiB0eXBlPSJpbnQiPjA8L2l0ZW0+PC9pdGVtPjxpdGVtIHR5cGU9Im9iamVjdCIga2V5PSJlbGVtZW50Ij48aXRlbSBrZXk9Im5hbWUiIHR5cGU9InN0ciI+YjwvaXRlbT48aXRlbSBrZXk9InZhbHVlIiB0eXBlPSJpbnQiPjE8L2l0ZW0+PC9pdGVtPjxpdGVtIHR5cGU9Im9iamVjdCIga2V5PSJlbGVtZW50Ij48aXRlbSBrZXk9Im5hbWUiIHR5cGU9InN0ciI+YzwvaXRlbT48aXRlbSBrZXk9InZhbHVlIiB0eXBlPSJpbnQiPjI8L2l0ZW0+PC9pdGVtPjwvaXRlbT48L251Yl9udWI+YCksIG91dCkKCW0uU2V0TWFyc2hhbFhtbEdlbmVyaWMoZmFsc2UpCgltLlNldE1hcnNoYWxYbWxLZXlGdW5jKGZ1bmMoaW4gc3RyaW5nKSBzdHJpbmcgewoJCXJldHVybiBzdHJpbmd1dGlsLkNhbWVsaXplKGluKQoJfSkKCW91dCwgZXJyID0geG1sLk1hcnNoYWwobSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChbXWJ5dGUoYDxOdWJOdWI+PEdlbmVyYWw+PEtlbm9iaT50cnVlPC9LZW5vYmk+PC9HZW5lcmFsPjxIZWxsbz4xPC9IZWxsbz48VGhlcmU+dHJ1ZTwvVGhlcmU+PFh5ej48RWxlbWVudD5hPC9FbGVtZW50PjxFbGVtZW50PmI8L0VsZW1lbnQ+PEVsZW1lbnQ+YzwvRWxlbWVudD48L1h5ej48Wnp6PjxFbGVtZW50PjxOYW1lPmE8L05hbWU+PFZhbHVlPjA8L1ZhbHVlPjwvRWxlbWVudD48RWxlbWVudD48TmFtZT5iPC9OYW1lPjxWYWx1ZT4xPC9WYWx1ZT48L0VsZW1lbnQ+PEVsZW1lbnQ+PE5hbWU+YzwvTmFtZT48VmFsdWU+MjwvVmFsdWU+PC9FbGVtZW50PjwvWnp6PjwvTnViTnViPmApLCBvdXQpCgltLlNldE1hcnNoYWxYbWxHZW5lcmljKHRydWUpCglvdXQsIGVyciA9IHhtbC5NYXJzaGFsKG0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoW11ieXRlKGA8TnViTnViPjxpdGVtIHR5cGU9Im9iamVjdCIga2V5PSJHZW5lcmFsIj48aXRlbSBrZXk9Iktlbm9iaSIgdHlwZT0iYm9vbCI+dHJ1ZTwvaXRlbT48L2l0ZW0+PGl0ZW0ga2V5PSJIZWxsbyIgdHlwZT0iaW50Ij4xPC9pdGVtPjxpdGVtIGtleT0iVGhlcmUiIHR5cGU9ImJvb2wiPnRydWU8L2l0ZW0+PGl0ZW0gdHlwZT0iYXJyYXkiIGtleT0iWHl6Ij48aXRlbSBrZXk9IkVsZW1lbnQiIHR5cGU9InN0ciI+YTwvaXRlbT48aXRlbSBrZXk9IkVsZW1lbnQiIHR5cGU9InN0ciI+YjwvaXRlbT48aXRlbSBrZXk9IkVsZW1lbnQiIHR5cGU9InN0ciI+YzwvaXRlbT48L2l0ZW0+PGl0ZW0gdHlwZT0iYXJyYXkiIGtleT0iWnp6Ij48aXRlbSB0eXBlPSJvYmplY3QiIGtleT0iRWxlbWVudCI+PGl0ZW0ga2V5PSJOYW1lIiB0eXBlPSJzdHIiPmE8L2l0ZW0+PGl0ZW0ga2V5PSJWYWx1ZSIgdHlwZT0iaW50Ij4wPC9pdGVtPjwvaXRlbT48aXRlbSB0eXBlPSJvYmplY3QiIGtleT0iRWxlbWVudCI+PGl0ZW0ga2V5PSJOYW1lIiB0eXBlPSJzdHIiPmI8L2l0ZW0+PGl0ZW0ga2V5PSJWYWx1ZSIgdHlwZT0iaW50Ij4xPC9pdGVtPjwvaXRlbT48aXRlbSB0eXBlPSJvYmplY3QiIGtleT0iRWxlbWVudCI+PGl0ZW0ga2V5PSJOYW1lIiB0eXBlPSJzdHIiPmM8L2l0ZW0+PGl0ZW0ga2V5PSJWYWx1ZSIgdHlwZT0iaW50Ij4yPC9pdGVtPjwvaXRlbT48L2l0ZW0+PC9OdWJOdWI+YCksIG91dCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMSet",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMSet(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKG5pbCkKCWFzc2VydC5FcXVhbChgYCwgaW5wdXQuU3RyaW5nKGBsb2xgKSkKCWFzc2VydC5FcXVhbChgMmZ1bm55NG1lYCwgaW5wdXQuU2V0KGBsb2xgLCBgMmZ1bm55NG1lYCkuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDJmdW5ueTRtZWAsIGlucHV0LlN0cmluZyhgbG9sYCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMStruct",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMStruct(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKCZ0ZXN0TXN0cnVjdHtJRDogYDEyM2AsIE5hbWU6IGB0ZXN0ZXJgLCBGYWN0b3I6IDMuMTR9KQoJYXNzZXJ0LkVxdWFsKGAxMjNgLCBpbnB1dC5TdHJpbmcoYGlkYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTIzLCBpbnB1dC5JbnQoYGlkYCkpCglhc3NlcnQuRXF1YWwoYHRlc3RlcmAsIGlucHV0LlN0cmluZyhgTmFtZWApKQoJYXNzZXJ0LkVxdWFsKDMuMTQsIGlucHV0LkZsb2F0KGBGYWN0b3JgKSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BpZGA6IGAxMjNgLCBgTmFtZWA6IGB0ZXN0ZXJgLCBgRmFjdG9yYDogMy4xNH0sIGlucHV0Lk1hcE5hdGl2ZSgpKQoJYXNzZXJ0LkVxdWFsKG1hcFtzdHJpbmddaW50ZXJmYWNle317YF9pZGA6IGAxMjNgLCBgTkFNRWA6IGB0ZXN0ZXJgLCBgRmFjdG9yYDogMy4xNH0sIGlucHV0Lk1hcE5hdGl2ZShganNvbmApKQoJdmFyIGtleXMgW11zdHJpbmcKCXZhciB2YWx1ZXMgW11pbnRlcmZhY2V7fQoJZm9yIGl0ZW0gOj0gcmFuZ2UgaW5wdXQuSXRlcigpIHsKCQlrZXlzID0gYXBwZW5kKGtleXMsIGl0ZW0uSykKCQl2YWx1ZXMgPSBhcHBlbmQodmFsdWVzLCBpdGVtLlZhbHVlKQoJfQoJYXNzZXJ0LkVsZW1lbnRzTWF0Y2goW11zdHJpbmd7YGlkYCwgYE5hbWVgLCBgRmFjdG9yYH0sIGtleXMpCglhc3NlcnQuRWxlbWVudHNNYXRjaChbXWludGVyZmFjZXt9e2AxMjNgLCBgdGVzdGVyYCwgZmxvYXQ2NCgzLjE0KX0sIHZhbHVlcykKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMStructNested",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMStructNested(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0eXBlIG1zZWNvbmQgc3RydWN0IHsKCQlTMSAgICAgc3RyaW5nCgkJVmFsdWVzIFtdaW50CgkJVHJ1dGh5IGludGVyZmFjZXt9CgkJU3RybnVtIHN0cmluZwoJCVRoZW4gICBzdHJpbmcKCX0KCXR5cGUgbXRvcCBzdHJ1Y3QgewoJCUZpcnN0ICBib29sCgkJU2Vjb25kIG1zZWNvbmQKCQlOb3cgICAgdGltZS5UaW1lCgkJVGhpcmQgIGZsb2F0NjQKCQlGb3VydGggaW50Cgl9CglpbnB1dCA6PSBNKG10b3B7Rmlyc3Q6IHRydWUsIFNlY29uZDogbXNlY29uZHtTMTogYHRlc3RgLCBWYWx1ZXM6IFtdaW50ezEsIDIsIDMsIDR9LCBUcnV0aHk6IGBUcnVlYCwgU3RybnVtOiBgNDJgLCBUaGVuOiBgMjAwNi0wMS0wMmB9LCBOb3c6IHRpbWUuTm93KCksIFRoaXJkOiAzLjE0MTUsIEZvdXJ0aDogNDJ9KQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgaW5wdXQuU3RyaW5nKGBTZWNvbmQuUzFgKSkKCWFzc2VydC5UcnVlKGlucHV0LkJvb2woYEZpcnN0YCkpCglhc3NlcnQuVHJ1ZShpbnB1dC5Cb29sKGBTZWNvbmQuVHJ1dGh5YCkpCglhc3NlcnQuVHJ1ZShpbnB1dC5Cb29sKGBTZWNvbmQuUzFgKSkKCWFzc2VydC5FcXVhbCgzLjE0MTUsIGlucHV0LkZsb2F0KGBUaGlyZGApKQoJYXNzZXJ0LkVxdWFsKGludDY0KDMpLCBpbnB1dC5JbnQoYFRoaXJkYCkpCglhc3NlcnQuRXF1YWwoaW50NjQoNDIpLCBpbnB1dC5JbnQoYEZvdXJ0aGApKQoJYXNzZXJ0LkVxdWFsKGludDY0KDMpLCBpbnB1dC5JbnQoYFNlY29uZC5WYWx1ZXMuMmApKQoJYXNzZXJ0LkVxdWFsKGludDY0KDApLCBpbnB1dC5JbnQoYFNlY29uZC5WYWx1ZXMuOTlgKSkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDQyKSwgaW5wdXQuRmxvYXQoYEZvdXJ0aGApKQoJYXNzZXJ0LkxlbihpbnB1dC5TbGljZShgU2Vjb25kLlZhbHVlc2ApLCA0KQoJYXNzZXJ0LkVxdWFsKGludDY0KDQyKSwgaW5wdXQuQXV0byhgU2Vjb25kLlN0cm51bWApKQoJYXNzZXJ0LkVxdWFsKHRpbWUuRGF0ZSgyMDA2LCAxLCAyLCAwLCAwLCAwLCAwLCB0aW1lLlVUQyksIGlucHV0LlRpbWUoYFNlY29uZC5UaGVuYCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMUnmarshalJSON",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMUnmarshalJSON(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglqcyA6PSBbXWJ5dGUoYHsiZ2VuZXJhbCI6eyJrZW5vYmkiOnRydWV9LCJoZWxsbyI6MSwidGhlcmUiOnRydWUsInh5eiI6WyJhIiwiYiIsImMiXSwienp6IjpbeyJuYW1lIjoiYSIsInZhbHVlIjowfSx7Im5hbWUiOiJiIiwidmFsdWUiOjF9LHsibmFtZSI6ImMiLCJ2YWx1ZSI6Mn1dfWApCgl2YXIgbSBNYXAKCWFzc2VydC5Ob0Vycm9yKGpzb24uVW5tYXJzaGFsKGpzLCAmbSkpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgaGVsbG9gOiBmbG9hdDY0KDEpLCBgdGhlcmVgOiB0cnVlLCBgZ2VuZXJhbGA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YGtlbm9iaWA6IHRydWV9LCBgeHl6YDogW11pbnRlcmZhY2V7fXtgYWAsIGBiYCwgYGNgfSwgYHp6emA6IFtdaW50ZXJmYWNle317bWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBhYCwgYHZhbHVlYDogZmxvYXQ2NCgwKX0sIG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgYmAsIGB2YWx1ZWA6IGZsb2F0NjQoMSl9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYGNgLCBgdmFsdWVgOiBmbG9hdDY0KDIpfX19LCBtLmRhdGEpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMSwgbS5JbnQoYGhlbGxvYCkpCglhc3NlcnQuVHJ1ZShtLkJvb2woYHRoZXJlYCkpCglhc3NlcnQuRXF1YWwodHJ1ZSwgbS5Cb29sKGBnZW5lcmFsLmtlbm9iaWApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDIsIG0uRmxvYXQoYHp6ei4yLnZhbHVlYCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMUrlValues",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMUrlValues(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKHVybC5WYWx1ZXN7YGFgOiBbXXN0cmluZ3tgMWB9LCBgYmA6IFtdc3RyaW5ne30sIGBjYDogW11zdHJpbmd7YDJgLCBgM2B9fSkKCWFzc2VydC5FcXVhbChgMWAsIGlucHV0LlN0cmluZyhgYWApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDEsIGlucHV0LkludChgYWApKQoJYXNzZXJ0LkVxdWFsKGBgLCBpbnB1dC5TdHJpbmcoYGJgKSkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDApLCBpbnB1dC5GbG9hdChgYmApKQoJYXNzZXJ0Lk5pbChpbnB1dC5BdXRvKGBiYCkpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YDJgLCBgM2B9LCBpbnB1dC5TdHJpbmdzKGBjYCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapAppend",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapAppend(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXt9LCBBcHBlbmQoKSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BhYDogMSwgYGJgOiB0cnVlLCBgY2A6IGBUaHJlZWB9LCBBcHBlbmQobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogdHJ1ZSwgYGNgOiBgVGhyZWVgfSkpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogdHJ1ZSwgYGNgOiBgVGhyZWVgfSwgQXBwZW5kKG5pbCwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogdHJ1ZSwgYGNgOiBgVGhyZWVgfSwgbmlsKSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BhYDogMSwgYGJgOiB0cnVlLCBgY2A6IGBUaHJlZWAsIGBkYDogNCwgYGVgOiBmYWxzZSwgYGZgOiA2LjF9LCBBcHBlbmQobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogdHJ1ZSwgYGNgOiBgVGhyZWVgfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgZGA6IDQsIGBlYDogZmFsc2UsIGBmYDogNi4xfSkpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogdHJ1ZSwgYGNgOiBgRml2ZWB9LCBBcHBlbmQobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogdHJ1ZSwgYGNgOiBgVGhyZWVgfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgY2A6IGBGaXZlYH0pKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapJoin",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapJoin(t *testing.T)",
+            "Source": "ewoJaW5wdXQgOj0gbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtga2V5MWA6IGB2YWx1ZTFgLCBga2V5MmA6IHRydWUsIGBrZXkzYDogM30KCW91dHB1dCA6PSBKb2luKGlucHV0LCBgPWAsIGAmYCkKCWlmIG91dHB1dCA9PSBgYCB7CgkJdC5FcnJvcigiT3V0cHV0IHNob3VsZCBub3QgYmUgZW1wdHkiKQoJfQoJaWYgIXN0cmluZ3MuQ29udGFpbnMob3V0cHV0LCBga2V5MT12YWx1ZTFgKSB7CgkJdC5FcnJvcmYoIk91dHB1dCBzaG91bGQgY29udGFpbiAnJXMnIiwgYGtleTE9dmFsdWUxYCkKCX0KCWlmICFzdHJpbmdzLkNvbnRhaW5zKG91dHB1dCwgYGtleTI9dHJ1ZWApIHsKCQl0LkVycm9yZigiT3V0cHV0IHNob3VsZCBjb250YWluICclcyciLCBga2V5Mj10cnVlYCkKCX0KCWlmICFzdHJpbmdzLkNvbnRhaW5zKG91dHB1dCwgYGtleTM9M2ApIHsKCQl0LkVycm9yZigiT3V0cHV0IHNob3VsZCBjb250YWluICclcyciLCBga2V5Mz0zYCkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapMerge",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapMerge(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXQsIGVyciA6PSBNZXJnZShuaWwsIG5pbCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FbXB0eShvdXQpCglvdXQsIGVyciA9IE1lcmdlKG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgRmlyc3RgfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWdlYDogMn0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBGaXJzdGAsIGBhZ2VgOiAyfSwgb3V0KQoJb3V0LCBlcnIgPSBNZXJnZShtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogW11zdHJpbmd7YEZpcnN0YCwgYFNlY29uZGB9fSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBUaGlyZGB9KQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBbXWludGVyZmFjZXt9e2BGaXJzdGAsIGBTZWNvbmRgLCBgVGhpcmRgfX0sIG91dCkKCW91dCwgZXJyID0gTWVyZ2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBGaXJzdGB9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYEZpcnN0YH0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBGaXJzdGB9LCBvdXQpCglvdXQsIGVyciA9IE1lcmdlKG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgRmlyc3RgLCBgZW5hYmxlZGA6IHRydWV9LCBuaWwpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBGaXJzdGAsIGBlbmFibGVkYDogdHJ1ZX0sIG91dCkKCW91dCwgZXJyID0gTWVyZ2UobmlsLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYFNlY29uZGAsIGBlbmFibGVkYDogdHJ1ZX0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBTZWNvbmRgLCBgZW5hYmxlZGA6IHRydWV9LCBvdXQpCglvdXQsIGVyciA9IE1lcmdlKG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgRmlyc3RgfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBTZWNvbmRgLCBgYWdlYDogMn0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBTZWNvbmRgLCBgYWdlYDogMn0sIG91dCkKCW91dCwgZXJyID0gTWVyZ2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBGaXJzdGB9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYFNlY29uZGAsIGBhZ2VgOiAyfSwgQXBwZW5kVmFsdWVzKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBbXWludGVyZmFjZXt9e2BGaXJzdGAsIGBTZWNvbmRgfSwgYGFnZWA6IDJ9LCBvdXQpCglvdXQsIGVyciA9IE1lcmdlKG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgRmlyc3RgLCBgZW5hYmxlZGA6IG5pbH0sIG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgU2Vjb25kYCwgYGVuYWJsZWRgOiB0cnVlfSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYFNlY29uZGAsIGBlbmFibGVkYDogdHJ1ZX0sIG91dCkKCW91dCwgZXJyID0gTWVyZ2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBGaXJzdGAsIGBlbmFibGVkYDogbmlsfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBTZWNvbmRgLCBgZW5hYmxlZGA6IHRydWV9LCBBcHBlbmRWYWx1ZXMpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IFtdaW50ZXJmYWNle317YEZpcnN0YCwgYFNlY29uZGB9LCBgZW5hYmxlZGA6IHRydWV9LCBvdXQpCglvdXQsIGVyciA9IE1lcmdlKG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgRmlyc3RgLCBgYWdlYDogYHllc2B9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYFNlY29uZGAsIGBhZ2VgOiA0Mn0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBTZWNvbmRgLCBgYWdlYDogNDJ9LCBvdXQpCglvdXQsIGVyciA9IE1lcmdlKG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgRmlyc3RgLCBgYWdlYDogYHllc2B9LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYFNlY29uZGAsIGBhZ2VgOiA0Mn0sIEFwcGVuZFZhbHVlcykKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogW11pbnRlcmZhY2V7fXtgRmlyc3RgLCBgU2Vjb25kYH0sIGBhZ2VgOiBbXWludGVyZmFjZXt9e2B5ZXNgLCA0Mn19LCBvdXQpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapPluck",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapPluck(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRW1wdHkoUGx1Y2sobmlsLCBuaWwpKQoJYXNzZXJ0LkVtcHR5KFBsdWNrKG5pbCwgW11zdHJpbmd7YG5hbWVgfSkpCglhc3NlcnQuRW1wdHkoUGx1Y2soYHRlc3RgLCBbXXN0cmluZ3tgbmFtZWB9KSkKCWFzc2VydC5FbXB0eShQbHVjayhbXXN0cmluZ3tgdGVzdGAsIGB2YWx1ZXNgfSwgW11zdHJpbmd7YG5hbWVgfSkpCglhc3NlcnQuRXF1YWwoW11pbnRlcmZhY2V7fXtgQWxpY2VgLCBgQm9iYCwgYE1hbGxvcnlgfSwgUGx1Y2soW11tYXBbc3RyaW5nXXN0cmluZ3ttYXBbc3RyaW5nXXN0cmluZ3tgbmFtZWA6IGBBbGljZWB9LCBtYXBbc3RyaW5nXXN0cmluZ3tgbmFtZWA6IGBCb2JgfSwgbWFwW3N0cmluZ11zdHJpbmd7YG5hbWVgOiBgTWFsbG9yeWB9fSwgW11zdHJpbmd7YG5hbWVgfSkpCglhc3NlcnQuRXF1YWwoW11pbnRlcmZhY2V7fXtgQWxpY2VgLCBgTWFsbG9yeWB9LCBQbHVjayhbXW1hcFtzdHJpbmddc3RyaW5ne21hcFtzdHJpbmddc3RyaW5ne2BuYW1lYDogYEFsaWNlYH0sIG1hcFtzdHJpbmddc3RyaW5ne2BOQU1FYDogYEJvYmB9LCBtYXBbc3RyaW5nXXN0cmluZ3tgbmFtZWA6IGBNYWxsb3J5YH19LCBbXXN0cmluZ3tgbmFtZWB9KSkKCWFzc2VydC5FcXVhbChbXWludGVyZmFjZXt9e2BBbGljZWAsIGBCb2JgLCBgTWFsbG9yeWB9LCBQbHVjayhbXW1hcFtzdHJpbmddbWFwW3N0cmluZ11pbnRlcmZhY2V7fXttYXBbc3RyaW5nXW1hcFtzdHJpbmddaW50ZXJmYWNle317YGluZm9gOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYEFsaWNlYH19LCBtYXBbc3RyaW5nXW1hcFtzdHJpbmddaW50ZXJmYWNle317YGluZm9gOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYEJvYmB9fSwgbWFwW3N0cmluZ11tYXBbc3RyaW5nXWludGVyZmFjZXt9e2BpbmZvYDogbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGBNYWxsb3J5YH19fSwgW11zdHJpbmd7YGluZm9gLCBgbmFtZWB9KSkKCWFzc2VydC5FcXVhbChbXWludGVyZmFjZXt9e2BBbGljZWAsIGBCb2JgLCBgTWFsbG9yeWB9LCBQbHVjayhbXW1hcFtpbnRlcmZhY2V7fV1tYXBbaW50ZXJmYWNle31daW50ZXJmYWNle317bWFwW2ludGVyZmFjZXt9XW1hcFtpbnRlcmZhY2V7fV1pbnRlcmZhY2V7fXtgaW5mb2A6IG1hcFtpbnRlcmZhY2V7fV1pbnRlcmZhY2V7fXtgbmFtZWA6IGBBbGljZWB9fSwgbWFwW2ludGVyZmFjZXt9XW1hcFtpbnRlcmZhY2V7fV1pbnRlcmZhY2V7fXtgaW5mb2A6IG1hcFtpbnRlcmZhY2V7fV1pbnRlcmZhY2V7fXtgbmFtZWA6IGBCb2JgfX0sIG1hcFtpbnRlcmZhY2V7fV1tYXBbaW50ZXJmYWNle31daW50ZXJmYWNle317YGluZm9gOiBtYXBbaW50ZXJmYWNle31daW50ZXJmYWNle317YG5hbWVgOiBgTWFsbG9yeWB9fX0sIFtdc3RyaW5ne2BpbmZvYCwgYG5hbWVgfSkpCglhc3NlcnQuRXF1YWwoW11pbnRlcmZhY2V7fXtgQWxpY2VgLCBgQm9iYCwgYE1hbGxvcnlgfSwgUGx1Y2soW11pbnRlcmZhY2V7fXttYXBbc3RyaW5nXXN0cmluZ3tgbmFtZWA6IGBBbGljZWB9LCBtYXBbc3RyaW5nXXN0cmluZ3tgbmFtZWA6IGBCb2JgfSwgbWFwW3N0cmluZ11zdHJpbmd7YG5hbWVgOiBgTWFsbG9yeWB9fSwgW11zdHJpbmd7YG5hbWVgfSkpCglhc3NlcnQuRXF1YWwoW11pbnRlcmZhY2V7fXtgQWxpY2VgLCBgQm9iYCwgYE1hbGxvcnlgfSwgUGx1Y2soW11pbnRlcmZhY2V7fXsmbWFwW3N0cmluZ11zdHJpbmd7YG5hbWVgOiBgQWxpY2VgfSwgJm1hcFtzdHJpbmddc3RyaW5ne2BuYW1lYDogYEJvYmB9LCAmbWFwW3N0cmluZ11zdHJpbmd7YG5hbWVgOiBgTWFsbG9yeWB9fSwgW11zdHJpbmd7YG5hbWVgfSkpCglhc3NlcnQuRXF1YWwoW11pbnRlcmZhY2V7fXtgQWxpY2VgLCBgQm9iYCwgYE1hbGxvcnlgfSwgUGx1Y2soJltdaW50ZXJmYWNle317Jm1hcFtzdHJpbmddc3RyaW5ne2BuYW1lYDogYEFsaWNlYH0sICZtYXBbc3RyaW5nXXN0cmluZ3tgbmFtZWA6IGBCb2JgfSwgJm1hcFtzdHJpbmddc3RyaW5ne2BuYW1lYDogYE1hbGxvcnlgfX0sIFtdc3RyaW5ne2BuYW1lYH0pKQoJYXNzZXJ0LkVxdWFsKFtdaW50ZXJmYWNle317YEFsaWNlYCwgYEJvYmAsIGBNYWxsb3J5YH0sIFBsdWNrKCZbXWludGVyZmFjZXt9e1tdaW50ZXJmYWNle317Jm1hcFtzdHJpbmddc3RyaW5ne2BuYW1lYDogYEFsaWNlYH0sICZtYXBbc3RyaW5nXXN0cmluZ3tgbmFtZWA6IGBCb2JgfX0sIFtdaW50ZXJmYWNle317Jm1hcFtzdHJpbmddc3RyaW5ne2BuYW1lYDogYE1hbGxvcnlgfX19LCBbXXN0cmluZ3tgKmAsIGBuYW1lYH0pKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapSplit",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapSplit(t *testing.T)",
+            "Source": "ewoJaW5wdXQgOj0gYGtleTE9dmFsdWUxJmtleTI9dHJ1ZSZrZXkzPTNgCglvdXRwdXQgOj0gU3BsaXQoaW5wdXQsIGA9YCwgYCZgKQoJaWYgbGVuKG91dHB1dCkgPT0gMCB7CgkJdC5FcnJvcigiT3V0cHV0IHNob3VsZCBub3QgYmUgZW1wdHkiKQoJfQoJaWYgdiwgb2sgOj0gb3V0cHV0W2BrZXkxYF07ICFvayB8fCB2ICE9IGB2YWx1ZTFgIHsKCQl0LkVycm9yZigiT3V0cHV0IHNob3VsZCBjb250YWluIGtleSAlcyA9PiAnJXMnIiwgYGtleTFgLCBgdmFsdWUxYCkKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFtga2V5MmBdOyAhb2sgfHwgdiAhPSBgdHJ1ZWAgewoJCXQuRXJyb3JmKCJPdXRwdXQgc2hvdWxkIGNvbnRhaW4ga2V5ICVzID0+ICclcyciLCBga2V5MmAsIGB0cnVlYCkKCX0KCWlmIHYsIG9rIDo9IG91dHB1dFtga2V5M2BdOyAhb2sgfHwgdiAhPSBgM2AgewoJCXQuRXJyb3JmKCJPdXRwdXQgc2hvdWxkIGNvbnRhaW4ga2V5ICVzID0+ICclcyciLCBga2V5M2AsIGAzYCkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapWalkFlatMap",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapWalkFlatMap(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BhYDogMSwgYGJgOiB0cnVlLCBgY2A6IGBUaHJlZWB9CgljaGVja0Fuc3dlcnMgOj0gZnVuYyhjYWxsU2lnbmF0dXJlcyBtYXBbc3RyaW5nXWZuQ2FsbFNpZ25hdHVyZSkgewoJCXYsIG9rIDo9IGNhbGxTaWduYXR1cmVzW2BgXQoJCWFzc2VydC5UcnVlKG9rKQoJCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7aW5wdXQsIG5pbCwgZmFsc2V9LCB2KQoJCXYsIG9rID0gY2FsbFNpZ25hdHVyZXNbYGFgXQoJCWFzc2VydC5UcnVlKG9rKQoJCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7MSwgW11zdHJpbmd7YGFgfSwgdHJ1ZX0sIHYpCgkJdiwgb2sgPSBjYWxsU2lnbmF0dXJlc1tgYmBdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXt0cnVlLCBbXXN0cmluZ3tgYmB9LCB0cnVlfSwgdikKCQl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BjYF0KCQlhc3NlcnQuVHJ1ZShvaykKCQlhc3NlcnQuRXF1YWwoZm5DYWxsU2lnbmF0dXJle2BUaHJlZWAsIFtdc3RyaW5ne2BjYH0sIHRydWV9LCB2KQoJfQoJY2FsbFNpZ25hdHVyZXMgOj0gbWFrZShtYXBbc3RyaW5nXWZuQ2FsbFNpZ25hdHVyZSkKCWFzc2VydC5OaWwoV2FsayhpbnB1dCwgZnVuYyh2YWx1ZSBpbnRlcmZhY2V7fSwgcGF0aCBbXXN0cmluZywgaXNMZWFmIGJvb2wpIGVycm9yIHsKCQljYWxsU2lnbmF0dXJlc1tzdHJpbmdzLkpvaW4ocGF0aCwgYC5gKV0gPSBmbkNhbGxTaWduYXR1cmV7VmFsdWU6IHZhbHVlLCBQYXRoOiBwYXRoLCBJc0xlYWY6IGlzTGVhZn0KCQlyZXR1cm4gbmlsCgl9KSkKCWNoZWNrQW5zd2VycyhjYWxsU2lnbmF0dXJlcykKCWNhbGxTaWduYXR1cmVzID0gbWFrZShtYXBbc3RyaW5nXWZuQ2FsbFNpZ25hdHVyZSkKCWFzc2VydC5OaWwoV2FsaygmaW5wdXQsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJY2FsbFNpZ25hdHVyZXNbc3RyaW5ncy5Kb2luKHBhdGgsIGAuYCldID0gZm5DYWxsU2lnbmF0dXJle1ZhbHVlOiB2YWx1ZSwgUGF0aDogcGF0aCwgSXNMZWFmOiBpc0xlYWZ9CgkJcmV0dXJuIG5pbAoJfSkpCgljaGVja0Fuc3dlcnMoY2FsbFNpZ25hdHVyZXMpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapWalkNestedMap",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapWalkNestedMap(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljYWxsU2lnbmF0dXJlcyA6PSBtYWtlKG1hcFtzdHJpbmddZm5DYWxsU2lnbmF0dXJlKQoJYjJhX21hcCA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BhYDogdHJ1ZX0KCWIyYl9tYXAgOj0gbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDQyfQoJYjJfc2xpY2UgOj0gW11tYXBbc3RyaW5nXWludGVyZmFjZXt9e2IyYV9tYXAsIGIyYl9tYXB9CgliX21hcCA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BiMWA6IDExLCBgYjJgOiBiMl9zbGljZX0KCWlucHV0IDo9IG1hcFtzdHJpbmddaW50ZXJmYWNle317YGFgOiAxLCBgYmA6IGJfbWFwfQoJV2FsayhpbnB1dCwgZnVuYyh2YWx1ZSBpbnRlcmZhY2V7fSwgcGF0aCBbXXN0cmluZywgaXNMZWFmIGJvb2wpIGVycm9yIHsKCQljYWxsU2lnbmF0dXJlc1tzdHJpbmdzLkpvaW4ocGF0aCwgYC5gKV0gPSBmbkNhbGxTaWduYXR1cmV7VmFsdWU6IHZhbHVlLCBQYXRoOiBwYXRoLCBJc0xlYWY6IGlzTGVhZn0KCQlyZXR1cm4gbmlsCgl9KQoJdiwgb2sgOj0gY2FsbFNpZ25hdHVyZXNbYGBdCglhc3NlcnQuVHJ1ZShvaykKCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7aW5wdXQsIG5pbCwgZmFsc2V9LCB2KQoJdiwgb2sgPSBjYWxsU2lnbmF0dXJlc1tgYWBdCglhc3NlcnQuVHJ1ZShvaykKCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7MSwgW11zdHJpbmd7YGFgfSwgdHJ1ZX0sIHYpCgl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BiYF0KCWFzc2VydC5UcnVlKG9rKQoJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtiX21hcCwgW11zdHJpbmd7YGJgfSwgZmFsc2V9LCB2KQoJdiwgb2sgPSBjYWxsU2lnbmF0dXJlc1tgYi5iMWBdCglhc3NlcnQuVHJ1ZShvaykKCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7MTEsIFtdc3RyaW5ne2BiYCwgYGIxYH0sIHRydWV9LCB2KQoJdiwgb2sgPSBjYWxsU2lnbmF0dXJlc1tgYi5iMmBdCglhc3NlcnQuVHJ1ZShvaykKCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7YjJfc2xpY2UsIFtdc3RyaW5ne2BiYCwgYGIyYH0sIGZhbHNlfSwgdikKCXYsIG9rID0gY2FsbFNpZ25hdHVyZXNbYGIuYjIuMGBdCglhc3NlcnQuVHJ1ZShvaykKCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7YjJhX21hcCwgW11zdHJpbmd7YGJgLCBgYjJgLCBgMGB9LCBmYWxzZX0sIHYpCgl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BiLmIyLjAuYWBdCglhc3NlcnQuVHJ1ZShvaykKCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7dHJ1ZSwgW11zdHJpbmd7YGJgLCBgYjJgLCBgMGAsIGBhYH0sIHRydWV9LCB2KQoJdiwgb2sgPSBjYWxsU2lnbmF0dXJlc1tgYi5iMi4xLmFgXQoJYXNzZXJ0LlRydWUob2spCglhc3NlcnQuRXF1YWwoZm5DYWxsU2lnbmF0dXJlezQyLCBbXXN0cmluZ3tgYmAsIGBiMmAsIGAxYCwgYGFgfSwgdHJ1ZX0sIHYpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapWalkScalar",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapWalkScalar(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuTmlsKFdhbGsobmlsLCBuaWwpKQoJaSA6PSAwCglhc3NlcnQuTmlsKFdhbGsoNDIsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaSArPSAxCgkJYXNzZXJ0LkVxdWFsKDQyLCB2YWx1ZSkKCQlhc3NlcnQuTmlsKHBhdGgpCgkJYXNzZXJ0LlRydWUoaXNMZWFmKQoJCXJldHVybiBuaWwKCX0pKQoJYXNzZXJ0LkVxdWFsKDEsIGkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMapWalkStruct",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMapWalkStruct(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSB3YWxrVGVzdFN0cnVjdHtOYW1lOiBgRmlyc3RgLCBWYWx1ZTogNDIsIEZsYWdzOiBbXWJvb2x7dHJ1ZSwgdHJ1ZSwgZmFsc2UsIHRydWV9LCBTdWJtYXA6IG1hcFtzdHJpbmddc3RyaW5ne2BhYDogYDFgLCBgYmA6IGB0cnVlYCwgYGNgOiBgVGhyZWVgfX0KCWNoZWNrQW5zd2VycyA6PSBmdW5jKGNhbGxTaWduYXR1cmVzIG1hcFtzdHJpbmddZm5DYWxsU2lnbmF0dXJlKSB7CgkJdiwgb2sgOj0gY2FsbFNpZ25hdHVyZXNbYGBdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtpbnB1dCwgbmlsLCBmYWxzZX0sIHYpCgkJdiwgb2sgPSBjYWxsU2lnbmF0dXJlc1tgTmFtZWBdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtgRmlyc3RgLCBbXXN0cmluZ3tgTmFtZWB9LCB0cnVlfSwgdikKCQl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BWYWx1ZWBdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtpbnQ2NCg0MiksIFtdc3RyaW5ne2BWYWx1ZWB9LCB0cnVlfSwgdikKCQl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BGbGFnc2BdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtpbnB1dC5GbGFncywgW11zdHJpbmd7YEZsYWdzYH0sIGZhbHNlfSwgdikKCQl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BGbGFncy4wYF0KCQlhc3NlcnQuVHJ1ZShvaykKCQlhc3NlcnQuRXF1YWwoZm5DYWxsU2lnbmF0dXJle3RydWUsIFtdc3RyaW5ne2BGbGFnc2AsIGAwYH0sIHRydWV9LCB2KQoJCXYsIG9rID0gY2FsbFNpZ25hdHVyZXNbYEZsYWdzLjFgXQoJCWFzc2VydC5UcnVlKG9rKQoJCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7dHJ1ZSwgW11zdHJpbmd7YEZsYWdzYCwgYDFgfSwgdHJ1ZX0sIHYpCgkJdiwgb2sgPSBjYWxsU2lnbmF0dXJlc1tgRmxhZ3MuMmBdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtmYWxzZSwgW11zdHJpbmd7YEZsYWdzYCwgYDJgfSwgdHJ1ZX0sIHYpCgkJdiwgb2sgPSBjYWxsU2lnbmF0dXJlc1tgRmxhZ3MuM2BdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXt0cnVlLCBbXXN0cmluZ3tgRmxhZ3NgLCBgM2B9LCB0cnVlfSwgdikKCQl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BTdWJtYXBgXQoJCWFzc2VydC5UcnVlKG9rKQoJCWFzc2VydC5FcXVhbChmbkNhbGxTaWduYXR1cmV7aW5wdXQuU3VibWFwLCBbXXN0cmluZ3tgU3VibWFwYH0sIGZhbHNlfSwgdikKCQl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BTdWJtYXAuYWBdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtgMWAsIFtdc3RyaW5ne2BTdWJtYXBgLCBgYWB9LCB0cnVlfSwgdikKCQl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BTdWJtYXAuYmBdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtgdHJ1ZWAsIFtdc3RyaW5ne2BTdWJtYXBgLCBgYmB9LCB0cnVlfSwgdikKCQl2LCBvayA9IGNhbGxTaWduYXR1cmVzW2BTdWJtYXAuY2BdCgkJYXNzZXJ0LlRydWUob2spCgkJYXNzZXJ0LkVxdWFsKGZuQ2FsbFNpZ25hdHVyZXtgVGhyZWVgLCBbXXN0cmluZ3tgU3VibWFwYCwgYGNgfSwgdHJ1ZX0sIHYpCgl9CgljYWxsU2lnbmF0dXJlcyA6PSBtYWtlKG1hcFtzdHJpbmddZm5DYWxsU2lnbmF0dXJlKQoJYXNzZXJ0Lk5pbChXYWxrU3RydWN0KGlucHV0LCBmdW5jKHZhbHVlIGludGVyZmFjZXt9LCBwYXRoIFtdc3RyaW5nLCBpc0xlYWYgYm9vbCkgZXJyb3IgewoJCWNhbGxTaWduYXR1cmVzW3N0cmluZ3MuSm9pbihwYXRoLCBgLmApXSA9IGZuQ2FsbFNpZ25hdHVyZXtWYWx1ZTogdmFsdWUsIFBhdGg6IHBhdGgsIElzTGVhZjogaXNMZWFmfQoJCXJldHVybiBuaWwKCX0pKQoJY2hlY2tBbnN3ZXJzKGNhbGxTaWduYXR1cmVzKQoJY2FsbFNpZ25hdHVyZXMgPSBtYWtlKG1hcFtzdHJpbmddZm5DYWxsU2lnbmF0dXJlKQoJYXNzZXJ0Lk5pbChXYWxrU3RydWN0KCZpbnB1dCwgZnVuYyh2YWx1ZSBpbnRlcmZhY2V7fSwgcGF0aCBbXXN0cmluZywgaXNMZWFmIGJvb2wpIGVycm9yIHsKCQljYWxsU2lnbmF0dXJlc1tzdHJpbmdzLkpvaW4ocGF0aCwgYC5gKV0gPSBmbkNhbGxTaWduYXR1cmV7VmFsdWU6IHZhbHVlLCBQYXRoOiBwYXRoLCBJc0xlYWY6IGlzTGVhZn0KCQlyZXR1cm4gbmlsCgl9KSkKCWNoZWNrQW5zd2VycyhjYWxsU2lnbmF0dXJlcykKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestRxMapFmt",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestRxMapFmt(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltIDo9IHJ4dXRpbC5NYXRjaChyeE1hcEZtdCwgYCR7dGVzdGluZy50aGUudGhpbmd9YCkKCWFzc2VydC5Ob3ROaWwobSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXXN0cmluZ3tga2V5YDogYHRlc3RpbmcudGhlLnRoaW5nYCwgYGZhbGxiYWNrYDogYGAsIGBmbXRgOiBgYH0sIG0uTmFtZWRDYXB0dXJlcygpKQoJbSA9IHJ4dXRpbC5NYXRjaChyeE1hcEZtdCwgYCR7dGVzdGluZy50aGUudGhpbmc6JTQ4c31gKQoJYXNzZXJ0Lk5vdE5pbChtKQoJYXNzZXJ0LkVxdWFsKG1hcFtzdHJpbmddc3RyaW5ne2BrZXlgOiBgdGVzdGluZy50aGUudGhpbmdgLCBgZmFsbGJhY2tgOiBgYCwgYGZtdGA6IGAlNDhzYH0sIG0uTmFtZWRDYXB0dXJlcygpKQoJbSA9IHJ4dXRpbC5NYXRjaChyeE1hcEZtdCwgYCR7dGVzdGluZy50aGUudGhpbmd8ZmFsbGJhY2sudmFsdWV9YCkKCWFzc2VydC5Ob3ROaWwobSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXXN0cmluZ3tga2V5YDogYHRlc3RpbmcudGhlLnRoaW5nYCwgYGZhbGxiYWNrYDogYGZhbGxiYWNrLnZhbHVlYCwgYGZtdGA6IGBgfSwgbS5OYW1lZENhcHR1cmVzKCkpCgltID0gcnh1dGlsLk1hdGNoKHJ4TWFwRm10LCBgJHt0ZXN0aW5nfHRoZXx0aGluZ3xmYWxsYmFjay52YWx1ZX1gKQoJYXNzZXJ0Lk5vdE5pbChtKQoJYXNzZXJ0LkVxdWFsKG1hcFtzdHJpbmddc3RyaW5ne2BrZXlgOiBgdGVzdGluZ2AsIGBmYWxsYmFja2A6IGB0aGV8dGhpbmd8ZmFsbGJhY2sudmFsdWVgLCBgZm10YDogYGB9LCBtLk5hbWVkQ2FwdHVyZXMoKSkKCW0gPSByeHV0aWwuTWF0Y2gocnhNYXBGbXQsIGAke3Rlc3Rpbmd8dGhlfHRoaW5nfGZhbGxiYWNrLnZhbHVlOiU0OHN9YCkKCWFzc2VydC5Ob3ROaWwobSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXXN0cmluZ3tga2V5YDogYHRlc3RpbmdgLCBgZmFsbGJhY2tgOiBgdGhlfHRoaW5nfGZhbGxiYWNrLnZhbHVlYCwgYGZtdGA6IGAlNDhzYH0sIG0uTmFtZWRDYXB0dXJlcygpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSprintf",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSprintf(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYEhlbGxvIGd1ZXN0ISBZb3VyIElQIGlzOiAodW5rbm93bilgLCBTcHJpbnRmKCJIZWxsbyAke3VzZXJuYW1lfGd1ZXN0fSEgWW91ciBJUCBpczogJHtpcGFkZHJlc3N8KHVua25vd24pfSIpKQoJYXNzZXJ0LkVxdWFsKGBIZWxsbyBndWVzdCEgWW91ciBJUCBpczogMTI3LjAuMC4xYCwgU3ByaW50ZigiSGVsbG8gJHt1c2VybmFtZXxndWVzdH0hIFlvdXIgSVAgaXM6ICR7aXBhZGRyZXNzfCh1bmtub3duKX0iLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BpcGFkZHJlc3NgOiBgMTI3LjAuMC4xYH0pKQoJYXNzZXJ0LkVxdWFsKGBIZWxsbyBndWVzdCEgWW91ciBJUCBpczogMTI3LjAuMC4xYCwgU3ByaW50ZigiSGVsbG8gJHt1c2VybmFtZXxndWVzdH0hIFlvdXIgSVAgaXM6ICR7aXBhZGRyZXNzfCh1bmtub3duKX0iLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B1c2VybmFtZWA6IGBgLCBgaXBhZGRyZXNzYDogYDEyNy4wLjAuMWB9KSkKCWFzc2VydC5FcXVhbChgSGVsbG8gZnJpZW5kISBZb3VyIElQIGlzOiAodW5rbm93bilgLCBTcHJpbnRmKCJIZWxsbyAke3VzZXJuYW1lfGd1ZXN0fSEgWW91ciBJUCBpczogJHtpcGFkZHJlc3N8KHVua25vd24pfSIsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YHVzZXJuYW1lYDogYGZyaWVuZGB9KSkKCWFzc2VydC5FcXVhbChgSGVsbG8gZnJpZW5kISBZb3VyIElQIGlzOiAodW5rbm93bilgLCBTcHJpbnRmKCJIZWxsbyAke3VzZXJuYW1lfGd1ZXN0fSEgWW91ciBJUCBpczogJHtpcGFkZHJlc3N8KHVua25vd24pfSIsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YHVzZXJuYW1lYDogYGZyaWVuZGAsIGBpcGFkZHJlc3NgOiBgYH0pKQoJYXNzZXJ0LkVxdWFsKGBIZWxsbyBmcmllbmQhIFlvdXIgSVAgaXM6IDEyNy4wLjAuMWAsIFNwcmludGYoIkhlbGxvICR7dXNlcm5hbWV8Z3Vlc3R9ISBZb3VyIElQIGlzOiAke2lwYWRkcmVzc3wodW5rbm93bil9IiwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgdXNlcm5hbWVgOiBgZnJpZW5kYCwgYGlwYWRkcmVzc2A6IGAxMjcuMC4wLjFgfSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSprintfFormatTime",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSprintfFormatTime(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYHRoZSB0aW1lIGlzOiAyMDA2LTAxLTAyVDE1OjA0OjA1LTA3OjAwYCwgU3ByaW50ZigidGhlIHRpbWUgaXM6ICR7bm93fSIsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5vd2A6IHRpbWV1dGlsLlJlZmVyZW5jZVRpbWUoKX0pKQoJYXNzZXJ0LkVxdWFsKGB0aGUgdGltZSBpczogSmFudWFyeSAyLCAyMDA2ICgzOjA0cG0pYCwgU3ByaW50ZigidGhlIHRpbWUgaXM6ICR7bm93OiVKYW51YXJ5IDIsIDIwMDYgKDM6MDRwbSl9IiwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbm93YDogdGltZXV0aWwuUmVmZXJlbmNlVGltZSgpfSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSprintfFormatting",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSprintfFormatting(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYEhlbGxvIGd1ZXN0ICAgICAhIFlvdXIgSVAgaXM6ICAgICAgICh1bmtub3duKWAsIFNwcmludGYoIkhlbGxvICR7dXNlcm5hbWV8Z3Vlc3Q6JS0xMHN9ISBZb3VyIElQIGlzOiAke2lwYWRkcmVzc3wodW5rbm93bik6JTE1c30iKSkKCWFzc2VydC5FcXVhbChgSGVsbG8gZ3Vlc3QgICAgICEgWW91ciBJUCBpczogICAgICAgMTI3LjAuMC4xYCwgU3ByaW50ZigiSGVsbG8gJHt1c2VybmFtZXxndWVzdDolLTEwc30hIFlvdXIgSVAgaXM6ICR7aXBhZGRyZXNzfCh1bmtub3duKTolMTVzfSIsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YGlwYWRkcmVzc2A6IGAxMjcuMC4wLjFgfSkpCglhc3NlcnQuRXF1YWwoYEhlbGxvIGd1ZXN0ICAgICAhIFlvdXIgSVAgaXM6ICAgICAgIDEyNy4wLjAuMWAsIFNwcmludGYoIkhlbGxvICR7dXNlcm5hbWV8Z3Vlc3Q6JS0xMHN9ISBZb3VyIElQIGlzOiAke2lwYWRkcmVzc3wodW5rbm93bik6JTE1c30iLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B1c2VybmFtZWA6IGBgLCBgaXBhZGRyZXNzYDogYDEyNy4wLjAuMWB9KSkKCWFzc2VydC5FcXVhbChgSGVsbG8gZnJpZW5kICAgICEgWW91ciBJUCBpczogICAgICAgKHVua25vd24pYCwgU3ByaW50ZigiSGVsbG8gJHt1c2VybmFtZXxndWVzdDolLTEwc30hIFlvdXIgSVAgaXM6ICR7aXBhZGRyZXNzfCh1bmtub3duKTolMTVzfSIsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YHVzZXJuYW1lYDogYGZyaWVuZGB9KSkKCWFzc2VydC5FcXVhbChgSGVsbG8gZnJpZW5kICAgICEgWW91ciBJUCBpczogICAgICAgKHVua25vd24pYCwgU3ByaW50ZigiSGVsbG8gJHt1c2VybmFtZXxndWVzdDolLTEwc30hIFlvdXIgSVAgaXM6ICR7aXBhZGRyZXNzfCh1bmtub3duKTolMTVzfSIsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YHVzZXJuYW1lYDogYGZyaWVuZGAsIGBpcGFkZHJlc3NgOiBgYH0pKQoJYXNzZXJ0LkVxdWFsKGBIZWxsbyBmcmllbmQgICAgISBZb3VyIElQIGlzOiAgICAgICAxMjcuMC4wLjFgLCBTcHJpbnRmKCJIZWxsbyAke3VzZXJuYW1lfGd1ZXN0OiUtMTBzfSEgWW91ciBJUCBpczogJHtpcGFkZHJlc3N8KHVua25vd24pOiUxNXN9IiwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgdXNlcm5hbWVgOiBgZnJpZW5kYCwgYGlwYWRkcmVzc2A6IGAxMjcuMC4wLjFgfSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestStringKeys",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestStringKeys(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpMSA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2AxYDogMSwgYDJgOiB0cnVlLCBgM2A6IGB0aHJlZWB9CglpMiA6PSBtYXBbc3RyaW5nXWJvb2x7YDFgOiB0cnVlLCBgMmA6IGZhbHNlLCBgM2A6IHRydWV9CglpMyA6PSBtYXBbc3RyaW5nXU15VGVzdFRoaW5ne2AxYDogTXlUZXN0VGhpbmd7fSwgYDJgOiBNeVRlc3RUaGluZ3t9LCBgM2A6IE15VGVzdFRoaW5ne319Cgl2YXIgaTQgc3luYy5NYXAKCWk0LlN0b3JlKGAxYCwgTXlUZXN0VGhpbmd7fSkKCWk0LlN0b3JlKGAyYCwgMikKCWk0LlN0b3JlKGAzYCwgMy4xNCkKCW91dHB1dCA6PSBbXXN0cmluZ3tgMWAsIGAyYCwgYDNgfQoJYXNzZXJ0LkVtcHR5KFN0cmluZ0tleXMobmlsKSkKCWFzc2VydC5FcXVhbChvdXRwdXQsIFN0cmluZ0tleXMoaTEpKQoJYXNzZXJ0LkVxdWFsKG91dHB1dCwgU3RyaW5nS2V5cyhpMikpCglhc3NlcnQuRXF1YWwob3V0cHV0LCBTdHJpbmdLZXlzKGkzKSkKCWFzc2VydC5FcXVhbChvdXRwdXQsIFN0cmluZ0tleXMoJmk0KSkKCWFzc2VydC5FbXB0eShTdHJpbmdLZXlzKHRydWUpKQoJYXNzZXJ0LkVtcHR5KFN0cmluZ0tleXMoNCkpCglhc3NlcnQuRW1wdHkoU3RyaW5nS2V5cyhbXWludHsxLCAyLCAzfSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestStructFromMap",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestStructFromMap(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BOYW1lYDogYEZvbyBCYXJgLCBgYWN0aXZlYDogdHJ1ZSwgYHNob3VsZF9ub3Rfc2V0YDogNCwgYFN1YnR5cGUxYDogbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgQWA6IDEsIGBiYDogMn0sIGBzdWJ0eXBlMmA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YEFgOiAzLCBgYmA6IDR9LCBgVGltZVRlc3RgOiAxNTAwMDAwMDAwMCwgYEludFRlc3RgOiBpbnQ2NCg1KSwgYFByb3BlcnRpZXNgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BmaXJzdGA6IDEsIGBzZWNvbmRgOiB0cnVlLCBgdGhpcmRgOiBgdGhyZWVgfSwgYFN0clNsaWNlVGVzdGA6IFtdc3RyaW5ne2BvbmVgLCBgdHdvYCwgYHRocmVlYH0sIGBJbnRlcmZhY2VTdHJTbGljZVRlc3RgOiBbXWludGVyZmFjZXt9e2BvbmVgLCBgdHdvYCwgYHRocmVlYH0sIGBTdHJ1Y3RTbGljZVRlc3RgOiBbXVN1YnR5cGVUZXN0ZXJ7ezEwLCAxMX0sIHsxMiwgMTN9LCB7MTQsIDE1fX0sIGBTdHJ1Y3RTbGljZVRlc3QyYDogW11tYXBbc3RyaW5nXWludGVyZmFjZXt9e3tgQWA6IDEwLCBgYmA6IDExfSwge2BBYDogMTIsIGBiYDogMTN9LCB7YEFgOiAxNCwgYGJgOiAxNX19LCBgU3RydWN0U2xpY2VUZXN0M2A6IFtdaW50ZXJmYWNle317bWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgQWA6IDEwLCBgYmA6IDExfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgQWA6IDEyLCBgYmA6IDEzfSwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgQWA6IDE0LCBgYmA6IDE1fX19CglvdXRwdXQgOj0gTXlTdHJ1Y3RUZXN0ZXJ7fQoJZXJyIDo9IFN0cnVjdEZyb21NYXAoaW5wdXQsICZvdXRwdXQpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoYEZvbyBCYXJgLCBvdXRwdXQuTmFtZSkKCWFzc2VydC5UcnVlKG91dHB1dC5BY3RpdmUpCglhc3NlcnQuWmVybyhvdXRwdXQubm9uZXhwb3J0ZWQpCglhc3NlcnQuRXF1YWwoMSwgb3V0cHV0LlN1YnR5cGUxLkEpCglhc3NlcnQuRXF1YWwoMiwgb3V0cHV0LlN1YnR5cGUxLkIpCglhc3NlcnQuTm90TmlsKG91dHB1dC5TdWJ0eXBlMikKCWFzc2VydC5FcXVhbCgzLCBvdXRwdXQuU3VidHlwZTIuQSkKCWFzc2VydC5FcXVhbCg0LCBvdXRwdXQuU3VidHlwZTIuQikKCWFzc2VydC5FcXVhbCh0aW1lLkR1cmF0aW9uKDE1KSp0aW1lLlNlY29uZCwgb3V0cHV0LlRpbWVUZXN0KQoJYXNzZXJ0LkVxdWFsKGludDMyKDUpLCBvdXRwdXQuSW50VGVzdCkKCWFzc2VydC5Ob3ROaWwob3V0cHV0LlByb3BlcnRpZXMpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMSwgb3V0cHV0LlByb3BlcnRpZXNbYGZpcnN0YF0pCglhc3NlcnQuRXF1YWxWYWx1ZXModHJ1ZSwgb3V0cHV0LlByb3BlcnRpZXNbYHNlY29uZGBdKQoJYXNzZXJ0LkVxdWFsKGB0aHJlZWAsIG91dHB1dC5Qcm9wZXJ0aWVzW2B0aGlyZGBdKQoJYXNzZXJ0Lk5vdE5pbChvdXRwdXQuU3RyU2xpY2VUZXN0KQoJYXNzZXJ0LkxlbihvdXRwdXQuU3RyU2xpY2VUZXN0LCAzKQoJYXNzZXJ0LkVxdWFsKGBvbmVgLCBvdXRwdXQuU3RyU2xpY2VUZXN0WzBdKQoJYXNzZXJ0LkVxdWFsKGB0d29gLCBvdXRwdXQuU3RyU2xpY2VUZXN0WzFdKQoJYXNzZXJ0LkVxdWFsKGB0aHJlZWAsIG91dHB1dC5TdHJTbGljZVRlc3RbMl0pCglhc3NlcnQuTm90TmlsKG91dHB1dC5JbnRlcmZhY2VTdHJTbGljZVRlc3QpCglhc3NlcnQuTGVuKG91dHB1dC5JbnRlcmZhY2VTdHJTbGljZVRlc3QsIDMpCglhc3NlcnQuRXF1YWxWYWx1ZXMoYG9uZWAsIG91dHB1dC5JbnRlcmZhY2VTdHJTbGljZVRlc3RbMF0pCglhc3NlcnQuRXF1YWxWYWx1ZXMoYHR3b2AsIG91dHB1dC5JbnRlcmZhY2VTdHJTbGljZVRlc3RbMV0pCglhc3NlcnQuRXF1YWxWYWx1ZXMoYHRocmVlYCwgb3V0cHV0LkludGVyZmFjZVN0clNsaWNlVGVzdFsyXSkKCWFzc2VydC5Ob3ROaWwob3V0cHV0LlN0cnVjdFNsaWNlVGVzdCkKCWFzc2VydC5MZW4ob3V0cHV0LlN0cnVjdFNsaWNlVGVzdCwgMykKCWFzc2VydC5FcXVhbFZhbHVlcygxMCwgb3V0cHV0LlN0cnVjdFNsaWNlVGVzdFswXS5BKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDExLCBvdXRwdXQuU3RydWN0U2xpY2VUZXN0WzBdLkIpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTIsIG91dHB1dC5TdHJ1Y3RTbGljZVRlc3RbMV0uQSkKCWFzc2VydC5FcXVhbFZhbHVlcygxMywgb3V0cHV0LlN0cnVjdFNsaWNlVGVzdFsxXS5CKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDE0LCBvdXRwdXQuU3RydWN0U2xpY2VUZXN0WzJdLkEpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTUsIG91dHB1dC5TdHJ1Y3RTbGljZVRlc3RbMl0uQikKCWFzc2VydC5Ob3ROaWwob3V0cHV0LlN0cnVjdFNsaWNlVGVzdDIpCglhc3NlcnQuTGVuKG91dHB1dC5TdHJ1Y3RTbGljZVRlc3QyLCAzKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDEwLCBvdXRwdXQuU3RydWN0U2xpY2VUZXN0MlswXS5BKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDExLCBvdXRwdXQuU3RydWN0U2xpY2VUZXN0MlswXS5CKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDEyLCBvdXRwdXQuU3RydWN0U2xpY2VUZXN0MlsxXS5BKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDEzLCBvdXRwdXQuU3RydWN0U2xpY2VUZXN0MlsxXS5CKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDE0LCBvdXRwdXQuU3RydWN0U2xpY2VUZXN0MlsyXS5BKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKDE1LCBvdXRwdXQuU3RydWN0U2xpY2VUZXN0MlsyXS5CKQoJYXNzZXJ0Lk5vdE5pbChvdXRwdXQuU3RydWN0U2xpY2VUZXN0MykKCWFzc2VydC5MZW4ob3V0cHV0LlN0cnVjdFNsaWNlVGVzdDMsIDMpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTAsIG91dHB1dC5TdHJ1Y3RTbGljZVRlc3QzWzBdLkEpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTEsIG91dHB1dC5TdHJ1Y3RTbGljZVRlc3QzWzBdLkIpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTIsIG91dHB1dC5TdHJ1Y3RTbGljZVRlc3QzWzFdLkEpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTMsIG91dHB1dC5TdHJ1Y3RTbGljZVRlc3QzWzFdLkIpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTQsIG91dHB1dC5TdHJ1Y3RTbGljZVRlc3QzWzJdLkEpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMTUsIG91dHB1dC5TdHJ1Y3RTbGljZVRlc3QzWzJdLkIpCn0=",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "ApplyFunc": {
+            "Name": "ApplyFunc",
+            "Source": "dHlwZSBBcHBseUZ1bmMgZnVuYyhrZXkgW11zdHJpbmcsIHZhbHVlIGludGVyZmFjZXt9KSAoaW50ZXJmYWNle30sIGJvb2wp"
+        },
+        "ConversionFunc": {
+            "Name": "ConversionFunc",
+            "Source": "dHlwZSBDb252ZXJzaW9uRnVuYyBmdW5jKGZyb20gcmVmbGVjdC5UeXBlLCB0byByZWZsZWN0LlR5cGUsIGRhdGEgaW50ZXJmYWNle30pIChpbnRlcmZhY2V7fSwgZXJyb3Ip"
+        },
+        "Item": {
+            "Name": "Item",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "Set",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "value",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Set(value interface{}) error",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "Key",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "Value",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "K",
+                    "Type": "string"
+                },
+                {
+                    "Name": "V",
+                    "Type": "typeutil.Variant"
+                }
+            ],
+            "Source": "dHlwZSBJdGVtIHN0cnVjdCB7CglLZXkgICBpbnRlcmZhY2V7fQoJVmFsdWUgaW50ZXJmYWNle30KCUsgICAgIHN0cmluZwoJViAgICAgdHlwZXV0aWwuVmFyaWFudAoKfQo=",
+            "HasUnexportedFields": true
+        },
+        "ItemFunc": {
+            "Name": "ItemFunc",
+            "Source": "dHlwZSBJdGVtRnVuYyBmdW5jKGtleSBzdHJpbmcsIHZhbHVlIHR5cGV1dGlsLlZhcmlhbnQpIGVycm9y"
+        },
+        "IterOptions": {
+            "Name": "IterOptions",
+            "MetaType": "struct",
+            "Fields": [
+                {
+                    "Name": "TagName",
+                    "Type": "string"
+                },
+                {
+                    "Name": "SortKeys",
+                    "Type": "bool"
+                }
+            ],
+            "Source": "dHlwZSBJdGVyT3B0aW9ucyBzdHJ1Y3QgewoJVGFnTmFtZSAgc3RyaW5nCglTb3J0S2V5cyBib29sCn0="
+        },
+        "KeyTransformFunc": {
+            "Name": "KeyTransformFunc",
+            "Source": "dHlwZSBLZXlUcmFuc2Zvcm1GdW5jIGZ1bmMoc3RyaW5nKSBzdHJpbmc="
+        },
+        "Map": {
+            "Name": "Map",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "Auto",
+                    "Comment": "Return the value at key as an automatically converted value.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallbacks",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Signature": "Auto(key string, fallbacks ...interface{}) interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Bool",
+                    "Comment": "Return the value at key as a bool.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "Bool(key string) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Bytes",
+                    "Comment": "Return the value at key as a byte slice.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Signature": "Bytes(key string) []byte",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Duration",
+                    "Comment": "Return the value at key interpreted as a Duration.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallbacks",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "time.Duration"
+                        }
+                    ],
+                    "Signature": "Duration(key string, fallbacks ...interface{}) time.Duration",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Each",
+                    "Comment": "Iterate through each item in the map.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "fn",
+                            "Type": "ItemFunc"
+                        },
+                        {
+                            "Name": "tagName",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Each(fn ItemFunc, tagName ...string) error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Err",
+                    "Comment": "Return the value at key as an error, or nil if the value is not an error.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Err(key string) error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Float",
+                    "Comment": "Return the value at key as a float.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallbacks",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        }
+                    ],
+                    "Signature": "Float(key string, fallbacks ...interface{}) float64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Fprintf",
+                    "Comment": "Uses the extended Fprintf in this package, passing this map as the data used in the given format string.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "w",
+                            "Type": "io.Writer"
+                        },
+                        {
+                            "Name": "format",
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Fprintf(w io.Writer, format string)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Get",
+                    "Comment": "Retrieve a value from the Map by the given dot.separated key, or return a fallback\nvalue.  Return values are a typeutil.Variant, which can be easily coerced into\nvarious types.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallbacks",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "typeutil.Variant"
+                        }
+                    ],
+                    "Signature": "Get(key string, fallbacks ...interface{}) typeutil.Variant",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Int",
+                    "Comment": "Return the value at key as an integer.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallbacks",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "int64"
+                        }
+                    ],
+                    "Signature": "Int(key string, fallbacks ...interface{}) int64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "IsZero",
+                    "Comment": "Return whether the value at the given key is that type's zero value.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "IsZero(key string) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Iter",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "opts",
+                            "Type": "...IterOptions"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": ""
+                        }
+                    ],
+                    "Signature": "Iter(opts ...IterOptions) ",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Keys",
+                    "Comment": "Return the keys in this Map object.  You may specify the name of a struct tag on the underlying\nobject to use for generating key names.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "tagName",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]interface{}"
+                        }
+                    ],
+                    "Signature": "Keys(tagName ...string) []interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Len",
+                    "Comment": "Return the length of the Map.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "int"
+                        }
+                    ],
+                    "Signature": "Len() int",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "M",
+                    "Comment": "Create a new Variant map object from the given value (which should be a map of some kind).",
+                    "Arguments": [
+                        {
+                            "Name": "data",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Map"
+                        }
+                    ],
+                    "Signature": "M(data interface{}) *Map",
+                    "Source": "ewoJaWYgZGF0YVYsIG9rIDo9IGRhdGEuKHR5cGV1dGlsLlZhcmlhbnQpOyBvayB7CgkJZGF0YSA9IGRhdGFWLlZhbHVlCgl9IGVsc2UgaWYgZGF0YU0sIG9rIDo9IGRhdGEuKCpNYXApOyBvayB7CgkJcmV0dXJuIGRhdGFNCgl9IGVsc2UgaWYgZGF0YU0sIG9rIDo9IGRhdGEuKE1hcCk7IG9rIHsKCQlyZXR1cm4gJmRhdGFNCgl9IGVsc2UgaWYgZGF0YVNNLCBvayA6PSBkYXRhLigqc3luYy5NYXApOyBvayB7CgkJZGF0YU0gOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJCWRhdGFTTS5SYW5nZShmdW5jKGtleSwgdmFsdWUgaW50ZXJmYWNle30pIGJvb2wgewoJCQlkYXRhTVt0eXBldXRpbC5TdHJpbmcoa2V5KV0gPSB2YWx1ZQoJCQlyZXR1cm4gdHJ1ZQoJCX0pCgkJZGF0YSA9IGRhdGFNCgl9IGVsc2UgaWYgdVYsIG9rIDo9IGRhdGEuKHVybC5WYWx1ZXMpOyBvayB7CgkJZGF0YU0gOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJCWZvciBrLCB2IDo9IHJhbmdlIHVWIHsKCQkJc3dpdGNoIGxlbih2KSB7CgkJCWNhc2UgMDoKCQkJCWJyZWFrCgkJCWNhc2UgMToKCQkJCWRhdGFNW2tdID0gdHlwZXV0aWwuQXV0byh2WzBdKQoJCQlkZWZhdWx0OgoJCQkJZGF0YU1ba10gPSBzbGljZXV0aWwuQXV0b3R5cGUodikKCQkJfQoJCX0KCQlkYXRhID0gZGF0YU0KCX0gZWxzZSBpZiBoViwgb2sgOj0gZGF0YS4oaHR0cC5IZWFkZXIpOyBvayB7CgkJZGF0YU0gOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJCWZvciBrLCB2IDo9IHJhbmdlIGhWIHsKCQkJc3dpdGNoIGxlbih2KSB7CgkJCWNhc2UgMDoKCQkJCWJyZWFrCgkJCWNhc2UgMToKCQkJCWRhdGFNW2tdID0gdHlwZXV0aWwuQXV0byh2WzBdKQoJCQlkZWZhdWx0OgoJCQkJZGF0YU1ba10gPSBzbGljZXV0aWwuQXV0b3R5cGUodikKCQkJfQoJCX0KCQlkYXRhID0gZGF0YU0KCX0gZWxzZSBpZiBkYXRhID09IG5pbCB7CgkJZGF0YSA9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCX0KCXJldHVybiAmTWFwe2RhdGE6IGRhdGEsIHN0cnVjdFRhZ0tleTogVW5tYXJzaGFsU3RydWN0VGFnfQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Map",
+                    "Comment": "Return the value at key as a Map.  If the resulting value is nil or not a\nmap type, a null Map will be returned.  All values retrieved from a null\nMap will return that type's zero value.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "tagName",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "map[typeutil.Variant]typeutil.Variant"
+                        }
+                    ],
+                    "Signature": "Map(key string, tagName ...string) map[typeutil.Variant]typeutil.Variant",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MapNative",
+                    "Comment": "Return the value as a map[string]interface{} {",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "tagName",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "map[string]interface{}"
+                        }
+                    ],
+                    "Signature": "MapNative(tagName ...string) map[string]interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MarshalJSON",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "MarshalJSON() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MarshalXML",
+                    "Comment": "Marshals the current data into XML.  Nested maps are output as nested elements.  Map values that\nare scalars (strings, numbers, bools, dates/times) will appear as attributes on the parent element.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "e",
+                            "Type": "*xml.Encoder"
+                        },
+                        {
+                            "Name": "start",
+                            "Type": "xml.StartElement"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "MarshalXML(e *xml.Encoder, start xml.StartElement) error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Set",
+                    "Comment": "Set a value in the Map at the given dot.separated key to a value.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "value",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "typeutil.Variant"
+                        }
+                    ],
+                    "Signature": "Set(key string, value interface{}) typeutil.Variant",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "SetIfZero",
+                    "Comment": "Set a value in the Map at the given dot.separated key to a value, but only if the\ncurrent value at that key is that type's zero value.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "value",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "typeutil.Variant"
+                        },
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "SetIfZero(key string, value interface{}) (typeutil.Variant, bool)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "SetMarshalXmlGeneric",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "yes",
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "SetMarshalXmlGeneric(yes bool)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "SetMarshalXmlKeyFunc",
+                    "Comment": "Set a function that will be used to generate XML tag names when calling MarshalXML.  This works\nfor all keys, including ones that appear inside of maps.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "fn",
+                            "Type": "KeyTransformFunc"
+                        }
+                    ],
+                    "Signature": "SetMarshalXmlKeyFunc(fn KeyTransformFunc)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "SetRootTagName",
+                    "Comment": "set the name of the root XML tag, used by MarshalXML.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "root",
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "SetRootTagName(root string)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "SetValueIfNonZero",
+                    "Comment": "Set a value in the Map at the given dot.separated key to a value, but only if the\nnew value is not a zero value.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "value",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "typeutil.Variant"
+                        },
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "SetValueIfNonZero(key string, value interface{}) (typeutil.Variant, bool)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Slice",
+                    "Comment": "Return the value at key as a slice.  Scalar values will be returned as a slice containing\nonly that value.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]typeutil.Variant"
+                        }
+                    ],
+                    "Signature": "Slice(key string) []typeutil.Variant",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Sprintf",
+                    "Comment": "Uses the extended Sprintf in this package, passing this map as the data used in the given format string.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "format",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "Sprintf(format string) string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "String",
+                    "Comment": "Return the value at key as a string.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallbacks",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String(key string, fallbacks ...interface{}) string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "StringKeys",
+                    "Comment": "A string slice version of Keys()",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "tagName",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]string"
+                        }
+                    ],
+                    "Signature": "StringKeys(tagName ...string) []string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Strings",
+                    "Comment": "Same as Slice(), but returns a []string",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]string"
+                        }
+                    ],
+                    "Signature": "Strings(key string) []string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Tag",
+                    "Comment": "Specify which struct tag to honor for generating field names when then\nunderlying data is a struct.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Map"
+                        }
+                    ],
+                    "Signature": "Tag(key string) *Map",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Time",
+                    "Comment": "Return the value at key interpreted as a Time.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallbacks",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "time.Time"
+                        }
+                    ],
+                    "Signature": "Time(key string, fallbacks ...interface{}) time.Time",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "UnmarshalJSON",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "data",
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "UnmarshalJSON(data []byte) error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Value",
+                    "Comment": "Return the underlying value the M-object was created with.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Signature": "Value() interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Walk",
+                    "Comment": "A recursive walk form of Each()",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "fn",
+                            "Type": "WalkFunc"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Walk(fn WalkFunc) error",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Comment": "A Map object (or \"M\" object) is a utility struct that makes it straightforward to\nwork with interface data types that contain map-like data (has a reflect.Kind equal\nto reflect.Map).",
+            "Source": "dHlwZSBNYXAgc3RydWN0IHsKCn0vLyBBIE1hcCBvYmplY3QgKG9yICJNIiBvYmplY3QpIGlzIGEgdXRpbGl0eSBzdHJ1Y3QgdGhhdCBtYWtlcyBpdCBzdHJhaWdodGZvcndhcmQgdG8KLy8gd29yayB3aXRoIGludGVyZmFjZSBkYXRhIHR5cGVzIHRoYXQgY29udGFpbiBtYXAtbGlrZSBkYXRhIChoYXMgYSByZWZsZWN0LktpbmQgZXF1YWwKLy8gdG8gcmVmbGVjdC5NYXApLgoK",
+            "HasUnexportedFields": true
+        },
+        "MergeOption": {
+            "Name": "MergeOption",
+            "MetaType": "int",
+            "Source": "dHlwZSBNZXJnZU9wdGlvbiBpbnQ="
+        },
+        "MergeOptions": {
+            "Name": "MergeOptions",
+            "Methods": [
+                {
+                    "Name": "Has",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "option",
+                            "Type": "MergeOption"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "Has(option MergeOption) bool",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Source": "dHlwZSBNZXJnZU9wdGlvbnMgW11NZXJnZU9wdGlvbg=="
+        },
+        "MyStructTester": {
+            "Name": "MyStructTester",
+            "MetaType": "struct",
+            "Fields": [
+                {
+                    "Name": "Name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Subtype1",
+                    "Type": "SubtypeTester"
+                },
+                {
+                    "Name": "Active",
+                    "Type": "bool"
+                },
+                {
+                    "Name": "Subtype2",
+                    "Type": "*SubtypeTester"
+                },
+                {
+                    "Name": "TimeTest",
+                    "Type": "time.Duration"
+                },
+                {
+                    "Name": "IntTest",
+                    "Type": "int32"
+                },
+                {
+                    "Name": "Properties",
+                    "Type": "map[string]interface{}"
+                },
+                {
+                    "Name": "StrSliceTest",
+                    "Type": "[]string"
+                },
+                {
+                    "Name": "InterfaceStrSliceTest",
+                    "Type": "[]string"
+                },
+                {
+                    "Name": "StructSliceTest",
+                    "Type": "[]SubtypeTester"
+                },
+                {
+                    "Name": "StructSliceTest2",
+                    "Type": "[]SubtypeTester"
+                },
+                {
+                    "Name": "StructSliceTest3",
+                    "Type": "[]SubtypeTester"
+                }
+            ],
+            "Source": "dHlwZSBNeVN0cnVjdFRlc3RlciBzdHJ1Y3QgewoJTmFtZSAgICAgICAgICAgICAgICAgIHN0cmluZwoJU3VidHlwZTEgICAgICAgICAgICAgIFN1YnR5cGVUZXN0ZXIKCUFjdGl2ZSAgICAgICAgICAgICAgICBib29sICAgICAgICAgICBgbWFwdXRpbDoiYWN0aXZlImAKCVN1YnR5cGUyICAgICAgICAgICAgICAqU3VidHlwZVRlc3RlciBgbWFwdXRpbDoic3VidHlwZTIiYAoJVGltZVRlc3QgICAgICAgICAgICAgIHRpbWUuRHVyYXRpb24KCUludFRlc3QgICAgICAgICAgICAgICBpbnQzMgoJUHJvcGVydGllcyAgICAgICAgICAgIG1hcFtzdHJpbmddaW50ZXJmYWNle30KCVN0clNsaWNlVGVzdCAgICAgICAgICBbXXN0cmluZwoJSW50ZXJmYWNlU3RyU2xpY2VUZXN0IFtdc3RyaW5nCglTdHJ1Y3RTbGljZVRlc3QgICAgICAgW11TdWJ0eXBlVGVzdGVyCglTdHJ1Y3RTbGljZVRlc3QyICAgICAgW11TdWJ0eXBlVGVzdGVyCglTdHJ1Y3RTbGljZVRlc3QzICAgICAgW11TdWJ0eXBlVGVzdGVyCgp9Cg==",
+            "HasUnexportedFields": true
+        },
+        "MyTestThing": {
+            "Name": "MyTestThing",
+            "MetaType": "struct",
+            "Fields": [
+                {
+                    "Name": "Name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Other",
+                    "Type": "int"
+                }
+            ],
+            "Source": "dHlwZSBNeVRlc3RUaGluZyBzdHJ1Y3QgewoJTmFtZSAgc3RyaW5nCglPdGhlciBpbnQKfQ=="
+        },
+        "SubtypeTester": {
+            "Name": "SubtypeTester",
+            "MetaType": "struct",
+            "Fields": [
+                {
+                    "Name": "A",
+                    "Type": "int"
+                },
+                {
+                    "Name": "B",
+                    "Type": "int"
+                }
+            ],
+            "Source": "dHlwZSBTdWJ0eXBlVGVzdGVyIHN0cnVjdCB7CglBIGludAoJQiBpbnQgYG1hcHV0aWw6ImIiYAp9"
+        },
+        "WalkFunc": {
+            "Name": "WalkFunc",
+            "Source": "dHlwZSBXYWxrRnVuYyBmdW5jKHZhbHVlIGludGVyZmFjZXt9LCBwYXRoIFtdc3RyaW5nLCBpc0xlYWYgYm9vbCkgZXJyb3I="
+        }
+    }
+}

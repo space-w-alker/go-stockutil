@@ -1,0 +1,828 @@
+{
+    "Name": "colorutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/colorutil",
+    "ImportPath": "colorutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Utilities for parsing and manipulating colors.\n",
+    "MainFunction": false,
+    "CommentWordCount": 490,
+    "LineCount": 1177,
+    "SourceLineCount": 888,
+    "FunctionCount": 24,
+    "TypeCount": 1,
+    "ConstantCount": 4,
+    "VariableCount": 0,
+    "Statistics": {
+        "Mean": 0.84,
+        "StdDev": 0.3666,
+        "GeometricMean": 1,
+        "HarmonicMean": 1,
+        "Median": 1,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "colortemp.go",
+            "Imports": [
+                {
+                    "PackageName": "math",
+                    "Alias": "math"
+                }
+            ],
+            "Size": 3451,
+            "LineCount": 122,
+            "SourceLineCount": 88,
+            "FunctionCount": 1,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "colortemp_test.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 2493,
+            "LineCount": 89,
+            "SourceLineCount": 76,
+            "FunctionCount": 1,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "colorutil.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/hex",
+                    "Alias": "hex"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "math",
+                    "Alias": "math"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/mathutil",
+                    "Alias": "mathutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
+                    "Alias": "rxutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                }
+            ],
+            "Size": 14629,
+            "LineCount": 608,
+            "SourceLineCount": 454,
+            "FunctionCount": 22,
+            "TypeCount": 1,
+            "ConstantCount": 4,
+            "VariableCount": 0
+        },
+        {
+            "Name": "colorutil_test.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/assert",
+                    "Alias": "assert"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 11987,
+            "LineCount": 358,
+            "SourceLineCount": 270,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Constants": [
+        {
+            "Name": "HSI",
+            "Immutable": true
+        },
+        {
+            "Name": "HSL",
+            "Immutable": true
+        },
+        {
+            "Name": "HSV",
+            "Immutable": true
+        },
+        {
+            "Name": "Invalid",
+            "Type": "lmodel",
+            "Immutable": true,
+            "Expression": "iota"
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "BenchmarkKelvinToColor",
+            "Comment": "This benchmark is here both to validate the speed, but also to ensure none of this\nwild floating point math accumulates any noticable errors.",
+            "Arguments": [
+                {
+                    "Name": "b",
+                    "Type": "*testing.B"
+                }
+            ],
+            "Signature": "BenchmarkKelvinToColor(b *testing.B)",
+            "Source": "ewoJZm9yIG4gOj0gMDsgbiA8IGIuTjsgbisrIHsKCQlmb3IgaywgcmdiYSA6PSByYW5nZSBtYXBbaW50XVszXXVpbnQ4ezE4NTA6IFszXXVpbnQ4ezI1NSwgMTMwLCAwfSwgMTk5OTogWzNddWludDh7MjU1LCAxMzksIDB9LCAyMDAwOiBbM111aW50OHsyNTUsIDEzOSwgMH0sIDI1MDA6IFszXXVpbnQ4ezI1NSwgMTYyLCA3MX0sIDMwMDA6IFszXXVpbnQ4ezI1NSwgMTgwLCAxMDh9LCAzNTAwOiBbM111aW50OHsyNTUsIDE5NSwgMTM4fSwgNDAwMDogWzNddWludDh7MjU1LCAyMDgsIDE2NH0sIDQ1MDA6IFszXXVpbnQ4ezI1NSwgMjE5LCAxODV9LCA1MDAwOiBbM111aW50OHsyNTUsIDIyOCwgMjA1fSwgNTUwMDogWzNddWludDh7MjU1LCAyMzYsIDIyM30sIDYwMDA6IFszXXVpbnQ4ezI1NSwgMjQzLCAyMzl9LCA2NTAwOiBbM111aW50OHsyNTUsIDI1MCwgMjU0fSwgNjU5OTogWzNddWludDh7MjU1LCAyNTEsIDI1NX0sIDY2MDA6IFszXXVpbnQ4ezI1NSwgMjQ5LCAyNTV9LCA3MDAwOiBbM111aW50OHsyNDUsIDI0MywgMjU1fSwgNzUwMDogWzNddWludDh7MjM0LCAyMzcsIDI1NX0sIDgwMDA6IFszXXVpbnQ4ezIyNSwgMjMyLCAyNTV9LCA4NTAwOiBbM111aW50OHsyMTgsIDIyOCwgMjU1fSwgOTAwMDogWzNddWludDh7MjEzLCAyMjUsIDI1NX0sIDkwMDE6IFszXXVpbnQ4ezIxMywgMjI1LCAyNTV9fSB7CgkJCXZhciByLCBnLCBiIHVpbnQ4CgkJCXIsIGcsIGIsIF8gPSBLZWx2aW5Ub0NvbG9yKGspLlJHQkEyNTUoKQoJCQlpZiByICE9IHJnYmFbMF0gewoJCQkJcGFuaWMoZm10LlNwcmludGYoImJhZCB2YWx1ZSBmb3IgcjolZEs7IGV4cGVjdGVkICVkLCBnb3QgJWQiLCBrLCByLCByZ2JhWzBdKSkKCQkJfQoJCQlpZiBnICE9IHJnYmFbMV0gewoJCQkJcGFuaWMoZm10LlNwcmludGYoImJhZCB2YWx1ZSBmb3IgZzolZEs7IGV4cGVjdGVkICVkLCBnb3QgJWQiLCBrLCBnLCByZ2JhWzFdKSkKCQkJfQoJCQlpZiBiICE9IHJnYmFbMl0gewoJCQkJcGFuaWMoZm10LlNwcmludGYoImJhZCB2YWx1ZSBmb3IgYjolZEs7IGV4cGVjdGVkICVkLCBnb3QgJWQiLCBrLCBiLCByZ2JhWzJdKSkKCQkJfQoJCX0KCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Equals",
+            "Comment": "Return whether two colors are equivalent in the 24-bit RGB (RGB255) color space.",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "second",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "Equals(first interface{}, second interface{}) bool",
+            "Source": "ewoJaWYgZmlyc3QgIT0gbmlsICYmIHNlY29uZCAhPSBuaWwgewoJCWlmIGZpcnN0QywgZXJyIDo9IFBhcnNlKGZpcnN0KTsgZXJyID09IG5pbCB7CgkJCXJldHVybiBmaXJzdEMuRXF1YWxzKHNlY29uZCkKCQl9Cgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "HslToRgb",
+            "Comment": "Given HSL values (where hue is given in degrees (out of 360°), saturation\nand lightness are [0, 1]), return the corresponding RGB values (where each value\nis [0, 255]).",
+            "Arguments": [
+                {
+                    "Name": "hue",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "saturation",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "lightness",
+                    "Type": "float64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "uint8"
+                },
+                {
+                    "Type": "uint8"
+                },
+                {
+                    "Type": "uint8"
+                }
+            ],
+            "Signature": "HslToRgb(hue float64, saturation float64, lightness float64) (uint8, uint8, uint8)",
+            "Source": "ewoJciwgZywgYiA6PSBoc2wycmdiKGh1ZSwgc2F0dXJhdGlvbiwgbGlnaHRuZXNzKQoJcmV0dXJuIHVpbnQ4KHIgKiAyNTUuMCksIHVpbnQ4KGcgKiAyNTUuMCksIHVpbnQ4KGIgKiAyNTUuMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "HsvToRgb",
+            "Comment": "Given HSL values (where hue is given in degrees (out of 360°), saturation\nand value are [0, 1]), return the corresponding RGB values (where each value\nis [0, 255]).",
+            "Arguments": [
+                {
+                    "Name": "hue",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "saturation",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "value",
+                    "Type": "float64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "uint8"
+                },
+                {
+                    "Type": "uint8"
+                },
+                {
+                    "Type": "uint8"
+                }
+            ],
+            "Signature": "HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)",
+            "Source": "ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "KelvinToColor",
+            "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
+            "Arguments": [
+                {
+                    "Name": "kelvin",
+                    "Type": "int"
+                }
+            ],
+            "Returns": [
+                {
+                    "Name": "color",
+                    "Type": "Color"
+                }
+            ],
+            "Signature": "KelvinToColor(kelvin int) color Color",
+            "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "RgbToHsl",
+            "Comment": "Given RGB values (where each value is [0, 255]), return the hue (in degrees), saturation,\nand lightness (where each is [0, 1]).",
+            "Arguments": [
+                {
+                    "Name": "r",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "g",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "b",
+                    "Type": "float64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                },
+                {
+                    "Type": "float64"
+                },
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "RgbToHsl(r float64, g float64, b float64) (float64, float64, float64)",
+            "Source": "ewoJcmV0dXJuIHJnYjJsaHMoSFNMLCByLzI1NSwgZy8yNTUsIGIvMjU1KQp9",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestAdjustHue",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestAdjustHue(t *testing.T)",
+            "Source": "ewoJYWRqdXN0SHVlKHQsIGAjRkYwMDAwYCwgMTIwLCBgIzAwRkYwMGApCglhZGp1c3RIdWUodCwgYCNGRjAwMDBgLCAyNDAsIGAjMDAwMEZGYCkKCWFkanVzdEh1ZSh0LCBgI2FkNDAzOGAsIDIwLCBgI2FkNjYzOGApCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestColorStringers",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestColorStringers(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYCNGRjAwQ0NgLCBNdXN0UGFyc2UoYCNGRjAwQ0NgKS5TdHJpbmcoKSkKCWFzc2VydC5FcXVhbChgI0ZGMDBDQ2AsIE11c3RQYXJzZShgcmdiKDI1NSwwLDIwNClgKS5TdHJpbmcoKSkKCWFzc2VydC5FcXVhbChgI0ZGMDBDQ2AsIE11c3RQYXJzZShgaHNsKDMxMiwgMTAwJSwgNTAlKWApLlN0cmluZygpKQoJYXNzZXJ0LkVxdWFsKGByZ2IoMjU1LCAwLCAyMDQpYCwgTXVzdFBhcnNlKGAjRkYwMENDYCkuU3RyaW5nUkdCQSgpKQoJYXNzZXJ0LkVxdWFsKGByZ2IoMjU1LCAwLCAyMDQpYCwgTXVzdFBhcnNlKGByZ2IoMjU1LDAsMjA0KWApLlN0cmluZ1JHQkEoKSkKCWFzc2VydC5FcXVhbChgcmdiKDI1NSwgMCwgMjA0KWAsIE11c3RQYXJzZShgaHNsKDMxMiwgMTAwJSwgNTAlKWApLlN0cmluZ1JHQkEoKSkKCWFzc2VydC5FcXVhbChgcmdiKDI1NSwgMCwgMjA0KWAsIE11c3RQYXJzZShgI0ZGMDBDQ0ZGYCkuU3RyaW5nUkdCQSgpKQoJYXNzZXJ0LkVxdWFsKGByZ2JhKDI1NSwgMCwgMjA0LCAxMjgpYCwgTXVzdFBhcnNlKGAjRkYwMENDODBgKS5TdHJpbmdSR0JBKCkpCglhc3NlcnQuRXF1YWwoYHJnYmEoMjU1LCAwLCAyMDQsIDY0KWAsIE11c3RQYXJzZShgI0ZGMDBDQzQwYCkuU3RyaW5nUkdCQSgpKQoJYXNzZXJ0LkVxdWFsKGByZ2JhKDI1NSwgMCwgMjA0LCAxKWAsIE11c3RQYXJzZShgI0ZGMDBDQzAxYCkuU3RyaW5nUkdCQSgpKQoJYXNzZXJ0LlRydWUoYGhzbCgzMTIsIDEwMCUsIDUwJSlgID09IE11c3RQYXJzZShgI0ZGMDBDQ0ZGYCkuU3RyaW5nSFNMQSgpKQoJYXNzZXJ0LlRydWUoYGhzbGEoMzEyLCAxMDAlLCA1MCUsIDAuNSlgID09IE11c3RQYXJzZShgI0ZGMDBDQzgwYCkuU3RyaW5nSFNMQSgpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestEquals",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestEquals(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuVHJ1ZShFcXVhbHMoYCMyYkYxYzlgLCBgIzJCRjFDOWApKQoJYXNzZXJ0LlRydWUoRXF1YWxzKGAjRkZGRkZGYCwgYCNGRkZGRkZgKSkKCWFzc2VydC5UcnVlKEVxdWFscyhgI0ZGRkZGRmAsIGByZ2IoMjU1LDI1NSwyNTUpYCkpCglhc3NlcnQuVHJ1ZShFcXVhbHMoYCNGRkZGRkY4MGAsIGByZ2JhKDI1NSwyNTUsMjU1LDAuNSlgKSkKCWFzc2VydC5UcnVlKEVxdWFscyhgIzAwQUEwMGAsIGByZ2IoMCwxNzAsMClgKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestHslToRgb",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestHslToRgb(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0SHNsVG9SZ2IodCwgMCwgMCwgMCwgMCwgMCwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDAsIDAsIDAuMSwgMC4xLCAwLjEsIDAuMSkKCWFzc2VydEhzbFRvUmdiKHQsIDAsIDAsIDAuNSwgMC41LCAwLjUsIDAuNSkKCWFzc2VydEhzbFRvUmdiKHQsIDAsIDAsIDAuNzUsIDAuNzUsIDAuNzUsIDAuNzUpCglhc3NlcnRIc2xUb1JnYih0LCAwLCAwLCAxLCAxLCAxLCAxKQoJYXNzZXJ0SHNsVG9SZ2IodCwgMCwgMSwgMC4wMSwgMC4wMiwgMCwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDAsIDEsIDAuMDIsIDAuMDQsIDAsIDApCglhc3NlcnRIc2xUb1JnYih0LCAwLCAxLCAwLjA0LCAwLjA4LCAwLCAwKQoJYXNzZXJ0SHNsVG9SZ2IodCwgMCwgMSwgMC4wOCwgMC4xNiwgMCwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDAsIDEsIDAuMTYsIDAuMzIsIDAsIDApCglhc3NlcnRIc2xUb1JnYih0LCAwLCAxLCAwLjE3LCAwLjM0LCAwLCAwKQoJYXNzZXJ0SHNsVG9SZ2IodCwgMCwgMSwgMC4zMSwgMC42MiwgMCwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDAsIDEsIDAuNSwgMSwgMCwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDEyMCwgMSwgMC4wMSwgMCwgMC4wMiwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDEyMCwgMSwgMC4wMiwgMCwgMC4wNCwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDEyMCwgMSwgMC4wNCwgMCwgMC4wOCwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDEyMCwgMSwgMC4wOCwgMCwgMC4xNiwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDEyMCwgMSwgMC4xNiwgMCwgMC4zMiwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDEyMCwgMSwgMC4xNywgMCwgMC4zNCwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDEyMCwgMSwgMC4zMSwgMCwgMC42MiwgMCkKCWFzc2VydEhzbFRvUmdiKHQsIDEyMCwgMSwgMC41LCAwLCAxLCAwKQoJYXNzZXJ0SHNsVG9SZ2IodCwgMjQwLCAxLCAwLjAxLCAwLCAwLCAwLjAyKQoJYXNzZXJ0SHNsVG9SZ2IodCwgMjQwLCAxLCAwLjAyLCAwLCAwLCAwLjA0KQoJYXNzZXJ0SHNsVG9SZ2IodCwgMjQwLCAxLCAwLjA0LCAwLCAwLCAwLjA4KQoJYXNzZXJ0SHNsVG9SZ2IodCwgMjQwLCAxLCAwLjA4LCAwLCAwLCAwLjE2KQoJYXNzZXJ0SHNsVG9SZ2IodCwgMjQwLCAxLCAwLjE2LCAwLCAwLCAwLjMyKQoJYXNzZXJ0SHNsVG9SZ2IodCwgMjQwLCAxLCAwLjE3LCAwLCAwLCAwLjM0KQoJYXNzZXJ0SHNsVG9SZ2IodCwgMjQwLCAxLCAwLjMxLCAwLCAwLCAwLjYyKQoJYXNzZXJ0SHNsVG9SZ2IodCwgMjQwLCAxLCAwLjUsIDAsIDAsIDEpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestHsvToRgbFloat",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestHsvToRgbFloat(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0SHN2VG9SZ2IodCwgMCwgMCwgMCwgMCwgMCwgMCkKCWFzc2VydEhzdlRvUmdiKHQsIDAsIDAsIDAuMSwgMC4xLCAwLjEsIDAuMSkKCWFzc2VydEhzdlRvUmdiKHQsIDAsIDAsIDAuNSwgMC41LCAwLjUsIDAuNSkKCWFzc2VydEhzdlRvUmdiKHQsIDAsIDAsIDAuNzUsIDAuNzUsIDAuNzUsIDAuNzUpCglhc3NlcnRIc3ZUb1JnYih0LCAwLCAwLCAxLCAxLCAxLCAxKQoJYXNzZXJ0SHN2VG9SZ2IodCwgMCwgMSwgMSwgMSwgMCwgMCkKCWFzc2VydEhzdlRvUmdiKHQsIDAsIDEsIDAuNzUsIDAuNzUsIDAsIDApCglhc3NlcnRIc3ZUb1JnYih0LCAwLCAxLCAwLjUsIDAuNSwgMCwgMCkKCWFzc2VydEhzdlRvUmdiKHQsIDAsIDEsIDAuMDEsIDAuMDEsIDAsIDApCglhc3NlcnRIc3ZUb1JnYih0LCAxMjAsIDEsIDEsIDAsIDEsIDApCglhc3NlcnRIc3ZUb1JnYih0LCAxMjAsIDEsIDAuNzUsIDAsIDAuNzUsIDApCglhc3NlcnRIc3ZUb1JnYih0LCAxMjAsIDEsIDAuNSwgMCwgMC41LCAwKQoJYXNzZXJ0SHN2VG9SZ2IodCwgMTIwLCAxLCAwLjAxLCAwLCAwLjAxLCAwKQoJYXNzZXJ0SHN2VG9SZ2IodCwgMjQwLCAxLCAxLCAwLCAwLCAxKQoJYXNzZXJ0SHN2VG9SZ2IodCwgMjQwLCAxLCAwLjc1LCAwLCAwLCAwLjc1KQoJYXNzZXJ0SHN2VG9SZ2IodCwgMjQwLCAxLCAwLjUsIDAsIDAsIDAuNSkKCWFzc2VydEhzdlRvUmdiKHQsIDI0MCwgMSwgMC4wMSwgMCwgMCwgMC4wMSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestKelvinToColor",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestKelvinToColor(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglmb3IgaywgcmdiYSA6PSByYW5nZSBtYXBbaW50XVszXXVpbnQ4ezE4NTA6IFszXXVpbnQ4ezI1NSwgMTMwLCAwfSwgMTk5OTogWzNddWludDh7MjU1LCAxMzksIDB9LCAyMDAwOiBbM111aW50OHsyNTUsIDEzOSwgMH0sIDI1MDA6IFszXXVpbnQ4ezI1NSwgMTYyLCA3MX0sIDMwMDA6IFszXXVpbnQ4ezI1NSwgMTgwLCAxMDh9LCAzNTAwOiBbM111aW50OHsyNTUsIDE5NSwgMTM4fSwgNDAwMDogWzNddWludDh7MjU1LCAyMDgsIDE2NH0sIDQ1MDA6IFszXXVpbnQ4ezI1NSwgMjE5LCAxODV9LCA1MDAwOiBbM111aW50OHsyNTUsIDIyOCwgMjA1fSwgNTUwMDogWzNddWludDh7MjU1LCAyMzYsIDIyM30sIDYwMDA6IFszXXVpbnQ4ezI1NSwgMjQzLCAyMzl9LCA2NTAwOiBbM111aW50OHsyNTUsIDI1MCwgMjU0fSwgNjU5OTogWzNddWludDh7MjU1LCAyNTEsIDI1NX0sIDY2MDA6IFszXXVpbnQ4ezI1NSwgMjQ5LCAyNTV9LCA3MDAwOiBbM111aW50OHsyNDUsIDI0MywgMjU1fSwgNzUwMDogWzNddWludDh7MjM0LCAyMzcsIDI1NX0sIDgwMDA6IFszXXVpbnQ4ezIyNSwgMjMyLCAyNTV9LCA4NTAwOiBbM111aW50OHsyMTgsIDIyOCwgMjU1fSwgOTAwMDogWzNddWludDh7MjEzLCAyMjUsIDI1NX0sIDkwMDE6IFszXXVpbnQ4ezIxMywgMjI1LCAyNTV9fSB7CgkJdmFyIHIsIGcsIGIsIGEgdWludDgKCQlyLCBnLCBiLCBhID0gS2VsdmluVG9Db2xvcihrKS5SR0JBMjU1KCkKCQlhc3NlcnQuRXF1YWxWYWx1ZXMociwgcmdiYVswXSwgZm10LlNwcmludGYoInI6JWRLIiwgaykpCgkJYXNzZXJ0LkVxdWFsVmFsdWVzKGcsIHJnYmFbMV0sIGZtdC5TcHJpbnRmKCJnOiVkSyIsIGspKQoJCWFzc2VydC5FcXVhbFZhbHVlcyhiLCByZ2JhWzJdLCBmbXQuU3ByaW50ZigiYjolZEsiLCBrKSkKCQlhc3NlcnQuRXF1YWxWYWx1ZXMoYSwgMjU1LCBmbXQuU3ByaW50ZigiYTolZEsiLCBrKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestLightenDarken",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestLightenDarken(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IGFzc2VydC5OZXcodCkKCXZhciBjb2xvciBDb2xvcgoJdmFyIGVyciBlcnJvcgoJY29sb3IsIGVyciA9IERhcmtlbihgIzgwMDAwMGAsIDEwMCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5UcnVlKGNvbG9yLkVxdWFscyhgIzAwMDAwMGApLCBmbXQuU3ByaW50ZigiJXYiLCBjb2xvcikpCgljb2xvciwgZXJyID0gRGFya2VuKGAjODAwMDAwYCwgMjApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuVHJ1ZShjb2xvci5FcXVhbHMoYCMxQTAwMDBgKSwgZm10LlNwcmludGYoIiV2IiwgY29sb3IpKQoJY29sb3IsIGVyciA9IExpZ2h0ZW4oYCM4MDAwMDBgLCAyMCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5UcnVlKGNvbG9yLkVxdWFscyhgI0U2MDAwMGApLCBmbXQuU3ByaW50ZigiJXYiLCBjb2xvcikpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMix",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMix(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IGFzc2VydC5OZXcodCkKCXZhciBtaXhlZCBDb2xvcgoJdmFyIGVyciBlcnJvcgoJbWl4ZWQsIGVyciA9IE1peE4oYCNhZDQwMzhgLCBgIzAwMDBmZmAsIDAuOCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5UcnVlKG1peGVkLkVxdWFscyhgIzhhMzM2MGApLCBmbXQuU3ByaW50ZigiJXYiLCBtaXhlZCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestParse",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestParse(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0Q29sb3IodCwgYCNGRkZGRkZgLCAyNTUsIDI1NSwgMjU1LCAyNTUpCglhc3NlcnRDb2xvcih0LCBgI0ZGRkYwMGAsIDI1NSwgMjU1LCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgI0ZGMDBDQ2AsIDI1NSwgMCwgMjA0LCAyNTUpCglhc3NlcnRDb2xvcih0LCBgI0ZGRkZGRjAwYCwgMjU1LCAyNTUsIDI1NSwgMCkKCWFzc2VydENvbG9yKHQsIGAjRkZGRjAwRkZgLCAyNTUsIDI1NSwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYCNGRjAwRkZGRmAsIDI1NSwgMCwgMjU1LCAyNTUpCglhc3NlcnRDb2xvcih0LCBgIzAwRkZGRkZGYCwgMCwgMjU1LCAyNTUsIDI1NSkKCWFzc2VydENvbG9yKHQsIGAjRkYwMDAwMDBgLCAyNTUsIDAsIDAsIDApCglhc3NlcnRDb2xvcih0LCBgI0ZGMDBGRjAwYCwgMjU1LCAwLCAyNTUsIDApCglhc3NlcnRDb2xvcih0LCBgIzAwMDAwMDAwYCwgMCwgMCwgMCwgMCkKCWFzc2VydENvbG9yKHQsIGByZ2IoMjU1LCAyNTUsIDI1NSlgLCAyNTUsIDI1NSwgMjU1LCAyNTUpCglhc3NlcnRDb2xvcih0LCBgcmdiKDI1NSwgMjU1LCA0MilgLCAyNTUsIDI1NSwgNDIsIDI1NSkKCWFzc2VydENvbG9yKHQsIGByZ2IoMjU1LCA0MiwgMjU1KWAsIDI1NSwgNDIsIDI1NSwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYHJnYig0MiwgMjU1LCAyNTUpYCwgNDIsIDI1NSwgMjU1LCAyNTUpCglhc3NlcnRDb2xvcih0LCBgcmdiYSgyNTUsIDI1NSwgMjU1LCAyNTUpYCwgMjU1LCAyNTUsIDI1NSwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYHJnYmEoMjU1LCAyNTUsIDI1NSwgNDIpYCwgMjU1LCAyNTUsIDI1NSwgNDIpCglhc3NlcnRDb2xvcih0LCBgcmdiYSgyNTUsIDI1NSwgNDIsIDI1NSlgLCAyNTUsIDI1NSwgNDIsIDI1NSkKCWFzc2VydENvbG9yKHQsIGByZ2JhKDI1NSwgNDIsIDI1NSwgMjU1KWAsIDI1NSwgNDIsIDI1NSwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYHJnYmEoNDIsIDI1NSwgMjU1LCAyNTUpYCwgNDIsIDI1NSwgMjU1LCAyNTUpCglhc3NlcnRDb2xvcih0LCBgcmdiYSgyNTUsIDI1NSwgMjU1LCAxLjApYCwgMjU1LCAyNTUsIDI1NSwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYHJnYmEoMjU1LCAyNTUsIDI1NSwgMC41KWAsIDI1NSwgMjU1LCAyNTUsIDEyOCkKCWFzc2VydENvbG9yKHQsIGByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMjUpYCwgMjU1LCAyNTUsIDI1NSwgNjQpCglhc3NlcnRDb2xvcih0LCBgcmdiYSgyNTUsIDI1NSwgMjU1LCAwKWAsIDI1NSwgMjU1LCAyNTUsIDApCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDEwMCUsIDEwMCUpYCwgMjU1LCAyNTUsIDI1NSwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwLCAxLCAxKWAsIDI1NSwgMjU1LCAyNTUsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc2woMCwgMjU1LCAyNTUpYCwgMjU1LCAyNTUsIDI1NSwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbGEoMCwgMSwgMSwgMC41KWAsIDI1NSwgMjU1LCAyNTUsIDEyOCkKCWFzc2VydENvbG9yKHQsIGBoc2woMCwgMTAwJSwgNTAlKWAsIDI1NSwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwLCAxMDAlLCAyNSUpYCwgMTI4LCAwLCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDEwMCUsIDEyLjUlKWAsIDY0LCAwLCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDEwMCUsIDYuMjUlKWAsIDMzLCAwLCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDEwMCUsIDMuMTI1JSlgLCAxNSwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwLCAxMDAlLCAxLjU2MjUlKWAsIDgsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc2woMGRlZywgMTAwJSwgMC41KWAsIDI1NSwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwZGVnLCAxMDAlLCAwLjI1KWAsIDEyOCwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwZGVnLCAxMDAlLCAwLjEyNSlgLCA2NCwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwZGVnLCAxMDAlLCAwLjA2MjUpYCwgMzMsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc2woMGRlZywgMTAwJSwgMC4wMzEyNSlgLCAxNSwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwZGVnLCAxMDAlLCAwLjAxNTYyNSlgLCA4LCAwLCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDI1NSwgMC41KWAsIDI1NSwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwLCAyNTUsIDAuMjUpYCwgMTI4LCAwLCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDI1NSwgMC4xMjUpYCwgNjQsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc2woMCwgMjU1LCAwLjA2MjUpYCwgMzMsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc2woMCwgMjU1LCAwLjAzMTI1KWAsIDE1LCAwLCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDI1NSwgMC4wMTU2MjUpYCwgOCwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwLCAxLjAsIDAuNSlgLCAyNTUsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc2woMCwgMS4wLCAwLjI1KWAsIDEyOCwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwLCAxLjAsIDAuMTI1KWAsIDY0LCAwLCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDEuMCwgMC4wNjI1KWAsIDMzLCAwLCAwLCAyNTUpCglhc3NlcnRDb2xvcih0LCBgaHNsKDAsIDEuMCwgMC4wMzEyNSlgLCAxNSwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzbCgwLCAxLjAsIDAuMDE1NjI1KWAsIDgsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc3YoMCwgMTAwJSwgMTAwJSlgLCAyNTUsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc3YoMCwgMTAwJSwgNTAlKWAsIDEyOCwgMCwgMCwgMjU1KQoJYXNzZXJ0Q29sb3IodCwgYGhzdigwLCAxMDAlLCAyNSUpYCwgNjQsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc3YoMCwgMTAwJSwgMTIuNSUpYCwgMzMsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc3YoMCwgMTAwJSwgNi4yNSUpYCwgMTUsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc3YoMCwgMTAwJSwgMy4xMjUlKWAsIDgsIDAsIDAsIDI1NSkKCWFzc2VydENvbG9yKHQsIGBoc3YoMCwgMTAwJSwgMS41NjI1JSlgLCA1LCAwLCAwLCAyNTUpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestRgbToHsl",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestRgbToHsl(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMCwgMCwgMCwgMCkKCWFzc2VydFJnYlRvSHNsKHQsIDAuMSwgMC4xLCAwLjEsIDAsIDAsIDAuMSkKCWFzc2VydFJnYlRvSHNsKHQsIDAuNSwgMC41LCAwLjUsIDAsIDAsIDAuNSkKCWFzc2VydFJnYlRvSHNsKHQsIDAuNzUsIDAuNzUsIDAuNzUsIDAsIDAsIDAuNzUpCglhc3NlcnRSZ2JUb0hzbCh0LCAxLCAxLCAxLCAwLCAwLCAxKQoJYXNzZXJ0UmdiVG9Ic2wodCwgMC4wMiwgMCwgMCwgMCwgMSwgMC4wMSkKCWFzc2VydFJnYlRvSHNsKHQsIDAuMDQsIDAsIDAsIDAsIDEsIDAuMDIpCglhc3NlcnRSZ2JUb0hzbCh0LCAwLjA4LCAwLCAwLCAwLCAxLCAwLjA0KQoJYXNzZXJ0UmdiVG9Ic2wodCwgMC4xNiwgMCwgMCwgMCwgMSwgMC4wOCkKCWFzc2VydFJnYlRvSHNsKHQsIDAuMzIsIDAsIDAsIDAsIDEsIDAuMTYpCglhc3NlcnRSZ2JUb0hzbCh0LCAwLjM0LCAwLCAwLCAwLCAxLCAwLjE3KQoJYXNzZXJ0UmdiVG9Ic2wodCwgMC42MiwgMCwgMCwgMCwgMSwgMC4zMSkKCWFzc2VydFJnYlRvSHNsKHQsIDEsIDAsIDAsIDAsIDEsIDAuNSkKCWFzc2VydFJnYlRvSHNsKHQsIDAsIDAuMDIsIDAsIDEyMCwgMSwgMC4wMSkKCWFzc2VydFJnYlRvSHNsKHQsIDAsIDAuMDQsIDAsIDEyMCwgMSwgMC4wMikKCWFzc2VydFJnYlRvSHNsKHQsIDAsIDAuMDgsIDAsIDEyMCwgMSwgMC4wNCkKCWFzc2VydFJnYlRvSHNsKHQsIDAsIDAuMTYsIDAsIDEyMCwgMSwgMC4wOCkKCWFzc2VydFJnYlRvSHNsKHQsIDAsIDAuMzIsIDAsIDEyMCwgMSwgMC4xNikKCWFzc2VydFJnYlRvSHNsKHQsIDAsIDAuMzQsIDAsIDEyMCwgMSwgMC4xNykKCWFzc2VydFJnYlRvSHNsKHQsIDAsIDAuNjIsIDAsIDEyMCwgMSwgMC4zMSkKCWFzc2VydFJnYlRvSHNsKHQsIDAsIDEsIDAsIDEyMCwgMSwgMC41KQoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMC4wMiwgMjQwLCAxLCAwLjAxKQoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMC4wNCwgMjQwLCAxLCAwLjAyKQoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMC4wOCwgMjQwLCAxLCAwLjA0KQoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMC4xNiwgMjQwLCAxLCAwLjA4KQoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMC4zMiwgMjQwLCAxLCAwLjE2KQoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMC4zNCwgMjQwLCAxLCAwLjE3KQoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMC42MiwgMjQwLCAxLCAwLjMxKQoJYXNzZXJ0UmdiVG9Ic2wodCwgMCwgMCwgMSwgMjQwLCAxLCAwLjUpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestRgbToHslSymmetry",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestRgbToHslSymmetry(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgaCwgcywgbCBmbG9hdDY0Cgl2YXIgciwgZywgYiB1aW50OAoJaCwgcywgbCA9IFJnYlRvSHNsKDI1NSwgMCwgMjA0KQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMzEyKSwgaCkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDEpLCBzKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMC41KSwgbCkKCXIsIGcsIGIgPSBIc2xUb1JnYihoLCBzLCBsKQoJYXNzZXJ0LkVxdWFsKHVpbnQ4KDI1NSksIHIpCglhc3NlcnQuRXF1YWwodWludDgoMCksIGcpCglhc3NlcnQuRXF1YWwodWludDgoMjA0KSwgYikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSaturateDesaturate",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSaturateDesaturate(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IGFzc2VydC5OZXcodCkKCXZhciBjb2xvciBDb2xvcgoJdmFyIGVyciBlcnJvcgoJY29sb3IsIGVyciA9IERlc2F0dXJhdGUoYCM4MDAwMDBgLCAxMDApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuVHJ1ZShjb2xvci5FcXVhbHMoYCM0MDQwNDBgKSwgZm10LlNwcmludGYoIiV2IiwgY29sb3IpKQoJY29sb3IsIGVyciA9IERlc2F0dXJhdGUoYCNhZDQwMzhgLCAyMCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5UcnVlKGNvbG9yLkVxdWFscyhgIzk2NTQ0ZmApLCBmbXQuU3ByaW50ZigiJXYiLCBjb2xvcikpCgljb2xvciwgZXJyID0gU2F0dXJhdGUoYCNhZDQwMzhgLCAyMCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5UcnVlKGNvbG9yLkVxdWFscyhgI2M0MmIyMWApLCBmbXQuU3ByaW50ZigiJXYiLCBjb2xvcikpCn0=",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "Color": {
+            "Name": "Color",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "Equals",
+                    "Comment": "Return whether the given color is equal to this one in the 24-bit RGB (RGB255) color space",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "Equals(other interface{}) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "HSI",
+                    "Comment": "Return the current color as hue (out of 360°), saturation [0, 1], and intensity [0, 1].",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "float64"
+                        }
+                    ],
+                    "Signature": "HSI() (float64, float64, float64)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "HSL",
+                    "Comment": "Return the current color as hue (out of 360°), saturation [0, 1], and lightness [0, 1].",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "float64"
+                        }
+                    ],
+                    "Signature": "HSL() (float64, float64, float64)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "HSV",
+                    "Comment": "Return the current color as hue (out of 360°), saturation [0, 1], and value [0, 1].",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "float64"
+                        }
+                    ],
+                    "Signature": "HSV() (float64, float64, float64)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "RGBA",
+                    "Comment": "Return the current color as a 32-bit uint quad, implementing the color.Color interface.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "uint32"
+                        },
+                        {
+                            "Type": "uint32"
+                        },
+                        {
+                            "Type": "uint32"
+                        },
+                        {
+                            "Type": "uint32"
+                        }
+                    ],
+                    "Signature": "RGBA() (uint32, uint32, uint32, uint32)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "RGBA255",
+                    "Comment": "Return the current color as 4x 8-bit RGB values, each [0, 255].",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "uint8"
+                        },
+                        {
+                            "Type": "uint8"
+                        },
+                        {
+                            "Type": "uint8"
+                        },
+                        {
+                            "Type": "uint8"
+                        }
+                    ],
+                    "Signature": "RGBA255() (uint8, uint8, uint8, uint8)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "String",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "StringHSLA",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "StringHSLA() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "StringRGBA",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "StringRGBA() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MustParse",
+                    "Comment": "Parse the given value into a Color or panic.",
+                    "Arguments": [
+                        {
+                            "Name": "value",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        }
+                    ],
+                    "Signature": "MustParse(value interface{}) Color",
+                    "Source": "ewoJaWYgY29sb3IsIGVyciA6PSBQYXJzZSh2YWx1ZSk7IGVyciA9PSBuaWwgewoJCXJldHVybiBjb2xvcgoJfSBlbHNlIHsKCQlwYW5pYyhlcnIpCgl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Parse",
+                    "Comment": "Parse the given value into a Color or return an error.",
+                    "Arguments": [
+                        {
+                            "Name": "value",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Parse(value interface{}) (Color, error)",
+                    "Source": "ewoJdmFyIGNvbG9yQyBDb2xvcgoJY29sb3JDLmEgPSAxCglpZiBjLCBvayA6PSB2YWx1ZS4oQ29sb3IpOyBvayB7CgkJcmV0dXJuIGMsIG5pbAoJfSBlbHNlIHsKCQljb2xvclMgOj0gZm10LlNwcmludGYoIiV2IiwgdmFsdWUpCgkJY29sb3JTID0gc3RyaW5ncy5UcmltU3BhY2UoY29sb3JTKQoJCWlmIHJnYmEgOj0gcnh1dGlsLk1hdGNoKHJnYmFQYXR0ZXJuLCBjb2xvclMpOyByZ2JhICE9IG5pbCB7CgkJCWZvciB2LCBmYWN0b3JTIDo9IHJhbmdlIHJnYmEuTmFtZWRDYXB0dXJlcygpIHsKCQkJCXZhciBkZW5vbSBmbG9hdDY0ID0gMHhGRgoJCQkJaWYgc3RyaW5ncy5IYXNTdWZmaXgoZmFjdG9yUywgYCVgKSB7CgkJCQkJZGVub20gPSAxMDAKCQkJCQlmYWN0b3JTID0gZmFjdG9yU1s6bGVuKGZhY3RvclMpLTFdCgkJCQl9CgkJCQlpZiBmYWN0b3JGLCBlcnIgOj0gc3RyaW5ndXRpbC5Db252ZXJ0VG9GbG9hdChmYWN0b3JTKTsgZXJyID09IG5pbCB7CgkJCQkJaWYgdiAhPSBgYWAgJiYgZmFjdG9yRiA+IDEgewoJCQkJCQlmYWN0b3JGID0gKGZhY3RvckYgLyBkZW5vbSkKCQkJCQl9CgkJCQkJc3dpdGNoIHYgewoJCQkJCWNhc2UgYHJgOgoJCQkJCQljb2xvckMuciA9IGZhY3RvckYKCQkJCQljYXNlIGBnYDoKCQkJCQkJY29sb3JDLmcgPSBmYWN0b3JGCgkJCQkJY2FzZSBgYmA6CgkJCQkJCWNvbG9yQy5iID0gZmFjdG9yRgoJCQkJCWNhc2UgYGFgOgoJCQkJCQlpZiBmYWN0b3JTICE9IGBgIHsKCQkJCQkJCWlmIGZhY3RvckYgPiAxIHsKCQkJCQkJCQlmYWN0b3JGID0gKGZhY3RvckYgLyBkZW5vbSkKCQkJCQkJCX0KCQkJCQkJCWNvbG9yQy5hID0gZmFjdG9yRgoJCQkJCQl9CgkJCQkJfQoJCQkJfSBlbHNlIHsKCQkJCQlyZXR1cm4gQ29sb3J7fSwgZm10LkVycm9yZigiSW52YWxpZCByZ2JhKCkgdmFsdWUgaW4gJyV2JyBwb3NpdGlvbjogJXYiLCB2LCBlcnIpCgkJCQl9CgkJCX0KCQl9IGVsc2UgaWYgaHNsYSA6PSByeHV0aWwuTWF0Y2goaHNsYVBhdHRlcm4sIGNvbG9yUyk7IGhzbGEgIT0gbmlsIHsKCQkJdmFyIGgsIHMsIGx2IGZsb2F0NjQKCQkJdmFyIGlzSFNWIGJvb2wKCQkJaWYgaHNsYS5Hcm91cChgTG9yVmApID09IGB2YCB7CgkJCQlpc0hTViA9IHRydWUKCQkJfQoJCQlmb3IgdiwgZmFjdG9yUyA6PSAvLyBoYW5kbGVzIGhzbCgpLCBoc2xhKCksIGhzdigpLCBoc3ZhKCkgcGF0dGVybnMKCQkJcmFuZ2UgaHNsYS5OYW1lZENhcHR1cmVzKCkgewoJCQkJaWYgdiA9PSBgTG9yVmAgewoJCQkJCWNvbnRpbnVlCgkJCQl9CgkJCQl2YXIgZGVub20gZmxvYXQ2NCA9IDEKCQkJCWlmIHN0cmluZ3MuSGFzU3VmZml4KGZhY3RvclMsIGAlYCkgewoJCQkJCWRlbm9tID0gMTAwCgkJCQkJZmFjdG9yUyA9IHN0cmluZ3MuVHJpbVN1ZmZpeChmYWN0b3JTLCBgJWApCgkJCQl9CgkJCQlpZiBmYWN0b3JGLCBlcnIgOj0gc3RyaW5ndXRpbC5Db252ZXJ0VG9GbG9hdChmYWN0b3JTKTsgZXJyID09IG5pbCB7CgkJCQkJaWYgZmFjdG9yRiA+IDEgJiYgZGVub20gPT0gMSB7CgkJCQkJCWRlbm9tID0gMHhGRgoJCQkJCX0KCQkJCQlzd2l0Y2ggdiB7CgkJCQkJY2FzZSBgaGA6CgkJCQkJCWggPSBmYWN0b3JGCgkJCQkJY2FzZSBgc2A6CgkJCQkJCXMgPSAoZmFjdG9yRiAvIGRlbm9tKQoJCQkJCWNhc2UgYGx2YDoKCQkJCQkJbHYgPSAoZmFjdG9yRiAvIGRlbm9tKQoJCQkJCWNhc2UgYGFgOgoJCQkJCQlpZiBmYWN0b3JTICE9IGBgIHsKCQkJCQkJCWlmIGZhY3RvckYgPiAxIHsKCQkJCQkJCQlmYWN0b3JGID0gKGZhY3RvckYgLyBkZW5vbSkKCQkJCQkJCX0KCQkJCQkJCWNvbG9yQy5hID0gZmFjdG9yRgoJCQkJCQl9CgkJCQkJfQoJCQkJfSBlbHNlIHsKCQkJCQlyZXR1cm4gQ29sb3J7fSwgZm10LkVycm9yZigiSW52YWxpZCByZ2JhKCkgdmFsdWUgaW4gJyV2JyBwb3NpdGlvbjogJXYiLCB2LCBlcnIpCgkJCQl9CgkJCX0KCQkJaWYgaXNIU1YgewoJCQkJY29sb3JDLnIsIGNvbG9yQy5nLCBjb2xvckMuYiA9IGhzdjJyZ2IoaCwgcywgbHYpCgkJCX0gZWxzZSB7CgkJCQljb2xvckMuciwgY29sb3JDLmcsIGNvbG9yQy5iID0gaHNsMnJnYihoLCBzLCBsdikKCQkJfQoJCX0gZWxzZSBpZiBoZXhhIDo9IHJ4dXRpbC5NYXRjaChoZXhQYXR0ZXJuLCBjb2xvclMpOyBoZXhhICE9IG5pbCB7CgkJCWZvciB2LCBoZXhieXRlIDo9IHJhbmdlIGhleGEuTmFtZWRDYXB0dXJlcygpIHsKCQkJCWlmIGhleGJ5dGUgIT0gYGAgewoJCQkJCWlmIHZCLCBlcnIgOj0gaGV4LkRlY29kZVN0cmluZyhoZXhieXRlKTsgZXJyID09IG5pbCB7CgkJCQkJCWlmIGxlbih2QikgPT0gMSB7CgkJCQkJCQlzd2l0Y2ggdiB7CgkJCQkJCQljYXNlIGByYDoKCQkJCQkJCQljb2xvckMuciA9IChmbG9hdDY0KHZCWzBdKSAvIDB4RkYpCgkJCQkJCQljYXNlIGBnYDoKCQkJCQkJCQljb2xvckMuZyA9IChmbG9hdDY0KHZCWzBdKSAvIDB4RkYpCgkJCQkJCQljYXNlIGBiYDoKCQkJCQkJCQljb2xvckMuYiA9IChmbG9hdDY0KHZCWzBdKSAvIDB4RkYpCgkJCQkJCQljYXNlIGBhYDoKCQkJCQkJCQljb2xvckMuYSA9IChmbG9hdDY0KHZCWzBdKSAvIDB4RkYpCgkJCQkJCQl9CgkJCQkJCX0gZWxzZSB7CgkJCQkJCQlyZXR1cm4gQ29sb3J7fSwgZm10LkVycm9yZigiSW52YWxpZCBoZXggYnl0ZSAnJXYnIiwgdkIpCgkJCQkJCX0KCQkJCQl9IGVsc2UgewoJCQkJCQlyZXR1cm4gQ29sb3J7fSwgZm10LkVycm9yZigiSW52YWxpZCBoZXggdmFsdWUgJyV2JyIsIGhleGJ5dGUpCgkJCQkJfQoJCQkJfQoJCQl9CgkJfQoJfQoJcmV0dXJuIGNvbG9yQywgbmlsCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Darken",
+                    "Comment": "Darken the given color by a certain percent.  Consistent with the results of the\nSass darken() function.",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "percent",
+                            "Type": "int"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Darken(in interface{}, percent int) (Color, error)",
+                    "Source": "ewoJcmV0dXJuIGFkanVzdChsaWdodG5lc3MsIGluLCAtMSooZmxvYXQ2NChwZXJjZW50KS8xMDAuMCkpCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Lighten",
+                    "Comment": "Lighten the given color by a certain percent.  Consistent with the results of the\nSass lighten() function.",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "percent",
+                            "Type": "int"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Lighten(in interface{}, percent int) (Color, error)",
+                    "Source": "ewoJcmV0dXJuIGFkanVzdChsaWdodG5lc3MsIGluLCBmbG9hdDY0KHBlcmNlbnQpLzEwMC4wKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Saturate",
+                    "Comment": "Saturate the given color by a certain percent.  Consistent with the results of the\nSass saturate() function.",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "percent",
+                            "Type": "int"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Saturate(in interface{}, percent int) (Color, error)",
+                    "Source": "ewoJcmV0dXJuIGFkanVzdChzYXR1cmF0aW9uLCBpbiwgZmxvYXQ2NChwZXJjZW50KS8xMDAuMCkKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Desaturate",
+                    "Comment": "Desaturate the given color by a certain percent.  Consistent with the results of the\nSass desaturate() function.",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "percent",
+                            "Type": "int"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Desaturate(in interface{}, percent int) (Color, error)",
+                    "Source": "ewoJcmV0dXJuIGFkanVzdChzYXR1cmF0aW9uLCBpbiwgLTEqKGZsb2F0NjQocGVyY2VudCkvMTAwLjApKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "AdjustHue",
+                    "Comment": "Adjust the hue of the given color by the specified number of degrees.",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "degrees",
+                            "Type": "float64"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "AdjustHue(in interface{}, degrees float64) (Color, error)",
+                    "Source": "ewoJcmV0dXJuIGFkanVzdChodWUsIGluLCBkZWdyZWVzKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "MixN",
+                    "Comment": "Mix two colors, producing a third.  The weight value specifies how much of the first color\nshould be included.  Consistent with the results of the Sass mix() function.",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "second",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "weight",
+                            "Type": "float64"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "MixN(first interface{}, second interface{}, weight float64) (Color, error)",
+                    "Source": "ewoJaWYgZmlyc3RDLCBlcnIgOj0gUGFyc2UoZmlyc3QpOyBlcnIgPT0gbmlsIHsKCQlpZiBzZWNvbmRDLCBlcnIgOj0gUGFyc2Uoc2Vjb25kKTsgZXJyID09IG5pbCB7CgkJCWZhY3RvciA6PSAyKndlaWdodCAtIDEKCQkJYWxwaGEgOj0gZmlyc3RDLmEgLSBzZWNvbmRDLmEKCQkJdmFyIHdlaWdodDEsIHdlaWdodDIgZmxvYXQ2NAoJCQlpZiBmYWN0b3IqYWxwaGEgPT0gLTEgewoJCQkJd2VpZ2h0MSA9IGZhY3RvcgoJCQl9IGVsc2UgewoJCQkJd2VpZ2h0MSA9ICgoZmFjdG9yICsgYWxwaGEpIC8gKDEgKyBmYWN0b3IqYWxwaGEpKSArIDEKCQkJfQoJCQl3ZWlnaHQxID0gd2VpZ2h0MSAvIDIKCQkJd2VpZ2h0MiA9IDEgLSB3ZWlnaHQxCgkJCW1peGVkIDo9IENvbG9ye3I6ICh3ZWlnaHQxICogZmlyc3RDLnIpICsgKHdlaWdodDIgKiBzZWNvbmRDLnIpLCBnOiAod2VpZ2h0MSAqIGZpcnN0Qy5nKSArICh3ZWlnaHQyICogc2Vjb25kQy5nKSwgYjogKHdlaWdodDEgKiBmaXJzdEMuYikgKyAod2VpZ2h0MiAqIHNlY29uZEMuYiksIGE6IChmaXJzdEMuYSAqIHdlaWdodCkgKyAoc2Vjb25kQy5hICogKDEgLSB3ZWlnaHQpKX0KCQkJcmV0dXJuIG1peGVkLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gQ29sb3J7fSwgZm10LkVycm9yZigic2Vjb25kIGNvbG9yOiAldiIsIGVycikKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBDb2xvcnt9LCBmbXQuRXJyb3JmKCJmaXJzdCBjb2xvcjogJXYiLCBlcnIpCgl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Mix",
+                    "Comment": "Mix two colors in equal parts, producing a third.",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "second",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Color"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Mix(first interface{}, second interface{}) (Color, error)",
+                    "Source": "ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Source": "dHlwZSBDb2xvciBzdHJ1Y3QgewoKfQo=",
+            "HasUnexportedFields": true
+        }
+    }
+}

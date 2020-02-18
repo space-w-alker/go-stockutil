@@ -1,0 +1,557 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">rxutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 29%</span>
+<h2 id="pkg-overview">package rxutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/rxutil"</code>
+</p>
+
+
+<p>Utilities to make working with regular expressions easier.</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		
+		<a href="#IsMatchString">func IsMatchString(pattern interface{}, source string) bool</a>
+		
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#MatchResult">type MatchResult</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#MatchResult.Match">
+					func Match(pattern interface{}, source string) *MatchResult
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#MatchResult.AllCaptures">
+					func
+					(self *MatchResult)
+					AllCaptures() []string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#MatchResult.Captures">
+					func
+					(self *MatchResult)
+					Captures() []string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#MatchResult.Group">
+					func
+					(self *MatchResult)
+					Group(nameOrIndex interface{}) string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#MatchResult.NamedCaptures">
+					func
+					(self *MatchResult)
+					NamedCaptures() map[string]string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#MatchResult.ReplaceGroup">
+					func
+					(self *MatchResult)
+					ReplaceGroup(nameOrIndex interface{}, repl string) string
+				</a>
+				</strong>
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="match.go">match.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">96</td>
+		<td class="text-right">7</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="match_test.go">match_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">52</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="predefined.go">predefined.go</a>
+			
+		</td>
+		<td class="text-right">633B</td>
+		<td class="text-right">14</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">12</td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="Integers">Integers           </span> = regexp.MustCompile(`-?\d&#43;`)
+var <span id="Letter">Letter             </span> = regexp.MustCompile(`[\p{Lu}\p{Ll}]`)
+var <span id="Letters">Letters            </span> = regexp.MustCompile(`[\p{Lu}\p{Ll}]&#43;`)
+var <span id="LineBreak">LineBreak          </span> = regexp.MustCompile(`(?:\n|\r|\n\r)`)
+var <span id="LineBreaks">LineBreaks         </span> = regexp.MustCompile(`[\n\r]&#43;`)
+var <span id="LowerCaseLetter">LowerCaseLetter    </span> = regexp.MustCompile(`\p{Ll}`)
+var <span id="LowerCaseLetters">LowerCaseLetters   </span> = regexp.MustCompile(`\p{Ll}&#43;`)
+var <span id="NonNegativeIntegers">NonNegativeIntegers</span> = regexp.MustCompile(`\d&#43;`)
+var <span id="Numbers">Numbers            </span> = regexp.MustCompile(`-?\d&#43;(?:\.\d&#43;)?`)
+var <span id="UpperCaseLetter">UpperCaseLetter    </span> = regexp.MustCompile(`\p{Lu}`)
+var <span id="UpperCaseLetters">UpperCaseLetters   </span> = regexp.MustCompile(`\p{Lu}&#43;`)
+var <span id="Whitespace">Whitespace         </span> = regexp.MustCompile(`\s&#43;`)
+</pre>
+</div>
+
+
+
+
+
+<h3 id="IsMatchString" data-kind="f">
+	func <a title="View Source" href="">IsMatchString</a>
+	<a class="permalink" href="#IsMatchString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsMatchString(pattern interface{}, source string) bool</pre>
+</div>
+
+
+
+
+
+
+<h3 id="MatchResult" data-kind="t">
+	type
+	<a title="View Source" href="">MatchResult</a>
+	<a class="permalink" href="#MatchResult">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type MatchResult struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+<h4 id="Match" data-kind="f">
+	func <a title="View Source" href="">Match</a>
+	<a class="permalink" href="#Match">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Match(pattern interface{}, source string) *MatchResult</pre>
+</div>
+
+<p><p>Returns a MatchResult object representing the leftmost match of pattern against<br>source, or nil if no matches were found.  Pattern can be a string or a<br>previously-compiled *regexp.Regexp.</p>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="MatchResult.AllCaptures" data-kind="f">
+	func
+	(self *MatchResult)
+	<a title="View Source" href="">AllCaptures</a>
+	<a class="permalink" href="#AllCaptures">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *MatchResult) AllCaptures() []string</pre>
+</div>
+
+<p><p>Returns all captures from all matches appended together.  The full match string<br>from match is omitted, so only the actual values appearing within capture groups<br>are returned.</p>
+</p>
+
+
+
+
+<h4 id="MatchResult.Captures" data-kind="f">
+	func
+	(self *MatchResult)
+	<a title="View Source" href="">Captures</a>
+	<a class="permalink" href="#Captures">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *MatchResult) Captures() []string</pre>
+</div>
+
+<p><p>Return a slice of all capture groups.</p>
+</p>
+
+
+
+
+<h4 id="MatchResult.Group" data-kind="f">
+	func
+	(self *MatchResult)
+	<a title="View Source" href="">Group</a>
+	<a class="permalink" href="#Group">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *MatchResult) Group(nameOrIndex interface{}) string</pre>
+</div>
+
+<p><p>Return the value of the numbered capture group (if given an int), or the<br>named capture group (if given a string).  Returns an empty string if the<br>given group name or index does not exist.</p>
+</p>
+
+
+
+
+
+
+<h4 id="MatchResult.NamedCaptures" data-kind="f">
+	func
+	(self *MatchResult)
+	<a title="View Source" href="">NamedCaptures</a>
+	<a class="permalink" href="#NamedCaptures">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *MatchResult) NamedCaptures() map[string]string</pre>
+</div>
+
+<p><p>Returns a map of all named capture matches, keyed on capture group name.</p>
+</p>
+
+
+
+
+<h4 id="MatchResult.ReplaceGroup" data-kind="f">
+	func
+	(self *MatchResult)
+	<a title="View Source" href="">ReplaceGroup</a>
+	<a class="permalink" href="#ReplaceGroup">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *MatchResult) ReplaceGroup(nameOrIndex interface{}, repl string) string</pre>
+</div>
+
+<p><p>Return a copy of source string with the given numbered or named group replaced<br>with repl.</p>
+</p>
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

@@ -1,0 +1,2488 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">fileutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 35%</span>
+<h2 id="pkg-overview">package fileutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/fileutil"</code>
+</p>
+
+
+<p>Helpers for working with files and filesystems</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		
+		<a href="#AddMimeTypeFile">func AddMimeTypeFile(filename string)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ChecksumFile">func ChecksumFile(filename string, fn interface{}) ([]byte, error)</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#CompareReaders">func CompareReaders(a io.Reader, b io.Reader, hasher ...hash.Hash) int</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#CopyDir">func CopyDir(root string, fn CopyEntryFunc) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#CopyFile">func CopyFile(source interface{}, destination interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#GetMimeType">func GetMimeType(filenameOrReader interface{}, fallback ...string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#GetNthLine">func GetNthLine(file interface{}, number int) (string, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#InitMime">func InitMime()</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsModifiedAfter">func IsModifiedAfter(stat os.FileInfo, current string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsTerminal">func IsTerminal() bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ManipulateAll">func ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#MustExpandUser">func MustExpandUser(path string) string</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MustGetNthLine">func MustGetNthLine(file interface{}, number int) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#MustReadAll">func MustReadAll(file interface{}) []byte</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MustReadAllLines">func MustReadAllLines(file interface{}) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#MustReadAllString">func MustReadAllString(file interface{}) string</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MustWriteFile">func MustWriteFile(input interface{}, filename string) int64</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MustWriteTempFile">func MustWriteTempFile(input interface{}, prefix string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Open">func Open(uri string) (io.Reader, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#OpenWithOptions">func OpenWithOptions(uri string, options OpenOptions) (io.Reader, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ReadAll">func ReadAll(file interface{}) ([]byte, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ReadAllLines">func ReadAllLines(file interface{}) ([]string, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ReadAllString">func ReadAllString(file interface{}) (string, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#ReadFirstLine">func ReadFirstLine(file interface{}) (string, error)</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RegisterOpenHandler">func RegisterOpenHandler(scheme string, handler OpenHandler)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RemoveBlankLines">func RemoveBlankLines(data []byte) ([]byte, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RemoveLinesContaining">func RemoveLinesContaining(needle string) ReadManipulatorFunc</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RemoveLinesSurroundedBy">func RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RemoveLinesWithPrefix">func RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RemoveLinesWithSuffix">func RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RemoveOpenHandler">func RemoveOpenHandler(scheme string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ReplaceWith">func ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SameFile">func SameFile(first interface{}, second interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SetExt">func SetExt(path string, ext string, oldexts ...string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ShouldGetNthLine">func ShouldGetNthLine(file interface{}, number int) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ShouldReadAllLines">func ShouldReadAllLines(file interface{}) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SizeOf">func SizeOf(path string) convutil.Bytes</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WriteFile">func WriteFile(input interface{}, filename string) (int64, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WriteTempFile">func WriteTempFile(input interface{}, pattern string) (string, error)</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#CopyEntryFunc">type CopyEntryFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#DirReader">type DirReader</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#DirReader.NewDirReader">
+					func NewDirReader(path string, options ...DirReaderOption) *DirReader
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#DirReader.Close">
+					func
+					(self *DirReader)
+					Close() error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#DirReader.Read">
+					func
+					(self *DirReader)
+					Read(b []byte) (int, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#DirReader.SetSkipFunc">
+					func
+					(self *DirReader)
+					SetSkipFunc(fn SkipFunc)
+				</a>
+				</strong>
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#DirReaderOption">type DirReaderOption int</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#DirReaderOptions">type DirReaderOptions </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#FileInfo">type FileInfo</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.NewFileInfo">
+					func NewFileInfo(wrap ...os.FileInfo) *FileInfo
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.IsDir">
+					func
+					(self *FileInfo)
+					IsDir() bool
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.ModTime">
+					func
+					(self *FileInfo)
+					ModTime() time.Time
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.Mode">
+					func
+					(self *FileInfo)
+					Mode() os.FileMode
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.Name">
+					func
+					(self *FileInfo)
+					Name() string
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.SetIsDir">
+					func
+					(self *FileInfo)
+					SetIsDir(isDir bool)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.SetModTime">
+					func
+					(self *FileInfo)
+					SetModTime(mtime time.Time)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.SetMode">
+					func
+					(self *FileInfo)
+					SetMode(mode os.FileMode)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.SetName">
+					func
+					(self *FileInfo)
+					SetName(name string)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.SetSize">
+					func
+					(self *FileInfo)
+					SetSize(sz int64)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.SetSys">
+					func
+					(self *FileInfo)
+					SetSys(iface interface{})
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.Size">
+					func
+					(self *FileInfo)
+					Size() int64
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#FileInfo.Sys">
+					func
+					(self *FileInfo)
+					Sys() interface{}
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#OpenHandler">type OpenHandler </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#OpenOptions">type OpenOptions</a>
+
+		
+		
+		<ul>
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#OpenOptions.GetTimeout">
+					func
+					(self OpenOptions)
+					GetTimeout() time.Duration
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#PostReadCloser">type PostReadCloser</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#PostReadCloser.NewPostReadCloser">
+					func NewPostReadCloser(upstream io.ReadCloser, closer ) *PostReadCloser
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#PostReadCloser.Close">
+					func
+					(self *PostReadCloser)
+					Close() error
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#PostReadCloser.Read">
+					func
+					(self *PostReadCloser)
+					Read(b []byte) (int, error)
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#ReadManipulator">type ReadManipulator</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#ReadManipulator.NewReadManipulator">
+					func NewReadManipulator(reader io.Reader, fns ...ReadManipulatorFunc) *ReadManipulator
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#ReadManipulator.Close">
+					func
+					(self *ReadManipulator)
+					Close() error
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#ReadManipulator.Read">
+					func
+					(self *ReadManipulator)
+					Read(b []byte) (int, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#ReadManipulator.Split">
+					func
+					(self *ReadManipulator)
+					Split(split bufio.SplitFunc)
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#ReadManipulatorFunc">type ReadManipulatorFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#RewriteFileSystem">type RewriteFileSystem</a>
+
+		
+		
+		<ul>
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#RewriteFileSystem.Open">
+					func
+					(self RewriteFileSystem)
+					Open(name string) (http.File, error)
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#SkipFunc">type SkipFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#TestFileSystem">type TestFileSystem </a>
+
+		
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="closer.go">closer.go</a>
+			
+		</td>
+		<td class="text-right">645B</td>
+		<td class="text-right">22</td>
+		<td class="text-right">3</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="directory.go">directory.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">152</td>
+		<td class="text-right">6</td>
+		<td class="text-right">5</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="directory_test.go">directory_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">65</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="file.go">file.go</a>
+			
+		</td>
+		<td class="text-right">13KB</td>
+		<td class="text-right">401</td>
+		<td class="text-right">24</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">23</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="file_handlers.go">file_handlers.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">178</td>
+		<td class="text-right">5</td>
+		<td class="text-right">2</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="file_test.go">file_test.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">67</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="fileinfo.go">fileinfo.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">95</td>
+		<td class="text-right">13</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="fs.go">fs.go</a>
+			
+		</td>
+		<td class="text-right">522B</td>
+		<td class="text-right">22</td>
+		<td class="text-right">1</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="fs_test.go">fs_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">71</td>
+		<td class="text-right">1</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="manipulator.go">manipulator.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">81</td>
+		<td class="text-right">4</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="manipulator_funcs.go">manipulator_funcs.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">78</td>
+		<td class="text-right">7</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="manipulator_test.go">manipulator_test.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">86</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="mime.go">mime.go</a>
+			
+		</td>
+		<td class="text-right">27KB</td>
+		<td class="text-right">547</td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="mime_test.go">mime_test.go</a>
+			
+		</td>
+		<td class="text-right">622B</td>
+		<td class="text-right">16</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="DefaultOpenTimeout">DefaultOpenTimeout</span> = time.Duration(10 * time.Second)
+const <span id="FailOnError">FailOnError       </span> = 
+const <span id="NoRecursive">NoRecursive       </span> = iota
+</pre>
+</div>
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="CompareHasher">CompareHasher           </span> = sha256.New()
+var <span id="DirExists">DirExists               </span> = pathutil.DirExists
+var <span id="Exists">Exists                  </span> = pathutil.Exists
+var <span id="ExpandUser">ExpandUser              </span> = pathutil.ExpandUser
+var <span id="FileExists">FileExists              </span> = pathutil.FileExists
+var <span id="IsAppend">IsAppend                </span> = pathutil.IsAppend
+var <span id="IsAppendable">IsAppendable            </span> = pathutil.IsAppendable
+var <span id="IsCharDevice">IsCharDevice            </span> = pathutil.IsCharDevice
+var <span id="IsDevice">IsDevice                </span> = pathutil.IsDevice
+var <span id="IsExclusive">IsExclusive             </span> = pathutil.IsExclusive
+var <span id="IsNamedPipe">IsNamedPipe             </span> = pathutil.IsNamedPipe
+var <span id="IsNonemptyDir">IsNonemptyDir           </span> = pathutil.IsNonemptyDir
+var <span id="IsNonemptyExecutableFile">IsNonemptyExecutableFile</span> = pathutil.IsNonemptyExecutableFile
+var <span id="IsNonemptyFile">IsNonemptyFile          </span> = pathutil.IsNonemptyFile
+var <span id="IsReadable">IsReadable              </span> = pathutil.IsReadable
+var <span id="IsSetgid">IsSetgid                </span> = pathutil.IsSetgid
+var <span id="IsSetuid">IsSetuid                </span> = pathutil.IsSetuid
+var <span id="IsSocket">IsSocket                </span> = pathutil.IsSocket
+var <span id="IsSticky">IsSticky                </span> = pathutil.IsSticky
+var <span id="IsSymlink">IsSymlink               </span> = pathutil.IsSymlink
+var <span id="IsTemporary">IsTemporary             </span> = pathutil.IsTemporary
+var <span id="IsWritable">IsWritable              </span> = pathutil.IsWritable
+var <span id="LinkExists">LinkExists              </span> = pathutil.LinkExists
+var <span id="SkipToken">SkipToken               </span> = errors.New(`skip token`)
+</pre>
+</div>
+
+
+
+
+
+<h3 id="AddMimeTypeFile" data-kind="f">
+	func <a title="View Source" href="">AddMimeTypeFile</a>
+	<a class="permalink" href="#AddMimeTypeFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func AddMimeTypeFile(filename string)</pre>
+</div>
+
+
+
+<h3 id="ChecksumFile" data-kind="f">
+	func <a title="View Source" href="">ChecksumFile</a>
+	<a class="permalink" href="#ChecksumFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ChecksumFile(filename string, fn interface{}) ([]byte, error)</pre>
+</div>
+
+
+
+<h3 id="CompareReaders" data-kind="f">
+	func <a title="View Source" href="">CompareReaders</a>
+	<a class="permalink" href="#CompareReaders">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CompareReaders(a io.Reader, b io.Reader, hasher ...hash.Hash) int</pre>
+</div>
+
+
+<p><p>Compare the binary contents of two io.Reader instances.  The result will be 0 if a==b, -1 if a &lt; b, and +1 if a &gt; b.<br>An optional hash.Hash instance may be given, otherwise the default crypto/sha256 will be used.</p>
+</p>
+
+
+<h3 id="CopyDir" data-kind="f">
+	func <a title="View Source" href="">CopyDir</a>
+	<a class="permalink" href="#CopyDir">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CopyDir(root string, fn CopyEntryFunc) error</pre>
+</div>
+
+
+<p><p>Recursively walk the entries of a given directory, calling CopyEntryFunc for each entry.<br>The io.Writer returned from the function will have that file’s contents written to it.  If<br>the io.Writer is nil, the file will not be written anywhere but no error will be returned.<br>If CopyEntryFunc returns an error, the behavior will be consistent with filepath.WalkFunc</p>
+</p>
+
+
+<h3 id="CopyFile" data-kind="f">
+	func <a title="View Source" href="">CopyFile</a>
+	<a class="permalink" href="#CopyFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CopyFile(source interface{}, destination interface{}) error</pre>
+</div>
+
+
+<p><p>Copy a file from one place to another.  Source can be an io.Reader or string.  If source is a<br>string, the string will be passed to the Open() function as a URL.  Destination can be an<br>io.Writer or string.  If destination is a string, it will be treated as a local filesystem path<br>to write the data read from source to.<br><br>If either source or destination implements io.Closer, thee files will be closed before this<br>function returns.</p>
+</p>
+
+
+<h3 id="GetMimeType" data-kind="f">
+	func <a title="View Source" href="">GetMimeType</a>
+	<a class="permalink" href="#GetMimeType">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func GetMimeType(filenameOrReader interface{}, fallback ...string) string</pre>
+</div>
+
+
+<p><p>GetMimeType goes out of its way to really, really try to figure out the MIME type of a given<br>filename or io.Reader.  If the first argument satisfies the io.Seeker interface, the seeker<br>will Seek() back to the beginning.  If it satisfies the io.Closer interface, it will be closed.</p>
+</p>
+
+
+<h3 id="GetNthLine" data-kind="f">
+	func <a title="View Source" href="">GetNthLine</a>
+	<a class="permalink" href="#GetNthLine">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func GetNthLine(file interface{}, number int) (string, error)</pre>
+</div>
+
+
+<p><p>Attempt to return the nth line (starting from 1) in the given file or reader.</p>
+</p>
+
+
+<h3 id="InitMime" data-kind="f">
+	func <a title="View Source" href="">InitMime</a>
+	<a class="permalink" href="#InitMime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func InitMime()</pre>
+</div>
+
+
+
+<h3 id="IsModifiedAfter" data-kind="f">
+	func <a title="View Source" href="">IsModifiedAfter</a>
+	<a class="permalink" href="#IsModifiedAfter">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsModifiedAfter(stat os.FileInfo, current string) bool</pre>
+</div>
+
+
+<p><p>Return true if the given FileInfo sports a ModTime later than the current file.</p>
+</p>
+
+
+<h3 id="IsTerminal" data-kind="f">
+	func <a title="View Source" href="">IsTerminal</a>
+	<a class="permalink" href="#IsTerminal">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsTerminal() bool</pre>
+</div>
+
+
+
+<h3 id="ManipulateAll" data-kind="f">
+	func <a title="View Source" href="">ManipulateAll</a>
+	<a class="permalink" href="#ManipulateAll">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc</pre>
+</div>
+
+
+<p><p>Performs multiple sequential manipulations on an intercepted line of text from<br>an io.Reader as its being read.</p>
+</p>
+
+
+<h3 id="MustExpandUser" data-kind="f">
+	func <a title="View Source" href="">MustExpandUser</a>
+	<a class="permalink" href="#MustExpandUser">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustExpandUser(path string) string</pre>
+</div>
+
+
+
+<h3 id="MustGetNthLine" data-kind="f">
+	func <a title="View Source" href="">MustGetNthLine</a>
+	<a class="permalink" href="#MustGetNthLine">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustGetNthLine(file interface{}, number int) string</pre>
+</div>
+
+
+<p><p>A panicky version of GetNthLine.</p>
+</p>
+
+
+<h3 id="MustReadAll" data-kind="f">
+	func <a title="View Source" href="">MustReadAll</a>
+	<a class="permalink" href="#MustReadAll">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustReadAll(file interface{}) []byte</pre>
+</div>
+
+
+
+<h3 id="MustReadAllLines" data-kind="f">
+	func <a title="View Source" href="">MustReadAllLines</a>
+	<a class="permalink" href="#MustReadAllLines">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustReadAllLines(file interface{}) []string</pre>
+</div>
+
+
+<p><p>A panicky version of ReadAllLines.</p>
+</p>
+
+
+<h3 id="MustReadAllString" data-kind="f">
+	func <a title="View Source" href="">MustReadAllString</a>
+	<a class="permalink" href="#MustReadAllString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustReadAllString(file interface{}) string</pre>
+</div>
+
+
+
+<h3 id="MustWriteFile" data-kind="f">
+	func <a title="View Source" href="">MustWriteFile</a>
+	<a class="permalink" href="#MustWriteFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustWriteFile(input interface{}, filename string) int64</pre>
+</div>
+
+
+<p><p>Same as WriteFile, but will panic if the file cannot be written.</p>
+</p>
+
+
+<h3 id="MustWriteTempFile" data-kind="f">
+	func <a title="View Source" href="">MustWriteTempFile</a>
+	<a class="permalink" href="#MustWriteTempFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustWriteTempFile(input interface{}, prefix string) string</pre>
+</div>
+
+
+<p><p>Same as MustWriteFile, but writes the given input to a temporary file, returning<br>the filename.  The function will panic if the file cannot be written.</p>
+</p>
+
+
+<h3 id="Open" data-kind="f">
+	func <a title="View Source" href="">Open</a>
+	<a class="permalink" href="#Open">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Open(uri string) (io.Reader, error)</pre>
+</div>
+
+
+<p><p>Calls OpenWithOptions with no options set.</p>
+</p>
+
+
+<h3 id="OpenWithOptions" data-kind="f">
+	func <a title="View Source" href="">OpenWithOptions</a>
+	<a class="permalink" href="#OpenWithOptions">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OpenWithOptions(uri string, options OpenOptions) (io.Reader, error)</pre>
+</div>
+
+
+<p><p>A generic URL opener that supports various schemes and returns an io.Reader.<br>Supported URL schemes include: file://, http://, https://, ftp://, sftp://. If no scheme is<br>provided, the URL is interpreted as a local filesystem path.</p>
+</p>
+
+
+<h3 id="ReadAll" data-kind="f">
+	func <a title="View Source" href="">ReadAll</a>
+	<a class="permalink" href="#ReadAll">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReadAll(file interface{}) ([]byte, error)</pre>
+</div>
+
+
+<p><p>Takes the given string filename, []byte, io.Reader, or io.ReadCloser and returns<br>the bytes therein.</p>
+</p>
+
+
+<h3 id="ReadAllLines" data-kind="f">
+	func <a title="View Source" href="">ReadAllLines</a>
+	<a class="permalink" href="#ReadAllLines">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReadAllLines(file interface{}) ([]string, error)</pre>
+</div>
+
+
+<p><p>Read all lines of text from the given file and return them as a slice.</p>
+</p>
+
+
+<h3 id="ReadAllString" data-kind="f">
+	func <a title="View Source" href="">ReadAllString</a>
+	<a class="permalink" href="#ReadAllString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReadAllString(file interface{}) (string, error)</pre>
+</div>
+
+
+<p><p>A string version of ReadAll.</p>
+</p>
+
+
+<h3 id="ReadFirstLine" data-kind="f">
+	func <a title="View Source" href="">ReadFirstLine</a>
+	<a class="permalink" href="#ReadFirstLine">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReadFirstLine(file interface{}) (string, error)</pre>
+</div>
+
+
+
+<h3 id="RegisterOpenHandler" data-kind="f">
+	func <a title="View Source" href="">RegisterOpenHandler</a>
+	<a class="permalink" href="#RegisterOpenHandler">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RegisterOpenHandler(scheme string, handler OpenHandler)</pre>
+</div>
+
+
+<p><p>Register a handler for a new or existing URL scheme, for use with Open() and OpenWithOptions()</p>
+</p>
+
+
+<h3 id="RemoveBlankLines" data-kind="f">
+	func <a title="View Source" href="">RemoveBlankLines</a>
+	<a class="permalink" href="#RemoveBlankLines">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveBlankLines(data []byte) ([]byte, error)</pre>
+</div>
+
+
+<p><p>A ReadManipulatorFunc for removing lines that only contain whitespace.</p>
+</p>
+
+
+<h3 id="RemoveLinesContaining" data-kind="f">
+	func <a title="View Source" href="">RemoveLinesContaining</a>
+	<a class="permalink" href="#RemoveLinesContaining">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLinesContaining(needle string) ReadManipulatorFunc</pre>
+</div>
+
+
+<p><p>A ReadManipulatorFunc for removing lines that contain the given string.</p>
+</p>
+
+
+<h3 id="RemoveLinesSurroundedBy" data-kind="f">
+	func <a title="View Source" href="">RemoveLinesSurroundedBy</a>
+	<a class="permalink" href="#RemoveLinesSurroundedBy">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc</pre>
+</div>
+
+
+<p><p>A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.</p>
+</p>
+
+
+<h3 id="RemoveLinesWithPrefix" data-kind="f">
+	func <a title="View Source" href="">RemoveLinesWithPrefix</a>
+	<a class="permalink" href="#RemoveLinesWithPrefix">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc</pre>
+</div>
+
+
+<p><p>A ReadManipulatorFunc for removing lines that have a given prefix.</p>
+</p>
+
+
+<h3 id="RemoveLinesWithSuffix" data-kind="f">
+	func <a title="View Source" href="">RemoveLinesWithSuffix</a>
+	<a class="permalink" href="#RemoveLinesWithSuffix">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc</pre>
+</div>
+
+
+<p><p>A ReadManipulatorFunc for removing lines that have a given suffix.</p>
+</p>
+
+
+<h3 id="RemoveOpenHandler" data-kind="f">
+	func <a title="View Source" href="">RemoveOpenHandler</a>
+	<a class="permalink" href="#RemoveOpenHandler">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveOpenHandler(scheme string)</pre>
+</div>
+
+
+<p><p>Removes a registered URL scheme handler.</p>
+</p>
+
+
+<h3 id="ReplaceWith" data-kind="f">
+	func <a title="View Source" href="">ReplaceWith</a>
+	<a class="permalink" href="#ReplaceWith">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc</pre>
+</div>
+
+
+<p><p>A ReadManipulatorFunc for replacing text in an io.Reader as its being read.</p>
+</p>
+
+
+<h3 id="SameFile" data-kind="f">
+	func <a title="View Source" href="">SameFile</a>
+	<a class="permalink" href="#SameFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SameFile(first interface{}, second interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether two files represent the same file.  If a string is given for either file, os.Stat will be run on that<br>path.  If os.FileInfo is given for either file, it will be passed to os.SameFile directly.  If either file is an<br>io.Reader, the contents of both files will be read and hashed using CompareHasher.  If the hashes are identical, the<br>files are considered the same.  Any error encountered and this function will return false.</p>
+</p>
+
+
+<h3 id="SetExt" data-kind="f">
+	func <a title="View Source" href="">SetExt</a>
+	<a class="permalink" href="#SetExt">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetExt(path string, ext string, oldexts ...string) string</pre>
+</div>
+
+
+<p><p>Detects the file extension of the given path and replaces it with the given extension.  The optional<br>second argument allows you to explictly specify the extension (if known).</p>
+</p>
+
+
+<h3 id="ShouldGetNthLine" data-kind="f">
+	func <a title="View Source" href="">ShouldGetNthLine</a>
+	<a class="permalink" href="#ShouldGetNthLine">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ShouldGetNthLine(file interface{}, number int) string</pre>
+</div>
+
+
+<p><p>Attempts to call GetNthLine, but will return an empty string if there is an error.  Does not panic.</p>
+</p>
+
+
+<h3 id="ShouldReadAllLines" data-kind="f">
+	func <a title="View Source" href="">ShouldReadAllLines</a>
+	<a class="permalink" href="#ShouldReadAllLines">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ShouldReadAllLines(file interface{}) []string</pre>
+</div>
+
+
+<p><p>Attempts to call ReadAllLines, but will return an empty slice if there is an error.  Does not panic.</p>
+</p>
+
+
+<h3 id="SizeOf" data-kind="f">
+	func <a title="View Source" href="">SizeOf</a>
+	<a class="permalink" href="#SizeOf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SizeOf(path string) convutil.Bytes</pre>
+</div>
+
+
+<p><p>Returns the size of the given filename, or zero if any error is encountered (or if the file is zero length).</p>
+</p>
+
+
+<h3 id="WriteFile" data-kind="f">
+	func <a title="View Source" href="">WriteFile</a>
+	<a class="permalink" href="#WriteFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WriteFile(input interface{}, filename string) (int64, error)</pre>
+</div>
+
+
+<p><p>Write the contents of the given io.Reader, []byte, or string to the specified filename.<br>Filename paths containing tilde (~) will automatically expand to the current<br>user’s home directory, and all intermediate parent directories will be automatically<br>created.  Will return the number of bytes written, or an error.</p>
+</p>
+
+
+<h3 id="WriteTempFile" data-kind="f">
+	func <a title="View Source" href="">WriteTempFile</a>
+	<a class="permalink" href="#WriteTempFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WriteTempFile(input interface{}, pattern string) (string, error)</pre>
+</div>
+
+
+<p><p>Same as WriteFile, but writes the given input to a temporary file, returning<br>the filename.</p>
+</p>
+
+
+
+
+
+<h3 id="CopyEntryFunc" data-kind="t">
+	type
+	<a title="View Source" href="">CopyEntryFunc</a>
+	<a class="permalink" href="#CopyEntryFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type CopyEntryFunc func(path string, info os.FileInfo, err error) (io.Writer, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="DirReader" data-kind="t">
+	type
+	<a title="View Source" href="">DirReader</a>
+	<a class="permalink" href="#DirReader">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type DirReader struct {
+
+}// A DirReader provides a streaming io.Reader interface to all files in a given
+// directory, with options for handling unreadable entries and recursion.
+
+</pre>
+</div>
+
+
+
+
+
+
+<h4 id="NewDirReader" data-kind="f">
+	func <a title="View Source" href="">NewDirReader</a>
+	<a class="permalink" href="#NewDirReader">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewDirReader(path string, options ...DirReaderOption) *DirReader</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="DirReader.Close" data-kind="f">
+	func
+	(self *DirReader)
+	<a title="View Source" href="">Close</a>
+	<a class="permalink" href="#Close">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *DirReader) Close() error</pre>
+</div>
+
+<p><p>close open files and reset the internal reader</p>
+</p>
+
+
+
+
+
+
+<h4 id="DirReader.Read" data-kind="f">
+	func
+	(self *DirReader)
+	<a title="View Source" href="">Read</a>
+	<a class="permalink" href="#Read">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *DirReader) Read(b []byte) (int, error)</pre>
+</div>
+
+
+
+
+<h4 id="DirReader.SetSkipFunc" data-kind="f">
+	func
+	(self *DirReader)
+	<a title="View Source" href="">SetSkipFunc</a>
+	<a class="permalink" href="#SetSkipFunc">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *DirReader) SetSkipFunc(fn SkipFunc)</pre>
+</div>
+
+<p><p>Set a function that will be called for each path encountered while reading.<br>If this function returns true, that path (and its descedants) will not be read.</p>
+</p>
+
+
+
+
+<h3 id="DirReaderOption" data-kind="t">
+	type
+	<a title="View Source" href="">DirReaderOption</a>
+	<a class="permalink" href="#DirReaderOption">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type DirReaderOption int</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="DirReaderOptions" data-kind="t">
+	type
+	<a title="View Source" href="">DirReaderOptions</a>
+	<a class="permalink" href="#DirReaderOptions">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type DirReaderOptions []DirReaderOption</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="DirReaderOptions.Has" data-kind="f">
+	func
+	(self DirReaderOptions)
+	<a title="View Source" href="">Has</a>
+	<a class="permalink" href="#Has">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self DirReaderOptions) Has(option DirReaderOption) bool</pre>
+</div>
+
+
+
+
+<h3 id="FileInfo" data-kind="t">
+	type
+	<a title="View Source" href="">FileInfo</a>
+	<a class="permalink" href="#FileInfo">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type FileInfo struct {
+	os.FileInfo
+
+}// An os.FileInfo-compatible wrapper that allows for individual values to be overridden.
+
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="NewFileInfo" data-kind="f">
+	func <a title="View Source" href="">NewFileInfo</a>
+	<a class="permalink" href="#NewFileInfo">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewFileInfo(wrap ...os.FileInfo) *FileInfo</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="FileInfo.IsDir" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">IsDir</a>
+	<a class="permalink" href="#IsDir">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) IsDir() bool</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.ModTime" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">ModTime</a>
+	<a class="permalink" href="#ModTime">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) ModTime() time.Time</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.Mode" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">Mode</a>
+	<a class="permalink" href="#Mode">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) Mode() os.FileMode</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.Name" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">Name</a>
+	<a class="permalink" href="#Name">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) Name() string</pre>
+</div>
+
+
+
+
+
+
+<h4 id="FileInfo.SetIsDir" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">SetIsDir</a>
+	<a class="permalink" href="#SetIsDir">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) SetIsDir(isDir bool)</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.SetModTime" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">SetModTime</a>
+	<a class="permalink" href="#SetModTime">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) SetModTime(mtime time.Time)</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.SetMode" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">SetMode</a>
+	<a class="permalink" href="#SetMode">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) SetMode(mode os.FileMode)</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.SetName" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">SetName</a>
+	<a class="permalink" href="#SetName">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) SetName(name string)</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.SetSize" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">SetSize</a>
+	<a class="permalink" href="#SetSize">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) SetSize(sz int64)</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.SetSys" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">SetSys</a>
+	<a class="permalink" href="#SetSys">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) SetSys(iface interface{})</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.Size" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">Size</a>
+	<a class="permalink" href="#Size">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) Size() int64</pre>
+</div>
+
+
+
+
+<h4 id="FileInfo.Sys" data-kind="f">
+	func
+	(self *FileInfo)
+	<a title="View Source" href="">Sys</a>
+	<a class="permalink" href="#Sys">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *FileInfo) Sys() interface{}</pre>
+</div>
+
+
+
+
+<h3 id="OpenHandler" data-kind="t">
+	type
+	<a title="View Source" href="">OpenHandler</a>
+	<a class="permalink" href="#OpenHandler">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type OpenHandler func(*url.URL, OpenOptions) (io.ReadCloser, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="OpenOptions" data-kind="t">
+	type
+	<a title="View Source" href="">OpenOptions</a>
+	<a class="permalink" href="#OpenOptions">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type OpenOptions struct {
+	Timeout  time.Duration
+	Insecure bool
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="OpenOptions.GetTimeout" data-kind="f">
+	func
+	(self OpenOptions)
+	<a title="View Source" href="">GetTimeout</a>
+	<a class="permalink" href="#GetTimeout">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self OpenOptions) GetTimeout() time.Duration</pre>
+</div>
+
+
+
+
+<h3 id="PostReadCloser" data-kind="t">
+	type
+	<a title="View Source" href="">PostReadCloser</a>
+	<a class="permalink" href="#PostReadCloser">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type PostReadCloser struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+<h4 id="NewPostReadCloser" data-kind="f">
+	func <a title="View Source" href="">NewPostReadCloser</a>
+	<a class="permalink" href="#NewPostReadCloser">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewPostReadCloser(upstream io.ReadCloser, closer ) *PostReadCloser</pre>
+</div>
+
+<p><p>Implements an io.ReadCloser that can be configured to perform cleanup options whenever the<br>Close() function is called.</p>
+</p>
+
+
+
+
+
+
+
+
+
+<h4 id="PostReadCloser.Close" data-kind="f">
+	func
+	(self *PostReadCloser)
+	<a title="View Source" href="">Close</a>
+	<a class="permalink" href="#Close">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *PostReadCloser) Close() error</pre>
+</div>
+
+
+
+
+
+
+<h4 id="PostReadCloser.Read" data-kind="f">
+	func
+	(self *PostReadCloser)
+	<a title="View Source" href="">Read</a>
+	<a class="permalink" href="#Read">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *PostReadCloser) Read(b []byte) (int, error)</pre>
+</div>
+
+
+
+
+<h3 id="ReadManipulator" data-kind="t">
+	type
+	<a title="View Source" href="">ReadManipulator</a>
+	<a class="permalink" href="#ReadManipulator">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type ReadManipulator struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+<h4 id="NewReadManipulator" data-kind="f">
+	func <a title="View Source" href="">NewReadManipulator</a>
+	<a class="permalink" href="#NewReadManipulator">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewReadManipulator(reader io.Reader, fns ...ReadManipulatorFunc) *ReadManipulator</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="ReadManipulator.Close" data-kind="f">
+	func
+	(self *ReadManipulator)
+	<a title="View Source" href="">Close</a>
+	<a class="permalink" href="#Close">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ReadManipulator) Close() error</pre>
+</div>
+
+
+
+
+
+
+<h4 id="ReadManipulator.Read" data-kind="f">
+	func
+	(self *ReadManipulator)
+	<a title="View Source" href="">Read</a>
+	<a class="permalink" href="#Read">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ReadManipulator) Read(b []byte) (int, error)</pre>
+</div>
+
+
+
+
+<h4 id="ReadManipulator.Split" data-kind="f">
+	func
+	(self *ReadManipulator)
+	<a title="View Source" href="">Split</a>
+	<a class="permalink" href="#Split">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ReadManipulator) Split(split bufio.SplitFunc)</pre>
+</div>
+
+
+
+
+<h3 id="ReadManipulatorFunc" data-kind="t">
+	type
+	<a title="View Source" href="">ReadManipulatorFunc</a>
+	<a class="permalink" href="#ReadManipulatorFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ReadManipulatorFunc func(data []byte) ([]byte, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="RewriteFileSystem" data-kind="t">
+	type
+	<a title="View Source" href="">RewriteFileSystem</a>
+	<a class="permalink" href="#RewriteFileSystem">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type RewriteFileSystem struct {
+	FileSystem http.FileSystem
+	Find       *regexp.Regexp
+	Replace    string
+	MustMatch  bool
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="RewriteFileSystem.Open" data-kind="f">
+	func
+	(self RewriteFileSystem)
+	<a title="View Source" href="">Open</a>
+	<a class="permalink" href="#Open">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self RewriteFileSystem) Open(name string) (http.File, error)</pre>
+</div>
+
+
+
+
+<h3 id="SkipFunc" data-kind="t">
+	type
+	<a title="View Source" href="">SkipFunc</a>
+	<a class="permalink" href="#SkipFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type SkipFunc func(string) bool</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="TestFileSystem" data-kind="t">
+	type
+	<a title="View Source" href="">TestFileSystem</a>
+	<a class="permalink" href="#TestFileSystem">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type TestFileSystem map[string]http.File</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="TestFileSystem.Open" data-kind="f">
+	func
+	(self TestFileSystem)
+	<a title="View Source" href="">Open</a>
+	<a class="permalink" href="#Open">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self TestFileSystem) Open(name string) (http.File, error)</pre>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

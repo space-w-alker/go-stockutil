@@ -1,0 +1,246 @@
+{
+    "Name": "mathutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/mathutil",
+    "ImportPath": "mathutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "",
+    "MainFunction": false,
+    "CommentWordCount": 14,
+    "LineCount": 167,
+    "SourceLineCount": 107,
+    "FunctionCount": 6,
+    "TypeCount": 0,
+    "ConstantCount": 0,
+    "VariableCount": 0,
+    "Statistics": {
+        "Mean": 0.1667,
+        "StdDev": 0.3727,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "go.go",
+            "Imports": [
+                {
+                    "PackageName": "math",
+                    "Alias": "math"
+                }
+            ],
+            "Size": 2248,
+            "LineCount": 56,
+            "SourceLineCount": 18,
+            "FunctionCount": 1,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "mathutil.go",
+            "Imports": [
+                {
+                    "PackageName": "math",
+                    "Alias": "math"
+                }
+            ],
+            "Size": 994,
+            "LineCount": 60,
+            "SourceLineCount": 48,
+            "FunctionCount": 5,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "mathutil_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/assert",
+                    "Alias": "assert"
+                }
+            ],
+            "Size": 1591,
+            "LineCount": 51,
+            "SourceLineCount": 41,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "Clamp",
+            "Arguments": [
+                {
+                    "Name": "value",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "lower",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "upper",
+                    "Type": "float64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "Clamp(value float64, lower float64, upper float64) float64",
+            "Source": "ewoJdmFsdWUgPSBDbGFtcExvd2VyKHZhbHVlLCBsb3dlcikKCXZhbHVlID0gQ2xhbXBVcHBlcih2YWx1ZSwgdXBwZXIpCglyZXR1cm4gdmFsdWUKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ClampLower",
+            "Arguments": [
+                {
+                    "Name": "value",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "lower",
+                    "Type": "float64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "ClampLower(value float64, lower float64) float64",
+            "Source": "ewoJaWYgdmFsdWUgPCBsb3dlciB7CgkJdmFsdWUgPSBsb3dlcgoJfQoJcmV0dXJuIHZhbHVlCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ClampUpper",
+            "Arguments": [
+                {
+                    "Name": "value",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "upper",
+                    "Type": "float64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "ClampUpper(value float64, upper float64) float64",
+            "Source": "ewoJaWYgdmFsdWUgPiB1cHBlciB7CgkJdmFsdWUgPSB1cHBlcgoJfQoJcmV0dXJuIHZhbHVlCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "LeadingSignificantZeros",
+            "Arguments": [
+                {
+                    "Name": "x",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "places",
+                    "Type": "int"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int"
+                }
+            ],
+            "Signature": "LeadingSignificantZeros(x float64, places int) int",
+            "Source": "ewoJdmFyIHpjb3VudCBpbnQKCWZvciBfLCBkaXYgOj0gbWF0aC5Nb2RmKHgpOyBkaXYgPiAwICYmIGRpdiA8IDE7IGRpdiA9IFJvdW5kUGxhY2VzKGRpdi8wLjEsIHBsYWNlcykgewoJCXpjb3VudCArPSAxCgl9CglpZiB6Y291bnQgPiAwIHsKCQlyZXR1cm4gemNvdW50IC0gMQoJfSBlbHNlIHsKCQlyZXR1cm4gMAoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Round",
+            "Comment": "The Golang 1.10 math.Round implementation.\n(see: https://golang.org/pkg/math/#Round)",
+            "Arguments": [
+                {
+                    "Name": "x",
+                    "Type": "float64"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "Round(x float64) float64",
+            "Source": "ewoJYml0cyA6PSBtYXRoLkZsb2F0NjRiaXRzKHgpCgllIDo9IHVpbnQoYml0cz4+c2hpZnQpICYgbWFzawoJaWYgZSA8IGJpYXMgewoJCWJpdHMgJj0gc2lnbk1hc2sKCQlpZiBlID09IGJpYXMtMSB7CgkJCWJpdHMgfD0gdXZvbmUKCQl9Cgl9IGVsc2UgaWYgZSA8IGJpYXMrc2hpZnQgewoJCWNvbnN0IGhhbGYgPSAxIDw8IChzaGlmdCAtIDEpCgkJZSAtPSBiaWFzCgkJYml0cyArPSBoYWxmID4+IGUKCQliaXRzICZePSBmcmFjTWFzayA+PiBlCgl9CglyZXR1cm4gbWF0aC5GbG9hdDY0ZnJvbWJpdHMoYml0cykKfS8vIFJvdW5kIGFueSBhYnMoeCkgPj0gMSBjb250YWluaW5nIGEgZnJhY3Rpb25hbCBjb21wb25lbnQgWzAsMSkuCi8vCi8vIE51bWJlcnMgd2l0aCBsYXJnZXIgZXhwb25lbnRzIGFyZSByZXR1cm5lZCB1bmNoYW5nZWQgc2luY2UgdGhleQovLyBtdXN0IGJlIGVpdGhlciBhbiBpbnRlZ2VyLCBpbmZpbml0eSwgb3IgTmFOLgo=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "RoundPlaces",
+            "Arguments": [
+                {
+                    "Name": "x",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "places",
+                    "Type": "int"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "RoundPlaces(x float64, places int) float64",
+            "Source": "ewoJaWYgcGxhY2VzIDw9IDAgewoJCXJldHVybiBSb3VuZCh4KQoJfSBlbHNlIHsKCQltdWx0aSA6PSBtYXRoLlBvdygxMCwgQ2xhbXAoZmxvYXQ2NChwbGFjZXMpLCAwLCAxNikpCgkJcmV0dXJuIChSb3VuZCh4Km11bHRpKSAvIG11bHRpKQoJfQp9",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestClamp",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestClamp(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IGFzc2VydC5OZXcodCkKCWFzc2VydC5UcnVlKENsYW1wKDAsIDAsIDApID09IDApCglhc3NlcnQuVHJ1ZShDbGFtcCgwLCAtMSwgMSkgPT0gMCkKCWFzc2VydC5UcnVlKENsYW1wKC0xLCAtMSwgMSkgPT0gLTEpCglhc3NlcnQuVHJ1ZShDbGFtcCgtMC45OTk5LCAtMSwgMSkgPT0gLTAuOTk5OSkKCWFzc2VydC5UcnVlKENsYW1wKC0xLjAwMDEsIC0xLCAxKSA9PSAtMSkKCWFzc2VydC5UcnVlKENsYW1wKC0yLCAtMSwgMSkgPT0gLTEpCglhc3NlcnQuVHJ1ZShDbGFtcCgxLCAtMSwgMSkgPT0gMSkKCWFzc2VydC5UcnVlKENsYW1wKDAuOTk5OSwgLTEsIDEpID09IDAuOTk5OSkKCWFzc2VydC5UcnVlKENsYW1wKDEuMDAwMSwgLTEsIDEpID09IDEpCglhc3NlcnQuVHJ1ZShDbGFtcCgyLCAtMSwgMSkgPT0gMSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestLeadingSignificantZeros",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestLeadingSignificantZeros(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IGFzc2VydC5OZXcodCkKCWFzc2VydC5FcXVhbCgwLCBMZWFkaW5nU2lnbmlmaWNhbnRaZXJvcygxLjEsIDEwKSkKCWFzc2VydC5FcXVhbCgxLCBMZWFkaW5nU2lnbmlmaWNhbnRaZXJvcygxLjAxMDAsIDEwKSkKCWFzc2VydC5FcXVhbCgyLCBMZWFkaW5nU2lnbmlmaWNhbnRaZXJvcygxLjAwMTAsIDEwKSkKCWFzc2VydC5FcXVhbCgzLCBMZWFkaW5nU2lnbmlmaWNhbnRaZXJvcygxLjAwMDEsIDEwKSkKCWFzc2VydC5FcXVhbCg0LCBMZWFkaW5nU2lnbmlmaWNhbnRaZXJvcygxLjAwMDAxLCAxMCkpCglhc3NlcnQuRXF1YWwoNSwgTGVhZGluZ1NpZ25pZmljYW50WmVyb3MoMS4wMDAwMDEsIDEwKSkKCWFzc2VydC5FcXVhbCgwLCBMZWFkaW5nU2lnbmlmaWNhbnRaZXJvcygxLjAwMDAwMDAwMDAwMDAxLCAxMikpCglhc3NlcnQuRXF1YWwoMTMsIExlYWRpbmdTaWduaWZpY2FudFplcm9zKDEuMDAwMDAwMDAwMDAwMDEsIDEzKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestRound",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestRound(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IGFzc2VydC5OZXcodCkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDEpLCBSb3VuZCgxLjQ5OTk5OTk5OTk5OTk5OSkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgyKSwgUm91bmQoMS41KSkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDIpLCBSb3VuZCgxLjk5OTk5OTk5OTk5OTk5OSkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgyKSwgUm91bmQoMS45OTk5OTk5OTk5OTk5OTkpKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMiksIFJvdW5kUGxhY2VzKDIuNDksIDApKQoJYXNzZXJ0LkVxdWFsKGZsb2F0NjQoMi41KSwgUm91bmRQbGFjZXMoMi40OSwgMSkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgyLjQ5KSwgUm91bmRQbGFjZXMoMi40OSwgMikpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgyLjQ5KSwgUm91bmRQbGFjZXMoMi40OTAwMDAwMDAwNDksIDEwKSkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDIuNDkwMDAwMDAwMSksIFJvdW5kUGxhY2VzKDIuNDkwMDAwMDAwMDUsIDEwKSkKfQ==",
+            "IsPackageLevel": true
+        }
+    ]
+}

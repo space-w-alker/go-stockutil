@@ -1,0 +1,2191 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">stringutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 35%</span>
+<h2 id="pkg-overview">package stringutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/stringutil"</code>
+</p>
+
+
+<p>Utilities for converting and manipulating data to and from strings</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		
+		<a href="#Autotype">func Autotype(in interface{}) interface{}</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Camelize">func Camelize(in interface{}) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertTo">func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToBool">func ConvertToBool(in interface{}) (bool, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToBytes">func ConvertToBytes(in interface{}) ([]byte, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToFloat">func ConvertToFloat(in interface{}) (float64, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToInteger">func ConvertToInteger(in interface{}) (int64, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToString">func ConvertToString(in interface{}) (string, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ConvertToTime">func ConvertToTime(in interface{}) (time.Time, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#DetectTimeFormat">func DetectTimeFormat(in string) string</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Elide">func Elide(in string, charcount int, trailer ...string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ElideRight">func ElideRight(in string, charcount int, leader ...string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ElideWords">func ElideWords(in string, wordcount int) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ExpandEnv">func ExpandEnv(in string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#HasAnyPrefix">func HasAnyPrefix(s string, prefixes ...string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#HasAnySuffix">func HasAnySuffix(s string, suffixes ...string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Hyphenate">func Hyphenate(in interface{}) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsBoolean">func IsBoolean(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsBooleanFalse">func IsBooleanFalse(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsBooleanTrue">func IsBooleanTrue(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsFloat">func IsFloat(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsHexadecimal">func IsHexadecimal(in string, length int) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsInteger">func IsInteger(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsMixedCase">func IsMixedCase(in string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsNumeric">func IsNumeric(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsSeparator">func IsSeparator(r rune) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsSurroundedBy">func IsSurroundedBy(inI interface{}, prefix string, suffix string) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsTime">func IsTime(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#LongestCommonPrefix">func LongestCommonPrefix(inputs []string) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#MustBool">func MustBool(in interface{}, fallbackOpt ...bool) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#MustFloat">func MustFloat(in interface{}, fallbackOpt ...float64) float64</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#MustInteger">func MustInteger(in interface{}, fallbackOpt ...int64) int64</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#MustString">func MustString(in interface{}, fallbackOpt ...string) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#MustTime">func MustTime(in interface{}, fallbackOpt ...time.Time) time.Time</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#PrefixEach">func PrefixEach(in []string, prefix string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#PrefixIf">func PrefixIf(in string, prefix string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#PrefixLines">func PrefixLines(in interface{}, prefix string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#RelaxedEqual">func RelaxedEqual(first interface{}, second interface{}) (bool, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Snakeify">func Snakeify(in interface{}, separator rune) string</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitLines">func SplitLines(in interface{}, delimiter string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitPair">func SplitPair(in string, delimiter string) (string, string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitPairRight">func SplitPairRight(in string, delimiter string) (string, string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitPairRightTrailing">func SplitPairRightTrailing(in string, delimiter string) (string, string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitPairTrailing">func SplitPairTrailing(in string, delimiter string) (string, string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#SplitTriple">func SplitTriple(in string, delimiter string) (string, string, string)</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitWords">func SplitWords(in string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Squeeze">func Squeeze(in string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SqueezeFunc">func SqueezeFunc(in string, fn OnlySqueezeFunc) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SqueezeSpace">func SqueezeSpace(in string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SuffixEach">func SuffixEach(in []string, prefix string, suffix string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SuffixIf">func SuffixIf(in string, suffix string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SuffixLines">func SuffixLines(in interface{}, suffix string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Thousandify">func Thousandify(in interface{}, separator string, decimal string) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ToByteString">func ToByteString(in interface{}, formatString ...string) (string, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ToBytes">func ToBytes(input string) (float64, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ToString">func ToString(in interface{}) (string, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#ToStringSlice">func ToStringSlice(in interface{}) ([]string, error)</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#TokenizeFunc">func TokenizeFunc(in string, tokenizer , partfn ) []string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#Underscore">func Underscore(in interface{}) string</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Unwrap">func Unwrap(in string, prefix string, suffix string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Wrap">func Wrap(in string, prefix string, suffix string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WrapEach">func WrapEach(in []string, prefix string, suffix string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WrapIf">func WrapIf(in string, prefix string, suffix string) string</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#ConvertType">type ConvertType </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#InterceptFunc">type InterceptFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#OnlySqueezeFunc">type OnlySqueezeFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#ScanInterceptor">type ScanInterceptor</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#ScanInterceptor.NewScanInterceptor">
+					func NewScanInterceptor(passthrough bufio.SplitFunc, intercepts ...map[string]InterceptFunc) *ScanInterceptor
+				</a>
+				
+			</li>
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#ScanInterceptor.BytesScanned">
+					func
+					(self *ScanInterceptor)
+					BytesScanned() int64
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#ScanInterceptor.Intercept">
+					func
+					(self *ScanInterceptor)
+					Intercept(sequence string, handler InterceptFunc)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#ScanInterceptor.InterceptCounts">
+					func
+					(self *ScanInterceptor)
+					InterceptCounts() map[string]int64
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#ScanInterceptor.Scan">
+					func
+					(self *ScanInterceptor)
+					Scan(data []byte, atEOF bool) (advance int, token []byte, err error)
+				</a>
+				</strong>
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#SiPrefix">type SiPrefix int</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Uuid">type Uuid</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Uuid.MustUUID">
+					func MustUUID(in string) *Uuid
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Uuid.ParseUUID">
+					func ParseUUID(in string) (*Uuid, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Uuid.UUID">
+					func UUID() *Uuid
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Uuid.UuidFromBytes">
+					func UuidFromBytes(b []byte) (*Uuid, error)
+				</a>
+				
+			</li>
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Uuid.Base58">
+					func
+					(self *Uuid)
+					Base58() string
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Uuid.Base64">
+					func
+					(self *Uuid)
+					Base64() string
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Uuid.Bytes">
+					func
+					(self *Uuid)
+					Bytes() []byte
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Uuid.Hex">
+					func
+					(self *Uuid)
+					Hex() string
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="001_stringutil_general_test.go">001_stringutil_general_test.go</a>
+			
+		</td>
+		<td class="text-right">16KB</td>
+		<td class="text-right">452</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="002_stringutil_convert_to_test.go">002_stringutil_convert_to_test.go</a>
+			
+		</td>
+		<td class="text-right">7KB</td>
+		<td class="text-right">250</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="003_stringutil_tostring_test.go">003_stringutil_tostring_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">92</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="004_stringutil_tobytestring_test.go">004_stringutil_tobytestring_test.go</a>
+			
+		</td>
+		<td class="text-right">918B</td>
+		<td class="text-right">36</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="scan_interceptor.go">scan_interceptor.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">83</td>
+		<td class="text-right">5</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="scan_interceptor_test.go">scan_interceptor_test.go</a>
+			
+		</td>
+		<td class="text-right">6KB</td>
+		<td class="text-right">195</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="stringutil.go">stringutil.go</a>
+			
+		</td>
+		<td class="text-right">20KB</td>
+		<td class="text-right">712</td>
+		<td class="text-right">66</td>
+		<td class="text-right">3</td>
+		<td class="text-right">17</td>
+		<td class="text-right">6</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="uuid.go">uuid.go</a>
+			
+		</td>
+		<td class="text-right">1022B</td>
+		<td class="text-right">52</td>
+		<td class="text-right">8</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="uuid_test.go">uuid_test.go</a>
+			
+		</td>
+		<td class="text-right">601B</td>
+		<td class="text-right">21</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="Boolean">Boolean</span> = utils.Boolean
+const <span id="Bytes">Bytes  </span> = utils.Bytes
+const <span id="Exa">Exa    </span> = 6
+const <span id="Float">Float  </span> = utils.Float
+const <span id="Giga">Giga   </span> = 3
+const <span id="Integer">Integer</span> = utils.Integer
+const <span id="Invalid">Invalid</span> = utils.Invalid
+const <span id="Kilo">Kilo   </span> = 1
+const <span id="Mega">Mega   </span> = 2
+const <span id="Nil">Nil    </span> = utils.Nil
+const <span id="None">None   </span> = 0
+const <span id="Peta">Peta   </span> = 5
+const <span id="String">String </span> = utils.String
+const <span id="Tera">Tera   </span> = 4
+const <span id="Time">Time   </span> = utils.Time
+const <span id="Yotta">Yotta  </span> = 8
+const <span id="Zetta">Zetta  </span> = 7
+</pre>
+</div>
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="BooleanFalseValues">BooleanFalseValues       </span> = utils.BooleanFalseValues
+var <span id="BooleanTrueValues">BooleanTrueValues        </span> = utils.BooleanTrueValues
+var <span id="DefaultDecimalSeparator">DefaultDecimalSeparator  </span> = `.`
+var <span id="DefaultThousandsSeparator">DefaultThousandsSeparator</span> = `,`
+var <span id="NilStrings">NilStrings               </span> = utils.NilStrings
+var <span id="TimeFormats">TimeFormats              </span> = utils.TimeFormats
+</pre>
+</div>
+
+
+
+
+
+<h3 id="Autotype" data-kind="f">
+	func <a title="View Source" href="">Autotype</a>
+	<a class="permalink" href="#Autotype">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Autotype(in interface{}) interface{}</pre>
+</div>
+
+
+
+<h3 id="Camelize" data-kind="f">
+	func <a title="View Source" href="">Camelize</a>
+	<a class="permalink" href="#Camelize">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Camelize(in interface{}) string</pre>
+</div>
+
+
+
+<h3 id="ConvertTo" data-kind="f">
+	func <a title="View Source" href="">ConvertTo</a>
+	<a class="permalink" href="#ConvertTo">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToBool" data-kind="f">
+	func <a title="View Source" href="">ConvertToBool</a>
+	<a class="permalink" href="#ConvertToBool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToBool(in interface{}) (bool, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToBytes" data-kind="f">
+	func <a title="View Source" href="">ConvertToBytes</a>
+	<a class="permalink" href="#ConvertToBytes">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToBytes(in interface{}) ([]byte, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToFloat" data-kind="f">
+	func <a title="View Source" href="">ConvertToFloat</a>
+	<a class="permalink" href="#ConvertToFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToFloat(in interface{}) (float64, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToInteger" data-kind="f">
+	func <a title="View Source" href="">ConvertToInteger</a>
+	<a class="permalink" href="#ConvertToInteger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToInteger(in interface{}) (int64, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToString" data-kind="f">
+	func <a title="View Source" href="">ConvertToString</a>
+	<a class="permalink" href="#ConvertToString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToString(in interface{}) (string, error)</pre>
+</div>
+
+
+
+<h3 id="ConvertToTime" data-kind="f">
+	func <a title="View Source" href="">ConvertToTime</a>
+	<a class="permalink" href="#ConvertToTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ConvertToTime(in interface{}) (time.Time, error)</pre>
+</div>
+
+
+
+<h3 id="DetectTimeFormat" data-kind="f">
+	func <a title="View Source" href="">DetectTimeFormat</a>
+	<a class="permalink" href="#DetectTimeFormat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DetectTimeFormat(in string) string</pre>
+</div>
+
+
+
+<h3 id="Elide" data-kind="f">
+	func <a title="View Source" href="">Elide</a>
+	<a class="permalink" href="#Elide">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Elide(in string, charcount int, trailer ...string) string</pre>
+</div>
+
+
+<p><p>Truncate the given string to a certain number of characters.</p>
+</p>
+
+
+<h3 id="ElideRight" data-kind="f">
+	func <a title="View Source" href="">ElideRight</a>
+	<a class="permalink" href="#ElideRight">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ElideRight(in string, charcount int, leader ...string) string</pre>
+</div>
+
+
+<p><p>Truncate the given string to a certain number of characters from the end.</p>
+</p>
+
+
+<h3 id="ElideWords" data-kind="f">
+	func <a title="View Source" href="">ElideWords</a>
+	<a class="permalink" href="#ElideWords">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ElideWords(in string, wordcount int) string</pre>
+</div>
+
+
+<p><p>Truncate the given string to a certain number of words.</p>
+</p>
+
+
+<h3 id="ExpandEnv" data-kind="f">
+	func <a title="View Source" href="">ExpandEnv</a>
+	<a class="permalink" href="#ExpandEnv">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ExpandEnv(in string) string</pre>
+</div>
+
+
+<p><p>Return the given string with environment variable substitution sequences<br>expanded and (optionally) formatted.  This function operates similarly to<br>os.ExpandEnv, but accepts custom fmt.Printf formatting directives.</p>
+</p>
+
+
+<h3 id="HasAnyPrefix" data-kind="f">
+	func <a title="View Source" href="">HasAnyPrefix</a>
+	<a class="permalink" href="#HasAnyPrefix">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func HasAnyPrefix(s string, prefixes ...string) bool</pre>
+</div>
+
+
+<p><p>HasPrefix tests whether the string s begins with any prefix in prefixes.</p>
+</p>
+
+
+<h3 id="HasAnySuffix" data-kind="f">
+	func <a title="View Source" href="">HasAnySuffix</a>
+	<a class="permalink" href="#HasAnySuffix">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func HasAnySuffix(s string, suffixes ...string) bool</pre>
+</div>
+
+
+<p><p>HasSuffix tests whether the string s begins with any suffix in suffixes.</p>
+</p>
+
+
+<h3 id="Hyphenate" data-kind="f">
+	func <a title="View Source" href="">Hyphenate</a>
+	<a class="permalink" href="#Hyphenate">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Hyphenate(in interface{}) string</pre>
+</div>
+
+
+
+<h3 id="IsBoolean" data-kind="f">
+	func <a title="View Source" href="">IsBoolean</a>
+	<a class="permalink" href="#IsBoolean">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsBoolean(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsBooleanFalse" data-kind="f">
+	func <a title="View Source" href="">IsBooleanFalse</a>
+	<a class="permalink" href="#IsBooleanFalse">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsBooleanFalse(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsBooleanTrue" data-kind="f">
+	func <a title="View Source" href="">IsBooleanTrue</a>
+	<a class="permalink" href="#IsBooleanTrue">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsBooleanTrue(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsFloat" data-kind="f">
+	func <a title="View Source" href="">IsFloat</a>
+	<a class="permalink" href="#IsFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsFloat(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsHexadecimal" data-kind="f">
+	func <a title="View Source" href="">IsHexadecimal</a>
+	<a class="permalink" href="#IsHexadecimal">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsHexadecimal(in string, length int) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given string is a hexadecimal number. If the string is<br>prefixed with “0x”, the prefix is removed first. If length is greater than 0,<br>the length of the input (excluding prefix) is checked as well.</p>
+</p>
+
+
+<h3 id="IsInteger" data-kind="f">
+	func <a title="View Source" href="">IsInteger</a>
+	<a class="permalink" href="#IsInteger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsInteger(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsMixedCase" data-kind="f">
+	func <a title="View Source" href="">IsMixedCase</a>
+	<a class="permalink" href="#IsMixedCase">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsMixedCase(in string) bool</pre>
+</div>
+
+
+<p><p>Returns whether the letters (Unicode Catgeory ‘L’) in a given string are<br>homogenous in case (all upper-case or all lower-case).</p>
+</p>
+
+
+<h3 id="IsNumeric" data-kind="f">
+	func <a title="View Source" href="">IsNumeric</a>
+	<a class="permalink" href="#IsNumeric">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsNumeric(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsSeparator" data-kind="f">
+	func <a title="View Source" href="">IsSeparator</a>
+	<a class="permalink" href="#IsSeparator">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsSeparator(r rune) bool</pre>
+</div>
+
+
+
+<h3 id="IsSurroundedBy" data-kind="f">
+	func <a title="View Source" href="">IsSurroundedBy</a>
+	<a class="permalink" href="#IsSurroundedBy">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsSurroundedBy(inI interface{}, prefix string, suffix string) bool</pre>
+</div>
+
+
+
+<h3 id="IsTime" data-kind="f">
+	func <a title="View Source" href="">IsTime</a>
+	<a class="permalink" href="#IsTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsTime(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="LongestCommonPrefix" data-kind="f">
+	func <a title="View Source" href="">LongestCommonPrefix</a>
+	<a class="permalink" href="#LongestCommonPrefix">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func LongestCommonPrefix(inputs []string) string</pre>
+</div>
+
+
+
+<h3 id="MustBool" data-kind="f">
+	func <a title="View Source" href="">MustBool</a>
+	<a class="permalink" href="#MustBool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustBool(in interface{}, fallbackOpt ...bool) bool</pre>
+</div>
+
+
+
+<h3 id="MustFloat" data-kind="f">
+	func <a title="View Source" href="">MustFloat</a>
+	<a class="permalink" href="#MustFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustFloat(in interface{}, fallbackOpt ...float64) float64</pre>
+</div>
+
+
+
+<h3 id="MustInteger" data-kind="f">
+	func <a title="View Source" href="">MustInteger</a>
+	<a class="permalink" href="#MustInteger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustInteger(in interface{}, fallbackOpt ...int64) int64</pre>
+</div>
+
+
+
+<h3 id="MustString" data-kind="f">
+	func <a title="View Source" href="">MustString</a>
+	<a class="permalink" href="#MustString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustString(in interface{}, fallbackOpt ...string) string</pre>
+</div>
+
+
+
+<h3 id="MustTime" data-kind="f">
+	func <a title="View Source" href="">MustTime</a>
+	<a class="permalink" href="#MustTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustTime(in interface{}, fallbackOpt ...time.Time) time.Time</pre>
+</div>
+
+
+
+<h3 id="PrefixEach" data-kind="f">
+	func <a title="View Source" href="">PrefixEach</a>
+	<a class="permalink" href="#PrefixEach">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func PrefixEach(in []string, prefix string) []string</pre>
+</div>
+
+
+<p><p>Prefix each element in the given string slice with prefix.</p>
+</p>
+
+
+<h3 id="PrefixIf" data-kind="f">
+	func <a title="View Source" href="">PrefixIf</a>
+	<a class="permalink" href="#PrefixIf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func PrefixIf(in string, prefix string) string</pre>
+</div>
+
+
+<p><p>Prefix the given string if it is non-empty</p>
+</p>
+
+
+<h3 id="PrefixLines" data-kind="f">
+	func <a title="View Source" href="">PrefixLines</a>
+	<a class="permalink" href="#PrefixLines">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func PrefixLines(in interface{}, prefix string) string</pre>
+</div>
+
+
+<p><p>Takes the given string, splits it into lines, and prefixes each line with the given prefix string.</p>
+</p>
+
+
+<h3 id="RelaxedEqual" data-kind="f">
+	func <a title="View Source" href="">RelaxedEqual</a>
+	<a class="permalink" href="#RelaxedEqual">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RelaxedEqual(first interface{}, second interface{}) (bool, error)</pre>
+</div>
+
+
+
+<h3 id="Snakeify" data-kind="f">
+	func <a title="View Source" href="">Snakeify</a>
+	<a class="permalink" href="#Snakeify">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Snakeify(in interface{}, separator rune) string</pre>
+</div>
+
+
+
+<h3 id="SplitLines" data-kind="f">
+	func <a title="View Source" href="">SplitLines</a>
+	<a class="permalink" href="#SplitLines">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitLines(in interface{}, delimiter string) []string</pre>
+</div>
+
+
+<p><p>Split the given input into lines.</p>
+</p>
+
+
+<h3 id="SplitPair" data-kind="f">
+	func <a title="View Source" href="">SplitPair</a>
+	<a class="permalink" href="#SplitPair">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitPair(in string, delimiter string) (string, string)</pre>
+</div>
+
+
+<p><p>Split the given string into two parts.  If there is only one resulting part,<br>that part will be the first return value and the second return value will be empty.</p>
+</p>
+
+
+<h3 id="SplitPairRight" data-kind="f">
+	func <a title="View Source" href="">SplitPairRight</a>
+	<a class="permalink" href="#SplitPairRight">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitPairRight(in string, delimiter string) (string, string)</pre>
+</div>
+
+
+<p><p>Split the given string into two parts from the right. If there is only one resulting part,<br>that part will be the first return value and the second return value will be empty.</p>
+</p>
+
+
+<h3 id="SplitPairRightTrailing" data-kind="f">
+	func <a title="View Source" href="">SplitPairRightTrailing</a>
+	<a class="permalink" href="#SplitPairRightTrailing">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitPairRightTrailing(in string, delimiter string) (string, string)</pre>
+</div>
+
+
+<p><p>Split the given string into two parts.  If there is only one resulting part,<br>that part will be the second return value and the first return value will be empty.</p>
+</p>
+
+
+<h3 id="SplitPairTrailing" data-kind="f">
+	func <a title="View Source" href="">SplitPairTrailing</a>
+	<a class="permalink" href="#SplitPairTrailing">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitPairTrailing(in string, delimiter string) (string, string)</pre>
+</div>
+
+
+<p><p>Split the given string into two parts.  If there is only one resulting part,<br>that part will be the second return value and the first return value will be empty.</p>
+</p>
+
+
+<h3 id="SplitTriple" data-kind="f">
+	func <a title="View Source" href="">SplitTriple</a>
+	<a class="permalink" href="#SplitTriple">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitTriple(in string, delimiter string) (string, string, string)</pre>
+</div>
+
+
+
+<h3 id="SplitWords" data-kind="f">
+	func <a title="View Source" href="">SplitWords</a>
+	<a class="permalink" href="#SplitWords">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitWords(in string) []string</pre>
+</div>
+
+
+<p><p>Split the given string into words.</p>
+</p>
+
+
+<h3 id="Squeeze" data-kind="f">
+	func <a title="View Source" href="">Squeeze</a>
+	<a class="permalink" href="#Squeeze">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Squeeze(in string) string</pre>
+</div>
+
+
+<p><p>Return the given string with sequences repeating character replaced with a<br>single instance of that character.</p>
+</p>
+
+
+<h3 id="SqueezeFunc" data-kind="f">
+	func <a title="View Source" href="">SqueezeFunc</a>
+	<a class="permalink" href="#SqueezeFunc">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SqueezeFunc(in string, fn OnlySqueezeFunc) string</pre>
+</div>
+
+
+<p><p>Return the given string with sequences of characters matching the given function<br>replaced with a single instance of that character.</p>
+</p>
+
+
+<h3 id="SqueezeSpace" data-kind="f">
+	func <a title="View Source" href="">SqueezeSpace</a>
+	<a class="permalink" href="#SqueezeSpace">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SqueezeSpace(in string) string</pre>
+</div>
+
+
+<p><p>Return the given string with sequences of whitespace characters replaced with<br>a single instance of that character.</p>
+</p>
+
+
+<h3 id="SuffixEach" data-kind="f">
+	func <a title="View Source" href="">SuffixEach</a>
+	<a class="permalink" href="#SuffixEach">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SuffixEach(in []string, prefix string, suffix string) []string</pre>
+</div>
+
+
+<p><p>Suffix each element in the given string slice with suffix.</p>
+</p>
+
+
+<h3 id="SuffixIf" data-kind="f">
+	func <a title="View Source" href="">SuffixIf</a>
+	<a class="permalink" href="#SuffixIf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SuffixIf(in string, suffix string) string</pre>
+</div>
+
+
+<p><p>Suffix the given string if it is non-empty</p>
+</p>
+
+
+<h3 id="SuffixLines" data-kind="f">
+	func <a title="View Source" href="">SuffixLines</a>
+	<a class="permalink" href="#SuffixLines">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SuffixLines(in interface{}, suffix string) string</pre>
+</div>
+
+
+<p><p>Takes the given string, splits it into lines, and suffixes each line with the given suffix string.</p>
+</p>
+
+
+<h3 id="Thousandify" data-kind="f">
+	func <a title="View Source" href="">Thousandify</a>
+	<a class="permalink" href="#Thousandify">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Thousandify(in interface{}, separator string, decimal string) string</pre>
+</div>
+
+
+
+<h3 id="ToByteString" data-kind="f">
+	func <a title="View Source" href="">ToByteString</a>
+	<a class="permalink" href="#ToByteString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ToByteString(in interface{}, formatString ...string) (string, error)</pre>
+</div>
+
+
+
+<h3 id="ToBytes" data-kind="f">
+	func <a title="View Source" href="">ToBytes</a>
+	<a class="permalink" href="#ToBytes">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ToBytes(input string) (float64, error)</pre>
+</div>
+
+
+
+<h3 id="ToString" data-kind="f">
+	func <a title="View Source" href="">ToString</a>
+	<a class="permalink" href="#ToString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ToString(in interface{}) (string, error)</pre>
+</div>
+
+
+
+<h3 id="ToStringSlice" data-kind="f">
+	func <a title="View Source" href="">ToStringSlice</a>
+	<a class="permalink" href="#ToStringSlice">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ToStringSlice(in interface{}) ([]string, error)</pre>
+</div>
+
+
+
+<h3 id="TokenizeFunc" data-kind="f">
+	func <a title="View Source" href="">TokenizeFunc</a>
+	<a class="permalink" href="#TokenizeFunc">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func TokenizeFunc(in string, tokenizer , partfn ) []string</pre>
+</div>
+
+
+
+<h3 id="Underscore" data-kind="f">
+	func <a title="View Source" href="">Underscore</a>
+	<a class="permalink" href="#Underscore">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Underscore(in interface{}) string</pre>
+</div>
+
+
+
+<h3 id="Unwrap" data-kind="f">
+	func <a title="View Source" href="">Unwrap</a>
+	<a class="permalink" href="#Unwrap">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Unwrap(in string, prefix string, suffix string) string</pre>
+</div>
+
+
+<p><p>Return the given string with the given prefix and suffix removed.</p>
+</p>
+
+
+<h3 id="Wrap" data-kind="f">
+	func <a title="View Source" href="">Wrap</a>
+	<a class="permalink" href="#Wrap">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Wrap(in string, prefix string, suffix string) string</pre>
+</div>
+
+
+<p><p>Return the given string with prefixed and suffixed with other strings.</p>
+</p>
+
+
+<h3 id="WrapEach" data-kind="f">
+	func <a title="View Source" href="">WrapEach</a>
+	<a class="permalink" href="#WrapEach">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WrapEach(in []string, prefix string, suffix string) []string</pre>
+</div>
+
+
+<p><p>Wrap each element in the given string slice with prefix and suffix.</p>
+</p>
+
+
+<h3 id="WrapIf" data-kind="f">
+	func <a title="View Source" href="">WrapIf</a>
+	<a class="permalink" href="#WrapIf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WrapIf(in string, prefix string, suffix string) string</pre>
+</div>
+
+
+<p><p>Wrap the given string if it is non-empty</p>
+</p>
+
+
+
+
+
+<h3 id="ConvertType" data-kind="t">
+	type
+	<a title="View Source" href="">ConvertType</a>
+	<a class="permalink" href="#ConvertType">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ConvertType = utils.ConvertType</pre>
+</div>
+
+
+
+
+<h4 id="ParseType" data-kind="f">
+	func <a title="View Source" href="">ParseType</a>
+	<a class="permalink" href="#ParseType">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseType(name string) ConvertType</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h3 id="InterceptFunc" data-kind="t">
+	type
+	<a title="View Source" href="">InterceptFunc</a>
+	<a class="permalink" href="#InterceptFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type InterceptFunc func(seq []byte)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="OnlySqueezeFunc" data-kind="t">
+	type
+	<a title="View Source" href="">OnlySqueezeFunc</a>
+	<a class="permalink" href="#OnlySqueezeFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type OnlySqueezeFunc func(r rune) bool</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="ScanInterceptor" data-kind="t">
+	type
+	<a title="View Source" href="">ScanInterceptor</a>
+	<a class="permalink" href="#ScanInterceptor">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type ScanInterceptor struct {
+	Disabled bool
+
+}// A ScanInterceptor is used as a SplitFunc on a bufio.Scanner.  It will look at the stream of bytes being scanned for
+// specific substrings.  The registered handler function associated with a substring will be called whenever it is seen
+// in the stream.  The passthrough SplitFunc is called as normal.  This allows for a stream to be
+// split and processed while also being inspected for specific content, allowing the user to react to that content
+// as it comes by.
+
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+<h4 id="NewScanInterceptor" data-kind="f">
+	func <a title="View Source" href="">NewScanInterceptor</a>
+	<a class="permalink" href="#NewScanInterceptor">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewScanInterceptor(passthrough bufio.SplitFunc, intercepts ...map[string]InterceptFunc) *ScanInterceptor</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="ScanInterceptor.BytesScanned" data-kind="f">
+	func
+	(self *ScanInterceptor)
+	<a title="View Source" href="">BytesScanned</a>
+	<a class="permalink" href="#BytesScanned">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ScanInterceptor) BytesScanned() int64</pre>
+</div>
+
+<p><p>Return the total number of bytes this scanner has scanned.</p>
+</p>
+
+
+
+
+<h4 id="ScanInterceptor.Intercept" data-kind="f">
+	func
+	(self *ScanInterceptor)
+	<a title="View Source" href="">Intercept</a>
+	<a class="permalink" href="#Intercept">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ScanInterceptor) Intercept(sequence string, handler InterceptFunc)</pre>
+</div>
+
+<p><p>Add an intercept sequence and handler.  If the sequence is already registered, its handler<br>function will be replaced with this one.</p>
+</p>
+
+
+
+
+<h4 id="ScanInterceptor.InterceptCounts" data-kind="f">
+	func
+	(self *ScanInterceptor)
+	<a title="View Source" href="">InterceptCounts</a>
+	<a class="permalink" href="#InterceptCounts">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ScanInterceptor) InterceptCounts() map[string]int64</pre>
+</div>
+
+<p><p>Returns a map of intercept sequences and the number of times each one was fired.</p>
+</p>
+
+
+
+
+
+
+<h4 id="ScanInterceptor.Scan" data-kind="f">
+	func
+	(self *ScanInterceptor)
+	<a title="View Source" href="">Scan</a>
+	<a class="permalink" href="#Scan">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ScanInterceptor) Scan(data []byte, atEOF bool) (advance int, token []byte, err error)</pre>
+</div>
+
+<p><p>Implements the bufio.SplitFunc function signature for use in a bufio.Scanner.</p>
+</p>
+
+
+
+
+<h3 id="SiPrefix" data-kind="t">
+	type
+	<a title="View Source" href="">SiPrefix</a>
+	<a class="permalink" href="#SiPrefix">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type SiPrefix int</pre>
+</div>
+
+
+
+
+
+
+<h4 id="GetSiPrefix" data-kind="f">
+	func <a title="View Source" href="">GetSiPrefix</a>
+	<a class="permalink" href="#GetSiPrefix">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func GetSiPrefix(input string) (SiPrefix, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="SiPrefix.String" data-kind="f">
+	func
+	(self SiPrefix)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self SiPrefix) String() string</pre>
+</div>
+
+
+
+
+
+
+<h3 id="Uuid" data-kind="t">
+	type
+	<a title="View Source" href="">Uuid</a>
+	<a class="permalink" href="#Uuid">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Uuid struct{ uuid.UUID }</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="MustUUID" data-kind="f">
+	func <a title="View Source" href="">MustUUID</a>
+	<a class="permalink" href="#MustUUID">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustUUID(in string) *Uuid</pre>
+</div>
+
+
+
+
+<h4 id="ParseUUID" data-kind="f">
+	func <a title="View Source" href="">ParseUUID</a>
+	<a class="permalink" href="#ParseUUID">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseUUID(in string) (*Uuid, error)</pre>
+</div>
+
+
+
+
+<h4 id="UUID" data-kind="f">
+	func <a title="View Source" href="">UUID</a>
+	<a class="permalink" href="#UUID">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func UUID() *Uuid</pre>
+</div>
+
+
+
+
+<h4 id="UuidFromBytes" data-kind="f">
+	func <a title="View Source" href="">UuidFromBytes</a>
+	<a class="permalink" href="#UuidFromBytes">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func UuidFromBytes(b []byte) (*Uuid, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="Uuid.Base58" data-kind="f">
+	func
+	(self *Uuid)
+	<a title="View Source" href="">Base58</a>
+	<a class="permalink" href="#Base58">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Uuid) Base58() string</pre>
+</div>
+
+
+
+
+<h4 id="Uuid.Base64" data-kind="f">
+	func
+	(self *Uuid)
+	<a title="View Source" href="">Base64</a>
+	<a class="permalink" href="#Base64">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Uuid) Base64() string</pre>
+</div>
+
+
+
+
+<h4 id="Uuid.Bytes" data-kind="f">
+	func
+	(self *Uuid)
+	<a title="View Source" href="">Bytes</a>
+	<a class="permalink" href="#Bytes">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Uuid) Bytes() []byte</pre>
+</div>
+
+
+
+
+<h4 id="Uuid.Hex" data-kind="f">
+	func
+	(self *Uuid)
+	<a title="View Source" href="">Hex</a>
+	<a class="permalink" href="#Hex">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Uuid) Hex() string</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

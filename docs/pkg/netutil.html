@@ -1,0 +1,948 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">netutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 37%</span>
+<h2 id="pkg-overview">package netutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/netutil"</code>
+</p>
+
+
+<p>Utilities for working with networks and network accessories.</p>
+
+<p>Utilities for working with networks and network accessories.</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#DefaultGateway">func DefaultGateway() (net.IP, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#EphemeralPort">func EphemeralPort() (int, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ExpandPort">func ExpandPort(address string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FQDN">func FQDN() string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#GetRoutableAddresses">func GetRoutableAddresses(gateway net.IP, iface *net.Interface) ([]*IPAddress, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#HasRoutableIP">func HasRoutableIP(network string, ifi *net.Interface) (net.IP, bool)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsMulticastCapable">func IsMulticastCapable(network string, ifi *net.Interface) (net.IP, bool)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsRoutableIP">func IsRoutableIP(network string, ip net.IP) net.IP</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#OnePingOnly">func OnePingOnly(dest net.IP, source *IPAddress, timeout time.Duration) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RoutableAddresses">func RoutableAddresses() ([]*IPAddress, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RoutedInterface">func RoutedInterface(network string, flags net.Flags) *net.Interface</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WaitForGatewayPing">func WaitForGatewayPing(totaltime time.Duration) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WaitForGatewayPing6">func WaitForGatewayPing6(totaltime time.Duration) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WaitForOpen">func WaitForOpen(network string, address string, totaltime time.Duration, timeouts ...time.Duration) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WaitForPing">func WaitForPing(addr interface{}, totaltime time.Duration) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ZeroconfDiscover">func ZeroconfDiscover(options *ZeroconfOptions, fn ServiceFunc) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ZeroconfRegister">func ZeroconfRegister(svc *Service) (string, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ZeroconfUnregister">func ZeroconfUnregister(id string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ZeroconfUnregisterAll">func ZeroconfUnregisterAll()</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#IPAddress">type IPAddress</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#IPAddress.DefaultAddress">
+					func DefaultAddress() *IPAddress
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#IPAddress.DefaultAddress6">
+					func DefaultAddress6() *IPAddress
+				</a>
+				</strong>
+			</li>
+			
+			
+
+			
+			
+			
+			
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Service">type Service</a>
+
+		
+		
+		<ul>
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Service.String">
+					func
+					(self *Service)
+					String() string
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#ServiceFunc">type ServiceFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#ZeroconfOptions">type ZeroconfOptions</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="icmp.go">icmp.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">110</td>
+		<td class="text-right">4</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">2</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="mdns.go">mdns.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">174</td>
+		<td class="text-right">5</td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="nettest.go">nettest.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">79</td>
+		<td class="text-right">4</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="netutil.go">netutil.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">141</td>
+		<td class="text-right">9</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right">2</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="netutil_test.go">netutil_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">13</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="DefaultWaitForOpenConnectionTimeout">DefaultWaitForOpenConnectionTimeout</span> = 5 * time.Second
+var <span id="WaitForOpenCheckInterval">WaitForOpenCheckInterval           </span> = time.Second
+var <span id="WaitForPingCheckInterval">WaitForPingCheckInterval           </span> = time.Second
+var <span id="WaitForPingReply">WaitForPingReply                   </span> = 5 * time.Second
+</pre>
+</div>
+
+
+
+
+
+<h3 id="DefaultGateway" data-kind="f">
+	func <a title="View Source" href="">DefaultGateway</a>
+	<a class="permalink" href="#DefaultGateway">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DefaultGateway() (net.IP, error)</pre>
+</div>
+
+
+<p><p>Retrieves the default gateway interface.</p>
+</p>
+
+
+<h3 id="EphemeralPort" data-kind="f">
+	func <a title="View Source" href="">EphemeralPort</a>
+	<a class="permalink" href="#EphemeralPort">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func EphemeralPort() (int, error)</pre>
+</div>
+
+
+<p><p>Retrieve an open ephemeral port.</p>
+</p>
+
+
+<h3 id="ExpandPort" data-kind="f">
+	func <a title="View Source" href="">ExpandPort</a>
+	<a class="permalink" href="#ExpandPort">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ExpandPort(address string) string</pre>
+</div>
+
+
+<p><p>Takes an address in the form of “host:port”, looks for port zero (e.g: “:0”),<br>and gets an ephemeral local port and returns that address (e.g.: “:41327”).</p>
+</p>
+
+
+<h3 id="FQDN" data-kind="f">
+	func <a title="View Source" href="">FQDN</a>
+	<a class="permalink" href="#FQDN">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FQDN() string</pre>
+</div>
+
+
+<p><p>Return the current machine’s Fully-qualified domain name,</p>
+</p>
+
+
+<h3 id="GetRoutableAddresses" data-kind="f">
+	func <a title="View Source" href="">GetRoutableAddresses</a>
+	<a class="permalink" href="#GetRoutableAddresses">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func GetRoutableAddresses(gateway net.IP, iface *net.Interface) ([]*IPAddress, error)</pre>
+</div>
+
+
+<p><p>Returns all addresses on the given interface that can route to the given gateway.  If gateway is nil,<br>the default gateway will be attempted.</p>
+</p>
+
+
+<h3 id="HasRoutableIP" data-kind="f">
+	func <a title="View Source" href="">HasRoutableIP</a>
+	<a class="permalink" href="#HasRoutableIP">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func HasRoutableIP(network string, ifi *net.Interface) (net.IP, bool)</pre>
+</div>
+
+
+<p><p>Returns the first routable address on the given interface.</p>
+</p>
+
+
+<h3 id="IsMulticastCapable" data-kind="f">
+	func <a title="View Source" href="">IsMulticastCapable</a>
+	<a class="permalink" href="#IsMulticastCapable">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsMulticastCapable(network string, ifi *net.Interface) (net.IP, bool)</pre>
+</div>
+
+
+<p><p>IsMulticastCapable reports whether ifi is an IP multicast-capable<br>network interface. Network must be “ip”, “ip4” or “ip6”.</p>
+</p>
+
+
+<h3 id="IsRoutableIP" data-kind="f">
+	func <a title="View Source" href="">IsRoutableIP</a>
+	<a class="permalink" href="#IsRoutableIP">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsRoutableIP(network string, ip net.IP) net.IP</pre>
+</div>
+
+
+<p><p>Returns true when the given address is unicast routable beyond the current machine.</p>
+</p>
+
+
+<h3 id="OnePingOnly" data-kind="f">
+	func <a title="View Source" href="">OnePingOnly</a>
+	<a class="permalink" href="#OnePingOnly">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OnePingOnly(dest net.IP, source *IPAddress, timeout time.Duration) error</pre>
+</div>
+
+
+<p><p>Send a single ICMP ECHO request packet to the given address on the given interface and wait for<br>up to timeout for a reply.</p>
+</p>
+
+
+<h3 id="RoutableAddresses" data-kind="f">
+	func <a title="View Source" href="">RoutableAddresses</a>
+	<a class="permalink" href="#RoutableAddresses">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RoutableAddresses() ([]*IPAddress, error)</pre>
+</div>
+
+
+<p><p>Return a list of routable IP addresses, along with their associated gateways and interfaces.</p>
+</p>
+
+
+<h3 id="RoutedInterface" data-kind="f">
+	func <a title="View Source" href="">RoutedInterface</a>
+	<a class="permalink" href="#RoutedInterface">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RoutedInterface(network string, flags net.Flags) *net.Interface</pre>
+</div>
+
+
+<p><p>RoutedInterface returns a network interface that can route IP<br>traffic and satisfies flags. It returns nil when an appropriate<br>network interface is not found. Network must be “ip”, “ip4” or<br>“ip6”.</p>
+</p>
+
+
+<h3 id="WaitForGatewayPing" data-kind="f">
+	func <a title="View Source" href="">WaitForGatewayPing</a>
+	<a class="permalink" href="#WaitForGatewayPing">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WaitForGatewayPing(totaltime time.Duration) error</pre>
+</div>
+
+
+<p><p>Like WaitForPing, but will identify the default gateway and ping that address.</p>
+</p>
+
+
+<h3 id="WaitForGatewayPing6" data-kind="f">
+	func <a title="View Source" href="">WaitForGatewayPing6</a>
+	<a class="permalink" href="#WaitForGatewayPing6">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WaitForGatewayPing6(totaltime time.Duration) error</pre>
+</div>
+
+
+<p><p>Like WaitForGatewayPing, but specifically pings an IPv6 gateway</p>
+</p>
+
+
+<h3 id="WaitForOpen" data-kind="f">
+	func <a title="View Source" href="">WaitForOpen</a>
+	<a class="permalink" href="#WaitForOpen">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WaitForOpen(network string, address string, totaltime time.Duration, timeouts ...time.Duration) error</pre>
+</div>
+
+
+<p><p>Periodically attempts to open a TCP socket to the given address, up to totaltime.  Returns nil if the socket<br>was opened successfully (which will then immediately be closed), or an error if the function timed out.<br>The check interval can be configured using the WaitForOpenCheckInterval package variable.</p>
+</p>
+
+
+<h3 id="WaitForPing" data-kind="f">
+	func <a title="View Source" href="">WaitForPing</a>
+	<a class="permalink" href="#WaitForPing">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WaitForPing(addr interface{}, totaltime time.Duration) error</pre>
+</div>
+
+
+<p><p>Periodically attempts to send an ICMP ECHO request (a “ping”) to the given IP address, up to totaltime.<br>Returns nil if an ECHO reply was received, or an error if the function timed out.<br>The check interval can be configured using the WaitForPingCheckInterval package variable.</p>
+</p>
+
+
+<h3 id="ZeroconfDiscover" data-kind="f">
+	func <a title="View Source" href="">ZeroconfDiscover</a>
+	<a class="permalink" href="#ZeroconfDiscover">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ZeroconfDiscover(options *ZeroconfOptions, fn ServiceFunc) error</pre>
+</div>
+
+
+<p><p>Perform Multicast DNS discovery on the local network, calling the fn callback for each<br>discovered service.</p>
+</p>
+
+
+<h3 id="ZeroconfRegister" data-kind="f">
+	func <a title="View Source" href="">ZeroconfRegister</a>
+	<a class="permalink" href="#ZeroconfRegister">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ZeroconfRegister(svc *Service) (string, error)</pre>
+</div>
+
+
+<p><p>Register the given service in Multicast DNS.  Returns an ID that can be used to unregister<br>the service later.</p>
+</p>
+
+
+<h3 id="ZeroconfUnregister" data-kind="f">
+	func <a title="View Source" href="">ZeroconfUnregister</a>
+	<a class="permalink" href="#ZeroconfUnregister">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ZeroconfUnregister(id string)</pre>
+</div>
+
+
+<p><p>Unregister a previously-registered service.</p>
+</p>
+
+
+<h3 id="ZeroconfUnregisterAll" data-kind="f">
+	func <a title="View Source" href="">ZeroconfUnregisterAll</a>
+	<a class="permalink" href="#ZeroconfUnregisterAll">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ZeroconfUnregisterAll()</pre>
+</div>
+
+
+<p><p>Unregister all Multicast DNS services.</p>
+</p>
+
+
+
+
+
+<h3 id="IPAddress" data-kind="t">
+	type
+	<a title="View Source" href="">IPAddress</a>
+	<a class="permalink" href="#IPAddress">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type IPAddress struct {
+	IP        net.IP
+	Mask      net.IPMask
+	Interface net.Interface
+	Gateway   net.IP
+}</pre>
+</div>
+
+
+
+
+<h4 id="DefaultAddress" data-kind="f">
+	func <a title="View Source" href="">DefaultAddress</a>
+	<a class="permalink" href="#DefaultAddress">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DefaultAddress() *IPAddress</pre>
+</div>
+
+<p><p>Retrieves the first routable IP address on any interface that falls inside of the<br>system’s default gateway network.  Will return nil if no IP could be found.</p>
+</p>
+
+
+
+
+<h4 id="DefaultAddress6" data-kind="f">
+	func <a title="View Source" href="">DefaultAddress6</a>
+	<a class="permalink" href="#DefaultAddress6">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DefaultAddress6() *IPAddress</pre>
+</div>
+
+<p><p>Like DefaultAddress, but specifically filters on IPv6 addresses.  If no routable<br>IPv6 address is found, returns nil.</p>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="Service" data-kind="t">
+	type
+	<a title="View Source" href="">Service</a>
+	<a class="permalink" href="#Service">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Service struct {
+	Hostname   string          `json:&#34;hostname&#34;`
+	Instance   string          `json:&#34;instance&#34;`
+	Service    string          `json:&#34;service&#34;`
+	Domain     string          `json:&#34;domain&#34;`
+	Port       int             `json:&#34;port&#34;`
+	Text       []string        `json:&#34;txt&#34;`
+	Address    string          `json:&#34;address&#34;`
+	Addresses  []net.IP        `json:&#34;addresses,omitempty&#34;`
+	Interfaces []net.Interface `json:&#34;interfaces,omitempty&#34;`
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="Service.String" data-kind="f">
+	func
+	(self *Service)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Service) String() string</pre>
+</div>
+
+
+
+
+<h3 id="ServiceFunc" data-kind="t">
+	type
+	<a title="View Source" href="">ServiceFunc</a>
+	<a class="permalink" href="#ServiceFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ServiceFunc func(*Service) bool</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="ZeroconfOptions" data-kind="t">
+	type
+	<a title="View Source" href="">ZeroconfOptions</a>
+	<a class="permalink" href="#ZeroconfOptions">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ZeroconfOptions struct {
+	Context       context.Context
+	Limit         int
+	Timeout       time.Duration `default:&#34;30s&#34;`
+	Service       string        `default:&#34;_http._tcp&#34;`
+	Domain        string        `default:&#34;.local&#34;`
+	CheckInterval time.Duration `default:&#34;100ms&#34;`
+	MatchInstance string
+	MatchPort     string
+	MatchHostname string
+	MatchAddress  string
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

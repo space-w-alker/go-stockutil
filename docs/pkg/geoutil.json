@@ -1,0 +1,871 @@
+{
+    "Name": "geoutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/geoutil",
+    "ImportPath": "geoutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Types and functions for working with Geospatial Data\n",
+    "MainFunction": false,
+    "CommentWordCount": 98,
+    "LineCount": 538,
+    "SourceLineCount": 423,
+    "FunctionCount": 27,
+    "TypeCount": 7,
+    "ConstantCount": 21,
+    "VariableCount": 2,
+    "Statistics": {
+        "Mean": 0.0542,
+        "StdDev": 0.2129,
+        "GeometricMean": 0,
+        "HarmonicMean": 0,
+        "Median": 0,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "coordinates.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/json",
+                    "Alias": "json"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/maputil",
+                    "Alias": "maputil"
+                },
+                {
+                    "PackageName": "github.com/kellydunn/golang-geo",
+                    "Alias": "golang-geo"
+                }
+            ],
+            "Size": 3959,
+            "LineCount": 154,
+            "SourceLineCount": 116,
+            "FunctionCount": 10,
+            "TypeCount": 3,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "direction.go",
+            "Size": 948,
+            "LineCount": 38,
+            "SourceLineCount": 33,
+            "FunctionCount": 1,
+            "TypeCount": 1,
+            "ConstantCount": 8,
+            "VariableCount": 0
+        },
+        {
+            "Name": "distance.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/json",
+                    "Alias": "json"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "regexp",
+                    "Alias": "regexp"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/rxutil",
+                    "Alias": "rxutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                }
+            ],
+            "Size": 3622,
+            "LineCount": 163,
+            "SourceLineCount": 133,
+            "FunctionCount": 10,
+            "TypeCount": 1,
+            "ConstantCount": 6,
+            "VariableCount": 1
+        },
+        {
+            "Name": "speed.go",
+            "Imports": [
+                {
+                    "PackageName": "encoding/json",
+                    "Alias": "json"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                }
+            ],
+            "Size": 1622,
+            "LineCount": 89,
+            "SourceLineCount": 70,
+            "FunctionCount": 6,
+            "TypeCount": 1,
+            "ConstantCount": 5,
+            "VariableCount": 1
+        },
+        {
+            "Name": "types.go",
+            "Size": 194,
+            "LineCount": 10,
+            "SourceLineCount": 6,
+            "FunctionCount": 0,
+            "TypeCount": 1,
+            "ConstantCount": 2,
+            "VariableCount": 0
+        },
+        {
+            "Name": "types_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 3253,
+            "LineCount": 84,
+            "SourceLineCount": 65,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Constants": [
+        {
+            "Name": "East",
+            "Immutable": true,
+            "Expression": "`E`",
+            "Value": "E"
+        },
+        {
+            "Name": "FeetPerSecond",
+            "Immutable": true,
+            "Expression": "0.3048"
+        },
+        {
+            "Name": "Foot",
+            "Immutable": true,
+            "Expression": "0.3048"
+        },
+        {
+            "Name": "Imperial",
+            "Immutable": true,
+            "Expression": "`imperial`",
+            "Value": "imperial"
+        },
+        {
+            "Name": "KPH",
+            "Immutable": true,
+            "Expression": "0.277778"
+        },
+        {
+            "Name": "Kilometer",
+            "Immutable": true,
+            "Expression": "1000"
+        },
+        {
+            "Name": "MPH",
+            "Immutable": true,
+            "Expression": "0.44704"
+        },
+        {
+            "Name": "Mach",
+            "Immutable": true,
+            "Expression": "340.29"
+        },
+        {
+            "Name": "Meter",
+            "Immutable": true,
+            "Expression": "1"
+        },
+        {
+            "Name": "MetersPerSecond",
+            "Immutable": true,
+            "Expression": "1"
+        },
+        {
+            "Name": "Metric",
+            "Type": "MeasurementSystem",
+            "Immutable": true,
+            "Expression": "`metric`",
+            "Value": "metric"
+        },
+        {
+            "Name": "Mile",
+            "Immutable": true,
+            "Expression": "1609.344"
+        },
+        {
+            "Name": "NauticalMile",
+            "Immutable": true,
+            "Expression": "1852"
+        },
+        {
+            "Name": "North",
+            "Type": "CardinalDirection",
+            "Immutable": true,
+            "Expression": "`N`",
+            "Value": "N"
+        },
+        {
+            "Name": "NorthEast",
+            "Immutable": true,
+            "Expression": "`NE`",
+            "Value": "NE"
+        },
+        {
+            "Name": "NorthWest",
+            "Immutable": true,
+            "Expression": "`NW`",
+            "Value": "NW"
+        },
+        {
+            "Name": "South",
+            "Immutable": true,
+            "Expression": "`S`",
+            "Value": "S"
+        },
+        {
+            "Name": "SouthEast",
+            "Immutable": true,
+            "Expression": "`SE`",
+            "Value": "SE"
+        },
+        {
+            "Name": "SouthWest",
+            "Immutable": true,
+            "Expression": "`SW`",
+            "Value": "SW"
+        },
+        {
+            "Name": "West",
+            "Immutable": true,
+            "Expression": "`W`",
+            "Value": "W"
+        },
+        {
+            "Name": "Yard",
+            "Immutable": true,
+            "Expression": "0.9144"
+        }
+    ],
+    "Variables": [
+        {
+            "Name": "DistanceDisplayUnit",
+            "Expression": "MeasurementSystem(Imperial)"
+        },
+        {
+            "Name": "SpeedDisplayUnit",
+            "Expression": "MeasurementSystem(Imperial)"
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestLocationSpeedFrom",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestLocationSpeedFrom(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuWmVybyhOdWxsSXNsYW5kKCkuU3BlZWRGcm9tKE51bGxJc2xhbmQoKSkpCglmcm9tIDo9ICZMb2NhdGlvbntMYXRpdHVkZTogMCwgTG9uZ2l0dWRlOiAxLCBUaW1lc3RhbXA6IHRpbWUuRGF0ZSgyMDEwLCAxLCAxLCAwLCAwLCAwLCAwLCB0aW1lLlVUQyl9Cgl0byA6PSAmTG9jYXRpb257TGF0aXR1ZGU6IDAsIExvbmdpdHVkZTogMiwgVGltZXN0YW1wOiB0aW1lLkRhdGUoMjAxMCwgMSwgMSwgMSwgMCwgMCwgMCwgdGltZS5VVEMpfQoJYXNzZXJ0LkVxdWFsKFNwZWVkKDExMS4xOTQ4Mzc2ODg2ODg1NypLUEgpLCB0by5TcGVlZEZyb20oZnJvbSkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestParseDistance",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestParseDistance(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuWmVybyhNdXN0UGFyc2VEaXN0YW5jZShgYCkpCglhc3NlcnQuWmVybyhNdXN0UGFyc2VEaXN0YW5jZShgMG1gKSkKCWFzc2VydC5aZXJvKE11c3RQYXJzZURpc3RhbmNlKGAwIG1ldGVyYCkpCglhc3NlcnQuWmVybyhNdXN0UGFyc2VEaXN0YW5jZShgMCBtZXRlcnNgKSkKCWFzc2VydC5aZXJvKE11c3RQYXJzZURpc3RhbmNlKGAwbWV0ZXJgKSkKCWFzc2VydC5aZXJvKE11c3RQYXJzZURpc3RhbmNlKGAwbWV0ZXJzYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMSwgTXVzdFBhcnNlRGlzdGFuY2UoYDFtYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMSwgTXVzdFBhcnNlRGlzdGFuY2UoYDEgbWV0ZXJgKSkKCWFzc2VydC5FcXVhbFZhbHVlcygxLCBNdXN0UGFyc2VEaXN0YW5jZShgMSBtZXRlcnNgKSkKCWFzc2VydC5FcXVhbFZhbHVlcygxLCBNdXN0UGFyc2VEaXN0YW5jZShgMW1ldGVyYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoMSwgTXVzdFBhcnNlRGlzdGFuY2UoYDFtZXRlcnNgKSkKCWFzc2VydC5FcXVhbFZhbHVlcyhEaXN0YW5jZSgzLjE0MTU5NzYyNSkqS2lsb21ldGVyLCBNdXN0UGFyc2VEaXN0YW5jZShgMy4xNDE1OTc2MjVrbWApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDMuMTQxNTk3NjI1KSpLaWxvbWV0ZXIsIE11c3RQYXJzZURpc3RhbmNlKGAzLjE0MTU5NzYyNSBrbWApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDMuMTQxNTk3NjI1KSpLaWxvbWV0ZXIsIE11c3RQYXJzZURpc3RhbmNlKGAzLjE0MTU5NzYyNSBrbS5gKSkKCWFzc2VydC5FcXVhbFZhbHVlcyhEaXN0YW5jZSgzLjE0MTU5NzYyNSkqS2lsb21ldGVyLCBNdXN0UGFyc2VEaXN0YW5jZShgMy4xNDE1OTc2MjUga2lsb21ldGVyYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoRGlzdGFuY2UoMy4xNDE1OTc2MjUpKktpbG9tZXRlciwgTXVzdFBhcnNlRGlzdGFuY2UoYDMuMTQxNTk3NjI1IGtpbG9tZXRlcnNgKSkKCWFzc2VydC5FcXVhbFZhbHVlcyhEaXN0YW5jZSgzLjE0MTU5NzYyNSkqS2lsb21ldGVyLCBNdXN0UGFyc2VEaXN0YW5jZShgMy4xNDE1OTc2MjVraWxvbWV0ZXJgKSkKCWFzc2VydC5FcXVhbFZhbHVlcyhEaXN0YW5jZSgzLjE0MTU5NzYyNSkqS2lsb21ldGVyLCBNdXN0UGFyc2VEaXN0YW5jZShgMy4xNDE1OTc2MjVraWxvbWV0ZXJzYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoRGlzdGFuY2UoMjYuMikqTWlsZSwgTXVzdFBhcnNlRGlzdGFuY2UoYDI2LjJtaWApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDI2LjIpKk1pbGUsIE11c3RQYXJzZURpc3RhbmNlKGAyNi4yIG1pbGVzYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoRGlzdGFuY2UoNTI4MCkqRm9vdCwgTXVzdFBhcnNlRGlzdGFuY2UoYDUyODBmdGApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDUyODApKkZvb3QsIE11c3RQYXJzZURpc3RhbmNlKGA1MjgwIGZ0YCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoRGlzdGFuY2UoNTI4MCkqRm9vdCwgTXVzdFBhcnNlRGlzdGFuY2UoYDUyODAgZnQuYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoRGlzdGFuY2UoNTI4MCkqRm9vdCwgTXVzdFBhcnNlRGlzdGFuY2UoYDUyODAgZmVldGApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDUyODApKkZvb3QsIE11c3RQYXJzZURpc3RhbmNlKGA1MjgwZmVldGApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDEwMCkqWWFyZCwgTXVzdFBhcnNlRGlzdGFuY2UoYDEwMHlkLmApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDEwMCkqWWFyZCwgTXVzdFBhcnNlRGlzdGFuY2UoYDEwMCB5ZC5gKSkKCWFzc2VydC5FcXVhbFZhbHVlcyhEaXN0YW5jZSgxMDApKllhcmQsIE11c3RQYXJzZURpc3RhbmNlKGAxMDAgeWRgKSkKCWFzc2VydC5FcXVhbFZhbHVlcyhEaXN0YW5jZSgxMDApKllhcmQsIE11c3RQYXJzZURpc3RhbmNlKGAxMDB5ZGApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDEwMCkqWWFyZCwgTXVzdFBhcnNlRGlzdGFuY2UoYDEwMCB5YXJkc2ApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDMwMCkqTmF1dGljYWxNaWxlLCBNdXN0UGFyc2VEaXN0YW5jZShgMzAwbm1gKSkKCWFzc2VydC5FcXVhbFZhbHVlcyhEaXN0YW5jZSgzMDApKk5hdXRpY2FsTWlsZSwgTXVzdFBhcnNlRGlzdGFuY2UoYDMwMCBubS5gKSkKCWFzc2VydC5FcXVhbFZhbHVlcyhEaXN0YW5jZSgzMDApKk5hdXRpY2FsTWlsZSwgTXVzdFBhcnNlRGlzdGFuY2UoYDMwMCBubWApKQoJYXNzZXJ0LkVxdWFsVmFsdWVzKERpc3RhbmNlKDMwMCkqTmF1dGljYWxNaWxlLCBNdXN0UGFyc2VEaXN0YW5jZShgMzAwIG5hdXRpY2FsIG1pbGVzYCkpCglhc3NlcnQuRXF1YWxWYWx1ZXMoRGlzdGFuY2UoMzAwKSpOYXV0aWNhbE1pbGUsIE11c3RQYXJzZURpc3RhbmNlKGAzMDAgbmF1dGljYWwgbWlsZWApKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestSpeedFuncs",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSpeedFuncs(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuVHJ1ZShTcGVlZChNUEgpLkZhc3RlclRoYW4oS1BIKSkKCWFzc2VydC5UcnVlKFNwZWVkKEtQSCkuU2xvd2VyVGhhbihNUEgpKQoJYXNzZXJ0LlRydWUoU3BlZWQoMzYwMCAqIE1QSCkuRXF1YWwoNTI4MCAqIEZlZXRQZXJTZWNvbmQpKQp9",
+            "IsPackageLevel": true
+        }
+    ],
+    "Types": {
+        "CardinalDirection": {
+            "Name": "CardinalDirection",
+            "MetaType": "string",
+            "Methods": [
+                {
+                    "Name": "GetDirectionFromBearing",
+                    "Arguments": [
+                        {
+                            "Name": "bearing",
+                            "Type": "float64"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "CardinalDirection"
+                        }
+                    ],
+                    "Signature": "GetDirectionFromBearing(bearing float64) CardinalDirection",
+                    "Source": "ewoJc3dpdGNoIHsKCWNhc2UgKGJlYXJpbmcgPj0gMCAmJiBiZWFyaW5nIDw9IDIyLjUpIHx8IChiZWFyaW5nID4gMzM3LjUgJiYgYmVhcmluZyA8PSAzNjApOgoJCXJldHVybiBOb3J0aAoJY2FzZSBiZWFyaW5nID4gMjIuNSAmJiBiZWFyaW5nIDw9IDY3LjU6CgkJcmV0dXJuIE5vcnRoRWFzdAoJY2FzZSBiZWFyaW5nID4gNjcuNSAmJiBiZWFyaW5nIDw9IDExMi41OgoJCXJldHVybiBFYXN0CgljYXNlIGJlYXJpbmcgPiAxMTIuNSAmJiBiZWFyaW5nIDw9IDE1Ny41OgoJCXJldHVybiBTb3V0aEVhc3QKCWNhc2UgYmVhcmluZyA+IDE1Ny41ICYmIGJlYXJpbmcgPD0gMjAyLjU6CgkJcmV0dXJuIFNvdXRoCgljYXNlIGJlYXJpbmcgPiAyMDIuNSAmJiBiZWFyaW5nIDw9IDI0Ny41OgoJCXJldHVybiBTb3V0aFdlc3QKCWNhc2UgYmVhcmluZyA+IDI0Ny41ICYmIGJlYXJpbmcgPD0gMjkyLjU6CgkJcmV0dXJuIFdlc3QKCWNhc2UgYmVhcmluZyA+IDI5Mi41ICYmIGJlYXJpbmcgPD0gMzM3LjU6CgkJcmV0dXJuIE5vcnRoV2VzdAoJfQoJcmV0dXJuIGBgCn0=",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Source": "dHlwZSBDYXJkaW5hbERpcmVjdGlvbiBzdHJpbmc="
+        },
+        "Distance": {
+            "Name": "Distance",
+            "MetaType": "float64",
+            "Methods": [
+                {
+                    "Name": "Beyond",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Distance"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "Beyond(other Distance) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Equal",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Distance"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "Equal(other Distance) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "ImperialString",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "ImperialString() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MarshalJSON",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "MarshalJSON() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MetricString",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "MetricString() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MustParseDistance",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Distance"
+                        }
+                    ],
+                    "Signature": "MustParseDistance(in interface{}) Distance",
+                    "Source": "ewoJaWYgZGlzdGFuY2UsIGVyciA6PSBQYXJzZURpc3RhbmNlKGluKTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIGRpc3RhbmNlCgl9IGVsc2UgewoJCXBhbmljKGBpbnZhbGlkIGRpc3RhbmNlOiBgICsgZXJyLkVycm9yKCkpCgl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "ParseDistance",
+                    "Arguments": [
+                        {
+                            "Name": "in",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Distance"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "ParseDistance(in interface{}) (Distance, error)",
+                    "Source": "ewoJaWYgdHlwZXV0aWwuSXNaZXJvKGluKSB7CgkJcmV0dXJuIDAsIG5pbAoJfQoJaWYgbWF0Y2ggOj0gcnh1dGlsLk1hdGNoKHJ4RGlzdGFuY2VFeHRyYWN0LCBzdHJpbmdzLlRyaW1TcGFjZShmbXQuU3ByaW50ZigiJXYiLCBpbikpKTsgbWF0Y2ggIT0gbmlsIHsKCQlpZiB2IDo9IHR5cGV1dGlsLlYobWF0Y2guR3JvdXAoYG51bWJlcmApKS5GbG9hdCgpOyB2ID49IDAgewoJCQl1bml0IDo9IG1hdGNoLkdyb3VwKGB1bml0YCkKCQkJdW5pdCA9IHN0cmluZ3MuVHJpbVNwYWNlKHVuaXQpCgkJCXVuaXQgPSBzdHJpbmdzLlRvTG93ZXIodW5pdCkKCQkJdW5pdCA9IHN0cmluZ3MuVHJpbVN1ZmZpeCh1bml0LCBgc2ApCgkJCXN3aXRjaCB1bml0IHsKCQkJY2FzZSBgbWV0ZXJgLCBgbWA6CgkJCQlyZXR1cm4gRGlzdGFuY2UodiksIG5pbAoJCQljYXNlIGBraWxvbWV0ZXJgLCBga21gOgoJCQkJcmV0dXJuIERpc3RhbmNlKHYpICogS2lsb21ldGVyLCBuaWwKCQkJY2FzZSBgbWlsZWAsIGBtaWA6CgkJCQlyZXR1cm4gRGlzdGFuY2UodikgKiBNaWxlLCBuaWwKCQkJY2FzZSBgZmVldGAsIGBmb290YCwgYGZ0YDoKCQkJCXJldHVybiBEaXN0YW5jZSh2KSAqIEZvb3QsIG5pbAoJCQljYXNlIGB5YXJkYCwgYHlkYDoKCQkJCXJldHVybiBEaXN0YW5jZSh2KSAqIFlhcmQsIG5pbAoJCQljYXNlIGBubWAsIGBuYXV0aWNhbCBtaWxlYDoKCQkJCXJldHVybiBEaXN0YW5jZSh2KSAqIE5hdXRpY2FsTWlsZSwgbmlsCgkJCWRlZmF1bHQ6CgkJCQlyZXR1cm4gMCwgZm10LkVycm9yZigiVW5yZWNvZ25pemVkIGRpc3RhbmNlIHVuaXQgJXEiLCB1bml0KQoJCQl9CgkJfSBlbHNlIHsKCQkJcmV0dXJuIDAsIGZtdC5FcnJvcmYoIlVuYWJsZSB0byBleHRyYWN0IG51bWJlciBmcm9tIGRpc3RhbmNlIHZhbHVlIikKCQl9Cgl9IGVsc2UgaWYgdiA6PSB0eXBldXRpbC5WKGluKS5GbG9hdCgpOyB2ID49IDAgewoJCXJldHVybiBEaXN0YW5jZSh2KSwgbmlsCgl9IGVsc2UgewoJCXJldHVybiAwLCBmbXQuRXJyb3JmKCJ1bmFibGUgdG8gcGFyc2UgZGlzdGFuY2UgdmFsdWUiKQoJfQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "String",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "UnmarshalJSON",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "data",
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "UnmarshalJSON(data []byte) error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Within",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Distance"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "Within(other Distance) bool",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Source": "dHlwZSBEaXN0YW5jZSBmbG9hdDY0"
+        },
+        "Locatable": {
+            "Name": "Locatable",
+            "Source": "dHlwZSBMb2NhdGFibGUgaW50ZXJmYWNlIHsKCUdldENvb3JkaW5hdGVzKCkgKGZsb2F0NjQsIGZsb2F0NjQsIHRpbWUuVGltZSkKfQ=="
+        },
+        "Location": {
+            "Name": "Location",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "BearingTo",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Locatable"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        }
+                    ],
+                    "Signature": "BearingTo(other Locatable) float64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "CardinalDirection",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "CardinalDirection"
+                        }
+                    ],
+                    "Signature": "CardinalDirection() CardinalDirection",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "GetCoordinates",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "float64"
+                        },
+                        {
+                            "Type": "time.Time"
+                        }
+                    ],
+                    "Signature": "GetCoordinates() (float64, float64, time.Time)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "HasCoordinates",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "HasCoordinates() bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "HaversineDistance",
+                    "Comment": "Return the distance (in meters) between this point and another.  This calulates the\ngreat-circle distance (shortest distance two points on the surface of a sphere) between\nthis Location and another.  Since this (incorrectly) assumes the Earth to be a true\nsphere, this is only reasonably accurate for short-ish distances (is only accurate to\nwithin ~0.5%).",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Locatable"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Distance"
+                        }
+                    ],
+                    "Signature": "HaversineDistance(other Locatable) Distance",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MarshalJSON",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "MarshalJSON() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "NewLocation",
+                    "Arguments": [
+                        {
+                            "Name": "latitude",
+                            "Type": "float64"
+                        },
+                        {
+                            "Name": "longitude",
+                            "Type": "float64"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Location"
+                        }
+                    ],
+                    "Signature": "NewLocation(latitude float64, longitude float64) *Location",
+                    "Source": "ewoJcmV0dXJuICZMb2NhdGlvbntMYXRpdHVkZTogbGF0aXR1ZGUsIExvbmdpdHVkZTogbG9uZ2l0dWRlLCBQcm9wZXJ0aWVzOiBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pfQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "SpeedFrom",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Locatable"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Speed"
+                        }
+                    ],
+                    "Signature": "SpeedFrom(other Locatable) Speed",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "String",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "NullIsland",
+                    "Returns": [
+                        {
+                            "Type": "*Location"
+                        }
+                    ],
+                    "Signature": "NullIsland() *Location",
+                    "Source": "ewoJcmV0dXJuICZMb2NhdGlvbntMYXRpdHVkZTogMCwgTG9uZ2l0dWRlOiAwLCBCZWFyaW5nOiAwLCBBbHRpdHVkZTogMCwgQWNjdXJhY3k6IDEsIFNvdXJjZTogYG51bGxgLCBUaW1lc3RhbXA6IHRpbWUuTm93KCl9Cn0=",
+                    "IsPackageLevel": true
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "Latitude",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "Longitude",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "Bearing",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "Timestamp",
+                    "Type": "time.Time"
+                },
+                {
+                    "Name": "Altitude",
+                    "Type": "Distance"
+                },
+                {
+                    "Name": "Speed",
+                    "Type": "Speed"
+                },
+                {
+                    "Name": "Accuracy",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "Error",
+                    "Type": "*LocationError"
+                },
+                {
+                    "Name": "Direction",
+                    "Type": "CardinalDirection"
+                },
+                {
+                    "Name": "Source",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Properties",
+                    "Type": "map[string]interface{}"
+                }
+            ],
+            "Comment": "Specifies a three-dimensional location within a coordinate reference system.",
+            "Source": "dHlwZSBMb2NhdGlvbiBzdHJ1Y3QgewoJTGF0aXR1ZGUgICAgICAgICAgICBmbG9hdDY0ICAgICAgICAgICBganNvbjoibGF0aXR1ZGUsb21pdGVtcHR5ImAKCUxvbmdpdHVkZSAgICAgICAgICAgZmxvYXQ2NCAgICAgICAgICAgYGpzb246ImxvbmdpdHVkZSxvbWl0ZW1wdHkiYAoJQmVhcmluZyAgICAgICAgICAgICBmbG9hdDY0ICAgICAgICAgICBganNvbjoiYmVhcmluZyxvbWl0ZW1wdHkiYAoJVGltZXN0YW1wICAgICAgICAgICB0aW1lLlRpbWUgICAgICAgICBganNvbjoidGltZXN0YW1wLG9taXRlbXB0eSJgCglBbHRpdHVkZSAgICAgICAgICAgIERpc3RhbmNlICAgICAgICAgIGBqc29uOiJhbHRpdHVkZSxvbWl0ZW1wdHkiYAoJU3BlZWQgICAgICAgICAgICAgICBTcGVlZCAgICAgICAgICAgICBganNvbjoic3BlZWQsb21pdGVtcHR5ImAKCUFjY3VyYWN5ICAgICAgICAgICAgZmxvYXQ2NCAgICAgICAgICAgYGpzb246ImFjY3VyYWN5LG9taXRlbXB0eSJgCglFcnJvciAgICAgICAgICAgICAgICpMb2NhdGlvbkVycm9yICAgIGBqc29uOiJlcnJvcixvbWl0ZW1wdHkiYAoJRGlyZWN0aW9uICAgICAgICAgICBDYXJkaW5hbERpcmVjdGlvbiBganNvbjoiZGlyZWN0aW9uLG9taXRlbXB0eSJgCglTb3VyY2UgICAgICAgICAgICAgIHN0cmluZyAgICAgICAgICAgIGBqc29uOiJzb3VyY2Usb21pdGVtcHR5ImAKCVByb3BlcnRpZXMgICAgICAgICAgbWFwIC8vIFNwZWNpZmllcyBhIHRocmVlLWRpbWVuc2lvbmFsIGxvY2F0aW9uIHdpdGhpbiBhIGNvb3JkaW5hdGUgcmVmZXJlbmNlIHN5c3RlbS4KCVtzdHJpbmddaW50ZXJmYWNle30gYGpzb246InByb3BlcnRpZXMsb21pdGVtcHR5ImAKfQ=="
+        },
+        "LocationError": {
+            "Name": "LocationError",
+            "MetaType": "struct",
+            "Fields": [
+                {
+                    "Name": "Latitude",
+                    "Type": "Distance"
+                },
+                {
+                    "Name": "Longitude",
+                    "Type": "Distance"
+                },
+                {
+                    "Name": "Altitude",
+                    "Type": "Distance"
+                },
+                {
+                    "Name": "Bearing",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "Speed",
+                    "Type": "Speed"
+                },
+                {
+                    "Name": "Timestamp",
+                    "Type": "float64"
+                }
+            ],
+            "Comment": "Describes the error margin (+/-) for each of the named values.",
+            "Source": "dHlwZSBMb2NhdGlvbkVycm9yIHN0cnVjdCB7CglMYXRpdHVkZSAgRGlzdGFuY2UgYGpzb246ImxhdGl0dWRlImAKCUxvbmdpdHVkZSBEaXN0YW5jZSBganNvbjoibG9uZ2l0dWRlImAKCUFsdGl0dWRlICBEaXN0YW5jZSBganNvbjoiYWx0aXR1ZGUiYAoJQmVhcmluZyAgIGZsb2F0NjQgIGBqc29uOiJiZWFyaW5nImAKCVNwZWVkICAgICBTcGVlZCAgICBganNvbjoic3BlZWQiYAoJVGltZXN0YW1wIGZsb2F0NjQgIGBqc29uOiJ0aW1lc3RhbXAiYAp9Ly8gRGVzY3JpYmVzIHRoZSBlcnJvciBtYXJnaW4gKCsvLSkgZm9yIGVhY2ggb2YgdGhlIG5hbWVkIHZhbHVlcy4K"
+        },
+        "MeasurementSystem": {
+            "Name": "MeasurementSystem",
+            "MetaType": "string",
+            "Source": "dHlwZSBNZWFzdXJlbWVudFN5c3RlbSBzdHJpbmc="
+        },
+        "Speed": {
+            "Name": "Speed",
+            "MetaType": "float64",
+            "Methods": [
+                {
+                    "Name": "Equal",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Speed"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "Equal(other Speed) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "FasterThan",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Speed"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "FasterThan(other Speed) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MarshalJSON",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "MarshalJSON() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "SlowerThan",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "other",
+                            "Type": "Speed"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "SlowerThan(other Speed) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "String",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "String() string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "UnmarshalJSON",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "data",
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "UnmarshalJSON(data []byte) error",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Source": "dHlwZSBTcGVlZCBmbG9hdDY0"
+        }
+    }
+}

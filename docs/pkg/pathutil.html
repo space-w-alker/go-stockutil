@@ -1,0 +1,669 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">pathutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 49%</span>
+<h2 id="pkg-overview">package pathutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/pathutil"</code>
+</p>
+
+
+<p>Additional helpers for working with file paths and filesystem information</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#DirExists">func DirExists(path string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Exists">func Exists(path string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ExpandUser">func ExpandUser(path string) (string, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FileExists">func FileExists(path string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsAppend">func IsAppend(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsAppendable">func IsAppendable(filename string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsCharDevice">func IsCharDevice(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsDevice">func IsDevice(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsExclusive">func IsExclusive(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsNamedPipe">func IsNamedPipe(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsNonemptyDir">func IsNonemptyDir(path string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsNonemptyExecutableFile">func IsNonemptyExecutableFile(path string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsNonemptyFile">func IsNonemptyFile(path string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsReadable">func IsReadable(filename string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsSetgid">func IsSetgid(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsSetuid">func IsSetuid(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsSocket">func IsSocket(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsSticky">func IsSticky(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsSymlink">func IsSymlink(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsTemporary">func IsTemporary(mode os.FileMode) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsWritable">func IsWritable(filename string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#LinkExists">func LinkExists(path string) bool</a>
+		</strong>
+	</li>
+	
+
+	
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="pathutil.go">pathutil.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">125</td>
+		<td class="text-right">22</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="pathutil_test.go">pathutil_test.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">41</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h3 id="DirExists" data-kind="f">
+	func <a title="View Source" href="">DirExists</a>
+	<a class="permalink" href="#DirExists">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DirExists(path string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given path exists and is a directory.</p>
+</p>
+
+
+<h3 id="Exists" data-kind="f">
+	func <a title="View Source" href="">Exists</a>
+	<a class="permalink" href="#Exists">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Exists(path string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given path exists.</p>
+</p>
+
+
+<h3 id="ExpandUser" data-kind="f">
+	func <a title="View Source" href="">ExpandUser</a>
+	<a class="permalink" href="#ExpandUser">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ExpandUser(path string) (string, error)</pre>
+</div>
+
+
+<p><p>ExpandUser replaces the tilde (~) in a path into the current user’s home directory.</p>
+</p>
+
+
+<h3 id="FileExists" data-kind="f">
+	func <a title="View Source" href="">FileExists</a>
+	<a class="permalink" href="#FileExists">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FileExists(path string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given path exists and is a regular file.</p>
+</p>
+
+
+<h3 id="IsAppend" data-kind="f">
+	func <a title="View Source" href="">IsAppend</a>
+	<a class="permalink" href="#IsAppend">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsAppend(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsAppendable" data-kind="f">
+	func <a title="View Source" href="">IsAppendable</a>
+	<a class="permalink" href="#IsAppendable">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsAppendable(filename string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given file can be opened for appending by the current user.</p>
+</p>
+
+
+<h3 id="IsCharDevice" data-kind="f">
+	func <a title="View Source" href="">IsCharDevice</a>
+	<a class="permalink" href="#IsCharDevice">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsCharDevice(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsDevice" data-kind="f">
+	func <a title="View Source" href="">IsDevice</a>
+	<a class="permalink" href="#IsDevice">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsDevice(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsExclusive" data-kind="f">
+	func <a title="View Source" href="">IsExclusive</a>
+	<a class="permalink" href="#IsExclusive">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsExclusive(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsNamedPipe" data-kind="f">
+	func <a title="View Source" href="">IsNamedPipe</a>
+	<a class="permalink" href="#IsNamedPipe">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsNamedPipe(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsNonemptyDir" data-kind="f">
+	func <a title="View Source" href="">IsNonemptyDir</a>
+	<a class="permalink" href="#IsNonemptyDir">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsNonemptyDir(path string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given path is a directory with items in it.</p>
+</p>
+
+
+<h3 id="IsNonemptyExecutableFile" data-kind="f">
+	func <a title="View Source" href="">IsNonemptyExecutableFile</a>
+	<a class="permalink" href="#IsNonemptyExecutableFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsNonemptyExecutableFile(path string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given path is a regular file, is executable by any user, and has a non-zero size.</p>
+</p>
+
+
+<h3 id="IsNonemptyFile" data-kind="f">
+	func <a title="View Source" href="">IsNonemptyFile</a>
+	<a class="permalink" href="#IsNonemptyFile">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsNonemptyFile(path string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given path is a regular file with a non-zero size.</p>
+</p>
+
+
+<h3 id="IsReadable" data-kind="f">
+	func <a title="View Source" href="">IsReadable</a>
+	<a class="permalink" href="#IsReadable">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsReadable(filename string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given file can be opened for reading by the current user.</p>
+</p>
+
+
+<h3 id="IsSetgid" data-kind="f">
+	func <a title="View Source" href="">IsSetgid</a>
+	<a class="permalink" href="#IsSetgid">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsSetgid(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsSetuid" data-kind="f">
+	func <a title="View Source" href="">IsSetuid</a>
+	<a class="permalink" href="#IsSetuid">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsSetuid(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsSocket" data-kind="f">
+	func <a title="View Source" href="">IsSocket</a>
+	<a class="permalink" href="#IsSocket">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsSocket(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsSticky" data-kind="f">
+	func <a title="View Source" href="">IsSticky</a>
+	<a class="permalink" href="#IsSticky">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsSticky(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsSymlink" data-kind="f">
+	func <a title="View Source" href="">IsSymlink</a>
+	<a class="permalink" href="#IsSymlink">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsSymlink(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsTemporary" data-kind="f">
+	func <a title="View Source" href="">IsTemporary</a>
+	<a class="permalink" href="#IsTemporary">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsTemporary(mode os.FileMode) bool</pre>
+</div>
+
+
+
+<h3 id="IsWritable" data-kind="f">
+	func <a title="View Source" href="">IsWritable</a>
+	<a class="permalink" href="#IsWritable">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsWritable(filename string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given file can be opened for writing by the current user.</p>
+</p>
+
+
+<h3 id="LinkExists" data-kind="f">
+	func <a title="View Source" href="">LinkExists</a>
+	<a class="permalink" href="#LinkExists">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func LinkExists(path string) bool</pre>
+</div>
+
+
+<p><p>Returns true if the given path exists and is a symbolic link.</p>
+</p>
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

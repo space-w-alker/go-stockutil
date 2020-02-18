@@ -1,0 +1,1800 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">typeutil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 68%</span>
+<h2 id="pkg-overview">package typeutil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/typeutil"</code>
+</p>
+
+
+<p>Helpers for type inflection and simplifying working with Golang generic interface types</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#Auto">func Auto(in interface{}) interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Bool">func Bool(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Bytes">func Bytes(in interface{}) []byte</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Dump">func Dump(in1 interface{}, in ...interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Dumpf">func Dumpf(format string, in ...interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Duration">func Duration(in interface{}) time.Duration</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Err">func Err(in interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Float">func Float(in interface{}) float64</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FunctionArity">func FunctionArity(fn interface{}) (int, int, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Int">func Int(in interface{}) int64</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsArray">func IsArray(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsEmpty">func IsEmpty(value interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsFloat">func IsFloat(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsFunction">func IsFunction(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsFunctionArity">func IsFunctionArity(in interface{}, inParams int, outParams int) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsInteger">func IsInteger(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsKind">func IsKind(in interface{}, kinds ...reflect.Kind) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsKindOfBool">func IsKindOfBool(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsKindOfFloat">func IsKindOfFloat(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsKindOfInteger">func IsKindOfInteger(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#IsKindOfString">func IsKindOfString(in interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsMap">func IsMap(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsNumeric">func IsNumeric(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsScalar">func IsScalar(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsStruct">func IsStruct(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsZero">func IsZero(value interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Len">func Len(in interface{}) int</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Map">func Map(in interface{}, tagName ...string) map[Variant]Variant</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MapNative">func MapNative(in interface{}, tagName ...string) map[string]interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RegisterTypeHandler">func RegisterTypeHandler(handler TypeConvertFunc, types ...string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ResolveValue">func ResolveValue(in interface{}) interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SetValue">func SetValue(target interface{}, value interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Slice">func Slice(in interface{}) []Variant</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Split">func Split(in interface{}, on string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#String">func String(in interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Strings">func Strings(in interface{}) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Time">func Time(in interface{}) time.Time</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#Thing">type Thing</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#TypeConvertFunc">type TypeConvertFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Variant">type Variant</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.V">
+					func V(value interface{}) Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Auto">
+					func
+					(self Variant)
+					Auto() interface{}
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Bool">
+					func
+					(self Variant)
+					Bool() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Bytes">
+					func
+					(self Variant)
+					Bytes() []byte
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Duration">
+					func
+					(self Variant)
+					Duration() time.Duration
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Err">
+					func
+					(self Variant)
+					Err() error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Float">
+					func
+					(self Variant)
+					Float() float64
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Int">
+					func
+					(self Variant)
+					Int() int64
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.Interface">
+					func
+					(self Variant)
+					Interface() interface{}
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.IsNil">
+					func
+					(self Variant)
+					IsNil() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.IsZero">
+					func
+					(self Variant)
+					IsZero() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Map">
+					func
+					(self Variant)
+					Map(tagName ...string) map[Variant]Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.MapNative">
+					func
+					(self Variant)
+					MapNative(tagName ...string) map[string]interface{}
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.MarshalJSON">
+					func
+					(self Variant)
+					MarshalJSON() ([]byte, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Slice">
+					func
+					(self Variant)
+					Slice() []Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Split">
+					func
+					(self Variant)
+					Split(on string) []string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.String">
+					func
+					(self Variant)
+					String() string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Strings">
+					func
+					(self Variant)
+					Strings() []string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.Time">
+					func
+					(self Variant)
+					Time() time.Time
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="reflect.go">reflect.go</a>
+			
+		</td>
+		<td class="text-right">341B</td>
+		<td class="text-right">13</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="reflect_test.go">reflect_test.go</a>
+			
+		</td>
+		<td class="text-right">511B</td>
+		<td class="text-right">23</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="values.go">values.go</a>
+			
+		</td>
+		<td class="text-right">9KB</td>
+		<td class="text-right">260</td>
+		<td class="text-right">22</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="values_test.go">values_test.go</a>
+			
+		</td>
+		<td class="text-right">8KB</td>
+		<td class="text-right">246</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="variant.go">variant.go</a>
+			
+		</td>
+		<td class="text-right">7KB</td>
+		<td class="text-right">223</td>
+		<td class="text-right">33</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="variant_test.go">variant_test.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">102</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="Value1">Value1</span> = `value-1`
+const <span id="Value2">Value2</span> = `value-2`
+const <span id="Value3">Value3</span> = `value-3`
+</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Auto" data-kind="f">
+	func <a title="View Source" href="">Auto</a>
+	<a class="permalink" href="#Auto">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Auto(in interface{}) interface{}</pre>
+</div>
+
+
+<p><p>Package-level auto converter</p>
+</p>
+
+
+<h3 id="Bool" data-kind="f">
+	func <a title="View Source" href="">Bool</a>
+	<a class="permalink" href="#Bool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Bool(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Package-level bool converter</p>
+</p>
+
+
+<h3 id="Bytes" data-kind="f">
+	func <a title="View Source" href="">Bytes</a>
+	<a class="permalink" href="#Bytes">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Bytes(in interface{}) []byte</pre>
+</div>
+
+
+<p><p>Package-level bytes converter</p>
+</p>
+
+
+<h3 id="Dump" data-kind="f">
+	func <a title="View Source" href="">Dump</a>
+	<a class="permalink" href="#Dump">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Dump(in1 interface{}, in ...interface{}) string</pre>
+</div>
+
+
+<p><p>Returns a pretty-printed string representation of the given values.</p>
+</p>
+
+
+<h3 id="Dumpf" data-kind="f">
+	func <a title="View Source" href="">Dumpf</a>
+	<a class="permalink" href="#Dumpf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Dumpf(format string, in ...interface{}) string</pre>
+</div>
+
+
+<p><p>Returns a pretty-printed string representation of the given values.</p>
+</p>
+
+
+<h3 id="Duration" data-kind="f">
+	func <a title="View Source" href="">Duration</a>
+	<a class="permalink" href="#Duration">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Duration(in interface{}) time.Duration</pre>
+</div>
+
+
+<p><p>Package-level duration converter</p>
+</p>
+
+
+<h3 id="Err" data-kind="f">
+	func <a title="View Source" href="">Err</a>
+	<a class="permalink" href="#Err">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Err(in interface{}) error</pre>
+</div>
+
+
+<p><p>Package-level error converter</p>
+</p>
+
+
+<h3 id="Float" data-kind="f">
+	func <a title="View Source" href="">Float</a>
+	<a class="permalink" href="#Float">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Float(in interface{}) float64</pre>
+</div>
+
+
+<p><p>Package-level float converter</p>
+</p>
+
+
+<h3 id="FunctionArity" data-kind="f">
+	func <a title="View Source" href="">FunctionArity</a>
+	<a class="permalink" href="#FunctionArity">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FunctionArity(fn interface{}) (int, int, error)</pre>
+</div>
+
+
+<p><p>Returns the number of input and return arguments a given function has.</p>
+</p>
+
+
+<h3 id="Int" data-kind="f">
+	func <a title="View Source" href="">Int</a>
+	<a class="permalink" href="#Int">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Int(in interface{}) int64</pre>
+</div>
+
+
+<p><p>Package-level int converter</p>
+</p>
+
+
+<h3 id="IsArray" data-kind="f">
+	func <a title="View Source" href="">IsArray</a>
+	<a class="permalink" href="#IsArray">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsArray(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value is a slice or array.</p>
+</p>
+
+
+<h3 id="IsEmpty" data-kind="f">
+	func <a title="View Source" href="">IsEmpty</a>
+	<a class="permalink" href="#IsEmpty">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsEmpty(value interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value is “empty” in the semantic sense. Zero values<br>are considered empty, as are arrays, slices, and maps containing only empty<br>values (called recursively). Finally, strings are trimmed of whitespace and<br>considered empty if the result is zero-length.</p>
+</p>
+
+
+<h3 id="IsFloat" data-kind="f">
+	func <a title="View Source" href="">IsFloat</a>
+	<a class="permalink" href="#IsFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsFloat(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value represents a floating point value.</p>
+</p>
+
+
+<h3 id="IsFunction" data-kind="f">
+	func <a title="View Source" href="">IsFunction</a>
+	<a class="permalink" href="#IsFunction">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsFunction(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value is a function of any kind</p>
+</p>
+
+
+<h3 id="IsFunctionArity" data-kind="f">
+	func <a title="View Source" href="">IsFunctionArity</a>
+	<a class="permalink" href="#IsFunctionArity">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsFunctionArity(in interface{}, inParams int, outParams int) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value is a function.  If inParams is not -1, the function must<br>accept that number of arguments.  If outParams is not -1, the function must return that<br>number of values.</p>
+</p>
+
+
+<h3 id="IsInteger" data-kind="f">
+	func <a title="View Source" href="">IsInteger</a>
+	<a class="permalink" href="#IsInteger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsInteger(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value represents an integer value.</p>
+</p>
+
+
+<h3 id="IsKind" data-kind="f">
+	func <a title="View Source" href="">IsKind</a>
+	<a class="permalink" href="#IsKind">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsKind(in interface{}, kinds ...reflect.Kind) bool</pre>
+</div>
+
+
+<p><p>Dectect whether the concrete underlying value of the given input is one or more<br>Kinds of value.</p>
+</p>
+
+
+<h3 id="IsKindOfBool" data-kind="f">
+	func <a title="View Source" href="">IsKindOfBool</a>
+	<a class="permalink" href="#IsKindOfBool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsKindOfBool(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsKindOfFloat" data-kind="f">
+	func <a title="View Source" href="">IsKindOfFloat</a>
+	<a class="permalink" href="#IsKindOfFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsKindOfFloat(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsKindOfInteger" data-kind="f">
+	func <a title="View Source" href="">IsKindOfInteger</a>
+	<a class="permalink" href="#IsKindOfInteger">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsKindOfInteger(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsKindOfString" data-kind="f">
+	func <a title="View Source" href="">IsKindOfString</a>
+	<a class="permalink" href="#IsKindOfString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsKindOfString(in interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="IsMap" data-kind="f">
+	func <a title="View Source" href="">IsMap</a>
+	<a class="permalink" href="#IsMap">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsMap(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value is a map.</p>
+</p>
+
+
+<h3 id="IsNumeric" data-kind="f">
+	func <a title="View Source" href="">IsNumeric</a>
+	<a class="permalink" href="#IsNumeric">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsNumeric(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value represents a numeric value.</p>
+</p>
+
+
+<h3 id="IsScalar" data-kind="f">
+	func <a title="View Source" href="">IsScalar</a>
+	<a class="permalink" href="#IsScalar">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsScalar(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Return whether the given input is a discrete scalar value (ints, floats, bools,<br>strings), otherwise known as “primitive types” in some other languages.</p>
+</p>
+
+
+<h3 id="IsStruct" data-kind="f">
+	func <a title="View Source" href="">IsStruct</a>
+	<a class="permalink" href="#IsStruct">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsStruct(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value is a struct.</p>
+</p>
+
+
+<h3 id="IsZero" data-kind="f">
+	func <a title="View Source" href="">IsZero</a>
+	<a class="permalink" href="#IsZero">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsZero(value interface{}) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given value represents the underlying type’s zero value</p>
+</p>
+
+
+<h3 id="Len" data-kind="f">
+	func <a title="View Source" href="">Len</a>
+	<a class="permalink" href="#Len">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Len(in interface{}) int</pre>
+</div>
+
+
+<p><p>Returns the length of the given value that could have a length (strings, slices, arrays,<br>maps, and channels).  If the value is not a type that has a length, -1 is returned.</p>
+</p>
+
+
+<h3 id="Map" data-kind="f">
+	func <a title="View Source" href="">Map</a>
+	<a class="permalink" href="#Map">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Map(in interface{}, tagName ...string) map[Variant]Variant</pre>
+</div>
+
+
+<p><p>Package-level map converter</p>
+</p>
+
+
+<h3 id="MapNative" data-kind="f">
+	func <a title="View Source" href="">MapNative</a>
+	<a class="permalink" href="#MapNative">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MapNative(in interface{}, tagName ...string) map[string]interface{}</pre>
+</div>
+
+
+<p><p>Package-level map[string]interface{} converter</p>
+</p>
+
+
+<h3 id="RegisterTypeHandler" data-kind="f">
+	func <a title="View Source" href="">RegisterTypeHandler</a>
+	<a class="permalink" href="#RegisterTypeHandler">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RegisterTypeHandler(handler TypeConvertFunc, types ...string)</pre>
+</div>
+
+
+<p><p>Register’s a handler used for converting one type to another. Type are checked in the following<br>manner:  The input value’s reflect.Type String() value is matched, falling back to its<br>reflect.Kind String() value, finally checking for a special “*” value that matches any type.<br>If the handler function returns nil, its value replaces the input value.  If the special error<br>type PassthroughType is returned, the original value is returned unmodified.</p>
+</p>
+
+
+<h3 id="ResolveValue" data-kind="f">
+	func <a title="View Source" href="">ResolveValue</a>
+	<a class="permalink" href="#ResolveValue">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ResolveValue(in interface{}) interface{}</pre>
+</div>
+
+
+<p><p>Return the concrete value pointed to by a pointer type, or within an<br>interface type.  Allows functions receiving pointers to supported types<br>to work with those types without doing reflection.</p>
+</p>
+
+
+<h3 id="SetValue" data-kind="f">
+	func <a title="View Source" href="">SetValue</a>
+	<a class="permalink" href="#SetValue">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetValue(target interface{}, value interface{}) error</pre>
+</div>
+
+
+<p><p>Attempts to set the given reflect.Value to the given interface value</p>
+</p>
+
+
+<h3 id="Slice" data-kind="f">
+	func <a title="View Source" href="">Slice</a>
+	<a class="permalink" href="#Slice">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Slice(in interface{}) []Variant</pre>
+</div>
+
+
+<p><p>Package-level slice converter</p>
+</p>
+
+
+<h3 id="Split" data-kind="f">
+	func <a title="View Source" href="">Split</a>
+	<a class="permalink" href="#Split">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Split(in interface{}, on string) []string</pre>
+</div>
+
+
+<p><p>Package-level string splitter.</p>
+</p>
+
+
+<h3 id="String" data-kind="f">
+	func <a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func String(in interface{}) string</pre>
+</div>
+
+
+<p><p>Package-level string converter</p>
+</p>
+
+
+<h3 id="Strings" data-kind="f">
+	func <a title="View Source" href="">Strings</a>
+	<a class="permalink" href="#Strings">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Strings(in interface{}) []string</pre>
+</div>
+
+
+<p><p>Package-level string slice converter</p>
+</p>
+
+
+<h3 id="Time" data-kind="f">
+	func <a title="View Source" href="">Time</a>
+	<a class="permalink" href="#Time">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Time(in interface{}) time.Time</pre>
+</div>
+
+
+<p><p>Package-level time converter</p>
+</p>
+
+
+
+
+
+<h3 id="Thing" data-kind="t">
+	type
+	<a title="View Source" href="">Thing</a>
+	<a class="permalink" href="#Thing">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Thing struct {
+	Name  string
+	Value interface{}
+}</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="TypeConvertFunc" data-kind="t">
+	type
+	<a title="View Source" href="">TypeConvertFunc</a>
+	<a class="permalink" href="#TypeConvertFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type TypeConvertFunc = utils.TypeConvertFunc</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Variant" data-kind="t">
+	type
+	<a title="View Source" href="">Variant</a>
+	<a class="permalink" href="#Variant">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Variant struct{ Value interface{} } // Represents an interface type with helper functions for making it easy to do
+// type conversions.
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="V" data-kind="f">
+	func <a title="View Source" href="">V</a>
+	<a class="permalink" href="#V">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func V(value interface{}) Variant</pre>
+</div>
+
+<p><p>Shortcut for creating a Variant.</p>
+</p>
+
+
+
+
+
+
+
+<h4 id="Variant.Auto" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Auto</a>
+	<a class="permalink" href="#Auto">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Auto() interface{}</pre>
+</div>
+
+<p><p>Return the value automatically converted to the appropriate type.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Bool" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Bool</a>
+	<a class="permalink" href="#Bool">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Bool() bool</pre>
+</div>
+
+<p><p>Return true if the value can be interpreted as a boolean true value, or false otherwise.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Bytes" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Bytes</a>
+	<a class="permalink" href="#Bytes">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Bytes() []byte</pre>
+</div>
+
+<p><p>Return the value at key as a byte slice.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Duration" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Duration</a>
+	<a class="permalink" href="#Duration">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Duration() time.Duration</pre>
+</div>
+
+<p><p>Return the value as a time.Duration if it can be interpreted as such, or zero otherwise.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Err" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Err</a>
+	<a class="permalink" href="#Err">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Err() error</pre>
+</div>
+
+<p><p>Return the value converted to an error, or nil if it is not an error.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Float" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Float</a>
+	<a class="permalink" href="#Float">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Float() float64</pre>
+</div>
+
+<p><p>Return the value as a float if it can be interpreted as such, or 0 otherwise.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Int" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Int</a>
+	<a class="permalink" href="#Int">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Int() int64</pre>
+</div>
+
+<p><p>Return the value as an integer if it can be interpreted as such, or 0 otherwise. Float values<br>will be truncated to integers.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Interface" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Interface</a>
+	<a class="permalink" href="#Interface">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Interface() interface{}</pre>
+</div>
+
+
+
+
+<h4 id="Variant.IsNil" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">IsNil</a>
+	<a class="permalink" href="#IsNil">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) IsNil() bool</pre>
+</div>
+
+<p><p>Returns whether the underlying value is nil.</p>
+</p>
+
+
+
+
+<h4 id="Variant.IsZero" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">IsZero</a>
+	<a class="permalink" href="#IsZero">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) IsZero() bool</pre>
+</div>
+
+<p><p>Returns whether the underlying value is a zero value.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Map" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Map</a>
+	<a class="permalink" href="#Map">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Map(tagName ...string) map[Variant]Variant</pre>
+</div>
+
+<p><p>Return the value as a map[Variant]Variant if it can be interpreted as such, or an empty map otherwise.<br>If the variant contains a struct, and a tagName is specified, the key names of the output map will be taken<br>from the struct field’s tag value, consistent with the rules used in encoding/json.</p>
+</p>
+
+
+
+
+<h4 id="Variant.MapNative" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">MapNative</a>
+	<a class="permalink" href="#MapNative">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) MapNative(tagName ...string) map[string]interface{}</pre>
+</div>
+
+<p><p>Return the value as a map[string]interface{} if it can be interpreted as such, or an empty map otherwise.</p>
+</p>
+
+
+
+
+<h4 id="Variant.MarshalJSON" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">MarshalJSON</a>
+	<a class="permalink" href="#MarshalJSON">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) MarshalJSON() ([]byte, error)</pre>
+</div>
+
+<p><p>Satisfy the json.Marshaler interface</p>
+</p>
+
+
+
+
+<h4 id="Variant.Slice" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Slice</a>
+	<a class="permalink" href="#Slice">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Slice() []Variant</pre>
+</div>
+
+<p><p>Return the value as a slice of Variants. Scalar types will return a slice containing<br>a single Variant element representing the value.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Split" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Split</a>
+	<a class="permalink" href="#Split">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Split(on string) []string</pre>
+</div>
+
+<p><p>Converts the value to a string, then splits on the given delimiter.</p>
+</p>
+
+
+
+
+<h4 id="Variant.String" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) String() string</pre>
+</div>
+
+<p><p>Return the value as a string, or an empty string if the value could not be converted.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Strings" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Strings</a>
+	<a class="permalink" href="#Strings">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Strings() []string</pre>
+</div>
+
+<p><p>Same as Slice(), but returns a []string.</p>
+</p>
+
+
+
+
+<h4 id="Variant.Time" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Time</a>
+	<a class="permalink" href="#Time">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Time() time.Time</pre>
+</div>
+
+<p><p>Return the value as a time.Time if it can be interpreted as such, or zero time otherwise.</p>
+</p>
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

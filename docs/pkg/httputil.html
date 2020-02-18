@@ -1,0 +1,2683 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">httputil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 68%</span>
+<h2 id="pkg-overview">package httputil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/httputil"</code>
+</p>
+
+
+<p>Utilities for extracting and formatting data encountered in HTTP requests</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		<strong>
+		<a href="#AddQ">func AddQ(u *url.URL, key string, value interface{})</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#AddQString">func AddQString(u string, key string, value interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DecodeResponse">func DecodeResponse(response *http.Response) (io.Reader, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DelQ">func DelQ(u *url.URL, key string)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DelQString">func DelQString(u string, key string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#EncodeBasicAuth">func EncodeBasicAuth(username string, password string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Is1xx">func Is1xx(code int) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Is2xx">func Is2xx(code int) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Is3xx">func Is3xx(code int) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Is4xx">func Is4xx(code int) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Is5xx">func Is5xx(code int) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#IsHttpErr">func IsHttpErr(err error) bool</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsMediaType">func IsMediaType(req *http.Request, mediaTypes ...string) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#JSONDecoder">func JSONDecoder(in io.Reader, out interface{}) error</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#JSONEncoder">func JSONEncoder(in interface{}) (io.Reader, error)</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#LoadCertPool">func LoadCertPool(filename string) (*x509.CertPool, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MediaType">func MediaType(req *http.Request) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MultipartFormEncoder">func MultipartFormEncoder(in interface{}) (io.Reader, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ParseFormRequest">func ParseFormRequest(req *http.Request, into interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ParseFormValues">func ParseFormValues(formValues url.Values, into interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ParseJSON">func ParseJSON(r io.Reader, into interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ParseJSONRequest">func ParseJSONRequest(req *http.Request, into interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ParseRequest">func ParseRequest(req *http.Request, into interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Q">func Q(req *http.Request, key string, fallbacks ...string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#QBool">func QBool(req *http.Request, key string, fallbacks ...bool) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#QDuration">func QDuration(req *http.Request, key string) time.Duration</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#QFloat">func QFloat(req *http.Request, key string, fallbacks ...float64) float64</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#QInt">func QInt(req *http.Request, key string, fallbacks ...int64) int64</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#QStrings">func QStrings(req *http.Request, key string, delimiter string, fallbacks ...string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#QTime">func QTime(req *http.Request, key string) time.Time</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RequestGetValue">func RequestGetValue(req *http.Request, key string) typeutil.Variant</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RequestSetValue">func RequestSetValue(req *http.Request, key string, value interface{})</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RespondJSON">func RespondJSON(w http.ResponseWriter, data interface{}, status ...int)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SetContentTypeParser">func SetContentTypeParser(contentType string, parser RequestParseFunc)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SetQ">func SetQ(u *url.URL, key string, value interface{})</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SetQString">func SetQString(u string, key string, value interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SetRootCABundle">func SetRootCABundle(client *http.Client, caBundle string) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WaitForHTTP">func WaitForHTTP(url string, timeout time.Duration, c ...*http.Client) error</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#Client">type Client</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Client.NewClient">
+					func NewClient(baseURI string) (*Client, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.AppendTrustedRootCA">
+					func
+					(self *Client)
+					AppendTrustedRootCA(pemFilenamesOrData ...interface{}) error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.ClearHeaders">
+					func
+					(self *Client)
+					ClearHeaders()
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.ClearParams">
+					func
+					(self *Client)
+					ClearParams()
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.Client">
+					func
+					(self *Client)
+					Client() *http.Client
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.Decode">
+					func
+					(self *Client)
+					Decode(r io.Reader, out interface{}) error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Client.Delete">
+					func
+					(self *Client)
+					Delete(path string, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Client.Encode">
+					func
+					(self *Client)
+					Encode(in interface{}) ([]byte, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Client.Get">
+					func
+					(self *Client)
+					Get(path string, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Client.GetWithBody">
+					func
+					(self *Client)
+					GetWithBody(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Client.Post">
+					func
+					(self *Client)
+					Post(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Client.Put">
+					func
+					(self *Client)
+					Put(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.Request">
+					func
+					(self *Client)
+					Request(method Method, path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetBasicAuth">
+					func
+					(self *Client)
+					SetBasicAuth(username string, password string)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetClient">
+					func
+					(self *Client)
+					SetClient(client *http.Client)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetDecoder">
+					func
+					(self *Client)
+					SetDecoder(fn DecoderFunc)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetEncoder">
+					func
+					(self *Client)
+					SetEncoder(fn EncoderFunc)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetErrorDecoder">
+					func
+					(self *Client)
+					SetErrorDecoder(fn ErrorDecoderFunc)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetHeader">
+					func
+					(self *Client)
+					SetHeader(name string, value interface{})
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetInsecureTLS">
+					func
+					(self *Client)
+					SetInsecureTLS(insecure bool)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetParam">
+					func
+					(self *Client)
+					SetParam(name string, value interface{})
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetPostRequestHook">
+					func
+					(self *Client)
+					SetPostRequestHook(fn InterceptResponseFunc)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetPreRequestHook">
+					func
+					(self *Client)
+					SetPreRequestHook(fn InterceptRequestFunc)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetRootCA">
+					func
+					(self *Client)
+					SetRootCA(pemFilenamesOrData ...interface{}) error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.URI">
+					func
+					(self *Client)
+					URI() *url.URL
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.WithDecoder">
+					func
+					(self *Client)
+					WithDecoder(fn DecoderFunc) *Client
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.WithEncoder">
+					func
+					(self *Client)
+					WithEncoder(fn EncoderFunc) *Client
+				</a>
+				</strong>
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#DecoderFunc">type DecoderFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#EncoderFunc">type EncoderFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#ErrorDecoderFunc">type ErrorDecoderFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#InterceptRequestFunc">type InterceptRequestFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#InterceptResponseFunc">type InterceptResponseFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#LogLevel">type LogLevel int</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Method">type Method string</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#MultipartFormFile">type MultipartFormFile</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#RequestLogger">type RequestLogger</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			<li>
+				
+				<a href="#RequestLogger.NewRequestLogger">
+					func NewRequestLogger() *RequestLogger
+				</a>
+				
+			</li>
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#RequestLogger.ServeHTTP">
+					func
+					(self *RequestLogger)
+					ServeHTTP(rw http.ResponseWriter, req *http.Request, next http.HandlerFunc)
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#RequestParseFunc">type RequestParseFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#WritableLogger">type WritableLogger</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			<li>
+				
+				<a href="#WritableLogger.NewWritableLogger">
+					func NewWritableLogger(level LogLevel, prefix ...string) *WritableLogger
+				</a>
+				
+			</li>
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#WritableLogger.Write">
+					func
+					(self *WritableLogger)
+					Write(p []byte) (int, error)
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+<h4 id="pkg-examples">
+	Examples
+	<a class="permalink" href="#pkg-examples">&#182;</a>
+</h4>
+
+<ul class="list-unstyled">
+	
+	<li>
+		<a
+			href="#example-IsMediaType--MediaTypePrefix"
+			onclick="
+				$('#ex-IsMediaType--MediaTypePrefix')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			IsMediaType (MediaTypePrefix)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-IsMediaType--MultipleMediaTypes"
+			onclick="
+				$('#ex-IsMediaType--MultipleMediaTypes')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			IsMediaType (MultipleMediaTypes)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-IsMediaType--NonMatchingPrefix"
+			onclick="
+				$('#ex-IsMediaType--NonMatchingPrefix')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			IsMediaType (NonMatchingPrefix)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-IsMediaType--SingleMediaType"
+			onclick="
+				$('#ex-IsMediaType--SingleMediaType')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			IsMediaType (SingleMediaType)
+		</a>
+	</li>
+	
+</ul>
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="client.go">client.go</a>
+			
+		</td>
+		<td class="text-right">12KB</td>
+		<td class="text-right">308</td>
+		<td class="text-right">28</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="client_test.go">client_test.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">119</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="codecs.go">codecs.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">109</td>
+		<td class="text-right">3</td>
+		<td class="text-right">6</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="context.go">context.go</a>
+			
+		</td>
+		<td class="text-right">611B</td>
+		<td class="text-right">18</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="context_test.go">context_test.go</a>
+			
+		</td>
+		<td class="text-right">621B</td>
+		<td class="text-right">17</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="decoders.go">decoders.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">41</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="decoders_test.go">decoders_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="logger.go">logger.go</a>
+			
+		</td>
+		<td class="text-right">965B</td>
+		<td class="text-right">41</td>
+		<td class="text-right">2</td>
+		<td class="text-right">2</td>
+		<td class="text-right">6</td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="querystrings.go">querystrings.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">116</td>
+		<td class="text-right">13</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="querystrings_test.go">querystrings_test.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">51</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="request_logger_middleware.go">request_logger_middleware.go</a>
+			
+		</td>
+		<td class="text-right">678B</td>
+		<td class="text-right">23</td>
+		<td class="text-right">2</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="responses.go">responses.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">116</td>
+		<td class="text-right">12</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="responses_test.go">responses_test.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">44</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="types.go">types.go</a>
+			
+		</td>
+		<td class="text-right">373B</td>
+		<td class="text-right">18</td>
+		<td class="text-right">1</td>
+		<td class="text-right">1</td>
+		<td class="text-right">7</td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="util.go">util.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">76</td>
+		<td class="text-right">5</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="util_test.go">util_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">48</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="Debug">Debug  </span> = iota
+const <span id="Delete">Delete </span> = `DELETE`
+const <span id="Error">Error  </span> = 
+const <span id="Fatal">Fatal  </span> = 
+const <span id="Get">Get    </span> = `GET`
+const <span id="Head">Head   </span> = `HEAD`
+const <span id="Info">Info   </span> = 
+const <span id="Notice">Notice </span> = 
+const <span id="Options">Options</span> = `OPTIONS`
+const <span id="Patch">Patch  </span> = `PATCH`
+const <span id="Post">Post   </span> = `POST`
+const <span id="Put">Put    </span> = `PUT`
+const <span id="Warning">Warning</span> = 
+</pre>
+</div>
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="DefaultMultipartFormFileField">DefaultMultipartFormFileField</span> = `filename`
+var <span id="FormUnmarshalStructTag">FormUnmarshalStructTag       </span> = `json`
+var <span id="Logger">Logger                       </span> = logging.MustGetLogger(`httputil`)
+var <span id="WaitForPollInterval">WaitForPollInterval          </span> = time.Second
+</pre>
+</div>
+
+
+
+
+
+<h3 id="AddQ" data-kind="f">
+	func <a title="View Source" href="">AddQ</a>
+	<a class="permalink" href="#AddQ">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func AddQ(u *url.URL, key string, value interface{})</pre>
+</div>
+
+
+<p><p>Appends a query string from then given url.URL</p>
+</p>
+
+
+<h3 id="AddQString" data-kind="f">
+	func <a title="View Source" href="">AddQString</a>
+	<a class="permalink" href="#AddQString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func AddQString(u string, key string, value interface{}) string</pre>
+</div>
+
+
+<p><p>A version of AddQ that accepts a URL string and makes a best-effort to modify it.<br>Will return the modified URL or the original URL if an error occurred.</p>
+</p>
+
+
+<h3 id="DecodeResponse" data-kind="f">
+	func <a title="View Source" href="">DecodeResponse</a>
+	<a class="permalink" href="#DecodeResponse">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DecodeResponse(response *http.Response) (io.Reader, error)</pre>
+</div>
+
+
+<p><p>Takes an http.Response and returns an io.Reader that will return the contents<br>of the Response Body decoded according to the values (if any) of the Content-Encoding<br>response header.</p>
+</p>
+
+
+<h3 id="DelQ" data-kind="f">
+	func <a title="View Source" href="">DelQ</a>
+	<a class="permalink" href="#DelQ">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DelQ(u *url.URL, key string)</pre>
+</div>
+
+
+<p><p>Deletes a query string from then given url.URL</p>
+</p>
+
+
+<h3 id="DelQString" data-kind="f">
+	func <a title="View Source" href="">DelQString</a>
+	<a class="permalink" href="#DelQString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DelQString(u string, key string) string</pre>
+</div>
+
+
+<p><p>A version of DelQ that accepts a URL string and makes a best-effort to modify it.<br>Will return the modified URL or the original URL if an error occurred.</p>
+</p>
+
+
+<h3 id="EncodeBasicAuth" data-kind="f">
+	func <a title="View Source" href="">EncodeBasicAuth</a>
+	<a class="permalink" href="#EncodeBasicAuth">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func EncodeBasicAuth(username string, password string) string</pre>
+</div>
+
+
+<p><p>Encode the username and password into a value than can be used in the Authorization HTTP header.</p>
+</p>
+
+
+<h3 id="Is1xx" data-kind="f">
+	func <a title="View Source" href="">Is1xx</a>
+	<a class="permalink" href="#Is1xx">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Is1xx(code int) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given status code is 100 &lt;= s &lt;= 199</p>
+</p>
+
+
+<h3 id="Is2xx" data-kind="f">
+	func <a title="View Source" href="">Is2xx</a>
+	<a class="permalink" href="#Is2xx">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Is2xx(code int) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given status code is 200 &lt;= s &lt;= 299</p>
+</p>
+
+
+<h3 id="Is3xx" data-kind="f">
+	func <a title="View Source" href="">Is3xx</a>
+	<a class="permalink" href="#Is3xx">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Is3xx(code int) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given status code is 300 &lt;= s &lt;= 399</p>
+</p>
+
+
+<h3 id="Is4xx" data-kind="f">
+	func <a title="View Source" href="">Is4xx</a>
+	<a class="permalink" href="#Is4xx">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Is4xx(code int) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given status code is 400 &lt;= s &lt;= 499</p>
+</p>
+
+
+<h3 id="Is5xx" data-kind="f">
+	func <a title="View Source" href="">Is5xx</a>
+	<a class="permalink" href="#Is5xx">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Is5xx(code int) bool</pre>
+</div>
+
+
+<p><p>Returns whether the given status code is 500 &lt;= s &lt;= 599</p>
+</p>
+
+
+<h3 id="IsHttpErr" data-kind="f">
+	func <a title="View Source" href="">IsHttpErr</a>
+	<a class="permalink" href="#IsHttpErr">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsHttpErr(err error) bool</pre>
+</div>
+
+
+
+<h3 id="IsMediaType" data-kind="f">
+	func <a title="View Source" href="">IsMediaType</a>
+	<a class="permalink" href="#IsMediaType">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsMediaType(req *http.Request, mediaTypes ...string) bool</pre>
+</div>
+
+
+<p><p>Returns whether the Content-Type of the given request matches any of the supplied options.<br>The mediaTypes arguments may be either complete media types (e.g.: “text/html”, “application/javascript”)<br>or major type classes (e.g.: “text/”, “video/”).  The trailing slash (/) indicates that any media type<br>that begins with that text will match.</p>
+</p>
+
+
+<h3 id="JSONDecoder" data-kind="f">
+	func <a title="View Source" href="">JSONDecoder</a>
+	<a class="permalink" href="#JSONDecoder">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func JSONDecoder(in io.Reader, out interface{}) error</pre>
+</div>
+
+
+
+<h3 id="JSONEncoder" data-kind="f">
+	func <a title="View Source" href="">JSONEncoder</a>
+	<a class="permalink" href="#JSONEncoder">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func JSONEncoder(in interface{}) (io.Reader, error)</pre>
+</div>
+
+
+
+<h3 id="LoadCertPool" data-kind="f">
+	func <a title="View Source" href="">LoadCertPool</a>
+	<a class="permalink" href="#LoadCertPool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func LoadCertPool(filename string) (*x509.CertPool, error)</pre>
+</div>
+
+
+<p><p>Loads certificates from the given file and returns a usable x509.CertPool</p>
+</p>
+
+
+<h3 id="MediaType" data-kind="f">
+	func <a title="View Source" href="">MediaType</a>
+	<a class="permalink" href="#MediaType">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MediaType(req *http.Request) string</pre>
+</div>
+
+
+<p><p>Returns the media type from the request’s Content-Type.</p>
+</p>
+
+
+<h3 id="MultipartFormEncoder" data-kind="f">
+	func <a title="View Source" href="">MultipartFormEncoder</a>
+	<a class="permalink" href="#MultipartFormEncoder">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MultipartFormEncoder(in interface{}) (io.Reader, error)</pre>
+</div>
+
+
+<p><p>Specifies that the given data should be encoded as a multipart/form-data request.</p>
+</p>
+
+
+<h3 id="ParseFormRequest" data-kind="f">
+	func <a title="View Source" href="">ParseFormRequest</a>
+	<a class="permalink" href="#ParseFormRequest">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseFormRequest(req *http.Request, into interface{}) error</pre>
+</div>
+
+
+<p><p>Parses the form values for a Request and unmarshals into the given value.</p>
+</p>
+
+
+<h3 id="ParseFormValues" data-kind="f">
+	func <a title="View Source" href="">ParseFormValues</a>
+	<a class="permalink" href="#ParseFormValues">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseFormValues(formValues url.Values, into interface{}) error</pre>
+</div>
+
+
+<p><p>Parses a set of values received from an HTML form (usually the value of the<br>http.Request.Form property) and unmarshals into the given value.</p>
+</p>
+
+
+<h3 id="ParseJSON" data-kind="f">
+	func <a title="View Source" href="">ParseJSON</a>
+	<a class="permalink" href="#ParseJSON">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseJSON(r io.Reader, into interface{}) error</pre>
+</div>
+
+
+<p><p>Parses a given reader as a JSON document and unmarshals into the given value.</p>
+</p>
+
+
+<h3 id="ParseJSONRequest" data-kind="f">
+	func <a title="View Source" href="">ParseJSONRequest</a>
+	<a class="permalink" href="#ParseJSONRequest">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseJSONRequest(req *http.Request, into interface{}) error</pre>
+</div>
+
+
+<p><p>Parses the Request as JSON and unmarshals into the given value.</p>
+</p>
+
+
+<h3 id="ParseRequest" data-kind="f">
+	func <a title="View Source" href="">ParseRequest</a>
+	<a class="permalink" href="#ParseRequest">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseRequest(req *http.Request, into interface{}) error</pre>
+</div>
+
+
+<p><p>Autodetect the Content-Type of the given request and unmarshals into the<br>given value.</p>
+</p>
+
+
+<h3 id="Q" data-kind="f">
+	func <a title="View Source" href="">Q</a>
+	<a class="permalink" href="#Q">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Q(req *http.Request, key string, fallbacks ...string) string</pre>
+</div>
+
+
+<p><p>Parses the named query string from a request as a string.</p>
+</p>
+
+
+<h3 id="QBool" data-kind="f">
+	func <a title="View Source" href="">QBool</a>
+	<a class="permalink" href="#QBool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func QBool(req *http.Request, key string, fallbacks ...bool) bool</pre>
+</div>
+
+
+<p><p>Parses the named query string from a request as a boolean value.</p>
+</p>
+
+
+<h3 id="QDuration" data-kind="f">
+	func <a title="View Source" href="">QDuration</a>
+	<a class="permalink" href="#QDuration">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func QDuration(req *http.Request, key string) time.Duration</pre>
+</div>
+
+
+<p><p>Parses the named query string from a request as a duration string.</p>
+</p>
+
+
+<h3 id="QFloat" data-kind="f">
+	func <a title="View Source" href="">QFloat</a>
+	<a class="permalink" href="#QFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func QFloat(req *http.Request, key string, fallbacks ...float64) float64</pre>
+</div>
+
+
+<p><p>Parses the named query string from a request as a float.</p>
+</p>
+
+
+<h3 id="QInt" data-kind="f">
+	func <a title="View Source" href="">QInt</a>
+	<a class="permalink" href="#QInt">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func QInt(req *http.Request, key string, fallbacks ...int64) int64</pre>
+</div>
+
+
+<p><p>Parses the named query string from a request as an integer.</p>
+</p>
+
+
+<h3 id="QStrings" data-kind="f">
+	func <a title="View Source" href="">QStrings</a>
+	<a class="permalink" href="#QStrings">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func QStrings(req *http.Request, key string, delimiter string, fallbacks ...string) []string</pre>
+</div>
+
+
+<p><p>Parses the named query string from a request as a delimiter-separated string slice.</p>
+</p>
+
+
+<h3 id="QTime" data-kind="f">
+	func <a title="View Source" href="">QTime</a>
+	<a class="permalink" href="#QTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func QTime(req *http.Request, key string) time.Time</pre>
+</div>
+
+
+<p><p>Parses the named query string from a request as a date/time value.</p>
+</p>
+
+
+<h3 id="RequestGetValue" data-kind="f">
+	func <a title="View Source" href="">RequestGetValue</a>
+	<a class="permalink" href="#RequestGetValue">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RequestGetValue(req *http.Request, key string) typeutil.Variant</pre>
+</div>
+
+
+<p><p>Retrieve an arbitrary value from the context of a given request.</p>
+</p>
+
+
+<h3 id="RequestSetValue" data-kind="f">
+	func <a title="View Source" href="">RequestSetValue</a>
+	<a class="permalink" href="#RequestSetValue">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RequestSetValue(req *http.Request, key string, value interface{})</pre>
+</div>
+
+
+<p><p>attach an arbitrary value to the context of a given request.</p>
+</p>
+
+
+<h3 id="RespondJSON" data-kind="f">
+	func <a title="View Source" href="">RespondJSON</a>
+	<a class="permalink" href="#RespondJSON">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RespondJSON(w http.ResponseWriter, data interface{}, status ...int)</pre>
+</div>
+
+
+<p><p>Marshal the given data as a JSON document and write the output to the given ResponseWriter. If<br>a status is given, that will be used as the HTTP response status.  If data is an error, and no<br>status is given, the status will be “500 Internal Server Error”; if data is nil, the status will<br>be “204 No Content”.  The Content-Type of the response is “application/json”.</p>
+</p>
+
+
+<h3 id="SetContentTypeParser" data-kind="f">
+	func <a title="View Source" href="">SetContentTypeParser</a>
+	<a class="permalink" href="#SetContentTypeParser">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetContentTypeParser(contentType string, parser RequestParseFunc)</pre>
+</div>
+
+
+<p><p>Sets a parser implementation for the given HTTP content type.</p>
+</p>
+
+
+<h3 id="SetQ" data-kind="f">
+	func <a title="View Source" href="">SetQ</a>
+	<a class="permalink" href="#SetQ">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetQ(u *url.URL, key string, value interface{})</pre>
+</div>
+
+
+<p><p>Sets a query string to the given value in the given url.URL</p>
+</p>
+
+
+<h3 id="SetQString" data-kind="f">
+	func <a title="View Source" href="">SetQString</a>
+	<a class="permalink" href="#SetQString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetQString(u string, key string, value interface{}) string</pre>
+</div>
+
+
+<p><p>A version of SetQ that accepts a URL string and makes a best-effort to modify it.<br>Will return the modified URL or the original URL if an error occurred.</p>
+</p>
+
+
+<h3 id="SetRootCABundle" data-kind="f">
+	func <a title="View Source" href="">SetRootCABundle</a>
+	<a class="permalink" href="#SetRootCABundle">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SetRootCABundle(client *http.Client, caBundle string) error</pre>
+</div>
+
+
+<p><p>Configures the given http.Client to accept TLS certificates validated by the given PEM-encoded CA bundle file</p>
+</p>
+
+
+<h3 id="WaitForHTTP" data-kind="f">
+	func <a title="View Source" href="">WaitForHTTP</a>
+	<a class="permalink" href="#WaitForHTTP">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WaitForHTTP(url string, timeout time.Duration, c ...*http.Client) error</pre>
+</div>
+
+
+<p><p>Periodically performs a GET request against the given URL, waiting up to timeout<br>for a 200-series HTTP response code.</p>
+</p>
+
+
+
+
+
+<h3 id="Client" data-kind="t">
+	type
+	<a title="View Source" href="">Client</a>
+	<a class="permalink" href="#Client">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type Client struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="NewClient" data-kind="f">
+	func <a title="View Source" href="">NewClient</a>
+	<a class="permalink" href="#NewClient">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewClient(baseURI string) (*Client, error)</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="Client.AppendTrustedRootCA" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">AppendTrustedRootCA</a>
+	<a class="permalink" href="#AppendTrustedRootCA">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) AppendTrustedRootCA(pemFilenamesOrData ...interface{}) error</pre>
+</div>
+
+<p><p>Append one or more trusted certificates to the RootCA bundle that is consulted when performing HTTPS requests.</p>
+</p>
+
+
+
+
+<h4 id="Client.ClearHeaders" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">ClearHeaders</a>
+	<a class="permalink" href="#ClearHeaders">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) ClearHeaders()</pre>
+</div>
+
+<p><p>Remove all implicit HTTP request headers.</p>
+</p>
+
+
+
+
+<h4 id="Client.ClearParams" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">ClearParams</a>
+	<a class="permalink" href="#ClearParams">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) ClearParams()</pre>
+</div>
+
+<p><p>Remove all implicit querystring parameters.</p>
+</p>
+
+
+
+
+<h4 id="Client.Client" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">Client</a>
+	<a class="permalink" href="#Client">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) Client() *http.Client</pre>
+</div>
+
+<p><p>Returns the HTTP client used to perform requests</p>
+</p>
+
+
+
+
+<h4 id="Client.Decode" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">Decode</a>
+	<a class="permalink" href="#Decode">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) Decode(r io.Reader, out interface{}) error</pre>
+</div>
+
+<p><p>Decode a response and, if applicable, automatically close the reader.</p>
+</p>
+
+
+
+
+<h4 id="Client.Delete" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">Delete</a>
+	<a class="permalink" href="#Delete">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) Delete(path string, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)</pre>
+</div>
+
+
+
+
+<h4 id="Client.Encode" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">Encode</a>
+	<a class="permalink" href="#Encode">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) Encode(in interface{}) ([]byte, error)</pre>
+</div>
+
+
+
+
+<h4 id="Client.Get" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">Get</a>
+	<a class="permalink" href="#Get">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) Get(path string, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)</pre>
+</div>
+
+
+
+
+<h4 id="Client.GetWithBody" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">GetWithBody</a>
+	<a class="permalink" href="#GetWithBody">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) GetWithBody(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)</pre>
+</div>
+
+
+
+
+
+
+<h4 id="Client.Post" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">Post</a>
+	<a class="permalink" href="#Post">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) Post(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)</pre>
+</div>
+
+
+
+
+<h4 id="Client.Put" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">Put</a>
+	<a class="permalink" href="#Put">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) Put(path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)</pre>
+</div>
+
+
+
+
+<h4 id="Client.Request" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">Request</a>
+	<a class="permalink" href="#Request">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) Request(method Method, path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)</pre>
+</div>
+
+<p><p>Perform an HTTP request</p>
+</p>
+
+
+
+
+<h4 id="Client.SetBasicAuth" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetBasicAuth</a>
+	<a class="permalink" href="#SetBasicAuth">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetBasicAuth(username string, password string)</pre>
+</div>
+
+<p><p>Set the username and password to be included in the Authorization header.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetClient" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetClient</a>
+	<a class="permalink" href="#SetClient">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetClient(client *http.Client)</pre>
+</div>
+
+<p><p>Replace the default HTTP client with a user-provided one</p>
+</p>
+
+
+
+
+<h4 id="Client.SetDecoder" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetDecoder</a>
+	<a class="permalink" href="#SetDecoder">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetDecoder(fn DecoderFunc)</pre>
+</div>
+
+<p><p>Specify a decoder that will be used to deserialize data in the response body.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetEncoder" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetEncoder</a>
+	<a class="permalink" href="#SetEncoder">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetEncoder(fn EncoderFunc)</pre>
+</div>
+
+<p><p>Specify an encoder that will be used to serialize data in the request body.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetErrorDecoder" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetErrorDecoder</a>
+	<a class="permalink" href="#SetErrorDecoder">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetErrorDecoder(fn ErrorDecoderFunc)</pre>
+</div>
+
+<p><p>Specify a different decoder used to deserialize non 2xx/3xx HTTP responses.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetHeader" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetHeader</a>
+	<a class="permalink" href="#SetHeader">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetHeader(name string, value interface{})</pre>
+</div>
+
+<p><p>Add an HTTP request header by name that will be included in every request. If<br>value is nil, the named header will be removed instead.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetInsecureTLS" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetInsecureTLS</a>
+	<a class="permalink" href="#SetInsecureTLS">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetInsecureTLS(insecure bool)</pre>
+</div>
+
+<p><p>Set or unset insecure TLS requests that will proceed even if the peer certificate cannot be verified.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetParam" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetParam</a>
+	<a class="permalink" href="#SetParam">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetParam(name string, value interface{})</pre>
+</div>
+
+<p><p>Add a querystring parameter by name that will be included in every request. If<br>value is nil, the parameter will be removed instead.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetPostRequestHook" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetPostRequestHook</a>
+	<a class="permalink" href="#SetPostRequestHook">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetPostRequestHook(fn InterceptResponseFunc)</pre>
+</div>
+
+<p><p>Specify a function tht will be called immediately after a response is received.<br>This function is given the first opportunity to inspect the response, and if it<br>returns a non-nil error, no additional processing (including the Error Decoder function)<br>will be performed.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetPreRequestHook" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetPreRequestHook</a>
+	<a class="permalink" href="#SetPreRequestHook">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetPreRequestHook(fn InterceptRequestFunc)</pre>
+</div>
+
+<p><p>Specify a function that will be called immediately before a request is sent.<br>This function has an opportunity to read and modify the outgoing request, and<br>if it returns a non-nil error, the request will not be sent.</p>
+</p>
+
+
+
+
+<h4 id="Client.SetRootCA" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetRootCA</a>
+	<a class="permalink" href="#SetRootCA">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetRootCA(pemFilenamesOrData ...interface{}) error</pre>
+</div>
+
+<p><p>Replace the existing RootCA bundle with an explicit set of trusted certificates.</p>
+</p>
+
+
+
+
+<h4 id="Client.URI" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">URI</a>
+	<a class="permalink" href="#URI">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) URI() *url.URL</pre>
+</div>
+
+<p><p>Return the base URI for this client.</p>
+</p>
+
+
+
+
+<h4 id="Client.WithDecoder" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">WithDecoder</a>
+	<a class="permalink" href="#WithDecoder">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) WithDecoder(fn DecoderFunc) *Client</pre>
+</div>
+
+<p><p>Return a copy of the current client that uses a different decoder.</p>
+</p>
+
+
+
+
+<h4 id="Client.WithEncoder" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">WithEncoder</a>
+	<a class="permalink" href="#WithEncoder">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) WithEncoder(fn EncoderFunc) *Client</pre>
+</div>
+
+<p><p>Return a copy of the current client that uses a different encoder.</p>
+</p>
+
+
+
+
+<h3 id="DecoderFunc" data-kind="t">
+	type
+	<a title="View Source" href="">DecoderFunc</a>
+	<a class="permalink" href="#DecoderFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type DecoderFunc func(io.Reader, interface{}) error</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="EncoderFunc" data-kind="t">
+	type
+	<a title="View Source" href="">EncoderFunc</a>
+	<a class="permalink" href="#EncoderFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type EncoderFunc func(interface{}) (io.Reader, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="ErrorDecoderFunc" data-kind="t">
+	type
+	<a title="View Source" href="">ErrorDecoderFunc</a>
+	<a class="permalink" href="#ErrorDecoderFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ErrorDecoderFunc func(*http.Response) error</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="InterceptRequestFunc" data-kind="t">
+	type
+	<a title="View Source" href="">InterceptRequestFunc</a>
+	<a class="permalink" href="#InterceptRequestFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type InterceptRequestFunc func(*http.Request) (interface{}, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="InterceptResponseFunc" data-kind="t">
+	type
+	<a title="View Source" href="">InterceptResponseFunc</a>
+	<a class="permalink" href="#InterceptResponseFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type InterceptResponseFunc func(*http.Response, interface{}) error</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="LogLevel" data-kind="t">
+	type
+	<a title="View Source" href="">LogLevel</a>
+	<a class="permalink" href="#LogLevel">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type LogLevel int</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Method" data-kind="t">
+	type
+	<a title="View Source" href="">Method</a>
+	<a class="permalink" href="#Method">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Method string</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="MultipartFormFile" data-kind="t">
+	type
+	<a title="View Source" href="">MultipartFormFile</a>
+	<a class="permalink" href="#MultipartFormFile">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type MultipartFormFile struct {
+	Filename string    `json:&#34;filename&#34;`
+	Data     io.Reader `json:&#34;data&#34;`
+}</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="RequestLogger" data-kind="t">
+	type
+	<a title="View Source" href="">RequestLogger</a>
+	<a class="permalink" href="#RequestLogger">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type RequestLogger struct{} // Deprecated: this type will go away in 1.9.x
+</pre>
+</div>
+
+
+
+
+<h4 id="NewRequestLogger" data-kind="f">
+	func <a title="View Source" href="">NewRequestLogger</a>
+	<a class="permalink" href="#NewRequestLogger">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewRequestLogger() *RequestLogger</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="RequestLogger.ServeHTTP" data-kind="f">
+	func
+	(self *RequestLogger)
+	<a title="View Source" href="">ServeHTTP</a>
+	<a class="permalink" href="#ServeHTTP">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *RequestLogger) ServeHTTP(rw http.ResponseWriter, req *http.Request, next http.HandlerFunc)</pre>
+</div>
+
+
+
+
+<h3 id="RequestParseFunc" data-kind="t">
+	type
+	<a title="View Source" href="">RequestParseFunc</a>
+	<a class="permalink" href="#RequestParseFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type RequestParseFunc func(*http.Request, interface{}) error</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="WritableLogger" data-kind="t">
+	type
+	<a title="View Source" href="">WritableLogger</a>
+	<a class="permalink" href="#WritableLogger">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type WritableLogger struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+<h4 id="NewWritableLogger" data-kind="f">
+	func <a title="View Source" href="">NewWritableLogger</a>
+	<a class="permalink" href="#NewWritableLogger">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NewWritableLogger(level LogLevel, prefix ...string) *WritableLogger</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="WritableLogger.Write" data-kind="f">
+	func
+	(self *WritableLogger)
+	<a title="View Source" href="">Write</a>
+	<a class="permalink" href="#Write">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *WritableLogger) Write(p []byte) (int, error)</pre>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

@@ -1,0 +1,1371 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">executil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 47%</span>
+<h2 id="pkg-overview">package executil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/executil"</code>
+</p>
+
+
+<p>Utilities that make executing commands on the local system a little bit easier.</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		
+		<a href="#Env">func Env(name string, fallback ...interface{}) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#EnvBool">func EnvBool(name string, fallback ...interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#EnvDuration">func EnvDuration(name string, fallback ...interface{}) time.Duration</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#EnvFloat">func EnvFloat(name string, fallback ...interface{}) float64</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#EnvInt">func EnvInt(name string, fallback ...interface{}) int64</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#EnvTime">func EnvTime(name string, fallback ...interface{}) time.Time</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FindShell">func FindShell() string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsRoot">func IsRoot() bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Join">func Join(in interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#LogOutputFunc">func LogOutputFunc(line string, err bool)</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MustShellOut">func MustShellOut(cmdOrLine string, args ...interface{}) []byte</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#PromptPassword">func PromptPassword(writer io.Writer, fd int, verify bool) (string, bool)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ReadAndVerifyPassword">func ReadAndVerifyPassword() (string, bool)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ReadPassword">func ReadPassword() string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RootOr">func RootOr(ifRoot interface{}, notRoot interface{}) interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RootOrString">func RootOrString(ifRoot interface{}, notRoot interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ShellOut">func ShellOut(cmdOrLine string, args ...interface{}) ([]byte, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ShouldShellOut">func ShouldShellOut(cmdOrLine string, args ...interface{}) []byte</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#TrapSignals">func TrapSignals(after , signals ...os.Signal)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Which">func Which(cmdname string, path ...string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WhichAll">func WhichAll(cmdname string, path ...string) []string</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#Cmd">type Cmd</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.Command">
+					func Command(name string, arg ...string) *Cmd
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.ShellCommand">
+					func ShellCommand(cmdline string) *Cmd
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.Wrap">
+					func Wrap(cmd *exec.Cmd) *Cmd
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.CommandContext">
+					func CommandContext(ctx context.Context, name string, arg ...string) *Cmd
+				</a>
+				
+			</li>
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.CombinedOutput">
+					func
+					(self *Cmd)
+					CombinedOutput() ([]byte, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Cmd.Kill">
+					func
+					(self *Cmd)
+					Kill() error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.Output">
+					func
+					(self *Cmd)
+					Output() ([]byte, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.Run">
+					func
+					(self *Cmd)
+					Run() error
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.SetEnv">
+					func
+					(self *Cmd)
+					SetEnv(key string, value interface{})
+				</a>
+				
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.Start">
+					func
+					(self *Cmd)
+					Start() error
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Cmd.Status">
+					func
+					(self *Cmd)
+					Status() Status
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Cmd.String">
+					func
+					(self *Cmd)
+					String() string
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Cmd.WaitStatus">
+					func
+					(self *Cmd)
+					WaitStatus() Status
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#CommandStatusFunc">type CommandStatusFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#OutputLineFunc">type OutputLineFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Status">type Status</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Status.String">
+					func
+					(self Status)
+					String() string
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Status.Took">
+					func
+					(self Status)
+					Took() time.Duration
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+</ul>
+
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="cmd.go">cmd.go</a>
+			
+		</td>
+		<td class="text-right">11KB</td>
+		<td class="text-right">360</td>
+		<td class="text-right">18</td>
+		<td class="text-right">4</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="cmd_test.go">cmd_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">82</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="env.go">env.go</a>
+			
+		</td>
+		<td class="text-right">938B</td>
+		<td class="text-right">33</td>
+		<td class="text-right">6</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="executil.go">executil.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">97</td>
+		<td class="text-right">8</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="executil_test.go">executil_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">60</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="log.go">log.go</a>
+			
+		</td>
+		<td class="text-right">365B</td>
+		<td class="text-right">18</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="terminal.go">terminal.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">39</td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">3</td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="PasswordPrompt">PasswordPrompt      </span> = `Enter password: `
+var <span id="PasswordVerifyPrompt">PasswordVerifyPrompt</span> = `Verify password: `
+var <span id="PromptWriter">PromptWriter        </span> = os.Stdout
+</pre>
+</div>
+
+
+
+
+
+<h3 id="Env" data-kind="f">
+	func <a title="View Source" href="">Env</a>
+	<a class="permalink" href="#Env">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Env(name string, fallback ...interface{}) string</pre>
+</div>
+
+
+
+<h3 id="EnvBool" data-kind="f">
+	func <a title="View Source" href="">EnvBool</a>
+	<a class="permalink" href="#EnvBool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func EnvBool(name string, fallback ...interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="EnvDuration" data-kind="f">
+	func <a title="View Source" href="">EnvDuration</a>
+	<a class="permalink" href="#EnvDuration">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func EnvDuration(name string, fallback ...interface{}) time.Duration</pre>
+</div>
+
+
+
+<h3 id="EnvFloat" data-kind="f">
+	func <a title="View Source" href="">EnvFloat</a>
+	<a class="permalink" href="#EnvFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func EnvFloat(name string, fallback ...interface{}) float64</pre>
+</div>
+
+
+
+<h3 id="EnvInt" data-kind="f">
+	func <a title="View Source" href="">EnvInt</a>
+	<a class="permalink" href="#EnvInt">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func EnvInt(name string, fallback ...interface{}) int64</pre>
+</div>
+
+
+
+<h3 id="EnvTime" data-kind="f">
+	func <a title="View Source" href="">EnvTime</a>
+	<a class="permalink" href="#EnvTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func EnvTime(name string, fallback ...interface{}) time.Time</pre>
+</div>
+
+
+
+<h3 id="FindShell" data-kind="f">
+	func <a title="View Source" href="">FindShell</a>
+	<a class="permalink" href="#FindShell">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FindShell() string</pre>
+</div>
+
+
+<p><p>Uses environment variables and other configurations to attempt to locate the<br>path to the user’s shell.</p>
+</p>
+
+
+<h3 id="IsRoot" data-kind="f">
+	func <a title="View Source" href="">IsRoot</a>
+	<a class="permalink" href="#IsRoot">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsRoot() bool</pre>
+</div>
+
+
+<p><p>Returns whether the current user is root or not.</p>
+</p>
+
+
+<h3 id="Join" data-kind="f">
+	func <a title="View Source" href="">Join</a>
+	<a class="permalink" href="#Join">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Join(in interface{}) string</pre>
+</div>
+
+
+<p><p>Take an *exec.Cmd or []string and return a shell-executable command line string.</p>
+</p>
+
+
+<h3 id="LogOutputFunc" data-kind="f">
+	func <a title="View Source" href="">LogOutputFunc</a>
+	<a class="permalink" href="#LogOutputFunc">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func LogOutputFunc(line string, err bool)</pre>
+</div>
+
+
+
+<h3 id="MustShellOut" data-kind="f">
+	func <a title="View Source" href="">MustShellOut</a>
+	<a class="permalink" href="#MustShellOut">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MustShellOut(cmdOrLine string, args ...interface{}) []byte</pre>
+</div>
+
+
+<p><p>A panicky version of ShellOut.</p>
+</p>
+
+
+<h3 id="PromptPassword" data-kind="f">
+	func <a title="View Source" href="">PromptPassword</a>
+	<a class="permalink" href="#PromptPassword">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func PromptPassword(writer io.Writer, fd int, verify bool) (string, bool)</pre>
+</div>
+
+
+<p><p>Generic password prompt that takes the input file descriptor and verify flag as options.</p>
+</p>
+
+
+<h3 id="ReadAndVerifyPassword" data-kind="f">
+	func <a title="View Source" href="">ReadAndVerifyPassword</a>
+	<a class="permalink" href="#ReadAndVerifyPassword">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReadAndVerifyPassword() (string, bool)</pre>
+</div>
+
+
+<p><p>Read a password from standard input, disabling echo and prompting twice.  The<br>second return argument is falseif the two passwords do not match.</p>
+</p>
+
+
+<h3 id="ReadPassword" data-kind="f">
+	func <a title="View Source" href="">ReadPassword</a>
+	<a class="permalink" href="#ReadPassword">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReadPassword() string</pre>
+</div>
+
+
+<p><p>Read a password from standard input, disabling echo.</p>
+</p>
+
+
+<h3 id="RootOr" data-kind="f">
+	func <a title="View Source" href="">RootOr</a>
+	<a class="permalink" href="#RootOr">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RootOr(ifRoot interface{}, notRoot interface{}) interface{}</pre>
+</div>
+
+
+<p><p>Returns the first argument if the current user is root, and the second if not.</p>
+</p>
+
+
+<h3 id="RootOrString" data-kind="f">
+	func <a title="View Source" href="">RootOrString</a>
+	<a class="permalink" href="#RootOrString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RootOrString(ifRoot interface{}, notRoot interface{}) string</pre>
+</div>
+
+
+<p><p>The same as RootOr, but returns a string.</p>
+</p>
+
+
+<h3 id="ShellOut" data-kind="f">
+	func <a title="View Source" href="">ShellOut</a>
+	<a class="permalink" href="#ShellOut">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ShellOut(cmdOrLine string, args ...interface{}) ([]byte, error)</pre>
+</div>
+
+
+<p><p>Run a command and return the standard output.  If the first argument contains<br>a command and its arguments, it will be executed in the user’s shell using FindShell.<br>Otherwise, the first argument will be treated as a command and the remaining arguments<br>will be passed in parameterized.</p>
+</p>
+
+
+<h3 id="ShouldShellOut" data-kind="f">
+	func <a title="View Source" href="">ShouldShellOut</a>
+	<a class="permalink" href="#ShouldShellOut">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ShouldShellOut(cmdOrLine string, args ...interface{}) []byte</pre>
+</div>
+
+
+<p><p>Attempts to call ShellOut, but will return nil if there is an error.  Does not panic.</p>
+</p>
+
+
+<h3 id="TrapSignals" data-kind="f">
+	func <a title="View Source" href="">TrapSignals</a>
+	<a class="permalink" href="#TrapSignals">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func TrapSignals(after , signals ...os.Signal)</pre>
+</div>
+
+
+<p><p>Registers a list of OS signals to intercept and provides an opportunity to run<br>a function before the program exits.</p>
+</p>
+
+
+<h3 id="Which" data-kind="f">
+	func <a title="View Source" href="">Which</a>
+	<a class="permalink" href="#Which">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Which(cmdname string, path ...string) string</pre>
+</div>
+
+
+<p><p>Locates the first path containing the given command. The directories listed<br>in the environment variable “PATH” will be checked, in order.  If additional<br>directories are specified in the path variadic argument, they will be checked<br>first.  If the command is not in any path, an empty string will be returned.</p>
+</p>
+
+
+<h3 id="WhichAll" data-kind="f">
+	func <a title="View Source" href="">WhichAll</a>
+	<a class="permalink" href="#WhichAll">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WhichAll(cmdname string, path ...string) []string</pre>
+</div>
+
+
+<p><p>Locates the all paths containing the given command. The directories listed<br>in the environment variable “PATH” will be checked, in order.  If additional<br>directories are specified in the path variadic argument, they will be checked<br>first.  If the command is not in any path, an empty slice will be returned.</p>
+</p>
+
+
+
+
+
+<h3 id="Cmd" data-kind="t">
+	type
+	<a title="View Source" href="">Cmd</a>
+	<a class="permalink" href="#Cmd">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type Cmd struct {
+	*exec.Cmd
+	MonitorInterval time.Duration
+	Timeout         time.Duration
+	InheritEnv      bool
+	OnStart         CommandStatusFunc
+	OnMonitor       CommandStatusFunc
+	OnComplete      CommandStatusFunc
+	OnSuccess       CommandStatusFunc
+	OnError         CommandStatusFunc
+	OnStdout        OutputLineFunc
+	OnStderr        OutputLineFunc
+	StdoutSplitFunc bufio.SplitFunc
+	StderrSplitFunc bufio.SplitFunc
+
+}// A wrapper for exec.Cmd that provides helpful callbacks and monitoring details that are challenging
+// to implement.
+
+</pre>
+</div>
+
+
+
+
+
+
+<h4 id="Command" data-kind="f">
+	func <a title="View Source" href="">Command</a>
+	<a class="permalink" href="#Command">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Command(name string, arg ...string) *Cmd</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="ShellCommand" data-kind="f">
+	func <a title="View Source" href="">ShellCommand</a>
+	<a class="permalink" href="#ShellCommand">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ShellCommand(cmdline string) *Cmd</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="Wrap" data-kind="f">
+	func <a title="View Source" href="">Wrap</a>
+	<a class="permalink" href="#Wrap">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Wrap(cmd *exec.Cmd) *Cmd</pre>
+</div>
+
+
+
+
+<h4 id="CommandContext" data-kind="f">
+	func <a title="View Source" href="">CommandContext</a>
+	<a class="permalink" href="#CommandContext">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CommandContext(ctx context.Context, name string, arg ...string) *Cmd</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="Cmd.CombinedOutput" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">CombinedOutput</a>
+	<a class="permalink" href="#CombinedOutput">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) CombinedOutput() ([]byte, error)</pre>
+</div>
+
+
+
+
+
+
+<h4 id="Cmd.Kill" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">Kill</a>
+	<a class="permalink" href="#Kill">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) Kill() error</pre>
+</div>
+
+<p><p>Kill the running command.</p>
+</p>
+
+
+
+
+<h4 id="Cmd.Output" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">Output</a>
+	<a class="permalink" href="#Output">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) Output() ([]byte, error)</pre>
+</div>
+
+
+
+
+<h4 id="Cmd.Run" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">Run</a>
+	<a class="permalink" href="#Run">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) Run() error</pre>
+</div>
+
+
+
+
+<h4 id="Cmd.SetEnv" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">SetEnv</a>
+	<a class="permalink" href="#SetEnv">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) SetEnv(key string, value interface{})</pre>
+</div>
+
+
+
+
+
+
+<h4 id="Cmd.Start" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">Start</a>
+	<a class="permalink" href="#Start">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) Start() error</pre>
+</div>
+
+
+
+
+<h4 id="Cmd.Status" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">Status</a>
+	<a class="permalink" href="#Status">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) Status() Status</pre>
+</div>
+
+<p><p>Return the current status of the process.</p>
+</p>
+
+
+
+
+<h4 id="Cmd.String" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) String() string</pre>
+</div>
+
+
+
+
+<h4 id="Cmd.WaitStatus" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">WaitStatus</a>
+	<a class="permalink" href="#WaitStatus">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) WaitStatus() Status</pre>
+</div>
+
+<p><p>Wait for the process to complete, then return the last status.<br>Process must have been started using the Start() function.</p>
+</p>
+
+
+
+
+
+
+
+
+<h3 id="CommandStatusFunc" data-kind="t">
+	type
+	<a title="View Source" href="">CommandStatusFunc</a>
+	<a class="permalink" href="#CommandStatusFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type CommandStatusFunc func(Status)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="OutputLineFunc" data-kind="t">
+	type
+	<a title="View Source" href="">OutputLineFunc</a>
+	<a class="permalink" href="#OutputLineFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type OutputLineFunc func(string, bool)</pre>
+</div>
+
+
+
+
+<h4 id="LogOutput" data-kind="f">
+	func <a title="View Source" href="">LogOutput</a>
+	<a class="permalink" href="#LogOutput">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h3 id="Status" data-kind="t">
+	type
+	<a title="View Source" href="">Status</a>
+	<a class="permalink" href="#Status">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Status struct {
+	StartedAt  time.Time
+	StoppedAt  time.Time
+	Running    bool
+	Successful bool
+	ExitCode   int
+	Error      error
+	PID        int
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="Status.String" data-kind="f">
+	func
+	(self Status)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Status) String() string</pre>
+</div>
+
+
+
+
+<h4 id="Status.Took" data-kind="f">
+	func
+	(self Status)
+	<a title="View Source" href="">Took</a>
+	<a class="permalink" href="#Took">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Status) Took() time.Duration</pre>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

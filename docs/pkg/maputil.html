@@ -1,0 +1,2837 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/go-stockutil/-/bootstrap.min.css">
+        <link rel="stylesheet" href="/go-stockutil/-/site.css">
+
+        <title>go-stockutil - Golang Package Documentation</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/go-stockutil/index.html">
+                        <strong>go-owndoc</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="/go-stockutil/index.html">Home</a>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                Packages
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>
+                                    <a href="/go-stockutil/pkg/colorutil.html">colorutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/convutil.html">convutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/executil.html">executil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/fileutil.html">fileutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/geoutil.html">geoutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/httputil.html">httputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/log.html">log</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/maputil.html">maputil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/mathutil.html">mathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/netutil.html">netutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/pathutil.html">pathutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/rxutil.html">rxutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/sliceutil.html">sliceutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stockutil.html">stockutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/stringutil.html">stringutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/structutil.html">structutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/timeutil.html">timeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/typeutil.html">typeutil</a>
+                                </li>
+                                <li>
+                                    <a href="/go-stockutil/pkg/utils.html">utils</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/module.html">Manifest</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/go-stockutil/-/about.html">About</a>
+                        </li>
+                    </ul>
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-text">
+                            v1.8.50
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+<br>
+<div class="clearfix" id="x-projnav">
+	<a href="https://github.com/ghetzel/go-stockutil"><strong>go-stockutil:</strong></a>
+	
+	<a href="/go-stockutil/pkg/stockutil.html">https://github.com/ghetzel/stockutil</a><span class="text-muted">/</span><span class="text-muted">maputil</span>
+	
+
+	<span class="pull-right">
+		<a href="#pkg-index">Index</a>
+		<span class="text-muted">|</span>
+		<a href="#pkg-files">Files</a>
+	</span>
+</div>
+
+<span class="pull-right">Doc Coverage: 56%</span>
+<h2 id="pkg-overview">package maputil</h2>
+
+<p>
+	<code>import "github.com/ghetzel/go-stockutil/maputil"</code>
+</p>
+
+
+<p>Utilities for converting, manipulating, and iterating over maps</p>
+
+
+
+<h3 id="pkg-index" class="section-header">
+	Index <a class="permalink" href="#pkg-index">&#182;</a>
+</h3>
+
+<ul class="list-unstyled">
+	
+	
+    <li><a href="#pkg-constants">Constants</a></li>
+	
+
+	
+	
+    <li><a href="#pkg-variables">Variables</a></li>
+	
+
+	
+	
+
+	
+	
+    <li>
+		
+		<a href="#Append">func Append(maps ...map[string]interface{}) map[string]interface{}</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Apply">func Apply(input interface{}, fn ApplyFunc) map[string]interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#ApplyStruct">func ApplyStruct(input interface{}, fn ApplyFunc) map[string]interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Autotype">func Autotype(input interface{}) map[string]interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#CoalesceMap">func CoalesceMap(data map[string]interface{}, fieldJoiner string) (map[string]interface{}, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#CoalesceMapTyped">func CoalesceMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Compact">func Compact(input map[string]interface{}) (map[string]interface{}, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DeepCopy">func DeepCopy(input interface{}) map[string]interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DeepCopyStruct">func DeepCopyStruct(input interface{}) map[string]interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#DeepGet">func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interface{}</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#DeepGetBool">func DeepGetBool(data interface{}, path []string) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#DeepGetString">func DeepGetString(data interface{}, path []string) string</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DeepJoin">func DeepJoin(input interface{}, innerJoiner string, outerJoiner string, nestedSeparator string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#DeepSet">func DeepSet(data interface{}, path []string, value interface{}) interface{}</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Delete">func Delete(data interface{}, key interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DiffuseMap">func DiffuseMap(data map[string]interface{}, fieldJoiner string) (map[string]interface{}, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#DiffuseMapTyped">func DiffuseMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Fprintf">func Fprintf(w io.Writer, format string, data ...interface{})</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Get">func Get(data interface{}, key string, fallback ...interface{}) interface{}</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Join">func Join(input interface{}, innerJoiner string, outerJoiner string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Keys">func Keys(input interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#MapValues">func MapValues(input interface{}) []interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Merge">func Merge(first interface{}, second interface{}, options ...MergeOption) (map[string]interface{}, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Pluck">func Pluck(sliceOfMaps interface{}, key []string) []interface{}</a>
+		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Printf">func Printf(format string, data ...interface{})</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Set">func Set(data interface{}, key interface{}, value interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Split">func Split(input string, innerJoiner string, outerJoiner string) map[string]interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Sprintf">func Sprintf(format string, data ...interface{}) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#StringKeys">func StringKeys(input interface{}) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Stringify">func Stringify(input map[string]interface{}) map[string]string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#StructFromMap">func StructFromMap(input map[string]interface{}, populate interface{}) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#TaggedStructFromMap">func TaggedStructFromMap(input interface{}, populate interface{}, tagname string) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#TaggedStructFromMapFunc">func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname string, converter ConversionFunc) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Walk">func Walk(input interface{}, walkFn WalkFunc) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#WalkStruct">func WalkStruct(input interface{}, walkFn WalkFunc) error</a>
+		</strong>
+	</li>
+	
+
+	
+	
+    <li>
+		<a href="#ApplyFunc">type ApplyFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#ConversionFunc">type ConversionFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Item">type Item</a>
+
+		
+		
+		<ul>
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Item.Set">
+					func
+					(self *Item)
+					Set(value interface{}) error
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#ItemFunc">type ItemFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#IterOptions">type IterOptions</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#KeyTransformFunc">type KeyTransformFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Map">type Map</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.M">
+					func M(data interface{}) *Map
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Auto">
+					func
+					(self *Map)
+					Auto(key string, fallbacks ...interface{}) interface{}
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Bool">
+					func
+					(self *Map)
+					Bool(key string) bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Bytes">
+					func
+					(self *Map)
+					Bytes(key string) []byte
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Duration">
+					func
+					(self *Map)
+					Duration(key string, fallbacks ...interface{}) time.Duration
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Each">
+					func
+					(self *Map)
+					Each(fn ItemFunc, tagName ...string) error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Err">
+					func
+					(self *Map)
+					Err(key string) error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Float">
+					func
+					(self *Map)
+					Float(key string, fallbacks ...interface{}) float64
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Fprintf">
+					func
+					(self *Map)
+					Fprintf(w io.Writer, format string)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Get">
+					func
+					(self *Map)
+					Get(key string, fallbacks ...interface{}) typeutil.Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Int">
+					func
+					(self *Map)
+					Int(key string, fallbacks ...interface{}) int64
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.IsZero">
+					func
+					(self *Map)
+					IsZero(key string) bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Map.Iter">
+					func
+					(self *Map)
+					Iter(opts ...IterOptions) 
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Keys">
+					func
+					(self *Map)
+					Keys(tagName ...string) []interface{}
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Len">
+					func
+					(self *Map)
+					Len() int
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Map">
+					func
+					(self *Map)
+					Map(key string, tagName ...string) map[typeutil.Variant]typeutil.Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.MapNative">
+					func
+					(self *Map)
+					MapNative(tagName ...string) map[string]interface{}
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Map.MarshalJSON">
+					func
+					(self *Map)
+					MarshalJSON() ([]byte, error)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.MarshalXML">
+					func
+					(self *Map)
+					MarshalXML(e *xml.Encoder, start xml.StartElement) error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Set">
+					func
+					(self *Map)
+					Set(key string, value interface{}) typeutil.Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.SetIfZero">
+					func
+					(self *Map)
+					SetIfZero(key string, value interface{}) (typeutil.Variant, bool)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Map.SetMarshalXmlGeneric">
+					func
+					(self *Map)
+					SetMarshalXmlGeneric(yes bool)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.SetMarshalXmlKeyFunc">
+					func
+					(self *Map)
+					SetMarshalXmlKeyFunc(fn KeyTransformFunc)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.SetRootTagName">
+					func
+					(self *Map)
+					SetRootTagName(root string)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.SetValueIfNonZero">
+					func
+					(self *Map)
+					SetValueIfNonZero(key string, value interface{}) (typeutil.Variant, bool)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Slice">
+					func
+					(self *Map)
+					Slice(key string) []typeutil.Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Sprintf">
+					func
+					(self *Map)
+					Sprintf(format string) string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.String">
+					func
+					(self *Map)
+					String(key string, fallbacks ...interface{}) string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.StringKeys">
+					func
+					(self *Map)
+					StringKeys(tagName ...string) []string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Strings">
+					func
+					(self *Map)
+					Strings(key string) []string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Tag">
+					func
+					(self *Map)
+					Tag(key string) *Map
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Time">
+					func
+					(self *Map)
+					Time(key string, fallbacks ...interface{}) time.Time
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Map.UnmarshalJSON">
+					func
+					(self *Map)
+					UnmarshalJSON(data []byte) error
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Value">
+					func
+					(self *Map)
+					Value() interface{}
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Walk">
+					func
+					(self *Map)
+					Walk(fn WalkFunc) error
+				</a>
+				</strong>
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#MergeOption">type MergeOption int</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#MergeOptions">type MergeOptions </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#MyStructTester">type MyStructTester</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#MyTestThing">type MyTestThing</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#SubtypeTester">type SubtypeTester</a>
+
+		
+		
+		<ul>
+			
+
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#WalkFunc">type WalkFunc </a>
+
+		
+		
+	</li>
+	
+</ul>
+
+
+<h4 id="pkg-examples">
+	Examples
+	<a class="permalink" href="#pkg-examples">&#182;</a>
+</h4>
+
+<ul class="list-unstyled">
+	
+	<li>
+		<a
+			href="#example-Printf--DeeplyNestedKeys"
+			onclick="
+				$('#ex-Printf--DeeplyNestedKeys')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			Printf (DeeplyNestedKeys)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-Printf--SuppliedWithData"
+			onclick="
+				$('#ex-Printf--SuppliedWithData')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			Printf (SuppliedWithData)
+		</a>
+	</li>
+	
+	<li>
+		<a
+			href="#example-Printf--UsingDefaultValues"
+			onclick="
+				$('#ex-Printf--UsingDefaultValues')
+					.addClass('in')
+					.removeClass('collapse')
+					.height('auto')
+			"
+		>
+			Printf (UsingDefaultValues)
+		</a>
+	</li>
+	
+</ul>
+
+
+
+<h4 id="pkg-files">
+	<a href="https://github.com/ghetzel/go-stockutil">Package Files</a>
+	<a class="permalink" href="#pkg-files">&#182;</a>
+</h4>
+
+<table class="table table-compact table-hover">
+<thead>
+	<tr>
+		<th class="text-left">Filename</th>
+		<th class="text-right">Size</th>
+		<th class="text-right"><abbr title="Source Lines Of Code">SLOC</abbr></th>
+		<th class="text-right"><code>func</code></th>
+		<th class="text-right"><code>type</code></th>
+		<th class="text-right"><code>const</code></th>
+		<th class="text-right"><code>var</code></th>
+	</tr>
+</thead>
+<tbody>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="001_maputil_setters_test.go">001_maputil_setters_test.go</a>
+			
+		</td>
+		<td class="text-right">6KB</td>
+		<td class="text-right">213</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="002_maputil_getters_test.go">002_maputil_getters_test.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">146</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="003_maputil_diffuse_test.go">003_maputil_diffuse_test.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">124</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="004_maputil_diffuse_typed_test.go">004_maputil_diffuse_typed_test.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">158</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="005_maputil_coalesce_test.go">005_maputil_coalesce_test.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">111</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="006_maputil_coalesce_typed_test.go">006_maputil_coalesce_typed_test.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">109</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="007_maputil_general_test.go">007_maputil_general_test.go</a>
+			
+		</td>
+		<td class="text-right">7KB</td>
+		<td class="text-right">266</td>
+		<td class="text-right"></td>
+		<td class="text-right">3</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="008_maputil_walk_test.go">008_maputil_walk_test.go</a>
+			
+		</td>
+		<td class="text-right">6KB</td>
+		<td class="text-right">194</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="009_maputil_pluck_test.go">009_maputil_pluck_test.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">147</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="010_maputil_merge_test.go">010_maputil_merge_test.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">127</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="m.go">m.go</a>
+			
+		</td>
+		<td class="text-right">12KB</td>
+		<td class="text-right">397</td>
+		<td class="text-right">36</td>
+		<td class="text-right">5</td>
+		<td class="text-right"></td>
+		<td class="text-right">2</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="m_test.go">m_test.go</a>
+			
+		</td>
+		<td class="text-right">11KB</td>
+		<td class="text-right">304</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="maputil.go">maputil.go</a>
+			
+		</td>
+		<td class="text-right">26KB</td>
+		<td class="text-right">773</td>
+		<td class="text-right">36</td>
+		<td class="text-right">5</td>
+		<td class="text-right">1</td>
+		<td class="text-right">2</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="maputil_test.go">maputil_test.go</a>
+			
+		</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">162</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+</tbody>
+</table>
+
+
+
+
+<h3 id="pkg-constants">
+	Constants
+	<a class="permalink" href="#pkg-constants">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+const <span id="AppendValues">AppendValues</span> = iota
+</pre>
+</div>
+
+
+
+
+<h3 id="pkg-variables">
+	Variables
+	<a class="permalink" href="#pkg-variables">&#182;</a>
+</h3>
+<div class="decl" data-kind="v">
+	<a title="View Source" href="">&#10070;</a>
+
+	<pre>
+var <span id="MapXmlRootTagName">MapXmlRootTagName  </span> = `data`
+var <span id="MapXmlStructTagName">MapXmlStructTagName</span> = `xml`
+var <span id="SkipDescendants">SkipDescendants    </span> = errors.New(&#34;skip descendants&#34;)
+var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
+</pre>
+</div>
+
+
+
+
+
+<h3 id="Append" data-kind="f">
+	func <a title="View Source" href="">Append</a>
+	<a class="permalink" href="#Append">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Append(maps ...map[string]interface{}) map[string]interface{}</pre>
+</div>
+
+
+
+<h3 id="Apply" data-kind="f">
+	func <a title="View Source" href="">Apply</a>
+	<a class="permalink" href="#Apply">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Apply(input interface{}, fn ApplyFunc) map[string]interface{}</pre>
+</div>
+
+
+<p><p>Recursively walk the given map, calling the ApplyFunc for each leaf value.  If the second<br>return value from the function is true, that value in the struct will be replaced with the first<br>return value.  If false, the value will be left as-is.</p>
+</p>
+
+
+<h3 id="ApplyStruct" data-kind="f">
+	func <a title="View Source" href="">ApplyStruct</a>
+	<a class="permalink" href="#ApplyStruct">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ApplyStruct(input interface{}, fn ApplyFunc) map[string]interface{}</pre>
+</div>
+
+
+<p><p>The same as Apply(), but will descend into structs.</p>
+</p>
+
+
+<h3 id="Autotype" data-kind="f">
+	func <a title="View Source" href="">Autotype</a>
+	<a class="permalink" href="#Autotype">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Autotype(input interface{}) map[string]interface{}</pre>
+</div>
+
+
+<p><p>Recursively walk the given map, performing automatic type conversion on all leaf nodes.</p>
+</p>
+
+
+<h3 id="CoalesceMap" data-kind="f">
+	func <a title="View Source" href="">CoalesceMap</a>
+	<a class="permalink" href="#CoalesceMap">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CoalesceMap(data map[string]interface{}, fieldJoiner string) (map[string]interface{}, error)</pre>
+</div>
+
+
+<p><p>Take a deeply-nested map and return a flat (non-nested) map with keys whose intermediate tiers are joined with fieldJoiner</p>
+</p>
+
+
+<h3 id="CoalesceMapTyped" data-kind="f">
+	func <a title="View Source" href="">CoalesceMapTyped</a>
+	<a class="permalink" href="#CoalesceMapTyped">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func CoalesceMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error)</pre>
+</div>
+
+
+<p><p>Take a deeply-nested map and return a flat (non-nested) map with keys whose intermediate tiers are joined with fieldJoiner<br>Additionally, values will be converted to strings and keys will be prefixed with the datatype of the value</p>
+</p>
+
+
+<h3 id="Compact" data-kind="f">
+	func <a title="View Source" href="">Compact</a>
+	<a class="permalink" href="#Compact">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Compact(input map[string]interface{}) (map[string]interface{}, error)</pre>
+</div>
+
+
+<p><p>Recursively remove all zero and empty values from the given map.</p>
+</p>
+
+
+<h3 id="DeepCopy" data-kind="f">
+	func <a title="View Source" href="">DeepCopy</a>
+	<a class="permalink" href="#DeepCopy">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DeepCopy(input interface{}) map[string]interface{}</pre>
+</div>
+
+
+<p><p>Perform a deep copy of the given map.</p>
+</p>
+
+
+<h3 id="DeepCopyStruct" data-kind="f">
+	func <a title="View Source" href="">DeepCopyStruct</a>
+	<a class="permalink" href="#DeepCopyStruct">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DeepCopyStruct(input interface{}) map[string]interface{}</pre>
+</div>
+
+
+<p><p>Perform a deep copy of the given map or struct, returning a map.</p>
+</p>
+
+
+<h3 id="DeepGet" data-kind="f">
+	func <a title="View Source" href="">DeepGet</a>
+	<a class="permalink" href="#DeepGet">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interface{}</pre>
+</div>
+
+
+
+<h3 id="DeepGetBool" data-kind="f">
+	func <a title="View Source" href="">DeepGetBool</a>
+	<a class="permalink" href="#DeepGetBool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DeepGetBool(data interface{}, path []string) bool</pre>
+</div>
+
+
+
+<h3 id="DeepGetString" data-kind="f">
+	func <a title="View Source" href="">DeepGetString</a>
+	<a class="permalink" href="#DeepGetString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DeepGetString(data interface{}, path []string) string</pre>
+</div>
+
+
+
+<h3 id="DeepJoin" data-kind="f">
+	func <a title="View Source" href="">DeepJoin</a>
+	<a class="permalink" href="#DeepJoin">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DeepJoin(input interface{}, innerJoiner string, outerJoiner string, nestedSeparator string) string</pre>
+</div>
+
+
+<p><p>Join the given map, using innerJoiner to join keys and values, and outerJoiner to join the resulting key-value lines.</p>
+</p>
+
+
+<h3 id="DeepSet" data-kind="f">
+	func <a title="View Source" href="">DeepSet</a>
+	<a class="permalink" href="#DeepSet">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DeepSet(data interface{}, path []string, value interface{}) interface{}</pre>
+</div>
+
+
+
+<h3 id="Delete" data-kind="f">
+	func <a title="View Source" href="">Delete</a>
+	<a class="permalink" href="#Delete">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Delete(data interface{}, key interface{}) error</pre>
+</div>
+
+
+<p><p>Delete a key to a given value in the given map.</p>
+</p>
+
+
+<h3 id="DiffuseMap" data-kind="f">
+	func <a title="View Source" href="">DiffuseMap</a>
+	<a class="permalink" href="#DiffuseMap">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DiffuseMap(data map[string]interface{}, fieldJoiner string) (map[string]interface{}, error)</pre>
+</div>
+
+
+<p><p>Take a flat (non-nested) map keyed with fields joined on fieldJoiner and return a<br>deeply-nested map</p>
+</p>
+
+
+<h3 id="DiffuseMapTyped" data-kind="f">
+	func <a title="View Source" href="">DiffuseMapTyped</a>
+	<a class="permalink" href="#DiffuseMapTyped">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func DiffuseMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error)</pre>
+</div>
+
+
+<p><p>Take a flat (non-nested) map keyed with fields joined on fieldJoiner and return a<br>deeply-nested map</p>
+</p>
+
+
+<h3 id="Fprintf" data-kind="f">
+	func <a title="View Source" href="">Fprintf</a>
+	<a class="permalink" href="#Fprintf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Fprintf(w io.Writer, format string, data ...interface{})</pre>
+</div>
+
+
+<p><p>Same as Sprintf, but writes output to the given writer.</p>
+</p>
+
+
+<h3 id="Get" data-kind="f">
+	func <a title="View Source" href="">Get</a>
+	<a class="permalink" href="#Get">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Get(data interface{}, key string, fallback ...interface{}) interface{}</pre>
+</div>
+
+
+
+<h3 id="Join" data-kind="f">
+	func <a title="View Source" href="">Join</a>
+	<a class="permalink" href="#Join">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Join(input interface{}, innerJoiner string, outerJoiner string) string</pre>
+</div>
+
+
+<p><p>Join the given map, using innerJoiner to join keys and values, and outerJoiner to join the resulting key-value lines.</p>
+</p>
+
+
+<h3 id="Keys" data-kind="f">
+	func <a title="View Source" href="">Keys</a>
+	<a class="permalink" href="#Keys">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Keys(input interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Return an interface slice of the keys of the given map.</p>
+</p>
+
+
+<h3 id="MapValues" data-kind="f">
+	func <a title="View Source" href="">MapValues</a>
+	<a class="permalink" href="#MapValues">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MapValues(input interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Return the values from the given map.</p>
+</p>
+
+
+<h3 id="Merge" data-kind="f">
+	func <a title="View Source" href="">Merge</a>
+	<a class="permalink" href="#Merge">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Merge(first interface{}, second interface{}, options ...MergeOption) (map[string]interface{}, error)</pre>
+</div>
+
+
+<p><p>Recursively merge the contents of the second map into the first one and return the result.</p>
+</p>
+
+
+<h3 id="Pluck" data-kind="f">
+	func <a title="View Source" href="">Pluck</a>
+	<a class="permalink" href="#Pluck">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Pluck(sliceOfMaps interface{}, key []string) []interface{}</pre>
+</div>
+
+
+
+<h3 id="Printf" data-kind="f">
+	func <a title="View Source" href="">Printf</a>
+	<a class="permalink" href="#Printf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Printf(format string, data ...interface{})</pre>
+</div>
+
+
+<p><p>Same as Sprintf, but prints its output to standard output.</p>
+</p>
+
+
+<h3 id="Set" data-kind="f">
+	func <a title="View Source" href="">Set</a>
+	<a class="permalink" href="#Set">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Set(data interface{}, key interface{}, value interface{}) error</pre>
+</div>
+
+
+<p><p>Set a key to a given value in the given map, reflect.Map Value, or slice/array.</p>
+</p>
+
+
+<h3 id="Split" data-kind="f">
+	func <a title="View Source" href="">Split</a>
+	<a class="permalink" href="#Split">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Split(input string, innerJoiner string, outerJoiner string) map[string]interface{}</pre>
+</div>
+
+
+<p><p>Split the given string, first on outerJoiner to form key-value lines, then each line on innerJoiner.<br>Populates a map and returns the result.</p>
+</p>
+
+
+<h3 id="Sprintf" data-kind="f">
+	func <a title="View Source" href="">Sprintf</a>
+	<a class="permalink" href="#Sprintf">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Sprintf(format string, data ...interface{}) string</pre>
+</div>
+
+
+<p><p>Format the given string in the same manner as fmt.Sprintf, except data items that are<br>maps or Map objects will be expanded using special patterns in the format string.</p>
+</p>
+
+
+<h3 id="StringKeys" data-kind="f">
+	func <a title="View Source" href="">StringKeys</a>
+	<a class="permalink" href="#StringKeys">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func StringKeys(input interface{}) []string</pre>
+</div>
+
+
+<p><p>Return a slice of strings representing the keys of the given map.</p>
+</p>
+
+
+<h3 id="Stringify" data-kind="f">
+	func <a title="View Source" href="">Stringify</a>
+	<a class="permalink" href="#Stringify">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Stringify(input map[string]interface{}) map[string]string</pre>
+</div>
+
+
+<p><p>Take the input map and convert all values to strings.</p>
+</p>
+
+
+<h3 id="StructFromMap" data-kind="f">
+	func <a title="View Source" href="">StructFromMap</a>
+	<a class="permalink" href="#StructFromMap">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func StructFromMap(input map[string]interface{}, populate interface{}) error</pre>
+</div>
+
+
+<p><p>Same as TaggedStructFromMapFunc, but no value conversion and uses the “maputil” struct tag.</p>
+</p>
+
+
+<h3 id="TaggedStructFromMap" data-kind="f">
+	func <a title="View Source" href="">TaggedStructFromMap</a>
+	<a class="permalink" href="#TaggedStructFromMap">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func TaggedStructFromMap(input interface{}, populate interface{}, tagname string) error</pre>
+</div>
+
+
+<p><p>Same as TaggedStructFromMapFunc, but does not perform any value conversion.</p>
+</p>
+
+
+<h3 id="TaggedStructFromMapFunc" data-kind="f">
+	func <a title="View Source" href="">TaggedStructFromMapFunc</a>
+	<a class="permalink" href="#TaggedStructFromMapFunc">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname string, converter ConversionFunc) error</pre>
+</div>
+
+
+<p><p>Take an input map, and populate the struct instance pointed to by “populate”.  Use the values of the tagname tag<br>to inform which map keys should be used to fill struct fields, and if a Conversion function is given, that<br>function will be used to allow values to be converted in preparation for becoming struct field values.</p>
+</p>
+
+
+<h3 id="Walk" data-kind="f">
+	func <a title="View Source" href="">Walk</a>
+	<a class="permalink" href="#Walk">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Walk(input interface{}, walkFn WalkFunc) error</pre>
+</div>
+
+
+<p><p>Recursively walk through the given map, calling walkFn for each intermediate and leaf value.</p>
+</p>
+
+
+<h3 id="WalkStruct" data-kind="f">
+	func <a title="View Source" href="">WalkStruct</a>
+	<a class="permalink" href="#WalkStruct">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func WalkStruct(input interface{}, walkFn WalkFunc) error</pre>
+</div>
+
+
+<p><p>Recursively walk through the given map, calling walkFn for each intermediate and leaf value.<br>This form behaves identically to Walk(), except that it will also recurse into structs, calling<br>walkFn for all intermediate structs and fields.</p>
+</p>
+
+
+
+
+
+<h3 id="ApplyFunc" data-kind="t">
+	type
+	<a title="View Source" href="">ApplyFunc</a>
+	<a class="permalink" href="#ApplyFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ApplyFunc func(key []string, value interface{}) (interface{}, bool)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="ConversionFunc" data-kind="t">
+	type
+	<a title="View Source" href="">ConversionFunc</a>
+	<a class="permalink" href="#ConversionFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ConversionFunc func(from reflect.Type, to reflect.Type, data interface{}) (interface{}, error)</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Item" data-kind="t">
+	type
+	<a title="View Source" href="">Item</a>
+	<a class="permalink" href="#Item">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type Item struct {
+	Key   interface{}
+	Value interface{}
+	K     string
+	V     typeutil.Variant
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="Item.Set" data-kind="f">
+	func
+	(self *Item)
+	<a title="View Source" href="">Set</a>
+	<a class="permalink" href="#Set">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Item) Set(value interface{}) error</pre>
+</div>
+
+
+
+
+<h3 id="ItemFunc" data-kind="t">
+	type
+	<a title="View Source" href="">ItemFunc</a>
+	<a class="permalink" href="#ItemFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type ItemFunc func(key string, value typeutil.Variant) error</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="IterOptions" data-kind="t">
+	type
+	<a title="View Source" href="">IterOptions</a>
+	<a class="permalink" href="#IterOptions">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type IterOptions struct {
+	TagName  string
+	SortKeys bool
+}</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="KeyTransformFunc" data-kind="t">
+	type
+	<a title="View Source" href="">KeyTransformFunc</a>
+	<a class="permalink" href="#KeyTransformFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type KeyTransformFunc func(string) string</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="Map" data-kind="t">
+	type
+	<a title="View Source" href="">Map</a>
+	<a class="permalink" href="#Map">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type Map struct {
+
+}// A Map object (or &#34;M&#34; object) is a utility struct that makes it straightforward to
+// work with interface data types that contain map-like data (has a reflect.Kind equal
+// to reflect.Map).
+
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="M" data-kind="f">
+	func <a title="View Source" href="">M</a>
+	<a class="permalink" href="#M">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func M(data interface{}) *Map</pre>
+</div>
+
+<p><p>Create a new Variant map object from the given value (which should be a map of some kind).</p>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="Map.Auto" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Auto</a>
+	<a class="permalink" href="#Auto">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Auto(key string, fallbacks ...interface{}) interface{}</pre>
+</div>
+
+<p><p>Return the value at key as an automatically converted value.</p>
+</p>
+
+
+
+
+<h4 id="Map.Bool" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Bool</a>
+	<a class="permalink" href="#Bool">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Bool(key string) bool</pre>
+</div>
+
+<p><p>Return the value at key as a bool.</p>
+</p>
+
+
+
+
+<h4 id="Map.Bytes" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Bytes</a>
+	<a class="permalink" href="#Bytes">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Bytes(key string) []byte</pre>
+</div>
+
+<p><p>Return the value at key as a byte slice.</p>
+</p>
+
+
+
+
+<h4 id="Map.Duration" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Duration</a>
+	<a class="permalink" href="#Duration">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Duration(key string, fallbacks ...interface{}) time.Duration</pre>
+</div>
+
+<p><p>Return the value at key interpreted as a Duration.</p>
+</p>
+
+
+
+
+<h4 id="Map.Each" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Each</a>
+	<a class="permalink" href="#Each">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Each(fn ItemFunc, tagName ...string) error</pre>
+</div>
+
+<p><p>Iterate through each item in the map.</p>
+</p>
+
+
+
+
+<h4 id="Map.Err" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Err</a>
+	<a class="permalink" href="#Err">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Err(key string) error</pre>
+</div>
+
+<p><p>Return the value at key as an error, or nil if the value is not an error.</p>
+</p>
+
+
+
+
+<h4 id="Map.Float" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Float</a>
+	<a class="permalink" href="#Float">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Float(key string, fallbacks ...interface{}) float64</pre>
+</div>
+
+<p><p>Return the value at key as a float.</p>
+</p>
+
+
+
+
+<h4 id="Map.Fprintf" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Fprintf</a>
+	<a class="permalink" href="#Fprintf">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Fprintf(w io.Writer, format string)</pre>
+</div>
+
+<p><p>Uses the extended Fprintf in this package, passing this map as the data used in the given format string.</p>
+</p>
+
+
+
+
+<h4 id="Map.Get" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Get</a>
+	<a class="permalink" href="#Get">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Get(key string, fallbacks ...interface{}) typeutil.Variant</pre>
+</div>
+
+<p><p>Retrieve a value from the Map by the given dot.separated key, or return a fallback<br>value.  Return values are a typeutil.Variant, which can be easily coerced into<br>various types.</p>
+</p>
+
+
+
+
+<h4 id="Map.Int" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Int</a>
+	<a class="permalink" href="#Int">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Int(key string, fallbacks ...interface{}) int64</pre>
+</div>
+
+<p><p>Return the value at key as an integer.</p>
+</p>
+
+
+
+
+<h4 id="Map.IsZero" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">IsZero</a>
+	<a class="permalink" href="#IsZero">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) IsZero(key string) bool</pre>
+</div>
+
+<p><p>Return whether the value at the given key is that type’s zero value.</p>
+</p>
+
+
+
+
+<h4 id="Map.Iter" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Iter</a>
+	<a class="permalink" href="#Iter">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Iter(opts ...IterOptions) </pre>
+</div>
+
+
+
+
+<h4 id="Map.Keys" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Keys</a>
+	<a class="permalink" href="#Keys">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Keys(tagName ...string) []interface{}</pre>
+</div>
+
+<p><p>Return the keys in this Map object.  You may specify the name of a struct tag on the underlying<br>object to use for generating key names.</p>
+</p>
+
+
+
+
+<h4 id="Map.Len" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Len</a>
+	<a class="permalink" href="#Len">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Len() int</pre>
+</div>
+
+<p><p>Return the length of the Map.</p>
+</p>
+
+
+
+
+
+
+<h4 id="Map.Map" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Map</a>
+	<a class="permalink" href="#Map">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Map(key string, tagName ...string) map[typeutil.Variant]typeutil.Variant</pre>
+</div>
+
+<p><p>Return the value at key as a Map.  If the resulting value is nil or not a<br>map type, a null Map will be returned.  All values retrieved from a null<br>Map will return that type’s zero value.</p>
+</p>
+
+
+
+
+<h4 id="Map.MapNative" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">MapNative</a>
+	<a class="permalink" href="#MapNative">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) MapNative(tagName ...string) map[string]interface{}</pre>
+</div>
+
+<p><p>Return the value as a map[string]interface{} {</p>
+</p>
+
+
+
+
+<h4 id="Map.MarshalJSON" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">MarshalJSON</a>
+	<a class="permalink" href="#MarshalJSON">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) MarshalJSON() ([]byte, error)</pre>
+</div>
+
+
+
+
+<h4 id="Map.MarshalXML" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">MarshalXML</a>
+	<a class="permalink" href="#MarshalXML">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) MarshalXML(e *xml.Encoder, start xml.StartElement) error</pre>
+</div>
+
+<p><p>Marshals the current data into XML.  Nested maps are output as nested elements.  Map values that<br>are scalars (strings, numbers, bools, dates/times) will appear as attributes on the parent element.</p>
+</p>
+
+
+
+
+<h4 id="Map.Set" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Set</a>
+	<a class="permalink" href="#Set">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Set(key string, value interface{}) typeutil.Variant</pre>
+</div>
+
+<p><p>Set a value in the Map at the given dot.separated key to a value.</p>
+</p>
+
+
+
+
+<h4 id="Map.SetIfZero" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">SetIfZero</a>
+	<a class="permalink" href="#SetIfZero">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) SetIfZero(key string, value interface{}) (typeutil.Variant, bool)</pre>
+</div>
+
+<p><p>Set a value in the Map at the given dot.separated key to a value, but only if the<br>current value at that key is that type’s zero value.</p>
+</p>
+
+
+
+
+<h4 id="Map.SetMarshalXmlGeneric" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">SetMarshalXmlGeneric</a>
+	<a class="permalink" href="#SetMarshalXmlGeneric">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) SetMarshalXmlGeneric(yes bool)</pre>
+</div>
+
+
+
+
+<h4 id="Map.SetMarshalXmlKeyFunc" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">SetMarshalXmlKeyFunc</a>
+	<a class="permalink" href="#SetMarshalXmlKeyFunc">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) SetMarshalXmlKeyFunc(fn KeyTransformFunc)</pre>
+</div>
+
+<p><p>Set a function that will be used to generate XML tag names when calling MarshalXML.  This works<br>for all keys, including ones that appear inside of maps.</p>
+</p>
+
+
+
+
+<h4 id="Map.SetRootTagName" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">SetRootTagName</a>
+	<a class="permalink" href="#SetRootTagName">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) SetRootTagName(root string)</pre>
+</div>
+
+<p><p>set the name of the root XML tag, used by MarshalXML.</p>
+</p>
+
+
+
+
+<h4 id="Map.SetValueIfNonZero" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">SetValueIfNonZero</a>
+	<a class="permalink" href="#SetValueIfNonZero">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Variant, bool)</pre>
+</div>
+
+<p><p>Set a value in the Map at the given dot.separated key to a value, but only if the<br>new value is not a zero value.</p>
+</p>
+
+
+
+
+<h4 id="Map.Slice" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Slice</a>
+	<a class="permalink" href="#Slice">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Slice(key string) []typeutil.Variant</pre>
+</div>
+
+<p><p>Return the value at key as a slice.  Scalar values will be returned as a slice containing<br>only that value.</p>
+</p>
+
+
+
+
+<h4 id="Map.Sprintf" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Sprintf</a>
+	<a class="permalink" href="#Sprintf">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Sprintf(format string) string</pre>
+</div>
+
+<p><p>Uses the extended Sprintf in this package, passing this map as the data used in the given format string.</p>
+</p>
+
+
+
+
+<h4 id="Map.String" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) String(key string, fallbacks ...interface{}) string</pre>
+</div>
+
+<p><p>Return the value at key as a string.</p>
+</p>
+
+
+
+
+<h4 id="Map.StringKeys" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">StringKeys</a>
+	<a class="permalink" href="#StringKeys">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) StringKeys(tagName ...string) []string</pre>
+</div>
+
+<p><p>A string slice version of Keys()</p>
+</p>
+
+
+
+
+<h4 id="Map.Strings" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Strings</a>
+	<a class="permalink" href="#Strings">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Strings(key string) []string</pre>
+</div>
+
+<p><p>Same as Slice(), but returns a []string</p>
+</p>
+
+
+
+
+<h4 id="Map.Tag" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Tag</a>
+	<a class="permalink" href="#Tag">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Tag(key string) *Map</pre>
+</div>
+
+<p><p>Specify which struct tag to honor for generating field names when then<br>underlying data is a struct.</p>
+</p>
+
+
+
+
+<h4 id="Map.Time" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Time</a>
+	<a class="permalink" href="#Time">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Time(key string, fallbacks ...interface{}) time.Time</pre>
+</div>
+
+<p><p>Return the value at key interpreted as a Time.</p>
+</p>
+
+
+
+
+<h4 id="Map.UnmarshalJSON" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">UnmarshalJSON</a>
+	<a class="permalink" href="#UnmarshalJSON">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) UnmarshalJSON(data []byte) error</pre>
+</div>
+
+
+
+
+<h4 id="Map.Value" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Value</a>
+	<a class="permalink" href="#Value">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Value() interface{}</pre>
+</div>
+
+<p><p>Return the underlying value the M-object was created with.</p>
+</p>
+
+
+
+
+<h4 id="Map.Walk" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Walk</a>
+	<a class="permalink" href="#Walk">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Walk(fn WalkFunc) error</pre>
+</div>
+
+<p><p>A recursive walk form of Each()</p>
+</p>
+
+
+
+
+<h3 id="MergeOption" data-kind="t">
+	type
+	<a title="View Source" href="">MergeOption</a>
+	<a class="permalink" href="#MergeOption">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type MergeOption int</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="MergeOptions" data-kind="t">
+	type
+	<a title="View Source" href="">MergeOptions</a>
+	<a class="permalink" href="#MergeOptions">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type MergeOptions []MergeOption</pre>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 id="MergeOptions.Has" data-kind="f">
+	func
+	(self MergeOptions)
+	<a title="View Source" href="">Has</a>
+	<a class="permalink" href="#Has">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self MergeOptions) Has(option MergeOption) bool</pre>
+</div>
+
+
+
+
+<h3 id="MyStructTester" data-kind="t">
+	type
+	<a title="View Source" href="">MyStructTester</a>
+	<a class="permalink" href="#MyStructTester">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type MyStructTester struct {
+	Name                  string
+	Subtype1              SubtypeTester
+	Active                bool           `maputil:&#34;active&#34;`
+	Subtype2              *SubtypeTester `maputil:&#34;subtype2&#34;`
+	TimeTest              time.Duration
+	IntTest               int32
+	Properties            map[string]interface{}
+	StrSliceTest          []string
+	InterfaceStrSliceTest []string
+	StructSliceTest       []SubtypeTester
+	StructSliceTest2      []SubtypeTester
+	StructSliceTest3      []SubtypeTester
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="MyTestThing" data-kind="t">
+	type
+	<a title="View Source" href="">MyTestThing</a>
+	<a class="permalink" href="#MyTestThing">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type MyTestThing struct {
+	Name  string
+	Other int
+}</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="SubtypeTester" data-kind="t">
+	type
+	<a title="View Source" href="">SubtypeTester</a>
+	<a class="permalink" href="#SubtypeTester">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type SubtypeTester struct {
+	A int
+	B int `maputil:&#34;b&#34;`
+}</pre>
+</div>
+
+
+
+
+
+
+
+<h3 id="WalkFunc" data-kind="t">
+	type
+	<a title="View Source" href="">WalkFunc</a>
+	<a class="permalink" href="#WalkFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type WalkFunc func(value interface{}, path []string, isLeaf bool) error</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="x-footer" class="clearfix">
+            <div class="container">
+                
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.3
+                
+
+                <span class="pull-right">
+                    <a href="#">Back to top</a>
+                </span>
+            </div>
+        </div>
+
+        <script src="/go-stockutil/-/jquery-2.2.4.min.js"></script>
+        <script src="/go-stockutil/-/bootstrap.min.js"></script>
+        <script src="/go-stockutil/-/site.js"></script>
+    </body>
+</html>

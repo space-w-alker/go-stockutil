@@ -1,0 +1,491 @@
+{
+    "Name": "pathutil",
+    "CanonicalImportPath": "github.com/ghetzel/go-stockutil/pathutil",
+    "ImportPath": "pathutil",
+    "ParentPackage": "stockutil",
+    "URL": "https://github.com/ghetzel/go-stockutil",
+    "Synopsis": "Additional helpers for working with file paths and filesystem information\n",
+    "MainFunction": false,
+    "CommentWordCount": 174,
+    "LineCount": 227,
+    "SourceLineCount": 166,
+    "FunctionCount": 22,
+    "TypeCount": 0,
+    "ConstantCount": 0,
+    "VariableCount": 0,
+    "Statistics": {
+        "Mean": 0.4909,
+        "StdDev": 0.4926,
+        "GeometricMean": 1,
+        "HarmonicMean": 0,
+        "Median": 0.4,
+        "Minimum": 0,
+        "Maximum": 1
+    },
+    "Files": [
+        {
+            "Name": "pathutil.go",
+            "Imports": [
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
+                    "PackageName": "io/ioutil",
+                    "Alias": "ioutil"
+                },
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "os/user",
+                    "Alias": "user"
+                },
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                }
+            ],
+            "Size": 3800,
+            "LineCount": 171,
+            "SourceLineCount": 125,
+            "FunctionCount": 22,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "pathutil_test.go",
+            "Imports": [
+                {
+                    "PackageName": "os",
+                    "Alias": "os"
+                },
+                {
+                    "PackageName": "os/user",
+                    "Alias": "user"
+                },
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/require",
+                    "Alias": "require"
+                }
+            ],
+            "Size": 1169,
+            "LineCount": 56,
+            "SourceLineCount": 41,
+            "FunctionCount": 0,
+            "TypeCount": 0,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        }
+    ],
+    "Functions": [
+        {
+            "Name": "DirExists",
+            "Comment": "Returns true if the given path exists and is a directory.",
+            "Arguments": [
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "DirExists(path string) bool",
+            "Source": "ewoJaWYgc3RhdCwgZXJyIDo9IG9zLlN0YXQocGF0aCk7IGVyciA9PSBuaWwgewoJCXJldHVybiBzdGF0LklzRGlyKCkKCX0KCXJldHVybiBmYWxzZQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Exists",
+            "Comment": "Returns true if the given path exists.",
+            "Arguments": [
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "Exists(path string) bool",
+            "Source": "ewoJaWYgXywgZXJyIDo9IG9zLlN0YXQocGF0aCk7IGVyciA9PSBuaWwgewoJCXJldHVybiB0cnVlCgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExpandUser",
+            "Comment": "ExpandUser replaces the tilde (~) in a path into the current user's home directory.",
+            "Arguments": [
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "ExpandUser(path string) (string, error)",
+            "Source": "ewoJaWYgdSwgZXJyIDo9IHVzZXIuQ3VycmVudCgpOyBlcnIgPT0gbmlsIHsKCQlmdWxsVGlsZGUgOj0gZm10LlNwcmludGYoIn4lcyIsIHUuTmFtZSkKCQlpZiBzdHJpbmdzLkhhc1ByZWZpeChwYXRoLCBgfi9gKSB8fCBwYXRoID09IGB+YCB7CgkJCXJldHVybiBzdHJpbmdzLlJlcGxhY2UocGF0aCwgYH5gLCB1LkhvbWVEaXIsIDEpLCBuaWwKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgocGF0aCwgZnVsbFRpbGRlK2AvYCkgfHwgcGF0aCA9PSBmdWxsVGlsZGUgewoJCQlyZXR1cm4gc3RyaW5ncy5SZXBsYWNlKHBhdGgsIGZ1bGxUaWxkZSwgdS5Ib21lRGlyLCAxKSwgbmlsCgkJfQoJCXJldHVybiBwYXRoLCBuaWwKCX0gZWxzZSB7CgkJcmV0dXJuIHBhdGgsIGVycgoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "FileExists",
+            "Comment": "Returns true if the given path exists and is a regular file.",
+            "Arguments": [
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "FileExists(path string) bool",
+            "Source": "ewoJaWYgc3RhdCwgZXJyIDo9IG9zLlN0YXQocGF0aCk7IGVyciA9PSBuaWwgewoJCXJldHVybiBzdGF0Lk1vZGUoKS5Jc1JlZ3VsYXIoKQoJfQoJcmV0dXJuIGZhbHNlCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsAppend",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsAppend(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVBcHBlbmQgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsAppendable",
+            "Comment": "Returns true if the given file can be opened for appending by the current user.",
+            "Arguments": [
+                {
+                    "Name": "filename",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsAppendable(filename string) bool",
+            "Source": "ewoJaWYgZiwgZXJyIDo9IG9zLk9wZW5GaWxlKGZpbGVuYW1lLCBvcy5PX0FQUEVORCwgMCk7IGVyciA9PSBuaWwgewoJCWRlZmVyIGYuQ2xvc2UoKQoJCXJldHVybiB0cnVlCgl9IGVsc2UgewoJCXJldHVybiBmYWxzZQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsCharDevice",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsCharDevice(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVDaGFyRGV2aWNlICE9IDApCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsDevice",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsDevice(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVEZXZpY2UgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsExclusive",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsExclusive(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVFeGNsdXNpdmUgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsNamedPipe",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsNamedPipe(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVOYW1lZFBpcGUgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsNonemptyDir",
+            "Comment": "Returns true if the given path is a directory with items in it.",
+            "Arguments": [
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsNonemptyDir(path string) bool",
+            "Source": "ewoJaWYgRGlyRXhpc3RzKHBhdGgpIHsKCQlpZiBlbnRyaWVzLCBlcnIgOj0gaW91dGlsLlJlYWREaXIocGF0aCk7IGVyciA9PSBuaWwgJiYgbGVuKGVudHJpZXMpID4gMCB7CgkJCXJldHVybiB0cnVlCgkJfQoJfQoJcmV0dXJuIGZhbHNlCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsNonemptyExecutableFile",
+            "Comment": "Returns true if the given path is a regular file, is executable by any user, and has a non-zero size.",
+            "Arguments": [
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsNonemptyExecutableFile(path string) bool",
+            "Source": "ewoJaWYgc3RhdCwgZXJyIDo9IG9zLlN0YXQocGF0aCk7IGVyciA9PSBuaWwgJiYgc3RhdC5TaXplKCkgPiAwICYmIChzdGF0Lk1vZGUoKS5QZXJtKCkmMDExMSkgIT0gMCB7CgkJcmV0dXJuIHRydWUKCX0KCXJldHVybiBmYWxzZQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsNonemptyFile",
+            "Comment": "Returns true if the given path is a regular file with a non-zero size.",
+            "Arguments": [
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsNonemptyFile(path string) bool",
+            "Source": "ewoJaWYgRmlsZUV4aXN0cyhwYXRoKSB7CgkJaWYgc3RhdCwgZXJyIDo9IG9zLlN0YXQocGF0aCk7IGVyciA9PSBuaWwgJiYgc3RhdC5TaXplKCkgPiAwIHsKCQkJcmV0dXJuIHRydWUKCQl9Cgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsReadable",
+            "Comment": "Returns true if the given file can be opened for reading by the current user.",
+            "Arguments": [
+                {
+                    "Name": "filename",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsReadable(filename string) bool",
+            "Source": "ewoJaWYgZiwgZXJyIDo9IG9zLk9wZW5GaWxlKGZpbGVuYW1lLCBvcy5PX1JET05MWSwgMCk7IGVyciA9PSBuaWwgewoJCWRlZmVyIGYuQ2xvc2UoKQoJCXJldHVybiB0cnVlCgl9IGVsc2UgewoJCXJldHVybiBmYWxzZQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsSetgid",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsSetgid(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVTZXRnaWQgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsSetuid",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsSetuid(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVTZXR1aWQgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsSocket",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsSocket(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVTb2NrZXQgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsSticky",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsSticky(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVTdGlja3kgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsSymlink",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsSymlink(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVTeW1saW5rICE9IDApCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsTemporary",
+            "Arguments": [
+                {
+                    "Name": "mode",
+                    "Type": "os.FileMode"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsTemporary(mode os.FileMode) bool",
+            "Source": "ewoJcmV0dXJuIChtb2RlJm9zLk1vZGVUZW1wb3JhcnkgIT0gMCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsWritable",
+            "Comment": "Returns true if the given file can be opened for writing by the current user.",
+            "Arguments": [
+                {
+                    "Name": "filename",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsWritable(filename string) bool",
+            "Source": "ewoJaWYgZiwgZXJyIDo9IG9zLk9wZW5GaWxlKGZpbGVuYW1lLCBvcy5PX1dST05MWSwgMCk7IGVyciA9PSBuaWwgewoJCWRlZmVyIGYuQ2xvc2UoKQoJCXJldHVybiB0cnVlCgl9IGVsc2UgewoJCXJldHVybiBmYWxzZQoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "LinkExists",
+            "Comment": "Returns true if the given path exists and is a symbolic link.",
+            "Arguments": [
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "LinkExists(path string) bool",
+            "Source": "ewoJaWYgc3RhdCwgZXJyIDo9IG9zLlN0YXQocGF0aCk7IGVyciA9PSBuaWwgewoJCXJldHVybiBJc1N5bWxpbmsoc3RhdC5Nb2RlKCkpCgl9CglyZXR1cm4gZmFsc2UKfQ==",
+            "IsPackageLevel": true
+        }
+    ],
+    "Tests": [
+        {
+            "Name": "TestExpandUser",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestExpandUser(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgdiBzdHJpbmcKCXZhciBlcnIgZXJyb3IKCXUsIF8gOj0gdXNlci5DdXJyZW50KCkKCXYsIGVyciA9IEV4cGFuZFVzZXIoYC9kZXYvbnVsbGApCglhc3NlcnQuRXF1YWwodiwgYC9kZXYvbnVsbGApCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoYH5gKQoJYXNzZXJ0LkVxdWFsKHYsIHUuSG9tZURpcikKCWFzc2VydC5OaWwoZXJyKQoJdiwgZXJyID0gRXhwYW5kVXNlcigifiIgKyB1Lk5hbWUpCglhc3NlcnQuRXF1YWwodiwgdS5Ib21lRGlyKQoJYXNzZXJ0Lk5pbChlcnIpCgl2LCBlcnIgPSBFeHBhbmRVc2VyKCJ+L3Rlc3QtMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMyIpCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoIn4iICsgdS5OYW1lICsgIi90ZXN0LTEyMyIpCglhc3NlcnQuRXF1YWwodiwgdS5Ib21lRGlyKyIvdGVzdC0xMjMiKQoJYXNzZXJ0Lk5pbChlcnIpCgl2LCBlcnIgPSBFeHBhbmRVc2VyKCJ+L3Rlc3QtMTIzL34vMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMy9+LzEyMyIpCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoIn4iICsgdS5OYW1lICsgIi90ZXN0LTEyMy9+IiArIHUuTmFtZSArICIvMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMy9+Iit1Lk5hbWUrIi8xMjMiKQoJYXNzZXJ0Lk5pbChlcnIpCglhc3NlcnQuRmFsc2UoSXNOb25lbXB0eUZpbGUoYC9ub25leGlzdGVudC50eHRgKSkKCWFzc2VydC5GYWxzZShJc05vbmVtcHR5RGlyKGAvbm9uZXhpc3RlbnQvZGlyYCkpCglhc3NlcnQuVHJ1ZShJc05vbmVtcHR5RmlsZShgL2V0Yy9mc3RhYmApKQoJYXNzZXJ0LlRydWUoSXNOb25lbXB0eURpcihgL2V0Y2ApKQoJeCwgZXJyIDo9IG9zLkV4ZWN1dGFibGUoKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LlRydWUoSXNOb25lbXB0eUV4ZWN1dGFibGVGaWxlKHgpKQp9",
+            "IsPackageLevel": true
+        }
+    ]
+}
