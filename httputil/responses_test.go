@@ -12,7 +12,7 @@ type testOutputOne struct {
 	URL           string `json:"url"`
 	Count         int64
 	Ok1           bool     `json:"OK1" maputil:"ok1"`
-	Ok2           bool     `json:"OK2" maputil:"ok2"`
+	Ok2           bool     `json:"OK2" maputil:"Ok2"`
 	Ok3           bool     `json:"OK3"`
 	LOL           []string `json:"lol"`
 	NonIndexedLOL []string `json:"nilol"`
@@ -30,8 +30,8 @@ func TestParseFormValues(t *testing.T) {
 		`name`:     []string{`Tester`},
 		`Count`:    []string{`42`},
 		`ok1`:      []string{`true`},
-		`ok2`:      []string{`on`},
-		`OK3`:      []string{`yes`},
+		`Ok2`:      []string{`on`},
+		`OK3`:      []string{`off`},
 		`lol.0`:    []string{`zero`},
 		`lol.1`:    []string{`one`},
 		`lol.2`:    []string{`two`},
@@ -47,5 +47,5 @@ func TestParseFormValues(t *testing.T) {
 	assert.Equal([]string{`uno`}, t1.Onesie)
 	assert.True(t1.Ok1)
 	assert.True(t1.Ok2)
-	assert.True(t1.Ok3)
+	assert.False(t1.Ok3)
 }

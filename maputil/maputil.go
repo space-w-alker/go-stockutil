@@ -564,13 +564,18 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 		if typeutil.IsArray(data) {
 			dataArray := sliceutil.Sliceify(data)
 
-			if i := int(typeutil.Int(first)); typeutil.IsInteger(first) && i < len(dataArray) {
-				dataArray[i] = value
-			} else {
-				dataArray = append(dataArray, value)
-			}
+			if curIndex := int(typeutil.Int(first)); typeutil.IsInteger(first) {
+				if curIndex >= len(dataArray) {
+					for add := len(dataArray); add <= curIndex; add++ {
+						dataArray = append(dataArray, nil)
+					}
+				}
 
-			return dataArray
+				if curIndex < len(dataArray) {
+					dataArray[curIndex] = value
+					return dataArray
+				}
+			}
 
 		} else if typeutil.IsMap(data) {
 			if err := Set(data, first, value); err == nil {
@@ -617,7 +622,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 					Set(data, first, curVal)
 				}
 
-				//  recurse into our cool array and do awesome stuff with it
+				// recurse into our cool array and do awesome stuff with it
 				if err := Set(data, first, DeepSet(curVal, rest, value)); err == nil {
 					return data
 				}

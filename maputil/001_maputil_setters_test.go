@@ -219,6 +219,8 @@ func TestDiffuseMap(t *testing.T) {
 	output["cool.beans"] = "yep"
 	output["tags.0"] = "base"
 	output["tags.1"] = "other"
+	output["tags.2"] = "more"
+	output["tags.3"] = "still-more"
 	output["devices.0.name"] = "lo"
 	output["devices.1.name"] = "eth0"
 	output["devices.1.peers.0"] = "0.0.0.0"
@@ -244,12 +246,14 @@ func TestDiffuseMap(t *testing.T) {
 	v, ok := output["tags"]
 	assert.True(ok)
 
-	assert.Len(v, 2)
+	assert.Len(v, 4)
 
 	vArray := v.([]interface{})
 
 	assert.Equal("base", vArray[0])
 	assert.Equal("other", vArray[1])
+	assert.Equal("more", vArray[2])
+	assert.Equal("still-more", vArray[3])
 }
 
 func TestDelete(t *testing.T) {
