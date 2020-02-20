@@ -1,6 +1,7 @@
 package log
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"os"
@@ -180,15 +181,28 @@ func Debugf(format string, args ...interface{}) {
 	Logf(DEBUG, format, args...)
 }
 
+// Pretty-print the given arguments to the log at debug-level.
 func Dump(args ...interface{}) {
 	for _, arg := range args {
 		Log(DEBUG, typeutil.Dump(arg))
 	}
 }
 
+// Same as Dump, but accepts a format string.
 func Dumpf(format string, args ...interface{}) {
 	for _, arg := range args {
 		Logf(DEBUG, format, typeutil.Dump(arg))
+	}
+}
+
+// Marshal the arguments as indented JSON and log them at debug-level.
+func DumpJSON(args ...interface{}) {
+	for _, arg := range args {
+		if data, err := json.MarshalIndent(arg, ``, `  `); err == nil {
+			Log(DEBUG, string(data))
+		} else {
+			Logf(DEBUG, "DumpJSON: %v", err)
+		}
 	}
 }
 
