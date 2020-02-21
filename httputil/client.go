@@ -8,7 +8,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"strings"
 	"time"
 
 	"github.com/ghetzel/go-stockutil/fileutil"
@@ -282,38 +281,25 @@ func (self *Client) Request(
 		return nil, err
 	}
 
+	// flatten the given map
+	params, _ = maputil.CoalesceMap(params, `.`)
+
 	// merge given headers with client-wide headers
 	if v, err := maputil.Merge(self.headers, headers); err == nil {
 		headers = v
 	} else {
 		return nil, err
 	}
-
-	reqUrl := self.uri.String()
-
-	if path != `` {
-		reqUrl = strings.Join([]string{
-			strings.TrimSuffix(self.uri.String(), `/`),
-			strings.TrimPrefix(path, `/`),
-		}, `/`)
-	}
-
-	if url, err := url.Parse(reqUrl); err == nil {
-		// set querystring values
-		// ----------------------
-		qs := url.Query()
-
+	if reqUrl, err := UrlPathJoin(self.uri, path); err == nil {
+		// set querystring values from map
 		for k, v := range params {
-			qs.Set(k, fmt.Sprintf("%v", v))
+			SetQ(reqUrl, k, v)
 		}
-
-		url.RawQuery = qs.Encode()
-		// ----------------------
 
 		if encoded, err := self.encoder(body); err == nil {
 			if request, err := http.NewRequest(
 				string(method),
-				url.String(),
+				reqUrl.String(),
 				encoded,
 			); err == nil {
 				// Okay, this is a little weird...

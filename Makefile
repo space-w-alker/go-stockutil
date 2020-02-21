@@ -1,6 +1,7 @@
 
 LOCALS := $(shell find . -type f -name '*.go' -not -path "./vendor/*")
 PKGS   := $(wildcard *util)
+COUNT  ?= 1
 
 .PHONY: test deps docs $(PKGS)
 
@@ -26,7 +27,7 @@ docs:
 
 $(PKGS):
 	$(info Testing $(@))
-	@go test -count=1 ./$(@)/...
+	@go test -count=$(COUNT) ./$(@)/...
 
 test: $(PKGS)
 

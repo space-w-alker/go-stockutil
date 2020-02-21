@@ -66,3 +66,33 @@ func ExampleIsMediaType_nonMatchingPrefix() {
 	fmt.Println(IsMediaType(req, `video/`))
 	// Output: false
 }
+
+func ExampleUrlPathJoin_simpleJoin() {
+	url, _ := UrlPathJoin(`https://google.com`, `/search`)
+	fmt.Println(url.String())
+	// Output: https://google.com/search
+}
+
+func ExampleUrlPathJoin_joinWithQueryString() {
+	url, _ := UrlPathJoin(`https://google.com/`, `/search?q=hello`)
+	fmt.Println(url.String())
+	// Output: https://google.com/search?q=hello
+}
+
+func ExampleUrlPathJoin_joinToExistingQueryStrings() {
+	url, _ := UrlPathJoin(`https://google.com/search`, `?q=hello`)
+	fmt.Println(url.String())
+	// Output: https://google.com/search?q=hello
+}
+
+func ExampleUrlPathJoin_pathAndQuery() {
+	url, _ := UrlPathJoin(`https://example.com/api/v1?hello=there`, `/things/new?example=true`)
+	fmt.Println(url.String())
+	// Output: https://example.com/api/v1/things/new?example=true&hello=there
+}
+
+func ExampleUrlPathJoin_pathAndQueryTrailingSlash() {
+	url, _ := UrlPathJoin(`https://example.com/api/v1?hello=there`, `/things/new/?example=true`)
+	fmt.Println(url.String())
+	// Output: https://example.com/api/v1/things/new/?example=true&hello=there
+}

@@ -109,9 +109,13 @@ func SetQ(u *url.URL, key string, value interface{}) {
 }
 
 // Appends a query string from then given url.URL
-func AddQ(u *url.URL, key string, value interface{}) {
+func AddQ(u *url.URL, key string, values ...interface{}) {
 	qs := u.Query()
-	qs.Add(key, stringutil.MustString(value))
+
+	for _, value := range values {
+		qs.Add(key, stringutil.MustString(value))
+	}
+
 	u.RawQuery = qs.Encode()
 }
 

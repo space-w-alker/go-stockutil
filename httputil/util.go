@@ -7,9 +7,14 @@ import (
 	"fmt"
 	"mime"
 	"net/http"
+	"net/url"
+	"path/filepath"
 	"strings"
 
 	"github.com/ghetzel/go-stockutil/fileutil"
+	"github.com/ghetzel/go-stockutil/sliceutil"
+	"github.com/ghetzel/go-stockutil/stringutil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 // Encode the username and password into a value than can be used in the Authorization HTTP header.
@@ -69,6 +74,58 @@ func IsMediaType(req *http.Request, mediaTypes ...string) bool {
 	}
 
 	return false
+}
+
+// UrlPathJoin takes a string or *url.URL and joins the existing URL path component with the given path.
+// The new path may also contain query string values, which will be added to the base URL.  Existing keys will
+// be replaced with new ones, except for repeated keys (e.g.: ?x=1&x=2&x=3).  In this case, the new values will
+// be added to the existing ones.  The *url.URL returned from this function is a copy, and the original URL (if
+// one is provided) will not be modified in any way.
+func UrlPathJoin(baseurl interface{}, path string) (*url.URL, error) {
+	var in *url.URL
+	var out *url.URL
+
+	if u, ok := baseurl.(*url.URL); ok {
+		in = u
+	} else if u, err := url.Parse(typeutil.String(baseurl)); err == nil {
+		in = u
+	} else {
+		return nil, err
+	}
+
+	newpath, qs := stringutil.SplitPair(path, `?`)
+	var trail string
+
+	if strings.HasSuffix(newpath, `/`) {
+		trail = `/`
+	}
+
+	out = new(url.URL)
+	out.Scheme = in.Scheme
+	out.Opaque = in.Opaque
+	out.User = in.User
+	out.Host = in.Host
+	out.Path = filepath.Join(in.Path, newpath) + trail
+	out.RawPath = in.RawPath
+	out.ForceQuery = in.ForceQuery
+	out.RawQuery = in.RawQuery
+	out.Fragment = in.Fragment
+
+	if qs != `` {
+		if qsv, err := url.ParseQuery(qs); err == nil {
+			for k, vs := range qsv {
+				if len(vs) == 1 {
+					SetQ(out, k, vs[0])
+				} else {
+					AddQ(out, k, sliceutil.Sliceify(vs)...)
+				}
+			}
+		} else {
+			return nil, err
+		}
+	}
+
+	return out, nil
 }
 
 func updateRootCABundle(appendPem bool, client *http.Client, caBundle string) error {

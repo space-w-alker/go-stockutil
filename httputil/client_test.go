@@ -18,6 +18,7 @@ func testHttpServer() *httptest.Server {
 		case `GET`:
 			RespondJSON(w, map[string]interface{}{
 				`path`: req.URL.Path,
+				`qs`:   req.URL.Query(),
 			})
 		case `POST`:
 			switch ct, _ := stringutil.SplitPair(req.Header.Get(`Content-Type`), `;`); ct {
@@ -71,7 +72,7 @@ func TestClient(t *testing.T) {
 	server := testHttpServer()
 	defer server.Close()
 
-	client, err := NewClient(server.URL)
+	client, err := NewClient(server.URL + `/base/?hello=true`)
 	client.SetParam(`topthing`, true)
 
 	assert.NoError(err)
@@ -84,12 +85,16 @@ func TestClient(t *testing.T) {
 	assert.NotNil(response)
 	assert.NoError(ParseJSON(response.Body, &out))
 	assert.Equal(map[string]interface{}{
-		`path`: `/test/path`,
+		`path`: `/base/test/path`,
+		`qs`: map[string]interface{}{
+			`hello`:    []interface{}{`true`},
+			`topthing`: []interface{}{`true`},
+		},
 	}, out)
 
 	// POST
 	// --------------------------------------------------------------------------------------------
-	response, err = client.Post(`/test/path`, `postable`, map[string]interface{}{
+	response, err = client.Post(`/base/test/path`, `postable`, map[string]interface{}{
 		`thing`: true,
 	}, nil)
 
@@ -100,7 +105,7 @@ func TestClient(t *testing.T) {
 
 	// PUT
 	// --------------------------------------------------------------------------------------------
-	response, err = client.Put(`/test/path`, `puttable`, map[string]interface{}{
+	response, err = client.Put(`/base/test/path`, `puttable`, map[string]interface{}{
 		`thing`: true,
 	}, nil)
 
@@ -111,7 +116,7 @@ func TestClient(t *testing.T) {
 
 	// PUT
 	// --------------------------------------------------------------------------------------------
-	response, err = client.Delete(`/test/path`, nil, nil)
+	response, err = client.Delete(`/base/test/path`, nil, nil)
 
 	assert.NoError(err)
 	assert.NotNil(response)
