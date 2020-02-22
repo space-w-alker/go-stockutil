@@ -1008,8 +1008,12 @@ func fieldNameFromReflect(field reflect.StructField) string {
 }
 
 // Format the given string in the same manner as fmt.Sprintf, except data items that are
-// maps or Map objects will be expanded using special patterns in the format string.
-//
+// maps or Map objects will be expanded using special patterns in the format string. Deeply-nested
+// map values can be referenced using a format string "${path.to.value}".  Missing keys will return
+// an empty string, or a fallback value may be provided like so: "${path.to.value|fallback}".
+// The value may also specify a standard fmt.Sprintf pattern with "${path.to.value:%02d}" (or
+// "${path.to.value|fallback:%02d}" for fallback values.)  Finally, a special case for time.Time values
+// allows for the format string to be passed to time.Format: "${path.to.time:%January 2, 2006 (3:04pm)}".
 func Sprintf(format string, data ...interface{}) string {
 	var params []interface{}
 
