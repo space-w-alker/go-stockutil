@@ -17,6 +17,7 @@ type testOutputOne struct {
 	LOL           []string `json:"lol"`
 	NonIndexedLOL []string `json:"nilol"`
 	Onesie        []string `json:"onesie"`
+	Empty         string   `json:"empty"`
 }
 
 func TestParseFormValues(t *testing.T) {
@@ -37,8 +38,10 @@ func TestParseFormValues(t *testing.T) {
 		`lol.2`:    []string{`two`},
 		`nilol[]`:  []string{`first`, `second`, `third`},
 		`onesie[]`: []string{`uno`},
+		`empty`:    nil,
 	}, &t1))
 
+	assert.Equal(``, t1.Empty)
 	assert.Equal(`Tester`, t1.Name)
 	assert.Equal(`http://test`, t1.URL)
 	assert.Equal(int64(42), t1.Count)

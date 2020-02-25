@@ -82,8 +82,9 @@ func ParseFormValues(formValues url.Values, into interface{}) error {
 	data := make(map[string]interface{})
 
 	for key, values := range formValues {
-		var isArray bool
 		values = sliceutil.CompactString(values)
+
+		var isArray bool
 
 		if strings.HasSuffix(key, `[]`) {
 			isArray = true
@@ -96,8 +97,10 @@ func ParseFormValues(formValues url.Values, into interface{}) error {
 
 		if isArray {
 			maputil.DeepSet(data, parts, sliceutil.Autotype(values))
-		} else {
+		} else if len(values) > 0 {
 			maputil.DeepSet(data, parts, stringutil.Autotype(values[0]))
+		} else {
+			maputil.DeepSet(data, parts, nil)
 		}
 	}
 
