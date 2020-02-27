@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 
 	"github.com/ghetzel/go-stockutil/fileutil"
@@ -298,7 +299,7 @@ func (self *Client) Request(
 
 		if encoded, err := self.encoder(body); err == nil {
 			if request, err := http.NewRequest(
-				string(method),
+				strings.ToUpper(string(method)),
 				reqUrl.String(),
 				encoded,
 			); err == nil {
