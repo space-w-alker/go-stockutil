@@ -73,6 +73,18 @@ func ExampleUrlPathJoin_simpleJoin() {
 	// Output: https://google.com/search
 }
 
+func ExampleUrlPathJoin_slashJoin() {
+	url, _ := UrlPathJoin(`https://google.com/`, `/`)
+	fmt.Println(url.String())
+	// Output: https://google.com/
+}
+
+func ExampleUrlPathJoin_emptyJoin() {
+	url, _ := UrlPathJoin(`https://google.com/`, ``)
+	fmt.Println(url.String())
+	// Output: https://google.com/
+}
+
 func ExampleUrlPathJoin_joinWithQueryString() {
 	url, _ := UrlPathJoin(`https://google.com/`, `/search?q=hello`)
 	fmt.Println(url.String())

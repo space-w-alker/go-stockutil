@@ -97,6 +97,8 @@ func UrlPathJoin(baseurl interface{}, path string) (*url.URL, error) {
 	var trail string
 
 	if strings.HasSuffix(newpath, `/`) {
+		newpath = strings.TrimSuffix(newpath, `/`)
+		in.Path = strings.TrimSuffix(in.Path, `/`)
 		trail = `/`
 	}
 
