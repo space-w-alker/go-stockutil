@@ -7,14 +7,17 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	gohttputil "net/http/httputil"
 	"net/url"
 	"strings"
 	"time"
 
 	"github.com/ghetzel/go-stockutil/fileutil"
+	"github.com/ghetzel/go-stockutil/log"
 	"github.com/ghetzel/go-stockutil/maputil"
 )
 
+var DebugOutputBoxWidth = 60
 var WaitForPollInterval = time.Second
 
 // Periodically performs a GET request against the given URL, waiting up to timeout
@@ -70,6 +73,45 @@ func NewClient(baseURI string) (*Client, error) {
 		client.uri = uri
 	} else {
 		return nil, err
+	}
+
+	if log.VeryDebugging(`github.com/ghetzel/go-stockutil/httputil`) {
+		client.SetPreRequestHook(func(req *http.Request) (interface{}, error) {
+			if data, err := gohttputil.DumpRequest(req, true); err == nil {
+				log.Debugf("httputil ${blue}\u256d\u2500[ HTTP Request ]%s\u2504\u2504\u2504${reset}", strings.Repeat("\u2500", DebugOutputBoxWidth-17))
+				log.Debugf("httputil ${blue}\u2502${reset} \u21c9 %v", req.URL)
+				log.Debugf("httputil ${blue}\u2502${reset}")
+
+				for _, line := range strings.Split(string(data), "\n") {
+					line = strings.TrimSpace(line)
+					log.Debugf("httputil ${blue}\u2502${reset} %v", line)
+				}
+
+				log.Debugf("httputil ${blue}\u2570%s\u2504\u2504\u2504${reset}", strings.Repeat("\u2500", DebugOutputBoxWidth))
+			}
+
+			return nil, nil
+		})
+
+		client.SetPostRequestHook(func(res *http.Response, _ interface{}) error {
+			if data, err := gohttputil.DumpResponse(res, true); err == nil {
+				log.Debugf("httputil \u256d\u2500[ HTTP Response ]%s\u2504\u2504\u2504", strings.Repeat("\u2500", DebugOutputBoxWidth-18))
+
+				if res.Request != nil {
+					log.Debugf("httputil ${red}\u2502${reset} \u21c7 %v", res.Request.URL)
+					log.Debugf("httputil ${red}\u2502${reset}")
+				}
+
+				for _, line := range strings.Split(string(data), "\n") {
+					line = strings.TrimSpace(line)
+					log.Debugf("httputil \u2502 %v", line)
+				}
+
+				log.Debugf("httputil \u2570%s\u2504\u2504\u2504", strings.Repeat("\u2500", DebugOutputBoxWidth))
+			}
+
+			return nil
+		})
 	}
 
 	return client, nil

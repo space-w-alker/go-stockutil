@@ -85,6 +85,24 @@ func Debugging() bool {
 	return (LogLevel == DEBUG)
 }
 
+func VeryDebugging(features ...string) bool {
+	if Debugging() {
+		envFeatures := strings.Split(os.Getenv(`DEBUG`), `,`)
+
+		for _, feature := range features {
+			for _, ef := range envFeatures {
+				if typeutil.Bool(ef) {
+					return true
+				} else if strings.ToLower(feature) == strings.ToLower(ef) {
+					return true
+				}
+			}
+		}
+	}
+
+	return false
+}
+
 func Logger() *logging.Logger {
 	initLogging()
 	return defaultLogger
