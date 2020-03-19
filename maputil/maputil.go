@@ -719,22 +719,35 @@ func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
 
 // Recursively walk through the given map, calling walkFn for each intermediate and leaf value.
 func Walk(input interface{}, walkFn WalkFunc) error {
-	return walkGeneric(input, nil, walkFn, false)
+	return walkGeneric(input, nil, walkFn, false, nil)
 }
 
 // Recursively walk through the given map, calling walkFn for each intermediate and leaf value.
 // This form behaves identically to Walk(), except that it will also recurse into structs, calling
 // walkFn for all intermediate structs and fields.
 func WalkStruct(input interface{}, walkFn WalkFunc) error {
-	return walkGeneric(input, nil, walkFn, true)
+	return walkGeneric(input, nil, walkFn, true, nil)
 }
 
-func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStruct bool) error {
+func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStruct bool, seen []uintptr) error {
 	if parent == nil {
 		return nil
 	}
 
 	parentV := reflect.ValueOf(parent)
+
+	switch parentV.Kind() {
+	case reflect.Chan, reflect.Func, reflect.Map, reflect.Ptr, reflect.Slice, reflect.UnsafePointer:
+		pp := parentV.Pointer()
+
+		for _, s := range seen {
+			if s == pp {
+				return nil
+			}
+		}
+
+		seen = append(seen, pp)
+	}
 
 	if parentV.Kind() == reflect.Ptr {
 		parentV = parentV.Elem()
@@ -756,7 +769,7 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStru
 			valueV := parentV.MapIndex(key)
 			subpath := append(path, fmt.Sprintf("%v", key.Interface()))
 
-			if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct); err != nil {
+			if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct, seen); err != nil {
 				return returnSkipOrErr(err)
 			}
 		}
@@ -770,7 +783,7 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStru
 			valueV := parentV.Index(i)
 			subpath := append(path, fmt.Sprintf("%v", i))
 
-			if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct); err != nil {
+			if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct, seen); err != nil {
 				return returnSkipOrErr(err)
 			}
 		}
@@ -799,7 +812,7 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStru
 						continue
 					}
 
-					if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct); err != nil {
+					if err := walkGeneric(valueV.Interface(), subpath, walkFn, includeStruct, seen); err != nil {
 						return returnSkipOrErr(err)
 					}
 				}
