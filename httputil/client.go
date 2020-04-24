@@ -15,6 +15,7 @@ import (
 	"github.com/ghetzel/go-stockutil/fileutil"
 	"github.com/ghetzel/go-stockutil/log"
 	"github.com/ghetzel/go-stockutil/maputil"
+	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 var DebugOutputBoxWidth = 60
@@ -168,6 +169,17 @@ func (self *Client) SetPostRequestHook(fn InterceptResponseFunc) {
 	self.postRequestHook = fn
 }
 
+// Return the headers set on this client.
+func (self *Client) Headers() http.Header {
+	var hdr = make(http.Header)
+
+	for k, v := range self.headers {
+		hdr.Add(k, typeutil.String(v))
+	}
+
+	return hdr
+}
+
 // Remove all implicit HTTP request headers.
 func (self *Client) ClearHeaders() {
 	self.headers = nil
@@ -196,6 +208,11 @@ func (self *Client) SetParam(name string, value interface{}) {
 	} else {
 		delete(self.params, name)
 	}
+}
+
+// Return the params set on this client.
+func (self *Client) Params() map[string]interface{} {
+	return self.params
 }
 
 // Returns the HTTP client used to perform requests
