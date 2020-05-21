@@ -110,29 +110,66 @@ func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname st
 	}
 
 	if converter == nil {
-		converter = func(from reflect.Type, to reflect.Type, data interface{}) (interface{}, error) {
+		converter = func(source reflect.Type, target reflect.Type, data interface{}) (interface{}, error) {
+			if utils.IsTime(data) {
+				fmt.Println("time")
+				return stringutil.ConvertToTime(data)
+			}
+
 			return data, nil
 		}
 	}
 
 	if populateV, ok := populate.(reflect.Value); ok {
-		if populateV.IsValid() {
+		if populateV.IsValid() && populateV.CanInterface() {
 			populate = populateV.Interface()
 		} else {
-			return fmt.Errorf("Destination value is invalid or non-addressable")
+			return fmt.Errorf("Destination value is invalid or unsettable")
 		}
 	}
 
-	if decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
-		Result:     populate,
-		TagName:    tagname,
-		DecodeHook: converter,
-		Squash:     true,
-	}); err == nil {
-		return decoder.Decode(input)
-	} else {
-		return err
+	// this is greee--EEEE---eee---aaaa--AAAA---aaasy
+	// there appears to be a bug-or-gotcha in mapstructure wherein, when Squash=true,
+	// destination values in nested structs won't copy over.  So we do one pass wihtout squashing
+	// to catch these kinds of values, and another WITH squashing to catch the embedded fields
+	for _, squash := range []bool{false, true} {
+		var meta = new(mapstructure.Metadata)
+
+		if decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
+			Result:           populate,
+			TagName:          tagname,
+			DecodeHook:       converter,
+			WeaklyTypedInput: true,
+			Squash:           squash,
+			Metadata:         meta,
+		}); err == nil {
+			if err := decoder.Decode(input); err != nil {
+				return err
+			}
+
+			for _, field := range sliceutil.UniqueStrings(meta.Unused) {
+				var key = strings.Split(field, `.`)
+				var src = DeepGet(input, key)
+
+				if utils.IsTime(src) {
+					fmt.Printf("time %s = %T(%v)\n", key, src, src)
+					DeepSet(populate, key, typeutil.Time(src))
+
+				} else if typeutil.IsMap(src) || typeutil.IsStruct(src) {
+					for kv := range M(src).Iter() {
+						// fmt.Printf("struct[%s] = %T(%v)\n", strings.Join(append(key, kv.K), `.`), kv.Value, kv.Value)
+						DeepSet(populate, append(key, kv.K), kv.Value)
+					}
+				}
+			}
+		} else {
+			return err
+		}
 	}
+
+	// fmt.Println(typeutil.Dump(populate))
+
+	return nil
 }
 
 // Same as TaggedStructFromMapFunc, but does not perform any value conversion.
@@ -143,37 +180,6 @@ func TaggedStructFromMap(input interface{}, populate interface{}, tagname string
 // Same as TaggedStructFromMapFunc, but no value conversion and uses the "maputil" struct tag.
 func StructFromMap(input map[string]interface{}, populate interface{}) error {
 	return TaggedStructFromMap(input, populate, ``)
-}
-
-func populateNewInstanceFromMap(input map[string]interface{}, destination reflect.Type) (reflect.Value, error) {
-	var newFieldInstance reflect.Value
-
-	if destination.Kind() == reflect.Struct {
-		// get a new instance of the type we want to populate
-		newFieldInstance = reflect.New(destination)
-	} else if destination.Kind() == reflect.Ptr && destination.Elem().Kind() == reflect.Struct {
-		// get a new instance of the type this pointer is pointing at
-		newFieldInstance = reflect.New(destination.Elem())
-	}
-
-	if newFieldInstance.IsValid() {
-		// recursively call StructFromMap, passing the current map[s*]i* value and the new
-		// instance we just created.
-		//
-		if err := StructFromMap(input, newFieldInstance.Interface()); err == nil {
-			if newFieldInstance.Elem().Type().ConvertibleTo(destination) {
-				// handle as-value
-				return newFieldInstance.Elem().Convert(destination), nil
-			} else if newFieldInstance.Type().ConvertibleTo(destination) {
-				// handle as-ptr
-				return newFieldInstance.Convert(destination), nil
-			}
-		} else {
-			return reflect.ValueOf(nil), err
-		}
-	}
-
-	return reflect.ValueOf(nil), fmt.Errorf("Could not instantiate type %v", destination)
 }
 
 // Join the given map, using innerJoiner to join keys and values, and outerJoiner to join the resulting key-value lines.

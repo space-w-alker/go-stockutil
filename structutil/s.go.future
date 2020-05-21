@@ -1,0 +1,58 @@
+package structutil
+
+import "reflect"
+
+type Field struct {
+	*reflect.StructField
+	Struct *Struct
+}
+
+func (self *Field)
+
+type Struct struct {
+	Source    interface{}
+	fields    []*Field
+	fieldmap  map[string]*Field
+	valmap    map[string]reflect.Value
+	populated bool
+}
+
+func S(src interface{}) *Struct {
+	return &Struct{
+		Source:   src,
+		fields:   make([]*Field, 0),
+		fieldmap: make(map[string]*Field),
+		valmap:   make(map[string]reflect.Value),
+	}
+}
+
+func (self *Struct) Fields() []*Field {
+	if !self.populated {
+		FieldsFunc(self.Source, func(field *reflect.StructField, value reflect.Value) error {
+			var f = &Field{
+				StructField: field,
+				Struct:      self,
+			}
+
+			self.fields = append(self.fields, f)
+			self.fieldmap[field.Name] = f
+			self.valmap[field.Name] = value
+
+			return nil
+		})
+
+		self.populated = true
+	}
+
+	return self.fields
+}
+
+func (self *Struct) Field(name string) (*Field, bool) {
+	self.Fields()
+
+	if f, ok := self.fieldmap[name]; ok {
+		return f, true
+	}
+
+	return nil, false
+}

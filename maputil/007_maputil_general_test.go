@@ -125,9 +125,19 @@ type MyStructTester struct {
 }
 
 func TestStructFromMapEmbedded(t *testing.T) {
+	type tAddress struct {
+		Number   string
+		Street   string
+		City     string `potato:"city"`
+		State    string `potato:"state"`
+		Country  string `potato:"country"`
+		LoadedAt time.Time
+	}
+
 	type tPerson struct {
-		Name string
-		Age  int `potato:"age"`
+		Name    string
+		Age     int `potato:"age"`
+		Address *tAddress
 	}
 
 	type tUser struct {
@@ -145,12 +155,25 @@ func TestStructFromMapEmbedded(t *testing.T) {
 		`age`:    420,
 		`email`:  `none+of@your.biz`,
 		`ACTIVE`: true,
+		`Address`: map[string]interface{}{
+			`Number`:   350,
+			`Street`:   `Fifth Avenue`,
+			`city`:     `New York`,
+			`state`:    `NY`,
+			`country`:  `US`,
+			`LoadedAt`: `2006-01-02`,
+		},
 	}, &tgt, `potato`))
 
 	assert.Equal(`Rusty Shackleford`, tgt.Name)
 	assert.Equal(420, tgt.Age)
 	assert.Equal(`none+of@your.biz`, tgt.Email)
 	assert.True(tgt.Active)
+	assert.Equal(`350`, tgt.Address.Number)
+	assert.Equal(`Fifth Avenue`, tgt.Address.Street)
+	assert.Equal(`New York`, tgt.Address.City)
+	assert.Equal(`NY`, tgt.Address.State)
+	assert.Equal(`US`, tgt.Address.Country)
 }
 
 func TestStructFromMap(t *testing.T) {
@@ -160,16 +183,16 @@ func TestStructFromMap(t *testing.T) {
 		`Name`:           `Foo Bar`,
 		`active`:         true,
 		`should_not_set`: 4,
-		`Subtype1`: map[string]interface{}{
-			`A`: 1,
-			`b`: 2,
-		},
 		`subtype2`: map[string]interface{}{
 			`A`: 3,
 			`b`: 4,
 		},
 		`TimeTest`: 15000000000,
-		`IntTest`:  int64(5),
+		`Subtype1`: map[string]interface{}{
+			`A`: 1111,
+			`b`: 2222,
+		},
+		`IntTest`: int64(5),
 		`Properties`: map[string]interface{}{
 			`first`:  1,
 			`second`: true,
@@ -217,8 +240,8 @@ func TestStructFromMap(t *testing.T) {
 	assert.True(output.Active)
 	assert.Zero(output.nonexported)
 
-	// assert.Equal(1, output.Subtype1.A)
-	// assert.Equal(2, output.Subtype1.B)
+	assert.Equal(1111, output.Subtype1.A)
+	assert.Equal(2222, output.Subtype1.B)
 
 	assert.NotNil(output.Subtype2)
 	assert.Equal(3, output.Subtype2.A)
