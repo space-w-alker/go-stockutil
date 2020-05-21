@@ -106,6 +106,9 @@ type Cmd struct {
 	// If specified, this function will determine how to tokenize the stderr stream and when to call OnStderr.  Defaults to bufio.ScanLines.
 	StderrSplitFunc bufio.SplitFunc
 
+	// Specifies that the spawned process should inherit the same Process Group ID (PGID) as the parent.
+	InheritParent bool
+
 	status     Status
 	statusLock sync.Mutex
 	reallyDone *sync.WaitGroup
@@ -189,6 +192,12 @@ func (self *Cmd) prestart() error {
 	self.status.StartedAt = time.Now()
 	self.status.Running = true
 	self.statusLock.Unlock()
+
+	if self.InheritParent {
+		self.Cmd.SysProcAttr = &syscall.SysProcAttr{
+			Setpgid: true,
+		}
+	}
 
 	self.updateStatus()
 

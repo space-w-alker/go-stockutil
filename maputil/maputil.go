@@ -127,6 +127,7 @@ func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname st
 		Result:     populate,
 		TagName:    tagname,
 		DecodeHook: converter,
+		Squash:     true,
 	}); err == nil {
 		return decoder.Decode(input)
 	} else {
