@@ -11,7 +11,7 @@ require (
 	github.com/ghetzel/testify v1.4.1
 	github.com/ghetzel/uuid v0.0.0-20171129191014-dec09d789f3d
 	github.com/grandcat/zeroconf v0.0.0-20190118114326-c2d1b4121200
-	github.com/h2non/filetype v1.0.8
+	github.com/h2non/filetype v1.0.13-0.20200520201155-df519de6e270
 	github.com/hashicorp/go-multierror v1.0.0
 	github.com/jackpal/gateway v1.0.5-0.20180407163008-cbcf4e3f3bae
 	github.com/jbenet/go-base58 v0.0.0-20150317085156-6237cf65f3a6
