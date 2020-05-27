@@ -572,12 +572,14 @@ func GetMimeType(filenameOrReader interface{}, fallback ...string) string {
 
 	// if we've gotten here, try to read the actual contents of the file to detect the type
 	if reader, ok := filenameOrReader.(io.Reader); ok {
+		defer func() {
+			if seeker, ok := filenameOrReader.(io.Seeker); ok {
+				seeker.Seek(0, io.SeekStart)
+			}
+		}()
+
 		if detected, err := filetype.MatchReader(reader); err == nil && detected.MIME.Value != `` {
 			return detected.MIME.Value
-		}
-
-		if seeker, ok := filenameOrReader.(io.Seeker); ok {
-			seeker.Seek(0, io.SeekStart)
 		}
 	}
 
