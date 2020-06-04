@@ -28,7 +28,7 @@ require (
 	github.com/mattn/go-shellwords v1.0.9
 	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
 	github.com/miekg/dns v1.1.12 // indirect
-	github.com/mitchellh/mapstructure v1.3.0
+	github.com/mitchellh/mapstructure v1.0.0
 	github.com/mjibson/esc v0.2.0 // indirect
 	github.com/neurosnap/sentences v1.0.6 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7

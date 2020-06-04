@@ -128,43 +128,34 @@ func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname st
 		}
 	}
 
-	// this is greee--EEEE---eee---aaaa--AAAA---aaasy
-	// there appears to be a bug-or-gotcha in mapstructure wherein, when Squash=true,
-	// destination values in nested structs won't copy over.  So we do one pass wihtout squashing
-	// to catch these kinds of values, and another WITH squashing to catch the embedded fields
-	for _, squash := range []bool{false, true} {
-		var meta = new(mapstructure.Metadata)
+	var meta = new(mapstructure.Metadata)
 
-		if decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
-			Result:           populate,
-			TagName:          tagname,
-			DecodeHook:       converter,
-			WeaklyTypedInput: true,
-			Squash:           squash,
-			Metadata:         meta,
-		}); err == nil {
-			if err := decoder.Decode(input); err != nil {
-				return err
-			}
-
-			for _, field := range sliceutil.UniqueStrings(meta.Unused) {
-				var key = strings.Split(field, `.`)
-				var src = DeepGet(input, key)
-
-				if utils.IsTime(src) {
-					fmt.Printf("time %s = %T(%v)\n", key, src, src)
-					DeepSet(populate, key, typeutil.Time(src))
-
-				} else if typeutil.IsMap(src) || typeutil.IsStruct(src) {
-					for kv := range M(src).Iter() {
-						// fmt.Printf("struct[%s] = %T(%v)\n", strings.Join(append(key, kv.K), `.`), kv.Value, kv.Value)
-						DeepSet(populate, append(key, kv.K), kv.Value)
-					}
-				}
-			}
-		} else {
+	if decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
+		Result:           populate,
+		TagName:          tagname,
+		DecodeHook:       converter,
+		WeaklyTypedInput: true,
+		Metadata:         meta,
+	}); err == nil {
+		if err := decoder.Decode(input); err != nil {
 			return err
 		}
+
+		for _, field := range sliceutil.UniqueStrings(meta.Unused) {
+			var key = strings.Split(field, `.`)
+			var src = DeepGet(input, key)
+
+			if utils.IsTime(src) {
+				DeepSet(populate, key, typeutil.Time(src))
+
+			} else if typeutil.IsMap(src) || typeutil.IsStruct(src) {
+				for kv := range M(src).Iter() {
+					DeepSet(populate, append(key, kv.K), kv.Value)
+				}
+			}
+		}
+	} else {
+		return err
 	}
 
 	// fmt.Println(typeutil.Dump(populate))
