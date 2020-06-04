@@ -112,7 +112,6 @@ func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname st
 	if converter == nil {
 		converter = func(source reflect.Type, target reflect.Type, data interface{}) (interface{}, error) {
 			if utils.IsTime(data) {
-				fmt.Println("time")
 				return stringutil.ConvertToTime(data)
 			}
 
