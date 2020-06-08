@@ -12,6 +12,7 @@ import (
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
+	"github.com/mattn/go-shellwords"
 )
 
 // Locates the first path containing the given command. The directories listed
@@ -130,5 +131,28 @@ func TrapSignals(after func(sig os.Signal) bool, signals ...os.Signal) {
 				return
 			}
 		}
+	}
+}
+
+// Splits the given string into words, honoring quoting and escaping conventions of common command line shells.
+func Split(cmd string) ([]string, error) {
+	return shellwords.Parse(cmd)
+}
+
+// Same as Split, but silently discards any errors, returning an empty slice in this case.
+func ShouldSplit(cmd string) []string {
+	if words, err := Split(cmd); err == nil {
+		return words
+	} else {
+		return nil
+	}
+}
+
+// Same as Split, but panics if there is an error.
+func MustSplit(cmd string) []string {
+	if words, err := Split(cmd); err == nil {
+		return words
+	} else {
+		panic(err.Error())
 	}
 }
