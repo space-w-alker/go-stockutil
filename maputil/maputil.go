@@ -111,7 +111,11 @@ func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname st
 
 	if converter == nil {
 		converter = func(source reflect.Type, target reflect.Type, data interface{}) (interface{}, error) {
-			if utils.IsTime(data) {
+			if target.Kind() == reflect.String {
+				return stringutil.ConvertToString(data)
+			}
+
+			if target.String() == `time.Time` || utils.IsTime(data) {
 				return stringutil.ConvertToTime(data)
 			}
 
@@ -137,7 +141,7 @@ func TaggedStructFromMapFunc(input interface{}, populate interface{}, tagname st
 		Metadata:         meta,
 	}); err == nil {
 		if err := decoder.Decode(input); err != nil {
-			return err
+			return fmt.Errorf("maputil: %v", err)
 		}
 
 		for _, field := range sliceutil.UniqueStrings(meta.Unused) {
