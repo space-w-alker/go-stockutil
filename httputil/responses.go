@@ -39,7 +39,9 @@ func SetContentTypeParser(contentType string, parser RequestParseFunc) {
 //
 func RespondJSON(w http.ResponseWriter, data interface{}, status ...int) {
 	w.Header().Set(`Content-Type`, `application/json`)
-	headerSent := false
+
+	var headerSent bool
+	var finalStatus int
 
 	if err, ok := data.(error); ok && err != nil {
 		data = map[string]interface{}{
@@ -53,13 +55,19 @@ func RespondJSON(w http.ResponseWriter, data interface{}, status ...int) {
 	}
 
 	if len(status) > 0 {
-		w.WriteHeader(status[0])
+		finalStatus = status[0]
+		w.WriteHeader(finalStatus)
 		headerSent = true
 	}
 
 	if data != nil {
 		if err := json.NewEncoder(w).Encode(data); err != nil {
-			Logger.Warningf("Failed to encode response body: %v", err)
+			switch finalStatus {
+			case http.StatusNoContent, http.StatusResetContent:
+				break
+			default:
+				Logger.Warningf("Failed to encode response body: %v", err)
+			}
 		}
 	} else if !headerSent {
 		w.WriteHeader(http.StatusNoContent)
