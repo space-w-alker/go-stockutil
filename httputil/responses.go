@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/ghetzel/go-stockutil/log"
 	"github.com/ghetzel/go-stockutil/maputil"
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
@@ -62,10 +63,7 @@ func RespondJSON(w http.ResponseWriter, data interface{}, status ...int) {
 
 	if data != nil {
 		if err := json.NewEncoder(w).Encode(data); err != nil {
-			switch finalStatus {
-			case http.StatusNoContent, http.StatusResetContent:
-				break
-			default:
+			if !log.ErrContains(err, `status code does not allow body`) {
 				Logger.Warningf("Failed to encode response body: %v", err)
 			}
 		}
