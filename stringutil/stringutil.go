@@ -23,6 +23,15 @@ var rxEnvVarExpr = regexp.MustCompile(`(\$\{(?P<env>\w+)(?:\|(?P<fallback>.*?))?
 var DefaultThousandsSeparator = `,`
 var DefaultDecimalSeparator = `.`
 
+// If set to true, ExpandEnv() will preserve ${...} sequences whose resulting value would yield an empty string.
+// Fallback and formatting values are still supported, as the determination of value emptiness is made after parsing
+// the sequence.  This is to avoid unset environment variables resulting in the escape sequences being erased, which is often
+// the case when running ExpandEnv() against various shell languages (Bash, et. al)
+//
+var ExpandEnvPreserveIfEmpty = false
+var ExpandEnvTempDelimiterOpen = "\u3018"  // LEFT WHITE TORTOISE SHELL BRACKET (U+3018, Ps): 〘
+var ExpandEnvTempDelimiterClose = "\u3019" // RIGHT WHITE TORTOISE SHELL BRACKET (U+3019, Pe): 〙
+
 var NilStrings = utils.NilStrings
 var BooleanTrueValues = utils.BooleanTrueValues
 var BooleanFalseValues = utils.BooleanFalseValues
@@ -839,9 +848,9 @@ func SqueezeSpace(in string) string {
 func ExpandEnv(in string) string {
 	for {
 		if match := rxutil.Match(rxEnvVarExpr, in); match != nil {
-			format := match.Group(`fmt`)
-			varname := match.Group(`env`)
-			fallback := match.Group(`fallback`)
+			var format = match.Group(`fmt`)
+			var varname = match.Group(`env`)
+			var fallback = match.Group(`fallback`)
 
 			if varname != `` {
 				if format == `` {
@@ -858,6 +867,23 @@ func ExpandEnv(in string) string {
 
 				if typed != nil {
 					in = match.ReplaceGroup(1, fmt.Sprintf(format, typed))
+				} else if ExpandEnvPreserveIfEmpty {
+					// this One Weird Trick™ always weirds me out, but here goes
+					// we're in a loop that recursively expands all ${...} sequences and eliminates those sequences
+					// from the output *UNLESS* ExpandEnvPreserveIfEmpty==true.  In that case, we're saying
+					// "if this sequence would expand to an empty string, leave it alone in the output."
+					//
+					// Problem is, that creates an infinite loop of replacing the same sequence with itself forever.
+					// So what we do instead is we swap out the delimiters denoting the start and end of the expansion
+					// sequence with a Unicode character that is _very_ unlikely to appear in the types of strings this
+					// function is expected to process.  We then go back, outside of the loop, and swap those characters back
+					// with the correct delimiters.
+					//
+					// It's a bit janky, for sure, but it works. If you somehow end up with a conflict with these specific
+					// temporary delimiters, you can change the package-level variables to some less-problematic characters
+					// to your use case.
+
+					in = match.ReplaceGroup(1, fmt.Sprintf(format, ExpandEnvTempDelimiterOpen+varname+ExpandEnvTempDelimiterClose))
 				} else {
 					in = match.ReplaceGroup(1, fmt.Sprintf(format, ``))
 				}
@@ -866,6 +892,9 @@ func ExpandEnv(in string) string {
 			break
 		}
 	}
+
+	in = strings.ReplaceAll(in, ExpandEnvTempDelimiterOpen, `${`)
+	in = strings.ReplaceAll(in, ExpandEnvTempDelimiterClose, `}`)
 
 	return in
 }
