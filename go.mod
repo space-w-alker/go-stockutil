@@ -41,6 +41,7 @@ require (
 	golang.org/x/net v0.0.0-20200625001655-4c5254603344
 	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208 // indirect
 	gopkg.in/neurosnap/sentences.v1 v1.0.6 // indirect
+	k8s.io/apimachinery v0.18.6
 )
 
 go 1.12
