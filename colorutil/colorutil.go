@@ -4,6 +4,7 @@ package colorutil
 import (
 	"encoding/hex"
 	"fmt"
+	"image/color"
 	"math"
 	"strings"
 
@@ -127,6 +128,12 @@ func (self Color) HSV() (float64, float64, float64) {
 // Return the current color as hue (out of 360°), saturation [0, 1], and intensity [0, 1].
 func (self Color) HSI() (float64, float64, float64) {
 	return rgb2lhs(HSI, self.r, self.g, self.b)
+}
+
+// Return the color as a color.RGBA struct.
+func (self Color) NativeRGBA() (c color.RGBA) {
+	c.R, c.G, c.B, c.A = self.RGBA255()
+	return
 }
 
 // Return whether the given color is equal to this one in the 24-bit RGB (RGB255) color space

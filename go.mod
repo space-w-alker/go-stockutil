@@ -22,25 +22,24 @@ require (
 	github.com/kr/fs v0.1.0 // indirect
 	github.com/kylelemons/go-gypsy v0.0.0-20160905020020-08cad365cd28 // indirect
 	github.com/lib/pq v1.1.0 // indirect
-	github.com/martinlindhe/unit v0.0.0-20180817222220-284ab7627fae
+	github.com/martinlindhe/unit v0.0.0-20190604142932-3b6be53d49af
 	github.com/mattn/go-colorable v0.1.0 // indirect
 	github.com/mattn/go-isatty v0.0.4
 	github.com/mattn/go-shellwords v1.0.9
 	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
 	github.com/miekg/dns v1.1.12 // indirect
 	github.com/mitchellh/mapstructure v1.0.0
-	github.com/mjibson/esc v0.2.0 // indirect
 	github.com/neurosnap/sentences v1.0.6 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/pkg/sftp v1.10.0
+	github.com/stretchr/testify v1.6.1 // indirect
 	github.com/urfave/negroni v1.0.0
 	github.com/ziutek/mymysql v1.5.4 // indirect
-	golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2
-	golang.org/x/net v0.0.0-20190620200207-3b0461eec859
-	golang.org/x/sys v0.0.0-20190422165155-953cdadca894 // indirect
-	golang.org/x/tools v0.0.0-20190827152308-062dbaebb618 // indirect
+	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+	golang.org/x/net v0.0.0-20200625001655-4c5254603344
+	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208 // indirect
 	gopkg.in/neurosnap/sentences.v1 v1.0.6 // indirect
 )
 
