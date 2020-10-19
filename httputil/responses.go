@@ -85,7 +85,7 @@ func ParseJSON(r io.Reader, into interface{}) error {
 // Parses a set of values received from an HTML form (usually the value of the
 // http.Request.Form property) and unmarshals into the given value.
 func ParseFormValues(formValues url.Values, into interface{}) error {
-	data := make(map[string]interface{})
+	var data = make(map[string]interface{})
 
 	for key, values := range formValues {
 		values = sliceutil.CompactString(values)
@@ -97,9 +97,12 @@ func ParseFormValues(formValues url.Values, into interface{}) error {
 			key = strings.TrimSuffix(key, `[]`)
 		} else if len(values) > 1 {
 			isArray = true
+		} else if strings.Contains(key, `[`) && strings.Contains(key, `]`) {
+			key = strings.ReplaceAll(key, `[`, `.`)
+			key = strings.ReplaceAll(key, `]`, ``)
 		}
 
-		parts := strings.Split(key, `.`)
+		var parts = strings.Split(key, `.`)
 
 		if isArray {
 			maputil.DeepSet(data, parts, sliceutil.Autotype(values))
