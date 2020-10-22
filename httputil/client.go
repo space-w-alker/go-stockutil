@@ -1,6 +1,7 @@
 package httputil
 
 import (
+	"bytes"
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
@@ -358,78 +359,88 @@ func (self *Client) Request(
 			SetQ(reqUrl, k, v)
 		}
 
-		if encoded, err := self.encoder(body); err == nil {
-			if request, err := http.NewRequest(
-				strings.ToUpper(string(method)),
-				reqUrl.String(),
-				encoded,
-			); err == nil {
-				// Okay, this is a little weird...
-				//
-				// the existing signature for EncoderFunc accepts an interface with the original
-				// intention of just having a stateless transformation of one type of data into the
-				// encoded version of that data.
-				//
-				// However, it became clear that it would be useful to ALSO allow encoders to modify
-				// the request data (e.g.: add headers, set Content-Type, etc.)
-				//
-				// So we're going to call encoder _again_, passing it the pointer to the newly-created
-				// request.  We won't check the response for errors, and just assume that if an
-				// EncoderFunc implementation supports doing something with *http.Request, it will
-				// Do What It Needs To Do (TM) and move on.
-				//
-				// This is all in service of not breaking backwards compatibility by changing this
-				// function signature.  Yay.
-				//
-				self.encoder(request)
+		var payload io.Reader
+		var encoded interface{}
 
-				// finally, because this wasn't designed right from the start and should be using
-				// a context.Context, we need to special case some things we know about
-				if mpfr, ok := encoded.(*multipartFormRequest); ok {
-					// special case: Multipart Form requests with the boundary value in the content type
-					request.Header.Set(`Content-Type`, mpfr.contentType)
+		if body != nil {
+			if lit, ok := body.(Literal); ok {
+				payload = bytes.NewReader([]byte(lit))
+			} else if enc, err := self.encoder(body); err == nil {
+				encoded = enc
+				payload = enc
+			} else {
+				return nil, fmt.Errorf("encoder error: %v", err)
+			}
+		}
+
+		if request, err := http.NewRequest(
+			strings.ToUpper(string(method)),
+			reqUrl.String(),
+			payload,
+		); err == nil {
+			// Okay, this is a little weird...
+			//
+			// the existing signature for EncoderFunc accepts an interface with the original
+			// intention of just having a stateless transformation of one type of data into the
+			// encoded version of that data.
+			//
+			// However, it became clear that it would be useful to ALSO allow encoders to modify
+			// the request data (e.g.: add headers, set Content-Type, etc.)
+			//
+			// So we're going to call encoder _again_, passing it the pointer to the newly-created
+			// request.  We won't check the response for errors, and just assume that if an
+			// EncoderFunc implementation supports doing something with *http.Request, it will
+			// Do What It Needs To Do (TM) and move on.
+			//
+			// This is all in service of not breaking backwards compatibility by changing this
+			// function signature.  Yay.
+			//
+			self.encoder(request)
+
+			// finally, because this wasn't designed right from the start and should be using
+			// a context.Context, we need to special case some things we know about
+			if mpfr, ok := encoded.(*multipartFormRequest); ok {
+				// special case: Multipart Form requests with the boundary value in the content type
+				request.Header.Set(`Content-Type`, mpfr.contentType)
+			}
+
+			for k, v := range headers {
+				request.Header.Set(k, fmt.Sprintf("%v", v))
+			}
+
+			var hookObject interface{}
+
+			if self.preRequestHook != nil {
+				if v, err := self.preRequestHook(request); err == nil {
+					hookObject = v
+				} else {
+					return nil, err
 				}
+			}
 
-				for k, v := range headers {
-					request.Header.Set(k, fmt.Sprintf("%v", v))
-				}
+			// close connection after sending this request and reading its response
+			request.Close = true
 
-				var hookObject interface{}
-
-				if self.preRequestHook != nil {
-					if v, err := self.preRequestHook(request); err == nil {
-						hookObject = v
-					} else {
+			// perform the request
+			if response, err := self.httpClient.Do(request); err == nil {
+				if self.postRequestHook != nil {
+					if err := self.postRequestHook(response, hookObject); err != nil {
 						return nil, err
 					}
 				}
 
-				// close connection after sending this request and reading its response
-				request.Close = true
-
-				// perform the request
-				if response, err := self.httpClient.Do(request); err == nil {
-					if self.postRequestHook != nil {
-						if err := self.postRequestHook(response, hookObject); err != nil {
-							return nil, err
-						}
-					}
-
-					if response.StatusCode < 400 {
-						return response, nil
-					} else if self.errorDecoder != nil {
-						return response, self.errorDecoder(response)
-					} else {
-						return response, fmt.Errorf("HTTP %v", response.Status)
-					}
+				if response.StatusCode < 400 {
+					return response, nil
+				} else if self.errorDecoder != nil {
+					return response, self.errorDecoder(response)
 				} else {
-					return nil, err
+					return response, fmt.Errorf("HTTP %v", response.Status)
 				}
 			} else {
-				return nil, fmt.Errorf("request init error: %v", err)
+				return nil, err
 			}
 		} else {
-			return nil, fmt.Errorf("encoder error: %v", err)
+			return nil, fmt.Errorf("request init error: %v", err)
 		}
 	} else {
 		return nil, fmt.Errorf("url error: %v", err)
@@ -437,10 +448,6 @@ func (self *Client) Request(
 }
 
 func (self *Client) Encode(in interface{}) ([]byte, error) {
-	if lit, ok := in.(Literal); ok {
-		return []byte(lit), nil
-	}
-
 	if self.encoder != nil {
 		if r, err := self.encoder(in); err == nil {
 			return ioutil.ReadAll(r)
