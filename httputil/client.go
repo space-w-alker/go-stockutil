@@ -21,6 +21,8 @@ import (
 var DebugOutputBoxWidth = 60
 var WaitForPollInterval = time.Second
 
+type Literal []byte
+
 // Periodically performs a GET request against the given URL, waiting up to timeout
 // for a 200-series HTTP response code.
 func WaitForHTTP(url string, timeout time.Duration, c ...*http.Client) error {
@@ -435,6 +437,10 @@ func (self *Client) Request(
 }
 
 func (self *Client) Encode(in interface{}) ([]byte, error) {
+	if lit, ok := in.(Literal); ok {
+		return []byte(lit), nil
+	}
+
 	if self.encoder != nil {
 		if r, err := self.encoder(in); err == nil {
 			return ioutil.ReadAll(r)
