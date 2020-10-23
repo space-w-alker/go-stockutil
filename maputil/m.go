@@ -57,9 +57,15 @@ type Map struct {
 	rootTagName       string
 	xmlMarshalGeneric bool
 	xmlKeyTransformFn KeyTransformFunc
+	atomic            sync.Mutex
 }
 
-// Create a new Variant map object from the given value (which should be a map of some kind).
+// Create a new Variant map object from the given value.  A wide range of values are accepted, and
+// the best effort is made to convert those values into a usable map. Accepted values include typeutil.Variant,
+// any value with a reflect.Kind of reflect.Map, sync.Map, another maputil.Map, url.Values,
+// http.Header, or a string or []byte which will be decoded using json.Unmarshal if and only if the
+// string begins with "{" and ends with "}".
+//
 func M(data interface{}) *Map {
 	if dataV, ok := data.(typeutil.Variant); ok {
 		data = dataV.Value
@@ -68,7 +74,7 @@ func M(data interface{}) *Map {
 	} else if dataM, ok := data.(Map); ok {
 		return &dataM
 	} else if dataSM, ok := data.(*sync.Map); ok {
-		dataM := make(map[string]interface{})
+		var dataM = make(map[string]interface{})
 		dataSM.Range(func(key, value interface{}) bool {
 			dataM[typeutil.String(key)] = value
 			return true
@@ -91,7 +97,7 @@ func M(data interface{}) *Map {
 
 		data = dataM
 	} else if hV, ok := data.(http.Header); ok {
-		dataM := make(map[string]interface{})
+		var dataM = make(map[string]interface{})
 
 		for k, v := range hV {
 			switch len(v) {
@@ -105,7 +111,19 @@ func M(data interface{}) *Map {
 		}
 
 		data = dataM
-	} else if data == nil {
+	} else if dS, ok := data.(string); ok {
+		if stringutil.IsSurroundedBy(strings.TrimSpace(dS), `{`, `}`) {
+			data = make(map[string]interface{})
+			json.Unmarshal([]byte(dS), &data)
+		}
+	} else if dB, ok := data.([]byte); ok {
+		if stringutil.IsSurroundedBy(strings.TrimSpace(string(dB)), `{`, `}`) {
+			data = make(map[string]interface{})
+			json.Unmarshal(dB, &data)
+		}
+	}
+
+	if data == nil {
 		data = make(map[string]interface{})
 	}
 
@@ -138,6 +156,9 @@ func (self *Map) Set(key string, value interface{}) typeutil.Variant {
 // Set a value in the Map at the given dot.separated key to a value, but only if the
 // current value at that key is that type's zero value.
 func (self *Map) SetIfZero(key string, value interface{}) (typeutil.Variant, bool) {
+	self.atomic.Lock()
+	defer self.atomic.Unlock()
+
 	if v := self.Get(key); v.IsZero() {
 		return self.Set(key, value), true
 	} else {
@@ -148,6 +169,9 @@ func (self *Map) SetIfZero(key string, value interface{}) (typeutil.Variant, boo
 // Set a value in the Map at the given dot.separated key to a value, but only if the
 // new value is not a zero value.
 func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Variant, bool) {
+	self.atomic.Lock()
+	defer self.atomic.Unlock()
+
 	if !typeutil.IsZero(value) {
 		return self.Set(key, value), true
 	} else {

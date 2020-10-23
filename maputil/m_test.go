@@ -364,3 +364,15 @@ func TestMIter(t *testing.T) {
 	assert.Equal([]string{`a`, `b`, `c`, `d`}, keys)
 	assert.Equal([]int{1, 2, 3, 4}, vals)
 }
+
+func TestMJson(t *testing.T) {
+	assert := require.New(t)
+	m := M(`{"hello": "there", "general": "kenobi"}`)
+
+	assert.Equal(map[string]interface{}{
+		`hello`:   `there`,
+		`general`: `kenobi`,
+	}, m.MapNative())
+	assert.Equal(`there`, m.String(`hello`))
+	assert.Equal(`kenobi`, m.String(`general`))
+}
