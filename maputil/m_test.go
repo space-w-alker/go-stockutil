@@ -381,4 +381,6 @@ func TestMJson(t *testing.T) {
 	assert.Equal(map[string]interface{}{
 		`hello`: `there`,
 	}, m.MapNative())
+
+	assert.Equal([]byte(`{"hello":"there"}`), m.JSON())
 }

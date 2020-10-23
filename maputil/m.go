@@ -279,6 +279,14 @@ func (self *Map) MapNative(tagName ...string) map[string]interface{} {
 	return typeutil.MapNative(self.data, tagName...)
 }
 
+func (self *Map) JSON() []byte {
+	if data, err := self.MarshalJSON(); err == nil {
+		return data
+	} else {
+		return nil
+	}
+}
+
 func (self *Map) MarshalJSON() ([]byte, error) {
 	return json.Marshal(self.data)
 }
