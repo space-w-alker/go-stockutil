@@ -383,4 +383,5 @@ func TestMJson(t *testing.T) {
 	}, m.MapNative())
 
 	assert.Equal([]byte(`{"hello":"there"}`), m.JSON())
+	assert.Equal([]byte("{\n..\"hello\": \"there\"\n}"), m.JSON(`..`))
 }
