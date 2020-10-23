@@ -145,6 +145,11 @@ func (self *Map) Value() interface{} {
 	return self.data
 }
 
+// Delete a value from the map.
+func (self *Map) Delete(key string) {
+	Delete(self.data, key)
+}
+
 // Set a value in the Map at the given dot.separated key to a value.
 func (self *Map) Set(key string, value interface{}) typeutil.Variant {
 	vv := typeutil.V(value)

@@ -610,7 +610,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 		}
 
 	} else {
-		//  Array Embedding: this is where non-terminal array-index key components key processed
+		//  Array Embedding: this is where non-terminal array-index key components are processed
 		if typeutil.IsInteger(rest[0]) {
 			if typeutil.IsMap(data) {
 				//  is the value at `first' in the map isn't present or isn't an array, create it

@@ -375,4 +375,10 @@ func TestMJson(t *testing.T) {
 	}, m.MapNative())
 	assert.Equal(`there`, m.String(`hello`))
 	assert.Equal(`kenobi`, m.String(`general`))
+
+	m.Delete(`general`)
+
+	assert.Equal(map[string]interface{}{
+		`hello`: `there`,
+	}, m.MapNative())
 }
