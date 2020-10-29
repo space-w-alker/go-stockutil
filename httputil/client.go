@@ -341,7 +341,7 @@ func (self *Client) Request(
 	if v, err := maputil.Merge(self.params, params); err == nil {
 		params = v
 	} else {
-		return nil, err
+		return nil, fmt.Errorf("merge params: %v", err)
 	}
 
 	// flatten the given map
@@ -351,7 +351,7 @@ func (self *Client) Request(
 	if v, err := maputil.Merge(self.headers, headers); err == nil {
 		headers = v
 	} else {
-		return nil, err
+		return nil, fmt.Errorf("merge headers: %v", err)
 	}
 	if reqUrl, err := UrlPathJoin(self.uri, path); err == nil {
 		// set querystring values from map
@@ -414,7 +414,7 @@ func (self *Client) Request(
 				if v, err := self.preRequestHook(request); err == nil {
 					hookObject = v
 				} else {
-					return nil, err
+					return nil, fmt.Errorf("pre-request hook: %v", err)
 				}
 			}
 
@@ -425,19 +425,21 @@ func (self *Client) Request(
 			if response, err := self.httpClient.Do(request); err == nil {
 				if self.postRequestHook != nil {
 					if err := self.postRequestHook(response, hookObject); err != nil {
-						return nil, err
+						return nil, fmt.Errorf("post-request hook: %v", err)
 					}
 				}
 
 				if response.StatusCode < 400 {
 					return response, nil
 				} else if self.errorDecoder != nil {
-					return response, self.errorDecoder(response)
-				} else {
-					return response, fmt.Errorf("HTTP %v", response.Status)
+					if err := self.errorDecoder(response); err != nil {
+						return response, err
+					}
 				}
+
+				return response, fmt.Errorf("HTTP %v", response.Status)
 			} else {
-				return nil, err
+				return nil, fmt.Errorf("http request: %v", err)
 			}
 		} else {
 			return nil, fmt.Errorf("request init error: %v", err)
