@@ -64,8 +64,16 @@ type Client struct {
 	insecure        bool
 }
 
+func MustClient(baseURI string) *Client {
+	if c, err := NewClient(baseURI); err == nil {
+		return c
+	} else {
+		panic(err.Error())
+	}
+}
+
 func NewClient(baseURI string) (*Client, error) {
-	client := &Client{
+	var client = &Client{
 		encoder:    JSONEncoder,
 		decoder:    JSONDecoder,
 		headers:    make(map[string]interface{}),
@@ -123,7 +131,7 @@ func NewClient(baseURI string) (*Client, error) {
 
 // Return a copy of the current client that uses a different encoder.
 func (self *Client) WithEncoder(fn EncoderFunc) *Client {
-	clientWith := new(Client)
+	var clientWith = new(Client)
 	*clientWith = *self
 	clientWith.encoder = fn
 	return clientWith
@@ -131,7 +139,7 @@ func (self *Client) WithEncoder(fn EncoderFunc) *Client {
 
 // Return a copy of the current client that uses a different decoder.
 func (self *Client) WithDecoder(fn DecoderFunc) *Client {
-	clientWith := new(Client)
+	var clientWith = new(Client)
 	*clientWith = *self
 	clientWith.decoder = fn
 	return clientWith
@@ -250,10 +258,10 @@ func (self *Client) SetRootCA(pemFilenamesOrData ...interface{}) error {
 }
 
 func (self *Client) updateRootCA(replace bool, pemFilenamesOrData ...interface{}) error {
+	var pems = make([][]byte, 0)
+
 	// when we're all done, make sure the http.Client we'll be using knows about our certs
 	defer self.syncHttpClient()
-
-	pems := make([][]byte, 0)
 
 	for _, pem := range pemFilenamesOrData {
 		if b, ok := pem.([]byte); ok {
@@ -307,7 +315,7 @@ func (self *Client) updateRootCA(replace bool, pemFilenamesOrData ...interface{}
 }
 
 func (self *Client) syncHttpClient() {
-	newTCC := &tls.Config{
+	var newTCC = &tls.Config{
 		RootCAs:            self.rootCaPool,
 		InsecureSkipVerify: self.insecure,
 	}

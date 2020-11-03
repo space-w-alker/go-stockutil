@@ -2,6 +2,7 @@ package executil
 
 import (
 	"os/exec"
+	"strings"
 	"testing"
 
 	"github.com/ghetzel/testify/require"
@@ -12,7 +13,7 @@ func TestWhich(t *testing.T) {
 
 	// assert.Equal(`/bin/sh`, Which(`/bin/sh`))
 	// assert.Equal(`/bin/sh`, Which(`sh`))
-	assert.Equal(`/usr/bin/tail`, Which(`tail`))
+	assert.True(strings.HasSuffix(Which(`tail`), `/bin/tail`))
 	assert.Empty(Which(`absolutely-not-a-command-@#$%^&*`))
 }
 
