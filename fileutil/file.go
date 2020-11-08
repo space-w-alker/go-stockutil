@@ -107,6 +107,15 @@ func ReadAllString(file interface{}) (string, error) {
 	}
 }
 
+// Attempt to call ReadAllString, but will return an empty string if there is an error.  Does not panic.
+func Cat(file interface{}) string {
+	if data, err := ReadAllString(file); err == nil {
+		return data
+	} else {
+		return ``
+	}
+}
+
 // Read all lines of text from the given file and return them as a slice.
 func ReadAllLines(file interface{}) ([]string, error) {
 	if data, err := ReadAllString(file); err == nil {
