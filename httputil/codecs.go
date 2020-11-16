@@ -3,6 +3,7 @@ package httputil
 import (
 	"bytes"
 	"encoding/json"
+	"encoding/xml"
 	"fmt"
 	"io"
 	"mime/multipart"
@@ -36,6 +37,10 @@ func JSONEncoder(in interface{}) (io.Reader, error) {
 
 func JSONDecoder(in io.Reader, out interface{}) error {
 	return json.NewDecoder(in).Decode(out)
+}
+
+func XMLDecoder(in io.Reader, out interface{}) error {
+	return xml.NewDecoder(in).Decode(out)
 }
 
 type MultipartFormFile struct {
