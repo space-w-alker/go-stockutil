@@ -353,6 +353,16 @@ func (self *Client) Request(
 	params map[string]interface{},
 	headers map[string]interface{},
 ) (*http.Response, error) {
+	if !self.firstRequestSent {
+		if self.firstRequestHook != nil {
+			if err := self.firstRequestHook(); err != nil {
+				return nil, fmt.Errorf("init hook: %v", err)
+			}
+		}
+
+		self.firstRequestSent = true
+	}
+
 	var finalParams = make(map[string]interface{})
 	var finalHeaders = make(map[string]interface{})
 
@@ -425,20 +435,10 @@ func (self *Client) Request(
 			}
 
 			for k, v := range finalHeaders {
-				request.Header.Set(k, fmt.Sprintf("%v", v))
+				request.Header.Set(k, typeutil.String(v))
 			}
 
 			var hookObject interface{}
-
-			if !self.firstRequestSent {
-				if self.firstRequestHook != nil {
-					if err := self.firstRequestHook(request); err != nil {
-						return nil, fmt.Errorf("init hook: %v", err)
-					}
-				}
-
-				self.firstRequestSent = true
-			}
 
 			if self.preRequestHook != nil {
 				if v, err := self.preRequestHook(request); err == nil {
