@@ -51,17 +51,19 @@ func WaitForHTTP(url string, timeout time.Duration, c ...*http.Client) error {
 }
 
 type Client struct {
-	encoder         EncoderFunc
-	decoder         DecoderFunc
-	errorDecoder    ErrorDecoderFunc
-	preRequestHook  InterceptRequestFunc
-	postRequestHook InterceptResponseFunc
-	uri             *url.URL
-	headers         map[string]interface{}
-	params          map[string]interface{}
-	httpClient      *http.Client
-	rootCaPool      *x509.CertPool
-	insecure        bool
+	encoder          EncoderFunc
+	decoder          DecoderFunc
+	errorDecoder     ErrorDecoderFunc
+	firstRequestHook InitRequestFunc
+	preRequestHook   InterceptRequestFunc
+	postRequestHook  InterceptResponseFunc
+	uri              *url.URL
+	headers          map[string]interface{}
+	params           map[string]interface{}
+	httpClient       *http.Client
+	rootCaPool       *x509.CertPool
+	insecure         bool
+	firstRequestSent bool
 }
 
 func MustClient(baseURI string) *Client {
@@ -163,6 +165,13 @@ func (self *Client) SetDecoder(fn DecoderFunc) {
 // Specify a different decoder used to deserialize non 2xx/3xx HTTP responses.
 func (self *Client) SetErrorDecoder(fn ErrorDecoderFunc) {
 	self.errorDecoder = fn
+}
+
+// Specify a function that will be called immediately before the first request is sent.
+// This function has an opportunity to read and modify the outgoing request, and
+// if it returns a non-nil error, the request will not be sent.
+func (self *Client) SetInitHook(fn InitRequestFunc) {
+	self.firstRequestHook = fn
 }
 
 // Specify a function that will be called immediately before a request is sent.
@@ -417,6 +426,16 @@ func (self *Client) Request(
 			}
 
 			var hookObject interface{}
+
+			if !self.firstRequestSent {
+				if self.firstRequestHook != nil {
+					if err := self.firstRequestHook(request); err != nil {
+						return nil, fmt.Errorf("init hook: %v", err)
+					}
+				}
+
+				self.firstRequestSent = true
+			}
 
 			if self.preRequestHook != nil {
 				if v, err := self.preRequestHook(request); err == nil {

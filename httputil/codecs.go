@@ -16,6 +16,7 @@ import (
 type EncoderFunc func(interface{}) (io.Reader, error)
 type DecoderFunc func(io.Reader, interface{}) error
 type ErrorDecoderFunc func(*http.Response) error
+type InitRequestFunc func(*http.Request) error
 type InterceptRequestFunc func(*http.Request) (interface{}, error)
 type InterceptResponseFunc func(*http.Response, interface{}) error
 
