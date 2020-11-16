@@ -15,7 +15,6 @@ import (
 
 	"github.com/ghetzel/go-stockutil/fileutil"
 	"github.com/ghetzel/go-stockutil/log"
-	"github.com/ghetzel/go-stockutil/maputil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
@@ -354,25 +353,29 @@ func (self *Client) Request(
 	params map[string]interface{},
 	headers map[string]interface{},
 ) (*http.Response, error) {
-	// merge given params with client-wide params
-	if v, err := maputil.Merge(self.params, params); err == nil {
-		params = v
-	} else {
-		return nil, fmt.Errorf("merge params: %v", err)
+	var finalParams = make(map[string]interface{})
+	var finalHeaders = make(map[string]interface{})
+
+	for k, v := range self.params {
+		finalParams[k] = v
 	}
 
-	// flatten the given map
-	params, _ = maputil.CoalesceMap(params, `.`)
+	for k, v := range params {
+		finalParams[k] = v
+	}
 
 	// merge given headers with client-wide headers
-	if v, err := maputil.Merge(self.headers, headers); err == nil {
-		headers = v
-	} else {
-		return nil, fmt.Errorf("merge headers: %v", err)
+	for k, v := range self.headers {
+		finalHeaders[k] = v
 	}
+
+	for k, v := range headers {
+		finalHeaders[k] = v
+	}
+
 	if reqUrl, err := UrlPathJoin(self.uri, path); err == nil {
 		// set querystring values from map
-		for k, v := range params {
+		for k, v := range finalParams {
 			SetQ(reqUrl, k, v)
 		}
 
@@ -421,7 +424,7 @@ func (self *Client) Request(
 				request.Header.Set(`Content-Type`, mpfr.contentType)
 			}
 
-			for k, v := range headers {
+			for k, v := range finalHeaders {
 				request.Header.Set(k, fmt.Sprintf("%v", v))
 			}
 
