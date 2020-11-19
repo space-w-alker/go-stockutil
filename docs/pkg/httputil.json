@@ -6,18 +6,18 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities for extracting and formatting data encountered in HTTP requests\n",
     "MainFunction": false,
-    "CommentWordCount": 1006,
-    "LineCount": 1635,
-    "SourceLineCount": 1146,
-    "FunctionCount": 69,
-    "TypeCount": 12,
+    "CommentWordCount": 1165,
+    "LineCount": 1864,
+    "SourceLineCount": 1322,
+    "FunctionCount": 75,
+    "TypeCount": 14,
     "ConstantCount": 13,
-    "VariableCount": 4,
+    "VariableCount": 5,
     "Statistics": {
-        "Mean": 0.6759,
-        "StdDev": 0.445,
+        "Mean": 0.6628,
+        "StdDev": 0.4477,
         "GeometricMean": 0,
-        "HarmonicMean": 1,
+        "HarmonicMean": 0,
         "Median": 1,
         "Minimum": 0,
         "Maximum": 1
@@ -26,6 +26,10 @@
         {
             "Name": "client.go",
             "Imports": [
+                {
+                    "PackageName": "bytes",
+                    "Alias": "bytes"
+                },
                 {
                     "PackageName": "crypto/tls",
                     "Alias": "tls"
@@ -51,6 +55,10 @@
                     "Alias": "http"
                 },
                 {
+                    "PackageName": "net/http/httputil",
+                    "Alias": "gohttputil"
+                },
+                {
                     "PackageName": "net/url",
                     "Alias": "url"
                 },
@@ -67,17 +75,21 @@
                     "Alias": "fileutil"
                 },
                 {
-                    "PackageName": "github.com/ghetzel/go-stockutil/maputil",
-                    "Alias": "maputil"
+                    "PackageName": "github.com/ghetzel/go-stockutil/log",
+                    "Alias": "log"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
                 }
             ],
-            "Size": 12457,
-            "LineCount": 435,
-            "SourceLineCount": 308,
-            "FunctionCount": 28,
-            "TypeCount": 1,
+            "Size": 15226,
+            "LineCount": 526,
+            "SourceLineCount": 377,
+            "FunctionCount": 32,
+            "TypeCount": 2,
             "ConstantCount": 0,
-            "VariableCount": 1
+            "VariableCount": 2
         },
         {
             "Name": "client_test.go",
@@ -115,9 +127,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 4025,
-            "LineCount": 157,
-            "SourceLineCount": 119,
+            "Size": 4209,
+            "LineCount": 162,
+            "SourceLineCount": 124,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -133,6 +145,10 @@
                 {
                     "PackageName": "encoding/json",
                     "Alias": "json"
+                },
+                {
+                    "PackageName": "encoding/xml",
+                    "Alias": "xml"
                 },
                 {
                     "PackageName": "fmt",
@@ -163,11 +179,11 @@
                     "Alias": "typeutil"
                 }
             ],
-            "Size": 3816,
-            "LineCount": 138,
-            "SourceLineCount": 109,
-            "FunctionCount": 3,
-            "TypeCount": 6,
+            "Size": 3963,
+            "LineCount": 144,
+            "SourceLineCount": 114,
+            "FunctionCount": 4,
+            "TypeCount": 7,
             "ConstantCount": 0,
             "VariableCount": 1
         },
@@ -329,9 +345,9 @@
                     "Alias": "typeutil"
                 }
             ],
-            "Size": 3923,
-            "LineCount": 160,
-            "SourceLineCount": 116,
+            "Size": 3965,
+            "LineCount": 164,
+            "SourceLineCount": 118,
             "FunctionCount": 13,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -417,6 +433,10 @@
                     "Alias": "strings"
                 },
                 {
+                    "PackageName": "github.com/ghetzel/go-stockutil/log",
+                    "Alias": "log"
+                },
+                {
                     "PackageName": "github.com/ghetzel/go-stockutil/maputil",
                     "Alias": "maputil"
                 },
@@ -429,9 +449,9 @@
                     "Alias": "stringutil"
                 }
             ],
-            "Size": 4696,
-            "LineCount": 165,
-            "SourceLineCount": 116,
+            "Size": 5086,
+            "LineCount": 177,
+            "SourceLineCount": 126,
             "FunctionCount": 12,
             "TypeCount": 1,
             "ConstantCount": 0,
@@ -453,9 +473,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 1310,
-            "LineCount": 52,
-            "SourceLineCount": 44,
+            "Size": 1779,
+            "LineCount": 62,
+            "SourceLineCount": 54,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -505,18 +525,38 @@
                     "Alias": "http"
                 },
                 {
+                    "PackageName": "net/url",
+                    "Alias": "url"
+                },
+                {
+                    "PackageName": "path/filepath",
+                    "Alias": "filepath"
+                },
+                {
                     "PackageName": "strings",
                     "Alias": "strings"
                 },
                 {
                     "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
                     "Alias": "fileutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                    "Alias": "sliceutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
                 }
             ],
-            "Size": 2818,
-            "LineCount": 100,
-            "SourceLineCount": 76,
-            "FunctionCount": 5,
+            "Size": 4495,
+            "LineCount": 159,
+            "SourceLineCount": 123,
+            "FunctionCount": 6,
             "TypeCount": 0,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -545,9 +585,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 1678,
-            "LineCount": 69,
-            "SourceLineCount": 48,
+            "Size": 3019,
+            "LineCount": 111,
+            "SourceLineCount": 76,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -627,6 +667,10 @@
     ],
     "Variables": [
         {
+            "Name": "DebugOutputBoxWidth",
+            "Expression": "60"
+        },
+        {
             "Name": "DefaultMultipartFormFileField",
             "Expression": "`filename`",
             "Value": "filename"
@@ -659,12 +703,12 @@
                     "Type": "string"
                 },
                 {
-                    "Name": "value",
-                    "Type": "interface{}"
+                    "Name": "values",
+                    "Type": "...interface{}"
                 }
             ],
-            "Signature": "AddQ(u *url.URL, key string, value interface{})",
-            "Source": "ewoJcXMgOj0gdS5RdWVyeSgpCglxcy5BZGQoa2V5LCBzdHJpbmd1dGlsLk11c3RTdHJpbmcodmFsdWUpKQoJdS5SYXdRdWVyeSA9IHFzLkVuY29kZSgpCn0=",
+            "Signature": "AddQ(u *url.URL, key string, values ...interface{})",
+            "Source": "ewoJcXMgOj0gdS5RdWVyeSgpCglmb3IgXywgdmFsdWUgOj0gcmFuZ2UgdmFsdWVzIHsKCQlxcy5BZGQoa2V5LCBzdHJpbmd1dGlsLk11c3RTdHJpbmcodmFsdWUpKQoJfQoJdS5SYXdRdWVyeSA9IHFzLkVuY29kZSgpCn0=",
             "IsPackageLevel": true
         },
         {
@@ -1046,7 +1090,7 @@
                 }
             ],
             "Signature": "ParseFormValues(formValues url.Values, into interface{}) error",
-            "Source": "ewoJZGF0YSA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglmb3Iga2V5LCB2YWx1ZXMgOj0gcmFuZ2UgZm9ybVZhbHVlcyB7CgkJdmFyIGlzQXJyYXkgYm9vbAoJCXZhbHVlcyA9IHNsaWNldXRpbC5Db21wYWN0U3RyaW5nKHZhbHVlcykKCQlpZiBzdHJpbmdzLkhhc1N1ZmZpeChrZXksIGBbXWApIHsKCQkJaXNBcnJheSA9IHRydWUKCQkJa2V5ID0gc3RyaW5ncy5UcmltU3VmZml4KGtleSwgYFtdYCkKCQl9IGVsc2UgaWYgbGVuKHZhbHVlcykgPiAxIHsKCQkJaXNBcnJheSA9IHRydWUKCQl9CgkJcGFydHMgOj0gc3RyaW5ncy5TcGxpdChrZXksIGAuYCkKCQlpZiBpc0FycmF5IHsKCQkJbWFwdXRpbC5EZWVwU2V0KGRhdGEsIHBhcnRzLCBzbGljZXV0aWwuQXV0b3R5cGUodmFsdWVzKSkKCQl9IGVsc2UgewoJCQltYXB1dGlsLkRlZXBTZXQoZGF0YSwgcGFydHMsIHN0cmluZ3V0aWwuQXV0b3R5cGUodmFsdWVzWzBdKSkKCQl9Cgl9CglyZXR1cm4gbWFwdXRpbC5UYWdnZWRTdHJ1Y3RGcm9tTWFwKGRhdGEsIGludG8sIEZvcm1Vbm1hcnNoYWxTdHJ1Y3RUYWcpCn0=",
+            "Source": "ewoJdmFyIGRhdGEgPSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglmb3Iga2V5LCB2YWx1ZXMgOj0gcmFuZ2UgZm9ybVZhbHVlcyB7CgkJdmFsdWVzID0gc2xpY2V1dGlsLkNvbXBhY3RTdHJpbmcodmFsdWVzKQoJCXZhciBpc0FycmF5IGJvb2wKCQlpZiBzdHJpbmdzLkhhc1N1ZmZpeChrZXksIGBbXWApIHsKCQkJaXNBcnJheSA9IHRydWUKCQkJa2V5ID0gc3RyaW5ncy5UcmltU3VmZml4KGtleSwgYFtdYCkKCQl9IGVsc2UgaWYgbGVuKHZhbHVlcykgPiAxIHsKCQkJaXNBcnJheSA9IHRydWUKCQl9IGVsc2UgaWYgc3RyaW5ncy5Db250YWlucyhrZXksIGBbYCkgJiYgc3RyaW5ncy5Db250YWlucyhrZXksIGBdYCkgewoJCQlrZXkgPSBzdHJpbmdzLlJlcGxhY2VBbGwoa2V5LCBgW2AsIGAuYCkKCQkJa2V5ID0gc3RyaW5ncy5SZXBsYWNlQWxsKGtleSwgYF1gLCBgYCkKCQl9CgkJdmFyIHBhcnRzID0gc3RyaW5ncy5TcGxpdChrZXksIGAuYCkKCQlpZiBpc0FycmF5IHsKCQkJbWFwdXRpbC5EZWVwU2V0KGRhdGEsIHBhcnRzLCBzbGljZXV0aWwuQXV0b3R5cGUodmFsdWVzKSkKCQl9IGVsc2UgaWYgbGVuKHZhbHVlcykgPiAwIHsKCQkJbWFwdXRpbC5EZWVwU2V0KGRhdGEsIHBhcnRzLCBzdHJpbmd1dGlsLkF1dG90eXBlKHZhbHVlc1swXSkpCgkJfSBlbHNlIHsKCQkJbWFwdXRpbC5EZWVwU2V0KGRhdGEsIHBhcnRzLCBuaWwpCgkJfQoJfQoJcmV0dXJuIG1hcHV0aWwuVGFnZ2VkU3RydWN0RnJvbU1hcChkYXRhLCBpbnRvLCBGb3JtVW5tYXJzaGFsU3RydWN0VGFnKQp9",
             "IsPackageLevel": true
         },
         {
@@ -1354,7 +1398,7 @@
                 }
             ],
             "Signature": "RespondJSON(w http.ResponseWriter, data interface{}, status ...int)",
-            "Source": "ewoJdy5IZWFkZXIoKS5TZXQoYENvbnRlbnQtVHlwZWAsIGBhcHBsaWNhdGlvbi9qc29uYCkKCWhlYWRlclNlbnQgOj0gZmFsc2UKCWlmIGVyciwgb2sgOj0gZGF0YS4oZXJyb3IpOyBvayAmJiBlcnIgIT0gbmlsIHsKCQlkYXRhID0gbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgc3VjY2Vzc2A6IGZhbHNlLCBgZXJyb3JgOiBlcnIuRXJyb3IoKX0KCQlpZiBsZW4oc3RhdHVzKSA9PSAwIHsKCQkJc3RhdHVzID0gW11pbnR7aHR0cC5TdGF0dXNJbnRlcm5hbFNlcnZlckVycm9yfQoJCX0KCX0KCWlmIGxlbihzdGF0dXMpID4gMCB7CgkJdy5Xcml0ZUhlYWRlcihzdGF0dXNbMF0pCgkJaGVhZGVyU2VudCA9IHRydWUKCX0KCWlmIGRhdGEgIT0gbmlsIHsKCQlpZiBlcnIgOj0ganNvbi5OZXdFbmNvZGVyKHcpLkVuY29kZShkYXRhKTsgZXJyICE9IG5pbCB7CgkJCUxvZ2dlci5XYXJuaW5nZigiRmFpbGVkIHRvIGVuY29kZSByZXNwb25zZSBib2R5OiAldiIsIGVycikKCQl9Cgl9IGVsc2UgaWYgIWhlYWRlclNlbnQgewoJCXcuV3JpdGVIZWFkZXIoaHR0cC5TdGF0dXNOb0NvbnRlbnQpCgl9Cn0=",
+            "Source": "ewoJdy5IZWFkZXIoKS5TZXQoYENvbnRlbnQtVHlwZWAsIGBhcHBsaWNhdGlvbi9qc29uYCkKCXZhciBoZWFkZXJTZW50IGJvb2wKCXZhciBmaW5hbFN0YXR1cyBpbnQKCWlmIGVyciwgb2sgOj0gZGF0YS4oZXJyb3IpOyBvayAmJiBlcnIgIT0gbmlsIHsKCQlkYXRhID0gbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgc3VjY2Vzc2A6IGZhbHNlLCBgZXJyb3JgOiBlcnIuRXJyb3IoKX0KCQlpZiBsZW4oc3RhdHVzKSA9PSAwIHsKCQkJc3RhdHVzID0gW11pbnR7aHR0cC5TdGF0dXNJbnRlcm5hbFNlcnZlckVycm9yfQoJCX0KCX0KCWlmIGxlbihzdGF0dXMpID4gMCB7CgkJZmluYWxTdGF0dXMgPSBzdGF0dXNbMF0KCQl3LldyaXRlSGVhZGVyKGZpbmFsU3RhdHVzKQoJCWhlYWRlclNlbnQgPSB0cnVlCgl9CglpZiBkYXRhICE9IG5pbCB7CgkJaWYgZXJyIDo9IGpzb24uTmV3RW5jb2Rlcih3KS5FbmNvZGUoZGF0YSk7IGVyciAhPSBuaWwgewoJCQlpZiAhbG9nLkVyckNvbnRhaW5zKGVyciwgYHN0YXR1cyBjb2RlIGRvZXMgbm90IGFsbG93IGJvZHlgKSB7CgkJCQlMb2dnZXIuV2FybmluZ2YoIkZhaWxlZCB0byBlbmNvZGUgcmVzcG9uc2UgYm9keTogJXYiLCBlcnIpCgkJCX0KCQl9Cgl9IGVsc2UgaWYgIWhlYWRlclNlbnQgewoJCXcuV3JpdGVIZWFkZXIoaHR0cC5TdGF0dXNOb0NvbnRlbnQpCgl9Cn0=",
             "IsPackageLevel": true
         },
         {
@@ -1444,6 +1488,31 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "UrlPathJoin",
+            "Comment": "UrlPathJoin takes a string or *url.URL and joins the existing URL path component with the given path.\nThe new path may also contain query string values, which will be added to the base URL.  Existing keys will\nbe replaced with new ones, except for repeated keys (e.g.: ?x=1\u0026x=2\u0026x=3).  In this case, the new values will\nbe added to the existing ones.  The *url.URL returned from this function is a copy, and the original URL (if\none is provided) will not be modified in any way.",
+            "Arguments": [
+                {
+                    "Name": "baseurl",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "*url.URL"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "UrlPathJoin(baseurl interface{}, path string) (*url.URL, error)",
+            "Source": "ewoJdmFyIGluICp1cmwuVVJMCgl2YXIgb3V0ICp1cmwuVVJMCglpZiB1LCBvayA6PSBiYXNldXJsLigqdXJsLlVSTCk7IG9rIHsKCQlpbiA9IHUKCX0gZWxzZSBpZiB1LCBlcnIgOj0gdXJsLlBhcnNlKHR5cGV1dGlsLlN0cmluZyhiYXNldXJsKSk7IGVyciA9PSBuaWwgewoJCWluID0gdQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KCW5ld3BhdGgsIHFzIDo9IHN0cmluZ3V0aWwuU3BsaXRQYWlyKHBhdGgsIGA/YCkKCXZhciB0cmFpbCBzdHJpbmcKCWlmIHN0cmluZ3MuSGFzU3VmZml4KG5ld3BhdGgsIGAvYCkgewoJCW5ld3BhdGggPSBzdHJpbmdzLlRyaW1TdWZmaXgobmV3cGF0aCwgYC9gKQoJCWluLlBhdGggPSBzdHJpbmdzLlRyaW1TdWZmaXgoaW4uUGF0aCwgYC9gKQoJCXRyYWlsID0gYC9gCgl9CglvdXQgPSBuZXcodXJsLlVSTCkKCW91dC5TY2hlbWUgPSBpbi5TY2hlbWUKCW91dC5PcGFxdWUgPSBpbi5PcGFxdWUKCW91dC5Vc2VyID0gaW4uVXNlcgoJb3V0Lkhvc3QgPSBpbi5Ib3N0CglvdXQuUGF0aCA9IGZpbGVwYXRoLkpvaW4oaW4uUGF0aCwgbmV3cGF0aCkgKyB0cmFpbAoJb3V0LlJhd1BhdGggPSBpbi5SYXdQYXRoCglvdXQuRm9yY2VRdWVyeSA9IGluLkZvcmNlUXVlcnkKCW91dC5SYXdRdWVyeSA9IGluLlJhd1F1ZXJ5CglvdXQuRnJhZ21lbnQgPSBpbi5GcmFnbWVudAoJaWYgcXMgIT0gYGAgewoJCWlmIHFzdiwgZXJyIDo9IHVybC5QYXJzZVF1ZXJ5KHFzKTsgZXJyID09IG5pbCB7CgkJCWZvciBrLCB2cyA6PSByYW5nZSBxc3YgewoJCQkJaWYgbGVuKHZzKSA9PSAxIHsKCQkJCQlTZXRRKG91dCwgaywgdnNbMF0pCgkJCQl9IGVsc2UgewoJCQkJCUFkZFEob3V0LCBrLCBzbGljZXV0aWwuU2xpY2VpZnkodnMpLi4uKQoJCQkJfQoJCQl9CgkJfSBlbHNlIHsKCQkJcmV0dXJuIG5pbCwgZXJyCgkJfQoJfQoJcmV0dXJuIG91dCwgbmlsCn0=",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "WaitForHTTP",
             "Comment": "Periodically performs a GET request against the given URL, waiting up to timeout\nfor a 200-series HTTP response code.",
             "Arguments": [
@@ -1467,6 +1536,27 @@
             ],
             "Signature": "WaitForHTTP(url string, timeout time.Duration, c ...*http.Client) error",
             "Source": "ewoJdmFyIGNsaWVudCAqaHR0cC5DbGllbnQKCWlmIGxlbihjKSA+IDAgJiYgY1swXSAhPSBuaWwgewoJCWNsaWVudCA9IGNbMF0KCX0gZWxzZSB7CgkJY2xpZW50ID0gaHR0cC5EZWZhdWx0Q2xpZW50Cgl9CglzdGFydCA6PSB0aW1lLk5vdygpCglmb3IgdGltZS5TaW5jZShzdGFydCkgPCB0aW1lb3V0IHsKCQlpZiByZXMsIGVyciA6PSBjbGllbnQuR2V0KHVybCk7IGVyciA9PSBuaWwgewoJCQlpZiByZXMuU3RhdHVzQ29kZSA8IDQwMCB7CgkJCQlyZXR1cm4gbmlsCgkJCX0KCQl9CgkJdGltZS5TbGVlcChXYWl0Rm9yUG9sbEludGVydmFsKQoJfQoJcmV0dXJuIGZtdC5FcnJvcmYoIlJlcXVlc3QgdG8gJXMgZGlkIG5vdCBzdWNjZWVkIGluICV2IiwgdXJsLCB0aW1lb3V0KQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "XMLDecoder",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "io.Reader"
+                },
+                {
+                    "Name": "out",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "XMLDecoder(in io.Reader, out interface{}) error",
+            "Source": "ewoJcmV0dXJuIHhtbC5OZXdEZWNvZGVyKGluKS5EZWNvZGUob3V0KQp9",
             "IsPackageLevel": true
         }
     ],
@@ -1502,6 +1592,62 @@
             "Signature": "ExampleIsMediaType_singleMediaType()",
             "Source": "ewoJcmVxIDo9IGh0dHB0ZXN0Lk5ld1JlcXVlc3QoYEdFVGAsIGAvYCwgbmlsKQoJcmVxLkhlYWRlci5TZXQoYENvbnRlbnQtVHlwZWAsIGB0ZXh0L2h0bWw7IGNoYXJzZXQ9dXRmLThgKQoJZm10LlByaW50bG4oSXNNZWRpYVR5cGUocmVxLCBgdGV4dC9odG1sYCkpCn0=",
             "IsPackageLevel": true
+        },
+        {
+            "Name": "ExampleUrlPathJoin_emptyJoin",
+            "Label": "EmptyJoin",
+            "For": "UrlPathJoin",
+            "Signature": "ExampleUrlPathJoin_emptyJoin()",
+            "Source": "ewoJdXJsLCBfIDo9IFVybFBhdGhKb2luKGBodHRwczovL2dvb2dsZS5jb20vYCwgYGApCglmbXQuUHJpbnRsbih1cmwuU3RyaW5nKCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExampleUrlPathJoin_joinToExistingQueryStrings",
+            "Label": "JoinToExistingQueryStrings",
+            "For": "UrlPathJoin",
+            "Signature": "ExampleUrlPathJoin_joinToExistingQueryStrings()",
+            "Source": "ewoJdXJsLCBfIDo9IFVybFBhdGhKb2luKGBodHRwczovL2dvb2dsZS5jb20vc2VhcmNoYCwgYD9xPWhlbGxvYCkKCWZtdC5QcmludGxuKHVybC5TdHJpbmcoKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExampleUrlPathJoin_joinWithQueryString",
+            "Label": "JoinWithQueryString",
+            "For": "UrlPathJoin",
+            "Signature": "ExampleUrlPathJoin_joinWithQueryString()",
+            "Source": "ewoJdXJsLCBfIDo9IFVybFBhdGhKb2luKGBodHRwczovL2dvb2dsZS5jb20vYCwgYC9zZWFyY2g/cT1oZWxsb2ApCglmbXQuUHJpbnRsbih1cmwuU3RyaW5nKCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExampleUrlPathJoin_pathAndQuery",
+            "Label": "PathAndQuery",
+            "For": "UrlPathJoin",
+            "Signature": "ExampleUrlPathJoin_pathAndQuery()",
+            "Source": "ewoJdXJsLCBfIDo9IFVybFBhdGhKb2luKGBodHRwczovL2V4YW1wbGUuY29tL2FwaS92MT9oZWxsbz10aGVyZWAsIGAvdGhpbmdzL25ldz9leGFtcGxlPXRydWVgKQoJZm10LlByaW50bG4odXJsLlN0cmluZygpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExampleUrlPathJoin_pathAndQueryTrailingSlash",
+            "Label": "PathAndQueryTrailingSlash",
+            "For": "UrlPathJoin",
+            "Signature": "ExampleUrlPathJoin_pathAndQueryTrailingSlash()",
+            "Source": "ewoJdXJsLCBfIDo9IFVybFBhdGhKb2luKGBodHRwczovL2V4YW1wbGUuY29tL2FwaS92MT9oZWxsbz10aGVyZWAsIGAvdGhpbmdzL25ldy8/ZXhhbXBsZT10cnVlYCkKCWZtdC5QcmludGxuKHVybC5TdHJpbmcoKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExampleUrlPathJoin_simpleJoin",
+            "Label": "SimpleJoin",
+            "For": "UrlPathJoin",
+            "Signature": "ExampleUrlPathJoin_simpleJoin()",
+            "Source": "ewoJdXJsLCBfIDo9IFVybFBhdGhKb2luKGBodHRwczovL2dvb2dsZS5jb21gLCBgL3NlYXJjaGApCglmbXQuUHJpbnRsbih1cmwuU3RyaW5nKCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "ExampleUrlPathJoin_slashJoin",
+            "Label": "SlashJoin",
+            "For": "UrlPathJoin",
+            "Signature": "ExampleUrlPathJoin_slashJoin()",
+            "Source": "ewoJdXJsLCBfIDo9IFVybFBhdGhKb2luKGBodHRwczovL2dvb2dsZS5jb20vYCwgYC9gKQoJZm10LlByaW50bG4odXJsLlN0cmluZygpKQp9",
+            "IsPackageLevel": true
         }
     ],
     "Tests": [
@@ -1526,7 +1672,7 @@
                 }
             ],
             "Signature": "TestClient(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgb3V0IG1hcFtzdHJpbmddaW50ZXJmYWNle30KCXZhciBvdXRTIHN0cmluZwoJc2VydmVyIDo9IHRlc3RIdHRwU2VydmVyKCkKCWRlZmVyIHNlcnZlci5DbG9zZSgpCgljbGllbnQsIGVyciA6PSBOZXdDbGllbnQoc2VydmVyLlVSTCkKCWNsaWVudC5TZXRQYXJhbShgdG9wdGhpbmdgLCB0cnVlKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0Lk5vdE5pbChjbGllbnQpCglyZXNwb25zZSwgZXJyIDo9IGNsaWVudC5HZXQoYC90ZXN0L3BhdGhgLCBuaWwsIG5pbCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5Ob3ROaWwocmVzcG9uc2UpCglhc3NlcnQuTm9FcnJvcihQYXJzZUpTT04ocmVzcG9uc2UuQm9keSwgJm91dCkpCglhc3NlcnQuRXF1YWwobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgcGF0aGA6IGAvdGVzdC9wYXRoYH0sIG91dCkKCXJlc3BvbnNlLCBlcnIgPSBjbGllbnQuUG9zdChgL3Rlc3QvcGF0aGAsIGBwb3N0YWJsZWAsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YHRoaW5nYDogdHJ1ZX0sIG5pbCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5Ob3ROaWwocmVzcG9uc2UpCglhc3NlcnQuTm9FcnJvcihjbGllbnQuRGVjb2RlKHJlc3BvbnNlLkJvZHksICZvdXRTKSkKCWFzc2VydC5FcXVhbChgcG9zdGFibGVgLCBvdXRTKQoJcmVzcG9uc2UsIGVyciA9IGNsaWVudC5QdXQoYC90ZXN0L3BhdGhgLCBgcHV0dGFibGVgLCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0aGluZ2A6IHRydWV9LCBuaWwpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuTm90TmlsKHJlc3BvbnNlKQoJYXNzZXJ0Lk5vRXJyb3IoY2xpZW50LkRlY29kZShyZXNwb25zZS5Cb2R5LCAmb3V0UykpCglhc3NlcnQuRXF1YWwoYHB1dHRhYmxlYCwgb3V0UykKCXJlc3BvbnNlLCBlcnIgPSBjbGllbnQuRGVsZXRlKGAvdGVzdC9wYXRoYCwgbmlsLCBuaWwpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuTm90TmlsKHJlc3BvbnNlKQoJYXNzZXJ0LkVxdWFsKGh0dHAuU3RhdHVzTm9Db250ZW50LCByZXNwb25zZS5TdGF0dXNDb2RlKQp9",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgb3V0IG1hcFtzdHJpbmddaW50ZXJmYWNle30KCXZhciBvdXRTIHN0cmluZwoJc2VydmVyIDo9IHRlc3RIdHRwU2VydmVyKCkKCWRlZmVyIHNlcnZlci5DbG9zZSgpCgljbGllbnQsIGVyciA6PSBOZXdDbGllbnQoc2VydmVyLlVSTCArIGAvYmFzZS8/aGVsbG89dHJ1ZWApCgljbGllbnQuU2V0UGFyYW0oYHRvcHRoaW5nYCwgdHJ1ZSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5Ob3ROaWwoY2xpZW50KQoJcmVzcG9uc2UsIGVyciA6PSBjbGllbnQuR2V0KGAvdGVzdC9wYXRoYCwgbmlsLCBuaWwpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuTm90TmlsKHJlc3BvbnNlKQoJYXNzZXJ0Lk5vRXJyb3IoUGFyc2VKU09OKHJlc3BvbnNlLkJvZHksICZvdXQpKQoJYXNzZXJ0LkVxdWFsKG1hcFtzdHJpbmddaW50ZXJmYWNle317YHBhdGhgOiBgL2Jhc2UvdGVzdC9wYXRoYCwgYHFzYDogbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgaGVsbG9gOiBbXWludGVyZmFjZXt9e2B0cnVlYH0sIGB0b3B0aGluZ2A6IFtdaW50ZXJmYWNle317YHRydWVgfX19LCBvdXQpCglyZXNwb25zZSwgZXJyID0gY2xpZW50LlBvc3QoYC9iYXNlL3Rlc3QvcGF0aGAsIGBwb3N0YWJsZWAsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YHRoaW5nYDogdHJ1ZX0sIG5pbCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5Ob3ROaWwocmVzcG9uc2UpCglhc3NlcnQuTm9FcnJvcihjbGllbnQuRGVjb2RlKHJlc3BvbnNlLkJvZHksICZvdXRTKSkKCWFzc2VydC5FcXVhbChgcG9zdGFibGVgLCBvdXRTKQoJcmVzcG9uc2UsIGVyciA9IGNsaWVudC5QdXQoYC9iYXNlL3Rlc3QvcGF0aGAsIGBwdXR0YWJsZWAsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YHRoaW5nYDogdHJ1ZX0sIG5pbCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5Ob3ROaWwocmVzcG9uc2UpCglhc3NlcnQuTm9FcnJvcihjbGllbnQuRGVjb2RlKHJlc3BvbnNlLkJvZHksICZvdXRTKSkKCWFzc2VydC5FcXVhbChgcHV0dGFibGVgLCBvdXRTKQoJcmVzcG9uc2UsIGVyciA9IGNsaWVudC5EZWxldGUoYC9iYXNlL3Rlc3QvcGF0aGAsIG5pbCwgbmlsKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0Lk5vdE5pbChyZXNwb25zZSkKCWFzc2VydC5FcXVhbChodHRwLlN0YXR1c05vQ29udGVudCwgcmVzcG9uc2UuU3RhdHVzQ29kZSkKfQ==",
             "IsPackageLevel": true
         },
         {
@@ -1574,7 +1720,7 @@
                 }
             ],
             "Signature": "TestParseFormValues(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0MSA6PSB0ZXN0T3V0cHV0T25le1VSTDogYGh0dHA6Ly90ZXN0YH0KCWFzc2VydC5Ob0Vycm9yKFBhcnNlRm9ybVZhbHVlcyh1cmwuVmFsdWVze2BuYW1lYDogW11zdHJpbmd7YFRlc3RlcmB9LCBgQ291bnRgOiBbXXN0cmluZ3tgNDJgfSwgYG9rMWA6IFtdc3RyaW5ne2B0cnVlYH0sIGBvazJgOiBbXXN0cmluZ3tgb25gfSwgYE9LM2A6IFtdc3RyaW5ne2B5ZXNgfSwgYGxvbC4wYDogW11zdHJpbmd7YHplcm9gfSwgYGxvbC4xYDogW11zdHJpbmd7YG9uZWB9LCBgbG9sLjJgOiBbXXN0cmluZ3tgdHdvYH0sIGBuaWxvbFtdYDogW11zdHJpbmd7YGZpcnN0YCwgYHNlY29uZGAsIGB0aGlyZGB9LCBgb25lc2llW11gOiBbXXN0cmluZ3tgdW5vYH19LCAmdDEpKQoJYXNzZXJ0LkVxdWFsKGBUZXN0ZXJgLCB0MS5OYW1lKQoJYXNzZXJ0LkVxdWFsKGBodHRwOi8vdGVzdGAsIHQxLlVSTCkKCWFzc2VydC5FcXVhbChpbnQ2NCg0MiksIHQxLkNvdW50KQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2B6ZXJvYCwgYG9uZWAsIGB0d29gfSwgdDEuTE9MKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2BmaXJzdGAsIGBzZWNvbmRgLCBgdGhpcmRgfSwgdDEuTm9uSW5kZXhlZExPTCkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgdW5vYH0sIHQxLk9uZXNpZSkKCWFzc2VydC5UcnVlKHQxLk9rMSkKCWFzc2VydC5UcnVlKHQxLk9rMikKCWFzc2VydC5UcnVlKHQxLk9rMykKfQ==",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0MSA6PSB0ZXN0T3V0cHV0T25le1VSTDogYGh0dHA6Ly90ZXN0YH0KCWFzc2VydC5Ob0Vycm9yKFBhcnNlRm9ybVZhbHVlcyh1cmwuVmFsdWVze2BuYW1lYDogW11zdHJpbmd7YFRlc3RlcmB9LCBgQ291bnRgOiBbXXN0cmluZ3tgNDJgfSwgYG9rMWA6IFtdc3RyaW5ne2B0cnVlYH0sIGBPazJgOiBbXXN0cmluZ3tgb25gfSwgYE9LM2A6IFtdc3RyaW5ne2BvZmZgfSwgYGxvbC4wYDogW11zdHJpbmd7YHplcm9gfSwgYGxvbC4xYDogW11zdHJpbmd7YG9uZWB9LCBgbG9sLjJgOiBbXXN0cmluZ3tgdHdvYH0sIGBuaWxvbFtdYDogW11zdHJpbmd7YGZpcnN0YCwgYHNlY29uZGAsIGB0aGlyZGB9LCBgb25lc2llW11gOiBbXXN0cmluZ3tgdW5vYH0sIGB0d29zaWVbMF1baGVsbG9dYDogW11zdHJpbmd7YHRoZXJlYH0sIGBlbXB0eWA6IG5pbH0sICZ0MSkpCglhc3NlcnQuRXF1YWwoYGAsIHQxLkVtcHR5KQoJYXNzZXJ0LkVxdWFsKGBUZXN0ZXJgLCB0MS5OYW1lKQoJYXNzZXJ0LkVxdWFsKGBodHRwOi8vdGVzdGAsIHQxLlVSTCkKCWFzc2VydC5FcXVhbChpbnQ2NCg0MiksIHQxLkNvdW50KQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2B6ZXJvYCwgYG9uZWAsIGB0d29gfSwgdDEuTE9MKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2BmaXJzdGAsIGBzZWNvbmRgLCBgdGhpcmRgfSwgdDEuTm9uSW5kZXhlZExPTCkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgdW5vYH0sIHQxLk9uZXNpZSkKCWFzc2VydC5FcXVhbChbXW1hcFtzdHJpbmddaW50ZXJmYWNle317e2BoZWxsb2A6IGB0aGVyZWB9fSwgdDEuVHdvc2llKQoJYXNzZXJ0LlRydWUodDEuT2sxKQoJYXNzZXJ0LlRydWUodDEuT2syKQoJYXNzZXJ0LkZhbHNlKHQxLk9rMykKfQ==",
             "IsPackageLevel": true
         },
         {
@@ -1803,6 +1949,36 @@
                     "IsPackageLevel": false
                 },
                 {
+                    "Name": "Headers",
+                    "Comment": "Return the headers set on this client.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "http.Header"
+                        }
+                    ],
+                    "Signature": "Headers() http.Header",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "MustClient",
+                    "Arguments": [
+                        {
+                            "Name": "baseURI",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "*Client"
+                        }
+                    ],
+                    "Signature": "MustClient(baseURI string) *Client",
+                    "Source": "ewoJaWYgYywgZXJyIDo9IE5ld0NsaWVudChiYXNlVVJJKTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIGMKCX0gZWxzZSB7CgkJcGFuaWMoZXJyLkVycm9yKCkpCgl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "NewClient",
                     "Arguments": [
                         {
@@ -1819,8 +1995,21 @@
                         }
                     ],
                     "Signature": "NewClient(baseURI string) (*Client, error)",
-                    "Source": "ewoJY2xpZW50IDo9ICZDbGllbnR7ZW5jb2RlcjogSlNPTkVuY29kZXIsIGRlY29kZXI6IEpTT05EZWNvZGVyLCBoZWFkZXJzOiBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pLCBwYXJhbXM6IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSksIGh0dHBDbGllbnQ6IGh0dHAuRGVmYXVsdENsaWVudH0KCWlmIHVyaSwgZXJyIDo9IHVybC5QYXJzZShiYXNlVVJJKTsgZXJyID09IG5pbCB7CgkJY2xpZW50LnVyaSA9IHVyaQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KCXJldHVybiBjbGllbnQsIG5pbAp9",
+                    "Source": "ewoJdmFyIGNsaWVudCA9ICZDbGllbnR7ZW5jb2RlcjogSlNPTkVuY29kZXIsIGRlY29kZXI6IEpTT05EZWNvZGVyLCBoZWFkZXJzOiBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pLCBwYXJhbXM6IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSksIGh0dHBDbGllbnQ6IGh0dHAuRGVmYXVsdENsaWVudH0KCWlmIHVyaSwgZXJyIDo9IHVybC5QYXJzZShiYXNlVVJJKTsgZXJyID09IG5pbCB7CgkJY2xpZW50LnVyaSA9IHVyaQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KCWlmIGxvZy5WZXJ5RGVidWdnaW5nKGBnaXRodWIuY29tL2doZXR6ZWwvZ28tc3RvY2t1dGlsL2h0dHB1dGlsYCkgewoJCWNsaWVudC5TZXRQcmVSZXF1ZXN0SG9vayhmdW5jKHJlcSAqaHR0cC5SZXF1ZXN0KSAoaW50ZXJmYWNle30sIGVycm9yKSB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXF1ZXN0KHJlcSwgdHJ1ZSk7IGVyciA9PSBuaWwgewoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU2ZFx1MjUwMFsgSFRUUCBSZXF1ZXN0IF0lc1x1MjUwNFx1MjUwNFx1MjUwNCR7cmVzZXR9Iiwgc3RyaW5ncy5SZXBlYXQoIlx1MjUwMCIsIERlYnVnT3V0cHV0Qm94V2lkdGgtMTcpKQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjUwMiR7cmVzZXR9IFx1MjFjOSAldiIsIHJlcS5VUkwpCgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0iKQoJCQkJZm9yIF8sIGxpbmUgOj0gcmFuZ2Ugc3RyaW5ncy5TcGxpdChzdHJpbmcoZGF0YSksICJcbiIpIHsKCQkJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0gJXYiLCBsaW5lKQoJCQkJfQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU3MCVzXHUyNTA0XHUyNTA0XHUyNTA0JHtyZXNldH0iLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aCkpCgkJCX0KCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSkKCQljbGllbnQuU2V0UG9zdFJlcXVlc3RIb29rKGZ1bmMocmVzICpodHRwLlJlc3BvbnNlLCBfIGludGVyZmFjZXt9KSBlcnJvciB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXNwb25zZShyZXMsIHRydWUpOyBlcnIgPT0gbmlsIHsKCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjU2ZFx1MjUwMFsgSFRUUCBSZXNwb25zZSBdJXNcdTI1MDRcdTI1MDRcdTI1MDQiLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aC0xOCkpCgkJCQlpZiByZXMuUmVxdWVzdCAhPSBuaWwgewoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsICR7cmVkfVx1MjUwMiR7cmVzZXR9IFx1MjFjNyAldiIsIHJlcy5SZXF1ZXN0LlVSTCkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke3JlZH1cdTI1MDIke3Jlc2V0fSIpCgkJCQl9CgkJCQlmb3IgXywgbGluZSA6PSByYW5nZSBzdHJpbmdzLlNwbGl0KHN0cmluZyhkYXRhKSwgIlxuIikgewoJCQkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TcGFjZShsaW5lKQoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjUwMiAldiIsIGxpbmUpCgkJCQl9CgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCBcdTI1NzAlc1x1MjUwNFx1MjUwNFx1MjUwNCIsIHN0cmluZ3MuUmVwZWF0KCJcdTI1MDAiLCBEZWJ1Z091dHB1dEJveFdpZHRoKSkKCQkJfQoJCQlyZXR1cm4gbmlsCgkJfSkKCX0KCXJldHVybiBjbGllbnQsIG5pbAp9",
                     "IsPackageLevel": true
+                },
+                {
+                    "Name": "Params",
+                    "Comment": "Return the params set on this client.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "map[string]interface{}"
+                        }
+                    ],
+                    "Signature": "Params() map[string]interface{}",
+                    "IsPackageLevel": false
                 },
                 {
                     "Name": "Post",
@@ -2019,6 +2208,20 @@
                     "IsPackageLevel": false
                 },
                 {
+                    "Name": "SetInitHook",
+                    "Comment": "Specify a function that will be called immediately before the first request is sent.\nThis function has an opportunity to read and modify the outgoing request, and\nif it returns a non-nil error, the request will not be sent.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "fn",
+                            "Type": "InitRequestFunc"
+                        }
+                    ],
+                    "Signature": "SetInitHook(fn InitRequestFunc)",
+                    "IsPackageLevel": false
+                },
+                {
                     "Name": "SetInsecureTLS",
                     "Comment": "Set or unset insecure TLS requests that will proceed even if the peer certificate cannot be verified.",
                     "PointerReceiver": true,
@@ -2164,6 +2367,10 @@
             "Name": "ErrorDecoderFunc",
             "Source": "dHlwZSBFcnJvckRlY29kZXJGdW5jIGZ1bmMoKmh0dHAuUmVzcG9uc2UpIGVycm9y"
         },
+        "InitRequestFunc": {
+            "Name": "InitRequestFunc",
+            "Source": "dHlwZSBJbml0UmVxdWVzdEZ1bmMgZnVuYygpIGVycm9y"
+        },
         "InterceptRequestFunc": {
             "Name": "InterceptRequestFunc",
             "Source": "dHlwZSBJbnRlcmNlcHRSZXF1ZXN0RnVuYyBmdW5jKCpodHRwLlJlcXVlc3QpIChpbnRlcmZhY2V7fSwgZXJyb3Ip"
@@ -2171,6 +2378,10 @@
         "InterceptResponseFunc": {
             "Name": "InterceptResponseFunc",
             "Source": "dHlwZSBJbnRlcmNlcHRSZXNwb25zZUZ1bmMgZnVuYygqaHR0cC5SZXNwb25zZSwgaW50ZXJmYWNle30pIGVycm9y"
+        },
+        "Literal": {
+            "Name": "Literal",
+            "Source": "dHlwZSBMaXRlcmFsIFtdYnl0ZQ=="
         },
         "LogLevel": {
             "Name": "LogLevel",

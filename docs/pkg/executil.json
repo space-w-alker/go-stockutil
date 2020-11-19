@@ -6,19 +6,19 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities that make executing commands on the local system a little bit easier.\n",
     "MainFunction": false,
-    "CommentWordCount": 567,
-    "LineCount": 915,
-    "SourceLineCount": 689,
-    "FunctionCount": 37,
+    "CommentWordCount": 634,
+    "LineCount": 949,
+    "SourceLineCount": 712,
+    "FunctionCount": 40,
     "TypeCount": 4,
     "ConstantCount": 0,
     "VariableCount": 3,
     "Statistics": {
-        "Mean": 0.4689,
-        "StdDev": 0.484,
+        "Mean": 0.5015,
+        "StdDev": 0.486,
         "GeometricMean": 0,
         "HarmonicMean": 0,
-        "Median": 0,
+        "Median": 0.6,
         "Minimum": 0,
         "Maximum": 1
     },
@@ -87,9 +87,9 @@
                     "Alias": "go-shellwords"
                 }
             ],
-            "Size": 10992,
-            "LineCount": 478,
-            "SourceLineCount": 360,
+            "Size": 11213,
+            "LineCount": 487,
+            "SourceLineCount": 366,
             "FunctionCount": 18,
             "TypeCount": 4,
             "ConstantCount": 0,
@@ -181,12 +181,16 @@
                 {
                     "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
                     "Alias": "typeutil"
+                },
+                {
+                    "PackageName": "github.com/mattn/go-shellwords",
+                    "Alias": "go-shellwords"
                 }
             ],
-            "Size": 3326,
-            "LineCount": 135,
-            "SourceLineCount": 97,
-            "FunctionCount": 8,
+            "Size": 3950,
+            "LineCount": 159,
+            "SourceLineCount": 115,
+            "FunctionCount": 11,
             "TypeCount": 0,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -199,6 +203,10 @@
                     "Alias": "exec"
                 },
                 {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
                     "PackageName": "testing",
                     "Alias": "testing"
                 },
@@ -207,9 +215,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 1745,
-            "LineCount": 80,
-            "SourceLineCount": 60,
+            "Size": 1776,
+            "LineCount": 81,
+            "SourceLineCount": 59,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -455,6 +463,27 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "LogOutput",
+            "Arguments": [
+                {
+                    "Name": "outlevel",
+                    "Type": "log.Level"
+                },
+                {
+                    "Name": "errlevel",
+                    "Type": "log.Level"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "OutputLineFunc"
+                }
+            ],
+            "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+            "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "LogOutputFunc",
             "Arguments": [
                 {
@@ -490,6 +519,24 @@
             ],
             "Signature": "MustShellOut(cmdOrLine string, args ...interface{}) []byte",
             "Source": "ewoJaWYgb3V0LCBlcnIgOj0gU2hlbGxPdXQoY21kT3JMaW5lLCBhcmdzLi4uKTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIG91dAoJfSBlbHNlIHsKCQlwYW5pYyhlcnIuRXJyb3IoKSkKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "MustSplit",
+            "Comment": "Same as Split, but panics if there is an error.",
+            "Arguments": [
+                {
+                    "Name": "cmd",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "MustSplit(cmd string) []string",
+            "Source": "ewoJaWYgd29yZHMsIGVyciA6PSBTcGxpdChjbWQpOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gd29yZHMKCX0gZWxzZSB7CgkJcGFuaWMoZXJyLkVycm9yKCkpCgl9Cn0=",
             "IsPackageLevel": true
         },
         {
@@ -640,6 +687,45 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "ShouldSplit",
+            "Comment": "Same as Split, but silently discards any errors, returning an empty slice in this case.",
+            "Arguments": [
+                {
+                    "Name": "cmd",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                }
+            ],
+            "Signature": "ShouldSplit(cmd string) []string",
+            "Source": "ewoJaWYgd29yZHMsIGVyciA6PSBTcGxpdChjbWQpOyBlcnIgPT0gbmlsIHsKCQlyZXR1cm4gd29yZHMKCX0gZWxzZSB7CgkJcmV0dXJuIG5pbAoJfQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Split",
+            "Comment": "Splits the given string into words, honoring quoting and escaping conventions of common command line shells.",
+            "Arguments": [
+                {
+                    "Name": "cmd",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]string"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "Split(cmd string) ([]string, error)",
+            "Source": "ewoJcmV0dXJuIHNoZWxsd29yZHMuUGFyc2UoY21kKQp9",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "TrapSignals",
             "Comment": "Registers a list of OS signals to intercept and provides an opportunity to run\na function before the program exits.",
             "Arguments": [
@@ -771,7 +857,7 @@
                 }
             ],
             "Signature": "TestWhich(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYC9iaW4vbHNgLCBXaGljaChgL2Jpbi9sc2ApKQoJYXNzZXJ0LkVxdWFsKGAvYmluL2xzYCwgV2hpY2goYGxzYCkpCglhc3NlcnQuRXF1YWwoYC91c3IvYmluL3RhaWxgLCBXaGljaChgdGFpbGApKQoJYXNzZXJ0LkVtcHR5KFdoaWNoKGBhYnNvbHV0ZWx5LW5vdC1hLWNvbW1hbmQtQCMkJV4mKmApKQp9",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuVHJ1ZShzdHJpbmdzLkhhc1N1ZmZpeChXaGljaChgdGFpbGApLCBgL2Jpbi90YWlsYCkpCglhc3NlcnQuRW1wdHkoV2hpY2goYGFic29sdXRlbHktbm90LWEtY29tbWFuZC1AIyQlXiYqYCkpCn0=",
             "IsPackageLevel": true
         }
     ],
@@ -1043,10 +1129,15 @@
                     "Name": "StderrSplitFunc",
                     "Type": "bufio.SplitFunc",
                     "Comment": "If specified, this function will determine how to tokenize the stderr stream and when to call OnStderr.  Defaults to bufio.ScanLines."
+                },
+                {
+                    "Name": "InheritParent",
+                    "Type": "bool",
+                    "Comment": "Specifies that the spawned process should inherit the same Process Group ID (PGID) as the parent."
                 }
             ],
             "Comment": "A wrapper for exec.Cmd that provides helpful callbacks and monitoring details that are challenging\nto implement.",
-            "Source": "dHlwZSBDbWQgc3RydWN0IHsKCSpleGVjLkNtZAoJTW9uaXRvckludGVydmFsIHRpbWUuRHVyYXRpb24KCVRpbWVvdXQgICAgICAgICB0aW1lLkR1cmF0aW9uCglJbmhlcml0RW52ICAgICAgYm9vbAoJT25TdGFydCAgICAgICAgIENvbW1hbmRTdGF0dXNGdW5jCglPbk1vbml0b3IgICAgICAgQ29tbWFuZFN0YXR1c0Z1bmMKCU9uQ29tcGxldGUgICAgICBDb21tYW5kU3RhdHVzRnVuYwoJT25TdWNjZXNzICAgICAgIENvbW1hbmRTdGF0dXNGdW5jCglPbkVycm9yICAgICAgICAgQ29tbWFuZFN0YXR1c0Z1bmMKCU9uU3Rkb3V0ICAgICAgICBPdXRwdXRMaW5lRnVuYwoJT25TdGRlcnIgICAgICAgIE91dHB1dExpbmVGdW5jCglTdGRvdXRTcGxpdEZ1bmMgYnVmaW8uU3BsaXRGdW5jCglTdGRlcnJTcGxpdEZ1bmMgYnVmaW8uU3BsaXRGdW5jCgp9Ly8gQSB3cmFwcGVyIGZvciBleGVjLkNtZCB0aGF0IHByb3ZpZGVzIGhlbHBmdWwgY2FsbGJhY2tzIGFuZCBtb25pdG9yaW5nIGRldGFpbHMgdGhhdCBhcmUgY2hhbGxlbmdpbmcKLy8gdG8gaW1wbGVtZW50LgoK",
+            "Source": "dHlwZSBDbWQgc3RydWN0IHsKCSpleGVjLkNtZAoJTW9uaXRvckludGVydmFsIHRpbWUuRHVyYXRpb24KCVRpbWVvdXQgICAgICAgICB0aW1lLkR1cmF0aW9uCglJbmhlcml0RW52ICAgICAgYm9vbAoJT25TdGFydCAgICAgICAgIENvbW1hbmRTdGF0dXNGdW5jCglPbk1vbml0b3IgICAgICAgQ29tbWFuZFN0YXR1c0Z1bmMKCU9uQ29tcGxldGUgICAgICBDb21tYW5kU3RhdHVzRnVuYwoJT25TdWNjZXNzICAgICAgIENvbW1hbmRTdGF0dXNGdW5jCglPbkVycm9yICAgICAgICAgQ29tbWFuZFN0YXR1c0Z1bmMKCU9uU3Rkb3V0ICAgICAgICBPdXRwdXRMaW5lRnVuYwoJT25TdGRlcnIgICAgICAgIE91dHB1dExpbmVGdW5jCglTdGRvdXRTcGxpdEZ1bmMgYnVmaW8uU3BsaXRGdW5jCglTdGRlcnJTcGxpdEZ1bmMgYnVmaW8uU3BsaXRGdW5jCglJbmhlcml0UGFyZW50ICAgYm9vbAoKfS8vIEEgd3JhcHBlciBmb3IgZXhlYy5DbWQgdGhhdCBwcm92aWRlcyBoZWxwZnVsIGNhbGxiYWNrcyBhbmQgbW9uaXRvcmluZyBkZXRhaWxzIHRoYXQgYXJlIGNoYWxsZW5naW5nCi8vIHRvIGltcGxlbWVudC4KCg==",
             "HasUnexportedFields": true
         },
         "CommandStatusFunc": {
@@ -1055,29 +1146,6 @@
         },
         "OutputLineFunc": {
             "Name": "OutputLineFunc",
-            "Methods": [
-                {
-                    "Name": "LogOutput",
-                    "Arguments": [
-                        {
-                            "Name": "outlevel",
-                            "Type": "log.Level"
-                        },
-                        {
-                            "Name": "errlevel",
-                            "Type": "log.Level"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "OutputLineFunc"
-                        }
-                    ],
-                    "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                    "IsPackageLevel": true
-                }
-            ],
             "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
         },
         "Status": {

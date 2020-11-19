@@ -8,7 +8,7 @@ COUNT  ?= 1
 .EXPORT_ALL_VARIABLES:
 GO111MODULE = on
 
-all: fmt deps test
+all: fmt deps test docs
 
 deps:
 	@go list github.com/mjibson/esc || go get github.com/mjibson/esc/...
@@ -28,6 +28,9 @@ docs:
 $(PKGS):
 	$(info Testing $(@))
 	@go test -count=$(COUNT) ./$(@)/...
+
+docs:
+	@owndoc generate | owndoc render
 
 test: $(PKGS)
 

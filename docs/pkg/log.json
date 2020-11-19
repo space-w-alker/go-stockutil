@@ -6,18 +6,18 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Package log package provides convenient and flexible utilities for logging messages.\n\nOverview\n\nLogging is done by calling functions in this package that correspond to the\nseverity of the log message being output.  At the package level, a minimum\nseverity can be set.  Messages less severe than this minimum logging level will\nnot be output.\n\nColor Expressions\n\nIn addition to the standard printf-style formatting options (as defined in the\nstandard fmt package), this package supports inline expressions that control the\noutput of ANSI terminal escape sequences.  These expressions allow for a simple\nmechanism to colorize log output, as well as applying graphical effects like\nbold, underline, and blinking text (for terminals that support it).\n\nBy default, color expressions will only be honored if os.Stdin is attached to a\npseudoterminal.  This is the case when the program is run on the command line\nand is not piped or redirected to another file.  This default ensures that the\ncolors are visible only in a visual context, but do not corrupt files or\npipelines with ANSI escape sequences.  Color sequences can be explicitly enabled\nor disabled by setting the EnableColorExpressions package variable.\n\nUsing color expressions in format strings is done by wrapping the expression in\n${expr}.  The general format for color expressions is:\n\n\tforegroundColor[+attributes[:backgroundColor[+attributes]]]\n\nColors (foreground and background):\n\tblack\n\tred\n\tgreen\n\tyellow\n\tblue\n\tmagenta\n\tcyan\n\twhite\n\t[0-255]: numeric 8-bit color (for 256 color terminals)\n\treset: Reset all color and graphics attributes to their defaults\n\nForeground Attributes:\n\tb: bold text\n\tB: blinking text\n\th: high-intensity (bright text)\n\ti: inverted/reverse colors\n\ts: strikethrough\n\tu: underline\n\nBackground Attributes:\n\th: high-intensity (bright text)\n\nExamples\n\nBelow are some examples showing various formatting options for logs.\n\n\tlog.Info(\"Hello, world!\")\n\t// [11:22:33 0001] INFO Hello, world!\n\n\tlog.Warningf(\"The %q operation could not be completed.\", \"add\")\n\t// [11:22:33 0002] WARN The \"add\" operation could not be completed.\n\n\tlog.Errorf(\"There was an ${red}error${reset} opening file ${blue+b:white}%s${reset}\", filename)\n\t// [11:22:33 0003] ERRO There was an error opening file /tmp/file.txt\n\t//                                   ^^^^^              ^^^^^^^^^^^^^\n\t//                                   red text           blue text on white background\n\nLog Interception\n\nIt is sometimes useful to be able to act on logs as they are emitted, especially in cases where this\npackage is used in other projects that are imported.  Log Interceptors are called before each log\nline is emitted.  The LogInterceptFunc is called with the level the message was emitted with, the\nmessage itself as a string, and a stack trace struct that defines exactly where the log was emitted\nfrom.\n\n\t// print a complete stack trace before every debug-level message that is encountered\n\tlog.AddLogIntercept(func(level log.Level, line string, stack log.StackItems){\n\t\tif level == log.DEBUG {\n\t\t\tfor _, item := range stack {\n\t\t\t\tfmt.Println(item.String())\n\t\t\t}\n\t\t}\n\t})\n\nWritable Logger\n\nThe WritableLogger implements the io.Writer interface, acting as a bridge between byte streams from\nvarious sources and the log package.  This is frequently useful in situations like parsing the\noutput of other programs.  A WritableLogger accepts a custom LogParseFunc that allows individual\nlines being written to the WritableLogger to be parsed, rewritten, and given a log severity level.\n\n\timport (\n\t\t\"os/exec\"\n\t\t\"github.com/ghetzel/go-stockutil/log\"\n\t)\n\n\twr := log.NewWritableLogger(log.INFO, `ls: `)\n\n\twr.SetParserFunc(func(line string) (log.Level, string) {\n\t\tif strings.Contains(line, `root`) {\n\t\t\t// root-owned files show up as errors\n\t\t\treturn log.ERROR, line\n\t\t} else if strings.Contains(line, os.Getenv(`USER`)) {\n\t\t\t// current user files are notices\n\t\t\treturn log.NOTICE, line\n\t\t} else {\n\t\t\t// all other lines are not logged at all\n\t\t\treturn log.DEBUG, ``\n\t\t}\n\t})\n\n\tls := exec.Command(`ls`, `-l`)\n\tls.Stdout = wr\n\tls.Run()\n",
     "MainFunction": false,
-    "CommentWordCount": 1020,
-    "LineCount": 875,
-    "SourceLineCount": 665,
-    "FunctionCount": 52,
+    "CommentWordCount": 1052,
+    "LineCount": 907,
+    "SourceLineCount": 690,
+    "FunctionCount": 54,
     "TypeCount": 9,
     "ConstantCount": 8,
     "VariableCount": 8,
     "Statistics": {
-        "Mean": 0.2045,
-        "StdDev": 0.3994,
+        "Mean": 0.242,
+        "StdDev": 0.4247,
         "GeometricMean": 0,
-        "HarmonicMean": 1,
+        "HarmonicMean": 0,
         "Median": 0,
         "Minimum": 0,
         "Maximum": 1
@@ -177,6 +177,10 @@
             "Name": "log.go",
             "Imports": [
                 {
+                    "PackageName": "encoding/json",
+                    "Alias": "json"
+                },
+                {
                     "PackageName": "fmt",
                     "Alias": "fmt"
                 },
@@ -221,10 +225,10 @@
                     "Alias": "go-logging"
                 }
             ],
-            "Size": 7323,
-            "LineCount": 312,
-            "SourceLineCount": 232,
-            "FunctionCount": 32,
+            "Size": 8091,
+            "LineCount": 344,
+            "SourceLineCount": 257,
+            "FunctionCount": 34,
             "TypeCount": 3,
             "ConstantCount": 0,
             "VariableCount": 5
@@ -561,6 +565,7 @@
         },
         {
             "Name": "Dump",
+            "Comment": "Pretty-print the given arguments to the log at debug-level.",
             "Arguments": [
                 {
                     "Name": "args",
@@ -572,7 +577,21 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "DumpJSON",
+            "Comment": "Marshal the arguments as indented JSON and log them at debug-level.",
+            "Arguments": [
+                {
+                    "Name": "args",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Signature": "DumpJSON(args ...interface{})",
+            "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBkYXRhLCBlcnIgOj0ganNvbi5NYXJzaGFsSW5kZW50KGFyZywgYGAsIGAgIGApOyBlcnIgPT0gbmlsIHsKCQkJTG9nKERFQlVHLCBzdHJpbmcoZGF0YSkpCgkJfSBlbHNlIHsKCQkJTG9nZihERUJVRywgIkR1bXBKU09OOiAldiIsIGVycikKCQl9Cgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "Dumpf",
+            "Comment": "Same as Dump, but accepts a format string.",
             "Arguments": [
                 {
                     "Name": "format",
@@ -948,6 +967,23 @@
             ],
             "Signature": "TermSprintf(format string, args ...interface{}) string",
             "Source": "ewoJcmV0dXJuIGNzcHJpbnRmKHRydWUsIHRydWUsIGZvcm1hdCwgYXJncy4uLikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "VeryDebugging",
+            "Arguments": [
+                {
+                    "Name": "features",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "VeryDebugging(features ...string) bool",
+            "Source": "ewoJaWYgRGVidWdnaW5nKCkgewoJCWVudkZlYXR1cmVzIDo9IHN0cmluZ3MuU3BsaXQob3MuR2V0ZW52KGBERUJVR2ApLCBgLGApCgkJZm9yIF8sIGZlYXR1cmUgOj0gcmFuZ2UgZmVhdHVyZXMgewoJCQlmb3IgXywgZWYgOj0gcmFuZ2UgZW52RmVhdHVyZXMgewoJCQkJaWYgdHlwZXV0aWwuQm9vbChlZikgewoJCQkJCXJldHVybiB0cnVlCgkJCQl9IGVsc2UgaWYgc3RyaW5ncy5Ub0xvd2VyKGZlYXR1cmUpID09IHN0cmluZ3MuVG9Mb3dlcihlZikgewoJCQkJCXJldHVybiB0cnVlCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gZmFsc2UKfQ==",
             "IsPackageLevel": true
         },
         {
