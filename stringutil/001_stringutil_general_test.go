@@ -467,6 +467,19 @@ func TestSplitPairFamily(t *testing.T) {
 	assert.Equal(`values.nested`, rest)
 
 	// ---------------------------------------------------------------------------------------------
+	first, rest = SplitPairTrimSpace(` test `, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(``, rest)
+
+	first, rest = SplitPairTrimSpace(`  test  .    values		 `, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(`values`, rest)
+
+	first, rest = SplitPairTrimSpace(`   test  .  values  .  nested`, `.`)
+	assert.Equal(`test`, first)
+	assert.Equal(`values  .  nested`, rest)
+
+	// ---------------------------------------------------------------------------------------------
 	first, rest = SplitPairTrailing(``, `.`)
 	assert.Equal(``, first)
 	assert.Equal(``, rest)

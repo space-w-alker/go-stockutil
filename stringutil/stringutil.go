@@ -632,6 +632,16 @@ func SplitPair(in string, delimiter string) (string, string) {
 	}
 }
 
+// Identical to SplitPair, but trims any leading and trailing whitespace from each output value.
+func SplitPairTrimSpace(in string, delimiter string) (string, string) {
+	var a, b = SplitPair(in, delimiter)
+
+	a = strings.TrimSpace(a)
+	b = strings.TrimSpace(b)
+
+	return a, b
+}
+
 // Split the given string into two parts.  If there is only one resulting part,
 // that part will be the second return value and the first return value will be empty.
 func SplitPairTrailing(in string, delimiter string) (string, string) {
@@ -680,6 +690,17 @@ func SplitTriple(in string, delimiter string) (string, string, string) {
 	default:
 		return parts[0], parts[1], strings.Join(parts[2:], delimiter)
 	}
+}
+
+// Identical to SplitPair, but trims any leading and trailing whitespace from each output value.
+func SplitTripleTrimSpace(in string, delimiter string) (string, string, string) {
+	var a, b, c = SplitTriple(in, delimiter)
+
+	a = strings.TrimSpace(a)
+	b = strings.TrimSpace(b)
+	c = strings.TrimSpace(c)
+
+	return a, b, c
 }
 
 // Prefix the given string if it is non-empty
