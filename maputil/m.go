@@ -150,12 +150,20 @@ func (self *Map) Delete(key string) {
 	Delete(self.data, key)
 }
 
-// Set a value in the Map at the given dot.separated key to a value.
-func (self *Map) Set(key string, value interface{}) typeutil.Variant {
-	vv := typeutil.V(value)
+// internal: unlocked implementation of set()
+func (self *Map) set(key string, value interface{}) typeutil.Variant {
+	var vv = typeutil.V(value)
 	self.data = DeepSet(self.data, strings.Split(key, `.`), vv)
 
 	return vv
+}
+
+// Set a value in the Map at the given dot.separated key to a value.
+func (self *Map) Set(key string, value interface{}) typeutil.Variant {
+	self.atomic.Lock()
+	defer self.atomic.Unlock()
+
+	return self.set(key, value)
 }
 
 // Set a value in the Map at the given dot.separated key to a value, but only if the
@@ -165,7 +173,7 @@ func (self *Map) SetIfZero(key string, value interface{}) (typeutil.Variant, boo
 	defer self.atomic.Unlock()
 
 	if v := self.Get(key); v.IsZero() {
-		return self.Set(key, value), true
+		return self.set(key, value), true
 	} else {
 		return v, false
 	}
@@ -178,7 +186,7 @@ func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Vari
 	defer self.atomic.Unlock()
 
 	if !typeutil.IsZero(value) {
-		return self.Set(key, value), true
+		return self.set(key, value), true
 	} else {
 		return self.Get(key), false
 	}
