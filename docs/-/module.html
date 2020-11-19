@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.89
+                            v1.8.90
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.5&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.8.89&#34;
+    &#34;Version&#34;: &#34;1.8.90&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.8.89`&#34;,
+        &#34;Expression&#34;: &#34;`1.8.90`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.8.89&#34;
+        &#34;Value&#34;: &#34;1.8.90&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -2170,6 +2170,27 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;outlevel&#34;,
+                &#34;Type&#34;: &#34;log.Level&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;errlevel&#34;,
+                &#34;Type&#34;: &#34;log.Level&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;LogOutput&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;OutputLineFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;line&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               },
@@ -2846,29 +2867,6 @@
             &#34;Source&#34;: &#34;dHlwZSBDb21tYW5kU3RhdHVzRnVuYyBmdW5jKFN0YXR1cyk=&#34;
           },
           &#34;OutputLineFunc&#34;: {
-            &#34;Methods&#34;: [
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;outlevel&#34;,
-                    &#34;Type&#34;: &#34;log.Level&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;errlevel&#34;,
-                    &#34;Type&#34;: &#34;log.Level&#34;
-                  }
-                ],
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;LogOutput&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;OutputLineFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
-              }
-            ],
             &#34;Name&#34;: &#34;OutputLineFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk=&#34;
           },
@@ -7601,7 +7599,7 @@
         &#34;SourceLineCount&#34;: 1322,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0.9655,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6628,
           &#34;Median&#34;: 1,
@@ -9800,7 +9798,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/maputil&#34;,
-        &#34;CommentWordCount&#34;: 1333,
+        &#34;CommentWordCount&#34;: 1359,
         &#34;ConstantCount&#34;: 1,
         &#34;Constants&#34;: [
           {
@@ -10075,7 +10073,7 @@
           },
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 38,
+            &#34;FunctionCount&#34;: 39,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;json&#34;,
@@ -10134,11 +10132,11 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/utils&#34;
               }
             ],
-            &#34;LineCount&#34;: 586,
+            &#34;LineCount&#34;: 601,
             &#34;Name&#34;: &#34;m.go&#34;,
-            &#34;Size&#34;: 14144,
-            &#34;SourceLineCount&#34;: 429,
-            &#34;TypeCount&#34;: 5,
+            &#34;Size&#34;: 14554,
+            &#34;SourceLineCount&#34;: 438,
+            &#34;TypeCount&#34;: 6,
             &#34;VariableCount&#34;: 2
           },
           {
@@ -10294,7 +10292,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 74,
+        &#34;FunctionCount&#34;: 75,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -11093,19 +11091,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;maputil&#34;,
-        &#34;LineCount&#34;: 4379,
+        &#34;LineCount&#34;: 4394,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;maputil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 3339,
+        &#34;SourceLineCount&#34;: 3348,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.5575,
+          &#34;Mean&#34;: 0.5617,
           &#34;Median&#34;: 0.9,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4821
+          &#34;StdDev&#34;: 0.4818
         },
         &#34;Synopsis&#34;: &#34;Utilities for converting, manipulating, and iterating over maps\n&#34;,
         &#34;Tests&#34;: [
@@ -11902,7 +11900,7 @@
             &#34;Source&#34;: &#34;ewoJdHlwZSB0QWRkcmVzcyBzdHJ1Y3QgewoJCU51bWJlciAgIHN0cmluZwoJCVN0cmVldCAgIHN0cmluZwoJCUNpdHkgICAgIHN0cmluZyBgcG90YXRvOiJjaXR5ImAKCQlTdGF0ZSAgICBzdHJpbmcgYHBvdGF0bzoic3RhdGUiYAoJCUNvdW50cnkgIHN0cmluZyBgcG90YXRvOiJjb3VudHJ5ImAKCQlMb2FkZWRBdCB0aW1lLlRpbWUKCX0KCXR5cGUgdFBlcnNvbiBzdHJ1Y3QgewoJCU5hbWUgICAgc3RyaW5nCgkJQWdlICAgICBpbnQgYHBvdGF0bzoiYWdlImAKCQlBZGRyZXNzICp0QWRkcmVzcwoJfQoJdHlwZSB0VXNlciBzdHJ1Y3QgewoJCXRQZXJzb24KCQlFbWFpbCAgc3RyaW5nIGBwb3RhdG86ImVtYWlsImAKCQlBY3RpdmUgYm9vbCAgIGBwb3RhdG86IkFDVElWRSJgCgl9Cglhc3NlcnQgOj0gcmVxdWlyZS5OZXcodCkKCXZhciB0Z3QgdFVzZXIKCWFzc2VydC5Ob0Vycm9yKFRhZ2dlZFN0cnVjdEZyb21NYXAobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgTmFtZWA6IGBSdXN0eSBTaGFja2xlZm9yZGAsIGBhZ2VgOiA0MjAsIGBlbWFpbGA6IGBub25lK29mQHlvdXIuYml6YCwgYEFDVElWRWA6IHRydWUsIGBBZGRyZXNzYDogbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgTnVtYmVyYDogMzUwLCBgU3RyZWV0YDogYEZpZnRoIEF2ZW51ZWAsIGBjaXR5YDogYE5ldyBZb3JrYCwgYHN0YXRlYDogYE5ZYCwgYGNvdW50cnlgOiBgVVNgLCBgTG9hZGVkQXRgOiBgMjAwNi0wMS0wMmB9fSwgJnRndCwgYHBvdGF0b2ApKQoJYXNzZXJ0LkVxdWFsKGBub25lK29mQHlvdXIuYml6YCwgdGd0LkVtYWlsKQoJYXNzZXJ0LlRydWUodGd0LkFjdGl2ZSkKfQ==&#34;
           }
         ],
-        &#34;TypeCount&#34;: 13,
+        &#34;TypeCount&#34;: 14,
         &#34;Types&#34;: {
           &#34;ApplyFunc&#34;: {
             &#34;Name&#34;: &#34;ApplyFunc&#34;,
@@ -12427,6 +12425,29 @@
                     &#34;Type&#34;: &#34;string&#34;
                   },
                   {
+                    &#34;Name&#34;: &#34;vfunc&#34;,
+                    &#34;Type&#34;: &#34;MapSetFunc&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Set a value in the Map using a function.  The map will be locked to\nother modifications for the duration of the function&#39;s execution.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;SetFunc&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;typeutil.Variant&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;SetFunc(key string, vfunc MapSetFunc) typeutil.Variant&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;key&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
                     &#34;Name&#34;: &#34;value&#34;,
                     &#34;Type&#34;: &#34;interface{}&#34;
                   }
@@ -12707,6 +12728,10 @@
             ],
             &#34;Name&#34;: &#34;Map&#34;,
             &#34;Source&#34;: &#34;dHlwZSBNYXAgc3RydWN0IHsKCn0vLyBBIE1hcCBvYmplY3QgKG9yICJNIiBvYmplY3QpIGlzIGEgdXRpbGl0eSBzdHJ1Y3QgdGhhdCBtYWtlcyBpdCBzdHJhaWdodGZvcndhcmQgdG8KLy8gd29yayB3aXRoIGludGVyZmFjZSBkYXRhIHR5cGVzIHRoYXQgY29udGFpbiBtYXAtbGlrZSBkYXRhIChoYXMgYSByZWZsZWN0LktpbmQgZXF1YWwKLy8gdG8gcmVmbGVjdC5NYXApLgoK&#34;
+          },
+          &#34;MapSetFunc&#34;: {
+            &#34;Name&#34;: &#34;MapSetFunc&#34;,
+            &#34;Source&#34;: &#34;dHlwZSBNYXBTZXRGdW5jIGZ1bmMobSAqTWFwLCBrZXkgc3RyaW5nKSBpbnRlcmZhY2V7fQ==&#34;
           },
           &#34;MergeOption&#34;: {
             &#34;MetaType&#34;: &#34;int&#34;,
@@ -13682,7 +13707,7 @@
         &#34;SourceLineCount&#34;: 517,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.3673,
           &#34;Median&#34;: 0,
@@ -19767,7 +19792,7 @@
         &#34;SourceLineCount&#34;: 867,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0.8921,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.682,
           &#34;Median&#34;: 1,
@@ -21623,7 +21648,7 @@
       &#34;SourceLineCount&#34;: 1322,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0.9655,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6628,
         &#34;Median&#34;: 1,
@@ -21662,26 +21687,26 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/maputil&#34;,
-      &#34;CommentWordCount&#34;: 1333,
+      &#34;CommentWordCount&#34;: 1359,
       &#34;ConstantCount&#34;: 1,
-      &#34;FunctionCount&#34;: 74,
+      &#34;FunctionCount&#34;: 75,
       &#34;ImportPath&#34;: &#34;maputil&#34;,
-      &#34;LineCount&#34;: 4379,
+      &#34;LineCount&#34;: 4394,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;maputil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 3339,
+      &#34;SourceLineCount&#34;: 3348,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.5575,
+        &#34;Mean&#34;: 0.5617,
         &#34;Median&#34;: 0.9,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4821
+        &#34;StdDev&#34;: 0.4818
       },
       &#34;Synopsis&#34;: &#34;Utilities for converting, manipulating, and iterating over maps\n&#34;,
-      &#34;TypeCount&#34;: 13,
+      &#34;TypeCount&#34;: 14,
       &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
       &#34;VariableCount&#34;: 4
     },
@@ -21723,7 +21748,7 @@
       &#34;SourceLineCount&#34;: 517,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.3673,
         &#34;Median&#34;: 0,
@@ -21923,7 +21948,7 @@
       &#34;SourceLineCount&#34;: 867,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0.8921,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.682,
         &#34;Median&#34;: 1,

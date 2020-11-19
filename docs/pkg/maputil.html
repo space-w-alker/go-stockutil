@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.89
+                            v1.8.90
                         </li>
                     </ul>
                     
@@ -546,6 +546,8 @@
 			
 			
 			
+			
+			
 
 			
 			
@@ -806,6 +808,18 @@
 			
 			<li>
 				<strong>
+				<a href="#Map.SetFunc">
+					func
+					(self *Map)
+					SetFunc(key string, vfunc MapSetFunc) typeutil.Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
 				<a href="#Map.SetIfZero">
 					func
 					(self *Map)
@@ -984,6 +998,13 @@
 			
 			
 		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#MapSetFunc">type MapSetFunc </a>
+
+		
 		
 	</li>
 	
@@ -1272,9 +1293,9 @@
 			
 		</td>
 		<td class="text-right">14KB</td>
-		<td class="text-right">429</td>
-		<td class="text-right">38</td>
-		<td class="text-right">5</td>
+		<td class="text-right">438</td>
+		<td class="text-right">39</td>
+		<td class="text-right">6</td>
 		<td class="text-right"></td>
 		<td class="text-right">2</td>
 	</tr>
@@ -2090,6 +2111,8 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 
 
 
+
+
 <h4 id="Map.Auto" data-kind="f">
 	func
 	(self *Map)
@@ -2461,6 +2484,24 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 
 
 
+<h4 id="Map.SetFunc" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">SetFunc</a>
+	<a class="permalink" href="#SetFunc">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) SetFunc(key string, vfunc MapSetFunc) typeutil.Variant</pre>
+</div>
+
+<p><p>Set a value in the Map using a function.  The map will be locked to<br>other modifications for the duration of the function’s execution.</p>
+</p>
+
+
+
+
 <h4 id="Map.SetIfZero" data-kind="f">
 	func
 	(self *Map)
@@ -2721,6 +2762,25 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 
 <p><p>A recursive walk form of Each()</p>
 </p>
+
+
+
+
+<h3 id="MapSetFunc" data-kind="t">
+	type
+	<a title="View Source" href="">MapSetFunc</a>
+	<a class="permalink" href="#MapSetFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type MapSetFunc func(m *Map, key string) interface{}</pre>
+</div>
+
+
+
 
 
 

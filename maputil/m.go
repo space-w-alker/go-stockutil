@@ -21,6 +21,8 @@ import (
 var MapXmlRootTagName = `data`
 var MapXmlStructTagName = `xml`
 
+type MapSetFunc func(m *Map, key string) interface{}
+
 type IterOptions struct {
 	TagName  string
 	SortKeys bool
@@ -164,6 +166,19 @@ func (self *Map) Set(key string, value interface{}) typeutil.Variant {
 	defer self.atomic.Unlock()
 
 	return self.set(key, value)
+}
+
+// Set a value in the Map using a function.  The map will be locked to
+// other modifications for the duration of the function's execution.
+func (self *Map) SetFunc(key string, vfunc MapSetFunc) typeutil.Variant {
+	if vfunc != nil {
+		self.atomic.Lock()
+		defer self.atomic.Unlock()
+
+		return self.set(key, vfunc(self, key))
+	}
+
+	return typeutil.V(nil)
 }
 
 // Set a value in the Map at the given dot.separated key to a value, but only if the

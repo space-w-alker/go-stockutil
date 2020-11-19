@@ -1,7 +1,7 @@
 {
     "Metadata": {
         "Title": "go-stockutil",
-        "Version": "1.8.89",
+        "Version": "1.8.90",
         "GeneratorVersion": "0.0.5",
         "URL": "https://github.com/ghetzel/go-stockutil"
     },
@@ -150,7 +150,7 @@
                 "Mean": 0.6628,
                 "StdDev": 0.4477,
                 "GeometricMean": 0,
-                "HarmonicMean": 0.9655,
+                "HarmonicMean": 1,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -189,16 +189,16 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
             "MainFunction": false,
-            "CommentWordCount": 1333,
-            "LineCount": 4379,
-            "SourceLineCount": 3339,
-            "FunctionCount": 74,
-            "TypeCount": 13,
+            "CommentWordCount": 1359,
+            "LineCount": 4394,
+            "SourceLineCount": 3348,
+            "FunctionCount": 75,
+            "TypeCount": 14,
             "ConstantCount": 1,
             "VariableCount": 4,
             "Statistics": {
-                "Mean": 0.5575,
-                "StdDev": 0.4821,
+                "Mean": 0.5617,
+                "StdDev": 0.4818,
                 "GeometricMean": 0,
                 "HarmonicMean": 0,
                 "Median": 0.9,
@@ -250,7 +250,7 @@
                 "Mean": 0.3673,
                 "StdDev": 0.4586,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -450,7 +450,7 @@
                 "Mean": 0.682,
                 "StdDev": 0.3953,
                 "GeometricMean": 0.8921,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -522,8 +522,8 @@
             {
                 "Name": "Version",
                 "Immutable": true,
-                "Expression": "`1.8.89`",
-                "Value": "1.8.89"
+                "Expression": "`1.8.90`",
+                "Value": "1.8.90"
             }
         ],
         "Packages": [
@@ -2551,6 +2551,27 @@
                         "IsPackageLevel": true
                     },
                     {
+                        "Name": "LogOutput",
+                        "Arguments": [
+                            {
+                                "Name": "outlevel",
+                                "Type": "log.Level"
+                            },
+                            {
+                                "Name": "errlevel",
+                                "Type": "log.Level"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Type": "OutputLineFunc"
+                            }
+                        ],
+                        "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                        "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                        "IsPackageLevel": true
+                    },
+                    {
                         "Name": "LogOutputFunc",
                         "Arguments": [
                             {
@@ -3213,29 +3234,6 @@
                     },
                     "OutputLineFunc": {
                         "Name": "OutputLineFunc",
-                        "Methods": [
-                            {
-                                "Name": "LogOutput",
-                                "Arguments": [
-                                    {
-                                        "Name": "outlevel",
-                                        "Type": "log.Level"
-                                    },
-                                    {
-                                        "Name": "errlevel",
-                                        "Type": "log.Level"
-                                    }
-                                ],
-                                "Returns": [
-                                    {
-                                        "Type": "OutputLineFunc"
-                                    }
-                                ],
-                                "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                                "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                                "IsPackageLevel": true
-                            }
-                        ],
                         "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
                     },
                     "Status": {
@@ -6350,7 +6348,7 @@
                     "Mean": 0.6628,
                     "StdDev": 0.4477,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0.9655,
+                    "HarmonicMean": 1,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
@@ -10153,16 +10151,16 @@
                 "URL": "https://github.com/ghetzel/go-stockutil",
                 "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
                 "MainFunction": false,
-                "CommentWordCount": 1333,
-                "LineCount": 4379,
-                "SourceLineCount": 3339,
-                "FunctionCount": 74,
-                "TypeCount": 13,
+                "CommentWordCount": 1359,
+                "LineCount": 4394,
+                "SourceLineCount": 3348,
+                "FunctionCount": 75,
+                "TypeCount": 14,
                 "ConstantCount": 1,
                 "VariableCount": 4,
                 "Statistics": {
-                    "Mean": 0.5575,
-                    "StdDev": 0.4821,
+                    "Mean": 0.5617,
+                    "StdDev": 0.4818,
                     "GeometricMean": 0,
                     "HarmonicMean": 0,
                     "Median": 0.9,
@@ -10466,11 +10464,11 @@
                                 "Alias": "utilutil"
                             }
                         ],
-                        "Size": 14144,
-                        "LineCount": 586,
-                        "SourceLineCount": 429,
-                        "FunctionCount": 38,
-                        "TypeCount": 5,
+                        "Size": 14554,
+                        "LineCount": 601,
+                        "SourceLineCount": 438,
+                        "FunctionCount": 39,
+                        "TypeCount": 6,
                         "ConstantCount": 0,
                         "VariableCount": 2
                     },
@@ -12791,6 +12789,29 @@
                                 "IsPackageLevel": false
                             },
                             {
+                                "Name": "SetFunc",
+                                "Comment": "Set a value in the Map using a function.  The map will be locked to\nother modifications for the duration of the function's execution.",
+                                "PointerReceiver": true,
+                                "ReceiverName": "self",
+                                "Arguments": [
+                                    {
+                                        "Name": "key",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "vfunc",
+                                        "Type": "MapSetFunc"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "typeutil.Variant"
+                                    }
+                                ],
+                                "Signature": "SetFunc(key string, vfunc MapSetFunc) typeutil.Variant",
+                                "IsPackageLevel": false
+                            },
+                            {
                                 "Name": "SetIfZero",
                                 "Comment": "Set a value in the Map at the given dot.separated key to a value, but only if the\ncurrent value at that key is that type's zero value.",
                                 "PointerReceiver": true,
@@ -13078,6 +13099,10 @@
                         "Comment": "A Map object (or \"M\" object) is a utility struct that makes it straightforward to\nwork with interface data types that contain map-like data (has a reflect.Kind equal\nto reflect.Map).",
                         "Source": "dHlwZSBNYXAgc3RydWN0IHsKCn0vLyBBIE1hcCBvYmplY3QgKG9yICJNIiBvYmplY3QpIGlzIGEgdXRpbGl0eSBzdHJ1Y3QgdGhhdCBtYWtlcyBpdCBzdHJhaWdodGZvcndhcmQgdG8KLy8gd29yayB3aXRoIGludGVyZmFjZSBkYXRhIHR5cGVzIHRoYXQgY29udGFpbiBtYXAtbGlrZSBkYXRhIChoYXMgYSByZWZsZWN0LktpbmQgZXF1YWwKLy8gdG8gcmVmbGVjdC5NYXApLgoK",
                         "HasUnexportedFields": true
+                    },
+                    "MapSetFunc": {
+                        "Name": "MapSetFunc",
+                        "Source": "dHlwZSBNYXBTZXRGdW5jIGZ1bmMobSAqTWFwLCBrZXkgc3RyaW5nKSBpbnRlcmZhY2V7fQ=="
                     },
                     "MergeOption": {
                         "Name": "MergeOption",
@@ -13464,7 +13489,7 @@
                     "Mean": 0.3673,
                     "StdDev": 0.4586,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 0,
                     "Minimum": 0,
                     "Maximum": 1
@@ -19218,7 +19243,7 @@
                     "Mean": 0.682,
                     "StdDev": 0.3953,
                     "GeometricMean": 0.8921,
-                    "HarmonicMean": 1,
+                    "HarmonicMean": 0,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
