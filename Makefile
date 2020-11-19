@@ -23,14 +23,11 @@ fmt:
 	@go vet ./...
 
 docs:
-	owndoc render --property rootpath=/go-stockutil/
+	@owndoc render --property rootpath=/go-stockutil/
 
 $(PKGS):
 	$(info Testing $(@))
 	@go test -count=$(COUNT) ./$(@)/...
-
-docs:
-	@owndoc generate | owndoc render
 
 test: $(PKGS)
 

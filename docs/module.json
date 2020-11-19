@@ -25,7 +25,7 @@
                 "Mean": 0.8074,
                 "StdDev": 0.3867,
                 "GeometricMean": 1,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -150,7 +150,7 @@
                 "Mean": 0.6628,
                 "StdDev": 0.4477,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 0.9655,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -450,7 +450,7 @@
                 "Mean": 0.682,
                 "StdDev": 0.3953,
                 "GeometricMean": 0.8921,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -546,7 +546,7 @@
                     "Mean": 0.8074,
                     "StdDev": 0.3867,
                     "GeometricMean": 1,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
@@ -2551,27 +2551,6 @@
                         "IsPackageLevel": true
                     },
                     {
-                        "Name": "LogOutput",
-                        "Arguments": [
-                            {
-                                "Name": "outlevel",
-                                "Type": "log.Level"
-                            },
-                            {
-                                "Name": "errlevel",
-                                "Type": "log.Level"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "OutputLineFunc"
-                            }
-                        ],
-                        "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                        "IsPackageLevel": true
-                    },
-                    {
                         "Name": "LogOutputFunc",
                         "Arguments": [
                             {
@@ -3234,6 +3213,29 @@
                     },
                     "OutputLineFunc": {
                         "Name": "OutputLineFunc",
+                        "Methods": [
+                            {
+                                "Name": "LogOutput",
+                                "Arguments": [
+                                    {
+                                        "Name": "outlevel",
+                                        "Type": "log.Level"
+                                    },
+                                    {
+                                        "Name": "errlevel",
+                                        "Type": "log.Level"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "OutputLineFunc"
+                                    }
+                                ],
+                                "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                                "IsPackageLevel": true
+                            }
+                        ],
                         "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
                     },
                     "Status": {
@@ -6348,7 +6350,7 @@
                     "Mean": 0.6628,
                     "StdDev": 0.4477,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 0.9655,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
@@ -19216,7 +19218,7 @@
                     "Mean": 0.682,
                     "StdDev": 0.3953,
                     "GeometricMean": 0.8921,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1

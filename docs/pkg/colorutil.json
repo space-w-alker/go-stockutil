@@ -17,7 +17,7 @@
         "Mean": 0.8074,
         "StdDev": 0.3867,
         "GeometricMean": 1,
-        "HarmonicMean": 0,
+        "HarmonicMean": 1,
         "Median": 1,
         "Minimum": 0,
         "Maximum": 1
