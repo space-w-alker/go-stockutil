@@ -256,6 +256,11 @@ func (self *Map) Int(key string, fallbacks ...interface{}) int64 {
 	return self.Get(key, fallbacks...).Int()
 }
 
+// Return the value at key as a native integer.
+func (self *Map) NInt(key string, fallbacks ...interface{}) int {
+	return self.Get(key, fallbacks...).NInt()
+}
+
 // Return the value at key as a float.
 func (self *Map) Float(key string, fallbacks ...interface{}) float64 {
 	return self.Get(key, fallbacks...).Float()

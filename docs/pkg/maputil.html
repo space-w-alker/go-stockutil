@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.90
+                            v1.8.91
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 56%</span>
+<span class="pull-right">Doc Coverage: 57%</span>
 <h2 id="pkg-overview">package maputil</h2>
 
 <p>
@@ -548,6 +548,8 @@
 			
 			
 			
+			
+			
 
 			
 			
@@ -788,6 +790,18 @@
 					func
 					(self *Map)
 					MarshalXML(e *xml.Encoder, start xml.StartElement) error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.NInt">
+					func
+					(self *Map)
+					NInt(key string, fallbacks ...interface{}) int
 				</a>
 				</strong>
 			</li>
@@ -1293,8 +1307,8 @@
 			
 		</td>
 		<td class="text-right">14KB</td>
-		<td class="text-right">438</td>
-		<td class="text-right">39</td>
+		<td class="text-right">441</td>
+		<td class="text-right">40</td>
 		<td class="text-right">6</td>
 		<td class="text-right"></td>
 		<td class="text-right">2</td>
@@ -2113,6 +2127,8 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 
 
 
+
+
 <h4 id="Map.Auto" data-kind="f">
 	func
 	(self *Map)
@@ -2461,6 +2477,24 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 </div>
 
 <p><p>Marshals the current data into XML.  Nested maps are output as nested elements.  Map values that<br>are scalars (strings, numbers, bools, dates/times) will appear as attributes on the parent element.</p>
+</p>
+
+
+
+
+<h4 id="Map.NInt" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">NInt</a>
+	<a class="permalink" href="#NInt">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) NInt(key string, fallbacks ...interface{}) int</pre>
+</div>
+
+<p><p>Return the value at key as a native integer.</p>
 </p>
 
 

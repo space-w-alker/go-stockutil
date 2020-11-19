@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.90
+                            v1.8.91
                         </li>
                     </ul>
                     
@@ -347,6 +347,12 @@
 	
     <li>
 		<strong>
+		<a href="#NInt">func NInt(in interface{}) int</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
 		<a href="#RegisterTypeHandler">func RegisterTypeHandler(handler TypeConvertFunc, types ...string)</a>
 		</strong>
 	</li>
@@ -423,6 +429,8 @@
 		
 		
 		<ul>
+			
+			
 			
 			
 			
@@ -633,6 +641,18 @@
 			
 			<li>
 				<strong>
+				<a href="#Variant.NInt">
+					func
+					(self Variant)
+					NInt() int
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
 				<a href="#Variant.Slice">
 					func
 					(self Variant)
@@ -783,8 +803,8 @@
 			
 		</td>
 		<td class="text-right">7KB</td>
-		<td class="text-right">223</td>
-		<td class="text-right">33</td>
+		<td class="text-right">229</td>
+		<td class="text-right">35</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -966,7 +986,7 @@ const <span id="Value3">Value3</span> = `value-3`
 </div>
 
 
-<p><p>Package-level int converter</p>
+<p><p>Package-level int64 converter</p>
 </p>
 
 
@@ -1224,6 +1244,20 @@ const <span id="Value3">Value3</span> = `value-3`
 </p>
 
 
+<h3 id="NInt" data-kind="f">
+	func <a title="View Source" href="">NInt</a>
+	<a class="permalink" href="#NInt">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NInt(in interface{}) int</pre>
+</div>
+
+
+<p><p>Package-level native int converter</p>
+</p>
+
+
 <h3 id="RegisterTypeHandler" data-kind="f">
 	func <a title="View Source" href="">RegisterTypeHandler</a>
 	<a class="permalink" href="#RegisterTypeHandler">&#182;</a>
@@ -1394,6 +1428,8 @@ const <span id="Value3">Value3</span> = `value-3`
 // type conversions.
 </pre>
 </div>
+
+
 
 
 
@@ -1679,6 +1715,24 @@ const <span id="Value3">Value3</span> = `value-3`
 </div>
 
 <p><p>Satisfy the json.Marshaler interface</p>
+</p>
+
+
+
+
+<h4 id="Variant.NInt" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">NInt</a>
+	<a class="permalink" href="#NInt">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) NInt() int</pre>
+</div>
+
+<p><p>Return the value as a native integer if it can be interpreted as such, or 0 otherwise.<br>Float values will be truncated to integers.</p>
 </p>
 
 

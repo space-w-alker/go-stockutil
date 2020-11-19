@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
     "MainFunction": false,
-    "CommentWordCount": 1359,
-    "LineCount": 4394,
-    "SourceLineCount": 3348,
-    "FunctionCount": 75,
+    "CommentWordCount": 1369,
+    "LineCount": 4399,
+    "SourceLineCount": 3351,
+    "FunctionCount": 76,
     "TypeCount": 14,
     "ConstantCount": 1,
     "VariableCount": 4,
     "Statistics": {
-        "Mean": 0.5617,
-        "StdDev": 0.4818,
+        "Mean": 0.5657,
+        "StdDev": 0.4813,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0.9,
@@ -319,10 +319,10 @@
                     "Alias": "utilutil"
                 }
             ],
-            "Size": 14554,
-            "LineCount": 601,
-            "SourceLineCount": 438,
-            "FunctionCount": 39,
+            "Size": 14714,
+            "LineCount": 606,
+            "SourceLineCount": 441,
+            "FunctionCount": 40,
             "TypeCount": 6,
             "ConstantCount": 0,
             "VariableCount": 2
@@ -2618,6 +2618,29 @@
                         }
                     ],
                     "Signature": "MarshalXML(e *xml.Encoder, start xml.StartElement) error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "NInt",
+                    "Comment": "Return the value at key as a native integer.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "key",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallbacks",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "int"
+                        }
+                    ],
+                    "Signature": "NInt(key string, fallbacks ...interface{}) int",
                     "IsPackageLevel": false
                 },
                 {

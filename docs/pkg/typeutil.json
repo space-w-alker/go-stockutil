@@ -6,17 +6,17 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
     "MainFunction": false,
-    "CommentWordCount": 820,
-    "LineCount": 1190,
-    "SourceLineCount": 867,
-    "FunctionCount": 56,
+    "CommentWordCount": 850,
+    "LineCount": 1201,
+    "SourceLineCount": 873,
+    "FunctionCount": 58,
     "TypeCount": 3,
     "ConstantCount": 3,
     "VariableCount": 0,
     "Statistics": {
-        "Mean": 0.682,
-        "StdDev": 0.3953,
-        "GeometricMean": 0.8921,
+        "Mean": 0.6825,
+        "StdDev": 0.3926,
+        "GeometricMean": 0.8824,
         "HarmonicMean": 0,
         "Median": 1,
         "Minimum": 0,
@@ -163,10 +163,10 @@
                     "Alias": "utils"
                 }
             ],
-            "Size": 7325,
-            "LineCount": 317,
-            "SourceLineCount": 223,
-            "FunctionCount": 33,
+            "Size": 7618,
+            "LineCount": 328,
+            "SourceLineCount": 229,
+            "FunctionCount": 35,
             "TypeCount": 1,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -398,7 +398,7 @@
         },
         {
             "Name": "Int",
-            "Comment": "Package-level int converter",
+            "Comment": "Package-level int64 converter",
             "Arguments": [
                 {
                     "Name": "in",
@@ -770,6 +770,24 @@
             ],
             "Signature": "MapNative(in interface{}, tagName ...string) map[string]interface{}",
             "Source": "ewoJcmV0dXJuIFYoaW4pLk1hcE5hdGl2ZSh0YWdOYW1lLi4uKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "NInt",
+            "Comment": "Package-level native int converter",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int"
+                }
+            ],
+            "Signature": "NInt(in interface{}) int",
+            "Source": "ewoJcmV0dXJuIFYoaW4pLk5JbnQoKQp9",
             "IsPackageLevel": true
         },
         {
@@ -1238,6 +1256,18 @@
                         }
                     ],
                     "Signature": "MarshalJSON() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "NInt",
+                    "Comment": "Return the value as a native integer if it can be interpreted as such, or 0 otherwise.\nFloat values will be truncated to integers.",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "int"
+                        }
+                    ],
+                    "Signature": "NInt() int",
                     "IsPackageLevel": false
                 },
                 {

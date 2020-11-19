@@ -75,6 +75,12 @@ func (self Variant) Int() int64 {
 	}
 }
 
+// Return the value as a native integer if it can be interpreted as such, or 0 otherwise.
+// Float values will be truncated to integers.
+func (self Variant) NInt() int {
+	return int(self.Int())
+}
+
 // Return the value as a slice of Variants. Scalar types will return a slice containing
 // a single Variant element representing the value.
 func (self Variant) Slice() []Variant {
@@ -260,9 +266,14 @@ func Float(in interface{}) float64 {
 	return V(in).Float()
 }
 
-// Package-level int converter
+// Package-level int64 converter
 func Int(in interface{}) int64 {
 	return V(in).Int()
+}
+
+// Package-level native int converter
+func NInt(in interface{}) int {
+	return V(in).NInt()
 }
 
 // Package-level slice converter
