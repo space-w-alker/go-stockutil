@@ -134,3 +134,19 @@ func SliceEach(slice interface{}, iterFn IterationFunc, preserve ...reflect.Kind
 
 	return nil
 }
+
+// Takes some input value and returns it as a slice.
+func Sliceify(in interface{}) []interface{} {
+	if in == nil {
+		return nil
+	}
+
+	var out = make([]interface{}, 0)
+
+	SliceEach(in, func(_ int, v interface{}) error {
+		out = append(out, v)
+		return nil
+	})
+
+	return out
+}

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.91
+                            v1.8.92
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.5&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.8.91&#34;
+    &#34;Version&#34;: &#34;1.8.92&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.8.91`&#34;,
+        &#34;Expression&#34;: &#34;`1.8.92`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.8.91&#34;
+        &#34;Value&#34;: &#34;1.8.92&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -3694,24 +3694,6 @@
           {
             &#34;Arguments&#34;: [
               {
-                &#34;Name&#34;: &#34;fns&#34;,
-                &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;ManipulateAll&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
                 &#34;Name&#34;: &#34;path&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4014,94 +3996,6 @@
           {
             &#34;Arguments&#34;: [
               {
-                &#34;Name&#34;: &#34;needle&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;prefix&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;suffix&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;trimSpace&#34;,
-                &#34;Type&#34;: &#34;bool&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;prefix&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;trimSpace&#34;,
-                &#34;Type&#34;: &#34;bool&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;suffix&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;trimSpace&#34;,
-                &#34;Type&#34;: &#34;bool&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
                 &#34;Name&#34;: &#34;scheme&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4111,32 +4005,6 @@
             &#34;Name&#34;: &#34;RemoveOpenHandler&#34;,
             &#34;Signature&#34;: &#34;RemoveOpenHandler(scheme string)&#34;,
             &#34;Source&#34;: &#34;ewoJZGVsZXRlKG9wZW5IYW5kbGVycywgc2NoZW1lKQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;find&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;replace&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;occurrences&#34;,
-                &#34;Type&#34;: &#34;int&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;ReplaceWith&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -4928,6 +4796,140 @@
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3Igc3RydWN0IHsKCn0K&#34;
           },
           &#34;ReadManipulatorFunc&#34;: {
+            &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;fns&#34;,
+                    &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;ManipulateAll&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;find&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;replace&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;occurrences&#34;,
+                    &#34;Type&#34;: &#34;int&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;ReplaceWith&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;needle&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;prefix&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;trimSpace&#34;,
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;suffix&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;trimSpace&#34;,
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;prefix&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;suffix&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;trimSpace&#34;,
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
+              }
+            ],
             &#34;Name&#34;: &#34;ReadManipulatorFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3JGdW5jIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKQ==&#34;
           },
@@ -14789,10 +14791,10 @@
                 &#34;PackageName&#34;: &#34;github.com/juliangruber/go-intersect&#34;
               }
             ],
-            &#34;LineCount&#34;: 489,
+            &#34;LineCount&#34;: 478,
             &#34;Name&#34;: &#34;sliceutil.go&#34;,
-            &#34;Size&#34;: 11393,
-            &#34;SourceLineCount&#34;: 333,
+            &#34;Size&#34;: 11257,
+            &#34;SourceLineCount&#34;: 325,
             &#34;TypeCount&#34;: 4,
             &#34;VariableCount&#34;: 3
           },
@@ -15360,7 +15362,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;Sliceify(in interface{}) []interface{}&#34;,
-            &#34;Source&#34;: &#34;ewoJaWYgaW4gPT0gbmlsIHsKCQlyZXR1cm4gbmlsCgl9CglvdXQgOj0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJRWFjaChpbiwgZnVuYyhfIGludCwgdiBpbnRlcmZhY2V7fSkgZXJyb3IgewoJCW91dCA9IGFwcGVuZChvdXQsIHYpCgkJcmV0dXJuIG5pbAoJfSkKCXJldHVybiBvdXQKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIHV0aWxzLlNsaWNlaWZ5KGluKQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -15462,11 +15464,11 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;sliceutil&#34;,
-        &#34;LineCount&#34;: 1013,
+        &#34;LineCount&#34;: 1002,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;sliceutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 753,
+        &#34;SourceLineCount&#34;: 745,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
@@ -18412,9 +18414,57 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/structutil&#34;,
-        &#34;CommentWordCount&#34;: 52,
+        &#34;CommentWordCount&#34;: 79,
         &#34;ConstantCount&#34;: 0,
         &#34;Files&#34;: [
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 9,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;fmt&#34;,
+                &#34;PackageName&#34;: &#34;fmt&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;reflect&#34;,
+                &#34;PackageName&#34;: &#34;reflect&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;maputil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/maputil&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;typeutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 156,
+            &#34;Name&#34;: &#34;s.go&#34;,
+            &#34;Size&#34;: 3023,
+            &#34;SourceLineCount&#34;: 124,
+            &#34;TypeCount&#34;: 2,
+            &#34;VariableCount&#34;: 1
+          },
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 0,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;testing&#34;,
+                &#34;PackageName&#34;: &#34;testing&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;require&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 112,
+            &#34;Name&#34;: &#34;s_test.go&#34;,
+            &#34;Size&#34;: 2549,
+            &#34;SourceLineCount&#34;: 97,
+            &#34;TypeCount&#34;: 0,
+            &#34;VariableCount&#34;: 0
+          },
           {
             &#34;ConstantCount&#34;: 0,
             &#34;FunctionCount&#34;: 3,
@@ -18436,10 +18486,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
               }
             ],
-            &#34;LineCount&#34;: 162,
+            &#34;LineCount&#34;: 169,
             &#34;Name&#34;: &#34;structutil.go&#34;,
-            &#34;Size&#34;: 4045,
-            &#34;SourceLineCount&#34;: 122,
+            &#34;Size&#34;: 4191,
+            &#34;SourceLineCount&#34;: 127,
             &#34;TypeCount&#34;: 2,
             &#34;VariableCount&#34;: 1
           },
@@ -18468,7 +18518,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 3,
+        &#34;FunctionCount&#34;: 12,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -18537,23 +18587,23 @@
               }
             ],
             &#34;Signature&#34;: &#34;FieldsFunc(in interface{}, fn StructFieldFunc) error&#34;,
-            &#34;Source&#34;: &#34;ewoJaWYgaW4gPT0gbmlsIHx8IGZuID09IG5pbCB7CgkJcmV0dXJuIG5pbAoJfQoJdmFyIGluVmFsdSByZWZsZWN0LlZhbHVlCglpZiB2LCBvayA6PSBpbi4ocmVmbGVjdC5WYWx1ZSk7IG9rIHsKCQlpblZhbHUgPSB2Cgl9IGVsc2UgewoJCWluVmFsdSA9IHJlZmxlY3QuVmFsdWVPZihpbikKCX0KCWlmIF8sIGVyciA6PSB2YWxpZGF0ZVB0clRvU3RydWN0KGBpbnB1dGAsIGluVmFsdSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBlcnIKCX0KCWluVmFsdSA9IGluVmFsdS5FbGVtKCkKCWluVHlwZSA6PSBpblZhbHUuVHlwZSgpCkZpZWxkTG9vcDoKCWZvciBpIDo9IDA7IGkgPCBpblR5cGUuTnVtRmllbGQoKTsgaSsrIHsKCQlmaWVsZFQgOj0gaW5UeXBlLkZpZWxkKGkpCgkJZmllbGRWIDo9IGluVmFsdS5GaWVsZChpKQoJCWlmIGZpZWxkVC5Qa2dQYXRoICE9IGBgIHsKCQkJY29udGludWUKCQl9CgkJc3dpdGNoIGVyciA6PSBmbigmZmllbGRULCBmaWVsZFYpOyBlcnIgewoJCWNhc2UgU3RvcEl0ZXJhdGluZzoKCQkJYnJlYWsgRmllbGRMb29wCgkJY2FzZSBuaWw6CgkJCWNvbnRpbnVlCgkJZGVmYXVsdDoKCQkJcmV0dXJuIGVycgoJCX0KCX0KCXJldHVybiBuaWwKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJaWYgaW4gPT0gbmlsIHx8IGZuID09IG5pbCB7CgkJcmV0dXJuIG5pbAoJfQoJdmFyIGluVmFsdSByZWZsZWN0LlZhbHVlCglpZiB2LCBvayA6PSBpbi4ocmVmbGVjdC5WYWx1ZSk7IG9rIHsKCQlpblZhbHUgPSB2Cgl9IGVsc2UgewoJCWluVmFsdSA9IHJlZmxlY3QuVmFsdWVPZihpbikKCX0KCWlmIF8sIGVyciA6PSB2YWxpZGF0ZVB0clRvU3RydWN0KGBpbnB1dGAsIGluVmFsdSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBlcnIKCX0KCWluVmFsdSA9IGluVmFsdS5FbGVtKCkKCWluVHlwZSA6PSBpblZhbHUuVHlwZSgpCkZpZWxkTG9vcDoKCWZvciBpIDo9IDA7IGkgPCBpblR5cGUuTnVtRmllbGQoKTsgaSsrIHsKCQl2YXIgZmllbGRUID0gaW5UeXBlLkZpZWxkKGkpCgkJdmFyIGZpZWxkViA9IGluVmFsdS5GaWVsZChpKQoJCWlmIGZpZWxkVC5Bbm9ueW1vdXMgewoJCQlpZiBlcnIgOj0gRmllbGRzRnVuYyhmaWVsZFYsIGZuKTsgZXJyICE9IG5pbCB7CgkJCQlyZXR1cm4gZXJyCgkJCX0KCQl9CgkJaWYgZmllbGRULlBrZ1BhdGggIT0gYGAgewoJCQljb250aW51ZQoJCX0KCQlzd2l0Y2ggZXJyIDo9IGZuKCZmaWVsZFQsIGZpZWxkVik7IGVyciB7CgkJY2FzZSBTdG9wSXRlcmF0aW5nOgoJCQlicmVhayBGaWVsZExvb3AKCQljYXNlIG5pbDoKCQkJY29udGludWUKCQlkZWZhdWx0OgoJCQlyZXR1cm4gZXJyCgkJfQoJfQoJcmV0dXJuIG5pbAp9&#34;
           }
         ],
         &#34;ImportPath&#34;: &#34;structutil&#34;,
-        &#34;LineCount&#34;: 236,
+        &#34;LineCount&#34;: 511,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;structutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 182,
+        &#34;SourceLineCount&#34;: 408,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.25,
+          &#34;Mean&#34;: 0.1364,
           &#34;Median&#34;: 0,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.433
+          &#34;StdDev&#34;: 0.3432
         },
         &#34;Synopsis&#34;: &#34;Utilities for working with and manipulating structs.\n&#34;,
         &#34;Tests&#34;: [
@@ -18580,10 +18630,190 @@
             &#34;Name&#34;: &#34;TestFieldsFunc&#34;,
             &#34;Signature&#34;: &#34;TestFieldsFunc(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglvdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJRmllbGRzRnVuYygmVEJhc2V7TmFtZTogYGhlbGxvYCwgQWdlOiAzMiwgRW5hYmxlZDogdHJ1ZSwgaGlkZGVuOiB0cnVlfSwgZnVuYyhmaWVsZCAqcmVmbGVjdC5TdHJ1Y3RGaWVsZCwgdmFsdWUgcmVmbGVjdC5WYWx1ZSkgZXJyb3IgewoJCWlmIHZhbHVlLkNhbkludGVyZmFjZSgpIHsKCQkJb3V0W2ZpZWxkLk5hbWVdID0gdmFsdWUuSW50ZXJmYWNlKCkKCQl9CgkJcmV0dXJuIG5pbAoJfSkKCWFzc2VydC5FcXVhbChtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BOYW1lYDogYGhlbGxvYCwgYEFnZWA6IDMyLCBgRW5hYmxlZGA6IHRydWV9LCBvdXQpCn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestS&#34;,
+            &#34;Signature&#34;: &#34;TestS(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGJhc2UgPSAmdFN0cnVjdENoaWxke3RTdHJ1Y3RCYXNlOiAmdFN0cnVjdEJhc2V7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBXb3JkczogW11zdHJpbmd7YGhlbGxvYCwgYHRoZXJlYH0sIFBocmFzZTogW11zdHJpbmd7YG1heWAsIGB0aGVgLCBgZm9yY2VgLCBgYmVgLCBgd2l0aGAsIGB5b3VgfX0sIEFkZHJlc3M6IGAxMjMgRmFrZSBTdC5gLCBEZXRhaWxzOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BnbG9iYWxgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYGJhc2VgLCBgdmFsdWVzYDogW11pbnR7MiwgNCwgNn19fX0KCXZhciBzID0gUyhiYXNlKQoJdmFyIGZpZWxkcyA9IHMuRmllbGRzKCkKCXJlcXVpcmUuTGVuKHQsIGZpZWxkcywgNykKCWZvciBpLCBmaWVsZCA6PSByYW5nZSBmaWVsZHMgewoJCXZhciBuYW1lID0gZmllbGQuTmFtZQoJCXZhciB0eXBuID0gZmllbGQuVHlwZS5TdHJpbmcoKQoJCXN3aXRjaCBpIHsKCQljYXNlIDA6CgkJCXJlcXVpcmUuRXF1YWwodCwgYE5hbWVgLCBuYW1lKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGBzdHJpbmdgLCB0eXBuKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGB0ZXN0YCwgZmllbGQuVigpLlN0cmluZygpKQoJCWNhc2UgMToKCQkJcmVxdWlyZS5FcXVhbCh0LCBgQWdlYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgaW50YCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBpbnQ2NCg0MiksIGZpZWxkLlYoKS5JbnQoKSkKCQljYXNlIDI6CgkJCXJlcXVpcmUuRXF1YWwodCwgYEVuYWJsZWRgLCBuYW1lKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGBib29sYCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBmYWxzZSwgZmllbGQuVigpLkJvb2woKSkKCQljYXNlIDM6CgkJCXJlcXVpcmUuRXF1YWwodCwgYFdvcmRzYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgW11zdHJpbmdgLCB0eXBuKQoJCQlyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BoZWxsb2AsIGB0aGVyZWB9LCBmaWVsZC5WKCkuU3RyaW5ncygpKQoJCWNhc2UgNDoKCQkJcmVxdWlyZS5FcXVhbCh0LCBgUGhyYXNlYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgW11zdHJpbmdgLCB0eXBuKQoJCQlyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BtYXlgLCBgdGhlYCwgYGZvcmNlYCwgYGJlYCwgYHdpdGhgLCBgeW91YH0sIGZpZWxkLlYoKS5TdHJpbmdzKCkpCgkJY2FzZSA1OgoJCQlyZXF1aXJlLkVxdWFsKHQsIGBBZGRyZXNzYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgc3RyaW5nYCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBgMTIzIEZha2UgU3QuYCwgZmllbGQuVigpLlN0cmluZygpKQoJCWNhc2UgNjoKCQkJcmVxdWlyZS5FcXVhbCh0LCBgRGV0YWlsc2AsIG5hbWUpCgkJCXJlcXVpcmUuRXF1YWwodCwgYG1hcFtzdHJpbmddaW50ZXJmYWNlIHt9YCwgdHlwbikKCQkJcmVxdWlyZS5MZW4odCwgYmFzZS5EZXRhaWxzLCAxKQoJCX0KCX0KCXJlcXVpcmUuTm9FcnJvcih0LCBzLk1lcmdlKCZ0U3RydWN0Q2hpbGR7dFN0cnVjdEJhc2U6ICZ0U3RydWN0QmFzZXtXb3JkczogW11zdHJpbmd7YGdlbmVyYWxgLCBga2Vub2JpYH0sIFBocmFzZTogW11zdHJpbmd7YGFuZGAsIGBhbHNvYCwgYHdpdGhgLCBgeW91YH19LCBBZGRyZXNzOiBgOTg3IEx1bHogTGFuZWAsIERldGFpbHM6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YGdsb2JhbGA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgcmVwbGFjZWRgLCBgdmFsdWVzYDogW11pbnR7MSwgMywgNX19fX0pKQoJcmVxdWlyZS5FcXVhbCh0LCBbXXN0cmluZ3tgaGVsbG9gLCBgdGhlcmVgLCBgZ2VuZXJhbGAsIGBrZW5vYmlgfSwgYmFzZS5Xb3JkcykKCXJlcXVpcmUuRXF1YWwodCwgW11zdHJpbmd7YGFuZGAsIGBhbHNvYCwgYHdpdGhgLCBgeW91YH0sIGJhc2UuUGhyYXNlKQoJcmVxdWlyZS5FcXVhbCh0LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BnbG9iYWxgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYHJlcGxhY2VkYCwgYHZhbHVlc2A6IFtdaW50ZXJmYWNle317MSwgMywgNX19fSwgYmFzZS5EZXRhaWxzKQp9&#34;
           }
         ],
-        &#34;TypeCount&#34;: 3,
+        &#34;TypeCount&#34;: 5,
         &#34;Types&#34;: {
+          &#34;Field&#34;: {
+            &#34;Fields&#34;: [
+              {
+                &#34;Name&#34;: &#34;Struct&#34;,
+                &#34;Type&#34;: &#34;*Struct&#34;
+              }
+            ],
+            &#34;MetaType&#34;: &#34;struct&#34;,
+            &#34;Methods&#34;: [
+              {
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Kind&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;reflect.Kind&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Kind() reflect.Kind&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;in&#34;,
+                    &#34;Type&#34;: &#34;interface{}&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;MergeValue&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;MergeValue(in interface{}) error&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;value&#34;,
+                    &#34;Type&#34;: &#34;interface{}&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Set&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Set(value interface{}) error&#34;
+              },
+              {
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;V&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;typeutil.Variant&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;V() typeutil.Variant&#34;
+              },
+              {
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Value&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;reflect.Value&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Value() reflect.Value&#34;
+              }
+            ],
+            &#34;Name&#34;: &#34;Field&#34;,
+            &#34;Source&#34;: &#34;dHlwZSBGaWVsZCBzdHJ1Y3QgewoJKnJlZmxlY3QuU3RydWN0RmllbGQKCVN0cnVjdCAqU3RydWN0Cn0=&#34;
+          },
+          &#34;Struct&#34;: {
+            &#34;Comment&#34;: &#34;A Struct, or \&#34;S-object\&#34;, can be used to rapidly and safely inspect, iterate over, and modify values of a struct.&#34;,
+            &#34;Fields&#34;: [
+              {
+                &#34;Name&#34;: &#34;Source&#34;,
+                &#34;Type&#34;: &#34;interface{}&#34;
+              }
+            ],
+            &#34;HasUnexportedFields&#34;: true,
+            &#34;MetaType&#34;: &#34;struct&#34;,
+            &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;name&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Field&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;*Field&#34;
+                  },
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Field(name string) (*Field, bool)&#34;
+              },
+              {
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Fields&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;[]*Field&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Fields() []*Field&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;other&#34;,
+                    &#34;Type&#34;: &#34;interface{}&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Merge&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Merge(other interface{}) error&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;src&#34;,
+                    &#34;Type&#34;: &#34;interface{}&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;S&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;*Struct&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;S(src interface{}) *Struct&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuICZTdHJ1Y3R7U291cmNlOiBzcmMsIGZpZWxkczogbWFrZShbXSpGaWVsZCwgMCksIGZpZWxkbWFwOiBtYWtlKG1hcFtzdHJpbmddKkZpZWxkKX0KfQ==&#34;
+              }
+            ],
+            &#34;Name&#34;: &#34;Struct&#34;,
+            &#34;Source&#34;: &#34;dHlwZSBTdHJ1Y3Qgc3RydWN0IHsKCVNvdXJjZSBpbnRlcmZhY2V7fQoKfS8vIEEgU3RydWN0LCBvciAiUy1vYmplY3QiLCBjYW4gYmUgdXNlZCB0byByYXBpZGx5IGFuZCBzYWZlbHkgaW5zcGVjdCwgaXRlcmF0ZSBvdmVyLCBhbmQgbW9kaWZ5IHZhbHVlcyBvZiBhIHN0cnVjdC4KCg==&#34;
+          },
           &#34;StructFieldFunc&#34;: {
             &#34;Name&#34;: &#34;StructFieldFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBTdHJ1Y3RGaWVsZEZ1bmMgZnVuYyhmaWVsZCAqcmVmbGVjdC5TdHJ1Y3RGaWVsZCwgdmFsdWUgcmVmbGVjdC5WYWx1ZSkgZXJyb3I=&#34;
@@ -18614,11 +18844,17 @@
           }
         },
         &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-        &#34;VariableCount&#34;: 1,
+        &#34;VariableCount&#34;: 2,
         &#34;Variables&#34;: [
           {
             &#34;Expression&#34;: &#34;errors.New(`stop iterating`)&#34;,
             &#34;Name&#34;: &#34;StopIterating&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`structutil`&#34;,
+            &#34;Name&#34;: &#34;StructTag&#34;,
+            &#34;Type&#34;: &#34;string&#34;,
+            &#34;Value&#34;: &#34;structutil&#34;
           }
         ]
       },
@@ -18902,7 +19138,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;,
-        &#34;CommentWordCount&#34;: 850,
+        &#34;CommentWordCount&#34;: 877,
         &#34;ConstantCount&#34;: 3,
         &#34;Constants&#34;: [
           {
@@ -19001,10 +19237,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/utils&#34;
               }
             ],
-            &#34;LineCount&#34;: 368,
+            &#34;LineCount&#34;: 389,
             &#34;Name&#34;: &#34;values.go&#34;,
-            &#34;Size&#34;: 9312,
-            &#34;SourceLineCount&#34;: 260,
+            &#34;Size&#34;: 9821,
+            &#34;SourceLineCount&#34;: 276,
             &#34;TypeCount&#34;: 1,
             &#34;VariableCount&#34;: 0
           },
@@ -19033,20 +19269,24 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 341,
+            &#34;LineCount&#34;: 354,
             &#34;Name&#34;: &#34;values_test.go&#34;,
-            &#34;Size&#34;: 8594,
-            &#34;SourceLineCount&#34;: 246,
+            &#34;Size&#34;: 8848,
+            &#34;SourceLineCount&#34;: 254,
             &#34;TypeCount&#34;: 1,
             &#34;VariableCount&#34;: 0
           },
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 35,
+            &#34;FunctionCount&#34;: 39,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;json&#34;,
                 &#34;PackageName&#34;: &#34;encoding/json&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;fmt&#34;,
+                &#34;PackageName&#34;: &#34;fmt&#34;
               },
               {
                 &#34;Alias&#34;: &#34;reflect&#34;,
@@ -19069,10 +19309,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/utils&#34;
               }
             ],
-            &#34;LineCount&#34;: 328,
+            &#34;LineCount&#34;: 371,
             &#34;Name&#34;: &#34;variant.go&#34;,
-            &#34;Size&#34;: 7618,
-            &#34;SourceLineCount&#34;: 229,
+            &#34;Size&#34;: 8525,
+            &#34;SourceLineCount&#34;: 262,
             &#34;TypeCount&#34;: 1,
             &#34;VariableCount&#34;: 0
           },
@@ -19093,15 +19333,15 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 116,
+            &#34;LineCount&#34;: 123,
             &#34;Name&#34;: &#34;variant_test.go&#34;,
-            &#34;Size&#34;: 2720,
-            &#34;SourceLineCount&#34;: 102,
+            &#34;Size&#34;: 2881,
+            &#34;SourceLineCount&#34;: 107,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 58,
+        &#34;FunctionCount&#34;: 62,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -19728,7 +19968,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;SetValue(target interface{}, value interface{}) error&#34;,
-            &#34;Source&#34;: &#34;ewoJdmFyIHRhcmdldFYsIHZhbHVlViwgb3JpZ2luYWxWIHJlZmxlY3QuVmFsdWUKCWlmIHRWLCBvayA6PSB0YXJnZXQuKHJlZmxlY3QuVmFsdWUpOyBvayB7CgkJdGFyZ2V0ViA9IHRWCgl9IGVsc2UgewoJCXRhcmdldFYgPSByZWZsZWN0LlZhbHVlT2YodGFyZ2V0KQoJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJcmV0dXJuIGZtdC5FcnJvcmYoIk11c3QgcGFzcyBhIHBvaW50ZXIgdG8gYSBzdHJ1Y3QgaW5zdGFuY2UsIGdvdCAlVCIsIHRhcmdldCkKCQl9IGVsc2UgaWYgdGFyZ2V0Vi5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCQl0YXJnZXRWID0gdGFyZ2V0Vi5FbGVtKCkKCQl9Cgl9CglpZiAhdGFyZ2V0Vi5Jc1ZhbGlkKCkgewoJCXJldHVybiBmbXQuRXJyb3JmKCJUYXJnZXQgJVQgaXMgbm90IHZhbGlkIiwgdGFyZ2V0KQoJfQoJaWYgdiwgZXJyIDo9IHV0aWxzLkNvbnZlcnRDdXN0b21UeXBlKHZhbHVlKTsgZXJyID09IG5pbCB7CgkJdmFsdWUgPSB2Cgl9IGVsc2UgaWYgZXJyICE9IHV0aWxzLlBhc3N0aHJvdWdoVHlwZSB7CgkJcmV0dXJuIGVycgoJfQoJaWYgdlYsIG9rIDo9IHZhbHVlLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCW9yaWdpbmFsViA9IHZWCgkJdmFsdWVWID0gdlYKCX0gZWxzZSB7CgkJb3JpZ2luYWxWID0gcmVmbGVjdC5WYWx1ZU9mKHZhbHVlKQoJCXZhbHVlViA9IHJlZmxlY3QuVmFsdWVPZihSZXNvbHZlVmFsdWUodmFsdWUpKQoJfQoJaWYgdmFsdWVWLklzVmFsaWQoKSB7CgkJdGFyZ2V0VCA6PSB0YXJnZXRWLlR5cGUoKQoJCXZhbHVlVCA6PSB2YWx1ZVYuVHlwZSgpCgkJaWYgdGFyZ2V0VC5LaW5kKCkgPT0gcmVmbGVjdC5TdHJpbmcgJiYgdmFsdWVWLkNhbkludGVyZmFjZSgpIHsKCQkJdmFsdWVWID0gcmVmbGVjdC5WYWx1ZU9mKGZtdC5TcHJpbnRmKCIldiIsIHZhbHVlVi5JbnRlcmZhY2UoKSkpCgkJCXZhbHVlVCA9IHZhbHVlVi5UeXBlKCkKCQkJaWYgIXZhbHVlVi5Jc1ZhbGlkKCkgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIkNvbnZlcnRpbmcgJVQgdG8gJXYgcHJvZHVjZWQgYW4gaW52YWxpZCB2YWx1ZSIsIHZhbHVlLCB0YXJnZXRUKQoJCQl9CgkJfQoJCWlmIHZhbHVlVC5Bc3NpZ25hYmxlVG8odGFyZ2V0VCkgewoJCQl0YXJnZXRWLlNldCh2YWx1ZVYpCgkJfSBlbHNlIGlmIHZhbHVlVC5Db252ZXJ0aWJsZVRvKHRhcmdldFQpIHsKCQkJdGFyZ2V0Vi5TZXQodmFsdWVWLkNvbnZlcnQodGFyZ2V0VCkpCgkJfSBlbHNlIGlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJaWYgb3JpZ2luYWxWLktpbmQoKSA9PSByZWZsZWN0LlB0ciB7CgkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0Viwgb3JpZ2luYWxWKQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIlVuYWJsZSB0byBzZXQgdGFyZ2V0OiB2YWx1ZSBmb3IgdGFyZ2V0ICV2IG11c3QgYmUgZ2l2ZW4gYXMgYSBwb2ludGVyIiwgdGFyZ2V0VCkKCQkJfQoJCX0gZWxzZSB7CgkJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJCWlmIGVtYmVkZGVkViA6PSB0YXJnZXRWLkZpZWxkQnlOYW1lKHZhbHVlVC5OYW1lKCkpOyBlbWJlZGRlZFYuSXNWYWxpZCgpIHsKCQkJCQlpZiBlcnIgOj0gU2V0VmFsdWUoZW1iZWRkZWRWLCB2YWx1ZSk7IGVyciA9PSBuaWwgewoJCQkJCQlyZXR1cm4gbmlsCgkJCQkJfQoJCQkJfQoJCQl9CgkJCXN3aXRjaCB2YWx1ZS4odHlwZSkgewoJCQljYXNlIHRpbWUuVGltZToKCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXQsIHZhbHVlLih0aW1lLlRpbWUpLlVuaXhOYW5vKCkpCgkJCWNhc2UgKnRpbWUuVGltZToKCQkJCWlmIHRtIDo9IHZhbHVlLigqdGltZS5UaW1lKTsgdG0gIT0gbmlsIHsKCQkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0LCB0bS5Vbml4TmFubygpKQoJCQkJfQoJCQl9CgkJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldDogJVQgaGFzIG5vIHBhdGggdG8gYmVjb21pbmcgJXYiLCB2YWx1ZSwgdGFyZ2V0VCkKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldCB0byB0aGUgZ2l2ZW4gJVQgdmFsdWUiLCB2YWx1ZSkKCX0KCXJldHVybiBuaWwKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIHRhcmdldFYsIHZhbHVlViwgb3JpZ2luYWxWIHJlZmxlY3QuVmFsdWUKCWlmIHRWLCBvayA6PSB0YXJnZXQuKHJlZmxlY3QuVmFsdWUpOyBvayB7CgkJdGFyZ2V0ViA9IHRWCgl9IGVsc2UgewoJCXRhcmdldFYgPSByZWZsZWN0LlZhbHVlT2YodGFyZ2V0KQoJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJcmV0dXJuIGZtdC5FcnJvcmYoIk11c3QgcGFzcyBhIHBvaW50ZXIgdG8gYSBzdHJ1Y3QgaW5zdGFuY2UsIGdvdCAlVCIsIHRhcmdldCkKCQl9IGVsc2UgaWYgdGFyZ2V0Vi5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCQl0YXJnZXRWID0gdGFyZ2V0Vi5FbGVtKCkKCQl9Cgl9CglpZiAhdGFyZ2V0Vi5Jc1ZhbGlkKCkgewoJCXJldHVybiBmbXQuRXJyb3JmKCJUYXJnZXQgJVQgaXMgbm90IHZhbGlkIiwgdGFyZ2V0KQoJfQoJaWYgdiwgZXJyIDo9IHV0aWxzLkNvbnZlcnRDdXN0b21UeXBlKHZhbHVlKTsgZXJyID09IG5pbCB7CgkJdmFsdWUgPSB2Cgl9IGVsc2UgaWYgZXJyICE9IHV0aWxzLlBhc3N0aHJvdWdoVHlwZSB7CgkJcmV0dXJuIGVycgoJfQoJaWYgdlYsIG9rIDo9IHZhbHVlLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCW9yaWdpbmFsViA9IHZWCgkJdmFsdWVWID0gdlYKCX0gZWxzZSB7CgkJb3JpZ2luYWxWID0gcmVmbGVjdC5WYWx1ZU9mKHZhbHVlKQoJCXZhbHVlViA9IHJlZmxlY3QuVmFsdWVPZihSZXNvbHZlVmFsdWUodmFsdWUpKQoJfQoJaWYgdmFsdWVWLklzVmFsaWQoKSB7CgkJdGFyZ2V0VCA6PSB0YXJnZXRWLlR5cGUoKQoJCXZhbHVlVCA6PSB2YWx1ZVYuVHlwZSgpCgkJaWYgdGFyZ2V0VC5LaW5kKCkgPT0gcmVmbGVjdC5TdHJpbmcgJiYgdmFsdWVWLkNhbkludGVyZmFjZSgpIHsKCQkJdmFsdWVWID0gcmVmbGVjdC5WYWx1ZU9mKGZtdC5TcHJpbnRmKCIldiIsIHZhbHVlVi5JbnRlcmZhY2UoKSkpCgkJCXZhbHVlVCA9IHZhbHVlVi5UeXBlKCkKCQkJaWYgIXZhbHVlVi5Jc1ZhbGlkKCkgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIkNvbnZlcnRpbmcgJVQgdG8gJXYgcHJvZHVjZWQgYW4gaW52YWxpZCB2YWx1ZSIsIHZhbHVlLCB0YXJnZXRUKQoJCQl9CgkJfQoJCWlmIHZhbHVlVC5Bc3NpZ25hYmxlVG8odGFyZ2V0VCkgewoJCQl0YXJnZXRWLlNldCh2YWx1ZVYpCgkJfSBlbHNlIGlmIHZhbHVlVC5Db252ZXJ0aWJsZVRvKHRhcmdldFQpIHsKCQkJdGFyZ2V0Vi5TZXQodmFsdWVWLkNvbnZlcnQodGFyZ2V0VCkpCgkJfSBlbHNlIGlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJaWYgb3JpZ2luYWxWLktpbmQoKSA9PSByZWZsZWN0LlB0ciB7CgkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0Viwgb3JpZ2luYWxWKQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIlVuYWJsZSB0byBzZXQgdGFyZ2V0OiB2YWx1ZSBmb3IgdGFyZ2V0ICV2IG11c3QgYmUgZ2l2ZW4gYXMgYSBwb2ludGVyIiwgdGFyZ2V0VCkKCQkJfQoJCX0gZWxzZSB7CgkJCXN3aXRjaCBraW5kIDo9IHRhcmdldFYuS2luZCgpOyBraW5kIHsKCQkJY2FzZSByZWZsZWN0LlN0cnVjdDoKCQkJCWlmIGVtYmVkZGVkViA6PSB0YXJnZXRWLkZpZWxkQnlOYW1lKHZhbHVlVC5OYW1lKCkpOyBlbWJlZGRlZFYuSXNWYWxpZCgpIHsKCQkJCQlpZiBlcnIgOj0gU2V0VmFsdWUoZW1iZWRkZWRWLCB2YWx1ZSk7IGVyciA9PSBuaWwgewoJCQkJCQlyZXR1cm4gbmlsCgkJCQkJfQoJCQkJfQoJCQljYXNlIHJlZmxlY3QuQXJyYXksIHJlZmxlY3QuU2xpY2U6CgkJCQlpZiBJc0FycmF5KHZhbHVlKSB7CgkJCQkJdmFyIHZhbHVlQSA9IHV0aWxzLlNsaWNlaWZ5KHZhbHVlKQoJCQkJCXZhciByZXBsID0gdGFyZ2V0VgoJCQkJCWlmIHRhcmdldFYuTGVuKCkgPCBsZW4odmFsdWVBKSB7CgkJCQkJCXJlcGwgPSByZWZsZWN0Lk1ha2VTbGljZSh0YXJnZXRULCBsZW4odmFsdWVBKSwgbGVuKHZhbHVlQSkpCgkJCQkJfQoJCQkJCWZvciBpIDo9IDA7IGkgPCByZXBsLkxlbigpOyBpKysgewoJCQkJCQl2YXIgZWxlbSA9IHJlcGwuSW5kZXgoaSkKCQkJCQkJaWYgZXJyIDo9IFNldFZhbHVlKGVsZW0sIHZhbHVlQVtpXSk7IGVyciAhPSBuaWwgewoJCQkJCQkJcmV0dXJuIGZtdC5FcnJvcmYoImNhbm5vdCBzZXQgaW5kZXggJWQ6ICV2IiwgaSwgZXJyKQoJCQkJCQl9CgkJCQkJfQoJCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXRWLCByZXBsKQoJCQkJfQoJCQl9CgkJCXN3aXRjaCB2YWx1ZS4odHlwZSkgewoJCQljYXNlIHRpbWUuVGltZToKCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXQsIHZhbHVlLih0aW1lLlRpbWUpLlVuaXhOYW5vKCkpCgkJCWNhc2UgKnRpbWUuVGltZToKCQkJCWlmIHRtIDo9IHZhbHVlLigqdGltZS5UaW1lKTsgdG0gIT0gbmlsIHsKCQkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0LCB0bS5Vbml4TmFubygpKQoJCQkJfQoJCQl9CgkJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldDogJVQgaGFzIG5vIHBhdGggdG8gYmVjb21pbmcgJXYiLCB2YWx1ZSwgdGFyZ2V0VCkKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldCB0byB0aGUgZ2l2ZW4gJVQgdmFsdWUiLCB2YWx1ZSkKCX0KCXJldHVybiBuaWwKfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -19826,19 +20066,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;typeutil&#34;,
-        &#34;LineCount&#34;: 1201,
+        &#34;LineCount&#34;: 1285,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;typeutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 873,
+        &#34;SourceLineCount&#34;: 935,
         &#34;Statistics&#34;: {
-          &#34;GeometricMean&#34;: 0.8824,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;GeometricMean&#34;: 0.889,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.6825,
+          &#34;Mean&#34;: 0.6821,
           &#34;Median&#34;: 1,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.3926
+          &#34;StdDev&#34;: 0.3924
         },
         &#34;Synopsis&#34;: &#34;Helpers for type inflection and simplifying working with Golang generic interface types\n&#34;,
         &#34;Tests&#34;: [
@@ -19946,6 +20186,18 @@
               }
             ],
             &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestSetValueSlice&#34;,
+            &#34;Signature&#34;: &#34;TestSetValueSlice(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgcyBbXXN0cmluZwoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJnMsIFtdc3RyaW5ne2BoZXlgfSkpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YGhleWB9LCBzKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJnMsIFtdc3RyaW5ne2B0aGVyZWB9KSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgdGhlcmVgfSwgcykKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestSetValueStruct&#34;,
             &#34;Signature&#34;: &#34;TestSetValueStruct(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0MSA6PSAmdGVzdFNldHRhYmxle05hbWU6IGB0MWAsIFR5cGU6IFZhbHVlMn0KCWFzc2VydC5FcXVhbChWYWx1ZTIsIHQxLlR5cGUpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgwKSwgNDIpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUocmVmbGVjdC5WYWx1ZU9mKHQxKS5FbGVtKCkuRmllbGQoMSksIFZhbHVlMykpCglhc3NlcnQuRXF1YWwoYDQyYCwgdDEuTmFtZSkKCWFzc2VydC5FcXVhbChWYWx1ZTMsIHQxLlR5cGUpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgxKSwgYHZhbHVlLTRgKSkKCWFzc2VydC5FcXVhbCh0ZXN0RW51bShgdmFsdWUtNGApLCB0MS5UeXBlKQoJdG0gOj0gdGltZS5EYXRlKDIwMDksIHRpbWUuTm92ZW1iZXIsIDEwLCAyMywgMCwgMCwgMCwgdGltZS5VVEMpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgyKSwgdG0pKQoJYXNzZXJ0LlRydWUodDEuQ3JlYXRlZEF0LkVxdWFsKHRtKSkKCXZhciB0bUkgaW50ZXJmYWNle30KCXRtSSA9IHRtCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgyKSwgdG1JKSkKCWFzc2VydC5UcnVlKHQxLkNyZWF0ZWRBdC5FcXVhbCh0bSkpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCgzKSwgJnRtKSkKCWFzc2VydC5UcnVlKHQxLlVwZGF0ZWRBdC5FcXVhbCh0bSksIGZtdC5TcHJpbnRmKCIldiIsIHQxLlVwZGF0ZWRBdCkpCglhc3NlcnQuRXJyb3IoU2V0VmFsdWUocmVmbGVjdC5WYWx1ZU9mKHQxKS5FbGVtKCkuRmllbGQoMyksIHRtKSkKCXN0IDo9IHN1YnRpbWV7fQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJnN0LCB0bSkpCglhc3NlcnQuVHJ1ZShzdC5UaW1lLkVxdWFsKHRtKSkKCXRtID0gdGltZS5EYXRlKDIwMDksIHRpbWUuTm92ZW1iZXIsIDEwLCAyMywgMCwgMCwgMCwgdGltZS5VVEMpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZShyZWZsZWN0LlZhbHVlT2YodDEpLkVsZW0oKS5GaWVsZCg1KSwgdG0pKQoJYXNzZXJ0LkVxdWFsKHRtLlVuaXhOYW5vKCksIHQxLkNyZWF0ZWRBdE5hbm8pCn0vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCg==&#34;
@@ -19961,6 +20213,18 @@
             &#34;Name&#34;: &#34;TestVariant&#34;,
             &#34;Signature&#34;: &#34;TestVariant(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBWYXJpYW50e2B0ZXN0YH0uU3RyaW5nKCkpCglhc3NlcnQuVHJ1ZShWYXJpYW50e2BUcnVlYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgdHJ1ZWB9LkJvb2woKSkKCWFzc2VydC5UcnVlKFZhcmlhbnR7YFRSVUVgfS5Cb29sKCkpCglhc3NlcnQuVHJ1ZShWYXJpYW50e2AxYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgZGVubmlzYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgMC4wMDAwMDAwMDFgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgRmFsc2VgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgZmFsc2VgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgMGB9LkJvb2woKSkKCWFzc2VydC5GYWxzZShWYXJpYW50e2AwLjBgfS5Cb29sKCkpCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIFZhcmlhbnR7MX0uSW50KCkpCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIFZhcmlhbnR7MS45fS5JbnQoKSkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDEuOSksIFZhcmlhbnR7MS45fS5GbG9hdCgpKQoJYXNzZXJ0LlRydWUodGltZS5Vbml4KDE1MDAwMDAwMDAsIDApLkVxdWFsKFZhcmlhbnR7MTUwMDAwMDAwMH0uVGltZSgpKSkKCWFzc2VydC5UcnVlKHRpbWUuVW5peCgxNTAwMDAwMDAwLCAwKS5FcXVhbChWYXJpYW50e2AxNTAwMDAwMDAwYH0uVGltZSgpKSkKCWFzc2VydC5UcnVlKHRpbWUuVW5peCgxNTAwMDAwMDAwLCAwKS5FcXVhbChWYXJpYW50e2AyMDE3LTA3LTE0VDAyOjQwOjAwWmB9LlRpbWUoKSkpCglhc3NlcnQuVHJ1ZSh0aW1lLlVuaXgoMTUwMDAwMDAwMCwgMCkuRXF1YWwoVmFyaWFudHtgMjAxNy0wNy0xNFQwMjo0MDowMC0wMDowMGB9LlRpbWUoKSkpCglhc3NlcnQuVHJ1ZSh0aW1lLlVuaXgoMTUwMDAwMDAwMCwgMCkuRXF1YWwoVmFyaWFudHtgMjAxNy0wNy0xM1QyMjo0MDowMC0wNDowMGB9LlRpbWUoKSkpCglhc3NlcnQuRXF1YWwoW11ieXRlezB4NzQsIDB4NjUsIDB4NzMsIDB4NzR9LCBWYXJpYW50e2B0ZXN0YH0uQnl0ZXMoKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYHRlc3RgKTogVigxKSwgVihgb3RoZXJgKTogVigyLjQpfSwgVihtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0ZXN0YDogMSwgYG90aGVyYDogMi40fSkuTWFwKCkpCgl0eXBlIHZTdHJ1Y3RPbmUgc3RydWN0IHsKCQlOYW1lICAgIHN0cmluZwoJCUFnZSAgICAgaW50CgkJUGkgICAgICBmbG9hdDY0CgkJZW5hYmxlZCBib29sCgl9Cglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKDMuMTQxNSl9LCBWKHZTdHJ1Y3RPbmV7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBQaTogMy4xNDE1LCBlbmFibGVkOiB0cnVlfSkuTWFwKCkpCglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKDMuMTQxNSl9LCBWKCZ2U3RydWN0T25le05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgUGk6IDMuMTQxNSwgZW5hYmxlZDogdHJ1ZX0pLk1hcCgpKQoJdHlwZSB2U3RydWN0VGFnZ2VkIHN0cnVjdCB7CgkJTmFtZSAgICBzdHJpbmcKCQlBZ2UgICAgIGludCAgICAgYHRlc3Rhcm9vOiJhZ2UiYAoJCVBpICAgICAgZmxvYXQ2NCBgdGVzdGFyb286InBpLG9taXRlbXB0eSJgCgkJZW5hYmxlZCBib29sCgl9Cglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgYWdlYCk6IFYoNDIpfSwgVih2U3RydWN0VGFnZ2Vke05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgZW5hYmxlZDogdHJ1ZX0pLk1hcChgdGVzdGFyb29gKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYE5hbWVgKTogVihgdGVzdGApLCBWKGBhZ2VgKTogVig0Mil9LCBWKCZ2U3RydWN0VGFnZ2Vke05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgZW5hYmxlZDogdHJ1ZX0pLk1hcChgdGVzdGFyb29gKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYE5hbWVgKTogVihgdGVzdGApLCBWKGBBZ2VgKTogVig0MiksIFYoYFBpYCk6IFYoZmxvYXQ2NCgwKSl9LCBWKHZTdHJ1Y3RUYWdnZWR7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBlbmFibGVkOiB0cnVlfSkuTWFwKCkpCglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKGZsb2F0NjQoMCkpfSwgVigmdlN0cnVjdFRhZ2dlZHtOYW1lOiBgdGVzdGAsIEFnZTogNDIsIGVuYWJsZWQ6IHRydWV9KS5NYXAoKSkKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestVariantAppend&#34;,
+            &#34;Signature&#34;: &#34;TestVariantAppend(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIHYgPSBWKGBoZWxsb2ApCglyZXF1aXJlLk5vRXJyb3IodCwgdi5BcHBlbmQoYHRoZXJlYCkpCglyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BoZWxsb2AsIGB0aGVyZWB9LCB2LlN0cmluZ3MoKSkKfQ==&#34;
           }
         ],
         &#34;TypeCount&#34;: 3,
@@ -19994,6 +20258,24 @@
             ],
             &#34;MetaType&#34;: &#34;struct&#34;,
             &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;values&#34;,
+                    &#34;Type&#34;: &#34;...interface{}&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Append&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Append(values ...interface{}) error&#34;
+              },
               {
                 &#34;Comment&#34;: &#34;Return the value automatically converted to the appropriate type.&#34;,
                 &#34;IsPackageLevel&#34;: false,
@@ -20090,6 +20372,32 @@
                 &#34;Signature&#34;: &#34;Interface() interface{}&#34;
               },
               {
+                &#34;Comment&#34;: &#34;Return whether the value is an array/slice type.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;IsArray&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;IsArray() bool&#34;
+              },
+              {
+                &#34;Comment&#34;: &#34;Return whether the value is a map type.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;IsMap&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;IsMap() bool&#34;
+              },
+              {
                 &#34;Comment&#34;: &#34;Returns whether the underlying value is nil.&#34;,
                 &#34;IsPackageLevel&#34;: false,
                 &#34;Name&#34;: &#34;IsNil&#34;,
@@ -20100,6 +20408,19 @@
                   }
                 ],
                 &#34;Signature&#34;: &#34;IsNil() bool&#34;
+              },
+              {
+                &#34;Comment&#34;: &#34;Return whether the value is a scalar type.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;IsScalar&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;IsScalar() bool&#34;
               },
               {
                 &#34;Comment&#34;: &#34;Returns whether the underlying value is a zero value.&#34;,
@@ -20270,7 +20591,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/utils&#34;,
-        &#34;CommentWordCount&#34;: 318,
+        &#34;CommentWordCount&#34;: 329,
         &#34;ConstantCount&#34;: 12,
         &#34;Constants&#34;: [
           {
@@ -20513,7 +20834,7 @@
           },
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 1,
+            &#34;FunctionCount&#34;: 2,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;fmt&#34;,
@@ -20524,10 +20845,10 @@
                 &#34;PackageName&#34;: &#34;reflect&#34;
               }
             ],
-            &#34;LineCount&#34;: 137,
+            &#34;LineCount&#34;: 153,
             &#34;Name&#34;: &#34;slice.go&#34;,
-            &#34;Size&#34;: 2698,
-            &#34;SourceLineCount&#34;: 115,
+            &#34;Size&#34;: 2971,
+            &#34;SourceLineCount&#34;: 126,
             &#34;TypeCount&#34;: 1,
             &#34;VariableCount&#34;: 2
           },
@@ -20592,7 +20913,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 44,
+        &#34;FunctionCount&#34;: 45,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -21122,6 +21443,24 @@
                 &#34;Type&#34;: &#34;interface{}&#34;
               }
             ],
+            &#34;Comment&#34;: &#34;Takes some input value and returns it as a slice.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;Sliceify&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;[]interface{}&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;Sliceify(in interface{}) []interface{}&#34;,
+            &#34;Source&#34;: &#34;ewoJaWYgaW4gPT0gbmlsIHsKCQlyZXR1cm4gbmlsCgl9Cgl2YXIgb3V0ID0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJU2xpY2VFYWNoKGluLCBmdW5jKF8gaW50LCB2IGludGVyZmFjZXt9KSBlcnJvciB7CgkJb3V0ID0gYXBwZW5kKG91dCwgdikKCQlyZXR1cm4gbmlsCgl9KQoJcmV0dXJuIG91dAp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;in&#34;,
+                &#34;Type&#34;: &#34;interface{}&#34;
+              }
+            ],
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;ToString&#34;,
             &#34;Returns&#34;: [
@@ -21137,19 +21476,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;utils&#34;,
-        &#34;LineCount&#34;: 1462,
+        &#34;LineCount&#34;: 1478,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;utils&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 1186,
+        &#34;SourceLineCount&#34;: 1197,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.2364,
+          &#34;Mean&#34;: 0.25,
           &#34;Median&#34;: 0,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4248
+          &#34;StdDev&#34;: 0.433
         },
         &#34;Synopsis&#34;: &#34;&#34;,
         &#34;Tests&#34;: [
@@ -21869,11 +22208,11 @@
       &#34;ConstantCount&#34;: 0,
       &#34;FunctionCount&#34;: 31,
       &#34;ImportPath&#34;: &#34;sliceutil&#34;,
-      &#34;LineCount&#34;: 1013,
+      &#34;LineCount&#34;: 1002,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;sliceutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 753,
+      &#34;SourceLineCount&#34;: 745,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
@@ -21940,28 +22279,28 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/structutil&#34;,
-      &#34;CommentWordCount&#34;: 52,
+      &#34;CommentWordCount&#34;: 79,
       &#34;ConstantCount&#34;: 0,
-      &#34;FunctionCount&#34;: 3,
+      &#34;FunctionCount&#34;: 12,
       &#34;ImportPath&#34;: &#34;structutil&#34;,
-      &#34;LineCount&#34;: 236,
+      &#34;LineCount&#34;: 511,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;structutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 182,
+      &#34;SourceLineCount&#34;: 408,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.25,
+        &#34;Mean&#34;: 0.1364,
         &#34;Median&#34;: 0,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.433
+        &#34;StdDev&#34;: 0.3432
       },
       &#34;Synopsis&#34;: &#34;Utilities for working with and manipulating structs.\n&#34;,
-      &#34;TypeCount&#34;: 3,
+      &#34;TypeCount&#34;: 5,
       &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-      &#34;VariableCount&#34;: 1
+      &#34;VariableCount&#34;: 2
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/timeutil&#34;,
@@ -21990,23 +22329,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;,
-      &#34;CommentWordCount&#34;: 850,
+      &#34;CommentWordCount&#34;: 877,
       &#34;ConstantCount&#34;: 3,
-      &#34;FunctionCount&#34;: 58,
+      &#34;FunctionCount&#34;: 62,
       &#34;ImportPath&#34;: &#34;typeutil&#34;,
-      &#34;LineCount&#34;: 1201,
+      &#34;LineCount&#34;: 1285,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;typeutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 873,
+      &#34;SourceLineCount&#34;: 935,
       &#34;Statistics&#34;: {
-        &#34;GeometricMean&#34;: 0.8824,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;GeometricMean&#34;: 0.889,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.6825,
+        &#34;Mean&#34;: 0.6821,
         &#34;Median&#34;: 1,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.3926
+        &#34;StdDev&#34;: 0.3924
       },
       &#34;Synopsis&#34;: &#34;Helpers for type inflection and simplifying working with Golang generic interface types\n&#34;,
       &#34;TypeCount&#34;: 3,
@@ -22015,23 +22354,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/utils&#34;,
-      &#34;CommentWordCount&#34;: 318,
+      &#34;CommentWordCount&#34;: 329,
       &#34;ConstantCount&#34;: 12,
-      &#34;FunctionCount&#34;: 44,
+      &#34;FunctionCount&#34;: 45,
       &#34;ImportPath&#34;: &#34;utils&#34;,
-      &#34;LineCount&#34;: 1462,
+      &#34;LineCount&#34;: 1478,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;utils&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 1186,
+      &#34;SourceLineCount&#34;: 1197,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.2364,
+        &#34;Mean&#34;: 0.25,
         &#34;Median&#34;: 0,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4248
+        &#34;StdDev&#34;: 0.433
       },
       &#34;Synopsis&#34;: &#34;&#34;,
       &#34;TypeCount&#34;: 4,

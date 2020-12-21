@@ -6,18 +6,18 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
     "MainFunction": false,
-    "CommentWordCount": 850,
-    "LineCount": 1201,
-    "SourceLineCount": 873,
-    "FunctionCount": 58,
+    "CommentWordCount": 877,
+    "LineCount": 1285,
+    "SourceLineCount": 935,
+    "FunctionCount": 62,
     "TypeCount": 3,
     "ConstantCount": 3,
     "VariableCount": 0,
     "Statistics": {
-        "Mean": 0.6825,
-        "StdDev": 0.3926,
-        "GeometricMean": 0.8824,
-        "HarmonicMean": 0,
+        "Mean": 0.6821,
+        "StdDev": 0.3924,
+        "GeometricMean": 0.889,
+        "HarmonicMean": 1,
         "Median": 1,
         "Minimum": 0,
         "Maximum": 1
@@ -95,9 +95,9 @@
                     "Alias": "utils"
                 }
             ],
-            "Size": 9312,
-            "LineCount": 368,
-            "SourceLineCount": 260,
+            "Size": 9821,
+            "LineCount": 389,
+            "SourceLineCount": 276,
             "FunctionCount": 22,
             "TypeCount": 1,
             "ConstantCount": 0,
@@ -127,9 +127,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 8594,
-            "LineCount": 341,
-            "SourceLineCount": 246,
+            "Size": 8848,
+            "LineCount": 354,
+            "SourceLineCount": 254,
             "FunctionCount": 0,
             "TypeCount": 1,
             "ConstantCount": 3,
@@ -141,6 +141,10 @@
                 {
                     "PackageName": "encoding/json",
                     "Alias": "json"
+                },
+                {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
                 },
                 {
                     "PackageName": "reflect",
@@ -163,10 +167,10 @@
                     "Alias": "utils"
                 }
             ],
-            "Size": 7618,
-            "LineCount": 328,
-            "SourceLineCount": 229,
-            "FunctionCount": 35,
+            "Size": 8525,
+            "LineCount": 371,
+            "SourceLineCount": 262,
+            "FunctionCount": 39,
             "TypeCount": 1,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -187,9 +191,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 2720,
-            "LineCount": 116,
-            "SourceLineCount": 102,
+            "Size": 2881,
+            "LineCount": 123,
+            "SourceLineCount": 107,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -844,7 +848,7 @@
                 }
             ],
             "Signature": "SetValue(target interface{}, value interface{}) error",
-            "Source": "ewoJdmFyIHRhcmdldFYsIHZhbHVlViwgb3JpZ2luYWxWIHJlZmxlY3QuVmFsdWUKCWlmIHRWLCBvayA6PSB0YXJnZXQuKHJlZmxlY3QuVmFsdWUpOyBvayB7CgkJdGFyZ2V0ViA9IHRWCgl9IGVsc2UgewoJCXRhcmdldFYgPSByZWZsZWN0LlZhbHVlT2YodGFyZ2V0KQoJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJcmV0dXJuIGZtdC5FcnJvcmYoIk11c3QgcGFzcyBhIHBvaW50ZXIgdG8gYSBzdHJ1Y3QgaW5zdGFuY2UsIGdvdCAlVCIsIHRhcmdldCkKCQl9IGVsc2UgaWYgdGFyZ2V0Vi5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCQl0YXJnZXRWID0gdGFyZ2V0Vi5FbGVtKCkKCQl9Cgl9CglpZiAhdGFyZ2V0Vi5Jc1ZhbGlkKCkgewoJCXJldHVybiBmbXQuRXJyb3JmKCJUYXJnZXQgJVQgaXMgbm90IHZhbGlkIiwgdGFyZ2V0KQoJfQoJaWYgdiwgZXJyIDo9IHV0aWxzLkNvbnZlcnRDdXN0b21UeXBlKHZhbHVlKTsgZXJyID09IG5pbCB7CgkJdmFsdWUgPSB2Cgl9IGVsc2UgaWYgZXJyICE9IHV0aWxzLlBhc3N0aHJvdWdoVHlwZSB7CgkJcmV0dXJuIGVycgoJfQoJaWYgdlYsIG9rIDo9IHZhbHVlLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCW9yaWdpbmFsViA9IHZWCgkJdmFsdWVWID0gdlYKCX0gZWxzZSB7CgkJb3JpZ2luYWxWID0gcmVmbGVjdC5WYWx1ZU9mKHZhbHVlKQoJCXZhbHVlViA9IHJlZmxlY3QuVmFsdWVPZihSZXNvbHZlVmFsdWUodmFsdWUpKQoJfQoJaWYgdmFsdWVWLklzVmFsaWQoKSB7CgkJdGFyZ2V0VCA6PSB0YXJnZXRWLlR5cGUoKQoJCXZhbHVlVCA6PSB2YWx1ZVYuVHlwZSgpCgkJaWYgdGFyZ2V0VC5LaW5kKCkgPT0gcmVmbGVjdC5TdHJpbmcgJiYgdmFsdWVWLkNhbkludGVyZmFjZSgpIHsKCQkJdmFsdWVWID0gcmVmbGVjdC5WYWx1ZU9mKGZtdC5TcHJpbnRmKCIldiIsIHZhbHVlVi5JbnRlcmZhY2UoKSkpCgkJCXZhbHVlVCA9IHZhbHVlVi5UeXBlKCkKCQkJaWYgIXZhbHVlVi5Jc1ZhbGlkKCkgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIkNvbnZlcnRpbmcgJVQgdG8gJXYgcHJvZHVjZWQgYW4gaW52YWxpZCB2YWx1ZSIsIHZhbHVlLCB0YXJnZXRUKQoJCQl9CgkJfQoJCWlmIHZhbHVlVC5Bc3NpZ25hYmxlVG8odGFyZ2V0VCkgewoJCQl0YXJnZXRWLlNldCh2YWx1ZVYpCgkJfSBlbHNlIGlmIHZhbHVlVC5Db252ZXJ0aWJsZVRvKHRhcmdldFQpIHsKCQkJdGFyZ2V0Vi5TZXQodmFsdWVWLkNvbnZlcnQodGFyZ2V0VCkpCgkJfSBlbHNlIGlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJaWYgb3JpZ2luYWxWLktpbmQoKSA9PSByZWZsZWN0LlB0ciB7CgkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0Viwgb3JpZ2luYWxWKQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIlVuYWJsZSB0byBzZXQgdGFyZ2V0OiB2YWx1ZSBmb3IgdGFyZ2V0ICV2IG11c3QgYmUgZ2l2ZW4gYXMgYSBwb2ludGVyIiwgdGFyZ2V0VCkKCQkJfQoJCX0gZWxzZSB7CgkJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJCWlmIGVtYmVkZGVkViA6PSB0YXJnZXRWLkZpZWxkQnlOYW1lKHZhbHVlVC5OYW1lKCkpOyBlbWJlZGRlZFYuSXNWYWxpZCgpIHsKCQkJCQlpZiBlcnIgOj0gU2V0VmFsdWUoZW1iZWRkZWRWLCB2YWx1ZSk7IGVyciA9PSBuaWwgewoJCQkJCQlyZXR1cm4gbmlsCgkJCQkJfQoJCQkJfQoJCQl9CgkJCXN3aXRjaCB2YWx1ZS4odHlwZSkgewoJCQljYXNlIHRpbWUuVGltZToKCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXQsIHZhbHVlLih0aW1lLlRpbWUpLlVuaXhOYW5vKCkpCgkJCWNhc2UgKnRpbWUuVGltZToKCQkJCWlmIHRtIDo9IHZhbHVlLigqdGltZS5UaW1lKTsgdG0gIT0gbmlsIHsKCQkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0LCB0bS5Vbml4TmFubygpKQoJCQkJfQoJCQl9CgkJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldDogJVQgaGFzIG5vIHBhdGggdG8gYmVjb21pbmcgJXYiLCB2YWx1ZSwgdGFyZ2V0VCkKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldCB0byB0aGUgZ2l2ZW4gJVQgdmFsdWUiLCB2YWx1ZSkKCX0KCXJldHVybiBuaWwKfQ==",
+            "Source": "ewoJdmFyIHRhcmdldFYsIHZhbHVlViwgb3JpZ2luYWxWIHJlZmxlY3QuVmFsdWUKCWlmIHRWLCBvayA6PSB0YXJnZXQuKHJlZmxlY3QuVmFsdWUpOyBvayB7CgkJdGFyZ2V0ViA9IHRWCgl9IGVsc2UgewoJCXRhcmdldFYgPSByZWZsZWN0LlZhbHVlT2YodGFyZ2V0KQoJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJcmV0dXJuIGZtdC5FcnJvcmYoIk11c3QgcGFzcyBhIHBvaW50ZXIgdG8gYSBzdHJ1Y3QgaW5zdGFuY2UsIGdvdCAlVCIsIHRhcmdldCkKCQl9IGVsc2UgaWYgdGFyZ2V0Vi5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCQl0YXJnZXRWID0gdGFyZ2V0Vi5FbGVtKCkKCQl9Cgl9CglpZiAhdGFyZ2V0Vi5Jc1ZhbGlkKCkgewoJCXJldHVybiBmbXQuRXJyb3JmKCJUYXJnZXQgJVQgaXMgbm90IHZhbGlkIiwgdGFyZ2V0KQoJfQoJaWYgdiwgZXJyIDo9IHV0aWxzLkNvbnZlcnRDdXN0b21UeXBlKHZhbHVlKTsgZXJyID09IG5pbCB7CgkJdmFsdWUgPSB2Cgl9IGVsc2UgaWYgZXJyICE9IHV0aWxzLlBhc3N0aHJvdWdoVHlwZSB7CgkJcmV0dXJuIGVycgoJfQoJaWYgdlYsIG9rIDo9IHZhbHVlLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCW9yaWdpbmFsViA9IHZWCgkJdmFsdWVWID0gdlYKCX0gZWxzZSB7CgkJb3JpZ2luYWxWID0gcmVmbGVjdC5WYWx1ZU9mKHZhbHVlKQoJCXZhbHVlViA9IHJlZmxlY3QuVmFsdWVPZihSZXNvbHZlVmFsdWUodmFsdWUpKQoJfQoJaWYgdmFsdWVWLklzVmFsaWQoKSB7CgkJdGFyZ2V0VCA6PSB0YXJnZXRWLlR5cGUoKQoJCXZhbHVlVCA6PSB2YWx1ZVYuVHlwZSgpCgkJaWYgdGFyZ2V0VC5LaW5kKCkgPT0gcmVmbGVjdC5TdHJpbmcgJiYgdmFsdWVWLkNhbkludGVyZmFjZSgpIHsKCQkJdmFsdWVWID0gcmVmbGVjdC5WYWx1ZU9mKGZtdC5TcHJpbnRmKCIldiIsIHZhbHVlVi5JbnRlcmZhY2UoKSkpCgkJCXZhbHVlVCA9IHZhbHVlVi5UeXBlKCkKCQkJaWYgIXZhbHVlVi5Jc1ZhbGlkKCkgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIkNvbnZlcnRpbmcgJVQgdG8gJXYgcHJvZHVjZWQgYW4gaW52YWxpZCB2YWx1ZSIsIHZhbHVlLCB0YXJnZXRUKQoJCQl9CgkJfQoJCWlmIHZhbHVlVC5Bc3NpZ25hYmxlVG8odGFyZ2V0VCkgewoJCQl0YXJnZXRWLlNldCh2YWx1ZVYpCgkJfSBlbHNlIGlmIHZhbHVlVC5Db252ZXJ0aWJsZVRvKHRhcmdldFQpIHsKCQkJdGFyZ2V0Vi5TZXQodmFsdWVWLkNvbnZlcnQodGFyZ2V0VCkpCgkJfSBlbHNlIGlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJaWYgb3JpZ2luYWxWLktpbmQoKSA9PSByZWZsZWN0LlB0ciB7CgkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0Viwgb3JpZ2luYWxWKQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIlVuYWJsZSB0byBzZXQgdGFyZ2V0OiB2YWx1ZSBmb3IgdGFyZ2V0ICV2IG11c3QgYmUgZ2l2ZW4gYXMgYSBwb2ludGVyIiwgdGFyZ2V0VCkKCQkJfQoJCX0gZWxzZSB7CgkJCXN3aXRjaCBraW5kIDo9IHRhcmdldFYuS2luZCgpOyBraW5kIHsKCQkJY2FzZSByZWZsZWN0LlN0cnVjdDoKCQkJCWlmIGVtYmVkZGVkViA6PSB0YXJnZXRWLkZpZWxkQnlOYW1lKHZhbHVlVC5OYW1lKCkpOyBlbWJlZGRlZFYuSXNWYWxpZCgpIHsKCQkJCQlpZiBlcnIgOj0gU2V0VmFsdWUoZW1iZWRkZWRWLCB2YWx1ZSk7IGVyciA9PSBuaWwgewoJCQkJCQlyZXR1cm4gbmlsCgkJCQkJfQoJCQkJfQoJCQljYXNlIHJlZmxlY3QuQXJyYXksIHJlZmxlY3QuU2xpY2U6CgkJCQlpZiBJc0FycmF5KHZhbHVlKSB7CgkJCQkJdmFyIHZhbHVlQSA9IHV0aWxzLlNsaWNlaWZ5KHZhbHVlKQoJCQkJCXZhciByZXBsID0gdGFyZ2V0VgoJCQkJCWlmIHRhcmdldFYuTGVuKCkgPCBsZW4odmFsdWVBKSB7CgkJCQkJCXJlcGwgPSByZWZsZWN0Lk1ha2VTbGljZSh0YXJnZXRULCBsZW4odmFsdWVBKSwgbGVuKHZhbHVlQSkpCgkJCQkJfQoJCQkJCWZvciBpIDo9IDA7IGkgPCByZXBsLkxlbigpOyBpKysgewoJCQkJCQl2YXIgZWxlbSA9IHJlcGwuSW5kZXgoaSkKCQkJCQkJaWYgZXJyIDo9IFNldFZhbHVlKGVsZW0sIHZhbHVlQVtpXSk7IGVyciAhPSBuaWwgewoJCQkJCQkJcmV0dXJuIGZtdC5FcnJvcmYoImNhbm5vdCBzZXQgaW5kZXggJWQ6ICV2IiwgaSwgZXJyKQoJCQkJCQl9CgkJCQkJfQoJCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXRWLCByZXBsKQoJCQkJfQoJCQl9CgkJCXN3aXRjaCB2YWx1ZS4odHlwZSkgewoJCQljYXNlIHRpbWUuVGltZToKCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXQsIHZhbHVlLih0aW1lLlRpbWUpLlVuaXhOYW5vKCkpCgkJCWNhc2UgKnRpbWUuVGltZToKCQkJCWlmIHRtIDo9IHZhbHVlLigqdGltZS5UaW1lKTsgdG0gIT0gbmlsIHsKCQkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0LCB0bS5Vbml4TmFubygpKQoJCQkJfQoJCQl9CgkJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldDogJVQgaGFzIG5vIHBhdGggdG8gYmVjb21pbmcgJXYiLCB2YWx1ZSwgdGFyZ2V0VCkKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldCB0byB0aGUgZ2l2ZW4gJVQgdmFsdWUiLCB2YWx1ZSkKCX0KCXJldHVybiBuaWwKfQ==",
             "IsPackageLevel": true
         },
         {
@@ -1040,6 +1044,18 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "TestSetValueSlice",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestSetValueSlice(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgcyBbXXN0cmluZwoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJnMsIFtdc3RyaW5ne2BoZXlgfSkpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YGhleWB9LCBzKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJnMsIFtdc3RyaW5ne2B0aGVyZWB9KSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgdGhlcmVgfSwgcykKfQ==",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "TestSetValueStruct",
             "Arguments": [
                 {
@@ -1061,6 +1077,18 @@
             ],
             "Signature": "TestVariant(t *testing.T)",
             "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBWYXJpYW50e2B0ZXN0YH0uU3RyaW5nKCkpCglhc3NlcnQuVHJ1ZShWYXJpYW50e2BUcnVlYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgdHJ1ZWB9LkJvb2woKSkKCWFzc2VydC5UcnVlKFZhcmlhbnR7YFRSVUVgfS5Cb29sKCkpCglhc3NlcnQuVHJ1ZShWYXJpYW50e2AxYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgZGVubmlzYH0uQm9vbCgpKQoJYXNzZXJ0LlRydWUoVmFyaWFudHtgMC4wMDAwMDAwMDFgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgRmFsc2VgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgZmFsc2VgfS5Cb29sKCkpCglhc3NlcnQuRmFsc2UoVmFyaWFudHtgMGB9LkJvb2woKSkKCWFzc2VydC5GYWxzZShWYXJpYW50e2AwLjBgfS5Cb29sKCkpCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIFZhcmlhbnR7MX0uSW50KCkpCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIFZhcmlhbnR7MS45fS5JbnQoKSkKCWFzc2VydC5FcXVhbChmbG9hdDY0KDEuOSksIFZhcmlhbnR7MS45fS5GbG9hdCgpKQoJYXNzZXJ0LlRydWUodGltZS5Vbml4KDE1MDAwMDAwMDAsIDApLkVxdWFsKFZhcmlhbnR7MTUwMDAwMDAwMH0uVGltZSgpKSkKCWFzc2VydC5UcnVlKHRpbWUuVW5peCgxNTAwMDAwMDAwLCAwKS5FcXVhbChWYXJpYW50e2AxNTAwMDAwMDAwYH0uVGltZSgpKSkKCWFzc2VydC5UcnVlKHRpbWUuVW5peCgxNTAwMDAwMDAwLCAwKS5FcXVhbChWYXJpYW50e2AyMDE3LTA3LTE0VDAyOjQwOjAwWmB9LlRpbWUoKSkpCglhc3NlcnQuVHJ1ZSh0aW1lLlVuaXgoMTUwMDAwMDAwMCwgMCkuRXF1YWwoVmFyaWFudHtgMjAxNy0wNy0xNFQwMjo0MDowMC0wMDowMGB9LlRpbWUoKSkpCglhc3NlcnQuVHJ1ZSh0aW1lLlVuaXgoMTUwMDAwMDAwMCwgMCkuRXF1YWwoVmFyaWFudHtgMjAxNy0wNy0xM1QyMjo0MDowMC0wNDowMGB9LlRpbWUoKSkpCglhc3NlcnQuRXF1YWwoW11ieXRlezB4NzQsIDB4NjUsIDB4NzMsIDB4NzR9LCBWYXJpYW50e2B0ZXN0YH0uQnl0ZXMoKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYHRlc3RgKTogVigxKSwgVihgb3RoZXJgKTogVigyLjQpfSwgVihtYXBbc3RyaW5nXWludGVyZmFjZXt9e2B0ZXN0YDogMSwgYG90aGVyYDogMi40fSkuTWFwKCkpCgl0eXBlIHZTdHJ1Y3RPbmUgc3RydWN0IHsKCQlOYW1lICAgIHN0cmluZwoJCUFnZSAgICAgaW50CgkJUGkgICAgICBmbG9hdDY0CgkJZW5hYmxlZCBib29sCgl9Cglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKDMuMTQxNSl9LCBWKHZTdHJ1Y3RPbmV7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBQaTogMy4xNDE1LCBlbmFibGVkOiB0cnVlfSkuTWFwKCkpCglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKDMuMTQxNSl9LCBWKCZ2U3RydWN0T25le05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgUGk6IDMuMTQxNSwgZW5hYmxlZDogdHJ1ZX0pLk1hcCgpKQoJdHlwZSB2U3RydWN0VGFnZ2VkIHN0cnVjdCB7CgkJTmFtZSAgICBzdHJpbmcKCQlBZ2UgICAgIGludCAgICAgYHRlc3Rhcm9vOiJhZ2UiYAoJCVBpICAgICAgZmxvYXQ2NCBgdGVzdGFyb286InBpLG9taXRlbXB0eSJgCgkJZW5hYmxlZCBib29sCgl9Cglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgYWdlYCk6IFYoNDIpfSwgVih2U3RydWN0VGFnZ2Vke05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgZW5hYmxlZDogdHJ1ZX0pLk1hcChgdGVzdGFyb29gKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYE5hbWVgKTogVihgdGVzdGApLCBWKGBhZ2VgKTogVig0Mil9LCBWKCZ2U3RydWN0VGFnZ2Vke05hbWU6IGB0ZXN0YCwgQWdlOiA0MiwgZW5hYmxlZDogdHJ1ZX0pLk1hcChgdGVzdGFyb29gKSkKCWFzc2VydC5FcXVhbChtYXBbVmFyaWFudF1WYXJpYW50e1YoYE5hbWVgKTogVihgdGVzdGApLCBWKGBBZ2VgKTogVig0MiksIFYoYFBpYCk6IFYoZmxvYXQ2NCgwKSl9LCBWKHZTdHJ1Y3RUYWdnZWR7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBlbmFibGVkOiB0cnVlfSkuTWFwKCkpCglhc3NlcnQuRXF1YWwobWFwW1ZhcmlhbnRdVmFyaWFudHtWKGBOYW1lYCk6IFYoYHRlc3RgKSwgVihgQWdlYCk6IFYoNDIpLCBWKGBQaWApOiBWKGZsb2F0NjQoMCkpfSwgVigmdlN0cnVjdFRhZ2dlZHtOYW1lOiBgdGVzdGAsIEFnZTogNDIsIGVuYWJsZWQ6IHRydWV9KS5NYXAoKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestVariantAppend",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestVariantAppend(t *testing.T)",
+            "Source": "ewoJdmFyIHYgPSBWKGBoZWxsb2ApCglyZXF1aXJlLk5vRXJyb3IodCwgdi5BcHBlbmQoYHRoZXJlYCkpCglyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BoZWxsb2AsIGB0aGVyZWB9LCB2LlN0cmluZ3MoKSkKfQ==",
             "IsPackageLevel": true
         }
     ],
@@ -1088,6 +1116,24 @@
             "Name": "Variant",
             "MetaType": "struct",
             "Methods": [
+                {
+                    "Name": "Append",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "values",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Append(values ...interface{}) error",
+                    "IsPackageLevel": false
+                },
                 {
                     "Name": "Auto",
                     "Comment": "Return the value automatically converted to the appropriate type.",
@@ -1184,6 +1230,32 @@
                     "IsPackageLevel": false
                 },
                 {
+                    "Name": "IsArray",
+                    "Comment": "Return whether the value is an array/slice type.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "IsArray() bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "IsMap",
+                    "Comment": "Return whether the value is a map type.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "IsMap() bool",
+                    "IsPackageLevel": false
+                },
+                {
                     "Name": "IsNil",
                     "Comment": "Returns whether the underlying value is nil.",
                     "ReceiverName": "self",
@@ -1193,6 +1265,19 @@
                         }
                     ],
                     "Signature": "IsNil() bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "IsScalar",
+                    "Comment": "Return whether the value is a scalar type.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "IsScalar() bool",
                     "IsPackageLevel": false
                 },
                 {

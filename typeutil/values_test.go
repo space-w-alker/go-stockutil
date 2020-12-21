@@ -338,3 +338,16 @@ func TestSetValueStruct(t *testing.T) {
 
 	assert.Equal(tm.UnixNano(), t1.CreatedAtNano)
 }
+
+func TestSetValueSlice(t *testing.T) {
+	assert := require.New(t)
+
+	var s []string
+
+	assert.NoError(SetValue(&s, []string{`hey`}))
+	assert.Equal([]string{`hey`}, s)
+
+	assert.NoError(SetValue(&s, []string{`there`}))
+	assert.Equal([]string{`there`}, s)
+
+}

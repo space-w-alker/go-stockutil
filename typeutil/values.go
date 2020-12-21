@@ -269,11 +269,32 @@ func SetValue(target interface{}, value interface{}) error {
 				)
 			}
 		} else {
-			if targetV.Kind() == reflect.Struct {
+			switch kind := targetV.Kind(); kind {
+			case reflect.Struct:
 				if embeddedV := targetV.FieldByName(valueT.Name()); embeddedV.IsValid() {
 					if err := SetValue(embeddedV, value); err == nil {
 						return nil
 					}
+				}
+
+			case reflect.Array, reflect.Slice:
+				if IsArray(value) {
+					var valueA = utils.Sliceify(value)
+					var repl = targetV
+
+					if targetV.Len() < len(valueA) {
+						repl = reflect.MakeSlice(targetT, len(valueA), len(valueA))
+					}
+
+					for i := 0; i < repl.Len(); i++ {
+						var elem = repl.Index(i)
+
+						if err := SetValue(elem, valueA[i]); err != nil {
+							return fmt.Errorf("cannot set index %d: %v", i, err)
+						}
+					}
+
+					return SetValue(targetV, repl)
 				}
 			}
 

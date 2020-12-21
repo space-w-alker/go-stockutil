@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.91
+                            v1.8.92
                         </li>
                     </ul>
                     
@@ -470,6 +470,14 @@
 			
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			
 			<li>
 				<strong>
 				<a href="#Variant.V">
@@ -480,6 +488,18 @@
 			
 			
 
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.Append">
+					func
+					(self *Variant)
+					Append(values ...interface{}) error
+				</a>
+				
+			</li>
 			
 			
 			
@@ -581,10 +601,46 @@
 			
 			<li>
 				<strong>
+				<a href="#Variant.IsArray">
+					func
+					(self *Variant)
+					IsArray() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.IsMap">
+					func
+					(self *Variant)
+					IsMap() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
 				<a href="#Variant.IsNil">
 					func
 					(self Variant)
 					IsNil() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.IsScalar">
+					func
+					(self *Variant)
+					IsScalar() bool
 				</a>
 				</strong>
 			</li>
@@ -774,8 +830,8 @@
 			<a href="values.go">values.go</a>
 			
 		</td>
-		<td class="text-right">9KB</td>
-		<td class="text-right">260</td>
+		<td class="text-right">10KB</td>
+		<td class="text-right">276</td>
 		<td class="text-right">22</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
@@ -788,8 +844,8 @@
 			<a href="values_test.go">values_test.go</a>
 			
 		</td>
-		<td class="text-right">8KB</td>
-		<td class="text-right">246</td>
+		<td class="text-right">9KB</td>
+		<td class="text-right">254</td>
 		<td class="text-right"></td>
 		<td class="text-right">1</td>
 		<td class="text-right">3</td>
@@ -802,9 +858,9 @@
 			<a href="variant.go">variant.go</a>
 			
 		</td>
-		<td class="text-right">7KB</td>
-		<td class="text-right">229</td>
-		<td class="text-right">35</td>
+		<td class="text-right">8KB</td>
+		<td class="text-right">262</td>
+		<td class="text-right">39</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -817,7 +873,7 @@
 			
 		</td>
 		<td class="text-right">3KB</td>
-		<td class="text-right">102</td>
+		<td class="text-right">107</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1470,6 +1526,14 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+
+
+
+
+
+
+
+
 <h4 id="V" data-kind="f">
 	func <a title="View Source" href="">V</a>
 	<a class="permalink" href="#V">&#182;</a>
@@ -1485,6 +1549,21 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+
+
+
+
+<h4 id="Variant.Append" data-kind="f">
+	func
+	(self *Variant)
+	<a title="View Source" href="">Append</a>
+	<a class="permalink" href="#Append">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Variant) Append(values ...interface{}) error</pre>
+</div>
 
 
 
@@ -1630,6 +1709,42 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+<h4 id="Variant.IsArray" data-kind="f">
+	func
+	(self *Variant)
+	<a title="View Source" href="">IsArray</a>
+	<a class="permalink" href="#IsArray">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Variant) IsArray() bool</pre>
+</div>
+
+<p><p>Return whether the value is an array/slice type.</p>
+</p>
+
+
+
+
+<h4 id="Variant.IsMap" data-kind="f">
+	func
+	(self *Variant)
+	<a title="View Source" href="">IsMap</a>
+	<a class="permalink" href="#IsMap">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Variant) IsMap() bool</pre>
+</div>
+
+<p><p>Return whether the value is a map type.</p>
+</p>
+
+
+
+
 <h4 id="Variant.IsNil" data-kind="f">
 	func
 	(self Variant)
@@ -1643,6 +1758,24 @@ const <span id="Value3">Value3</span> = `value-3`
 </div>
 
 <p><p>Returns whether the underlying value is nil.</p>
+</p>
+
+
+
+
+<h4 id="Variant.IsScalar" data-kind="f">
+	func
+	(self *Variant)
+	<a title="View Source" href="">IsScalar</a>
+	<a class="permalink" href="#IsScalar">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Variant) IsScalar() bool</pre>
+</div>
+
+<p><p>Return whether the value is a scalar type.</p>
 </p>
 
 

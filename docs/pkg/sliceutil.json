@@ -7,8 +7,8 @@
     "Synopsis": "Utilities for converting, manipulating, and iterating over slices\n",
     "MainFunction": false,
     "CommentWordCount": 709,
-    "LineCount": 1013,
-    "SourceLineCount": 753,
+    "LineCount": 1002,
+    "SourceLineCount": 745,
     "FunctionCount": 31,
     "TypeCount": 4,
     "ConstantCount": 0,
@@ -51,9 +51,9 @@
                     "Alias": "go-intersect"
                 }
             ],
-            "Size": 11393,
-            "LineCount": 489,
-            "SourceLineCount": 333,
+            "Size": 11257,
+            "LineCount": 478,
+            "SourceLineCount": 325,
             "FunctionCount": 31,
             "TypeCount": 4,
             "ConstantCount": 0,
@@ -633,7 +633,7 @@
                 }
             ],
             "Signature": "Sliceify(in interface{}) []interface{}",
-            "Source": "ewoJaWYgaW4gPT0gbmlsIHsKCQlyZXR1cm4gbmlsCgl9CglvdXQgOj0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJRWFjaChpbiwgZnVuYyhfIGludCwgdiBpbnRlcmZhY2V7fSkgZXJyb3IgewoJCW91dCA9IGFwcGVuZChvdXQsIHYpCgkJcmV0dXJuIG5pbAoJfSkKCXJldHVybiBvdXQKfQ==",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLlNsaWNlaWZ5KGluKQp9",
             "IsPackageLevel": true
         },
         {

@@ -113,3 +113,10 @@ func TestVariant(t *testing.T) {
 		enabled: true,
 	}).Map())
 }
+
+func TestVariantAppend(t *testing.T) {
+	var v = V(`hello`)
+
+	require.NoError(t, v.Append(`there`))
+	require.Equal(t, []string{`hello`, `there`}, v.Strings())
+}

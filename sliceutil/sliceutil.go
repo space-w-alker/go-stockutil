@@ -324,18 +324,7 @@ func Each(slice interface{}, iterFn IterationFunc) error {
 
 // Takes some input value and returns it as a slice.
 func Sliceify(in interface{}) []interface{} {
-	if in == nil {
-		return nil
-	}
-
-	out := make([]interface{}, 0)
-
-	Each(in, func(_ int, v interface{}) error {
-		out = append(out, v)
-		return nil
-	})
-
-	return out
+	return utils.Sliceify(in)
 }
 
 // Returns a new slice with only the specified subset of items included.  In addition to the

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.91
+                            v1.8.92
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 24%</span>
+<span class="pull-right">Doc Coverage: 25%</span>
 <h2 id="pkg-overview">package utils</h2>
 
 <p>
@@ -329,6 +329,12 @@
     <li>
 		<strong>
 		<a href="#SliceEach">func SliceEach(slice interface{}, iterFn IterationFunc, preserve ...reflect.Kind) error</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Sliceify">func Sliceify(in interface{}) []interface{}</a>
 		</strong>
 	</li>
 	
@@ -672,8 +678,8 @@
 			
 		</td>
 		<td class="text-right">3KB</td>
-		<td class="text-right">115</td>
-		<td class="text-right">1</td>
+		<td class="text-right">126</td>
+		<td class="text-right">2</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
 		<td class="text-right">2</td>
@@ -1076,6 +1082,20 @@ var <span id="TimeFormats">TimeFormats       </span> =
 
 
 <p><p>Iterate through each element of the given array, slice or channel; calling<br>iterFn exactly once for each element.  Otherwise, call iterFn one time<br>with the given input as the argument.</p>
+</p>
+
+
+<h3 id="Sliceify" data-kind="f">
+	func <a title="View Source" href="">Sliceify</a>
+	<a class="permalink" href="#Sliceify">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Sliceify(in interface{}) []interface{}</pre>
+</div>
+
+
+<p><p>Takes some input value and returns it as a slice.</p>
 </p>
 
 

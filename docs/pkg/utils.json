@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "",
     "MainFunction": false,
-    "CommentWordCount": 318,
-    "LineCount": 1462,
-    "SourceLineCount": 1186,
-    "FunctionCount": 44,
+    "CommentWordCount": 329,
+    "LineCount": 1478,
+    "SourceLineCount": 1197,
+    "FunctionCount": 45,
     "TypeCount": 4,
     "ConstantCount": 12,
     "VariableCount": 10,
     "Statistics": {
-        "Mean": 0.2364,
-        "StdDev": 0.4248,
+        "Mean": 0.25,
+        "StdDev": 0.433,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0,
@@ -219,10 +219,10 @@
                     "Alias": "reflect"
                 }
             ],
-            "Size": 2698,
-            "LineCount": 137,
-            "SourceLineCount": 115,
-            "FunctionCount": 1,
+            "Size": 2971,
+            "LineCount": 153,
+            "SourceLineCount": 126,
+            "FunctionCount": 2,
             "TypeCount": 1,
             "ConstantCount": 0,
             "VariableCount": 2
@@ -901,6 +901,24 @@
             ],
             "Signature": "SliceEach(slice interface{}, iterFn IterationFunc, preserve ...reflect.Kind) error",
             "Source": "ewoJaWYgaXRlckZuID09IG5pbCB7CgkJcmV0dXJuIG5pbAoJfQoJc2xpY2UgPSBSZXNvbHZlVmFsdWUoc2xpY2UpCglpZiBpblQgOj0gcmVmbGVjdC5UeXBlT2Yoc2xpY2UpOyBpblQgIT0gbmlsIHsKCQlzd2l0Y2ggaW5ULktpbmQoKSB7CgkJY2FzZSByZWZsZWN0LlNsaWNlLCByZWZsZWN0LkFycmF5OgoJCQlzbGljZVYgOj0gcmVmbGVjdC5WYWx1ZU9mKHNsaWNlKQoJCQlmb3IgaSA6PSAwOyBpIDwgc2xpY2VWLkxlbigpOyBpKysgewoJCQkJaWYgZXJyIDo9IGl0ZXJGbihpLCBzbGljZVYuSW5kZXgoaSkuSW50ZXJmYWNlKCkpOyBlcnIgIT0gbmlsIHsKCQkJCQlpZiBlcnIgPT0gU3RvcCB7CgkJCQkJCXJldHVybiBuaWwKCQkJCQl9IGVsc2UgewoJCQkJCQlyZXR1cm4gZXJyCgkJCQkJfQoJCQkJfQoJCQl9CgkJY2FzZSByZWZsZWN0Lk1hcDoKCQkJZm9yIF8sIHAgOj0gcmFuZ2UgcHJlc2VydmUgewoJCQkJaWYgcCA9PSByZWZsZWN0Lk1hcCB7CgkJCQkJaWYgZXJyIDo9IGl0ZXJGbigwLCBzbGljZSk7IGVyciAhPSBuaWwgewoJCQkJCQlpZiBlcnIgPT0gU3RvcCB7CgkJCQkJCQlyZXR1cm4gbmlsCgkJCQkJCX0gZWxzZSB7CgkJCQkJCQlyZXR1cm4gZXJyCgkJCQkJCX0KCQkJCQl9IGVsc2UgewoJCQkJCQlyZXR1cm4gbmlsCgkJCQkJfQoJCQkJfQoJCQl9CgkJCW1hcFYgOj0gcmVmbGVjdC5WYWx1ZU9mKHNsaWNlKQoJCQlmb3IgaSwga2V5IDo9IHJhbmdlIG1hcFYuTWFwS2V5cygpIHsKCQkJCWlmIHZhbHVlViA6PSBtYXBWLk1hcEluZGV4KGtleSk7IHZhbHVlVi5Jc1ZhbGlkKCkgJiYgdmFsdWVWLkNhbkludGVyZmFjZSgpIHsKCQkJCQlpZiBlcnIgOj0gaXRlckZuKGksIHZhbHVlVi5JbnRlcmZhY2UoKSk7IGVyciAhPSBuaWwgewoJCQkJCQlpZiBlcnIgPT0gU3RvcCB7CgkJCQkJCQlyZXR1cm4gbmlsCgkJCQkJCX0gZWxzZSB7CgkJCQkJCQlyZXR1cm4gZXJyCgkJCQkJCX0KCQkJCQl9CgkJCQl9CgkJCX0KCQljYXNlIHJlZmxlY3QuU3RydWN0OgoJCQlmb3IgXywgcCA6PSByYW5nZSBwcmVzZXJ2ZSB7CgkJCQlpZiBwID09IHJlZmxlY3QuU3RydWN0IHsKCQkJCQlpZiBlcnIgOj0gaXRlckZuKDAsIHNsaWNlKTsgZXJyICE9IG5pbCB7CgkJCQkJCWlmIGVyciA9PSBTdG9wIHsKCQkJCQkJCXJldHVybiBuaWwKCQkJCQkJfSBlbHNlIHsKCQkJCQkJCXJldHVybiBlcnIKCQkJCQkJfQoJCQkJCX0gZWxzZSB7CgkJCQkJCXJldHVybiBuaWwKCQkJCQl9CgkJCQl9CgkJCX0KCQkJc3RydWN0ViA6PSByZWZsZWN0LlZhbHVlT2Yoc2xpY2UpCgkJCWZvciBpIDo9IDA7IGkgPCBzdHJ1Y3RWLlR5cGUoKS5OdW1GaWVsZCgpOyBpKysgewoJCQkJZmllbGQgOj0gc3RydWN0Vi5UeXBlKCkuRmllbGQoaSkKCQkJCWlmIGZpZWxkLk5hbWUgIT0gYGAgewoJCQkJCWlmIHZhbHVlViA6PSBzdHJ1Y3RWLkZpZWxkKGkpOyB2YWx1ZVYuSXNWYWxpZCgpICYmIHZhbHVlVi5DYW5JbnRlcmZhY2UoKSB7CgkJCQkJCWlmIGVyciA6PSBpdGVyRm4oaSwgdmFsdWVWLkludGVyZmFjZSgpKTsgZXJyICE9IG5pbCB7CgkJCQkJCQlpZiBlcnIgPT0gU3RvcCB7CgkJCQkJCQkJcmV0dXJuIG5pbAoJCQkJCQkJfSBlbHNlIHsKCQkJCQkJCQlyZXR1cm4gZXJyCgkJCQkJCQl9CgkJCQkJCX0KCQkJCQl9CgkJCQl9CgkJCX0KCQljYXNlIHJlZmxlY3QuQ2hhbjoKCQkJc2xpY2VDIDo9IHJlZmxlY3QuVmFsdWVPZihzbGljZSkKCQkJdmFyIGkgaW50CgkJCWZvciB7CgkJCQlpZiBpdGVtLCBvayA6PSBzbGljZUMuUmVjdigpOyBvayB7CgkJCQkJaWYgaXRlbS5Jc1ZhbGlkKCkgJiYgaXRlbS5DYW5JbnRlcmZhY2UoKSB7CgkJCQkJCWlmIGVyciA6PSBpdGVyRm4oaSwgaXRlbS5JbnRlcmZhY2UoKSk7IGVyciAhPSBuaWwgewoJCQkJCQkJaWYgZXJyID09IFN0b3AgewoJCQkJCQkJCXJldHVybiBuaWwKCQkJCQkJCX0gZWxzZSB7CgkJCQkJCQkJcmV0dXJuIGVycgoJCQkJCQkJfQoJCQkJCQl9IGVsc2UgewoJCQkJCQkJaSsrCgkJCQkJCX0KCQkJCQl9CgkJCQl9IGVsc2UgaWYgaSA+PSBFYWNoQ2hhbk1heEl0ZW1zIHsKCQkJCQlicmVhawoJCQkJfSBlbHNlIHsKCQkJCQlicmVhawoJCQkJfQoJCQl9CgkJZGVmYXVsdDoKCQkJaWYgZXJyIDo9IGl0ZXJGbigwLCBzbGljZSk7IGVyciAhPSBuaWwgewoJCQkJaWYgZXJyID09IFN0b3AgewoJCQkJCXJldHVybiBuaWwKCQkJCX0gZWxzZSB7CgkJCQkJcmV0dXJuIGVycgoJCQkJfQoJCQl9CgkJfQoJfQoJcmV0dXJuIG5pbAp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "Sliceify",
+            "Comment": "Takes some input value and returns it as a slice.",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]interface{}"
+                }
+            ],
+            "Signature": "Sliceify(in interface{}) []interface{}",
+            "Source": "ewoJaWYgaW4gPT0gbmlsIHsKCQlyZXR1cm4gbmlsCgl9Cgl2YXIgb3V0ID0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJU2xpY2VFYWNoKGluLCBmdW5jKF8gaW50LCB2IGludGVyZmFjZXt9KSBlcnJvciB7CgkJb3V0ID0gYXBwZW5kKG91dCwgdikKCQlyZXR1cm4gbmlsCgl9KQoJcmV0dXJuIG91dAp9",
             "IsPackageLevel": true
         },
         {

@@ -43,8 +43,15 @@ func FieldsFunc(in interface{}, fn StructFieldFunc) error {
 
 FieldLoop:
 	for i := 0; i < inType.NumField(); i++ {
-		fieldT := inType.Field(i)
-		fieldV := inValu.Field(i)
+		var fieldT = inType.Field(i)
+		var fieldV = inValu.Field(i)
+
+		// recursively include embedded fields
+		if fieldT.Anonymous {
+			if err := FieldsFunc(fieldV, fn); err != nil {
+				return err
+			}
+		}
 
 		// only exported field names leave this empty, so skip if it's not (i.e.: we have an unexported field)
 		if fieldT.PkgPath != `` {

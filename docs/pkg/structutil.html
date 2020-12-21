@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.91
+                            v1.8.92
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 25%</span>
+<span class="pull-right">Doc Coverage: 14%</span>
 <h2 id="pkg-overview">package structutil</h2>
 
 <p>
@@ -191,6 +191,159 @@
 	
 
 	
+	
+    <li>
+		<a href="#Field">type Field</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Field.Kind">
+					func
+					(self *Field)
+					Kind() reflect.Kind
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Field.MergeValue">
+					func
+					(self *Field)
+					MergeValue(in interface{}) error
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Field.Set">
+					func
+					(self *Field)
+					Set(value interface{}) error
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Field.V">
+					func
+					(self *Field)
+					V() typeutil.Variant
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Field.Value">
+					func
+					(self *Field)
+					Value() reflect.Value
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#Struct">type Struct</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				
+				<a href="#Struct.S">
+					func S(src interface{}) *Struct
+				</a>
+				
+			</li>
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Struct.Field">
+					func
+					(self *Struct)
+					Field(name string) (*Field, bool)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Struct.Fields">
+					func
+					(self *Struct)
+					Fields() []*Field
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Struct.Merge">
+					func
+					(self *Struct)
+					Merge(other interface{}) error
+				</a>
+				
+			</li>
+			
+			
+			
+			
+		</ul>
+		
+	</li>
 	
     <li>
 		<a href="#StructFieldFunc">type StructFieldFunc </a>
@@ -247,11 +400,39 @@
 	<tr>
 		<td class="text-left">
 			
+			<a href="s.go">s.go</a>
+			
+		</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">124</td>
+		<td class="text-right">9</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="s_test.go">s_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">97</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
 			<a href="structutil.go">structutil.go</a>
 			
 		</td>
 		<td class="text-right">4KB</td>
-		<td class="text-right">122</td>
+		<td class="text-right">127</td>
 		<td class="text-right">3</td>
 		<td class="text-right">2</td>
 		<td class="text-right"></td>
@@ -289,6 +470,7 @@
 
 	<pre>
 var <span id="StopIterating">StopIterating</span> = errors.New(`stop iterating`)
+var <span id="StructTag">StructTag    </span> = `structutil`
 </pre>
 </div>
 
@@ -333,6 +515,205 @@ var <span id="StopIterating">StopIterating</span> = errors.New(`stop iterating`)
 
 <p><p>Iterates over all exported and embedded fields in the given struct, calling fn for each field.</p>
 </p>
+
+
+
+
+
+<h3 id="Field" data-kind="t">
+	type
+	<a title="View Source" href="">Field</a>
+	<a class="permalink" href="#Field">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type Field struct {
+	*reflect.StructField
+	Struct *Struct
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="Field.Kind" data-kind="f">
+	func
+	(self *Field)
+	<a title="View Source" href="">Kind</a>
+	<a class="permalink" href="#Kind">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Field) Kind() reflect.Kind</pre>
+</div>
+
+
+
+
+<h4 id="Field.MergeValue" data-kind="f">
+	func
+	(self *Field)
+	<a title="View Source" href="">MergeValue</a>
+	<a class="permalink" href="#MergeValue">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Field) MergeValue(in interface{}) error</pre>
+</div>
+
+
+
+
+<h4 id="Field.Set" data-kind="f">
+	func
+	(self *Field)
+	<a title="View Source" href="">Set</a>
+	<a class="permalink" href="#Set">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Field) Set(value interface{}) error</pre>
+</div>
+
+
+
+
+<h4 id="Field.V" data-kind="f">
+	func
+	(self *Field)
+	<a title="View Source" href="">V</a>
+	<a class="permalink" href="#V">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Field) V() typeutil.Variant</pre>
+</div>
+
+
+
+
+<h4 id="Field.Value" data-kind="f">
+	func
+	(self *Field)
+	<a title="View Source" href="">Value</a>
+	<a class="permalink" href="#Value">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Field) Value() reflect.Value</pre>
+</div>
+
+
+
+
+<h3 id="Struct" data-kind="t">
+	type
+	<a title="View Source" href="">Struct</a>
+	<a class="permalink" href="#Struct">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type Struct struct {
+	Source interface{}
+
+}// A Struct, or &#34;S-object&#34;, can be used to rapidly and safely inspect, iterate over, and modify values of a struct.
+
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+<h4 id="S" data-kind="f">
+	func <a title="View Source" href="">S</a>
+	<a class="permalink" href="#S">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func S(src interface{}) *Struct</pre>
+</div>
+
+
+
+
+
+
+
+<h4 id="Struct.Field" data-kind="f">
+	func
+	(self *Struct)
+	<a title="View Source" href="">Field</a>
+	<a class="permalink" href="#Field">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Struct) Field(name string) (*Field, bool)</pre>
+</div>
+
+
+
+
+<h4 id="Struct.Fields" data-kind="f">
+	func
+	(self *Struct)
+	<a title="View Source" href="">Fields</a>
+	<a class="permalink" href="#Fields">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Struct) Fields() []*Field</pre>
+</div>
+
+
+
+
+<h4 id="Struct.Merge" data-kind="f">
+	func
+	(self *Struct)
+	<a title="View Source" href="">Merge</a>
+	<a class="permalink" href="#Merge">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Struct) Merge(other interface{}) error</pre>
+</div>
+
 
 
 

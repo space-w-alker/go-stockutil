@@ -2,6 +2,7 @@ package typeutil
 
 import (
 	"encoding/json"
+	"fmt"
 	"reflect"
 	"strings"
 	"text/template"
@@ -249,6 +250,48 @@ func (self Variant) MapNative(tagName ...string) map[string]interface{} {
 // Satisfy the json.Marshaler interface
 func (self Variant) MarshalJSON() ([]byte, error) {
 	return json.Marshal(self.Auto())
+}
+
+// Return whether the value is an array/slice type.
+func (self *Variant) IsArray() bool {
+	return IsArray(self.Value)
+}
+
+// Return whether the value is a map type.
+func (self *Variant) IsMap() bool {
+	return IsMap(self.Value)
+}
+
+// Return whether the value is a scalar type.
+func (self *Variant) IsScalar() bool {
+	return IsScalar(self.Value)
+}
+
+func (self *Variant) Append(values ...interface{}) error {
+	var base []interface{}
+
+	if self.IsArray() {
+		base = utils.Sliceify(self.Value)
+	} else {
+		base = []interface{}{self.Value}
+	}
+
+	for _, val := range values {
+		for _, subval := range utils.Sliceify(val) {
+			if valV, ok := subval.(reflect.Value); ok {
+				if valV.IsValid() && valV.CanInterface() {
+					base = append(base, valV.Interface())
+				} else {
+					return fmt.Errorf("invalid value")
+				}
+			} else {
+				base = append(base, subval)
+			}
+		}
+	}
+
+	self.Value = base
+	return nil
 }
 
 // Package-level string converter
