@@ -1,7 +1,7 @@
 {
     "Metadata": {
         "Title": "go-stockutil",
-        "Version": "1.8.92",
+        "Version": "1.8.93",
         "GeneratorVersion": "0.0.5",
         "URL": "https://github.com/ghetzel/go-stockutil"
     },
@@ -25,7 +25,7 @@
                 "Mean": 0.8074,
                 "StdDev": 0.3867,
                 "GeometricMean": 1,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -439,19 +439,19 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
             "MainFunction": false,
-            "CommentWordCount": 877,
-            "LineCount": 1285,
-            "SourceLineCount": 935,
-            "FunctionCount": 62,
+            "CommentWordCount": 886,
+            "LineCount": 1295,
+            "SourceLineCount": 942,
+            "FunctionCount": 63,
             "TypeCount": 3,
             "ConstantCount": 3,
             "VariableCount": 0,
             "Statistics": {
-                "Mean": 0.6821,
-                "StdDev": 0.3924,
-                "GeometricMean": 0.889,
+                "Mean": 0.6853,
+                "StdDev": 0.3904,
+                "GeometricMean": 0.8906,
                 "HarmonicMean": 1,
-                "Median": 1,
+                "Median": 0.95,
                 "Minimum": 0,
                 "Maximum": 1
             }
@@ -522,8 +522,8 @@
             {
                 "Name": "Version",
                 "Immutable": true,
-                "Expression": "`1.8.92`",
-                "Value": "1.8.92"
+                "Expression": "`1.8.93`",
+                "Value": "1.8.93"
             }
         ],
         "Packages": [
@@ -546,7 +546,7 @@
                     "Mean": 0.8074,
                     "StdDev": 0.3867,
                     "GeometricMean": 1,
-                    "HarmonicMean": 1,
+                    "HarmonicMean": 0,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
@@ -787,25 +787,6 @@
                         ],
                         "Signature": "HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)",
                         "Source": "ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "KelvinToColor",
-                        "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
-                        "Arguments": [
-                            {
-                                "Name": "kelvin",
-                                "Type": "int"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Name": "color",
-                                "Type": "Color"
-                            }
-                        ],
-                        "Signature": "KelvinToColor(kelvin int) color Color",
-                        "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                         "IsPackageLevel": true
                     },
                     {
@@ -1382,6 +1363,25 @@
                                 ],
                                 "Signature": "Mix(first interface{}, second interface{}) (Color, error)",
                                 "Source": "ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "KelvinToColor",
+                                "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
+                                "Arguments": [
+                                    {
+                                        "Name": "kelvin",
+                                        "Type": "int"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Name": "color",
+                                        "Type": "Color"
+                                    }
+                                ],
+                                "Signature": "KelvinToColor(kelvin int) color Color",
+                                "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                                 "IsPackageLevel": true
                             }
                         ],
@@ -19491,19 +19491,19 @@
                 "URL": "https://github.com/ghetzel/go-stockutil",
                 "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
                 "MainFunction": false,
-                "CommentWordCount": 877,
-                "LineCount": 1285,
-                "SourceLineCount": 935,
-                "FunctionCount": 62,
+                "CommentWordCount": 886,
+                "LineCount": 1295,
+                "SourceLineCount": 942,
+                "FunctionCount": 63,
                 "TypeCount": 3,
                 "ConstantCount": 3,
                 "VariableCount": 0,
                 "Statistics": {
-                    "Mean": 0.6821,
-                    "StdDev": 0.3924,
-                    "GeometricMean": 0.889,
+                    "Mean": 0.6853,
+                    "StdDev": 0.3904,
+                    "GeometricMean": 0.8906,
                     "HarmonicMean": 1,
-                    "Median": 1,
+                    "Median": 0.95,
                     "Minimum": 0,
                     "Maximum": 1
                 },
@@ -19652,10 +19652,10 @@
                                 "Alias": "utils"
                             }
                         ],
-                        "Size": 8525,
-                        "LineCount": 371,
-                        "SourceLineCount": 262,
-                        "FunctionCount": 39,
+                        "Size": 8606,
+                        "LineCount": 376,
+                        "SourceLineCount": 265,
+                        "FunctionCount": 40,
                         "TypeCount": 1,
                         "ConstantCount": 0,
                         "VariableCount": 0
@@ -19676,9 +19676,9 @@
                                 "Alias": "require"
                             }
                         ],
-                        "Size": 2881,
-                        "LineCount": 123,
-                        "SourceLineCount": 107,
+                        "Size": 2978,
+                        "LineCount": 128,
+                        "SourceLineCount": 111,
                         "FunctionCount": 0,
                         "TypeCount": 0,
                         "ConstantCount": 0,
@@ -20517,6 +20517,18 @@
                         "IsPackageLevel": true
                     },
                     {
+                        "Name": "TestNil",
+                        "Arguments": [
+                            {
+                                "Name": "t",
+                                "Type": "*testing.T"
+                            }
+                        ],
+                        "Signature": "TestNil(t *testing.T)",
+                        "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIE5pbCgpLklzTmlsKCkpCglyZXF1aXJlLlRydWUodCwgTmlsKCkuSXNaZXJvKCkpCn0=",
+                        "IsPackageLevel": true
+                    },
+                    {
                         "Name": "TestSetValueInt",
                         "Arguments": [
                             {
@@ -20922,6 +20934,18 @@
                                 ],
                                 "Signature": "V(value interface{}) Variant",
                                 "Source": "ewoJcmV0dXJuIFZhcmlhbnR7VmFsdWU6IHZhbHVlfQp9",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "Nil",
+                                "Comment": "Return a new Variant with a nil value.",
+                                "Returns": [
+                                    {
+                                        "Type": "Variant"
+                                    }
+                                ],
+                                "Signature": "Nil() Variant",
+                                "Source": "ewoJcmV0dXJuIFYobmlsKQp9",
                                 "IsPackageLevel": true
                             }
                         ],

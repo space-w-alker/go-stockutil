@@ -120,3 +120,8 @@ func TestVariantAppend(t *testing.T) {
 	require.NoError(t, v.Append(`there`))
 	require.Equal(t, []string{`hello`, `there`}, v.Strings())
 }
+
+func TestNil(t *testing.T) {
+	require.True(t, Nil().IsNil())
+	require.True(t, Nil().IsZero())
+}

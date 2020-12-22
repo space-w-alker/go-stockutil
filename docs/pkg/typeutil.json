@@ -6,19 +6,19 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
     "MainFunction": false,
-    "CommentWordCount": 877,
-    "LineCount": 1285,
-    "SourceLineCount": 935,
-    "FunctionCount": 62,
+    "CommentWordCount": 886,
+    "LineCount": 1295,
+    "SourceLineCount": 942,
+    "FunctionCount": 63,
     "TypeCount": 3,
     "ConstantCount": 3,
     "VariableCount": 0,
     "Statistics": {
-        "Mean": 0.6821,
-        "StdDev": 0.3924,
-        "GeometricMean": 0.889,
+        "Mean": 0.6853,
+        "StdDev": 0.3904,
+        "GeometricMean": 0.8906,
         "HarmonicMean": 1,
-        "Median": 1,
+        "Median": 0.95,
         "Minimum": 0,
         "Maximum": 1
     },
@@ -167,10 +167,10 @@
                     "Alias": "utils"
                 }
             ],
-            "Size": 8525,
-            "LineCount": 371,
-            "SourceLineCount": 262,
-            "FunctionCount": 39,
+            "Size": 8606,
+            "LineCount": 376,
+            "SourceLineCount": 265,
+            "FunctionCount": 40,
             "TypeCount": 1,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -191,9 +191,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 2881,
-            "LineCount": 123,
-            "SourceLineCount": 107,
+            "Size": 2978,
+            "LineCount": 128,
+            "SourceLineCount": 111,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -1032,6 +1032,18 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "TestNil",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestNil(t *testing.T)",
+            "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIE5pbCgpLklzTmlsKCkpCglyZXF1aXJlLlRydWUodCwgTmlsKCkuSXNaZXJvKCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "TestSetValueInt",
             "Arguments": [
                 {
@@ -1437,6 +1449,18 @@
                     ],
                     "Signature": "V(value interface{}) Variant",
                     "Source": "ewoJcmV0dXJuIFZhcmlhbnR7VmFsdWU6IHZhbHVlfQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "Nil",
+                    "Comment": "Return a new Variant with a nil value.",
+                    "Returns": [
+                        {
+                            "Type": "Variant"
+                        }
+                    ],
+                    "Signature": "Nil() Variant",
+                    "Source": "ewoJcmV0dXJuIFYobmlsKQp9",
                     "IsPackageLevel": true
                 }
             ],

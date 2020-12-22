@@ -368,3 +368,8 @@ func Map(in interface{}, tagName ...string) map[Variant]Variant {
 func MapNative(in interface{}, tagName ...string) map[string]interface{} {
 	return V(in).MapNative(tagName...)
 }
+
+// Return a new Variant with a nil value.
+func Nil() Variant {
+	return V(nil)
+}
