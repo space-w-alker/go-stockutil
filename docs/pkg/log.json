@@ -225,7 +225,7 @@
                     "Alias": "go-logging"
                 }
             ],
-            "Size": 8091,
+            "Size": 8103,
             "LineCount": 344,
             "SourceLineCount": 257,
             "FunctionCount": 34,
@@ -573,7 +573,7 @@
                 }
             ],
             "Signature": "Dump(args ...interface{})",
-            "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2coREVCVUcsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==",
+            "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2coTG9nTGV2ZWwsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==",
             "IsPackageLevel": true
         },
         {
@@ -586,7 +586,7 @@
                 }
             ],
             "Signature": "DumpJSON(args ...interface{})",
-            "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBkYXRhLCBlcnIgOj0ganNvbi5NYXJzaGFsSW5kZW50KGFyZywgYGAsIGAgIGApOyBlcnIgPT0gbmlsIHsKCQkJTG9nKERFQlVHLCBzdHJpbmcoZGF0YSkpCgkJfSBlbHNlIHsKCQkJTG9nZihERUJVRywgIkR1bXBKU09OOiAldiIsIGVycikKCQl9Cgl9Cn0=",
+            "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBkYXRhLCBlcnIgOj0ganNvbi5NYXJzaGFsSW5kZW50KGFyZywgYGAsIGAgIGApOyBlcnIgPT0gbmlsIHsKCQkJTG9nKExvZ0xldmVsLCBzdHJpbmcoZGF0YSkpCgkJfSBlbHNlIHsKCQkJTG9nZihMb2dMZXZlbCwgIkR1bXBKU09OOiAldiIsIGVycikKCQl9Cgl9Cn0=",
             "IsPackageLevel": true
         },
         {
@@ -603,7 +603,7 @@
                 }
             ],
             "Signature": "Dumpf(format string, args ...interface{})",
-            "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2dmKERFQlVHLCBmb3JtYXQsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==",
+            "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2dmKExvZ0xldmVsLCBmb3JtYXQsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==",
             "IsPackageLevel": true
         },
         {

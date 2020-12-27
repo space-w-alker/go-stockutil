@@ -5,8 +5,11 @@ import (
 	"errors"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 
+	"github.com/alecthomas/assert"
+	"github.com/ghetzel/go-stockutil/fileutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/ghetzel/testify/require"
@@ -60,6 +63,25 @@ func testHttpServer() *httptest.Server {
 
 		case `DELETE`:
 			RespondJSON(w, nil)
+		case `PATCH`:
+			var err error
+
+			if u, p, ok := req.BasicAuth(); ok {
+				if u == `test` {
+					if p == `test` {
+						RespondJSON(w, nil, http.StatusAccepted)
+						return
+					} else {
+						err = errors.New(`bad password`)
+					}
+				} else {
+					err = errors.New(`bad username`)
+				}
+			} else {
+				err = errors.New(`no auth provided`)
+			}
+
+			RespondJSON(w, err, http.StatusUnauthorized)
 		}
 	}))
 }
@@ -158,4 +180,34 @@ func TestClientMultipartFormEncoder(t *testing.T) {
 		`key`:    []interface{}{"value"},
 		`enable`: []interface{}{"true"},
 	}, out)
+}
+
+func TestClientNetrcAuth(t *testing.T) {
+	server := testHttpServer()
+	defer server.Close()
+
+	client, err := NewClient(server.URL)
+	assert.NoError(t, err)
+	assert.NotNil(t, client)
+
+	client.SetErrorDecoder(func(res *http.Response) error {
+		assert.NotNil(t, res.Body)
+
+		return errors.New(typeutil.String(res.Body))
+	})
+
+	NetrcFile = fileutil.MustWriteTempFile(
+		"machine * login test password test\n",
+		"test-ghetzel-go-stockutil-httputil",
+	)
+
+	defer os.Remove(NetrcFile)
+
+	client.SetAutomaticLogin(true)
+
+	response, err := client.Request(Patch, `/`, nil, nil, nil)
+
+	assert.NoError(t, err)
+	assert.NotNil(t, response)
+	assert.Equal(t, response.StatusCode, http.StatusAccepted)
 }

@@ -38,8 +38,8 @@
         {
             "Name": "Version",
             "Immutable": true,
-            "Expression": "`1.8.93`",
-            "Value": "1.8.93"
+            "Expression": "`1.8.94`",
+            "Value": "1.8.94"
         }
     ],
     "Packages": [
@@ -2067,6 +2067,27 @@
                     "IsPackageLevel": true
                 },
                 {
+                    "Name": "LogOutput",
+                    "Arguments": [
+                        {
+                            "Name": "outlevel",
+                            "Type": "log.Level"
+                        },
+                        {
+                            "Name": "errlevel",
+                            "Type": "log.Level"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "OutputLineFunc"
+                        }
+                    ],
+                    "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                    "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "LogOutputFunc",
                     "Arguments": [
                         {
@@ -2729,29 +2750,6 @@
                 },
                 "OutputLineFunc": {
                     "Name": "OutputLineFunc",
-                    "Methods": [
-                        {
-                            "Name": "LogOutput",
-                            "Arguments": [
-                                {
-                                    "Name": "outlevel",
-                                    "Type": "log.Level"
-                                },
-                                {
-                                    "Name": "errlevel",
-                                    "Type": "log.Level"
-                                }
-                            ],
-                            "Returns": [
-                                {
-                                    "Type": "OutputLineFunc"
-                                }
-                            ],
-                            "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                            "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                            "IsPackageLevel": true
-                        }
-                    ],
                     "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
                 },
                 "Status": {
@@ -5855,18 +5853,18 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "Utilities for extracting and formatting data encountered in HTTP requests\n",
             "MainFunction": false,
-            "CommentWordCount": 1165,
-            "LineCount": 1864,
-            "SourceLineCount": 1322,
-            "FunctionCount": 75,
+            "CommentWordCount": 1241,
+            "LineCount": 2009,
+            "SourceLineCount": 1427,
+            "FunctionCount": 77,
             "TypeCount": 14,
             "ConstantCount": 13,
-            "VariableCount": 5,
+            "VariableCount": 6,
             "Statistics": {
-                "Mean": 0.6628,
-                "StdDev": 0.4477,
+                "Mean": 0.6629,
+                "StdDev": 0.4486,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -5932,10 +5930,10 @@
                             "Alias": "typeutil"
                         }
                     ],
-                    "Size": 15226,
-                    "LineCount": 526,
-                    "SourceLineCount": 377,
-                    "FunctionCount": 32,
+                    "Size": 15790,
+                    "LineCount": 541,
+                    "SourceLineCount": 386,
+                    "FunctionCount": 33,
                     "TypeCount": 2,
                     "ConstantCount": 0,
                     "VariableCount": 2
@@ -5960,8 +5958,20 @@
                             "Alias": "httptest"
                         },
                         {
+                            "PackageName": "os",
+                            "Alias": "os"
+                        },
+                        {
                             "PackageName": "testing",
                             "Alias": "testing"
+                        },
+                        {
+                            "PackageName": "github.com/alecthomas/assert",
+                            "Alias": "assert"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
+                            "Alias": "fileutil"
                         },
                         {
                             "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
@@ -5976,9 +5986,9 @@
                             "Alias": "require"
                         }
                     ],
-                    "Size": 4209,
-                    "LineCount": 162,
-                    "SourceLineCount": 124,
+                    "Size": 5376,
+                    "LineCount": 214,
+                    "SourceLineCount": 165,
                     "FunctionCount": 0,
                     "TypeCount": 0,
                     "ConstantCount": 0,
@@ -6157,6 +6167,58 @@
                     "TypeCount": 2,
                     "ConstantCount": 6,
                     "VariableCount": 1
+                },
+                {
+                    "Name": "netrc.go",
+                    "Imports": [
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
+                            "Alias": "fileutil"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                            "Alias": "sliceutil"
+                        },
+                        {
+                            "PackageName": "github.com/jdxcode/netrc",
+                            "Alias": "netrc"
+                        }
+                    ],
+                    "Size": 982,
+                    "LineCount": 35,
+                    "SourceLineCount": 25,
+                    "FunctionCount": 1,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 1
+                },
+                {
+                    "Name": "netrc_test.go",
+                    "Imports": [
+                        {
+                            "PackageName": "os",
+                            "Alias": "os"
+                        },
+                        {
+                            "PackageName": "testing",
+                            "Alias": "testing"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
+                            "Alias": "fileutil"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/testify/require",
+                            "Alias": "require"
+                        }
+                    ],
+                    "Size": 844,
+                    "LineCount": 43,
+                    "SourceLineCount": 30,
+                    "FunctionCount": 0,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 0
                 },
                 {
                     "Name": "querystrings.go",
@@ -6534,6 +6596,11 @@
                     "Expression": "logging.MustGetLogger(`httputil`)"
                 },
                 {
+                    "Name": "NetrcFile",
+                    "Expression": "`~/.netrc`",
+                    "Value": "~/.netrc"
+                },
+                {
                     "Name": "WaitForPollInterval",
                     "Expression": "time.Second"
                 }
@@ -6896,6 +6963,30 @@
                     ],
                     "Signature": "MultipartFormEncoder(in interface{}) (io.Reader, error)",
                     "Source": "ewoJaWYgcmVxLCBvayA6PSBpbi4oKmh0dHAuUmVxdWVzdCk7IG9rIHsKCQlyZXEuSGVhZGVyLlNldChgQ29udGVudC1UeXBlYCwgYG11bHRpcGFydC9mb3JtLWRhdGFgKQoJCXJldHVybiBuaWwsIG5pbAoJfSBlbHNlIHsKCQlvdXRwdXQgOj0gYnl0ZXMuTmV3QnVmZmVyKG5pbCkKCQltcCA6PSBtdWx0aXBhcnQuTmV3V3JpdGVyKG91dHB1dCkKCQlmaWVsZHMgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJCWlmIHR5cGV1dGlsLklzTWFwKGluKSB7CgkJCWZpZWxkcyA9IG1hcHV0aWwuTShpbikuTWFwTmF0aXZlKCkKCQl9IGVsc2UgaWYgaW5SLCBvayA6PSBpbi4oaW8uUmVhZGVyKTsgb2sgewoJCQlmaWVsZHNbRGVmYXVsdE11bHRpcGFydEZvcm1GaWxlRmllbGRdID0gaW5SCgkJfQoJCWZvciBmaWVsZCwgdmFsdWUgOj0gcmFuZ2UgZmllbGRzIHsKCQkJdmFyIGZpbGVuYW1lIHN0cmluZwoJCQlpZiB2Qnl0ZXMsIG9rIDo9IHZhbHVlLihbXWJ5dGUpOyBvayB7CgkJCQl2YWx1ZSA9IGJ5dGVzLk5ld0J1ZmZlcih2Qnl0ZXMpCgkJCX0KCQkJaWYgdkZpbGUsIG9rIDo9IHZhbHVlLigqb3MuRmlsZSk7IG9rIHsKCQkJCWZpbGVuYW1lID0gdkZpbGUuTmFtZSgpCgkJCX0gZWxzZSB7CgkJCQl2YXIgdk1QRkYgKk11bHRpcGFydEZvcm1GaWxlCgkJCQlpZiB2LCBvayA6PSB2YWx1ZS4oTXVsdGlwYXJ0Rm9ybUZpbGUpOyBvayB7CgkJCQkJdk1QRkYgPSAmdgoJCQkJfSBlbHNlIGlmIHYsIG9rIDo9IHZhbHVlLigqTXVsdGlwYXJ0Rm9ybUZpbGUpOyBvayB7CgkJCQkJdk1QRkYgPSB2CgkJCQl9CgkJCQlpZiB2TVBGRiAhPSBuaWwgewoJCQkJCWZpbGVuYW1lID0gdk1QRkYuRmlsZW5hbWUKCQkJCQlpZiB2TVBGRi5EYXRhICE9IG5pbCB7CgkJCQkJCXZhbHVlID0gdk1QRkYuRGF0YQoJCQkJCX0gZWxzZSBpZiBmLCBlcnIgOj0gb3MuT3BlbihmaWxlbmFtZSk7IGVyciA9PSBuaWwgewoJCQkJCQlkZWZlciBmLkNsb3NlKCkKCQkJCQkJdmFsdWUgPSBmCgkJCQkJfSBlbHNlIHsKCQkJCQkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiQ2Fubm90IGFkZCBtdWx0aXBhcnQgZmlsZSAlcTogJXYiLCBmaWxlbmFtZSwgZXJyKQoJCQkJCX0KCQkJCX0KCQkJfQoJCQlpZiB2YWx1ZVIsIG9rIDo9IHZhbHVlLihpby5SZWFkZXIpOyBvayB7CgkJCQlpZiBmaWxlbmFtZSAhPSBgYCB7CgkJCQkJaWYgb3V0VywgZXJyIDo9IG1wLkNyZWF0ZUZvcm1GaWxlKGZpZWxkLCBmaWxlbmFtZSk7IGVyciA9PSBuaWwgewoJCQkJCQlpZiBfLCBlcnIgOj0gaW8uQ29weShvdXRXLCB2YWx1ZVIpOyBlcnIgIT0gbmlsIHsKCQkJCQkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoIkNhbm5vdCB3cml0ZSBtdWx0aXBhcnQgZm9ybSBmaWVsZCAlcTogJXYiLCBmaWVsZCwgZXJyKQoJCQkJCQl9CgkJCQkJfSBlbHNlIHsKCQkJCQkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiQ2Fubm90IGNyZWF0ZSBtdWx0aXBhcnQgZm9ybSBmaWVsZCAlcTogJXYiLCBmaWVsZCwgZXJyKQoJCQkJCX0KCQkJCX0gZWxzZSBpZiBvdXRXLCBlcnIgOj0gbXAuQ3JlYXRlRm9ybUZpZWxkKGZpZWxkKTsgZXJyID09IG5pbCB7CgkJCQkJaWYgXywgZXJyIDo9IGlvLkNvcHkob3V0VywgdmFsdWVSKTsgZXJyICE9IG5pbCB7CgkJCQkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoIkNhbm5vdCB3cml0ZSBtdWx0aXBhcnQgZm9ybSBmaWVsZCAlcTogJXYiLCBmaWVsZCwgZXJyKQoJCQkJCX0KCQkJCX0gZWxzZSB7CgkJCQkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiQ2Fubm90IGNyZWF0ZSBtdWx0aXBhcnQgZm9ybSBmaWVsZCAlcTogJXYiLCBmaWVsZCwgZXJyKQoJCQkJfQoJCQl9IGVsc2UgaWYgZXJyIDo9IG1wLldyaXRlRmllbGQoZmllbGQsIHR5cGV1dGlsLlN0cmluZyh2YWx1ZSkpOyBlcnIgIT0gbmlsIHsKCQkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoIkNhbm5vdCBlbmNvZGUgbXVsdGlwYXJ0IGZvcm0gZmllbGQgJXE6ICV2IiwgZmllbGQsIGVycikKCQkJfQoJCX0KCQlyZXR1cm4gJm11bHRpcGFydEZvcm1SZXF1ZXN0e2RhdGE6IG91dHB1dCwgYm91bmRhcnk6IG1wLkJvdW5kYXJ5KCksIGNvbnRlbnRUeXBlOiBtcC5Gb3JtRGF0YUNvbnRlbnRUeXBlKCl9LCBtcC5DbG9zZSgpCgl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "NetrcCredentials",
+                    "Comment": "Retreive the plaintext username and password from the netrc-formatted file in the\nNetrcFile package variable.  The final return argument will be true if and only if\nthe .netrc file exists, is readable, and the username OR password matched to the given\ndomain is non-empty.",
+                    "Arguments": [
+                        {
+                            "Name": "domain",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        },
+                        {
+                            "Type": "string"
+                        },
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "NetrcCredentials(domain string) (string, string, bool)",
+                    "Source": "ewoJaWYgZG9tYWluICE9IGBgIHsKCQlpZiBwYXRoLCBlcnIgOj0gZmlsZXV0aWwuRXhwYW5kVXNlcihOZXRyY0ZpbGUpOyBlcnIgPT0gbmlsIHsKCQkJaWYgbnJjLCBlcnIgOj0gbmV0cmMuUGFyc2UocGF0aCk7IGVyciA9PSBuaWwgewoJCQkJaWYgbSA6PSBucmMuTWFjaGluZShkb21haW4pOyBtICE9IG5pbCB7CgkJCQkJdmFyIHVzZXIgPSBzbGljZXV0aWwuT3JTdHJpbmcobS5HZXQoYGxvZ2luYCksIG0uR2V0KGB1c2VybmFtZWApKQoJCQkJCXZhciBwYXNzID0gbS5HZXQoYHBhc3N3b3JkYCkKCQkJCQlpZiB1c2VyICE9IGBgIHx8IHBhc3MgIT0gYGAgewoJCQkJCQlyZXR1cm4gdXNlciwgcGFzcywgdHJ1ZQoJCQkJCX0KCQkJCX0gZWxzZSBpZiBkb21haW4gIT0gYCpgIHsKCQkJCQlyZXR1cm4gTmV0cmNDcmVkZW50aWFscyhgKmApCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gYGAsIGBgLCBmYWxzZQp9",
                     "IsPackageLevel": true
                 },
                 {
@@ -7537,6 +7628,18 @@
                     "IsPackageLevel": true
                 },
                 {
+                    "Name": "TestClientNetrcAuth",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestClientNetrcAuth(t *testing.T)",
+                    "Source": "ewoJc2VydmVyIDo9IHRlc3RIdHRwU2VydmVyKCkKCWRlZmVyIHNlcnZlci5DbG9zZSgpCgljbGllbnQsIGVyciA6PSBOZXdDbGllbnQoc2VydmVyLlVSTCkKCWFzc2VydC5Ob0Vycm9yKHQsIGVycikKCWFzc2VydC5Ob3ROaWwodCwgY2xpZW50KQoJY2xpZW50LlNldEVycm9yRGVjb2RlcihmdW5jKHJlcyAqaHR0cC5SZXNwb25zZSkgZXJyb3IgewoJCWFzc2VydC5Ob3ROaWwodCwgcmVzLkJvZHkpCgkJcmV0dXJuIGVycm9ycy5OZXcodHlwZXV0aWwuU3RyaW5nKHJlcy5Cb2R5KSkKCX0pCglOZXRyY0ZpbGUgPSBmaWxldXRpbC5NdXN0V3JpdGVUZW1wRmlsZSgibWFjaGluZSAqIGxvZ2luIHRlc3QgcGFzc3dvcmQgdGVzdFxuIiwgInRlc3QtZ2hldHplbC1nby1zdG9ja3V0aWwtaHR0cHV0aWwiKQoJZGVmZXIgb3MuUmVtb3ZlKE5ldHJjRmlsZSkKCWNsaWVudC5TZXRBdXRvbWF0aWNMb2dpbih0cnVlKQoJcmVzcG9uc2UsIGVyciA6PSBjbGllbnQuUmVxdWVzdChQYXRjaCwgYC9gLCBuaWwsIG5pbCwgbmlsKQoJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyKQoJYXNzZXJ0Lk5vdE5pbCh0LCByZXNwb25zZSkKCWFzc2VydC5FcXVhbCh0LCByZXNwb25zZS5TdGF0dXNDb2RlLCBodHRwLlN0YXR1c0FjY2VwdGVkKQp9",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "TestIsMediaType",
                     "Arguments": [
                         {
@@ -7558,6 +7661,18 @@
                     ],
                     "Signature": "TestMediaType(t *testing.T)",
                     "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGAsIE1lZGlhVHlwZShtdChgYCkpKQoJYXNzZXJ0LkVxdWFsKGB0ZXh0L3BsYWluYCwgTWVkaWFUeXBlKG10KGB0ZXh0L3BsYWluYCkpKQoJYXNzZXJ0LkVxdWFsKGB0ZXh0L3BsYWluYCwgTWVkaWFUeXBlKG10KGB0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04YCkpKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestNetrcPositive",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestNetrcPositive(t *testing.T)",
+                    "Source": "ewoJTmV0cmNGaWxlID0gZmlsZXV0aWwuTXVzdFdyaXRlVGVtcEZpbGUoIm1hY2hpbmUgc3RvY2staHR0cHV0aWwtdGVzdCBsb2dpbiBoZWxsbyBwYXNzd29yZCB0aGVyZVxubWFjaGluZSBpbnRlbnRpb25hbGx5LWxlZnQtYmxhbmtcbiIsICJ0ZXN0LWdoZXR6ZWwtZ28tc3RvY2t1dGlsLWh0dHB1dGlsIikKCWRlZmVyIG9zLlJlbW92ZShOZXRyY0ZpbGUpCgl2YXIgdSwgcCwgb2sgPSBOZXRyY0NyZWRlbnRpYWxzKGBgKQoJcmVxdWlyZS5GYWxzZSh0LCBvaykKCXJlcXVpcmUuRW1wdHkodCwgdSkKCXJlcXVpcmUuRW1wdHkodCwgcCkKCXUsIHAsIG9rID0gTmV0cmNDcmVkZW50aWFscyhgbm9wZWApCglyZXF1aXJlLkZhbHNlKHQsIG9rKQoJcmVxdWlyZS5FbXB0eSh0LCB1KQoJcmVxdWlyZS5FbXB0eSh0LCBwKQoJdSwgcCwgb2sgPSBOZXRyY0NyZWRlbnRpYWxzKGBpbnRlbnRpb25hbGx5LWxlZnQtYmxhbmtgKQoJcmVxdWlyZS5GYWxzZSh0LCBvaykKCXJlcXVpcmUuRW1wdHkodCwgdSkKCXJlcXVpcmUuRW1wdHkodCwgcCkKCXUsIHAsIG9rID0gTmV0cmNDcmVkZW50aWFscyhgc3RvY2staHR0cHV0aWwtdGVzdGApCglyZXF1aXJlLlRydWUodCwgb2spCglyZXF1aXJlLkVxdWFsKHQsIGBoZWxsb2AsIHUpCglyZXF1aXJlLkVxdWFsKHQsIGB0aGVyZWAsIHApCn0=",
                     "IsPackageLevel": true
                 },
                 {
@@ -7962,6 +8077,20 @@
                                 }
                             ],
                             "Signature": "Request(method Method, path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "SetAutomaticLogin",
+                            "Comment": "Specify that the NetrcFile (default: ~/.netrc) should be consulted before each\nrequest to supply basic authentication.  If a non-empty username or password is\nfound for the",
+                            "PointerReceiver": true,
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "on",
+                                    "Type": "bool"
+                                }
+                            ],
+                            "Signature": "SetAutomaticLogin(on bool)",
                             "IsPackageLevel": false
                         },
                         {
@@ -8580,7 +8709,7 @@
                             "Alias": "go-logging"
                         }
                     ],
-                    "Size": 8091,
+                    "Size": 8103,
                     "LineCount": 344,
                     "SourceLineCount": 257,
                     "FunctionCount": 34,
@@ -8928,7 +9057,7 @@
                         }
                     ],
                     "Signature": "Dump(args ...interface{})",
-                    "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2coREVCVUcsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==",
+                    "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2coTG9nTGV2ZWwsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==",
                     "IsPackageLevel": true
                 },
                 {
@@ -8941,7 +9070,7 @@
                         }
                     ],
                     "Signature": "DumpJSON(args ...interface{})",
-                    "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBkYXRhLCBlcnIgOj0ganNvbi5NYXJzaGFsSW5kZW50KGFyZywgYGAsIGAgIGApOyBlcnIgPT0gbmlsIHsKCQkJTG9nKERFQlVHLCBzdHJpbmcoZGF0YSkpCgkJfSBlbHNlIHsKCQkJTG9nZihERUJVRywgIkR1bXBKU09OOiAldiIsIGVycikKCQl9Cgl9Cn0=",
+                    "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBkYXRhLCBlcnIgOj0ganNvbi5NYXJzaGFsSW5kZW50KGFyZywgYGAsIGAgIGApOyBlcnIgPT0gbmlsIHsKCQkJTG9nKExvZ0xldmVsLCBzdHJpbmcoZGF0YSkpCgkJfSBlbHNlIHsKCQkJTG9nZihMb2dMZXZlbCwgIkR1bXBKU09OOiAldiIsIGVycikKCQl9Cgl9Cn0=",
                     "IsPackageLevel": true
                 },
                 {
@@ -8958,7 +9087,7 @@
                         }
                     ],
                     "Signature": "Dumpf(format string, args ...interface{})",
-                    "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2dmKERFQlVHLCBmb3JtYXQsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==",
+                    "Source": "ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2dmKExvZ0xldmVsLCBmb3JtYXQsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==",
                     "IsPackageLevel": true
                 },
                 {

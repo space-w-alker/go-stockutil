@@ -202,14 +202,14 @@ func Debugf(format string, args ...interface{}) {
 // Pretty-print the given arguments to the log at debug-level.
 func Dump(args ...interface{}) {
 	for _, arg := range args {
-		Log(DEBUG, typeutil.Dump(arg))
+		Log(LogLevel, typeutil.Dump(arg))
 	}
 }
 
 // Same as Dump, but accepts a format string.
 func Dumpf(format string, args ...interface{}) {
 	for _, arg := range args {
-		Logf(DEBUG, format, typeutil.Dump(arg))
+		Logf(LogLevel, format, typeutil.Dump(arg))
 	}
 }
 
@@ -217,9 +217,9 @@ func Dumpf(format string, args ...interface{}) {
 func DumpJSON(args ...interface{}) {
 	for _, arg := range args {
 		if data, err := json.MarshalIndent(arg, ``, `  `); err == nil {
-			Log(DEBUG, string(data))
+			Log(LogLevel, string(data))
 		} else {
-			Logf(DEBUG, "DumpJSON: %v", err)
+			Logf(LogLevel, "DumpJSON: %v", err)
 		}
 	}
 }

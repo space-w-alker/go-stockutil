@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.93
+                            v1.8.94
                         </li>
                     </ul>
                     
@@ -278,6 +278,12 @@
     <li>
 		<strong>
 		<a href="#MultipartFormEncoder">func MultipartFormEncoder(in interface{}) (io.Reader, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#NetrcCredentials">func NetrcCredentials(domain string) (string, string, bool)</a>
 		</strong>
 	</li>
 	
@@ -503,6 +509,8 @@
 			
 			
 			
+			
+			
 
 			
 			
@@ -673,6 +681,18 @@
 					func
 					(self *Client)
 					Request(method Method, path string, body interface{}, params map[string]interface{}, headers map[string]interface{}) (*http.Response, error)
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Client.SetAutomaticLogin">
+					func
+					(self *Client)
+					SetAutomaticLogin(on bool)
 				</a>
 				</strong>
 			</li>
@@ -1222,8 +1242,8 @@
 			
 		</td>
 		<td class="text-right">15KB</td>
-		<td class="text-right">377</td>
-		<td class="text-right">32</td>
+		<td class="text-right">386</td>
+		<td class="text-right">33</td>
 		<td class="text-right">2</td>
 		<td class="text-right"></td>
 		<td class="text-right">2</td>
@@ -1235,8 +1255,8 @@
 			<a href="client_test.go">client_test.go</a>
 			
 		</td>
-		<td class="text-right">4KB</td>
-		<td class="text-right">124</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">165</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1325,6 +1345,34 @@
 		<td class="text-right">2</td>
 		<td class="text-right">6</td>
 		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="netrc.go">netrc.go</a>
+			
+		</td>
+		<td class="text-right">982B</td>
+		<td class="text-right">25</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="netrc_test.go">netrc_test.go</a>
+			
+		</td>
+		<td class="text-right">844B</td>
+		<td class="text-right">30</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
 	</tr>
 	
 	<tr>
@@ -1484,6 +1532,7 @@ var <span id="DebugOutputBoxWidth">DebugOutputBoxWidth          </span> = 60
 var <span id="DefaultMultipartFormFileField">DefaultMultipartFormFileField</span> = `filename`
 var <span id="FormUnmarshalStructTag">FormUnmarshalStructTag       </span> = `json`
 var <span id="Logger">Logger                       </span> = logging.MustGetLogger(`httputil`)
+var <span id="NetrcFile">NetrcFile                    </span> = `~/.netrc`
 var <span id="WaitForPollInterval">WaitForPollInterval          </span> = time.Second
 </pre>
 </div>
@@ -1732,6 +1781,20 @@ var <span id="WaitForPollInterval">WaitForPollInterval          </span> = time.S
 
 
 <p><p>Specifies that the given data should be encoded as a multipart/form-data request.</p>
+</p>
+
+
+<h3 id="NetrcCredentials" data-kind="f">
+	func <a title="View Source" href="">NetrcCredentials</a>
+	<a class="permalink" href="#NetrcCredentials">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func NetrcCredentials(domain string) (string, string, bool)</pre>
+</div>
+
+
+<p><p>Retreive the plaintext username and password from the netrc-formatted file in the<br>NetrcFile package variable.  The final return argument will be true if and only if<br>the .netrc file exists, is readable, and the username OR password matched to the given<br>domain is non-empty.</p>
 </p>
 
 
@@ -2150,6 +2213,8 @@ var <span id="WaitForPollInterval">WaitForPollInterval          </span> = time.S
 
 
 
+
+
 <h4 id="Client.AppendTrustedRootCA" data-kind="f">
 	func
 	(self *Client)
@@ -2383,6 +2448,24 @@ var <span id="WaitForPollInterval">WaitForPollInterval          </span> = time.S
 </div>
 
 <p><p>Perform an HTTP request</p>
+</p>
+
+
+
+
+<h4 id="Client.SetAutomaticLogin" data-kind="f">
+	func
+	(self *Client)
+	<a title="View Source" href="">SetAutomaticLogin</a>
+	<a class="permalink" href="#SetAutomaticLogin">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Client) SetAutomaticLogin(on bool)</pre>
+</div>
+
+<p><p>Specify that the NetrcFile (default: ~/.netrc) should be consulted before each<br>request to supply basic authentication.  If a non-empty username or password is<br>found for the</p>
 </p>
 
 

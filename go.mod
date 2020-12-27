@@ -1,6 +1,9 @@
 module github.com/ghetzel/go-stockutil
 
 require (
+	github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38
+	github.com/alecthomas/colour v0.1.0 // indirect
+	github.com/alecthomas/repr v0.0.0-20201120212035-bb82daffcca2 // indirect
 	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
 	github.com/cenkalti/backoff v2.1.1+incompatible // indirect
 	github.com/davecgh/go-spew v1.1.1
@@ -16,6 +19,7 @@ require (
 	github.com/jackpal/gateway v1.0.5-0.20180407163008-cbcf4e3f3bae
 	github.com/jbenet/go-base58 v0.0.0-20150317085156-6237cf65f3a6
 	github.com/jdkato/prose v1.1.0
+	github.com/jdxcode/netrc v0.0.0-20201119100258-050cafb6dbe6
 	github.com/jlaffaye/ftp v0.0.0-20190126081051-8019e6774408
 	github.com/juliangruber/go-intersect v1.0.0
 	github.com/kellydunn/golang-geo v0.7.0
@@ -34,6 +38,7 @@ require (
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/pkg/sftp v1.10.0
+	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/stretchr/testify v1.6.1 // indirect
 	github.com/urfave/negroni v1.0.0
 	github.com/ziutek/mymysql v1.5.4 // indirect

@@ -50,19 +50,20 @@ func WaitForHTTP(url string, timeout time.Duration, c ...*http.Client) error {
 }
 
 type Client struct {
-	encoder          EncoderFunc
-	decoder          DecoderFunc
-	errorDecoder     ErrorDecoderFunc
-	firstRequestHook InitRequestFunc
-	preRequestHook   InterceptRequestFunc
-	postRequestHook  InterceptResponseFunc
-	uri              *url.URL
-	headers          map[string]interface{}
-	params           map[string]interface{}
-	httpClient       *http.Client
-	rootCaPool       *x509.CertPool
-	insecure         bool
-	firstRequestSent bool
+	encoder           EncoderFunc
+	decoder           DecoderFunc
+	errorDecoder      ErrorDecoderFunc
+	firstRequestHook  InitRequestFunc
+	preRequestHook    InterceptRequestFunc
+	postRequestHook   InterceptResponseFunc
+	uri               *url.URL
+	headers           map[string]interface{}
+	params            map[string]interface{}
+	httpClient        *http.Client
+	rootCaPool        *x509.CertPool
+	insecure          bool
+	firstRequestSent  bool
+	basicAuthViaNetrc bool
 }
 
 func MustClient(baseURI string) *Client {
@@ -149,6 +150,13 @@ func (self *Client) WithDecoder(fn DecoderFunc) *Client {
 // Return the base URI for this client.
 func (self *Client) URI() *url.URL {
 	return self.uri
+}
+
+// Specify that the NetrcFile (default: ~/.netrc) should be consulted before each
+// request to supply basic authentication.  If a non-empty username or password is
+// found for the
+func (self *Client) SetAutomaticLogin(on bool) {
+	self.basicAuthViaNetrc = on
 }
 
 // Specify an encoder that will be used to serialize data in the request body.
@@ -436,6 +444,13 @@ func (self *Client) Request(
 
 			for k, v := range finalHeaders {
 				request.Header.Set(k, typeutil.String(v))
+			}
+
+			// if we're going to auto-inject credentials from a .netrc file, attempt to do that now
+			if self.basicAuthViaNetrc {
+				if u, p, ok := NetrcCredentials(request.URL.Hostname()); ok {
+					request.Header.Set(`Authorization`, EncodeBasicAuth(u, p))
+				}
 			}
 
 			var hookObject interface{}

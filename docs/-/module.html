@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.93
+                            v1.8.94
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.5&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.8.93&#34;
+    &#34;Version&#34;: &#34;1.8.94&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.8.93`&#34;,
+        &#34;Expression&#34;: &#34;`1.8.94`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.8.93&#34;
+        &#34;Value&#34;: &#34;1.8.94&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -2170,6 +2170,27 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;outlevel&#34;,
+                &#34;Type&#34;: &#34;log.Level&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;errlevel&#34;,
+                &#34;Type&#34;: &#34;log.Level&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;LogOutput&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;OutputLineFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;line&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               },
@@ -2846,29 +2867,6 @@
             &#34;Source&#34;: &#34;dHlwZSBDb21tYW5kU3RhdHVzRnVuYyBmdW5jKFN0YXR1cyk=&#34;
           },
           &#34;OutputLineFunc&#34;: {
-            &#34;Methods&#34;: [
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;outlevel&#34;,
-                    &#34;Type&#34;: &#34;log.Level&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;errlevel&#34;,
-                    &#34;Type&#34;: &#34;log.Level&#34;
-                  }
-                ],
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;LogOutput&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;OutputLineFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
-              }
-            ],
             &#34;Name&#34;: &#34;OutputLineFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk=&#34;
           },
@@ -5986,7 +5984,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/httputil&#34;,
-        &#34;CommentWordCount&#34;: 1165,
+        &#34;CommentWordCount&#34;: 1241,
         &#34;ConstantCount&#34;: 13,
         &#34;Constants&#34;: [
           {
@@ -6152,7 +6150,7 @@
         &#34;Files&#34;: [
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 32,
+            &#34;FunctionCount&#34;: 33,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;bytes&#34;,
@@ -6211,10 +6209,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
               }
             ],
-            &#34;LineCount&#34;: 526,
+            &#34;LineCount&#34;: 541,
             &#34;Name&#34;: &#34;client.go&#34;,
-            &#34;Size&#34;: 15226,
-            &#34;SourceLineCount&#34;: 377,
+            &#34;Size&#34;: 15790,
+            &#34;SourceLineCount&#34;: 386,
             &#34;TypeCount&#34;: 2,
             &#34;VariableCount&#34;: 2
           },
@@ -6239,8 +6237,20 @@
                 &#34;PackageName&#34;: &#34;net/http/httptest&#34;
               },
               {
+                &#34;Alias&#34;: &#34;os&#34;,
+                &#34;PackageName&#34;: &#34;os&#34;
+              },
+              {
                 &#34;Alias&#34;: &#34;testing&#34;,
                 &#34;PackageName&#34;: &#34;testing&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;assert&#34;,
+                &#34;PackageName&#34;: &#34;github.com/alecthomas/assert&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;fileutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/fileutil&#34;
               },
               {
                 &#34;Alias&#34;: &#34;stringutil&#34;,
@@ -6255,10 +6265,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 162,
+            &#34;LineCount&#34;: 214,
             &#34;Name&#34;: &#34;client_test.go&#34;,
-            &#34;Size&#34;: 4209,
-            &#34;SourceLineCount&#34;: 124,
+            &#34;Size&#34;: 5376,
+            &#34;SourceLineCount&#34;: 165,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -6435,6 +6445,58 @@
             &#34;SourceLineCount&#34;: 41,
             &#34;TypeCount&#34;: 2,
             &#34;VariableCount&#34;: 1
+          },
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 1,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;fileutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/fileutil&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;sliceutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/sliceutil&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;netrc&#34;,
+                &#34;PackageName&#34;: &#34;github.com/jdxcode/netrc&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 35,
+            &#34;Name&#34;: &#34;netrc.go&#34;,
+            &#34;Size&#34;: 982,
+            &#34;SourceLineCount&#34;: 25,
+            &#34;TypeCount&#34;: 0,
+            &#34;VariableCount&#34;: 1
+          },
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 0,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;os&#34;,
+                &#34;PackageName&#34;: &#34;os&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;testing&#34;,
+                &#34;PackageName&#34;: &#34;testing&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;fileutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/fileutil&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;require&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 43,
+            &#34;Name&#34;: &#34;netrc_test.go&#34;,
+            &#34;Size&#34;: 844,
+            &#34;SourceLineCount&#34;: 30,
+            &#34;TypeCount&#34;: 0,
+            &#34;VariableCount&#34;: 0
           },
           {
             &#34;ConstantCount&#34;: 0,
@@ -6721,7 +6783,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 75,
+        &#34;FunctionCount&#34;: 77,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -7081,6 +7143,30 @@
             ],
             &#34;Signature&#34;: &#34;MultipartFormEncoder(in interface{}) (io.Reader, error)&#34;,
             &#34;Source&#34;: &#34;ewoJaWYgcmVxLCBvayA6PSBpbi4oKmh0dHAuUmVxdWVzdCk7IG9rIHsKCQlyZXEuSGVhZGVyLlNldChgQ29udGVudC1UeXBlYCwgYG11bHRpcGFydC9mb3JtLWRhdGFgKQoJCXJldHVybiBuaWwsIG5pbAoJfSBlbHNlIHsKCQlvdXRwdXQgOj0gYnl0ZXMuTmV3QnVmZmVyKG5pbCkKCQltcCA6PSBtdWx0aXBhcnQuTmV3V3JpdGVyKG91dHB1dCkKCQlmaWVsZHMgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJCWlmIHR5cGV1dGlsLklzTWFwKGluKSB7CgkJCWZpZWxkcyA9IG1hcHV0aWwuTShpbikuTWFwTmF0aXZlKCkKCQl9IGVsc2UgaWYgaW5SLCBvayA6PSBpbi4oaW8uUmVhZGVyKTsgb2sgewoJCQlmaWVsZHNbRGVmYXVsdE11bHRpcGFydEZvcm1GaWxlRmllbGRdID0gaW5SCgkJfQoJCWZvciBmaWVsZCwgdmFsdWUgOj0gcmFuZ2UgZmllbGRzIHsKCQkJdmFyIGZpbGVuYW1lIHN0cmluZwoJCQlpZiB2Qnl0ZXMsIG9rIDo9IHZhbHVlLihbXWJ5dGUpOyBvayB7CgkJCQl2YWx1ZSA9IGJ5dGVzLk5ld0J1ZmZlcih2Qnl0ZXMpCgkJCX0KCQkJaWYgdkZpbGUsIG9rIDo9IHZhbHVlLigqb3MuRmlsZSk7IG9rIHsKCQkJCWZpbGVuYW1lID0gdkZpbGUuTmFtZSgpCgkJCX0gZWxzZSB7CgkJCQl2YXIgdk1QRkYgKk11bHRpcGFydEZvcm1GaWxlCgkJCQlpZiB2LCBvayA6PSB2YWx1ZS4oTXVsdGlwYXJ0Rm9ybUZpbGUpOyBvayB7CgkJCQkJdk1QRkYgPSAmdgoJCQkJfSBlbHNlIGlmIHYsIG9rIDo9IHZhbHVlLigqTXVsdGlwYXJ0Rm9ybUZpbGUpOyBvayB7CgkJCQkJdk1QRkYgPSB2CgkJCQl9CgkJCQlpZiB2TVBGRiAhPSBuaWwgewoJCQkJCWZpbGVuYW1lID0gdk1QRkYuRmlsZW5hbWUKCQkJCQlpZiB2TVBGRi5EYXRhICE9IG5pbCB7CgkJCQkJCXZhbHVlID0gdk1QRkYuRGF0YQoJCQkJCX0gZWxzZSBpZiBmLCBlcnIgOj0gb3MuT3BlbihmaWxlbmFtZSk7IGVyciA9PSBuaWwgewoJCQkJCQlkZWZlciBmLkNsb3NlKCkKCQkJCQkJdmFsdWUgPSBmCgkJCQkJfSBlbHNlIHsKCQkJCQkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiQ2Fubm90IGFkZCBtdWx0aXBhcnQgZmlsZSAlcTogJXYiLCBmaWxlbmFtZSwgZXJyKQoJCQkJCX0KCQkJCX0KCQkJfQoJCQlpZiB2YWx1ZVIsIG9rIDo9IHZhbHVlLihpby5SZWFkZXIpOyBvayB7CgkJCQlpZiBmaWxlbmFtZSAhPSBgYCB7CgkJCQkJaWYgb3V0VywgZXJyIDo9IG1wLkNyZWF0ZUZvcm1GaWxlKGZpZWxkLCBmaWxlbmFtZSk7IGVyciA9PSBuaWwgewoJCQkJCQlpZiBfLCBlcnIgOj0gaW8uQ29weShvdXRXLCB2YWx1ZVIpOyBlcnIgIT0gbmlsIHsKCQkJCQkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoIkNhbm5vdCB3cml0ZSBtdWx0aXBhcnQgZm9ybSBmaWVsZCAlcTogJXYiLCBmaWVsZCwgZXJyKQoJCQkJCQl9CgkJCQkJfSBlbHNlIHsKCQkJCQkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiQ2Fubm90IGNyZWF0ZSBtdWx0aXBhcnQgZm9ybSBmaWVsZCAlcTogJXYiLCBmaWVsZCwgZXJyKQoJCQkJCX0KCQkJCX0gZWxzZSBpZiBvdXRXLCBlcnIgOj0gbXAuQ3JlYXRlRm9ybUZpZWxkKGZpZWxkKTsgZXJyID09IG5pbCB7CgkJCQkJaWYgXywgZXJyIDo9IGlvLkNvcHkob3V0VywgdmFsdWVSKTsgZXJyICE9IG5pbCB7CgkJCQkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoIkNhbm5vdCB3cml0ZSBtdWx0aXBhcnQgZm9ybSBmaWVsZCAlcTogJXYiLCBmaWVsZCwgZXJyKQoJCQkJCX0KCQkJCX0gZWxzZSB7CgkJCQkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiQ2Fubm90IGNyZWF0ZSBtdWx0aXBhcnQgZm9ybSBmaWVsZCAlcTogJXYiLCBmaWVsZCwgZXJyKQoJCQkJfQoJCQl9IGVsc2UgaWYgZXJyIDo9IG1wLldyaXRlRmllbGQoZmllbGQsIHR5cGV1dGlsLlN0cmluZyh2YWx1ZSkpOyBlcnIgIT0gbmlsIHsKCQkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoIkNhbm5vdCBlbmNvZGUgbXVsdGlwYXJ0IGZvcm0gZmllbGQgJXE6ICV2IiwgZmllbGQsIGVycikKCQkJfQoJCX0KCQlyZXR1cm4gJm11bHRpcGFydEZvcm1SZXF1ZXN0e2RhdGE6IG91dHB1dCwgYm91bmRhcnk6IG1wLkJvdW5kYXJ5KCksIGNvbnRlbnRUeXBlOiBtcC5Gb3JtRGF0YUNvbnRlbnRUeXBlKCl9LCBtcC5DbG9zZSgpCgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;domain&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Retreive the plaintext username and password from the netrc-formatted file in the\nNetrcFile package variable.  The final return argument will be true if and only if\nthe .netrc file exists, is readable, and the username OR password matched to the given\ndomain is non-empty.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;NetrcCredentials&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;NetrcCredentials(domain string) (string, string, bool)&#34;,
+            &#34;Source&#34;: &#34;ewoJaWYgZG9tYWluICE9IGBgIHsKCQlpZiBwYXRoLCBlcnIgOj0gZmlsZXV0aWwuRXhwYW5kVXNlcihOZXRyY0ZpbGUpOyBlcnIgPT0gbmlsIHsKCQkJaWYgbnJjLCBlcnIgOj0gbmV0cmMuUGFyc2UocGF0aCk7IGVyciA9PSBuaWwgewoJCQkJaWYgbSA6PSBucmMuTWFjaGluZShkb21haW4pOyBtICE9IG5pbCB7CgkJCQkJdmFyIHVzZXIgPSBzbGljZXV0aWwuT3JTdHJpbmcobS5HZXQoYGxvZ2luYCksIG0uR2V0KGB1c2VybmFtZWApKQoJCQkJCXZhciBwYXNzID0gbS5HZXQoYHBhc3N3b3JkYCkKCQkJCQlpZiB1c2VyICE9IGBgIHx8IHBhc3MgIT0gYGAgewoJCQkJCQlyZXR1cm4gdXNlciwgcGFzcywgdHJ1ZQoJCQkJCX0KCQkJCX0gZWxzZSBpZiBkb21haW4gIT0gYCpgIHsKCQkJCQlyZXR1cm4gTmV0cmNDcmVkZW50aWFscyhgKmApCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gYGAsIGBgLCBmYWxzZQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -7594,19 +7680,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;httputil&#34;,
-        &#34;LineCount&#34;: 1864,
+        &#34;LineCount&#34;: 2009,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;httputil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 1322,
+        &#34;SourceLineCount&#34;: 1427,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.6628,
+          &#34;Mean&#34;: 0.6629,
           &#34;Median&#34;: 1,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4477
+          &#34;StdDev&#34;: 0.4486
         },
         &#34;Synopsis&#34;: &#34;Utilities for extracting and formatting data encountered in HTTP requests\n&#34;,
         &#34;Tests&#34;: [
@@ -7654,6 +7740,18 @@
               }
             ],
             &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestClientNetrcAuth&#34;,
+            &#34;Signature&#34;: &#34;TestClientNetrcAuth(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJc2VydmVyIDo9IHRlc3RIdHRwU2VydmVyKCkKCWRlZmVyIHNlcnZlci5DbG9zZSgpCgljbGllbnQsIGVyciA6PSBOZXdDbGllbnQoc2VydmVyLlVSTCkKCWFzc2VydC5Ob0Vycm9yKHQsIGVycikKCWFzc2VydC5Ob3ROaWwodCwgY2xpZW50KQoJY2xpZW50LlNldEVycm9yRGVjb2RlcihmdW5jKHJlcyAqaHR0cC5SZXNwb25zZSkgZXJyb3IgewoJCWFzc2VydC5Ob3ROaWwodCwgcmVzLkJvZHkpCgkJcmV0dXJuIGVycm9ycy5OZXcodHlwZXV0aWwuU3RyaW5nKHJlcy5Cb2R5KSkKCX0pCglOZXRyY0ZpbGUgPSBmaWxldXRpbC5NdXN0V3JpdGVUZW1wRmlsZSgibWFjaGluZSAqIGxvZ2luIHRlc3QgcGFzc3dvcmQgdGVzdFxuIiwgInRlc3QtZ2hldHplbC1nby1zdG9ja3V0aWwtaHR0cHV0aWwiKQoJZGVmZXIgb3MuUmVtb3ZlKE5ldHJjRmlsZSkKCWNsaWVudC5TZXRBdXRvbWF0aWNMb2dpbih0cnVlKQoJcmVzcG9uc2UsIGVyciA6PSBjbGllbnQuUmVxdWVzdChQYXRjaCwgYC9gLCBuaWwsIG5pbCwgbmlsKQoJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyKQoJYXNzZXJ0Lk5vdE5pbCh0LCByZXNwb25zZSkKCWFzc2VydC5FcXVhbCh0LCByZXNwb25zZS5TdGF0dXNDb2RlLCBodHRwLlN0YXR1c0FjY2VwdGVkKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestIsMediaType&#34;,
             &#34;Signature&#34;: &#34;TestIsMediaType(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglyZXEgOj0gbXQoYHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLThgKQoJYXNzZXJ0LlRydWUoSXNNZWRpYVR5cGUocmVxLCBgdGV4dC9wbGFpbmApKQoJYXNzZXJ0LlRydWUoSXNNZWRpYVR5cGUocmVxLCBgdGV4dC9wbGFpbmAsIGB0ZXh0L2h0bWxgKSkKCWFzc2VydC5UcnVlKElzTWVkaWFUeXBlKHJlcSwgYHRleHQvYCkpCglhc3NlcnQuRmFsc2UoSXNNZWRpYVR5cGUocmVxKSkKCWFzc2VydC5GYWxzZShJc01lZGlhVHlwZShyZXEsIGB0ZXh0L2h0bWxgKSkKfQ==&#34;
@@ -7669,6 +7767,18 @@
             &#34;Name&#34;: &#34;TestMediaType&#34;,
             &#34;Signature&#34;: &#34;TestMediaType(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGAsIE1lZGlhVHlwZShtdChgYCkpKQoJYXNzZXJ0LkVxdWFsKGB0ZXh0L3BsYWluYCwgTWVkaWFUeXBlKG10KGB0ZXh0L3BsYWluYCkpKQoJYXNzZXJ0LkVxdWFsKGB0ZXh0L3BsYWluYCwgTWVkaWFUeXBlKG10KGB0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04YCkpKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestNetrcPositive&#34;,
+            &#34;Signature&#34;: &#34;TestNetrcPositive(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJTmV0cmNGaWxlID0gZmlsZXV0aWwuTXVzdFdyaXRlVGVtcEZpbGUoIm1hY2hpbmUgc3RvY2staHR0cHV0aWwtdGVzdCBsb2dpbiBoZWxsbyBwYXNzd29yZCB0aGVyZVxubWFjaGluZSBpbnRlbnRpb25hbGx5LWxlZnQtYmxhbmtcbiIsICJ0ZXN0LWdoZXR6ZWwtZ28tc3RvY2t1dGlsLWh0dHB1dGlsIikKCWRlZmVyIG9zLlJlbW92ZShOZXRyY0ZpbGUpCgl2YXIgdSwgcCwgb2sgPSBOZXRyY0NyZWRlbnRpYWxzKGBgKQoJcmVxdWlyZS5GYWxzZSh0LCBvaykKCXJlcXVpcmUuRW1wdHkodCwgdSkKCXJlcXVpcmUuRW1wdHkodCwgcCkKCXUsIHAsIG9rID0gTmV0cmNDcmVkZW50aWFscyhgbm9wZWApCglyZXF1aXJlLkZhbHNlKHQsIG9rKQoJcmVxdWlyZS5FbXB0eSh0LCB1KQoJcmVxdWlyZS5FbXB0eSh0LCBwKQoJdSwgcCwgb2sgPSBOZXRyY0NyZWRlbnRpYWxzKGBpbnRlbnRpb25hbGx5LWxlZnQtYmxhbmtgKQoJcmVxdWlyZS5GYWxzZSh0LCBvaykKCXJlcXVpcmUuRW1wdHkodCwgdSkKCXJlcXVpcmUuRW1wdHkodCwgcCkKCXUsIHAsIG9rID0gTmV0cmNDcmVkZW50aWFscyhgc3RvY2staHR0cHV0aWwtdGVzdGApCglyZXF1aXJlLlRydWUodCwgb2spCglyZXF1aXJlLkVxdWFsKHQsIGBoZWxsb2AsIHUpCglyZXF1aXJlLkVxdWFsKHQsIGB0aGVyZWAsIHApCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -8078,6 +8188,20 @@
               {
                 &#34;Arguments&#34;: [
                   {
+                    &#34;Name&#34;: &#34;on&#34;,
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Specify that the NetrcFile (default: ~/.netrc) should be consulted before each\nrequest to supply basic authentication.  If a non-empty username or password is\nfound for the&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;SetAutomaticLogin&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Signature&#34;: &#34;SetAutomaticLogin(on bool)&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
                     &#34;Name&#34;: &#34;username&#34;,
                     &#34;Type&#34;: &#34;string&#34;
                   },
@@ -8464,7 +8588,7 @@
           }
         },
         &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-        &#34;VariableCount&#34;: 5,
+        &#34;VariableCount&#34;: 6,
         &#34;Variables&#34;: [
           {
             &#34;Expression&#34;: &#34;60&#34;,
@@ -8483,6 +8607,11 @@
           {
             &#34;Expression&#34;: &#34;logging.MustGetLogger(`httputil`)&#34;,
             &#34;Name&#34;: &#34;Logger&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`~/.netrc`&#34;,
+            &#34;Name&#34;: &#34;NetrcFile&#34;,
+            &#34;Value&#34;: &#34;~/.netrc&#34;
           },
           {
             &#34;Expression&#34;: &#34;time.Second&#34;,
@@ -8736,7 +8865,7 @@
             ],
             &#34;LineCount&#34;: 344,
             &#34;Name&#34;: &#34;log.go&#34;,
-            &#34;Size&#34;: 8091,
+            &#34;Size&#34;: 8103,
             &#34;SourceLineCount&#34;: 257,
             &#34;TypeCount&#34;: 3,
             &#34;VariableCount&#34;: 5
@@ -9010,7 +9139,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;Dump&#34;,
             &#34;Signature&#34;: &#34;Dump(args ...interface{})&#34;,
-            &#34;Source&#34;: &#34;ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2coREVCVUcsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2coTG9nTGV2ZWwsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -9023,7 +9152,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;DumpJSON&#34;,
             &#34;Signature&#34;: &#34;DumpJSON(args ...interface{})&#34;,
-            &#34;Source&#34;: &#34;ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBkYXRhLCBlcnIgOj0ganNvbi5NYXJzaGFsSW5kZW50KGFyZywgYGAsIGAgIGApOyBlcnIgPT0gbmlsIHsKCQkJTG9nKERFQlVHLCBzdHJpbmcoZGF0YSkpCgkJfSBlbHNlIHsKCQkJTG9nZihERUJVRywgIkR1bXBKU09OOiAldiIsIGVycikKCQl9Cgl9Cn0=&#34;
+            &#34;Source&#34;: &#34;ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBkYXRhLCBlcnIgOj0ganNvbi5NYXJzaGFsSW5kZW50KGFyZywgYGAsIGAgIGApOyBlcnIgPT0gbmlsIHsKCQkJTG9nKExvZ0xldmVsLCBzdHJpbmcoZGF0YSkpCgkJfSBlbHNlIHsKCQkJTG9nZihMb2dMZXZlbCwgIkR1bXBKU09OOiAldiIsIGVycikKCQl9Cgl9Cn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -9040,7 +9169,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;Dumpf&#34;,
             &#34;Signature&#34;: &#34;Dumpf(format string, args ...interface{})&#34;,
-            &#34;Source&#34;: &#34;ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2dmKERFQlVHLCBmb3JtYXQsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJZm9yIF8sIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlMb2dmKExvZ0xldmVsLCBmb3JtYXQsIHR5cGV1dGlsLkR1bXAoYXJnKSkKCX0KfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -22053,28 +22182,28 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/httputil&#34;,
-      &#34;CommentWordCount&#34;: 1165,
+      &#34;CommentWordCount&#34;: 1241,
       &#34;ConstantCount&#34;: 13,
-      &#34;FunctionCount&#34;: 75,
+      &#34;FunctionCount&#34;: 77,
       &#34;ImportPath&#34;: &#34;httputil&#34;,
-      &#34;LineCount&#34;: 1864,
+      &#34;LineCount&#34;: 2009,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;httputil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 1322,
+      &#34;SourceLineCount&#34;: 1427,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.6628,
+        &#34;Mean&#34;: 0.6629,
         &#34;Median&#34;: 1,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4477
+        &#34;StdDev&#34;: 0.4486
       },
       &#34;Synopsis&#34;: &#34;Utilities for extracting and formatting data encountered in HTTP requests\n&#34;,
       &#34;TypeCount&#34;: 14,
       &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-      &#34;VariableCount&#34;: 5
+      &#34;VariableCount&#34;: 6
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;,
