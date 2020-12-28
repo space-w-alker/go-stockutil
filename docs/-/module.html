@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.94
+                            v1.8.95
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.5&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.8.94&#34;
+    &#34;Version&#34;: &#34;1.8.95&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.8.94`&#34;,
+        &#34;Expression&#34;: &#34;`1.8.95`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.8.94&#34;
+        &#34;Value&#34;: &#34;1.8.95&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -426,6 +426,25 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;kelvin&#34;,
+                &#34;Type&#34;: &#34;int&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;KelvinToColor&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Name&#34;: &#34;color&#34;,
+                &#34;Type&#34;: &#34;Color&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
+            &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;r&#34;,
                 &#34;Type&#34;: &#34;float64&#34;
               },
@@ -464,7 +483,7 @@
         &#34;SourceLineCount&#34;: 897,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 1,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.8074,
           &#34;Median&#34;: 1,
@@ -1015,25 +1034,6 @@
                 ],
                 &#34;Signature&#34;: &#34;Mix(first interface{}, second interface{}) (Color, error)&#34;,
                 &#34;Source&#34;: &#34;ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;kelvin&#34;,
-                    &#34;Type&#34;: &#34;int&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;KelvinToColor&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;color&#34;,
-                    &#34;Type&#34;: &#34;Color&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
-                &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
               }
             ],
             &#34;Name&#34;: &#34;Color&#34;,
@@ -2170,27 +2170,6 @@
           {
             &#34;Arguments&#34;: [
               {
-                &#34;Name&#34;: &#34;outlevel&#34;,
-                &#34;Type&#34;: &#34;log.Level&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;errlevel&#34;,
-                &#34;Type&#34;: &#34;log.Level&#34;
-              }
-            ],
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;LogOutput&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;OutputLineFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
                 &#34;Name&#34;: &#34;line&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               },
@@ -2867,6 +2846,29 @@
             &#34;Source&#34;: &#34;dHlwZSBDb21tYW5kU3RhdHVzRnVuYyBmdW5jKFN0YXR1cyk=&#34;
           },
           &#34;OutputLineFunc&#34;: {
+            &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;outlevel&#34;,
+                    &#34;Type&#34;: &#34;log.Level&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;errlevel&#34;,
+                    &#34;Type&#34;: &#34;log.Level&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;LogOutput&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;OutputLineFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
+              }
+            ],
             &#34;Name&#34;: &#34;OutputLineFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk=&#34;
           },
@@ -3692,6 +3694,24 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;fns&#34;,
+                &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;ManipulateAll&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;path&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -3994,6 +4014,94 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;needle&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;prefix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;suffix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;prefix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;suffix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;scheme&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4003,6 +4111,32 @@
             &#34;Name&#34;: &#34;RemoveOpenHandler&#34;,
             &#34;Signature&#34;: &#34;RemoveOpenHandler(scheme string)&#34;,
             &#34;Source&#34;: &#34;ewoJZGVsZXRlKG9wZW5IYW5kbGVycywgc2NoZW1lKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;find&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;replace&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;occurrences&#34;,
+                &#34;Type&#34;: &#34;int&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;ReplaceWith&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -4794,140 +4928,6 @@
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3Igc3RydWN0IHsKCn0K&#34;
           },
           &#34;ReadManipulatorFunc&#34;: {
-            &#34;Methods&#34;: [
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;fns&#34;,
-                    &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;ManipulateAll&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;find&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;replace&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;occurrences&#34;,
-                    &#34;Type&#34;: &#34;int&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;ReplaceWith&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;needle&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;prefix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;suffix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;prefix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;suffix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
-              }
-            ],
             &#34;Name&#34;: &#34;ReadManipulatorFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3JGdW5jIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKQ==&#34;
           },
@@ -5984,7 +5984,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/httputil&#34;,
-        &#34;CommentWordCount&#34;: 1241,
+        &#34;CommentWordCount&#34;: 1258,
         &#34;ConstantCount&#34;: 13,
         &#34;Constants&#34;: [
           {
@@ -6150,7 +6150,7 @@
         &#34;Files&#34;: [
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 33,
+            &#34;FunctionCount&#34;: 34,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;bytes&#34;,
@@ -6205,16 +6205,20 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;
               },
               {
+                &#34;Alias&#34;: &#34;stringutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
+              },
+              {
                 &#34;Alias&#34;: &#34;typeutil&#34;,
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
               }
             ],
-            &#34;LineCount&#34;: 541,
+            &#34;LineCount&#34;: 572,
             &#34;Name&#34;: &#34;client.go&#34;,
-            &#34;Size&#34;: 15790,
-            &#34;SourceLineCount&#34;: 386,
+            &#34;Size&#34;: 16452,
+            &#34;SourceLineCount&#34;: 409,
             &#34;TypeCount&#34;: 2,
-            &#34;VariableCount&#34;: 2
+            &#34;VariableCount&#34;: 3
           },
           {
             &#34;ConstantCount&#34;: 0,
@@ -6265,10 +6269,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 214,
+            &#34;LineCount&#34;: 226,
             &#34;Name&#34;: &#34;client_test.go&#34;,
-            &#34;Size&#34;: 5376,
-            &#34;SourceLineCount&#34;: 165,
+            &#34;Size&#34;: 5742,
+            &#34;SourceLineCount&#34;: 173,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -6783,7 +6787,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 77,
+        &#34;FunctionCount&#34;: 78,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -6913,6 +6917,27 @@
             ],
             &#34;Signature&#34;: &#34;EncodeBasicAuth(username string, password string) string&#34;,
             &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZtdC5TcHJpbnRmKCJCYXNpYyAlcyIsIGJhc2U2NC5TdGRFbmNvZGluZy5FbmNvZGVUb1N0cmluZyhbXWJ5dGUoZm10LlNwcmludGYoIiVzOiVzIiwgdXNlcm5hbWUsIHBhc3N3b3JkKSkpKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;url&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A simplified GET function using the package-level default client.  Will return the\nresponse body as bytes.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;GetBody&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;[]byte&#34;
+              },
+              {
+                &#34;Type&#34;: &#34;error&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;GetBody(url string) ([]byte, error)&#34;,
+            &#34;Source&#34;: &#34;ewoJaWYgcmVzLCBlcnIgOj0gRGVmYXVsdENsaWVudC5HZXQodXJsLCBuaWwsIG5pbCk7IGVyciA9PSBuaWwgewoJCXZhciBkYXRhLCBlcnIgPSBpb3V0aWwuUmVhZEFsbChyZXMuQm9keSkKCQlyZXMuQm9keS5DbG9zZSgpCgkJcmV0dXJuIGRhdGEsIGVycgoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -7680,19 +7705,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;httputil&#34;,
-        &#34;LineCount&#34;: 2009,
+        &#34;LineCount&#34;: 2052,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;httputil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 1427,
+        &#34;SourceLineCount&#34;: 1458,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0.963,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.6629,
+          &#34;Mean&#34;: 0.6593,
           &#34;Median&#34;: 1,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4486
+          &#34;StdDev&#34;: 0.4504
         },
         &#34;Synopsis&#34;: &#34;Utilities for extracting and formatting data encountered in HTTP requests\n&#34;,
         &#34;Tests&#34;: [
@@ -7743,6 +7768,18 @@
             &#34;Name&#34;: &#34;TestClientNetrcAuth&#34;,
             &#34;Signature&#34;: &#34;TestClientNetrcAuth(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJc2VydmVyIDo9IHRlc3RIdHRwU2VydmVyKCkKCWRlZmVyIHNlcnZlci5DbG9zZSgpCgljbGllbnQsIGVyciA6PSBOZXdDbGllbnQoc2VydmVyLlVSTCkKCWFzc2VydC5Ob0Vycm9yKHQsIGVycikKCWFzc2VydC5Ob3ROaWwodCwgY2xpZW50KQoJY2xpZW50LlNldEVycm9yRGVjb2RlcihmdW5jKHJlcyAqaHR0cC5SZXNwb25zZSkgZXJyb3IgewoJCWFzc2VydC5Ob3ROaWwodCwgcmVzLkJvZHkpCgkJcmV0dXJuIGVycm9ycy5OZXcodHlwZXV0aWwuU3RyaW5nKHJlcy5Cb2R5KSkKCX0pCglOZXRyY0ZpbGUgPSBmaWxldXRpbC5NdXN0V3JpdGVUZW1wRmlsZSgibWFjaGluZSAqIGxvZ2luIHRlc3QgcGFzc3dvcmQgdGVzdFxuIiwgInRlc3QtZ2hldHplbC1nby1zdG9ja3V0aWwtaHR0cHV0aWwiKQoJZGVmZXIgb3MuUmVtb3ZlKE5ldHJjRmlsZSkKCWNsaWVudC5TZXRBdXRvbWF0aWNMb2dpbih0cnVlKQoJcmVzcG9uc2UsIGVyciA6PSBjbGllbnQuUmVxdWVzdChQYXRjaCwgYC9gLCBuaWwsIG5pbCwgbmlsKQoJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyKQoJYXNzZXJ0Lk5vdE5pbCh0LCByZXNwb25zZSkKCWFzc2VydC5FcXVhbCh0LCByZXNwb25zZS5TdGF0dXNDb2RlLCBodHRwLlN0YXR1c0FjY2VwdGVkKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestDefaultClient&#34;,
+            &#34;Signature&#34;: &#34;TestDefaultClient(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzZXJ2ZXIgOj0gdGVzdEh0dHBTZXJ2ZXIoKQoJZGVmZXIgc2VydmVyLkNsb3NlKCkKCXZhciBkYXRhLCBlcnIgPSBHZXRCb2R5KHNlcnZlci5VUkwgKyBgL3Rlc3QvcGF0aGApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoWyAvLyBHRVQKCS8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgldYnl0ZSgie1wicGF0aFwiOlwiL3Rlc3QvcGF0aFwiLFwicXNcIjp7fX1cbiIpLCBkYXRhKQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -8066,7 +8103,7 @@
                   }
                 ],
                 &#34;Signature&#34;: &#34;NewClient(baseURI string) (*Client, error)&#34;,
-                &#34;Source&#34;: &#34;ewoJdmFyIGNsaWVudCA9ICZDbGllbnR7ZW5jb2RlcjogSlNPTkVuY29kZXIsIGRlY29kZXI6IEpTT05EZWNvZGVyLCBoZWFkZXJzOiBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pLCBwYXJhbXM6IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSksIGh0dHBDbGllbnQ6IGh0dHAuRGVmYXVsdENsaWVudH0KCWlmIHVyaSwgZXJyIDo9IHVybC5QYXJzZShiYXNlVVJJKTsgZXJyID09IG5pbCB7CgkJY2xpZW50LnVyaSA9IHVyaQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KCWlmIGxvZy5WZXJ5RGVidWdnaW5nKGBnaXRodWIuY29tL2doZXR6ZWwvZ28tc3RvY2t1dGlsL2h0dHB1dGlsYCkgewoJCWNsaWVudC5TZXRQcmVSZXF1ZXN0SG9vayhmdW5jKHJlcSAqaHR0cC5SZXF1ZXN0KSAoaW50ZXJmYWNle30sIGVycm9yKSB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXF1ZXN0KHJlcSwgdHJ1ZSk7IGVyciA9PSBuaWwgewoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU2ZFx1MjUwMFsgSFRUUCBSZXF1ZXN0IF0lc1x1MjUwNFx1MjUwNFx1MjUwNCR7cmVzZXR9Iiwgc3RyaW5ncy5SZXBlYXQoIlx1MjUwMCIsIERlYnVnT3V0cHV0Qm94V2lkdGgtMTcpKQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjUwMiR7cmVzZXR9IFx1MjFjOSAldiIsIHJlcS5VUkwpCgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0iKQoJCQkJZm9yIF8sIGxpbmUgOj0gcmFuZ2Ugc3RyaW5ncy5TcGxpdChzdHJpbmcoZGF0YSksICJcbiIpIHsKCQkJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0gJXYiLCBsaW5lKQoJCQkJfQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU3MCVzXHUyNTA0XHUyNTA0XHUyNTA0JHtyZXNldH0iLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aCkpCgkJCX0KCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSkKCQljbGllbnQuU2V0UG9zdFJlcXVlc3RIb29rKGZ1bmMocmVzICpodHRwLlJlc3BvbnNlLCBfIGludGVyZmFjZXt9KSBlcnJvciB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXNwb25zZShyZXMsIHRydWUpOyBlcnIgPT0gbmlsIHsKCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjU2ZFx1MjUwMFsgSFRUUCBSZXNwb25zZSBdJXNcdTI1MDRcdTI1MDRcdTI1MDQiLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aC0xOCkpCgkJCQlpZiByZXMuUmVxdWVzdCAhPSBuaWwgewoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsICR7cmVkfVx1MjUwMiR7cmVzZXR9IFx1MjFjNyAldiIsIHJlcy5SZXF1ZXN0LlVSTCkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke3JlZH1cdTI1MDIke3Jlc2V0fSIpCgkJCQl9CgkJCQlmb3IgXywgbGluZSA6PSByYW5nZSBzdHJpbmdzLlNwbGl0KHN0cmluZyhkYXRhKSwgIlxuIikgewoJCQkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TcGFjZShsaW5lKQoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjUwMiAldiIsIGxpbmUpCgkJCQl9CgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCBcdTI1NzAlc1x1MjUwNFx1MjUwNFx1MjUwNCIsIHN0cmluZ3MuUmVwZWF0KCJcdTI1MDAiLCBEZWJ1Z091dHB1dEJveFdpZHRoKSkKCQkJfQoJCQlyZXR1cm4gbmlsCgkJfSkKCX0KCXJldHVybiBjbGllbnQsIG5pbAp9&#34;
+                &#34;Source&#34;: &#34;ewoJdmFyIGNsaWVudCA9ICZDbGllbnR7ZW5jb2RlcjogSlNPTkVuY29kZXIsIGRlY29kZXI6IEpTT05EZWNvZGVyLCBoZWFkZXJzOiBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pLCBwYXJhbXM6IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSksIGh0dHBDbGllbnQ6IGh0dHAuRGVmYXVsdENsaWVudH0KCWlmIGJhc2VVUkkgIT0gYGAgewoJCWlmIHVyaSwgZXJyIDo9IHVybC5QYXJzZShiYXNlVVJJKTsgZXJyID09IG5pbCB7CgkJCWNsaWVudC51cmkgPSB1cmkKCQl9IGVsc2UgewoJCQlyZXR1cm4gbmlsLCBlcnIKCQl9Cgl9IGVsc2UgewoJCWNsaWVudC51cmkgPSBuZXcodXJsLlVSTCkKCX0KCWlmIGxvZy5WZXJ5RGVidWdnaW5nKGBnaXRodWIuY29tL2doZXR6ZWwvZ28tc3RvY2t1dGlsL2h0dHB1dGlsYCkgewoJCWNsaWVudC5TZXRQcmVSZXF1ZXN0SG9vayhmdW5jKHJlcSAqaHR0cC5SZXF1ZXN0KSAoaW50ZXJmYWNle30sIGVycm9yKSB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXF1ZXN0KHJlcSwgdHJ1ZSk7IGVyciA9PSBuaWwgewoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU2ZFx1MjUwMFsgSFRUUCBSZXF1ZXN0IF0lc1x1MjUwNFx1MjUwNFx1MjUwNCR7cmVzZXR9Iiwgc3RyaW5ncy5SZXBlYXQoIlx1MjUwMCIsIERlYnVnT3V0cHV0Qm94V2lkdGgtMTcpKQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjUwMiR7cmVzZXR9IFx1MjFjOSAldiIsIHJlcS5VUkwpCgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0iKQoJCQkJZm9yIF8sIGxpbmUgOj0gcmFuZ2Ugc3RyaW5ncy5TcGxpdChzdHJpbmcoZGF0YSksICJcbiIpIHsKCQkJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0gJXYiLCBsaW5lKQoJCQkJfQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU3MCVzXHUyNTA0XHUyNTA0XHUyNTA0JHtyZXNldH0iLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aCkpCgkJCX0KCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSkKCQljbGllbnQuU2V0UG9zdFJlcXVlc3RIb29rKGZ1bmMocmVzICpodHRwLlJlc3BvbnNlLCBfIGludGVyZmFjZXt9KSBlcnJvciB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXNwb25zZShyZXMsIHRydWUpOyBlcnIgPT0gbmlsIHsKCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjU2ZFx1MjUwMFsgSFRUUCBSZXNwb25zZSBdJXNcdTI1MDRcdTI1MDRcdTI1MDQiLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aC0xOCkpCgkJCQlpZiByZXMuUmVxdWVzdCAhPSBuaWwgewoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsICR7cmVkfVx1MjUwMiR7cmVzZXR9IFx1MjFjNyAldiIsIHJlcy5SZXF1ZXN0LlVSTCkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke3JlZH1cdTI1MDIke3Jlc2V0fSIpCgkJCQl9CgkJCQlmb3IgXywgbGluZSA6PSByYW5nZSBzdHJpbmdzLlNwbGl0KHN0cmluZyhkYXRhKSwgIlxuIikgewoJCQkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TcGFjZShsaW5lKQoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjUwMiAldiIsIGxpbmUpCgkJCQl9CgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCBcdTI1NzAlc1x1MjUwNFx1MjUwNFx1MjUwNCIsIHN0cmluZ3MuUmVwZWF0KCJcdTI1MDAiLCBEZWJ1Z091dHB1dEJveFdpZHRoKSkKCQkJfQoJCQlyZXR1cm4gbmlsCgkJfSkKCX0KCXJldHVybiBjbGllbnQsIG5pbAp9&#34;
               },
               {
                 &#34;Comment&#34;: &#34;Return the params set on this client.&#34;,
@@ -8588,11 +8625,15 @@
           }
         },
         &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-        &#34;VariableCount&#34;: 6,
+        &#34;VariableCount&#34;: 7,
         &#34;Variables&#34;: [
           {
             &#34;Expression&#34;: &#34;60&#34;,
             &#34;Name&#34;: &#34;DebugOutputBoxWidth&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;MustClient(``)&#34;,
+            &#34;Name&#34;: &#34;DefaultClient&#34;
           },
           {
             &#34;Expression&#34;: &#34;`filename`&#34;,
@@ -20202,7 +20243,7 @@
         &#34;SourceLineCount&#34;: 942,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0.8906,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6853,
           &#34;Median&#34;: 0.95,
@@ -22068,7 +22109,7 @@
       &#34;SourceLineCount&#34;: 897,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 1,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.8074,
         &#34;Median&#34;: 1,
@@ -22182,28 +22223,28 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/httputil&#34;,
-      &#34;CommentWordCount&#34;: 1241,
+      &#34;CommentWordCount&#34;: 1258,
       &#34;ConstantCount&#34;: 13,
-      &#34;FunctionCount&#34;: 77,
+      &#34;FunctionCount&#34;: 78,
       &#34;ImportPath&#34;: &#34;httputil&#34;,
-      &#34;LineCount&#34;: 2009,
+      &#34;LineCount&#34;: 2052,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;httputil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 1427,
+      &#34;SourceLineCount&#34;: 1458,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0.963,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.6629,
+        &#34;Mean&#34;: 0.6593,
         &#34;Median&#34;: 1,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4486
+        &#34;StdDev&#34;: 0.4504
       },
       &#34;Synopsis&#34;: &#34;Utilities for extracting and formatting data encountered in HTTP requests\n&#34;,
       &#34;TypeCount&#34;: 14,
       &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-      &#34;VariableCount&#34;: 6
+      &#34;VariableCount&#34;: 7
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;,
@@ -22493,7 +22534,7 @@
       &#34;SourceLineCount&#34;: 942,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0.8906,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6853,
         &#34;Median&#34;: 0.95,

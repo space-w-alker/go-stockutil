@@ -15,11 +15,28 @@ import (
 
 	"github.com/ghetzel/go-stockutil/fileutil"
 	"github.com/ghetzel/go-stockutil/log"
+	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
 var DebugOutputBoxWidth = 60
 var WaitForPollInterval = time.Second
+
+var DefaultClient = MustClient(``)
+
+// A simplified GET function using the package-level default client.  Will return the
+// response body as bytes.
+func GetBody(url string) ([]byte, error) {
+	if res, err := DefaultClient.Get(url, nil, nil); err == nil {
+		var data, err = ioutil.ReadAll(res.Body)
+
+		res.Body.Close()
+
+		return data, err
+	} else {
+		return nil, err
+	}
+}
 
 type Literal []byte
 
@@ -83,10 +100,14 @@ func NewClient(baseURI string) (*Client, error) {
 		httpClient: http.DefaultClient,
 	}
 
-	if uri, err := url.Parse(baseURI); err == nil {
-		client.uri = uri
+	if baseURI != `` {
+		if uri, err := url.Parse(baseURI); err == nil {
+			client.uri = uri
+		} else {
+			return nil, err
+		}
 	} else {
-		return nil, err
+		client.uri = new(url.URL)
 	}
 
 	if log.VeryDebugging(`github.com/ghetzel/go-stockutil/httputil`) {
@@ -391,7 +412,17 @@ func (self *Client) Request(
 		finalHeaders[k] = v
 	}
 
-	if reqUrl, err := UrlPathJoin(self.uri, path); err == nil {
+	var reqUrl *url.URL
+	var err error
+
+	switch s, _ := stringutil.SplitPair(path, `://`); strings.ToLower(s) {
+	case `http`, `https`:
+		reqUrl, err = url.Parse(path)
+	default:
+		reqUrl, err = UrlPathJoin(self.uri, path)
+	}
+
+	if err == nil {
 		// set querystring values from map
 		for k, v := range finalParams {
 			SetQ(reqUrl, k, v)

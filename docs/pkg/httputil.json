@@ -6,18 +6,18 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities for extracting and formatting data encountered in HTTP requests\n",
     "MainFunction": false,
-    "CommentWordCount": 1241,
-    "LineCount": 2009,
-    "SourceLineCount": 1427,
-    "FunctionCount": 77,
+    "CommentWordCount": 1258,
+    "LineCount": 2052,
+    "SourceLineCount": 1458,
+    "FunctionCount": 78,
     "TypeCount": 14,
     "ConstantCount": 13,
-    "VariableCount": 6,
+    "VariableCount": 7,
     "Statistics": {
-        "Mean": 0.6629,
-        "StdDev": 0.4486,
+        "Mean": 0.6593,
+        "StdDev": 0.4504,
         "GeometricMean": 0,
-        "HarmonicMean": 1,
+        "HarmonicMean": 0.963,
         "Median": 1,
         "Minimum": 0,
         "Maximum": 1
@@ -79,17 +79,21 @@
                     "Alias": "log"
                 },
                 {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
                     "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
                     "Alias": "typeutil"
                 }
             ],
-            "Size": 15790,
-            "LineCount": 541,
-            "SourceLineCount": 386,
-            "FunctionCount": 33,
+            "Size": 16452,
+            "LineCount": 572,
+            "SourceLineCount": 409,
+            "FunctionCount": 34,
             "TypeCount": 2,
             "ConstantCount": 0,
-            "VariableCount": 2
+            "VariableCount": 3
         },
         {
             "Name": "client_test.go",
@@ -139,9 +143,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 5376,
-            "LineCount": 214,
-            "SourceLineCount": 165,
+            "Size": 5742,
+            "LineCount": 226,
+            "SourceLineCount": 173,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -735,6 +739,10 @@
             "Expression": "60"
         },
         {
+            "Name": "DefaultClient",
+            "Expression": "MustClient(``)"
+        },
+        {
             "Name": "DefaultMultipartFormFileField",
             "Expression": "`filename`",
             "Value": "filename"
@@ -886,6 +894,27 @@
             ],
             "Signature": "EncodeBasicAuth(username string, password string) string",
             "Source": "ewoJcmV0dXJuIGZtdC5TcHJpbnRmKCJCYXNpYyAlcyIsIGJhc2U2NC5TdGRFbmNvZGluZy5FbmNvZGVUb1N0cmluZyhbXWJ5dGUoZm10LlNwcmludGYoIiVzOiVzIiwgdXNlcm5hbWUsIHBhc3N3b3JkKSkpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "GetBody",
+            "Comment": "A simplified GET function using the package-level default client.  Will return the\nresponse body as bytes.",
+            "Arguments": [
+                {
+                    "Name": "url",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]byte"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "GetBody(url string) ([]byte, error)",
+            "Source": "ewoJaWYgcmVzLCBlcnIgOj0gRGVmYXVsdENsaWVudC5HZXQodXJsLCBuaWwsIG5pbCk7IGVyciA9PSBuaWwgewoJCXZhciBkYXRhLCBlcnIgPSBpb3V0aWwuUmVhZEFsbChyZXMuQm9keSkKCQlyZXMuQm9keS5DbG9zZSgpCgkJcmV0dXJuIGRhdGEsIGVycgoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KfQ==",
             "IsPackageLevel": true
         },
         {
@@ -1793,6 +1822,18 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "TestDefaultClient",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestDefaultClient(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzZXJ2ZXIgOj0gdGVzdEh0dHBTZXJ2ZXIoKQoJZGVmZXIgc2VydmVyLkNsb3NlKCkKCXZhciBkYXRhLCBlcnIgPSBHZXRCb2R5KHNlcnZlci5VUkwgKyBgL3Rlc3QvcGF0aGApCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoWyAvLyBHRVQKCS8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgldYnl0ZSgie1wicGF0aFwiOlwiL3Rlc3QvcGF0aFwiLFwicXNcIjp7fX1cbiIpLCBkYXRhKQp9",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "TestIsMediaType",
             "Arguments": [
                 {
@@ -2112,7 +2153,7 @@
                         }
                     ],
                     "Signature": "NewClient(baseURI string) (*Client, error)",
-                    "Source": "ewoJdmFyIGNsaWVudCA9ICZDbGllbnR7ZW5jb2RlcjogSlNPTkVuY29kZXIsIGRlY29kZXI6IEpTT05EZWNvZGVyLCBoZWFkZXJzOiBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pLCBwYXJhbXM6IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSksIGh0dHBDbGllbnQ6IGh0dHAuRGVmYXVsdENsaWVudH0KCWlmIHVyaSwgZXJyIDo9IHVybC5QYXJzZShiYXNlVVJJKTsgZXJyID09IG5pbCB7CgkJY2xpZW50LnVyaSA9IHVyaQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KCWlmIGxvZy5WZXJ5RGVidWdnaW5nKGBnaXRodWIuY29tL2doZXR6ZWwvZ28tc3RvY2t1dGlsL2h0dHB1dGlsYCkgewoJCWNsaWVudC5TZXRQcmVSZXF1ZXN0SG9vayhmdW5jKHJlcSAqaHR0cC5SZXF1ZXN0KSAoaW50ZXJmYWNle30sIGVycm9yKSB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXF1ZXN0KHJlcSwgdHJ1ZSk7IGVyciA9PSBuaWwgewoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU2ZFx1MjUwMFsgSFRUUCBSZXF1ZXN0IF0lc1x1MjUwNFx1MjUwNFx1MjUwNCR7cmVzZXR9Iiwgc3RyaW5ncy5SZXBlYXQoIlx1MjUwMCIsIERlYnVnT3V0cHV0Qm94V2lkdGgtMTcpKQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjUwMiR7cmVzZXR9IFx1MjFjOSAldiIsIHJlcS5VUkwpCgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0iKQoJCQkJZm9yIF8sIGxpbmUgOj0gcmFuZ2Ugc3RyaW5ncy5TcGxpdChzdHJpbmcoZGF0YSksICJcbiIpIHsKCQkJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0gJXYiLCBsaW5lKQoJCQkJfQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU3MCVzXHUyNTA0XHUyNTA0XHUyNTA0JHtyZXNldH0iLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aCkpCgkJCX0KCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSkKCQljbGllbnQuU2V0UG9zdFJlcXVlc3RIb29rKGZ1bmMocmVzICpodHRwLlJlc3BvbnNlLCBfIGludGVyZmFjZXt9KSBlcnJvciB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXNwb25zZShyZXMsIHRydWUpOyBlcnIgPT0gbmlsIHsKCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjU2ZFx1MjUwMFsgSFRUUCBSZXNwb25zZSBdJXNcdTI1MDRcdTI1MDRcdTI1MDQiLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aC0xOCkpCgkJCQlpZiByZXMuUmVxdWVzdCAhPSBuaWwgewoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsICR7cmVkfVx1MjUwMiR7cmVzZXR9IFx1MjFjNyAldiIsIHJlcy5SZXF1ZXN0LlVSTCkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke3JlZH1cdTI1MDIke3Jlc2V0fSIpCgkJCQl9CgkJCQlmb3IgXywgbGluZSA6PSByYW5nZSBzdHJpbmdzLlNwbGl0KHN0cmluZyhkYXRhKSwgIlxuIikgewoJCQkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TcGFjZShsaW5lKQoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjUwMiAldiIsIGxpbmUpCgkJCQl9CgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCBcdTI1NzAlc1x1MjUwNFx1MjUwNFx1MjUwNCIsIHN0cmluZ3MuUmVwZWF0KCJcdTI1MDAiLCBEZWJ1Z091dHB1dEJveFdpZHRoKSkKCQkJfQoJCQlyZXR1cm4gbmlsCgkJfSkKCX0KCXJldHVybiBjbGllbnQsIG5pbAp9",
+                    "Source": "ewoJdmFyIGNsaWVudCA9ICZDbGllbnR7ZW5jb2RlcjogSlNPTkVuY29kZXIsIGRlY29kZXI6IEpTT05EZWNvZGVyLCBoZWFkZXJzOiBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pLCBwYXJhbXM6IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSksIGh0dHBDbGllbnQ6IGh0dHAuRGVmYXVsdENsaWVudH0KCWlmIGJhc2VVUkkgIT0gYGAgewoJCWlmIHVyaSwgZXJyIDo9IHVybC5QYXJzZShiYXNlVVJJKTsgZXJyID09IG5pbCB7CgkJCWNsaWVudC51cmkgPSB1cmkKCQl9IGVsc2UgewoJCQlyZXR1cm4gbmlsLCBlcnIKCQl9Cgl9IGVsc2UgewoJCWNsaWVudC51cmkgPSBuZXcodXJsLlVSTCkKCX0KCWlmIGxvZy5WZXJ5RGVidWdnaW5nKGBnaXRodWIuY29tL2doZXR6ZWwvZ28tc3RvY2t1dGlsL2h0dHB1dGlsYCkgewoJCWNsaWVudC5TZXRQcmVSZXF1ZXN0SG9vayhmdW5jKHJlcSAqaHR0cC5SZXF1ZXN0KSAoaW50ZXJmYWNle30sIGVycm9yKSB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXF1ZXN0KHJlcSwgdHJ1ZSk7IGVyciA9PSBuaWwgewoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU2ZFx1MjUwMFsgSFRUUCBSZXF1ZXN0IF0lc1x1MjUwNFx1MjUwNFx1MjUwNCR7cmVzZXR9Iiwgc3RyaW5ncy5SZXBlYXQoIlx1MjUwMCIsIERlYnVnT3V0cHV0Qm94V2lkdGgtMTcpKQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjUwMiR7cmVzZXR9IFx1MjFjOSAldiIsIHJlcS5VUkwpCgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0iKQoJCQkJZm9yIF8sIGxpbmUgOj0gcmFuZ2Ugc3RyaW5ncy5TcGxpdChzdHJpbmcoZGF0YSksICJcbiIpIHsKCQkJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke2JsdWV9XHUyNTAyJHtyZXNldH0gJXYiLCBsaW5lKQoJCQkJfQoJCQkJbG9nLkRlYnVnZigiaHR0cHV0aWwgJHtibHVlfVx1MjU3MCVzXHUyNTA0XHUyNTA0XHUyNTA0JHtyZXNldH0iLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aCkpCgkJCX0KCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSkKCQljbGllbnQuU2V0UG9zdFJlcXVlc3RIb29rKGZ1bmMocmVzICpodHRwLlJlc3BvbnNlLCBfIGludGVyZmFjZXt9KSBlcnJvciB7CgkJCWlmIGRhdGEsIGVyciA6PSBnb2h0dHB1dGlsLkR1bXBSZXNwb25zZShyZXMsIHRydWUpOyBlcnIgPT0gbmlsIHsKCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjU2ZFx1MjUwMFsgSFRUUCBSZXNwb25zZSBdJXNcdTI1MDRcdTI1MDRcdTI1MDQiLCBzdHJpbmdzLlJlcGVhdCgiXHUyNTAwIiwgRGVidWdPdXRwdXRCb3hXaWR0aC0xOCkpCgkJCQlpZiByZXMuUmVxdWVzdCAhPSBuaWwgewoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsICR7cmVkfVx1MjUwMiR7cmVzZXR9IFx1MjFjNyAldiIsIHJlcy5SZXF1ZXN0LlVSTCkKCQkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCAke3JlZH1cdTI1MDIke3Jlc2V0fSIpCgkJCQl9CgkJCQlmb3IgXywgbGluZSA6PSByYW5nZSBzdHJpbmdzLlNwbGl0KHN0cmluZyhkYXRhKSwgIlxuIikgewoJCQkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TcGFjZShsaW5lKQoJCQkJCWxvZy5EZWJ1Z2YoImh0dHB1dGlsIFx1MjUwMiAldiIsIGxpbmUpCgkJCQl9CgkJCQlsb2cuRGVidWdmKCJodHRwdXRpbCBcdTI1NzAlc1x1MjUwNFx1MjUwNFx1MjUwNCIsIHN0cmluZ3MuUmVwZWF0KCJcdTI1MDAiLCBEZWJ1Z091dHB1dEJveFdpZHRoKSkKCQkJfQoJCQlyZXR1cm4gbmlsCgkJfSkKCX0KCXJldHVybiBjbGllbnQsIG5pbAp9",
                     "IsPackageLevel": true
                 },
                 {

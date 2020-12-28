@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.94
+                            v1.8.95
                         </li>
                     </ul>
                     
@@ -206,6 +206,12 @@
     <li>
 		<strong>
 		<a href="#EncodeBasicAuth">func EncodeBasicAuth(username string, password string) string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#GetBody">func GetBody(url string) ([]byte, error)</a>
 		</strong>
 	</li>
 	
@@ -1241,12 +1247,12 @@
 			<a href="client.go">client.go</a>
 			
 		</td>
-		<td class="text-right">15KB</td>
-		<td class="text-right">386</td>
-		<td class="text-right">33</td>
+		<td class="text-right">16KB</td>
+		<td class="text-right">409</td>
+		<td class="text-right">34</td>
 		<td class="text-right">2</td>
 		<td class="text-right"></td>
-		<td class="text-right">2</td>
+		<td class="text-right">3</td>
 	</tr>
 	
 	<tr>
@@ -1255,8 +1261,8 @@
 			<a href="client_test.go">client_test.go</a>
 			
 		</td>
-		<td class="text-right">5KB</td>
-		<td class="text-right">165</td>
+		<td class="text-right">6KB</td>
+		<td class="text-right">173</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1529,6 +1535,7 @@ const <span id="Warning">Warning</span> =
 
 	<pre>
 var <span id="DebugOutputBoxWidth">DebugOutputBoxWidth          </span> = 60
+var <span id="DefaultClient">DefaultClient                </span> = MustClient(``)
 var <span id="DefaultMultipartFormFileField">DefaultMultipartFormFileField</span> = `filename`
 var <span id="FormUnmarshalStructTag">FormUnmarshalStructTag       </span> = `json`
 var <span id="Logger">Logger                       </span> = logging.MustGetLogger(`httputil`)
@@ -1622,6 +1629,20 @@ var <span id="WaitForPollInterval">WaitForPollInterval          </span> = time.S
 
 
 <p><p>Encode the username and password into a value than can be used in the Authorization HTTP header.</p>
+</p>
+
+
+<h3 id="GetBody" data-kind="f">
+	func <a title="View Source" href="">GetBody</a>
+	<a class="permalink" href="#GetBody">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func GetBody(url string) ([]byte, error)</pre>
+</div>
+
+
+<p><p>A simplified GET function using the package-level default client.  Will return the<br>response body as bytes.</p>
 </p>
 
 

@@ -86,6 +86,18 @@ func testHttpServer() *httptest.Server {
 	}))
 }
 
+func TestDefaultClient(t *testing.T) {
+	assert := require.New(t)
+	server := testHttpServer()
+	defer server.Close()
+
+	// GET
+	// --------------------------------------------------------------------------------------------
+	var data, err = GetBody(server.URL + `/test/path`)
+	assert.NoError(err)
+	assert.Equal([]byte("{\"path\":\"/test/path\",\"qs\":{}}\n"), data)
+}
+
 func TestClient(t *testing.T) {
 	assert := require.New(t)
 	var out map[string]interface{}
