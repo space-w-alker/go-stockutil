@@ -62,6 +62,10 @@ type Map struct {
 	atomic            sync.Mutex
 }
 
+func NewMap() *Map {
+	return M(nil)
+}
+
 // Create a new Variant map object from the given value.  A wide range of values are accepted, and
 // the best effort is made to convert those values into a usable map. Accepted values include typeutil.Variant,
 // any value with a reflect.Kind of reflect.Map, sync.Map, another maputil.Map, url.Values,

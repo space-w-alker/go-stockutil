@@ -7,15 +7,15 @@
     "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
     "MainFunction": false,
     "CommentWordCount": 1369,
-    "LineCount": 4399,
-    "SourceLineCount": 3351,
-    "FunctionCount": 76,
+    "LineCount": 4403,
+    "SourceLineCount": 3354,
+    "FunctionCount": 77,
     "TypeCount": 14,
     "ConstantCount": 1,
     "VariableCount": 4,
     "Statistics": {
-        "Mean": 0.5657,
-        "StdDev": 0.4813,
+        "Mean": 0.5606,
+        "StdDev": 0.4822,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0.9,
@@ -319,10 +319,10 @@
                     "Alias": "utilutil"
                 }
             ],
-            "Size": 14714,
-            "LineCount": 606,
-            "SourceLineCount": 441,
-            "FunctionCount": 40,
+            "Size": 14753,
+            "LineCount": 610,
+            "SourceLineCount": 444,
+            "FunctionCount": 41,
             "TypeCount": 6,
             "ConstantCount": 0,
             "VariableCount": 2
@@ -2642,6 +2642,17 @@
                     ],
                     "Signature": "NInt(key string, fallbacks ...interface{}) int",
                     "IsPackageLevel": false
+                },
+                {
+                    "Name": "NewMap",
+                    "Returns": [
+                        {
+                            "Type": "*Map"
+                        }
+                    ],
+                    "Signature": "NewMap() *Map",
+                    "Source": "ewoJcmV0dXJuIE0obmlsKQp9",
+                    "IsPackageLevel": true
                 },
                 {
                     "Name": "Set",

@@ -38,8 +38,8 @@
         {
             "Name": "Version",
             "Immutable": true,
-            "Expression": "`1.9.0`",
-            "Value": "1.9.0"
+            "Expression": "`1.9.1`",
+            "Value": "1.9.1"
         }
     ],
     "Packages": [
@@ -2067,6 +2067,27 @@
                     "IsPackageLevel": true
                 },
                 {
+                    "Name": "LogOutput",
+                    "Arguments": [
+                        {
+                            "Name": "outlevel",
+                            "Type": "log.Level"
+                        },
+                        {
+                            "Name": "errlevel",
+                            "Type": "log.Level"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "OutputLineFunc"
+                        }
+                    ],
+                    "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                    "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "LogOutputFunc",
                     "Arguments": [
                         {
@@ -2729,29 +2750,6 @@
                 },
                 "OutputLineFunc": {
                     "Name": "OutputLineFunc",
-                    "Methods": [
-                        {
-                            "Name": "LogOutput",
-                            "Arguments": [
-                                {
-                                    "Name": "outlevel",
-                                    "Type": "log.Level"
-                                },
-                                {
-                                    "Name": "errlevel",
-                                    "Type": "log.Level"
-                                }
-                            ],
-                            "Returns": [
-                                {
-                                    "Type": "OutputLineFunc"
-                                }
-                            ],
-                            "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                            "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                            "IsPackageLevel": true
-                        }
-                    ],
                     "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
                 },
                 "Status": {
@@ -6435,7 +6433,7 @@
                 "Mean": 0.6593,
                 "StdDev": 0.4504,
                 "GeometricMean": 0,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -10411,15 +10409,15 @@
             "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
             "MainFunction": false,
             "CommentWordCount": 1369,
-            "LineCount": 4399,
-            "SourceLineCount": 3351,
-            "FunctionCount": 76,
+            "LineCount": 4403,
+            "SourceLineCount": 3354,
+            "FunctionCount": 77,
             "TypeCount": 14,
             "ConstantCount": 1,
             "VariableCount": 4,
             "Statistics": {
-                "Mean": 0.5657,
-                "StdDev": 0.4813,
+                "Mean": 0.5606,
+                "StdDev": 0.4822,
                 "GeometricMean": 0,
                 "HarmonicMean": 0,
                 "Median": 0.9,
@@ -10723,10 +10721,10 @@
                             "Alias": "utilutil"
                         }
                     ],
-                    "Size": 14714,
-                    "LineCount": 606,
-                    "SourceLineCount": 441,
-                    "FunctionCount": 40,
+                    "Size": 14753,
+                    "LineCount": 610,
+                    "SourceLineCount": 444,
+                    "FunctionCount": 41,
                     "TypeCount": 6,
                     "ConstantCount": 0,
                     "VariableCount": 2
@@ -13048,6 +13046,17 @@
                             "IsPackageLevel": false
                         },
                         {
+                            "Name": "NewMap",
+                            "Returns": [
+                                {
+                                    "Type": "*Map"
+                                }
+                            ],
+                            "Signature": "NewMap() *Map",
+                            "Source": "ewoJcmV0dXJuIE0obmlsKQp9",
+                            "IsPackageLevel": true
+                        },
+                        {
                             "Name": "Set",
                             "Comment": "Set a value in the Map at the given dot.separated key to a value.",
                             "PointerReceiver": true,
@@ -13525,7 +13534,7 @@
                 "Mean": 0.1667,
                 "StdDev": 0.3727,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -19759,7 +19768,7 @@
                 "Mean": 0.5356,
                 "StdDev": 0.4464,
                 "GeometricMean": 0.9393,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 0.4,
                 "Minimum": 0,
                 "Maximum": 1
