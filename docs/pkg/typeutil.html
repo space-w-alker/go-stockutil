@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.95
+                            v1.9.0
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 69%</span>
+<span class="pull-right">Doc Coverage: 54%</span>
 <h2 id="pkg-overview">package typeutil</h2>
 
 <p>
@@ -352,6 +352,60 @@
 	</li>
 	
     <li>
+		
+		<a href="#OrAuto">func OrAuto(first interface{}, rest ...interface{}) interface{}</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#OrBool">func OrBool(first interface{}, rest ...interface{}) bool</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#OrBytes">func OrBytes(first []byte, rest ...[]byte) []byte</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#OrDuration">func OrDuration(first interface{}, rest ...interface{}) time.Duration</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#OrFloat">func OrFloat(first interface{}, rest ...interface{}) float64</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#OrInt">func OrInt(first interface{}, rest ...interface{}) int64</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#OrNInt">func OrNInt(first interface{}, rest ...interface{}) int</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#OrString">func OrString(first interface{}, rest ...interface{}) string</a>
+		
+	</li>
+	
+    <li>
+		
+		<a href="#OrTime">func OrTime(first interface{}, rest ...interface{}) time.Time</a>
+		
+	</li>
+	
+    <li>
 		<strong>
 		<a href="#RegisterTypeHandler">func RegisterTypeHandler(handler TypeConvertFunc, types ...string)</a>
 		</strong>
@@ -429,6 +483,26 @@
 		
 		
 		<ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			
@@ -719,6 +793,126 @@
 			
 			
 			<li>
+				
+				<a href="#Variant.Or">
+					func
+					(self Variant)
+					Or(or ...interface{}) interface{}
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrAuto">
+					func
+					(self Variant)
+					OrAuto(or ...interface{}) interface{}
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrBool">
+					func
+					(self Variant)
+					OrBool(or ...interface{}) bool
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrBytes">
+					func
+					(self Variant)
+					OrBytes(or ...[]byte) []byte
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrDuration">
+					func
+					(self Variant)
+					OrDuration(or ...interface{}) time.Duration
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrFloat">
+					func
+					(self Variant)
+					OrFloat(or ...interface{}) float64
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrInt">
+					func
+					(self Variant)
+					OrInt(or ...interface{}) int64
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrNInt">
+					func
+					(self Variant)
+					OrNInt(or ...interface{}) int
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrString">
+					func
+					(self Variant)
+					OrString(or ...interface{}) string
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.OrTime">
+					func
+					(self Variant)
+					OrTime(or ...interface{}) time.Time
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
 				<strong>
 				<a href="#Variant.Slice">
 					func
@@ -871,9 +1065,9 @@
 			<a href="variant.go">variant.go</a>
 			
 		</td>
-		<td class="text-right">8KB</td>
-		<td class="text-right">265</td>
-		<td class="text-right">40</td>
+		<td class="text-right">11KB</td>
+		<td class="text-right">403</td>
+		<td class="text-right">59</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -885,8 +1079,8 @@
 			<a href="variant_test.go">variant_test.go</a>
 			
 		</td>
-		<td class="text-right">3KB</td>
-		<td class="text-right">111</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">157</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1327,6 +1521,105 @@ const <span id="Value3">Value3</span> = `value-3`
 </p>
 
 
+<h3 id="OrAuto" data-kind="f">
+	func <a title="View Source" href="">OrAuto</a>
+	<a class="permalink" href="#OrAuto">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrAuto(first interface{}, rest ...interface{}) interface{}</pre>
+</div>
+
+
+
+<h3 id="OrBool" data-kind="f">
+	func <a title="View Source" href="">OrBool</a>
+	<a class="permalink" href="#OrBool">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrBool(first interface{}, rest ...interface{}) bool</pre>
+</div>
+
+
+
+<h3 id="OrBytes" data-kind="f">
+	func <a title="View Source" href="">OrBytes</a>
+	<a class="permalink" href="#OrBytes">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrBytes(first []byte, rest ...[]byte) []byte</pre>
+</div>
+
+
+
+<h3 id="OrDuration" data-kind="f">
+	func <a title="View Source" href="">OrDuration</a>
+	<a class="permalink" href="#OrDuration">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrDuration(first interface{}, rest ...interface{}) time.Duration</pre>
+</div>
+
+
+
+<h3 id="OrFloat" data-kind="f">
+	func <a title="View Source" href="">OrFloat</a>
+	<a class="permalink" href="#OrFloat">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrFloat(first interface{}, rest ...interface{}) float64</pre>
+</div>
+
+
+
+<h3 id="OrInt" data-kind="f">
+	func <a title="View Source" href="">OrInt</a>
+	<a class="permalink" href="#OrInt">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrInt(first interface{}, rest ...interface{}) int64</pre>
+</div>
+
+
+
+<h3 id="OrNInt" data-kind="f">
+	func <a title="View Source" href="">OrNInt</a>
+	<a class="permalink" href="#OrNInt">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrNInt(first interface{}, rest ...interface{}) int</pre>
+</div>
+
+
+
+<h3 id="OrString" data-kind="f">
+	func <a title="View Source" href="">OrString</a>
+	<a class="permalink" href="#OrString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrString(first interface{}, rest ...interface{}) string</pre>
+</div>
+
+
+
+<h3 id="OrTime" data-kind="f">
+	func <a title="View Source" href="">OrTime</a>
+	<a class="permalink" href="#OrTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func OrTime(first interface{}, rest ...interface{}) time.Time</pre>
+</div>
+
+
+
 <h3 id="RegisterTypeHandler" data-kind="f">
 	func <a title="View Source" href="">RegisterTypeHandler</a>
 	<a class="permalink" href="#RegisterTypeHandler">&#182;</a>
@@ -1497,6 +1790,26 @@ const <span id="Value3">Value3</span> = `value-3`
 // type conversions.
 </pre>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1896,6 +2209,156 @@ const <span id="Value3">Value3</span> = `value-3`
 
 <p><p>Return the value as a native integer if it can be interpreted as such, or 0 otherwise.<br>Float values will be truncated to integers.</p>
 </p>
+
+
+
+
+<h4 id="Variant.Or" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">Or</a>
+	<a class="permalink" href="#Or">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) Or(or ...interface{}) interface{}</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrAuto" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrAuto</a>
+	<a class="permalink" href="#OrAuto">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrAuto(or ...interface{}) interface{}</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrBool" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrBool</a>
+	<a class="permalink" href="#OrBool">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrBool(or ...interface{}) bool</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrBytes" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrBytes</a>
+	<a class="permalink" href="#OrBytes">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrBytes(or ...[]byte) []byte</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrDuration" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrDuration</a>
+	<a class="permalink" href="#OrDuration">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrDuration(or ...interface{}) time.Duration</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrFloat" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrFloat</a>
+	<a class="permalink" href="#OrFloat">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrFloat(or ...interface{}) float64</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrInt" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrInt</a>
+	<a class="permalink" href="#OrInt">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrInt(or ...interface{}) int64</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrNInt" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrNInt</a>
+	<a class="permalink" href="#OrNInt">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrNInt(or ...interface{}) int</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrString" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrString</a>
+	<a class="permalink" href="#OrString">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrString(or ...interface{}) string</pre>
+</div>
+
+
+
+
+<h4 id="Variant.OrTime" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">OrTime</a>
+	<a class="permalink" href="#OrTime">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) OrTime(or ...interface{}) time.Time</pre>
+</div>
 
 
 

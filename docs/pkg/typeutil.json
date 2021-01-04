@@ -7,18 +7,18 @@
     "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
     "MainFunction": false,
     "CommentWordCount": 886,
-    "LineCount": 1295,
-    "SourceLineCount": 942,
-    "FunctionCount": 63,
+    "LineCount": 1526,
+    "SourceLineCount": 1126,
+    "FunctionCount": 82,
     "TypeCount": 3,
     "ConstantCount": 3,
     "VariableCount": 0,
     "Statistics": {
-        "Mean": 0.6853,
-        "StdDev": 0.3904,
-        "GeometricMean": 0.8906,
-        "HarmonicMean": 0,
-        "Median": 0.95,
+        "Mean": 0.5356,
+        "StdDev": 0.4464,
+        "GeometricMean": 0.9393,
+        "HarmonicMean": 1,
+        "Median": 0.4,
         "Minimum": 0,
         "Maximum": 1
     },
@@ -167,10 +167,10 @@
                     "Alias": "utils"
                 }
             ],
-            "Size": 8606,
-            "LineCount": 376,
-            "SourceLineCount": 265,
-            "FunctionCount": 40,
+            "Size": 11513,
+            "LineCount": 552,
+            "SourceLineCount": 403,
+            "FunctionCount": 59,
             "TypeCount": 1,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -191,9 +191,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 2978,
-            "LineCount": 128,
-            "SourceLineCount": 111,
+            "Size": 4676,
+            "LineCount": 183,
+            "SourceLineCount": 157,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -795,6 +795,195 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "OrAuto",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "OrAuto(first interface{}, rest ...interface{}) interface{}",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yQXV0byhyZXN0Li4uKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OrBool",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "OrBool(first interface{}, rest ...interface{}) bool",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yQm9vbChyZXN0Li4uKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OrBytes",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "[]byte"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...[]byte"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "[]byte"
+                }
+            ],
+            "Signature": "OrBytes(first []byte, rest ...[]byte) []byte",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yQnl0ZXMocmVzdC4uLikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OrDuration",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "time.Duration"
+                }
+            ],
+            "Signature": "OrDuration(first interface{}, rest ...interface{}) time.Duration",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yRHVyYXRpb24ocmVzdC4uLikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OrFloat",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "float64"
+                }
+            ],
+            "Signature": "OrFloat(first interface{}, rest ...interface{}) float64",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yRmxvYXQocmVzdC4uLikKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OrInt",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int64"
+                }
+            ],
+            "Signature": "OrInt(first interface{}, rest ...interface{}) int64",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9ySW50KHJlc3QuLi4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OrNInt",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "int"
+                }
+            ],
+            "Signature": "OrNInt(first interface{}, rest ...interface{}) int",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yTkludChyZXN0Li4uKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OrString",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "OrString(first interface{}, rest ...interface{}) string",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yU3RyaW5nKHJlc3QuLi4pCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "OrTime",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "rest",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "time.Time"
+                }
+            ],
+            "Signature": "OrTime(first interface{}, rest ...interface{}) time.Time",
+            "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yVGltZShyZXN0Li4uKQp9",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "RegisterTypeHandler",
             "Comment": "Register's a handler used for converting one type to another. Type are checked in the following\nmanner:  The input value's reflect.Type String() value is matched, falling back to its\nreflect.Kind String() value, finally checking for a special \"*\" value that matches any type.\nIf the handler function returns nil, its value replaces the input value.  If the special error\ntype PassthroughType is returned, the original value is returned unmodified.",
             "Arguments": [
@@ -1041,6 +1230,78 @@
             ],
             "Signature": "TestNil(t *testing.T)",
             "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIE5pbCgpLklzTmlsKCkpCglyZXF1aXJlLlRydWUodCwgTmlsKCkuSXNaZXJvKCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestOrBool",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestOrBool(t *testing.T)",
+            "Source": "ewoJcmVxdWlyZS5GYWxzZSh0LCBPckJvb2woZmFsc2UpKQoJcmVxdWlyZS5GYWxzZSh0LCBPckJvb2woMCkpCglyZXF1aXJlLkZhbHNlKHQsIE9yQm9vbChgMGApKQoJcmVxdWlyZS5GYWxzZSh0LCBPckJvb2woYGZhbHNlYCkpCglyZXF1aXJlLkZhbHNlKHQsIE9yQm9vbChgbm9gKSkKCXJlcXVpcmUuRmFsc2UodCwgT3JCb29sKGBvZmZgKSkKCXJlcXVpcmUuVHJ1ZSh0LCBPckJvb2wodHJ1ZSkpCglyZXF1aXJlLlRydWUodCwgT3JCb29sKGB0cnVlYCkpCglyZXF1aXJlLlRydWUodCwgT3JCb29sKDEpKQoJcmVxdWlyZS5UcnVlKHQsIE9yQm9vbChgMWApKQoJcmVxdWlyZS5UcnVlKHQsIE9yQm9vbChgeWVzYCkpCglyZXF1aXJlLlRydWUodCwgT3JCb29sKGBvbmApKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestOrDuration",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestOrDuration(t *testing.T)",
+            "Source": "ewoJcmVxdWlyZS5aZXJvKHQsIE9yRHVyYXRpb24oYGApKQoJcmVxdWlyZS5aZXJvKHQsIE9yRHVyYXRpb24oYGAsIGZhbHNlLCBuaWwpKQoJcmVxdWlyZS5FcXVhbCh0LCA0KnRpbWUuSG91ciwgT3JEdXJhdGlvbihgYCwgMCwgZmFsc2UsIGAwbnNgLCBgNGhgKSkKCXJlcXVpcmUuRXF1YWwodCwgMjQqdGltZS5Ib3VyLCBPckR1cmF0aW9uKGAxZGApKQoJcmVxdWlyZS5FcXVhbCh0LCA1KnRpbWUuTWludXRlKzMqdGltZS5TZWNvbmQsIE9yRHVyYXRpb24oYDVtM3NgLCBgMW0xOHNgKSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestOrFloat",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestOrFloat(t *testing.T)",
+            "Source": "ewoJcmVxdWlyZS5FcXVhbCh0LCBmbG9hdDY0KDQyKSwgT3JGbG9hdCg0MiwgOTYpKQoJcmVxdWlyZS5FcXVhbCh0LCBmbG9hdDY0KDQyKSwgT3JGbG9hdChgNDJgLCA5NikpCglyZXF1aXJlLkVxdWFsKHQsIGZsb2F0NjQoNDIpLCBPckZsb2F0KGBgLCBgMGAsIDQyLCA5NikpCglyZXF1aXJlLkVxdWFsKHQsIGZsb2F0NjQoNDIpLCBPckZsb2F0KDAsIGZhbHNlLCBgYCwgNDIsIDk2KSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestOrInt",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestOrInt(t *testing.T)",
+            "Source": "ewoJcmVxdWlyZS5FcXVhbCh0LCBpbnQ2NCg0MiksIE9ySW50KDQyLCA5NikpCglyZXF1aXJlLkVxdWFsKHQsIGludDY0KDQyKSwgT3JJbnQoYDQyYCwgOTYpKQoJcmVxdWlyZS5FcXVhbCh0LCBpbnQ2NCg0MiksIE9ySW50KGBgLCBgMGAsIDQyLCA5NikpCglyZXF1aXJlLkVxdWFsKHQsIGludDY0KDQyKSwgT3JJbnQoMCwgZmFsc2UsIGBgLCA0MiwgOTYpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestOrString",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestOrString(t *testing.T)",
+            "Source": "ewoJcmVxdWlyZS5FcXVhbCh0LCBgYCwgT3JTdHJpbmcoYGApKQoJcmVxdWlyZS5FcXVhbCh0LCBgaGV5YCwgT3JTdHJpbmcoYGhleWApKQoJcmVxdWlyZS5FcXVhbCh0LCBgaGV5YCwgT3JTdHJpbmcoYGhleWAsIGBgLCBgYCkpCglyZXF1aXJlLkVxdWFsKHQsIGBoZXlgLCBPclN0cmluZyhgYCwgYGhleWAsIGBgKSkKCXJlcXVpcmUuRXF1YWwodCwgYGhleWAsIE9yU3RyaW5nKGBgLCBgYCwgYGhleWApKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestOrTime",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestOrTime(t *testing.T)",
+            "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIE9yVGltZShgYCkuSXNaZXJvKCkpCglyZXF1aXJlLlRydWUodCwgT3JUaW1lKG5pbCwgYGAsIGZhbHNlLCBuaWwpLklzWmVybygpKQoJcmVxdWlyZS5GYWxzZSh0LCBPclRpbWUoYG5vd2ApLklzWmVybygpKQoJcmVxdWlyZS5FcXVhbCh0LCB0aW1lLlVuaXgoMCwgMCksIE9yVGltZSgwKSkKfQ==",
             "IsPackageLevel": true
         },
         {
@@ -1365,6 +1626,176 @@
                         }
                     ],
                     "Signature": "NInt() int",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Or",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Signature": "Or(or ...interface{}) interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrAuto",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Signature": "OrAuto(or ...interface{}) interface{}",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrBool",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "OrBool(or ...interface{}) bool",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrBytes",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...[]byte"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Signature": "OrBytes(or ...[]byte) []byte",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrDuration",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "time.Duration"
+                        }
+                    ],
+                    "Signature": "OrDuration(or ...interface{}) time.Duration",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrFloat",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        }
+                    ],
+                    "Signature": "OrFloat(or ...interface{}) float64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrInt",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "int64"
+                        }
+                    ],
+                    "Signature": "OrInt(or ...interface{}) int64",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrNInt",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "int"
+                        }
+                    ],
+                    "Signature": "OrNInt(or ...interface{}) int",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrString",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "OrString(or ...interface{}) string",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "OrTime",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "or",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "time.Time"
+                        }
+                    ],
+                    "Signature": "OrTime(or ...interface{}) time.Time",
                     "IsPackageLevel": false
                 },
                 {

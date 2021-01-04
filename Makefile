@@ -3,6 +3,9 @@ LOCALS := $(shell find . -type f -name '*.go' -not -path "./vendor/*")
 PKGS   := $(wildcard *util)
 COUNT  ?= 1
 
+# TEST_GOSTOCKUTIL_RETRIEVE_VIA_SFTP ?= sftp://cortex/motd
+# TEST_GOSTOCKUTIL_RETRIEVE_VIA_SSH  ?= ssh://cortex/hostname
+
 .PHONY: test deps docs $(PKGS)
 
 .EXPORT_ALL_VARIABLES:

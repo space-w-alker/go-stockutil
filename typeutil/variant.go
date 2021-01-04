@@ -294,6 +294,146 @@ func (self *Variant) Append(values ...interface{}) error {
 	return nil
 }
 
+func (self Variant) OrString(or ...interface{}) string {
+	if v := self.String(); v != `` {
+		return v
+	}
+
+	for _, orval := range or {
+		if v := String(orval); v != `` {
+			return v
+		}
+	}
+
+	return ``
+}
+
+func (self Variant) OrBool(or ...interface{}) bool {
+	if self.Value == nil {
+		for _, orval := range or {
+			if Bool(orval) {
+				return true
+			}
+		}
+
+		return false
+	} else {
+		return self.Bool()
+	}
+}
+
+func (self Variant) OrFloat(or ...interface{}) float64 {
+	if v := self.Float(); v != 0 {
+		return v
+	}
+
+	for _, orval := range or {
+		if v := Float(orval); v != 0 {
+			return v
+		}
+	}
+
+	return 0
+}
+
+func (self Variant) OrInt(or ...interface{}) int64 {
+	if v := self.Int(); v != 0 {
+		return v
+	}
+
+	for _, orval := range or {
+		if v := Int(orval); v != 0 {
+			return v
+		}
+	}
+
+	return 0
+}
+
+func (self Variant) OrNInt(or ...interface{}) int {
+	if v := self.NInt(); v != 0 {
+		return v
+	}
+
+	for _, orval := range or {
+		if v := NInt(orval); v != 0 {
+			return v
+		}
+	}
+
+	return 0
+}
+
+func (self Variant) OrAuto(or ...interface{}) interface{} {
+	if v := self.Auto(); !IsZero(v) {
+		return v
+	}
+
+	for _, orval := range or {
+		if !IsZero(orval) {
+			return orval
+		}
+	}
+
+	return nil
+}
+
+func (self Variant) OrTime(or ...interface{}) time.Time {
+	if v := self.Time(); !v.IsZero() {
+		return v
+	}
+
+	for _, orval := range or {
+		if ov := V(orval).Time(); !ov.IsZero() {
+			return ov
+		}
+	}
+
+	return time.Time{}
+}
+
+func (self Variant) OrDuration(or ...interface{}) time.Duration {
+	if v := self.Duration(); v != 0 {
+		return v
+	}
+
+	for _, orval := range or {
+		if ov := V(orval).Duration(); ov != 0 {
+			return ov
+		}
+	}
+
+	return 0
+}
+
+func (self Variant) OrBytes(or ...[]byte) []byte {
+	if v := self.Bytes(); len(v) > 0 {
+		return v
+	}
+
+	for _, orval := range or {
+		if len(orval) > 0 {
+			return orval
+		}
+	}
+
+	return nil
+}
+
+func (self Variant) Or(or ...interface{}) interface{} {
+	if v := self.Interface(); !IsZero(v) {
+		return v
+	}
+
+	for _, orval := range or {
+		if !IsZero(orval) {
+			return orval
+		}
+	}
+
+	return nil
+}
+
 // Package-level string converter
 func String(in interface{}) string {
 	return V(in).String()
@@ -372,4 +512,40 @@ func MapNative(in interface{}, tagName ...string) map[string]interface{} {
 // Return a new Variant with a nil value.
 func Nil() Variant {
 	return V(nil)
+}
+
+func OrString(first interface{}, rest ...interface{}) string {
+	return V(first).OrString(rest...)
+}
+
+func OrBool(first interface{}, rest ...interface{}) bool {
+	return V(first).OrBool(rest...)
+}
+
+func OrFloat(first interface{}, rest ...interface{}) float64 {
+	return V(first).OrFloat(rest...)
+}
+
+func OrInt(first interface{}, rest ...interface{}) int64 {
+	return V(first).OrInt(rest...)
+}
+
+func OrNInt(first interface{}, rest ...interface{}) int {
+	return V(first).OrNInt(rest...)
+}
+
+func OrAuto(first interface{}, rest ...interface{}) interface{} {
+	return V(first).OrAuto(rest...)
+}
+
+func OrTime(first interface{}, rest ...interface{}) time.Time {
+	return V(first).OrTime(rest...)
+}
+
+func OrDuration(first interface{}, rest ...interface{}) time.Duration {
+	return V(first).OrDuration(rest...)
+}
+
+func OrBytes(first []byte, rest ...[]byte) []byte {
+	return V(first).OrBytes(rest...)
 }

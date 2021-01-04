@@ -125,3 +125,58 @@ func TestNil(t *testing.T) {
 	require.True(t, Nil().IsNil())
 	require.True(t, Nil().IsZero())
 }
+
+func TestOrString(t *testing.T) {
+	require.Equal(t, ``, OrString(``))
+	require.Equal(t, `hey`, OrString(`hey`))
+	require.Equal(t, `hey`, OrString(`hey`, ``, ``))
+	require.Equal(t, `hey`, OrString(``, `hey`, ``))
+	require.Equal(t, `hey`, OrString(``, ``, `hey`))
+}
+
+func TestOrBool(t *testing.T) {
+	require.False(t, OrBool(false))
+	require.False(t, OrBool(0))
+	require.False(t, OrBool(`0`))
+	require.False(t, OrBool(`false`))
+	require.False(t, OrBool(`no`))
+	require.False(t, OrBool(`off`))
+
+	require.True(t, OrBool(true))
+	require.True(t, OrBool(`true`))
+	require.True(t, OrBool(1))
+	require.True(t, OrBool(`1`))
+	require.True(t, OrBool(`yes`))
+	require.True(t, OrBool(`on`))
+}
+
+func TestOrInt(t *testing.T) {
+	require.Equal(t, int64(42), OrInt(42, 96))
+	require.Equal(t, int64(42), OrInt(`42`, 96))
+	require.Equal(t, int64(42), OrInt(``, `0`, 42, 96))
+	require.Equal(t, int64(42), OrInt(0, false, ``, 42, 96))
+}
+
+func TestOrFloat(t *testing.T) {
+	require.Equal(t, float64(42), OrFloat(42, 96))
+	require.Equal(t, float64(42), OrFloat(`42`, 96))
+	require.Equal(t, float64(42), OrFloat(``, `0`, 42, 96))
+	require.Equal(t, float64(42), OrFloat(0, false, ``, 42, 96))
+}
+
+func TestOrTime(t *testing.T) {
+	require.True(t, OrTime(``).IsZero())
+	require.True(t, OrTime(nil, ``, false, nil).IsZero())
+
+	require.False(t, OrTime(`now`).IsZero())
+	require.Equal(t, time.Unix(0, 0), OrTime(0))
+}
+
+func TestOrDuration(t *testing.T) {
+	require.Zero(t, OrDuration(``))
+	require.Zero(t, OrDuration(``, false, nil))
+
+	require.Equal(t, 4*time.Hour, OrDuration(``, 0, false, `0ns`, `4h`))
+	require.Equal(t, 24*time.Hour, OrDuration(`1d`))
+	require.Equal(t, 5*time.Minute+3*time.Second, OrDuration(`5m3s`, `1m18s`))
+}

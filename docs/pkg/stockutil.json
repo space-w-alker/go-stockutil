@@ -25,7 +25,7 @@
     "Files": [
         {
             "Name": "version.go",
-            "Size": 44,
+            "Size": 43,
             "LineCount": 4,
             "SourceLineCount": 2,
             "FunctionCount": 0,
@@ -38,8 +38,8 @@
         {
             "Name": "Version",
             "Immutable": true,
-            "Expression": "`1.8.95`",
-            "Value": "1.8.95"
+            "Expression": "`1.9.0`",
+            "Value": "1.9.0"
         }
     ],
     "Packages": [
@@ -2823,23 +2823,383 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "Helpers for working with files and filesystems\n",
             "MainFunction": false,
-            "CommentWordCount": 1015,
-            "LineCount": 2387,
-            "SourceLineCount": 1959,
-            "FunctionCount": 68,
-            "TypeCount": 13,
+            "CommentWordCount": 1314,
+            "LineCount": 2932,
+            "SourceLineCount": 2358,
+            "FunctionCount": 73,
+            "TypeCount": 15,
             "ConstantCount": 3,
-            "VariableCount": 24,
+            "VariableCount": 30,
             "Statistics": {
-                "Mean": 0.3526,
-                "StdDev": 0.4617,
-                "GeometricMean": 1,
+                "Mean": 0.352,
+                "StdDev": 0.4616,
+                "GeometricMean": 0,
                 "HarmonicMean": 0,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
             },
             "Files": [
+                {
+                    "Name": "anyget.go",
+                    "Imports": [
+                        {
+                            "PackageName": "bytes",
+                            "Alias": "bytes"
+                        },
+                        {
+                            "PackageName": "context",
+                            "Alias": "context"
+                        },
+                        {
+                            "PackageName": "fmt",
+                            "Alias": "fmt"
+                        },
+                        {
+                            "PackageName": "io",
+                            "Alias": "io"
+                        },
+                        {
+                            "PackageName": "io/ioutil",
+                            "Alias": "ioutil"
+                        },
+                        {
+                            "PackageName": "net/url",
+                            "Alias": "url"
+                        },
+                        {
+                            "PackageName": "strings",
+                            "Alias": "strings"
+                        },
+                        {
+                            "PackageName": "time",
+                            "Alias": "time"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                            "Alias": "typeutil"
+                        }
+                    ],
+                    "Size": 2273,
+                    "LineCount": 88,
+                    "SourceLineCount": 63,
+                    "FunctionCount": 2,
+                    "TypeCount": 1,
+                    "ConstantCount": 0,
+                    "VariableCount": 2
+                },
+                {
+                    "Name": "anyget_file.go",
+                    "Imports": [
+                        {
+                            "PackageName": "context",
+                            "Alias": "context"
+                        },
+                        {
+                            "PackageName": "fmt",
+                            "Alias": "fmt"
+                        },
+                        {
+                            "PackageName": "io",
+                            "Alias": "io"
+                        },
+                        {
+                            "PackageName": "net/http",
+                            "Alias": "http"
+                        },
+                        {
+                            "PackageName": "net/url",
+                            "Alias": "url"
+                        },
+                        {
+                            "PackageName": "path/filepath",
+                            "Alias": "filepath"
+                        },
+                        {
+                            "PackageName": "strings",
+                            "Alias": "strings"
+                        }
+                    ],
+                    "Size": 791,
+                    "LineCount": 36,
+                    "SourceLineCount": 26,
+                    "FunctionCount": 1,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 0
+                },
+                {
+                    "Name": "anyget_file_test.go",
+                    "Imports": [
+                        {
+                            "PackageName": "io/ioutil",
+                            "Alias": "ioutil"
+                        },
+                        {
+                            "PackageName": "net/url",
+                            "Alias": "url"
+                        },
+                        {
+                            "PackageName": "testing",
+                            "Alias": "testing"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/testify/assert",
+                            "Alias": "assert"
+                        }
+                    ],
+                    "Size": 413,
+                    "LineCount": 25,
+                    "SourceLineCount": 18,
+                    "FunctionCount": 0,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 0
+                },
+                {
+                    "Name": "anyget_http.go",
+                    "Imports": [
+                        {
+                            "PackageName": "context",
+                            "Alias": "context"
+                        },
+                        {
+                            "PackageName": "crypto/tls",
+                            "Alias": "tls"
+                        },
+                        {
+                            "PackageName": "fmt",
+                            "Alias": "fmt"
+                        },
+                        {
+                            "PackageName": "io",
+                            "Alias": "io"
+                        },
+                        {
+                            "PackageName": "net/http",
+                            "Alias": "http"
+                        },
+                        {
+                            "PackageName": "net/url",
+                            "Alias": "url"
+                        },
+                        {
+                            "PackageName": "time",
+                            "Alias": "time"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                            "Alias": "typeutil"
+                        }
+                    ],
+                    "Size": 856,
+                    "LineCount": 47,
+                    "SourceLineCount": 38,
+                    "FunctionCount": 1,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 1
+                },
+                {
+                    "Name": "anyget_http_test.go",
+                    "Imports": [
+                        {
+                            "PackageName": "context",
+                            "Alias": "context"
+                        },
+                        {
+                            "PackageName": "io/ioutil",
+                            "Alias": "ioutil"
+                        },
+                        {
+                            "PackageName": "net/url",
+                            "Alias": "url"
+                        },
+                        {
+                            "PackageName": "testing",
+                            "Alias": "testing"
+                        },
+                        {
+                            "PackageName": "time",
+                            "Alias": "time"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/testify/assert",
+                            "Alias": "assert"
+                        }
+                    ],
+                    "Size": 709,
+                    "LineCount": 39,
+                    "SourceLineCount": 27,
+                    "FunctionCount": 0,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 0
+                },
+                {
+                    "Name": "anyget_ssh.go",
+                    "Imports": [
+                        {
+                            "PackageName": "context",
+                            "Alias": "context"
+                        },
+                        {
+                            "PackageName": "fmt",
+                            "Alias": "fmt"
+                        },
+                        {
+                            "PackageName": "io",
+                            "Alias": "io"
+                        },
+                        {
+                            "PackageName": "io/ioutil",
+                            "Alias": "ioutil"
+                        },
+                        {
+                            "PackageName": "net",
+                            "Alias": "net"
+                        },
+                        {
+                            "PackageName": "net/url",
+                            "Alias": "url"
+                        },
+                        {
+                            "PackageName": "os/user",
+                            "Alias": "user"
+                        },
+                        {
+                            "PackageName": "strings",
+                            "Alias": "strings"
+                        },
+                        {
+                            "PackageName": "time",
+                            "Alias": "time"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                            "Alias": "sliceutil"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                            "Alias": "typeutil"
+                        },
+                        {
+                            "PackageName": "github.com/mattn/go-shellwords",
+                            "Alias": "go-shellwords"
+                        },
+                        {
+                            "PackageName": "github.com/melbahja/goph",
+                            "Alias": "goph"
+                        },
+                        {
+                            "PackageName": "github.com/pkg/sftp",
+                            "Alias": "sftp"
+                        },
+                        {
+                            "PackageName": "golang.org/x/crypto/ssh",
+                            "Alias": "ssh"
+                        }
+                    ],
+                    "Size": 4503,
+                    "LineCount": 162,
+                    "SourceLineCount": 121,
+                    "FunctionCount": 1,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 3
+                },
+                {
+                    "Name": "anyget_ssh_test.go",
+                    "Imports": [
+                        {
+                            "PackageName": "context",
+                            "Alias": "context"
+                        },
+                        {
+                            "PackageName": "io/ioutil",
+                            "Alias": "ioutil"
+                        },
+                        {
+                            "PackageName": "net",
+                            "Alias": "net"
+                        },
+                        {
+                            "PackageName": "net/url",
+                            "Alias": "url"
+                        },
+                        {
+                            "PackageName": "os",
+                            "Alias": "os"
+                        },
+                        {
+                            "PackageName": "strings",
+                            "Alias": "strings"
+                        },
+                        {
+                            "PackageName": "testing",
+                            "Alias": "testing"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/testify/assert",
+                            "Alias": "assert"
+                        },
+                        {
+                            "PackageName": "golang.org/x/crypto/ssh",
+                            "Alias": "ssh"
+                        }
+                    ],
+                    "Size": 1951,
+                    "LineCount": 95,
+                    "SourceLineCount": 66,
+                    "FunctionCount": 0,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 0
+                },
+                {
+                    "Name": "anyget_test.go",
+                    "Imports": [
+                        {
+                            "PackageName": "io/ioutil",
+                            "Alias": "ioutil"
+                        },
+                        {
+                            "PackageName": "net/http",
+                            "Alias": "http"
+                        },
+                        {
+                            "PackageName": "net/http/httptest",
+                            "Alias": "httptest"
+                        },
+                        {
+                            "PackageName": "testing",
+                            "Alias": "testing"
+                        },
+                        {
+                            "PackageName": "time",
+                            "Alias": "time"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                            "Alias": "stringutil"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                            "Alias": "typeutil"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/testify/assert",
+                            "Alias": "assert"
+                        }
+                    ],
+                    "Size": 1080,
+                    "LineCount": 49,
+                    "SourceLineCount": 39,
+                    "FunctionCount": 0,
+                    "TypeCount": 0,
+                    "ConstantCount": 0,
+                    "VariableCount": 0
+                },
                 {
                     "Name": "closer.go",
                     "Imports": [
@@ -2848,11 +3208,11 @@
                             "Alias": "io"
                         }
                     ],
-                    "Size": 645,
-                    "LineCount": 30,
-                    "SourceLineCount": 22,
+                    "Size": 904,
+                    "LineCount": 34,
+                    "SourceLineCount": 23,
                     "FunctionCount": 3,
-                    "TypeCount": 1,
+                    "TypeCount": 2,
                     "ConstantCount": 0,
                     "VariableCount": 0
                 },
@@ -3386,6 +3746,14 @@
                     "Expression": "pathutil.FileExists"
                 },
                 {
+                    "Name": "GenericDefaultTimeout",
+                    "Expression": "5 * time.Second"
+                },
+                {
+                    "Name": "HttpDefaultTimeout",
+                    "Expression": "10 * time.Second"
+                },
+                {
                     "Name": "IsAppend",
                     "Expression": "pathutil.IsAppend"
                 },
@@ -3458,9 +3826,26 @@
                     "Expression": "pathutil.LinkExists"
                 },
                 {
+                    "Name": "NullReadCloser",
+                    "Expression": "ioutil.NopCloser(bytes.NewBuffer(nil))"
+                },
+                {
                     "Name": "SkipToken",
                     "Expression": "errors.New(`skip token`)",
                     "Comment": "By default, the underlying bufio.Scanner that tokenizes the input data\nwill discard the tokens that it's splitting on.  however, in most cases, we\ndon't actually want this.  however, if the thing we're removing IS this token,\nthen we will have removed the token, then immediately put it back in the stream.\n\nReturning the SkipToken error will tell the ReadManipulator to not put this token\nback into the stream, but otherwise not produce an actual error during read."
+                },
+                {
+                    "Name": "SshDefaultTimeout",
+                    "Expression": "10 * time.Second"
+                },
+                {
+                    "Name": "SshPrivateKey",
+                    "Expression": "MustExpandUser(`~/.ssh/id_rsa`)"
+                },
+                {
+                    "Name": "SshVerifyHostFunc",
+                    "Type": "ssh.HostKeyCallback",
+                    "Expression": "ssh.InsecureIgnoreHostKey()"
                 }
             ],
             "Functions": [
@@ -3672,24 +4057,6 @@
                     ],
                     "Signature": "IsTerminal() bool",
                     "Source": "ewoJcmV0dXJuIGlzYXR0eS5Jc1Rlcm1pbmFsKG9zLlN0ZG91dC5GZCgpKQp9",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "ManipulateAll",
-                    "Comment": "Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.",
-                    "Arguments": [
-                        {
-                            "Name": "fns",
-                            "Type": "...ReadManipulatorFunc"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "ReadManipulatorFunc"
-                        }
-                    ],
-                    "Signature": "ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9",
                     "IsPackageLevel": true
                 },
                 {
@@ -3974,6 +4341,22 @@
                     "IsPackageLevel": true
                 },
                 {
+                    "Name": "RegisterRetrieveScheme",
+                    "Arguments": [
+                        {
+                            "Name": "scheme",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fn",
+                            "Type": "RetrieveHandlerFunc"
+                        }
+                    ],
+                    "Signature": "RegisterRetrieveScheme(scheme string, fn RetrieveHandlerFunc)",
+                    "Source": "ewoJcmV0cmlldmVTY2hlbWVIYW5kbGVyc1tzY2hlbWVdID0gZm4KfQ==",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "RemoveBlankLines",
                     "Comment": "A ReadManipulatorFunc for removing lines that only contain whitespace.",
                     "Arguments": [
@@ -3995,94 +4378,6 @@
                     "IsPackageLevel": true
                 },
                 {
-                    "Name": "RemoveLinesContaining",
-                    "Comment": "A ReadManipulatorFunc for removing lines that contain the given string.",
-                    "Arguments": [
-                        {
-                            "Name": "needle",
-                            "Type": "string"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "ReadManipulatorFunc"
-                        }
-                    ],
-                    "Signature": "RemoveLinesContaining(needle string) ReadManipulatorFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "RemoveLinesSurroundedBy",
-                    "Comment": "A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.",
-                    "Arguments": [
-                        {
-                            "Name": "prefix",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "suffix",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "trimSpace",
-                            "Type": "bool"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "ReadManipulatorFunc"
-                        }
-                    ],
-                    "Signature": "RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "RemoveLinesWithPrefix",
-                    "Comment": "A ReadManipulatorFunc for removing lines that have a given prefix.",
-                    "Arguments": [
-                        {
-                            "Name": "prefix",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "trimSpace",
-                            "Type": "bool"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "ReadManipulatorFunc"
-                        }
-                    ],
-                    "Signature": "RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "RemoveLinesWithSuffix",
-                    "Comment": "A ReadManipulatorFunc for removing lines that have a given suffix.",
-                    "Arguments": [
-                        {
-                            "Name": "suffix",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "trimSpace",
-                            "Type": "bool"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "ReadManipulatorFunc"
-                        }
-                    ],
-                    "Signature": "RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
-                    "IsPackageLevel": true
-                },
-                {
                     "Name": "RemoveOpenHandler",
                     "Comment": "Removes a registered URL scheme handler.",
                     "Arguments": [
@@ -4096,29 +4391,103 @@
                     "IsPackageLevel": true
                 },
                 {
-                    "Name": "ReplaceWith",
-                    "Comment": "A ReadManipulatorFunc for replacing text in an io.Reader as its being read.",
+                    "Name": "Retrieve",
+                    "Comment": "Perform a generic retrieval of data located at a specified resource given as a URL.\nThis function supports file://, http://, https://, ssh://, and sftp:// schemes, and can\nbe extended to support additional schemes using the RegisterRetrieveScheme package function.\n\nIf resourceUri is given as a *url.URL, the value of that URL will be copied.  Any other type\nwill be converted to a string (honoring types that implement fmt.Stringer), and the resulting\nURL will be used.",
                     "Arguments": [
                         {
-                            "Name": "find",
-                            "Type": "string"
+                            "Name": "ctx",
+                            "Type": "context.Context"
                         },
                         {
-                            "Name": "replace",
-                            "Type": "string"
-                        },
-                        {
-                            "Name": "occurrences",
-                            "Type": "int"
+                            "Name": "resourceUri",
+                            "Type": "interface{}"
                         }
                     ],
                     "Returns": [
                         {
-                            "Type": "ReadManipulatorFunc"
+                            "Type": "io.ReadCloser"
+                        },
+                        {
+                            "Type": "error"
                         }
                     ],
-                    "Signature": "ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9",
+                    "Signature": "Retrieve(ctx context.Context, resourceUri interface{}) (io.ReadCloser, error)",
+                    "Source": "ewoJY3R4LCBfID0gY3R4VG9UaW1lb3V0KGN0eCwgMCkKCXZhciB1cmkgdXJsLlVSTAoJaWYgdSwgb2sgOj0gcmVzb3VyY2VVcmkuKCp1cmwuVVJMKTsgb2sgewoJCXVyaSA9ICp1Cgl9IGVsc2UgewoJCXZhciByID0gdHlwZXV0aWwuU3RyaW5nKHJlc291cmNlVXJpKQoJCWlmICFzdHJpbmdzLkNvbnRhaW5zKHIsIGA6Ly9gKSB7CgkJCXIgPSBgZmlsZTovLy9gICsgcgoJCX0KCQlpZiB1LCBlcnIgOj0gdXJsLlBhcnNlKHIpOyBlcnIgPT0gbmlsIHsKCQkJdXJpID0gKnUKCQl9IGVsc2UgewoJCQlyZXR1cm4gbmlsLCBmbXQuRXJyb3JmKCJiYWQgdXJsOiAldiIsIGVycikKCQl9Cgl9Cgl1cmkuU2NoZW1lID0gc3RyaW5ncy5Ub0xvd2VyKHVyaS5TY2hlbWUpCglpZiBoYW5kbGVyLCBvayA6PSByZXRyaWV2ZVNjaGVtZUhhbmRsZXJzW3VyaS5TY2hlbWVdOyBvayAmJiBoYW5kbGVyICE9IG5pbCB7CgkJcmV0dXJuIGhhbmRsZXIoY3R4LCAmdXJpKQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBmbXQuRXJyb3JmKCJ1bnN1cHBvcnRlZCBzY2hlbWUgJXEiLCB1cmkuU2NoZW1lKQoJfQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "RetrieveViaFilesystem",
+                    "Comment": "Retrieve a file via a filesystem.  If the context value `filesystem` implements\nthe http.FileSystem interface, it will be used to perform the retrieval in lieu\nof the local filesystem.",
+                    "Arguments": [
+                        {
+                            "Name": "ctx",
+                            "Type": "context.Context"
+                        },
+                        {
+                            "Name": "u",
+                            "Type": "*url.URL"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "io.ReadCloser"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "RetrieveViaFilesystem(ctx context.Context, u *url.URL) (io.ReadCloser, error)",
+                    "Source": "ewoJY3R4LCBfID0gY3R4VG9UaW1lb3V0KGN0eCwgMCkKCXZhciBmaWxlc3lzdGVtIGh0dHAuRmlsZVN5c3RlbSA9IGh0dHAuRGlyKGAvYCkKCXZhciBwYXRoID0gc3RyaW5ncy5UcmltUHJlZml4KHUuUGF0aCwgYC9gKQoJaWYgZnMsIG9rIDo9IGN0eC5WYWx1ZShgZmlsZXN5c3RlbWApLihodHRwLkZpbGVTeXN0ZW0pOyBvayB7CgkJZmlsZXN5c3RlbSA9IGZzCgl9CglpZiAhc3RyaW5ncy5IYXNQcmVmaXgocGF0aCwgYC9gKSB7CgkJaWYgYWJzLCBlcnIgOj0gZmlsZXBhdGguQWJzKHBhdGgpOyBlcnIgPT0gbmlsIHsKCQkJcGF0aCA9IGFicwoJCX0gZWxzZSB7CgkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoImJhZCBwYXRoOiAldiIsIGVycikKCQl9Cgl9CglyZXR1cm4gZmlsZXN5c3RlbS5PcGVuKHBhdGgpCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "RetrieveViaHTTP",
+                    "Comment": "Retrieve a file via HTTP or HTTPS.",
+                    "Arguments": [
+                        {
+                            "Name": "ctx",
+                            "Type": "context.Context"
+                        },
+                        {
+                            "Name": "u",
+                            "Type": "*url.URL"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "io.ReadCloser"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "RetrieveViaHTTP(ctx context.Context, u *url.URL) (io.ReadCloser, error)",
+                    "Source": "ewoJY3R4LCB0aW1lb3V0IDo9IGN0eFRvVGltZW91dChjdHgsIEh0dHBEZWZhdWx0VGltZW91dCkKCXZhciBjbGllbnQgPSAmaHR0cC5DbGllbnR7VGltZW91dDogdGltZW91dH0KCWlmIHR5cGV1dGlsLkJvb2woY3R4LlZhbHVlKGBpbnNlY3VyZWApKSB7CgkJY2xpZW50LlRyYW5zcG9ydCA9ICZodHRwLlRyYW5zcG9ydHtUTFNDbGllbnRDb25maWc6ICZ0bHMuQ29uZmlne0luc2VjdXJlU2tpcFZlcmlmeTogdHJ1ZX19Cgl9CglpZiByZXMsIGVyciA6PSBjbGllbnQuR2V0KHUuU3RyaW5nKCkpOyBlcnIgPT0gbmlsIHsKCQlpZiByZXMuU3RhdHVzQ29kZSA8IDMwMCB7CgkJCWlmIHJlcy5Cb2R5ICE9IG5pbCB7CgkJCQlyZXR1cm4gcmVzLkJvZHksIG5pbAoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIE51bGxSZWFkQ2xvc2VyLCBuaWwKCQkJfQoJCX0gZWxzZSB7CgkJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoInJlc3BvbmRlZCBIVFRQOiAldiIsIHJlcy5TdGF0dXMpCgkJfQoJfSBlbHNlIHsKCQlyZXR1cm4gbmlsLCBlcnIKCX0KfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "RetrieveViaSSH",
+                    "Comment": "Retrieve a file via SFTP (SSH file transfer).  The given URL should resemble the\nprototype: ssh://[user:password@]hostname[:22]/path/relative/to/homedir\n\nThis function will honor any authentication details from a running SSH agent,\nas well as utilize the private key located in the path indicated by SshPrivateKey\nor via the `privateKey` context value.\n\nThe `passphrase` context value specifies a plaintext passphrase used to unlock the local\nprivate keyfile.\n\nThe `verifyHostFunc` context value, if it is convertible to the ssh.HostKeyCallback type, will\nbe called to verify the remote SSH host key in a manner of the function's choosing.  The default\nbehavior is to accept all remote hostkeys as valid.",
+                    "Arguments": [
+                        {
+                            "Name": "ctx",
+                            "Type": "context.Context"
+                        },
+                        {
+                            "Name": "u",
+                            "Type": "*url.URL"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "io.ReadCloser"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "RetrieveViaSSH(ctx context.Context, u *url.URL) (io.ReadCloser, error)",
+                    "Source": "ewoJY3R4LCB0aW1lb3V0IDo9IGN0eFRvVGltZW91dChjdHgsIFNzaERlZmF1bHRUaW1lb3V0KQoJdmFyIGF1dGhNZXRob2RzIGdvcGguQXV0aAoJdmFyIHVzZXJuYW1lIHN0cmluZwoJdmFyIHBvcnQgaW50ID0gdHlwZXV0aWwuT3JOSW50KHUuUG9ydCgpLCAyMikKCXZhciByZW1vdGVQYXRoID0gc3RyaW5ncy5UcmltUHJlZml4KHUuUGF0aCwgYC9gKQoJdmFyIGtleVBhc3NwaHJhc2UgPSB0eXBldXRpbC5TdHJpbmcoY3R4LlZhbHVlKGBwYXNzcGhyYXNlYCkpCgl2YXIgdmVyaWZ5SG9zdEZ1bmMgPSBTc2hWZXJpZnlIb3N0RnVuYwoJaWYgdmhmbiwgb2sgOj0gY3R4LlZhbHVlKGB2ZXJpZnlIb3N0RnVuY2ApLihzc2hIb3N0S2V5Q2FsbGJhY2spOyBvayB7CgkJdmVyaWZ5SG9zdEZ1bmMgPSB2aGZuCgl9Cgl2YXIga2V5RmlsZSA9IHNsaWNldXRpbC5PclN0cmluZyh0eXBldXRpbC5TdHJpbmcoY3R4LlZhbHVlKGBwYXNzcGhyYXNlYCkpLCBTc2hQcml2YXRlS2V5KQoJaWYgYSwgZXJyIDo9IGdvcGguVXNlQWdlbnQoKTsgZXJyID09IG5pbCB7CgkJYXV0aE1ldGhvZHMgPSBhcHBlbmQoYXV0aE1ldGhvZHMsIGEuLi4pCgl9CglpZiB1aSA6PSB1LlVzZXI7IHVpICE9IG5pbCB7CgkJaWYgdSA6PSB1aS5Vc2VybmFtZSgpOyB1ICE9IGBgIHsKCQkJdXNlcm5hbWUgPSB1CgkJfQoJCWlmIHAsIG9rIDo9IHVpLlBhc3N3b3JkKCk7IG9rIHsKCQkJYXV0aE1ldGhvZHMgPSBhcHBlbmQoYXV0aE1ldGhvZHMsIGdvcGguUGFzc3dvcmQocCkuLi4pCgkJfQoJfQoJaWYgSXNOb25lbXB0eUZpbGUoa2V5RmlsZSkgewoJCWlmIGEsIGVyciA6PSBnb3BoLktleShrZXlGaWxlLCBrZXlQYXNzcGhyYXNlKTsgZXJyID09IG5pbCB7CgkJCWF1dGhNZXRob2RzID0gYXBwZW5kKGF1dGhNZXRob2RzLCBhLi4uKQoJCX0KCX0KCWlmIGxlbihhdXRoTWV0aG9kcykgPT0gMCB7CgkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigibm8gY2xpZW50IGF1dGhlbnRpY2F0aW9uIG1ldGhvZHMgYXZhaWxhYmxlIikKCX0KCWlmIHVzZXJuYW1lID09IGBgIHsKCQlpZiBjdXIsIGVyciA6PSB1c2VyLkN1cnJlbnQoKTsgZXJyID09IG5pbCB7CgkJCXVzZXJuYW1lID0gY3VyLlVzZXJuYW1lCgkJfSBlbHNlIHsKCQkJcmV0dXJuIG5pbCwgZXJyCgkJfQoJfQoJaWYgY2xpZW50LCBlcnIgOj0gZ29waC5OZXdDb25uKCZnb3BoLkNvbmZpZ3tVc2VyOiB1c2VybmFtZSwgQWRkcjogdS5Ib3N0bmFtZSgpLCBQb3J0OiB1aW50KHBvcnQpLCBBdXRoOiBhdXRoTWV0aG9kcywgVGltZW91dDogdGltZW91dCwgQ2FsbGJhY2s6IHZlcmlmeUhvc3RGdW5jfSk7IGVyciA9PSBuaWwgewoJCXZhciByZWFkQ2xvc2VyIGlvLlJlYWRDbG9zZXIKCQl2YXIgcmVyciBlcnJvcgoJCXN3aXRjaCB1LlNjaGVtZSB7CgkJY2FzZSBgc2Z0cGA6CgkJCWlmIHNmdHAsIGVyciA6PSBzZnRwLk5ld0NsaWVudChjbGllbnQuQ2xpZW50KTsgZXJyID09IG5pbCB7CgkJCQlpZiBmaWxlLCBlcnIgOj0gc2Z0cC5PcGVuKHJlbW90ZVBhdGgpOyBlcnIgPT0gbmlsIHsKCQkJCQlyZWFkQ2xvc2VyID0gTmV3UG9zdFJlYWRDbG9zZXIoZmlsZSwgZnVuYyhyYyBpby5SZWFkQ2xvc2VyKSBlcnJvciB7CgkJCQkJCWRlZmVyIHNmdHAuQ2xvc2UoKQoJCQkJCQlkZWZlciBjbGllbnQuQ2xvc2UoKQoJCQkJCQlyZXR1cm4gZmlsZS5DbG9zZSgpCgkJCQkJfSkKCQkJCX0gZWxzZSB7CgkJCQkJZGVmZXIgc2Z0cC5DbG9zZSgpCgkJCQkJcmV0dXJuIG5pbCwgZXJyCgkJCQl9CgkJCX0gZWxzZSB7CgkJCQlyZXR1cm4gbmlsLCBlcnIKCQkJfQoJCWNhc2UgYHNzaGA6CgkJCWlmIGFyZ3YsIGVyciA6PSBzaGVsbHdvcmRzLlBhcnNlKHJlbW90ZVBhdGgpOyBlcnIgPT0gbmlsIHsKCQkJCWlmIHNjbWQsIGVyciA6PSBjbGllbnQuQ29tbWFuZChhcmd2WzBdLCBhcmd2WzE6XS4uLik7IGVyciA9PSBuaWwgewoJCQkJCWlmIG91dCwgZXJyIDo9IHNjbWQuU3Rkb3V0UGlwZSgpOyBlcnIgPT0gbmlsIHsKCQkJCQkJaWYgZXJyIDo9IHNjbWQuU3RhcnQoKTsgZXJyID09IG5pbCB7CgkJCQkJCQlyZWFkQ2xvc2VyID0gTmV3UG9zdFJlYWRDbG9zZXIoaW91dGlsLk5vcENsb3NlcihvdXQpLCBmdW5jKHJjIGlvLlJlYWRDbG9zZXIpIGVycm9yIHsKCQkJCQkJCQlkZWZlciBjbGllbnQuQ2xvc2UoKQoJCQkJCQkJCXJldHVybiBzY21kLldhaXQoKQoJCQkJCQkJfSkKCQkJCQkJfSBlbHNlIHsKCQkJCQkJCXJlcnIgPSBmbXQuRXJyb3JmKCJSZXRyaWV2ZVZpYVNTSDogY29tbWFuZCBmYWlsZWQgdG8gc3RhcnQ6ICV2IiwgZXJyKQoJCQkJCQl9CgkJCQkJfSBlbHNlIHsKCQkJCQkJcmVyciA9IGZtdC5FcnJvcmYoIlJldHJpZXZlVmlhU1NIOiBiYWQgcGlwZTogJXYiLCBlcnIpCgkJCQkJfQoJCQkJfSBlbHNlIHsKCQkJCQlyZXJyID0gZm10LkVycm9yZigiUmV0cmlldmVWaWFTU0g6IGJhZCBzaGVsbCBjb21tYW5kOiAldiIsIGVycikKCQkJCX0KCQkJfSBlbHNlIHsKCQkJCXJlcnIgPSBmbXQuRXJyb3JmKCJSZXRyaWV2ZVZpYVNTSDogYmFkIHNoZWxsIGNvbW1hbmQ6ICV2IiwgZXJyKQoJCQl9CgkJZGVmYXVsdDoKCQkJcmVyciA9IGZtdC5FcnJvcmYoIlJldHJpZXZlVmlhU1NIOiBiYWQgc2NoZW1lICVxIiwgdS5TY2hlbWUpCgkJfQoJCWlmIHJlYWRDbG9zZXIgPT0gbmlsIHsKCQkJZGVmZXIgY2xpZW50LkNsb3NlKCkKCQl9CgkJcmV0dXJuIHJlYWRDbG9zZXIsIHJlcnIKCX0gZWxzZSB7CgkJcmV0dXJuIG5pbCwgZXJyCgl9Cn0=",
                     "IsPackageLevel": true
                 },
                 {
@@ -4400,6 +4769,66 @@
                     "IsPackageLevel": true
                 },
                 {
+                    "Name": "TestRetrieve",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestRetrieve(t *testing.T)",
+                    "Source": "ewoJdmFyIHNlcnZlciA9IHRlc3RIdHRwU2VydmVyKHQpCglkZWZlciBzZXJ2ZXIuQ2xvc2UoKQoJZm9yIHVyaSwgZXhwZWN0ZWQgOj0gcmFuZ2UgbWFwW3N0cmluZ11zdHJpbmd7InRlc3RkaXIvYS50eHQiOiAiYVxuIiwgIi4vdGVzdGRpci9hLnR4dCI6ICJhXG4iLCAiZmlsZTovLy90ZXN0ZGlyL2EudHh0IjogImFcbiIsIHNlcnZlci5VUkwgKyAiL2hlbGxvIjogIk9LIn0gewoJCXZhciByYywgZXJyID0gUmV0cmlldmUobmlsLCB1cmkpCgkJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyLCB1cmkpCgkJdmFyIGFjdHVhbCwgcmVyciA9IGlvdXRpbC5SZWFkQWxsKHJjKQoJCWFzc2VydC5Ob0Vycm9yKHQsIHJjLkNsb3NlKCksIHVyaSkKCQlhc3NlcnQuTm9FcnJvcih0LCByZXJyLCB1cmkpCgkJYXNzZXJ0LkVxdWFsKHQsIGV4cGVjdGVkLCBzdHJpbmcoYWN0dWFsKSwgdXJpKQoJfQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestRetrieveViaFilesystem",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestRetrieveViaFilesystem(t *testing.T)",
+                    "Source": "ewoJdmFyIHJjLCByZXJyID0gUmV0cmlldmVWaWFGaWxlc3lzdGVtKG5pbCwgJnVybC5VUkx7U2NoZW1lOiBgZmlsZWAsIFBhdGg6IGB0ZXN0ZGlyL2EudHh0YH0pCglhc3NlcnQuTm9FcnJvcih0LCByZXJyKQoJdmFyIGRhdGEsIGRlcnIgPSBpb3V0aWwuUmVhZEFsbChyYykKCWFzc2VydC5Ob0Vycm9yKHQsIHJjLkNsb3NlKCkpCglhc3NlcnQuTm9FcnJvcih0LCBkZXJyKQoJYXNzZXJ0LkVxdWFsKHQsICJhXG4iLCBzdHJpbmcoZGF0YSkpCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestRetrieveViaHTTP",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestRetrieveViaHTTP(t *testing.T)",
+                    "Source": "ewoJdmFyIHNlcnZlciA9IHRlc3RIdHRwU2VydmVyKHQpCglkZWZlciBzZXJ2ZXIuQ2xvc2UoKQoJdmFyIGN0eCA9IGNvbnRleHQuQmFja2dyb3VuZCgpCgljdHgsIGNhbmNlbCA6PSBjb250ZXh0LldpdGhUaW1lb3V0KGN0eCwgdGltZS5TZWNvbmQpCglkZWZlciBjYW5jZWwoKQoJdmFyIHUsIGVyciA9IHVybC5QYXJzZShzZXJ2ZXIuVVJMKQoJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyKQoJdmFyIHJjLCByZXJyID0gUmV0cmlldmVWaWFIVFRQKGN0eCwgdSkKCWFzc2VydC5Ob0Vycm9yKHQsIHJlcnIpCgl2YXIgZGF0YSwgZGVyciA9IGlvdXRpbC5SZWFkQWxsKHJjKQoJYXNzZXJ0Lk5vRXJyb3IodCwgcmMuQ2xvc2UoKSkKCWFzc2VydC5Ob0Vycm9yKHQsIGRlcnIpCglhc3NlcnQuRXF1YWwodCwgIk9LIiwgc3RyaW5nKGRhdGEpKQoJdS5QYXRoID0gYC9zbGVlcC8xMTAwbXNgCglyYywgcmVyciA9IFJldHJpZXZlVmlhSFRUUChjdHgsIHUpCglhc3NlcnQuQ29udGFpbnModCwgcmVyci5FcnJvcigpLCBgY29udGV4dCBkZWFkbGluZSBleGNlZWRlZGApCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestRetrieveViaSSH_SFTP",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestRetrieveViaSSH_SFTP(t *testing.T)",
+                    "Source": "ewoJdmFyIHNzaFVybEVudiA9IG9zLkdldGVudihgVEVTVF9HT1NUT0NLVVRJTF9SRVRSSUVWRV9WSUFfU0ZUUGApCglpZiBzc2hVcmxFbnYgIT0gYGAgewoJCWZvciBfLCB1cmkgOj0gLy8gZXhhbXBsZTogVEVTVF9HT1NUT0NLVVRJTF9SRVRSSUVWRV9WSUFfU0ZUUD0ic2Z0cDovL2xvY2FsaG9zdDoyMDIwL2ZpbGUtaW4taG9tZWRpcnxzZnRwOi8vdWJ1bnR1OnBhc3N3b3JkQHJlbW90ZS1ob3N0Ly9ldGMvZnN0YWIiCgkJcmFuZ2Ugc3RyaW5ncy5TcGxpdChzc2hVcmxFbnYsIGB8YCkgewoJCQl1cmkgPSBzdHJpbmdzLlRyaW1TcGFjZSh1cmkpCgkJCWlmIHVyaSA9PSBgYCB7CgkJCQljb250aW51ZQoJCQl9CgkJCXUsIGVyciA6PSB1cmwuUGFyc2UodXJpKQoJCQlhc3NlcnQuTm9FcnJvcih0LCBlcnIpCgkJCWFzc2VydC5Ob3ROaWwodCwgdSkKCQkJY3R4IDo9IGNvbnRleHQuV2l0aFZhbHVlKGNvbnRleHQuQmFja2dyb3VuZCgpLCBgdmVyaWZ5SG9zdEZ1bmNgLCBmdW5jKGhvc3RuYW1lIHN0cmluZywgcmVtb3RlIG5ldC5BZGRyLCBrZXkgc3NoLlB1YmxpY0tleSkgZXJyb3IgewoJCQkJdmFyIHAgPSB1LlBvcnQoKQoJCQkJaWYgcCA9PSBgYCB7CgkJCQkJcCA9IGAyMmAKCQkJCX0KCQkJCWFzc2VydC5FcXVhbCh0LCB1Lkhvc3QrYDpgK3AsIGhvc3RuYW1lKQoJCQkJcmV0dXJuIG5pbAoJCQl9KQoJCQlkLCBlcnIgOj0gUmV0cmlldmVWaWFTU0goY3R4LCB1KQoJCQlhc3NlcnQuTm9FcnJvcih0LCBlcnIpCgkJCWRhdGEsIGVyciA6PSBpb3V0aWwuUmVhZEFsbChkKQoJCQlhc3NlcnQuTm9FcnJvcih0LCBkLkNsb3NlKCkpCgkJCWFzc2VydC5FcXVhbCh0LCAiSEVMTE8gVEhFUkVcbiIsIHN0cmluZyhkYXRhKSkKCQl9Cgl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestRetrieveViaSSH_SSH",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestRetrieveViaSSH_SSH(t *testing.T)",
+                    "Source": "ewoJdmFyIHNzaFVybEVudiA9IG9zLkdldGVudihgVEVTVF9HT1NUT0NLVVRJTF9SRVRSSUVWRV9WSUFfU1NIYCkKCWlmIHNzaFVybEVudiAhPSBgYCB7CgkJZm9yIF8sIHVyaSA6PSAvLyBleGFtcGxlOiBURVNUX0dPU1RPQ0tVVElMX1JFVFJJRVZFX1ZJQV9TU0g9InNzaDovL2xvY2FsaG9zdDoyMDIwL2hvc3RuYW1lIgoJCXJhbmdlIHN0cmluZ3MuU3BsaXQoc3NoVXJsRW52LCBgfGApIHsKCQkJdXJpID0gc3RyaW5ncy5UcmltU3BhY2UodXJpKQoJCQlpZiB1cmkgPT0gYGAgewoJCQkJY29udGludWUKCQkJfQoJCQl1LCBlcnIgOj0gdXJsLlBhcnNlKHVyaSkKCQkJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyKQoJCQlhc3NlcnQuTm90TmlsKHQsIHUpCgkJCWN0eCA6PSBjb250ZXh0LldpdGhWYWx1ZShjb250ZXh0LkJhY2tncm91bmQoKSwgYHZlcmlmeUhvc3RGdW5jYCwgZnVuYyhob3N0bmFtZSBzdHJpbmcsIHJlbW90ZSBuZXQuQWRkciwga2V5IHNzaC5QdWJsaWNLZXkpIGVycm9yIHsKCQkJCXZhciBwID0gdS5Qb3J0KCkKCQkJCWlmIHAgPT0gYGAgewoJCQkJCXAgPSBgMjJgCgkJCQl9CgkJCQlhc3NlcnQuRXF1YWwodCwgdS5Ib3N0K2A6YCtwLCBob3N0bmFtZSkKCQkJCXJldHVybiBuaWwKCQkJfSkKCQkJZCwgZXJyIDo9IFJldHJpZXZlVmlhU1NIKGN0eCwgdSkKCQkJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyKQoJCQlkYXRhLCBlcnIgOj0gaW91dGlsLlJlYWRBbGwoZCkKCQkJYXNzZXJ0Lk5vRXJyb3IodCwgZC5DbG9zZSgpKQoJCQlhc3NlcnQuRXF1YWwodCwgdS5Ib3N0bmFtZSgpKyJcbiIsIHN0cmluZyhkYXRhKSkKCQl9Cgl9Cn0=",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "TestRewriteFileSystem",
                     "Arguments": [
                         {
@@ -4437,6 +4866,10 @@
                 }
             ],
             "Types": {
+                "CloserFunc": {
+                    "Name": "CloserFunc",
+                    "Source": "dHlwZSBDbG9zZXJGdW5jID0gZnVuYyhpby5SZWFkQ2xvc2VyKSBlcnJvcg=="
+                },
                 "CopyEntryFunc": {
                     "Name": "CopyEntryFunc",
                     "Source": "dHlwZSBDb3B5RW50cnlGdW5jIGZ1bmMocGF0aCBzdHJpbmcsIGluZm8gb3MuRmlsZUluZm8sIGVyciBlcnJvcikgKGlvLldyaXRlciwgZXJyb3Ip"
@@ -4773,7 +5206,7 @@
                         },
                         {
                             "Name": "NewPostReadCloser",
-                            "Comment": "Implements an io.ReadCloser that can be configured to perform cleanup options whenever the\nClose() function is called.",
+                            "Comment": "Implements an io.ReadCloser that can be configured to perform cleanup options whenever the\nClose() function is called.  If CloserFunc is non-nil, it will be given the upstream ReadCloser\nas an argument and will be responsible for calling Close() on it.  If nil, upstream's Close()\nfunction will be called directly on Close.",
                             "Arguments": [
                                 {
                                     "Name": "upstream",
@@ -4781,7 +5214,7 @@
                                 },
                                 {
                                     "Name": "closer",
-                                    "Type": ""
+                                    "Type": "CloserFunc"
                                 }
                             ],
                             "Returns": [
@@ -4789,7 +5222,7 @@
                                     "Type": "*PostReadCloser"
                                 }
                             ],
-                            "Signature": "NewPostReadCloser(upstream io.ReadCloser, closer ) *PostReadCloser",
+                            "Signature": "NewPostReadCloser(upstream io.ReadCloser, closer CloserFunc) *PostReadCloser",
                             "Source": "ewoJcmV0dXJuICZQb3N0UmVhZENsb3Nlcnt1cHN0cmVhbTogdXBzdHJlYW0sIGNsb3NlcjogY2xvc2VyfQp9",
                             "IsPackageLevel": true
                         },
@@ -4895,7 +5328,145 @@
                 },
                 "ReadManipulatorFunc": {
                     "Name": "ReadManipulatorFunc",
+                    "Methods": [
+                        {
+                            "Name": "ManipulateAll",
+                            "Comment": "Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.",
+                            "Arguments": [
+                                {
+                                    "Name": "fns",
+                                    "Type": "...ReadManipulatorFunc"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "ReadManipulatorFunc"
+                                }
+                            ],
+                            "Signature": "ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc",
+                            "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9",
+                            "IsPackageLevel": true
+                        },
+                        {
+                            "Name": "ReplaceWith",
+                            "Comment": "A ReadManipulatorFunc for replacing text in an io.Reader as its being read.",
+                            "Arguments": [
+                                {
+                                    "Name": "find",
+                                    "Type": "string"
+                                },
+                                {
+                                    "Name": "replace",
+                                    "Type": "string"
+                                },
+                                {
+                                    "Name": "occurrences",
+                                    "Type": "int"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "ReadManipulatorFunc"
+                                }
+                            ],
+                            "Signature": "ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc",
+                            "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9",
+                            "IsPackageLevel": true
+                        },
+                        {
+                            "Name": "RemoveLinesContaining",
+                            "Comment": "A ReadManipulatorFunc for removing lines that contain the given string.",
+                            "Arguments": [
+                                {
+                                    "Name": "needle",
+                                    "Type": "string"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "ReadManipulatorFunc"
+                                }
+                            ],
+                            "Signature": "RemoveLinesContaining(needle string) ReadManipulatorFunc",
+                            "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9",
+                            "IsPackageLevel": true
+                        },
+                        {
+                            "Name": "RemoveLinesWithPrefix",
+                            "Comment": "A ReadManipulatorFunc for removing lines that have a given prefix.",
+                            "Arguments": [
+                                {
+                                    "Name": "prefix",
+                                    "Type": "string"
+                                },
+                                {
+                                    "Name": "trimSpace",
+                                    "Type": "bool"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "ReadManipulatorFunc"
+                                }
+                            ],
+                            "Signature": "RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc",
+                            "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
+                            "IsPackageLevel": true
+                        },
+                        {
+                            "Name": "RemoveLinesWithSuffix",
+                            "Comment": "A ReadManipulatorFunc for removing lines that have a given suffix.",
+                            "Arguments": [
+                                {
+                                    "Name": "suffix",
+                                    "Type": "string"
+                                },
+                                {
+                                    "Name": "trimSpace",
+                                    "Type": "bool"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "ReadManipulatorFunc"
+                                }
+                            ],
+                            "Signature": "RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc",
+                            "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
+                            "IsPackageLevel": true
+                        },
+                        {
+                            "Name": "RemoveLinesSurroundedBy",
+                            "Comment": "A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.",
+                            "Arguments": [
+                                {
+                                    "Name": "prefix",
+                                    "Type": "string"
+                                },
+                                {
+                                    "Name": "suffix",
+                                    "Type": "string"
+                                },
+                                {
+                                    "Name": "trimSpace",
+                                    "Type": "bool"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "ReadManipulatorFunc"
+                                }
+                            ],
+                            "Signature": "RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc",
+                            "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==",
+                            "IsPackageLevel": true
+                        }
+                    ],
                     "Source": "dHlwZSBSZWFkTWFuaXB1bGF0b3JGdW5jIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKQ=="
+                },
+                "RetrieveHandlerFunc": {
+                    "Name": "RetrieveHandlerFunc",
+                    "Source": "dHlwZSBSZXRyaWV2ZUhhbmRsZXJGdW5jID0gZnVuYyhjb250ZXh0LkNvbnRleHQsICp1cmwuVVJMKSAoaW8uUmVhZENsb3NlciwgZXJyb3Ip"
                 },
                 "RewriteFileSystem": {
                     "Name": "RewriteFileSystem",
@@ -5864,7 +6435,7 @@
                 "Mean": 0.6593,
                 "StdDev": 0.4504,
                 "GeometricMean": 0,
-                "HarmonicMean": 0.963,
+                "HarmonicMean": 1,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -8542,7 +9113,7 @@
                 "Mean": 0.242,
                 "StdDev": 0.4247,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -12954,7 +13525,7 @@
                 "Mean": 0.1667,
                 "StdDev": 0.3727,
                 "GeometricMean": 0,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -19178,18 +19749,18 @@
             "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
             "MainFunction": false,
             "CommentWordCount": 886,
-            "LineCount": 1295,
-            "SourceLineCount": 942,
-            "FunctionCount": 63,
+            "LineCount": 1526,
+            "SourceLineCount": 1126,
+            "FunctionCount": 82,
             "TypeCount": 3,
             "ConstantCount": 3,
             "VariableCount": 0,
             "Statistics": {
-                "Mean": 0.6853,
-                "StdDev": 0.3904,
-                "GeometricMean": 0.8906,
-                "HarmonicMean": 0,
-                "Median": 0.95,
+                "Mean": 0.5356,
+                "StdDev": 0.4464,
+                "GeometricMean": 0.9393,
+                "HarmonicMean": 1,
+                "Median": 0.4,
                 "Minimum": 0,
                 "Maximum": 1
             },
@@ -19338,10 +19909,10 @@
                             "Alias": "utils"
                         }
                     ],
-                    "Size": 8606,
-                    "LineCount": 376,
-                    "SourceLineCount": 265,
-                    "FunctionCount": 40,
+                    "Size": 11513,
+                    "LineCount": 552,
+                    "SourceLineCount": 403,
+                    "FunctionCount": 59,
                     "TypeCount": 1,
                     "ConstantCount": 0,
                     "VariableCount": 0
@@ -19362,9 +19933,9 @@
                             "Alias": "require"
                         }
                     ],
-                    "Size": 2978,
-                    "LineCount": 128,
-                    "SourceLineCount": 111,
+                    "Size": 4676,
+                    "LineCount": 183,
+                    "SourceLineCount": 157,
                     "FunctionCount": 0,
                     "TypeCount": 0,
                     "ConstantCount": 0,
@@ -19966,6 +20537,195 @@
                     "IsPackageLevel": true
                 },
                 {
+                    "Name": "OrAuto",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Signature": "OrAuto(first interface{}, rest ...interface{}) interface{}",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yQXV0byhyZXN0Li4uKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "OrBool",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "OrBool(first interface{}, rest ...interface{}) bool",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yQm9vbChyZXN0Li4uKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "OrBytes",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "[]byte"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...[]byte"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Signature": "OrBytes(first []byte, rest ...[]byte) []byte",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yQnl0ZXMocmVzdC4uLikKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "OrDuration",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "time.Duration"
+                        }
+                    ],
+                    "Signature": "OrDuration(first interface{}, rest ...interface{}) time.Duration",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yRHVyYXRpb24ocmVzdC4uLikKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "OrFloat",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "float64"
+                        }
+                    ],
+                    "Signature": "OrFloat(first interface{}, rest ...interface{}) float64",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yRmxvYXQocmVzdC4uLikKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "OrInt",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "int64"
+                        }
+                    ],
+                    "Signature": "OrInt(first interface{}, rest ...interface{}) int64",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9ySW50KHJlc3QuLi4pCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "OrNInt",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "int"
+                        }
+                    ],
+                    "Signature": "OrNInt(first interface{}, rest ...interface{}) int",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yTkludChyZXN0Li4uKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "OrString",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "OrString(first interface{}, rest ...interface{}) string",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yU3RyaW5nKHJlc3QuLi4pCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "OrTime",
+                    "Arguments": [
+                        {
+                            "Name": "first",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "rest",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "time.Time"
+                        }
+                    ],
+                    "Signature": "OrTime(first interface{}, rest ...interface{}) time.Time",
+                    "Source": "ewoJcmV0dXJuIFYoZmlyc3QpLk9yVGltZShyZXN0Li4uKQp9",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "RegisterTypeHandler",
                     "Comment": "Register's a handler used for converting one type to another. Type are checked in the following\nmanner:  The input value's reflect.Type String() value is matched, falling back to its\nreflect.Kind String() value, finally checking for a special \"*\" value that matches any type.\nIf the handler function returns nil, its value replaces the input value.  If the special error\ntype PassthroughType is returned, the original value is returned unmodified.",
                     "Arguments": [
@@ -20212,6 +20972,78 @@
                     ],
                     "Signature": "TestNil(t *testing.T)",
                     "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIE5pbCgpLklzTmlsKCkpCglyZXF1aXJlLlRydWUodCwgTmlsKCkuSXNaZXJvKCkpCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestOrBool",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestOrBool(t *testing.T)",
+                    "Source": "ewoJcmVxdWlyZS5GYWxzZSh0LCBPckJvb2woZmFsc2UpKQoJcmVxdWlyZS5GYWxzZSh0LCBPckJvb2woMCkpCglyZXF1aXJlLkZhbHNlKHQsIE9yQm9vbChgMGApKQoJcmVxdWlyZS5GYWxzZSh0LCBPckJvb2woYGZhbHNlYCkpCglyZXF1aXJlLkZhbHNlKHQsIE9yQm9vbChgbm9gKSkKCXJlcXVpcmUuRmFsc2UodCwgT3JCb29sKGBvZmZgKSkKCXJlcXVpcmUuVHJ1ZSh0LCBPckJvb2wodHJ1ZSkpCglyZXF1aXJlLlRydWUodCwgT3JCb29sKGB0cnVlYCkpCglyZXF1aXJlLlRydWUodCwgT3JCb29sKDEpKQoJcmVxdWlyZS5UcnVlKHQsIE9yQm9vbChgMWApKQoJcmVxdWlyZS5UcnVlKHQsIE9yQm9vbChgeWVzYCkpCglyZXF1aXJlLlRydWUodCwgT3JCb29sKGBvbmApKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestOrDuration",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestOrDuration(t *testing.T)",
+                    "Source": "ewoJcmVxdWlyZS5aZXJvKHQsIE9yRHVyYXRpb24oYGApKQoJcmVxdWlyZS5aZXJvKHQsIE9yRHVyYXRpb24oYGAsIGZhbHNlLCBuaWwpKQoJcmVxdWlyZS5FcXVhbCh0LCA0KnRpbWUuSG91ciwgT3JEdXJhdGlvbihgYCwgMCwgZmFsc2UsIGAwbnNgLCBgNGhgKSkKCXJlcXVpcmUuRXF1YWwodCwgMjQqdGltZS5Ib3VyLCBPckR1cmF0aW9uKGAxZGApKQoJcmVxdWlyZS5FcXVhbCh0LCA1KnRpbWUuTWludXRlKzMqdGltZS5TZWNvbmQsIE9yRHVyYXRpb24oYDVtM3NgLCBgMW0xOHNgKSkKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestOrFloat",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestOrFloat(t *testing.T)",
+                    "Source": "ewoJcmVxdWlyZS5FcXVhbCh0LCBmbG9hdDY0KDQyKSwgT3JGbG9hdCg0MiwgOTYpKQoJcmVxdWlyZS5FcXVhbCh0LCBmbG9hdDY0KDQyKSwgT3JGbG9hdChgNDJgLCA5NikpCglyZXF1aXJlLkVxdWFsKHQsIGZsb2F0NjQoNDIpLCBPckZsb2F0KGBgLCBgMGAsIDQyLCA5NikpCglyZXF1aXJlLkVxdWFsKHQsIGZsb2F0NjQoNDIpLCBPckZsb2F0KDAsIGZhbHNlLCBgYCwgNDIsIDk2KSkKfQ==",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestOrInt",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestOrInt(t *testing.T)",
+                    "Source": "ewoJcmVxdWlyZS5FcXVhbCh0LCBpbnQ2NCg0MiksIE9ySW50KDQyLCA5NikpCglyZXF1aXJlLkVxdWFsKHQsIGludDY0KDQyKSwgT3JJbnQoYDQyYCwgOTYpKQoJcmVxdWlyZS5FcXVhbCh0LCBpbnQ2NCg0MiksIE9ySW50KGBgLCBgMGAsIDQyLCA5NikpCglyZXF1aXJlLkVxdWFsKHQsIGludDY0KDQyKSwgT3JJbnQoMCwgZmFsc2UsIGBgLCA0MiwgOTYpKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestOrString",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestOrString(t *testing.T)",
+                    "Source": "ewoJcmVxdWlyZS5FcXVhbCh0LCBgYCwgT3JTdHJpbmcoYGApKQoJcmVxdWlyZS5FcXVhbCh0LCBgaGV5YCwgT3JTdHJpbmcoYGhleWApKQoJcmVxdWlyZS5FcXVhbCh0LCBgaGV5YCwgT3JTdHJpbmcoYGhleWAsIGBgLCBgYCkpCglyZXF1aXJlLkVxdWFsKHQsIGBoZXlgLCBPclN0cmluZyhgYCwgYGhleWAsIGBgKSkKCXJlcXVpcmUuRXF1YWwodCwgYGhleWAsIE9yU3RyaW5nKGBgLCBgYCwgYGhleWApKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestOrTime",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestOrTime(t *testing.T)",
+                    "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIE9yVGltZShgYCkuSXNaZXJvKCkpCglyZXF1aXJlLlRydWUodCwgT3JUaW1lKG5pbCwgYGAsIGZhbHNlLCBuaWwpLklzWmVybygpKQoJcmVxdWlyZS5GYWxzZSh0LCBPclRpbWUoYG5vd2ApLklzWmVybygpKQoJcmVxdWlyZS5FcXVhbCh0LCB0aW1lLlVuaXgoMCwgMCksIE9yVGltZSgwKSkKfQ==",
                     "IsPackageLevel": true
                 },
                 {
@@ -20536,6 +21368,176 @@
                                 }
                             ],
                             "Signature": "NInt() int",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "Or",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "interface{}"
+                                }
+                            ],
+                            "Signature": "Or(or ...interface{}) interface{}",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrAuto",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "interface{}"
+                                }
+                            ],
+                            "Signature": "OrAuto(or ...interface{}) interface{}",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrBool",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "bool"
+                                }
+                            ],
+                            "Signature": "OrBool(or ...interface{}) bool",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrBytes",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...[]byte"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "[]byte"
+                                }
+                            ],
+                            "Signature": "OrBytes(or ...[]byte) []byte",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrDuration",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "time.Duration"
+                                }
+                            ],
+                            "Signature": "OrDuration(or ...interface{}) time.Duration",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrFloat",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "float64"
+                                }
+                            ],
+                            "Signature": "OrFloat(or ...interface{}) float64",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrInt",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "int64"
+                                }
+                            ],
+                            "Signature": "OrInt(or ...interface{}) int64",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrNInt",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "int"
+                                }
+                            ],
+                            "Signature": "OrNInt(or ...interface{}) int",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrString",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "string"
+                                }
+                            ],
+                            "Signature": "OrString(or ...interface{}) string",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "OrTime",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "or",
+                                    "Type": "...interface{}"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "time.Time"
+                                }
+                            ],
+                            "Signature": "OrTime(or ...interface{}) time.Time",
                             "IsPackageLevel": false
                         },
                         {

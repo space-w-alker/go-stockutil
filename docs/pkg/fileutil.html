@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.8.95
+                            v1.9.0
                         </li>
                     </ul>
                     
@@ -240,12 +240,6 @@
 	</li>
 	
     <li>
-		<strong>
-		<a href="#ManipulateAll">func ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc</a>
-		</strong>
-	</li>
-	
-    <li>
 		
 		<a href="#MustExpandUser">func MustExpandUser(path string) string</a>
 		
@@ -330,32 +324,14 @@
 	</li>
 	
     <li>
+		
+		<a href="#RegisterRetrieveScheme">func RegisterRetrieveScheme(scheme string, fn RetrieveHandlerFunc)</a>
+		
+	</li>
+	
+    <li>
 		<strong>
 		<a href="#RemoveBlankLines">func RemoveBlankLines(data []byte) ([]byte, error)</a>
-		</strong>
-	</li>
-	
-    <li>
-		<strong>
-		<a href="#RemoveLinesContaining">func RemoveLinesContaining(needle string) ReadManipulatorFunc</a>
-		</strong>
-	</li>
-	
-    <li>
-		<strong>
-		<a href="#RemoveLinesSurroundedBy">func RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc</a>
-		</strong>
-	</li>
-	
-    <li>
-		<strong>
-		<a href="#RemoveLinesWithPrefix">func RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc</a>
-		</strong>
-	</li>
-	
-    <li>
-		<strong>
-		<a href="#RemoveLinesWithSuffix">func RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc</a>
 		</strong>
 	</li>
 	
@@ -367,7 +343,25 @@
 	
     <li>
 		<strong>
-		<a href="#ReplaceWith">func ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc</a>
+		<a href="#Retrieve">func Retrieve(ctx context.Context, resourceUri interface{}) (io.ReadCloser, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RetrieveViaFilesystem">func RetrieveViaFilesystem(ctx context.Context, u *url.URL) (io.ReadCloser, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RetrieveViaHTTP">func RetrieveViaHTTP(ctx context.Context, u *url.URL) (io.ReadCloser, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RetrieveViaSSH">func RetrieveViaSSH(ctx context.Context, u *url.URL) (io.ReadCloser, error)</a>
 		</strong>
 	</li>
 	
@@ -415,6 +409,13 @@
 	
 
 	
+	
+    <li>
+		<a href="#CloserFunc">type CloserFunc </a>
+
+		
+		
+	</li>
 	
     <li>
 		<a href="#CopyEntryFunc">type CopyEntryFunc </a>
@@ -750,7 +751,7 @@
 			<li>
 				<strong>
 				<a href="#PostReadCloser.NewPostReadCloser">
-					func NewPostReadCloser(upstream io.ReadCloser, closer ) *PostReadCloser
+					func NewPostReadCloser(upstream io.ReadCloser, closer CloserFunc) *PostReadCloser
 				</a>
 				</strong>
 			</li>
@@ -868,6 +869,13 @@
 	</li>
 	
     <li>
+		<a href="#RetrieveHandlerFunc">type RetrieveHandlerFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
 		<a href="#RewriteFileSystem">type RewriteFileSystem</a>
 
 		
@@ -936,13 +944,125 @@
 	<tr>
 		<td class="text-left">
 			
+			<a href="anyget.go">anyget.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">63</td>
+		<td class="text-right">2</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right">2</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="anyget_file.go">anyget_file.go</a>
+			
+		</td>
+		<td class="text-right">791B</td>
+		<td class="text-right">26</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="anyget_file_test.go">anyget_file_test.go</a>
+			
+		</td>
+		<td class="text-right">413B</td>
+		<td class="text-right">18</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="anyget_http.go">anyget_http.go</a>
+			
+		</td>
+		<td class="text-right">856B</td>
+		<td class="text-right">38</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="anyget_http_test.go">anyget_http_test.go</a>
+			
+		</td>
+		<td class="text-right">709B</td>
+		<td class="text-right">27</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="anyget_ssh.go">anyget_ssh.go</a>
+			
+		</td>
+		<td class="text-right">4KB</td>
+		<td class="text-right">121</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right">3</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="anyget_ssh_test.go">anyget_ssh_test.go</a>
+			
+		</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">66</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="anyget_test.go">anyget_test.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">39</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
 			<a href="closer.go">closer.go</a>
 			
 		</td>
-		<td class="text-right">645B</td>
-		<td class="text-right">22</td>
+		<td class="text-right">904B</td>
+		<td class="text-right">23</td>
 		<td class="text-right">3</td>
-		<td class="text-right">1</td>
+		<td class="text-right">2</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 	</tr>
@@ -1179,6 +1299,8 @@ var <span id="DirExists">DirExists               </span> = pathutil.DirExists
 var <span id="Exists">Exists                  </span> = pathutil.Exists
 var <span id="ExpandUser">ExpandUser              </span> = pathutil.ExpandUser
 var <span id="FileExists">FileExists              </span> = pathutil.FileExists
+var <span id="GenericDefaultTimeout">GenericDefaultTimeout   </span> = 5 * time.Second
+var <span id="HttpDefaultTimeout">HttpDefaultTimeout      </span> = 10 * time.Second
 var <span id="IsAppend">IsAppend                </span> = pathutil.IsAppend
 var <span id="IsAppendable">IsAppendable            </span> = pathutil.IsAppendable
 var <span id="IsCharDevice">IsCharDevice            </span> = pathutil.IsCharDevice
@@ -1197,7 +1319,11 @@ var <span id="IsSymlink">IsSymlink               </span> = pathutil.IsSymlink
 var <span id="IsTemporary">IsTemporary             </span> = pathutil.IsTemporary
 var <span id="IsWritable">IsWritable              </span> = pathutil.IsWritable
 var <span id="LinkExists">LinkExists              </span> = pathutil.LinkExists
+var <span id="NullReadCloser">NullReadCloser          </span> = ioutil.NopCloser(bytes.NewBuffer(nil))
 var <span id="SkipToken">SkipToken               </span> = errors.New(`skip token`)
+var <span id="SshDefaultTimeout">SshDefaultTimeout       </span> = 10 * time.Second
+var <span id="SshPrivateKey">SshPrivateKey           </span> = MustExpandUser(`~/.ssh/id_rsa`)
+var <span id="SshVerifyHostFunc">SshVerifyHostFunc       </span> = ssh.InsecureIgnoreHostKey()
 </pre>
 </div>
 
@@ -1345,20 +1471,6 @@ var <span id="SkipToken">SkipToken               </span> = errors.New(`skip toke
 	<pre>func IsTerminal() bool</pre>
 </div>
 
-
-
-<h3 id="ManipulateAll" data-kind="f">
-	func <a title="View Source" href="">ManipulateAll</a>
-	<a class="permalink" href="#ManipulateAll">&#182;</a>
-</h3>
-<div class="funcdecl decl">
-	<a title="View Source" href="">&#10070;</a>
-	<pre>func ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc</pre>
-</div>
-
-
-<p><p>Performs multiple sequential manipulations on an intercepted line of text from<br>an io.Reader as its being read.</p>
-</p>
 
 
 <h3 id="MustExpandUser" data-kind="f">
@@ -1545,6 +1657,17 @@ var <span id="SkipToken">SkipToken               </span> = errors.New(`skip toke
 </p>
 
 
+<h3 id="RegisterRetrieveScheme" data-kind="f">
+	func <a title="View Source" href="">RegisterRetrieveScheme</a>
+	<a class="permalink" href="#RegisterRetrieveScheme">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RegisterRetrieveScheme(scheme string, fn RetrieveHandlerFunc)</pre>
+</div>
+
+
+
 <h3 id="RemoveBlankLines" data-kind="f">
 	func <a title="View Source" href="">RemoveBlankLines</a>
 	<a class="permalink" href="#RemoveBlankLines">&#182;</a>
@@ -1556,62 +1679,6 @@ var <span id="SkipToken">SkipToken               </span> = errors.New(`skip toke
 
 
 <p><p>A ReadManipulatorFunc for removing lines that only contain whitespace.</p>
-</p>
-
-
-<h3 id="RemoveLinesContaining" data-kind="f">
-	func <a title="View Source" href="">RemoveLinesContaining</a>
-	<a class="permalink" href="#RemoveLinesContaining">&#182;</a>
-</h3>
-<div class="funcdecl decl">
-	<a title="View Source" href="">&#10070;</a>
-	<pre>func RemoveLinesContaining(needle string) ReadManipulatorFunc</pre>
-</div>
-
-
-<p><p>A ReadManipulatorFunc for removing lines that contain the given string.</p>
-</p>
-
-
-<h3 id="RemoveLinesSurroundedBy" data-kind="f">
-	func <a title="View Source" href="">RemoveLinesSurroundedBy</a>
-	<a class="permalink" href="#RemoveLinesSurroundedBy">&#182;</a>
-</h3>
-<div class="funcdecl decl">
-	<a title="View Source" href="">&#10070;</a>
-	<pre>func RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc</pre>
-</div>
-
-
-<p><p>A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.</p>
-</p>
-
-
-<h3 id="RemoveLinesWithPrefix" data-kind="f">
-	func <a title="View Source" href="">RemoveLinesWithPrefix</a>
-	<a class="permalink" href="#RemoveLinesWithPrefix">&#182;</a>
-</h3>
-<div class="funcdecl decl">
-	<a title="View Source" href="">&#10070;</a>
-	<pre>func RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc</pre>
-</div>
-
-
-<p><p>A ReadManipulatorFunc for removing lines that have a given prefix.</p>
-</p>
-
-
-<h3 id="RemoveLinesWithSuffix" data-kind="f">
-	func <a title="View Source" href="">RemoveLinesWithSuffix</a>
-	<a class="permalink" href="#RemoveLinesWithSuffix">&#182;</a>
-</h3>
-<div class="funcdecl decl">
-	<a title="View Source" href="">&#10070;</a>
-	<pre>func RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc</pre>
-</div>
-
-
-<p><p>A ReadManipulatorFunc for removing lines that have a given suffix.</p>
 </p>
 
 
@@ -1629,17 +1696,59 @@ var <span id="SkipToken">SkipToken               </span> = errors.New(`skip toke
 </p>
 
 
-<h3 id="ReplaceWith" data-kind="f">
-	func <a title="View Source" href="">ReplaceWith</a>
-	<a class="permalink" href="#ReplaceWith">&#182;</a>
+<h3 id="Retrieve" data-kind="f">
+	func <a title="View Source" href="">Retrieve</a>
+	<a class="permalink" href="#Retrieve">&#182;</a>
 </h3>
 <div class="funcdecl decl">
 	<a title="View Source" href="">&#10070;</a>
-	<pre>func ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc</pre>
+	<pre>func Retrieve(ctx context.Context, resourceUri interface{}) (io.ReadCloser, error)</pre>
 </div>
 
 
-<p><p>A ReadManipulatorFunc for replacing text in an io.Reader as its being read.</p>
+<p><p>Perform a generic retrieval of data located at a specified resource given as a URL.<br>This function supports file://, http://, https://, ssh://, and sftp:// schemes, and can<br>be extended to support additional schemes using the RegisterRetrieveScheme package function.<br><br>If resourceUri is given as a *url.URL, the value of that URL will be copied.  Any other type<br>will be converted to a string (honoring types that implement fmt.Stringer), and the resulting<br>URL will be used.</p>
+</p>
+
+
+<h3 id="RetrieveViaFilesystem" data-kind="f">
+	func <a title="View Source" href="">RetrieveViaFilesystem</a>
+	<a class="permalink" href="#RetrieveViaFilesystem">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RetrieveViaFilesystem(ctx context.Context, u *url.URL) (io.ReadCloser, error)</pre>
+</div>
+
+
+<p><p>Retrieve a file via a filesystem.  If the context value <code>filesystem</code> implements<br>the http.FileSystem interface, it will be used to perform the retrieval in lieu<br>of the local filesystem.</p>
+</p>
+
+
+<h3 id="RetrieveViaHTTP" data-kind="f">
+	func <a title="View Source" href="">RetrieveViaHTTP</a>
+	<a class="permalink" href="#RetrieveViaHTTP">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RetrieveViaHTTP(ctx context.Context, u *url.URL) (io.ReadCloser, error)</pre>
+</div>
+
+
+<p><p>Retrieve a file via HTTP or HTTPS.</p>
+</p>
+
+
+<h3 id="RetrieveViaSSH" data-kind="f">
+	func <a title="View Source" href="">RetrieveViaSSH</a>
+	<a class="permalink" href="#RetrieveViaSSH">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RetrieveViaSSH(ctx context.Context, u *url.URL) (io.ReadCloser, error)</pre>
+</div>
+
+
+<p><p>Retrieve a file via SFTP (SSH file transfer).  The given URL should resemble the<br>prototype: ssh://[user:password@]hostname[:22]/path/relative/to/homedir<br><br>This function will honor any authentication details from a running SSH agent,<br>as well as utilize the private key located in the path indicated by SshPrivateKey<br>or via the <code>privateKey</code> context value.<br><br>The <code>passphrase</code> context value specifies a plaintext passphrase used to unlock the local<br>private keyfile.<br><br>The <code>verifyHostFunc</code> context value, if it is convertible to the ssh.HostKeyCallback type, will<br>be called to verify the remote SSH host key in a manner of the function’s choosing.  The default<br>behavior is to accept all remote hostkeys as valid.</p>
 </p>
 
 
@@ -1739,6 +1848,25 @@ var <span id="SkipToken">SkipToken               </span> = errors.New(`skip toke
 
 <p><p>Same as WriteFile, but writes the given input to a temporary file, returning<br>the filename.</p>
 </p>
+
+
+
+
+
+<h3 id="CloserFunc" data-kind="t">
+	type
+	<a title="View Source" href="">CloserFunc</a>
+	<a class="permalink" href="#CloserFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type CloserFunc = func(io.ReadCloser) error</pre>
+</div>
+
+
 
 
 
@@ -2248,10 +2376,10 @@ var <span id="SkipToken">SkipToken               </span> = errors.New(`skip toke
 
 <div class="funcdecl decl">
 	<a title="View Source" href="">&#10070;</a>
-	<pre>func NewPostReadCloser(upstream io.ReadCloser, closer ) *PostReadCloser</pre>
+	<pre>func NewPostReadCloser(upstream io.ReadCloser, closer CloserFunc) *PostReadCloser</pre>
 </div>
 
-<p><p>Implements an io.ReadCloser that can be configured to perform cleanup options whenever the<br>Close() function is called.</p>
+<p><p>Implements an io.ReadCloser that can be configured to perform cleanup options whenever the<br>Close() function is called.  If CloserFunc is non-nil, it will be given the upstream ReadCloser<br>as an argument and will be responsible for calling Close() on it.  If nil, upstream’s Close()<br>function will be called directly on Close.</p>
 </p>
 
 
@@ -2394,6 +2522,133 @@ var <span id="SkipToken">SkipToken               </span> = errors.New(`skip toke
 	
 	
 	<pre>type ReadManipulatorFunc func(data []byte) ([]byte, error)</pre>
+</div>
+
+
+
+
+<h4 id="ManipulateAll" data-kind="f">
+	func <a title="View Source" href="">ManipulateAll</a>
+	<a class="permalink" href="#ManipulateAll">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc</pre>
+</div>
+
+<p><p>Performs multiple sequential manipulations on an intercepted line of text from<br>an io.Reader as its being read.</p>
+</p>
+
+
+
+
+<h4 id="ReplaceWith" data-kind="f">
+	func <a title="View Source" href="">ReplaceWith</a>
+	<a class="permalink" href="#ReplaceWith">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc</pre>
+</div>
+
+<p><p>A ReadManipulatorFunc for replacing text in an io.Reader as its being read.</p>
+</p>
+
+
+
+
+<h4 id="RemoveLinesContaining" data-kind="f">
+	func <a title="View Source" href="">RemoveLinesContaining</a>
+	<a class="permalink" href="#RemoveLinesContaining">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLinesContaining(needle string) ReadManipulatorFunc</pre>
+</div>
+
+<p><p>A ReadManipulatorFunc for removing lines that contain the given string.</p>
+</p>
+
+
+
+
+<h4 id="RemoveLinesWithPrefix" data-kind="f">
+	func <a title="View Source" href="">RemoveLinesWithPrefix</a>
+	<a class="permalink" href="#RemoveLinesWithPrefix">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc</pre>
+</div>
+
+<p><p>A ReadManipulatorFunc for removing lines that have a given prefix.</p>
+</p>
+
+
+
+
+<h4 id="RemoveLinesWithSuffix" data-kind="f">
+	func <a title="View Source" href="">RemoveLinesWithSuffix</a>
+	<a class="permalink" href="#RemoveLinesWithSuffix">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc</pre>
+</div>
+
+<p><p>A ReadManipulatorFunc for removing lines that have a given suffix.</p>
+</p>
+
+
+
+
+<h4 id="RemoveLinesSurroundedBy" data-kind="f">
+	func <a title="View Source" href="">RemoveLinesSurroundedBy</a>
+	<a class="permalink" href="#RemoveLinesSurroundedBy">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc</pre>
+</div>
+
+<p><p>A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.</p>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="RetrieveHandlerFunc" data-kind="t">
+	type
+	<a title="View Source" href="">RetrieveHandlerFunc</a>
+	<a class="permalink" href="#RetrieveHandlerFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type RetrieveHandlerFunc = func(context.Context, *url.URL) (io.ReadCloser, error)</pre>
 </div>
 
 
