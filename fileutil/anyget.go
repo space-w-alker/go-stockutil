@@ -19,8 +19,14 @@ var GenericDefaultTimeout = 5 * time.Second
 var NullReadCloser = ioutil.NopCloser(bytes.NewBuffer(nil))
 var retrieveSchemeHandlers = make(map[string]RetrieveHandlerFunc)
 
+// Register a new Retrieve() function for the given URL scheme.
 func RegisterRetrieveScheme(scheme string, fn RetrieveHandlerFunc) {
 	retrieveSchemeHandlers[scheme] = fn
+}
+
+// Unregister the given URL scheme from being handled by the Retrieve() function.
+func UnregisterRetrieveScheme(scheme string) {
+	delete(retrieveSchemeHandlers, scheme)
 }
 
 // Perform a generic retrieval of data located at a specified resource given as a URL.

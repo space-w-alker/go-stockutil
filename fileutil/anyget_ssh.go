@@ -19,10 +19,10 @@ import (
 	"golang.org/x/crypto/ssh"
 )
 
-type sshHostKeyCallback = func(hostname string, remote net.Addr, key ssh.PublicKey) error
+type SshHostKeyCallbackFunc = func(hostname string, remote net.Addr, key ssh.PublicKey) error
 
 var SshPrivateKey = MustExpandUser(`~/.ssh/id_rsa`)
-var SshVerifyHostFunc ssh.HostKeyCallback = ssh.InsecureIgnoreHostKey()
+var SshVerifyHostFunc ssh.HostKeyCallback
 var SshDefaultTimeout = 10 * time.Second
 
 // Retrieve a file via SFTP (SSH file transfer).  The given URL should resemble the
@@ -32,25 +32,40 @@ var SshDefaultTimeout = 10 * time.Second
 // as well as utilize the private key located in the path indicated by SshPrivateKey
 // or via the `privateKey` context value.
 //
-// The `passphrase` context value specifies a plaintext passphrase used to unlock the local
-// private keyfile.
+// Supported Context Values:
 //
-// The `verifyHostFunc` context value, if it is convertible to the ssh.HostKeyCallback type, will
-// be called to verify the remote SSH host key in a manner of the function's choosing.  The default
-// behavior is to accept all remote hostkeys as valid.
+// username:
+//   (string) the username to login with. can be overriden by a username specified in the URL.
+//
+// password:
+//   (string) the password to login with. can be overriden by a password specified in the URL.
+//
+// passphrase:
+//   (string) context value specifies a plaintext passphrase used to unlock the local private keyfile.
+//
+// insecure:
+//   (bool) whether to ignore remote hostkey checks.  Does not work if verifyHostFunc is set.
+//
+// verifyHostFunc:
+//   (SshHostKeyCallbackFunc) context value, if it is convertible to the ssh.HostKeyCallback type, will
+//   be called to verify the remote SSH host key in a manner of the function's choosing.  The default
+//   behavior is to accept all remote hostkeys as valid.
 //
 func RetrieveViaSSH(ctx context.Context, u *url.URL) (io.ReadCloser, error) {
 	ctx, timeout := ctxToTimeout(ctx, SshDefaultTimeout)
 
 	var authMethods goph.Auth
-	var username string
+	var username string = typeutil.String(ctx.Value(`username`))
+	var password string = typeutil.String(ctx.Value(`password`))
 	var port int = typeutil.OrNInt(u.Port(), 22)
 	var remotePath = strings.TrimPrefix(u.Path, `/`)
 	var keyPassphrase = typeutil.String(ctx.Value(`passphrase`))
 	var verifyHostFunc = SshVerifyHostFunc
 
-	if vhfn, ok := ctx.Value(`verifyHostFunc`).(sshHostKeyCallback); ok {
+	if vhfn, ok := ctx.Value(`verifyHostFunc`).(SshHostKeyCallbackFunc); ok {
 		verifyHostFunc = vhfn
+	} else if typeutil.Bool(ctx.Value(`insecure`)) {
+		verifyHostFunc = ssh.InsecureIgnoreHostKey()
 	}
 
 	var keyFile = sliceutil.OrString(
@@ -68,8 +83,12 @@ func RetrieveViaSSH(ctx context.Context, u *url.URL) (io.ReadCloser, error) {
 		}
 
 		if p, ok := ui.Password(); ok {
-			authMethods = append(authMethods, goph.Password(p)...)
+			password = p
 		}
+	}
+
+	if password != `` {
+		authMethods = append(authMethods, goph.Password(password)...)
 	}
 
 	if IsNonemptyFile(keyFile) {

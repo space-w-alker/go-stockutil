@@ -1,19 +1,27 @@
 package fileutil
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 	"time"
 
+	"github.com/ghetzel/go-stockutil/maputil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/ghetzel/testify/assert"
 )
 
-func testHttpServer(t *testing.T) *httptest.Server {
+func testHttpServer(t *testing.T, mustHeaders ...map[string]interface{}) *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+		if len(mustHeaders) > 0 {
+			for k, v := range maputil.M(mustHeaders[0]).MapNative() {
+				assert.Equal(t, v, req.Header.Get(k), fmt.Sprintf("bad header %v: %q != %q", k, req.Header.Get(k), v))
+			}
+		}
+
 		var _, act, arg = stringutil.SplitTriple(req.URL.Path, `/`)
 
 		switch act {
