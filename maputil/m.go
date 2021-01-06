@@ -211,6 +211,12 @@ func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Vari
 	}
 }
 
+// Performs a JSONPath query against the given object and returns the results.
+// See JSONPath for details.
+func (self *Map) JSONPath(data interface{}, query string) (interface{}, error) {
+	return JSONPath(self.Value, query)
+}
+
 // Retrieve a value from the Map by the given dot.separated key, or return a fallback
 // value.  Return values are a typeutil.Variant, which can be easily coerced into
 // various types.

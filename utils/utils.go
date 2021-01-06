@@ -3,11 +3,13 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
+	"reflect"
 	"strings"
 	"time"
 
 	"github.com/fatih/structs"
 	multierror "github.com/hashicorp/go-multierror"
+	"k8s.io/client-go/util/jsonpath"
 )
 
 var ReferenceTime time.Time = time.Date(2006, 1, 2, 15, 4, 5, 0, time.FixedZone("MST", -7*60*60))
@@ -72,4 +74,53 @@ func AppendError(base error, err error) error {
 	} else {
 		return multierror.Append(base, err)
 	}
+}
+
+// Performs a JSONPath query against the given object and returns the results.
+// JSONPath description, syntax, and examples are available at http://goessner.net/articles/JsonPath/.
+func JSONPath(data interface{}, query string, autowrap bool) (interface{}, error) {
+	if reflect.TypeOf(data).Kind() == reflect.Map && query != `` {
+		for _, line := range strings.Split(query, "\n") {
+			line = strings.TrimSpace(line)
+
+			if line == `` {
+				continue
+			} else if autowrap {
+				line = strings.TrimPrefix(line, `{`)
+				line = strings.TrimSuffix(line, `}`)
+				line = `{` + line + `}`
+			}
+
+			var jp = jsonpath.New(``).AllowMissingKeys(true)
+
+			if err := jp.Parse(line); err == nil {
+				var values []interface{}
+
+				if results, err := jp.FindResults(data); err == nil {
+					for _, pair := range results {
+						for _, p := range pair {
+							if p.IsValid() && p.CanInterface() {
+								values = append(values, p.Interface())
+							}
+						}
+					}
+				} else {
+					return nil, err
+				}
+
+				switch len(values) {
+				case 0:
+					data = nil
+				case 1:
+					data = values[0]
+				default:
+					data = values
+				}
+			} else {
+				return nil, err
+			}
+		}
+	}
+
+	return data, nil
 }

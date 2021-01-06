@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "",
     "MainFunction": false,
-    "CommentWordCount": 329,
-    "LineCount": 1478,
-    "SourceLineCount": 1197,
-    "FunctionCount": 45,
+    "CommentWordCount": 355,
+    "LineCount": 1529,
+    "SourceLineCount": 1239,
+    "FunctionCount": 46,
     "TypeCount": 4,
     "ConstantCount": 12,
     "VariableCount": 10,
     "Statistics": {
-        "Mean": 0.25,
-        "StdDev": 0.433,
+        "Mean": 0.2632,
+        "StdDev": 0.4403,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0,
@@ -239,6 +239,10 @@
                     "Alias": "fmt"
                 },
                 {
+                    "PackageName": "reflect",
+                    "Alias": "reflect"
+                },
+                {
                     "PackageName": "strings",
                     "Alias": "strings"
                 },
@@ -253,12 +257,16 @@
                 {
                     "PackageName": "github.com/hashicorp/go-multierror",
                     "Alias": "multierror"
+                },
+                {
+                    "PackageName": "k8s.io/client-go/util/jsonpath",
+                    "Alias": "jsonpath"
                 }
             ],
-            "Size": 1651,
-            "LineCount": 76,
-            "SourceLineCount": 59,
-            "FunctionCount": 2,
+            "Size": 2882,
+            "LineCount": 127,
+            "SourceLineCount": 101,
+            "FunctionCount": 3,
             "TypeCount": 0,
             "ConstantCount": 0,
             "VariableCount": 1
@@ -821,6 +829,35 @@
             ],
             "Signature": "IsZero(value interface{}) bool",
             "Source": "ewoJaWYgdmFsdWUgPT0gbmlsIHsKCQlyZXR1cm4gdHJ1ZQoJfSBlbHNlIGlmIHZhbHVlViwgb2sgOj0gdmFsdWUuKHJlZmxlY3QuVmFsdWUpOyBvayAmJiB2YWx1ZVYuSXNWYWxpZCgpIHsKCQlpZiB2YWx1ZVYuQ2FuSW50ZXJmYWNlKCkgewoJCQl2YWx1ZSA9IHZhbHVlVi5JbnRlcmZhY2UoKQoJCX0KCX0KCXJldHVybiByZWZsZWN0LkRlZXBFcXVhbCh2YWx1ZSwgcmVmbGVjdC5aZXJvKHJlZmxlY3QuVHlwZU9mKHZhbHVlKSkuSW50ZXJmYWNlKCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "JSONPath",
+            "Comment": "Performs a JSONPath query against the given object and returns the results.\nJSONPath description, syntax, and examples are available at http://goessner.net/articles/JsonPath/.",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "query",
+                    "Type": "string"
+                },
+                {
+                    "Name": "autowrap",
+                    "Type": "bool"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "JSONPath(data interface{}, query string, autowrap bool) (interface{}, error)",
+            "Source": "ewoJaWYgcmVmbGVjdC5UeXBlT2YoZGF0YSkuS2luZCgpID09IHJlZmxlY3QuTWFwICYmIHF1ZXJ5ICE9IGBgIHsKCQlmb3IgXywgbGluZSA6PSByYW5nZSBzdHJpbmdzLlNwbGl0KHF1ZXJ5LCAiXG4iKSB7CgkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TcGFjZShsaW5lKQoJCQlpZiBsaW5lID09IGBgIHsKCQkJCWNvbnRpbnVlCgkJCX0gZWxzZSBpZiBhdXRvd3JhcCB7CgkJCQlsaW5lID0gc3RyaW5ncy5UcmltUHJlZml4KGxpbmUsIGB7YCkKCQkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TdWZmaXgobGluZSwgYH1gKQoJCQkJbGluZSA9IGB7YCArIGxpbmUgKyBgfWAKCQkJfQoJCQl2YXIganAgPSBqc29ucGF0aC5OZXcoYGApLkFsbG93TWlzc2luZ0tleXModHJ1ZSkKCQkJaWYgZXJyIDo9IGpwLlBhcnNlKGxpbmUpOyBlcnIgPT0gbmlsIHsKCQkJCXZhciB2YWx1ZXMgW11pbnRlcmZhY2V7fQoJCQkJaWYgcmVzdWx0cywgZXJyIDo9IGpwLkZpbmRSZXN1bHRzKGRhdGEpOyBlcnIgPT0gbmlsIHsKCQkJCQlmb3IgXywgcGFpciA6PSByYW5nZSByZXN1bHRzIHsKCQkJCQkJZm9yIF8sIHAgOj0gcmFuZ2UgcGFpciB7CgkJCQkJCQlpZiBwLklzVmFsaWQoKSAmJiBwLkNhbkludGVyZmFjZSgpIHsKCQkJCQkJCQl2YWx1ZXMgPSBhcHBlbmQodmFsdWVzLCBwLkludGVyZmFjZSgpKQoJCQkJCQkJfQoJCQkJCQl9CgkJCQkJfQoJCQkJfSBlbHNlIHsKCQkJCQlyZXR1cm4gbmlsLCBlcnIKCQkJCX0KCQkJCXN3aXRjaCBsZW4odmFsdWVzKSB7CgkJCQljYXNlIDA6CgkJCQkJZGF0YSA9IG5pbAoJCQkJY2FzZSAxOgoJCQkJCWRhdGEgPSB2YWx1ZXNbMF0KCQkJCWRlZmF1bHQ6CgkJCQkJZGF0YSA9IHZhbHVlcwoJCQkJfQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIG5pbCwgZXJyCgkJCX0KCQl9Cgl9CglyZXR1cm4gZGF0YSwgbmlsCn0=",
             "IsPackageLevel": true
         },
         {

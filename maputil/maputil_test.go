@@ -5,8 +5,47 @@ import (
 
 	"github.com/ghetzel/go-stockutil/rxutil"
 	"github.com/ghetzel/go-stockutil/timeutil"
+	"github.com/ghetzel/testify/assert"
 	"github.com/ghetzel/testify/require"
 )
+
+var testJsonPathData = map[string]interface{}{
+	"expensive": 10,
+	"store": map[string]interface{}{
+		"book": []map[string]interface{}{
+			{
+				"category": "reference",
+				"author":   "Nigel Rees",
+				"title":    "Sayings of the Century",
+				"price":    8.95,
+			},
+			{
+				"category": "fiction",
+				"author":   "Evelyn Waugh",
+				"title":    "Sword of Honour",
+				"price":    12.99,
+			},
+			{
+				"category": "fiction",
+				"author":   "Herman Melville",
+				"title":    "Moby Dick",
+				"isbn":     "0-553-21311-3",
+				"price":    8.99,
+			},
+			{
+				"category": "fiction",
+				"author":   "J. R. R. Tolkien",
+				"title":    "The Lord of the Rings",
+				"isbn":     "0-395-19395-8",
+				"price":    22.99,
+			},
+		},
+		"bicycle": map[string]interface{}{
+			"color": "red",
+			"price": 19.95,
+		},
+	},
+}
 
 func TestRxMapFmt(t *testing.T) {
 	assert := require.New(t)
@@ -162,6 +201,47 @@ func TestSprintfFormatTime(t *testing.T) {
 			`now`: timeutil.ReferenceTime(),
 		}),
 	)
+}
+
+func TestJSONPath(t *testing.T) {
+	var fn = func(query string) interface{} {
+		var out, err = JSONPath(testJsonPathData, query)
+
+		assert.NoError(t, err, query)
+		return out
+	}
+
+	for query, wanted := range map[string]interface{}{
+		`$.store.book[*].author`: []interface{}{
+			"Nigel Rees",
+			"Evelyn Waugh",
+			"Herman Melville",
+			"J. R. R. Tolkien",
+		},
+		`$..author`: []interface{}{
+			"Nigel Rees",
+			"Evelyn Waugh",
+			"Herman Melville",
+			"J. R. R. Tolkien",
+		},
+		`$..price`: []interface{}{
+			8.95,
+			12.99,
+			8.99,
+			22.99,
+			19.95,
+		},
+		`$..book[?(.price <= 8.99)].title`: []interface{}{
+			"Moby Dick",
+			"Sayings of the Century",
+		},
+		`$..book[?(.price > 10.0)].title`: []interface{}{
+			"Sword of Honour",
+			"The Lord of the Rings",
+		},
+	} {
+		assert.ElementsMatch(t, wanted, fn(query), query)
+	}
 }
 
 func ExamplePrintf_usingDefaultValues() {

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.2
+                            v1.9.3
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 25%</span>
+<span class="pull-right">Doc Coverage: 26%</span>
 <h2 id="pkg-overview">package utils</h2>
 
 <p>
@@ -305,6 +305,12 @@
     <li>
 		<strong>
 		<a href="#IsZero">func IsZero(value interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#JSONPath">func JSONPath(data interface{}, query string, autowrap bool) (interface{}, error)</a>
 		</strong>
 	</li>
 	
@@ -691,9 +697,9 @@
 			<a href="utils.go">utils.go</a>
 			
 		</td>
-		<td class="text-right">2KB</td>
-		<td class="text-right">59</td>
-		<td class="text-right">2</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">101</td>
+		<td class="text-right">3</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right">1</td>
@@ -1032,6 +1038,20 @@ var <span id="TimeFormats">TimeFormats       </span> =
 
 
 <p><p>Returns whether the given value represents the underlying type’s zero value</p>
+</p>
+
+
+<h3 id="JSONPath" data-kind="f">
+	func <a title="View Source" href="">JSONPath</a>
+	<a class="permalink" href="#JSONPath">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func JSONPath(data interface{}, query string, autowrap bool) (interface{}, error)</pre>
+</div>
+
+
+<p><p>Performs a JSONPath query against the given object and returns the results.<br>JSONPath description, syntax, and examples are available at <a href="http://goessner.net/articles/JsonPath/" rel="nofollow">http://goessner.net/articles/JsonPath/</a>.</p>
 </p>
 
 

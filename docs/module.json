@@ -1,7 +1,7 @@
 {
     "Metadata": {
         "Title": "go-stockutil",
-        "Version": "1.9.2",
+        "Version": "1.9.3",
         "GeneratorVersion": "0.0.5",
         "URL": "https://github.com/ghetzel/go-stockutil"
     },
@@ -150,7 +150,7 @@
                 "Mean": 0.6593,
                 "StdDev": 0.4504,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -189,16 +189,16 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
             "MainFunction": false,
-            "CommentWordCount": 1369,
-            "LineCount": 4403,
-            "SourceLineCount": 3354,
-            "FunctionCount": 77,
+            "CommentWordCount": 1412,
+            "LineCount": 4496,
+            "SourceLineCount": 3437,
+            "FunctionCount": 79,
             "TypeCount": 14,
             "ConstantCount": 1,
             "VariableCount": 4,
             "Statistics": {
-                "Mean": 0.5606,
-                "StdDev": 0.4822,
+                "Mean": 0.5685,
+                "StdDev": 0.4814,
                 "GeometricMean": 0,
                 "HarmonicMean": 0,
                 "Median": 0.9,
@@ -365,8 +365,8 @@
             "Synopsis": "Utilities for converting and manipulating data to and from strings\n",
             "MainFunction": false,
             "CommentWordCount": 746,
-            "LineCount": 2509,
-            "SourceLineCount": 1927,
+            "LineCount": 2512,
+            "SourceLineCount": 1929,
             "FunctionCount": 81,
             "TypeCount": 6,
             "ConstantCount": 17,
@@ -450,7 +450,7 @@
                 "Mean": 0.5356,
                 "StdDev": 0.4464,
                 "GeometricMean": 0.9393,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 0.4,
                 "Minimum": 0,
                 "Maximum": 1
@@ -464,16 +464,16 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "",
             "MainFunction": false,
-            "CommentWordCount": 329,
-            "LineCount": 1478,
-            "SourceLineCount": 1197,
-            "FunctionCount": 45,
+            "CommentWordCount": 355,
+            "LineCount": 1529,
+            "SourceLineCount": 1239,
+            "FunctionCount": 46,
             "TypeCount": 4,
             "ConstantCount": 12,
             "VariableCount": 10,
             "Statistics": {
-                "Mean": 0.25,
-                "StdDev": 0.433,
+                "Mean": 0.2632,
+                "StdDev": 0.4403,
                 "GeometricMean": 0,
                 "HarmonicMean": 0,
                 "Median": 0,
@@ -522,8 +522,8 @@
             {
                 "Name": "Version",
                 "Immutable": true,
-                "Expression": "`1.9.2`",
-                "Value": "1.9.2"
+                "Expression": "`1.9.3`",
+                "Value": "1.9.3"
             }
         ],
         "Packages": [
@@ -2551,6 +2551,27 @@
                         "IsPackageLevel": true
                     },
                     {
+                        "Name": "LogOutput",
+                        "Arguments": [
+                            {
+                                "Name": "outlevel",
+                                "Type": "log.Level"
+                            },
+                            {
+                                "Name": "errlevel",
+                                "Type": "log.Level"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Type": "OutputLineFunc"
+                            }
+                        ],
+                        "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                        "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                        "IsPackageLevel": true
+                    },
+                    {
                         "Name": "LogOutputFunc",
                         "Arguments": [
                             {
@@ -3213,29 +3234,6 @@
                     },
                     "OutputLineFunc": {
                         "Name": "OutputLineFunc",
-                        "Methods": [
-                            {
-                                "Name": "LogOutput",
-                                "Arguments": [
-                                    {
-                                        "Name": "outlevel",
-                                        "Type": "log.Level"
-                                    },
-                                    {
-                                        "Name": "errlevel",
-                                        "Type": "log.Level"
-                                    }
-                                ],
-                                "Returns": [
-                                    {
-                                        "Type": "OutputLineFunc"
-                                    }
-                                ],
-                                "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                                "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                                "IsPackageLevel": true
-                            }
-                        ],
                         "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
                     },
                     "Status": {
@@ -4559,24 +4557,6 @@
                         "IsPackageLevel": true
                     },
                     {
-                        "Name": "ManipulateAll",
-                        "Comment": "Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.",
-                        "Arguments": [
-                            {
-                                "Name": "fns",
-                                "Type": "...ReadManipulatorFunc"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9",
-                        "IsPackageLevel": true
-                    },
-                    {
                         "Name": "MustExpandUser",
                         "Arguments": [
                             {
@@ -4896,94 +4876,6 @@
                         "IsPackageLevel": true
                     },
                     {
-                        "Name": "RemoveLinesContaining",
-                        "Comment": "A ReadManipulatorFunc for removing lines that contain the given string.",
-                        "Arguments": [
-                            {
-                                "Name": "needle",
-                                "Type": "string"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "RemoveLinesContaining(needle string) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "RemoveLinesSurroundedBy",
-                        "Comment": "A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.",
-                        "Arguments": [
-                            {
-                                "Name": "prefix",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "suffix",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "trimSpace",
-                                "Type": "bool"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "RemoveLinesWithPrefix",
-                        "Comment": "A ReadManipulatorFunc for removing lines that have a given prefix.",
-                        "Arguments": [
-                            {
-                                "Name": "prefix",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "trimSpace",
-                                "Type": "bool"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "RemoveLinesWithSuffix",
-                        "Comment": "A ReadManipulatorFunc for removing lines that have a given suffix.",
-                        "Arguments": [
-                            {
-                                "Name": "suffix",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "trimSpace",
-                                "Type": "bool"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
-                        "IsPackageLevel": true
-                    },
-                    {
                         "Name": "RemoveOpenHandler",
                         "Comment": "Removes a registered URL scheme handler.",
                         "Arguments": [
@@ -4994,32 +4886,6 @@
                         ],
                         "Signature": "RemoveOpenHandler(scheme string)",
                         "Source": "ewoJZGVsZXRlKG9wZW5IYW5kbGVycywgc2NoZW1lKQp9",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "ReplaceWith",
-                        "Comment": "A ReadManipulatorFunc for replacing text in an io.Reader as its being read.",
-                        "Arguments": [
-                            {
-                                "Name": "find",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "replace",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "occurrences",
-                                "Type": "int"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9",
                         "IsPackageLevel": true
                     },
                     {
@@ -5973,6 +5839,140 @@
                     },
                     "ReadManipulatorFunc": {
                         "Name": "ReadManipulatorFunc",
+                        "Methods": [
+                            {
+                                "Name": "ManipulateAll",
+                                "Comment": "Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.",
+                                "Arguments": [
+                                    {
+                                        "Name": "fns",
+                                        "Type": "...ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "ReplaceWith",
+                                "Comment": "A ReadManipulatorFunc for replacing text in an io.Reader as its being read.",
+                                "Arguments": [
+                                    {
+                                        "Name": "find",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "replace",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "occurrences",
+                                        "Type": "int"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "RemoveLinesContaining",
+                                "Comment": "A ReadManipulatorFunc for removing lines that contain the given string.",
+                                "Arguments": [
+                                    {
+                                        "Name": "needle",
+                                        "Type": "string"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "RemoveLinesContaining(needle string) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "RemoveLinesWithPrefix",
+                                "Comment": "A ReadManipulatorFunc for removing lines that have a given prefix.",
+                                "Arguments": [
+                                    {
+                                        "Name": "prefix",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "trimSpace",
+                                        "Type": "bool"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "RemoveLinesWithSuffix",
+                                "Comment": "A ReadManipulatorFunc for removing lines that have a given suffix.",
+                                "Arguments": [
+                                    {
+                                        "Name": "suffix",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "trimSpace",
+                                        "Type": "bool"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "RemoveLinesSurroundedBy",
+                                "Comment": "A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.",
+                                "Arguments": [
+                                    {
+                                        "Name": "prefix",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "suffix",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "trimSpace",
+                                        "Type": "bool"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==",
+                                "IsPackageLevel": true
+                            }
+                        ],
                         "Source": "dHlwZSBSZWFkTWFuaXB1bGF0b3JGdW5jIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKQ=="
                     },
                     "RetrieveHandlerFunc": {
@@ -6950,7 +6950,7 @@
                     "Mean": 0.6593,
                     "StdDev": 0.4504,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
@@ -10925,16 +10925,16 @@
                 "URL": "https://github.com/ghetzel/go-stockutil",
                 "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
                 "MainFunction": false,
-                "CommentWordCount": 1369,
-                "LineCount": 4403,
-                "SourceLineCount": 3354,
-                "FunctionCount": 77,
+                "CommentWordCount": 1412,
+                "LineCount": 4496,
+                "SourceLineCount": 3437,
+                "FunctionCount": 79,
                 "TypeCount": 14,
                 "ConstantCount": 1,
                 "VariableCount": 4,
                 "Statistics": {
-                    "Mean": 0.5606,
-                    "StdDev": 0.4822,
+                    "Mean": 0.5685,
+                    "StdDev": 0.4814,
                     "GeometricMean": 0,
                     "HarmonicMean": 0,
                     "Median": 0.9,
@@ -11238,10 +11238,10 @@
                                 "Alias": "utilutil"
                             }
                         ],
-                        "Size": 14753,
-                        "LineCount": 610,
-                        "SourceLineCount": 444,
-                        "FunctionCount": 41,
+                        "Size": 14981,
+                        "LineCount": 616,
+                        "SourceLineCount": 447,
+                        "FunctionCount": 42,
                         "TypeCount": 6,
                         "ConstantCount": 0,
                         "VariableCount": 2
@@ -11362,10 +11362,10 @@
                                 "Alias": "mapstructure"
                             }
                         ],
-                        "Size": 27675,
-                        "LineCount": 1085,
-                        "SourceLineCount": 791,
-                        "FunctionCount": 36,
+                        "Size": 28022,
+                        "LineCount": 1092,
+                        "SourceLineCount": 795,
+                        "FunctionCount": 37,
                         "TypeCount": 5,
                         "ConstantCount": 1,
                         "VariableCount": 2
@@ -11386,13 +11386,17 @@
                                 "Alias": "timeutil"
                             },
                             {
+                                "PackageName": "github.com/ghetzel/testify/assert",
+                                "Alias": "assert"
+                            },
+                            {
                                 "PackageName": "github.com/ghetzel/testify/require",
                                 "Alias": "require"
                             }
                         ],
-                        "Size": 5081,
-                        "LineCount": 196,
-                        "SourceLineCount": 162,
+                        "Size": 6765,
+                        "LineCount": 276,
+                        "SourceLineCount": 238,
                         "FunctionCount": 0,
                         "TypeCount": 0,
                         "ConstantCount": 0,
@@ -11862,6 +11866,31 @@
                         ],
                         "Signature": "Get(data interface{}, key string, fallback ...interface{}) interface{}",
                         "Source": "ewoJZGF0YSA9IHR5cGV1dGlsLlJlc29sdmVWYWx1ZShkYXRhKQoJaWYgdHlwZXV0aWwuSXNLaW5kKGRhdGEsIHJlZmxlY3QuTWFwKSB7CgkJZGF0YVYgOj0gcmVmbGVjdC5WYWx1ZU9mKGRhdGEpCgkJaWYgdmFsdWVWIDo9IGRhdGFWLk1hcEluZGV4KHJlZmxlY3QuVmFsdWVPZihrZXkpKTsgdmFsdWVWLklzVmFsaWQoKSB7CgkJCWlmIHZhbHVlSSA6PSB2YWx1ZVYuSW50ZXJmYWNlKCk7ICF0eXBldXRpbC5Jc1plcm8odmFsdWVJKSB7CgkJCQlyZXR1cm4gdmFsdWVJCgkJCX0KCQl9Cgl9CglpZiBsZW4oZmFsbGJhY2spID4gMCB7CgkJcmV0dXJuIGZhbGxiYWNrWzBdCgl9IGVsc2UgewoJCXJldHVybiBuaWwKCX0KfQ==",
+                        "IsPackageLevel": true
+                    },
+                    {
+                        "Name": "JSONPath",
+                        "Comment": "Performs a JSONPath query against the given object and returns the results.\nJSONPath description, syntax, and examples are available at http://goessner.net/articles/JsonPath/.",
+                        "Arguments": [
+                            {
+                                "Name": "data",
+                                "Type": "interface{}"
+                            },
+                            {
+                                "Name": "query",
+                                "Type": "string"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Type": "interface{}"
+                            },
+                            {
+                                "Type": "error"
+                            }
+                        ],
+                        "Signature": "JSONPath(data interface{}, query string) (interface{}, error)",
+                        "Source": "ewoJcmV0dXJuIHV0aWxzLkpTT05QYXRoKGRhdGEsIHF1ZXJ5LCB0cnVlKQp9",
                         "IsPackageLevel": true
                     },
                     {
@@ -12722,6 +12751,18 @@
                         "IsPackageLevel": true
                     },
                     {
+                        "Name": "TestJSONPath",
+                        "Arguments": [
+                            {
+                                "Name": "t",
+                                "Type": "*testing.T"
+                            }
+                        ],
+                        "Signature": "TestJSONPath(t *testing.T)",
+                        "Source": "ewoJdmFyIGZuID0gZnVuYyhxdWVyeSBzdHJpbmcpIGludGVyZmFjZXt9IHsKCQl2YXIgb3V0LCBlcnIgPSBKU09OUGF0aCh0ZXN0SnNvblBhdGhEYXRhLCBxdWVyeSkKCQlhc3NlcnQuTm9FcnJvcih0LCBlcnIsIHF1ZXJ5KQoJCXJldHVybiBvdXQKCX0KCWZvciBxdWVyeSwgd2FudGVkIDo9IHJhbmdlIG1hcFtzdHJpbmddaW50ZXJmYWNle317YCQuc3RvcmUuYm9va1sqXS5hdXRob3JgOiBbXWludGVyZmFjZXt9eyJOaWdlbCBSZWVzIiwgIkV2ZWx5biBXYXVnaCIsICJIZXJtYW4gTWVsdmlsbGUiLCAiSi4gUi4gUi4gVG9sa2llbiJ9LCBgJC4uYXV0aG9yYDogW11pbnRlcmZhY2V7fXsiTmlnZWwgUmVlcyIsICJFdmVseW4gV2F1Z2giLCAiSGVybWFuIE1lbHZpbGxlIiwgIkouIFIuIFIuIFRvbGtpZW4ifSwgYCQuLnByaWNlYDogW11pbnRlcmZhY2V7fXs4Ljk1LCAxMi45OSwgOC45OSwgMjIuOTksIDE5Ljk1fSwgYCQuLmJvb2tbPygucHJpY2UgPD0gOC45OSldLnRpdGxlYDogW11pbnRlcmZhY2V7fXsiTW9ieSBEaWNrIiwgIlNheWluZ3Mgb2YgdGhlIENlbnR1cnkifSwgYCQuLmJvb2tbPygucHJpY2UgPiAxMC4wKV0udGl0bGVgOiBbXWludGVyZmFjZXt9eyJTd29yZCBvZiBIb25vdXIiLCAiVGhlIExvcmQgb2YgdGhlIFJpbmdzIn19IHsKCQlhc3NlcnQuRWxlbWVudHNNYXRjaCh0LCB3YW50ZWQsIGZuKHF1ZXJ5KSwgcXVlcnkpCgl9Cn0=",
+                        "IsPackageLevel": true
+                    },
+                    {
                         "Name": "TestM",
                         "Arguments": [
                             {
@@ -13407,6 +13448,32 @@
                                     }
                                 ],
                                 "Signature": "JSON(indent ...string) data []byte",
+                                "IsPackageLevel": false
+                            },
+                            {
+                                "Name": "JSONPath",
+                                "Comment": "Performs a JSONPath query against the given object and returns the results.\nSee JSONPath for details.",
+                                "PointerReceiver": true,
+                                "ReceiverName": "self",
+                                "Arguments": [
+                                    {
+                                        "Name": "data",
+                                        "Type": "interface{}"
+                                    },
+                                    {
+                                        "Name": "query",
+                                        "Type": "string"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "interface{}"
+                                    },
+                                    {
+                                        "Type": "error"
+                                    }
+                                ],
+                                "Signature": "JSONPath(data interface{}, query string) (interface{}, error)",
                                 "IsPackageLevel": false
                             },
                             {
@@ -16954,8 +17021,8 @@
                 "Synopsis": "Utilities for converting and manipulating data to and from strings\n",
                 "MainFunction": false,
                 "CommentWordCount": 746,
-                "LineCount": 2509,
-                "SourceLineCount": 1927,
+                "LineCount": 2512,
+                "SourceLineCount": 1929,
                 "FunctionCount": 81,
                 "TypeCount": 6,
                 "ConstantCount": 17,
@@ -17174,9 +17241,9 @@
                                 "Alias": "tokenize"
                             }
                         ],
-                        "Size": 23088,
-                        "LineCount": 966,
-                        "SourceLineCount": 732,
+                        "Size": 23163,
+                        "LineCount": 969,
+                        "SourceLineCount": 734,
                         "FunctionCount": 68,
                         "TypeCount": 3,
                         "ConstantCount": 17,
@@ -18694,7 +18761,7 @@
                             }
                         ],
                         "Signature": "Wrap(in string, prefix string, suffix string) string",
-                        "Source": "ewoJcmV0dXJuIHByZWZpeCArIGluICsgc3VmZml4Cn0=",
+                        "Source": "ewoJaW4gPSBzdHJpbmdzLlRyaW1QcmVmaXgoaW4sIHByZWZpeCkKCWluID0gc3RyaW5ncy5UcmltU3VmZml4KGluLCBzdWZmaXgpCglyZXR1cm4gcHJlZml4ICsgaW4gKyBzdWZmaXgKfQ==",
                         "IsPackageLevel": true
                     },
                     {
@@ -20285,7 +20352,7 @@
                     "Mean": 0.5356,
                     "StdDev": 0.4464,
                     "GeometricMean": 0.9393,
-                    "HarmonicMean": 1,
+                    "HarmonicMean": 0,
                     "Median": 0.4,
                     "Minimum": 0,
                     "Maximum": 1
@@ -22182,16 +22249,16 @@
                 "URL": "https://github.com/ghetzel/go-stockutil",
                 "Synopsis": "",
                 "MainFunction": false,
-                "CommentWordCount": 329,
-                "LineCount": 1478,
-                "SourceLineCount": 1197,
-                "FunctionCount": 45,
+                "CommentWordCount": 355,
+                "LineCount": 1529,
+                "SourceLineCount": 1239,
+                "FunctionCount": 46,
                 "TypeCount": 4,
                 "ConstantCount": 12,
                 "VariableCount": 10,
                 "Statistics": {
-                    "Mean": 0.25,
-                    "StdDev": 0.433,
+                    "Mean": 0.2632,
+                    "StdDev": 0.4403,
                     "GeometricMean": 0,
                     "HarmonicMean": 0,
                     "Median": 0,
@@ -22415,6 +22482,10 @@
                                 "Alias": "fmt"
                             },
                             {
+                                "PackageName": "reflect",
+                                "Alias": "reflect"
+                            },
+                            {
                                 "PackageName": "strings",
                                 "Alias": "strings"
                             },
@@ -22429,12 +22500,16 @@
                             {
                                 "PackageName": "github.com/hashicorp/go-multierror",
                                 "Alias": "multierror"
+                            },
+                            {
+                                "PackageName": "k8s.io/client-go/util/jsonpath",
+                                "Alias": "jsonpath"
                             }
                         ],
-                        "Size": 1651,
-                        "LineCount": 76,
-                        "SourceLineCount": 59,
-                        "FunctionCount": 2,
+                        "Size": 2882,
+                        "LineCount": 127,
+                        "SourceLineCount": 101,
+                        "FunctionCount": 3,
                         "TypeCount": 0,
                         "ConstantCount": 0,
                         "VariableCount": 1
@@ -22997,6 +23072,35 @@
                         ],
                         "Signature": "IsZero(value interface{}) bool",
                         "Source": "ewoJaWYgdmFsdWUgPT0gbmlsIHsKCQlyZXR1cm4gdHJ1ZQoJfSBlbHNlIGlmIHZhbHVlViwgb2sgOj0gdmFsdWUuKHJlZmxlY3QuVmFsdWUpOyBvayAmJiB2YWx1ZVYuSXNWYWxpZCgpIHsKCQlpZiB2YWx1ZVYuQ2FuSW50ZXJmYWNlKCkgewoJCQl2YWx1ZSA9IHZhbHVlVi5JbnRlcmZhY2UoKQoJCX0KCX0KCXJldHVybiByZWZsZWN0LkRlZXBFcXVhbCh2YWx1ZSwgcmVmbGVjdC5aZXJvKHJlZmxlY3QuVHlwZU9mKHZhbHVlKSkuSW50ZXJmYWNlKCkpCn0=",
+                        "IsPackageLevel": true
+                    },
+                    {
+                        "Name": "JSONPath",
+                        "Comment": "Performs a JSONPath query against the given object and returns the results.\nJSONPath description, syntax, and examples are available at http://goessner.net/articles/JsonPath/.",
+                        "Arguments": [
+                            {
+                                "Name": "data",
+                                "Type": "interface{}"
+                            },
+                            {
+                                "Name": "query",
+                                "Type": "string"
+                            },
+                            {
+                                "Name": "autowrap",
+                                "Type": "bool"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Type": "interface{}"
+                            },
+                            {
+                                "Type": "error"
+                            }
+                        ],
+                        "Signature": "JSONPath(data interface{}, query string, autowrap bool) (interface{}, error)",
+                        "Source": "ewoJaWYgcmVmbGVjdC5UeXBlT2YoZGF0YSkuS2luZCgpID09IHJlZmxlY3QuTWFwICYmIHF1ZXJ5ICE9IGBgIHsKCQlmb3IgXywgbGluZSA6PSByYW5nZSBzdHJpbmdzLlNwbGl0KHF1ZXJ5LCAiXG4iKSB7CgkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TcGFjZShsaW5lKQoJCQlpZiBsaW5lID09IGBgIHsKCQkJCWNvbnRpbnVlCgkJCX0gZWxzZSBpZiBhdXRvd3JhcCB7CgkJCQlsaW5lID0gc3RyaW5ncy5UcmltUHJlZml4KGxpbmUsIGB7YCkKCQkJCWxpbmUgPSBzdHJpbmdzLlRyaW1TdWZmaXgobGluZSwgYH1gKQoJCQkJbGluZSA9IGB7YCArIGxpbmUgKyBgfWAKCQkJfQoJCQl2YXIganAgPSBqc29ucGF0aC5OZXcoYGApLkFsbG93TWlzc2luZ0tleXModHJ1ZSkKCQkJaWYgZXJyIDo9IGpwLlBhcnNlKGxpbmUpOyBlcnIgPT0gbmlsIHsKCQkJCXZhciB2YWx1ZXMgW11pbnRlcmZhY2V7fQoJCQkJaWYgcmVzdWx0cywgZXJyIDo9IGpwLkZpbmRSZXN1bHRzKGRhdGEpOyBlcnIgPT0gbmlsIHsKCQkJCQlmb3IgXywgcGFpciA6PSByYW5nZSByZXN1bHRzIHsKCQkJCQkJZm9yIF8sIHAgOj0gcmFuZ2UgcGFpciB7CgkJCQkJCQlpZiBwLklzVmFsaWQoKSAmJiBwLkNhbkludGVyZmFjZSgpIHsKCQkJCQkJCQl2YWx1ZXMgPSBhcHBlbmQodmFsdWVzLCBwLkludGVyZmFjZSgpKQoJCQkJCQkJfQoJCQkJCQl9CgkJCQkJfQoJCQkJfSBlbHNlIHsKCQkJCQlyZXR1cm4gbmlsLCBlcnIKCQkJCX0KCQkJCXN3aXRjaCBsZW4odmFsdWVzKSB7CgkJCQljYXNlIDA6CgkJCQkJZGF0YSA9IG5pbAoJCQkJY2FzZSAxOgoJCQkJCWRhdGEgPSB2YWx1ZXNbMF0KCQkJCWRlZmF1bHQ6CgkJCQkJZGF0YSA9IHZhbHVlcwoJCQkJfQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIG5pbCwgZXJyCgkJCX0KCQl9Cgl9CglyZXR1cm4gZGF0YSwgbmlsCn0=",
                         "IsPackageLevel": true
                     },
                     {

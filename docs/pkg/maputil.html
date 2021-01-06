@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.2
+                            v1.9.3
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 56%</span>
+<span class="pull-right">Doc Coverage: 57%</span>
 <h2 id="pkg-overview">package maputil</h2>
 
 <p>
@@ -285,6 +285,12 @@
 		
 		<a href="#Get">func Get(data interface{}, key string, fallback ...interface{}) interface{}</a>
 		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#JSONPath">func JSONPath(data interface{}, query string) (interface{}, error)</a>
+		</strong>
 	</li>
 	
     <li>
@@ -462,6 +468,8 @@
 		
 		
 		<ul>
+			
+			
 			
 			
 			
@@ -729,6 +737,18 @@
 					JSON(indent ...string) data []byte
 				</a>
 				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.JSONPath">
+					func
+					(self *Map)
+					JSONPath(data interface{}, query string) (interface{}, error)
+				</a>
+				</strong>
 			</li>
 			
 			
@@ -1319,9 +1339,9 @@
 			<a href="m.go">m.go</a>
 			
 		</td>
-		<td class="text-right">14KB</td>
-		<td class="text-right">444</td>
-		<td class="text-right">41</td>
+		<td class="text-right">15KB</td>
+		<td class="text-right">447</td>
+		<td class="text-right">42</td>
 		<td class="text-right">6</td>
 		<td class="text-right"></td>
 		<td class="text-right">2</td>
@@ -1348,8 +1368,8 @@
 			
 		</td>
 		<td class="text-right">27KB</td>
-		<td class="text-right">791</td>
-		<td class="text-right">36</td>
+		<td class="text-right">795</td>
+		<td class="text-right">37</td>
 		<td class="text-right">5</td>
 		<td class="text-right">1</td>
 		<td class="text-right">2</td>
@@ -1361,8 +1381,8 @@
 			<a href="maputil_test.go">maputil_test.go</a>
 			
 		</td>
-		<td class="text-right">5KB</td>
-		<td class="text-right">162</td>
+		<td class="text-right">7KB</td>
+		<td class="text-right">238</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1655,6 +1675,20 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 	<pre>func Get(data interface{}, key string, fallback ...interface{}) interface{}</pre>
 </div>
 
+
+
+<h3 id="JSONPath" data-kind="f">
+	func <a title="View Source" href="">JSONPath</a>
+	<a class="permalink" href="#JSONPath">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func JSONPath(data interface{}, query string) (interface{}, error)</pre>
+</div>
+
+
+<p><p>Performs a JSONPath query against the given object and returns the results.<br>JSONPath description, syntax, and examples are available at <a href="http://goessner.net/articles/JsonPath/" rel="nofollow">http://goessner.net/articles/JsonPath/</a>.</p>
+</p>
 
 
 <h3 id="Join" data-kind="f">
@@ -2079,6 +2113,8 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 
 
 
+
+
 <h4 id="M" data-kind="f">
 	func <a title="View Source" href="">M</a>
 	<a class="permalink" href="#M">&#182;</a>
@@ -2397,6 +2433,24 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 	<a title="View Source" href="">&#10070;</a>
 	<pre>func (self *Map) JSON(indent ...string) data []byte</pre>
 </div>
+
+
+
+
+<h4 id="Map.JSONPath" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">JSONPath</a>
+	<a class="permalink" href="#JSONPath">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) JSONPath(data interface{}, query string) (interface{}, error)</pre>
+</div>
+
+<p><p>Performs a JSONPath query against the given object and returns the results.<br>See JSONPath for details.</p>
+</p>
 
 
 

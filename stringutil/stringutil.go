@@ -723,6 +723,9 @@ func SuffixIf(in string, suffix string) string {
 
 // Return the given string with prefixed and suffixed with other strings.
 func Wrap(in string, prefix string, suffix string) string {
+	in = strings.TrimPrefix(in, prefix)
+	in = strings.TrimSuffix(in, suffix)
+
 	return prefix + in + suffix
 }
 

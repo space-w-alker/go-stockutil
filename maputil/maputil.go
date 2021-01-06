@@ -21,6 +21,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
+var rxJsonPathExpr = regexp.MustCompile(`\{.*?\}`)
 var UnmarshalStructTag string = `maputil`
 var SkipDescendants = errors.New("skip descendants")
 var rxMapFmt = regexp.MustCompile(`(\$\{(?P<key>.*?)(?:\|(?P<fallback>.*?))?(?::(?P<fmt>%[^\}]+))?\})`) // ${key}, ${key:%04s}, ${key|fallback}
@@ -946,6 +947,12 @@ func Autotype(input interface{}) map[string]interface{} {
 	}
 
 	return output
+}
+
+// Performs a JSONPath query against the given object and returns the results.
+// JSONPath description, syntax, and examples are available at http://goessner.net/articles/JsonPath/.
+func JSONPath(data interface{}, query string) (interface{}, error) {
+	return utils.JSONPath(data, query, true)
 }
 
 func apply(includeStruct bool, input interface{}, fn ApplyFunc) map[string]interface{} {

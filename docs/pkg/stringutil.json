@@ -7,8 +7,8 @@
     "Synopsis": "Utilities for converting and manipulating data to and from strings\n",
     "MainFunction": false,
     "CommentWordCount": 746,
-    "LineCount": 2509,
-    "SourceLineCount": 1927,
+    "LineCount": 2512,
+    "SourceLineCount": 1929,
     "FunctionCount": 81,
     "TypeCount": 6,
     "ConstantCount": 17,
@@ -227,9 +227,9 @@
                     "Alias": "tokenize"
                 }
             ],
-            "Size": 23088,
-            "LineCount": 966,
-            "SourceLineCount": 732,
+            "Size": 23163,
+            "LineCount": 969,
+            "SourceLineCount": 734,
             "FunctionCount": 68,
             "TypeCount": 3,
             "ConstantCount": 17,
@@ -1747,7 +1747,7 @@
                 }
             ],
             "Signature": "Wrap(in string, prefix string, suffix string) string",
-            "Source": "ewoJcmV0dXJuIHByZWZpeCArIGluICsgc3VmZml4Cn0=",
+            "Source": "ewoJaW4gPSBzdHJpbmdzLlRyaW1QcmVmaXgoaW4sIHByZWZpeCkKCWluID0gc3RyaW5ncy5UcmltU3VmZml4KGluLCBzdWZmaXgpCglyZXR1cm4gcHJlZml4ICsgaW4gKyBzdWZmaXgKfQ==",
             "IsPackageLevel": true
         },
         {

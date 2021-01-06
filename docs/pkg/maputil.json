@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
     "MainFunction": false,
-    "CommentWordCount": 1369,
-    "LineCount": 4403,
-    "SourceLineCount": 3354,
-    "FunctionCount": 77,
+    "CommentWordCount": 1412,
+    "LineCount": 4496,
+    "SourceLineCount": 3437,
+    "FunctionCount": 79,
     "TypeCount": 14,
     "ConstantCount": 1,
     "VariableCount": 4,
     "Statistics": {
-        "Mean": 0.5606,
-        "StdDev": 0.4822,
+        "Mean": 0.5685,
+        "StdDev": 0.4814,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0.9,
@@ -319,10 +319,10 @@
                     "Alias": "utilutil"
                 }
             ],
-            "Size": 14753,
-            "LineCount": 610,
-            "SourceLineCount": 444,
-            "FunctionCount": 41,
+            "Size": 14981,
+            "LineCount": 616,
+            "SourceLineCount": 447,
+            "FunctionCount": 42,
             "TypeCount": 6,
             "ConstantCount": 0,
             "VariableCount": 2
@@ -443,10 +443,10 @@
                     "Alias": "mapstructure"
                 }
             ],
-            "Size": 27675,
-            "LineCount": 1085,
-            "SourceLineCount": 791,
-            "FunctionCount": 36,
+            "Size": 28022,
+            "LineCount": 1092,
+            "SourceLineCount": 795,
+            "FunctionCount": 37,
             "TypeCount": 5,
             "ConstantCount": 1,
             "VariableCount": 2
@@ -467,13 +467,17 @@
                     "Alias": "timeutil"
                 },
                 {
+                    "PackageName": "github.com/ghetzel/testify/assert",
+                    "Alias": "assert"
+                },
+                {
                     "PackageName": "github.com/ghetzel/testify/require",
                     "Alias": "require"
                 }
             ],
-            "Size": 5081,
-            "LineCount": 196,
-            "SourceLineCount": 162,
+            "Size": 6765,
+            "LineCount": 276,
+            "SourceLineCount": 238,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -943,6 +947,31 @@
             ],
             "Signature": "Get(data interface{}, key string, fallback ...interface{}) interface{}",
             "Source": "ewoJZGF0YSA9IHR5cGV1dGlsLlJlc29sdmVWYWx1ZShkYXRhKQoJaWYgdHlwZXV0aWwuSXNLaW5kKGRhdGEsIHJlZmxlY3QuTWFwKSB7CgkJZGF0YVYgOj0gcmVmbGVjdC5WYWx1ZU9mKGRhdGEpCgkJaWYgdmFsdWVWIDo9IGRhdGFWLk1hcEluZGV4KHJlZmxlY3QuVmFsdWVPZihrZXkpKTsgdmFsdWVWLklzVmFsaWQoKSB7CgkJCWlmIHZhbHVlSSA6PSB2YWx1ZVYuSW50ZXJmYWNlKCk7ICF0eXBldXRpbC5Jc1plcm8odmFsdWVJKSB7CgkJCQlyZXR1cm4gdmFsdWVJCgkJCX0KCQl9Cgl9CglpZiBsZW4oZmFsbGJhY2spID4gMCB7CgkJcmV0dXJuIGZhbGxiYWNrWzBdCgl9IGVsc2UgewoJCXJldHVybiBuaWwKCX0KfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "JSONPath",
+            "Comment": "Performs a JSONPath query against the given object and returns the results.\nJSONPath description, syntax, and examples are available at http://goessner.net/articles/JsonPath/.",
+            "Arguments": [
+                {
+                    "Name": "data",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "query",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                },
+                {
+                    "Type": "error"
+                }
+            ],
+            "Signature": "JSONPath(data interface{}, query string) (interface{}, error)",
+            "Source": "ewoJcmV0dXJuIHV0aWxzLkpTT05QYXRoKGRhdGEsIHF1ZXJ5LCB0cnVlKQp9",
             "IsPackageLevel": true
         },
         {
@@ -1803,6 +1832,18 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "TestJSONPath",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestJSONPath(t *testing.T)",
+            "Source": "ewoJdmFyIGZuID0gZnVuYyhxdWVyeSBzdHJpbmcpIGludGVyZmFjZXt9IHsKCQl2YXIgb3V0LCBlcnIgPSBKU09OUGF0aCh0ZXN0SnNvblBhdGhEYXRhLCBxdWVyeSkKCQlhc3NlcnQuTm9FcnJvcih0LCBlcnIsIHF1ZXJ5KQoJCXJldHVybiBvdXQKCX0KCWZvciBxdWVyeSwgd2FudGVkIDo9IHJhbmdlIG1hcFtzdHJpbmddaW50ZXJmYWNle317YCQuc3RvcmUuYm9va1sqXS5hdXRob3JgOiBbXWludGVyZmFjZXt9eyJOaWdlbCBSZWVzIiwgIkV2ZWx5biBXYXVnaCIsICJIZXJtYW4gTWVsdmlsbGUiLCAiSi4gUi4gUi4gVG9sa2llbiJ9LCBgJC4uYXV0aG9yYDogW11pbnRlcmZhY2V7fXsiTmlnZWwgUmVlcyIsICJFdmVseW4gV2F1Z2giLCAiSGVybWFuIE1lbHZpbGxlIiwgIkouIFIuIFIuIFRvbGtpZW4ifSwgYCQuLnByaWNlYDogW11pbnRlcmZhY2V7fXs4Ljk1LCAxMi45OSwgOC45OSwgMjIuOTksIDE5Ljk1fSwgYCQuLmJvb2tbPygucHJpY2UgPD0gOC45OSldLnRpdGxlYDogW11pbnRlcmZhY2V7fXsiTW9ieSBEaWNrIiwgIlNheWluZ3Mgb2YgdGhlIENlbnR1cnkifSwgYCQuLmJvb2tbPygucHJpY2UgPiAxMC4wKV0udGl0bGVgOiBbXWludGVyZmFjZXt9eyJTd29yZCBvZiBIb25vdXIiLCAiVGhlIExvcmQgb2YgdGhlIFJpbmdzIn19IHsKCQlhc3NlcnQuRWxlbWVudHNNYXRjaCh0LCB3YW50ZWQsIGZuKHF1ZXJ5KSwgcXVlcnkpCgl9Cn0=",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "TestM",
             "Arguments": [
                 {
@@ -2488,6 +2529,32 @@
                         }
                     ],
                     "Signature": "JSON(indent ...string) data []byte",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "JSONPath",
+                    "Comment": "Performs a JSONPath query against the given object and returns the results.\nSee JSONPath for details.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "data",
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Name": "query",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "interface{}"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "JSONPath(data interface{}, query string) (interface{}, error)",
                     "IsPackageLevel": false
                 },
                 {
