@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.3
+                            v1.9.4
                         </li>
                     </ul>
                     
@@ -746,7 +746,7 @@
 				<a href="#Map.JSONPath">
 					func
 					(self *Map)
-					JSONPath(data interface{}, query string) (interface{}, error)
+					JSONPath(query string, fallback ...interface{}) interface{}
 				</a>
 				</strong>
 			</li>
@@ -1340,7 +1340,7 @@
 			
 		</td>
 		<td class="text-right">15KB</td>
-		<td class="text-right">447</td>
+		<td class="text-right">450</td>
 		<td class="text-right">42</td>
 		<td class="text-right">6</td>
 		<td class="text-right"></td>
@@ -1354,7 +1354,7 @@
 			
 		</td>
 		<td class="text-right">11KB</td>
-		<td class="text-right">320</td>
+		<td class="text-right">322</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -2446,7 +2446,7 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 
 <div class="funcdecl decl">
 	<a title="View Source" href="">&#10070;</a>
-	<pre>func (self *Map) JSONPath(data interface{}, query string) (interface{}, error)</pre>
+	<pre>func (self *Map) JSONPath(query string, fallback ...interface{}) interface{}</pre>
 </div>
 
 <p><p>Performs a JSONPath query against the given object and returns the results.<br>See JSONPath for details.</p>

@@ -97,6 +97,7 @@ func TestFirst(t *testing.T) {
 
 	input = []int{1, 3, 5}
 	assert.Equal(1, First(input))
+
 }
 
 func TestRest(t *testing.T) {

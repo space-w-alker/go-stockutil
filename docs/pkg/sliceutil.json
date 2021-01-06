@@ -7,7 +7,7 @@
     "Synopsis": "Utilities for converting, manipulating, and iterating over slices\n",
     "MainFunction": false,
     "CommentWordCount": 709,
-    "LineCount": 1002,
+    "LineCount": 1003,
     "SourceLineCount": 745,
     "FunctionCount": 31,
     "TypeCount": 4,
@@ -75,8 +75,8 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 13103,
-            "LineCount": 524,
+            "Size": 13104,
+            "LineCount": 525,
             "SourceLineCount": 420,
             "FunctionCount": 0,
             "TypeCount": 0,

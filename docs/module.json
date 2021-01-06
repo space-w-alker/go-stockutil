@@ -1,7 +1,7 @@
 {
     "Metadata": {
         "Title": "go-stockutil",
-        "Version": "1.9.3",
+        "Version": "1.9.4",
         "GeneratorVersion": "0.0.5",
         "URL": "https://github.com/ghetzel/go-stockutil"
     },
@@ -150,7 +150,7 @@
                 "Mean": 0.6593,
                 "StdDev": 0.4504,
                 "GeometricMean": 0,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -190,8 +190,8 @@
             "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
             "MainFunction": false,
             "CommentWordCount": 1412,
-            "LineCount": 4496,
-            "SourceLineCount": 3437,
+            "LineCount": 4503,
+            "SourceLineCount": 3442,
             "FunctionCount": 79,
             "TypeCount": 14,
             "ConstantCount": 1,
@@ -250,7 +250,7 @@
                 "Mean": 0.3673,
                 "StdDev": 0.4586,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -315,7 +315,7 @@
             "Synopsis": "Utilities for converting, manipulating, and iterating over slices\n",
             "MainFunction": false,
             "CommentWordCount": 709,
-            "LineCount": 1002,
+            "LineCount": 1003,
             "SourceLineCount": 745,
             "FunctionCount": 31,
             "TypeCount": 4,
@@ -450,7 +450,7 @@
                 "Mean": 0.5356,
                 "StdDev": 0.4464,
                 "GeometricMean": 0.9393,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0.4,
                 "Minimum": 0,
                 "Maximum": 1
@@ -522,8 +522,8 @@
             {
                 "Name": "Version",
                 "Immutable": true,
-                "Expression": "`1.9.3`",
-                "Value": "1.9.3"
+                "Expression": "`1.9.4`",
+                "Value": "1.9.4"
             }
         ],
         "Packages": [
@@ -2551,27 +2551,6 @@
                         "IsPackageLevel": true
                     },
                     {
-                        "Name": "LogOutput",
-                        "Arguments": [
-                            {
-                                "Name": "outlevel",
-                                "Type": "log.Level"
-                            },
-                            {
-                                "Name": "errlevel",
-                                "Type": "log.Level"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "OutputLineFunc"
-                            }
-                        ],
-                        "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                        "IsPackageLevel": true
-                    },
-                    {
                         "Name": "LogOutputFunc",
                         "Arguments": [
                             {
@@ -3234,6 +3213,29 @@
                     },
                     "OutputLineFunc": {
                         "Name": "OutputLineFunc",
+                        "Methods": [
+                            {
+                                "Name": "LogOutput",
+                                "Arguments": [
+                                    {
+                                        "Name": "outlevel",
+                                        "Type": "log.Level"
+                                    },
+                                    {
+                                        "Name": "errlevel",
+                                        "Type": "log.Level"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "OutputLineFunc"
+                                    }
+                                ],
+                                "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                                "IsPackageLevel": true
+                            }
+                        ],
                         "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
                     },
                     "Status": {
@@ -6950,7 +6952,7 @@
                     "Mean": 0.6593,
                     "StdDev": 0.4504,
                     "GeometricMean": 0,
-                    "HarmonicMean": 1,
+                    "HarmonicMean": 0,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
@@ -10926,8 +10928,8 @@
                 "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
                 "MainFunction": false,
                 "CommentWordCount": 1412,
-                "LineCount": 4496,
-                "SourceLineCount": 3437,
+                "LineCount": 4503,
+                "SourceLineCount": 3442,
                 "FunctionCount": 79,
                 "TypeCount": 14,
                 "ConstantCount": 1,
@@ -11238,9 +11240,9 @@
                                 "Alias": "utilutil"
                             }
                         ],
-                        "Size": 14981,
-                        "LineCount": 616,
-                        "SourceLineCount": 447,
+                        "Size": 15066,
+                        "LineCount": 620,
+                        "SourceLineCount": 450,
                         "FunctionCount": 42,
                         "TypeCount": 6,
                         "ConstantCount": 0,
@@ -11286,9 +11288,9 @@
                                 "Alias": "require"
                             }
                         ],
-                        "Size": 11286,
-                        "LineCount": 388,
-                        "SourceLineCount": 320,
+                        "Size": 11395,
+                        "LineCount": 391,
+                        "SourceLineCount": 322,
                         "FunctionCount": 0,
                         "TypeCount": 0,
                         "ConstantCount": 0,
@@ -12771,7 +12773,7 @@
                             }
                         ],
                         "Signature": "TestM(t *testing.T)",
-                        "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKG1hcFtzdHJpbmddaW50ZXJmYWNle317YGZpcnN0YDogdHJ1ZSwgYHNlY29uZGA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YHMxYDogYHRlc3RgLCBgdmFsdWVzYDogW11pbnR7MSwgMiwgMywgNH0sIGB0cnV0aHlgOiBgVHJ1ZWAsIGBzdHJudW1gOiBgNDJgLCBgdGhlbmA6IGAyMDA2LTAxLTAyYH0sIGBub3dgOiB0aW1lLk5vdygpLCBgdGhpcmRgOiAzLjE0MTUsIGBmb3VydGhgOiA0Mn0pCglhc3NlcnQuRXF1YWwoYGAsIE0obmlsKS5TdHJpbmcoYGxvbGApKQoJYXNzZXJ0LkZhbHNlKE0obmlsKS5Cb29sKGBsb2xgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgwKSwgTShuaWwpLkludChgbG9sYCkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgwKSwgTShuaWwpLkZsb2F0KGBsb2xgKSkKCWFzc2VydC5MZW4oTShuaWwpLlNsaWNlKGBsb2xgKSwgMCkKCWFzc2VydC5OaWwoTShuaWwpLkF1dG8oYHNlY29uZC5zdHJudW1gKSkKCWFzc2VydC5aZXJvKE0obmlsKS5UaW1lKGBub3dgKSkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGlucHV0LlN0cmluZyhgc2Vjb25kLnMxYCkpCglhc3NlcnQuVHJ1ZShpbnB1dC5Cb29sKGBmaXJzdGApKQoJYXNzZXJ0LlRydWUoaW5wdXQuQm9vbChgc2Vjb25kLnRydXRoeWApKQoJYXNzZXJ0LlRydWUoaW5wdXQuQm9vbChgc2Vjb25kLnMxYCkpCglhc3NlcnQuRXF1YWwoMy4xNDE1LCBpbnB1dC5GbG9hdChgdGhpcmRgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgzKSwgaW5wdXQuSW50KGB0aGlyZGApKQoJYXNzZXJ0LkVxdWFsKGludDY0KDQyKSwgaW5wdXQuSW50KGBmb3VydGhgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgzKSwgaW5wdXQuSW50KGBzZWNvbmQudmFsdWVzLjJgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgwKSwgaW5wdXQuSW50KGBzZWNvbmQudmFsdWVzLjk5YCkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCg0MiksIGlucHV0LkZsb2F0KGBmb3VydGhgKSkKCWFzc2VydC5MZW4oaW5wdXQuU2xpY2UoYHNlY29uZC52YWx1ZXNgKSwgNCkKCWFzc2VydC5FcXVhbChpbnQ2NCg0MiksIGlucHV0LkF1dG8oYHNlY29uZC5zdHJudW1gKSkKCWFzc2VydC5FcXVhbCh0aW1lLkRhdGUoMjAwNiwgMSwgMiwgMCwgMCwgMCwgMCwgdGltZS5VVEMpLCBpbnB1dC5UaW1lKGBzZWNvbmQudGhlbmApKQoJYXNzZXJ0LkVxdWFsKDUsIGlucHV0LkxlbigpKQoJayA6PSBtYWtlKFtdc3RyaW5nLCA1KQoJaSA6PSAwCglhc3NlcnQuTm9FcnJvcihpbnB1dC5FYWNoKGZ1bmMoa2V5IHN0cmluZywgdmFsdWUgdHlwZXV0aWwuVmFyaWFudCkgZXJyb3IgewoJCWtbaV0gPSBrZXkKCQlpKysKCQlyZXR1cm4gbmlsCgl9KSkKCWFzc2VydC5FbGVtZW50c01hdGNoKGssIFtdc3RyaW5ne2BmaXJzdGAsIGBzZWNvbmRgLCBgdGhpcmRgLCBgZm91cnRoYCwgYG5vd2B9KQp9",
+                        "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKG1hcFtzdHJpbmddaW50ZXJmYWNle317YGZpcnN0YDogdHJ1ZSwgYHNlY29uZGA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YHMxYDogYHRlc3RgLCBgdmFsdWVzYDogW11pbnR7MSwgMiwgMywgNH0sIGB0cnV0aHlgOiBgVHJ1ZWAsIGBzdHJudW1gOiBgNDJgLCBgdGhlbmA6IGAyMDA2LTAxLTAyYH0sIGBub3dgOiB0aW1lLk5vdygpLCBgdGhpcmRgOiAzLjE0MTUsIGBmb3VydGhgOiA0Mn0pCglhc3NlcnQuRXF1YWwoYGAsIE0obmlsKS5TdHJpbmcoYGxvbGApKQoJYXNzZXJ0LkZhbHNlKE0obmlsKS5Cb29sKGBsb2xgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgwKSwgTShuaWwpLkludChgbG9sYCkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCgwKSwgTShuaWwpLkZsb2F0KGBsb2xgKSkKCWFzc2VydC5MZW4oTShuaWwpLlNsaWNlKGBsb2xgKSwgMCkKCWFzc2VydC5OaWwoTShuaWwpLkF1dG8oYHNlY29uZC5zdHJudW1gKSkKCWFzc2VydC5aZXJvKE0obmlsKS5UaW1lKGBub3dgKSkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGlucHV0LlN0cmluZyhgc2Vjb25kLnMxYCkpCglhc3NlcnQuVHJ1ZShpbnB1dC5Cb29sKGBmaXJzdGApKQoJYXNzZXJ0LlRydWUoaW5wdXQuQm9vbChgc2Vjb25kLnRydXRoeWApKQoJYXNzZXJ0LlRydWUoaW5wdXQuQm9vbChgc2Vjb25kLnMxYCkpCglhc3NlcnQuRXF1YWwoMy4xNDE1LCBpbnB1dC5GbG9hdChgdGhpcmRgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgzKSwgaW5wdXQuSW50KGB0aGlyZGApKQoJYXNzZXJ0LkVxdWFsKGludDY0KDQyKSwgaW5wdXQuSW50KGBmb3VydGhgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgzKSwgaW5wdXQuSW50KGBzZWNvbmQudmFsdWVzLjJgKSkKCWFzc2VydC5FcXVhbChpbnQ2NCgwKSwgaW5wdXQuSW50KGBzZWNvbmQudmFsdWVzLjk5YCkpCglhc3NlcnQuRXF1YWwoZmxvYXQ2NCg0MiksIGlucHV0LkZsb2F0KGBmb3VydGhgKSkKCWFzc2VydC5MZW4oaW5wdXQuU2xpY2UoYHNlY29uZC52YWx1ZXNgKSwgNCkKCWFzc2VydC5FcXVhbChpbnQ2NCg0MiksIGlucHV0LkF1dG8oYHNlY29uZC5zdHJudW1gKSkKCWFzc2VydC5FcXVhbCh0aW1lLkRhdGUoMjAwNiwgMSwgMiwgMCwgMCwgMCwgMCwgdGltZS5VVEMpLCBpbnB1dC5UaW1lKGBzZWNvbmQudGhlbmApKQoJYXNzZXJ0LkVxdWFsKDIsIGlucHV0LkpTT05QYXRoKGAkLi52YWx1ZXNbMV1gLCA0MikpCglhc3NlcnQuRXF1YWwoNDIsIGlucHV0LkpTT05QYXRoKGAkLi52YWx1ZXNbOTldYCwgNDIpKQoJYXNzZXJ0LkVxdWFsKDUsIGlucHV0LkxlbigpKQoJayA6PSBtYWtlKFtdc3RyaW5nLCA1KQoJaSA6PSAwCglhc3NlcnQuTm9FcnJvcihpbnB1dC5FYWNoKGZ1bmMoa2V5IHN0cmluZywgdmFsdWUgdHlwZXV0aWwuVmFyaWFudCkgZXJyb3IgewoJCWtbaV0gPSBrZXkKCQlpKysKCQlyZXR1cm4gbmlsCgl9KSkKCWFzc2VydC5FbGVtZW50c01hdGNoKGssIFtdc3RyaW5ne2BmaXJzdGAsIGBzZWNvbmRgLCBgdGhpcmRgLCBgZm91cnRoYCwgYG5vd2B9KQp9",
                         "IsPackageLevel": true
                     },
                     {
@@ -13457,23 +13459,20 @@
                                 "ReceiverName": "self",
                                 "Arguments": [
                                     {
-                                        "Name": "data",
-                                        "Type": "interface{}"
-                                    },
-                                    {
                                         "Name": "query",
                                         "Type": "string"
+                                    },
+                                    {
+                                        "Name": "fallback",
+                                        "Type": "...interface{}"
                                     }
                                 ],
                                 "Returns": [
                                     {
                                         "Type": "interface{}"
-                                    },
-                                    {
-                                        "Type": "error"
                                     }
                                 ],
-                                "Signature": "JSONPath(data interface{}, query string) (interface{}, error)",
+                                "Signature": "JSONPath(query string, fallback ...interface{}) interface{}",
                                 "IsPackageLevel": false
                             },
                             {
@@ -14364,7 +14363,7 @@
                     "Mean": 0.3673,
                     "StdDev": 0.4586,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 0,
                     "Minimum": 0,
                     "Maximum": 1
@@ -15963,7 +15962,7 @@
                 "Synopsis": "Utilities for converting, manipulating, and iterating over slices\n",
                 "MainFunction": false,
                 "CommentWordCount": 709,
-                "LineCount": 1002,
+                "LineCount": 1003,
                 "SourceLineCount": 745,
                 "FunctionCount": 31,
                 "TypeCount": 4,
@@ -16031,8 +16030,8 @@
                                 "Alias": "require"
                             }
                         ],
-                        "Size": 13103,
-                        "LineCount": 524,
+                        "Size": 13104,
+                        "LineCount": 525,
                         "SourceLineCount": 420,
                         "FunctionCount": 0,
                         "TypeCount": 0,
@@ -20352,7 +20351,7 @@
                     "Mean": 0.5356,
                     "StdDev": 0.4464,
                     "GeometricMean": 0.9393,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 0.4,
                     "Minimum": 0,
                     "Maximum": 1

@@ -57,6 +57,9 @@ func TestM(t *testing.T) {
 	assert.Equal(int64(42), input.Auto(`second.strnum`))
 	assert.Equal(time.Date(2006, 1, 2, 0, 0, 0, 0, time.UTC), input.Time(`second.then`))
 
+	assert.Equal(2, input.JSONPath(`$..values[1]`, 42))
+	assert.Equal(42, input.JSONPath(`$..values[99]`, 42))
+
 	assert.Equal(5, input.Len())
 	k := make([]string, 5)
 	i := 0
