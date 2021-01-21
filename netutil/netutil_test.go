@@ -12,7 +12,10 @@ func TestFQDN(t *testing.T) {
 	assert := require.New(t)
 	sys, err := exec.Command(`hostname`, `-f`).Output()
 	assert.NoError(err)
-	assert.Equal(strings.TrimSpace(string(sys)), FQDN())
+
+	var want = strings.TrimSpace(string(sys))
+	want = strings.ToLower(want)
+	assert.Equal(want, FQDN())
 }
 
 // func TestPingLocalhost4(t *testing.T) {

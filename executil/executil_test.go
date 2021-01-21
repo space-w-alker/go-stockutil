@@ -45,14 +45,14 @@ func TestEventedLineOutput(t *testing.T) {
 	stdout := make([]string, 0)
 	stderr := make([]string, 0)
 
-	cmd := Command(`echo`, `-e`, `1\n2\n3\n`)
+	cmd := Command(`printf`, `1\n2\n3\n`)
 	cmd.OnStdout = func(line string, serr bool) {
 		stdout = append(stdout, line)
 	}
 
 	assert.NoError(cmd.Run())
 	assert.Equal([]string{
-		`1`, `2`, `3`, ``,
+		`1`, `2`, `3`,
 	}, stdout)
 	assert.Empty(stderr)
 

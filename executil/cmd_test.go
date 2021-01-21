@@ -22,7 +22,7 @@ func TestExecTrue(t *testing.T) {
 
 	assert := require.New(t)
 
-	cmd := Command(`/bin/true`)
+	cmd := Command(`true`)
 	cmd.OnStart = incr(&starts)
 	cmd.OnComplete = incr(&completes)
 	cmd.OnSuccess = incr(&successes)
@@ -61,7 +61,7 @@ func TestExecFalse(t *testing.T) {
 
 	assert := require.New(t)
 
-	cmd := Command(`/bin/false`)
+	cmd := Command(`false`)
 	cmd.OnStart = incr(&starts)
 	cmd.OnComplete = incr(&completes)
 	cmd.OnSuccess = incr(&successes)

@@ -31,15 +31,11 @@ func FieldsFunc(in interface{}, fn StructFieldFunc) error {
 		inValu = reflect.ValueOf(in)
 	}
 
-	if _, err := validatePtrToStruct(`input`, inValu); err != nil {
-		return err
+	if inValu.Kind() == reflect.Ptr {
+		inValu = inValu.Elem()
 	}
 
-	// because we just validated that this is a pointer to a struct,
-	// we need to get to the struct inside that pointer
-	inValu = inValu.Elem()
-
-	inType := inValu.Type()
+	var inType = inValu.Type()
 
 FieldLoop:
 	for i := 0; i < inType.NumField(); i++ {
@@ -160,9 +156,9 @@ func validatePtrToStruct(name string, obj reflect.Value) (reflect.Value, error) 
 		if obj.Elem().Kind() == reflect.Struct {
 			return obj.Elem(), nil
 		} else {
-			return reflect.Value{}, fmt.Errorf("bad %s: expected pointer to struct", name)
+			return reflect.Value{}, fmt.Errorf("bad %s: expected pointer to struct, got %v", name, obj.Type())
 		}
 	} else {
-		return reflect.Value{}, fmt.Errorf("bad %s: expected pointer to struct", name)
+		return reflect.Value{}, fmt.Errorf("bad %s: expected pointer to struct, got %v", name, obj.Type())
 	}
 }

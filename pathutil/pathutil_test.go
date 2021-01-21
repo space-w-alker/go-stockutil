@@ -46,7 +46,7 @@ func TestExpandUser(t *testing.T) {
 	assert.False(IsNonemptyFile(`/nonexistent.txt`))
 	assert.False(IsNonemptyDir(`/nonexistent/dir`))
 
-	assert.True(IsNonemptyFile(`/etc/fstab`))
+	assert.True(IsNonemptyFile(`/etc/hosts`))
 	assert.True(IsNonemptyDir(`/etc`))
 
 	x, err := os.Executable()
