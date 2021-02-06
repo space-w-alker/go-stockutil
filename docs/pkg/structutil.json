@@ -7,8 +7,8 @@
     "Synopsis": "Utilities for working with and manipulating structs.\n",
     "MainFunction": false,
     "CommentWordCount": 79,
-    "LineCount": 511,
-    "SourceLineCount": 408,
+    "LineCount": 507,
+    "SourceLineCount": 407,
     "FunctionCount": 12,
     "TypeCount": 5,
     "ConstantCount": 0,
@@ -91,9 +91,9 @@
                     "Alias": "typeutil"
                 }
             ],
-            "Size": 4191,
-            "LineCount": 169,
-            "SourceLineCount": 127,
+            "Size": 4072,
+            "LineCount": 165,
+            "SourceLineCount": 126,
             "FunctionCount": 3,
             "TypeCount": 2,
             "ConstantCount": 0,
@@ -203,7 +203,7 @@
                 }
             ],
             "Signature": "FieldsFunc(in interface{}, fn StructFieldFunc) error",
-            "Source": "ewoJaWYgaW4gPT0gbmlsIHx8IGZuID09IG5pbCB7CgkJcmV0dXJuIG5pbAoJfQoJdmFyIGluVmFsdSByZWZsZWN0LlZhbHVlCglpZiB2LCBvayA6PSBpbi4ocmVmbGVjdC5WYWx1ZSk7IG9rIHsKCQlpblZhbHUgPSB2Cgl9IGVsc2UgewoJCWluVmFsdSA9IHJlZmxlY3QuVmFsdWVPZihpbikKCX0KCWlmIF8sIGVyciA6PSB2YWxpZGF0ZVB0clRvU3RydWN0KGBpbnB1dGAsIGluVmFsdSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBlcnIKCX0KCWluVmFsdSA9IGluVmFsdS5FbGVtKCkKCWluVHlwZSA6PSBpblZhbHUuVHlwZSgpCkZpZWxkTG9vcDoKCWZvciBpIDo9IDA7IGkgPCBpblR5cGUuTnVtRmllbGQoKTsgaSsrIHsKCQl2YXIgZmllbGRUID0gaW5UeXBlLkZpZWxkKGkpCgkJdmFyIGZpZWxkViA9IGluVmFsdS5GaWVsZChpKQoJCWlmIGZpZWxkVC5Bbm9ueW1vdXMgewoJCQlpZiBlcnIgOj0gRmllbGRzRnVuYyhmaWVsZFYsIGZuKTsgZXJyICE9IG5pbCB7CgkJCQlyZXR1cm4gZXJyCgkJCX0KCQl9CgkJaWYgZmllbGRULlBrZ1BhdGggIT0gYGAgewoJCQljb250aW51ZQoJCX0KCQlzd2l0Y2ggZXJyIDo9IGZuKCZmaWVsZFQsIGZpZWxkVik7IGVyciB7CgkJY2FzZSBTdG9wSXRlcmF0aW5nOgoJCQlicmVhayBGaWVsZExvb3AKCQljYXNlIG5pbDoKCQkJY29udGludWUKCQlkZWZhdWx0OgoJCQlyZXR1cm4gZXJyCgkJfQoJfQoJcmV0dXJuIG5pbAp9",
+            "Source": "ewoJaWYgaW4gPT0gbmlsIHx8IGZuID09IG5pbCB7CgkJcmV0dXJuIG5pbAoJfQoJdmFyIGluVmFsdSByZWZsZWN0LlZhbHVlCglpZiB2LCBvayA6PSBpbi4ocmVmbGVjdC5WYWx1ZSk7IG9rIHsKCQlpblZhbHUgPSB2Cgl9IGVsc2UgewoJCWluVmFsdSA9IHJlZmxlY3QuVmFsdWVPZihpbikKCX0KCWlmIGluVmFsdS5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCWluVmFsdSA9IGluVmFsdS5FbGVtKCkKCX0KCXZhciBpblR5cGUgPSBpblZhbHUuVHlwZSgpCkZpZWxkTG9vcDoKCWZvciBpIDo9IDA7IGkgPCBpblR5cGUuTnVtRmllbGQoKTsgaSsrIHsKCQl2YXIgZmllbGRUID0gaW5UeXBlLkZpZWxkKGkpCgkJdmFyIGZpZWxkViA9IGluVmFsdS5GaWVsZChpKQoJCWlmIGZpZWxkVC5Bbm9ueW1vdXMgewoJCQlpZiBlcnIgOj0gRmllbGRzRnVuYyhmaWVsZFYsIGZuKTsgZXJyICE9IG5pbCB7CgkJCQlyZXR1cm4gZXJyCgkJCX0KCQl9CgkJaWYgZmllbGRULlBrZ1BhdGggIT0gYGAgewoJCQljb250aW51ZQoJCX0KCQlzd2l0Y2ggZXJyIDo9IGZuKCZmaWVsZFQsIGZpZWxkVik7IGVyciB7CgkJY2FzZSBTdG9wSXRlcmF0aW5nOgoJCQlicmVhayBGaWVsZExvb3AKCQljYXNlIG5pbDoKCQkJY29udGludWUKCQlkZWZhdWx0OgoJCQlyZXR1cm4gZXJyCgkJfQoJfQoJcmV0dXJuIG5pbAp9",
             "IsPackageLevel": true
         }
     ],

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.4
+                            v1.9.6
                         </li>
                     </ul>
                     
@@ -145,10 +145,10 @@
 
 <pre>{
   &#34;Metadata&#34;: {
-    &#34;GeneratorVersion&#34;: &#34;0.0.5&#34;,
+    &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.9.4&#34;
+    &#34;Version&#34;: &#34;1.9.6&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.9.4`&#34;,
+        &#34;Expression&#34;: &#34;`1.9.6`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.9.4&#34;
+        &#34;Value&#34;: &#34;1.9.6&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -1831,7 +1831,7 @@
             ],
             &#34;LineCount&#34;: 102,
             &#34;Name&#34;: &#34;cmd_test.go&#34;,
-            &#34;Size&#34;: 2526,
+            &#34;Size&#34;: 2516,
             &#34;SourceLineCount&#34;: 82,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
@@ -1939,7 +1939,7 @@
             ],
             &#34;LineCount&#34;: 81,
             &#34;Name&#34;: &#34;executil_test.go&#34;,
-            &#34;Size&#34;: 1776,
+            &#34;Size&#34;: 1768,
             &#34;SourceLineCount&#34;: 59,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
@@ -2166,6 +2166,27 @@
             ],
             &#34;Signature&#34;: &#34;Join(in interface{}) string&#34;,
             &#34;Source&#34;: &#34;ewoJdmFyIGFyZ3MgW11zdHJpbmcKCWlmIGNtZCwgb2sgOj0gaW4uKCpleGVjLkNtZCk7IG9rIHsKCQlhcmdzID0gY21kLkFyZ3MKCX0gZWxzZSBpZiB0eXBldXRpbC5Jc0FycmF5KGluKSB7CgkJYXJncyA9IHNsaWNldXRpbC5TdHJpbmdpZnkoaW4pCgl9IGVsc2UgewoJCXJldHVybiBgYAoJfQoJZm9yIGksIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBzdHJpbmdzLkNvbnRhaW5zKGFyZywgYCBgKSB7CgkJCWFyZ3NbaV0gPSBzdHJpbmd1dGlsLldyYXAoYXJnLCBgJ2AsIGAnYCkKCQl9Cgl9CglyZXR1cm4gc3RyaW5ncy5Kb2luKGFyZ3MsIGAgYCkKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;outlevel&#34;,
+                &#34;Type&#34;: &#34;log.Level&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;errlevel&#34;,
+                &#34;Type&#34;: &#34;log.Level&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;LogOutput&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;OutputLineFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -2498,7 +2519,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestEventedLineOutput&#34;,
             &#34;Signature&#34;: &#34;TestEventedLineOutput(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzdGRvdXQgOj0gbWFrZShbXXN0cmluZywgMCkKCXN0ZGVyciA6PSBtYWtlKFtdc3RyaW5nLCAwKQoJY21kIDo9IENvbW1hbmQoYGVjaG9gLCBgLWVgLCBgMVxuMlxuM1xuYCkKCWNtZC5PblN0ZG91dCA9IGZ1bmMobGluZSBzdHJpbmcsIHNlcnIgYm9vbCkgewoJCXN0ZG91dCA9IGFwcGVuZChzdGRvdXQsIGxpbmUpCgl9Cglhc3NlcnQuTm9FcnJvcihjbWQuUnVuKCkpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YDFgLCBgMmAsIGAzYCwgYGB9LCBzdGRvdXQpCglhc3NlcnQuRW1wdHkoc3RkZXJyKQoJY21kID0gQ29tbWFuZChgYmFzaGAsIGAtY2AsIGBlY2hvIG1vY2s7IGVjaG8geWVhaCAxPiYyOyBlY2hvIGluZzsgZWNobyB5ZWFoIDE&#43;JjI7IGVjaG8gYmlyZDsgZWNobyB5ZWFoIDE&#43;JjI7IGVjaG8geWVhaDsgZWNobyB5ZWFoIDE&#43;JjJgKQoJc3Rkb3V0ID0gbmlsCglzdGRlcnIgPSBuaWwKCWNtZC5PblN0ZG91dCA9IGZ1bmMobGluZSBzdHJpbmcsIHNlcnIgYm9vbCkgewoJCXN0ZG91dCA9IGFwcGVuZChzdGRvdXQsIGxpbmUpCgl9CgljbWQuT25TdGRlcnIgPSBmdW5jKGxpbmUgc3RyaW5nLCBzZXJyIGJvb2wpIHsKCQlzdGRlcnIgPSBhcHBlbmQoc3RkZXJyLCBsaW5lKQoJfQoJYXNzZXJ0Lk5vRXJyb3IoY21kLlJ1bigpKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2Btb2NrYCwgYGluZ2AsIGBiaXJkYCwgYHllYWhgfSwgc3Rkb3V0KQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2B5ZWFoYCwgYHllYWhgLCBgeWVhaGAsIGB5ZWFoYH0sIHN0ZGVycikKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzdGRvdXQgOj0gbWFrZShbXXN0cmluZywgMCkKCXN0ZGVyciA6PSBtYWtlKFtdc3RyaW5nLCAwKQoJY21kIDo9IENvbW1hbmQoYHByaW50ZmAsIGAxXG4yXG4zXG5gKQoJY21kLk9uU3Rkb3V0ID0gZnVuYyhsaW5lIHN0cmluZywgc2VyciBib29sKSB7CgkJc3Rkb3V0ID0gYXBwZW5kKHN0ZG91dCwgbGluZSkKCX0KCWFzc2VydC5Ob0Vycm9yKGNtZC5SdW4oKSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgMWAsIGAyYCwgYDNgfSwgc3Rkb3V0KQoJYXNzZXJ0LkVtcHR5KHN0ZGVycikKCWNtZCA9IENvbW1hbmQoYGJhc2hgLCBgLWNgLCBgZWNobyBtb2NrOyBlY2hvIHllYWggMT4mMjsgZWNobyBpbmc7IGVjaG8geWVhaCAxPiYyOyBlY2hvIGJpcmQ7IGVjaG8geWVhaCAxPiYyOyBlY2hvIHllYWg7IGVjaG8geWVhaCAxPiYyYCkKCXN0ZG91dCA9IG5pbAoJc3RkZXJyID0gbmlsCgljbWQuT25TdGRvdXQgPSBmdW5jKGxpbmUgc3RyaW5nLCBzZXJyIGJvb2wpIHsKCQlzdGRvdXQgPSBhcHBlbmQoc3Rkb3V0LCBsaW5lKQoJfQoJY21kLk9uU3RkZXJyID0gZnVuYyhsaW5lIHN0cmluZywgc2VyciBib29sKSB7CgkJc3RkZXJyID0gYXBwZW5kKHN0ZGVyciwgbGluZSkKCX0KCWFzc2VydC5Ob0Vycm9yKGNtZC5SdW4oKSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgbW9ja2AsIGBpbmdgLCBgYmlyZGAsIGB5ZWFoYH0sIHN0ZG91dCkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgeWVhaGAsIGB5ZWFoYCwgYHllYWhgLCBgeWVhaGB9LCBzdGRlcnIpCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -2510,7 +2531,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestExecFalse&#34;,
             &#34;Signature&#34;: &#34;TestExecFalse(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgL2Jpbi9mYWxzZWApCgljbWQuT25TdGFydCA9IGluY3IoJnN0YXJ0cykKCWNtZC5PbkNvbXBsZXRlID0gaW5jcigmY29tcGxldGVzKQoJY21kLk9uU3VjY2VzcyA9IGluY3IoJnN1Y2Nlc3NlcykKCWNtZC5PbkVycm9yID0gaW5jcigmZmFpbHVyZXMpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuUElEKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWNtZC5SdW4oKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5QSUQgPT0gMCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuVG9vaygpID4gMCkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5FeGl0Q29kZSA9PSAxKQoJYXNzZXJ0LkVxdWFsRXJyb3IoY21kLlN0YXR1cygpLkVycm9yLCBgUHJvY2VzcyBleGl0ZWQgd2l0aCBzdGF0dXMgMWApCglhc3NlcnQuRXF1YWwoMSwgc3RhcnRzKQoJYXNzZXJ0LkVxdWFsKDEsIGNvbXBsZXRlcykKCWFzc2VydC5FcXVhbCgwLCBzdWNjZXNzZXMpCglhc3NlcnQuRXF1YWwoMSwgZmFpbHVyZXMpCn0=&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgZmFsc2VgKQoJY21kLk9uU3RhcnQgPSBpbmNyKCZzdGFydHMpCgljbWQuT25Db21wbGV0ZSA9IGluY3IoJmNvbXBsZXRlcykKCWNtZC5PblN1Y2Nlc3MgPSBpbmNyKCZzdWNjZXNzZXMpCgljbWQuT25FcnJvciA9IGluY3IoJmZhaWx1cmVzKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLlBJRCkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbChjbWQuU3RhdHVzKCkuRXJyb3IpCgljbWQuUnVuKCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUElEID09IDApCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlRvb2soKSA&#43;IDApCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuRXhpdENvZGUgPT0gMSkKCWFzc2VydC5FcXVhbEVycm9yKGNtZC5TdGF0dXMoKS5FcnJvciwgYFByb2Nlc3MgZXhpdGVkIHdpdGggc3RhdHVzIDFgKQoJYXNzZXJ0LkVxdWFsKDEsIHN0YXJ0cykKCWFzc2VydC5FcXVhbCgxLCBjb21wbGV0ZXMpCglhc3NlcnQuRXF1YWwoMCwgc3VjY2Vzc2VzKQoJYXNzZXJ0LkVxdWFsKDEsIGZhaWx1cmVzKQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -2522,7 +2543,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestExecTrue&#34;,
             &#34;Signature&#34;: &#34;TestExecTrue(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgL2Jpbi90cnVlYCkKCWNtZC5PblN0YXJ0ID0gaW5jcigmc3RhcnRzKQoJY21kLk9uQ29tcGxldGUgPSBpbmNyKCZjb21wbGV0ZXMpCgljbWQuT25TdWNjZXNzID0gaW5jcigmc3VjY2Vzc2VzKQoJY21kLk9uRXJyb3IgPSBpbmNyKCZmYWlsdXJlcykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5aZXJvKGNtZC5TdGF0dXMoKS5QSUQpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5aZXJvKGNtZC5TdGF0dXMoKS5FeGl0Q29kZSkKCWFzc2VydC5OaWwoY21kLlN0YXR1cygpLkVycm9yKQoJY21kLlJ1bigpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUElEID09IDApCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlRvb2soKSA&#43;IDApCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWFzc2VydC5FcXVhbCgxLCBzdGFydHMpCglhc3NlcnQuRXF1YWwoMSwgY29tcGxldGVzKQoJYXNzZXJ0LkVxdWFsKDEsIHN1Y2Nlc3NlcykKCWFzc2VydC5FcXVhbCgwLCBmYWlsdXJlcykKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgdHJ1ZWApCgljbWQuT25TdGFydCA9IGluY3IoJnN0YXJ0cykKCWNtZC5PbkNvbXBsZXRlID0gaW5jcigmY29tcGxldGVzKQoJY21kLk9uU3VjY2VzcyA9IGluY3IoJnN1Y2Nlc3NlcykKCWNtZC5PbkVycm9yID0gaW5jcigmZmFpbHVyZXMpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuUElEKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWNtZC5SdW4oKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlBJRCA9PSAwKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5Ub29rKCkgPiAwKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbChjbWQuU3RhdHVzKCkuRXJyb3IpCglhc3NlcnQuRXF1YWwoMSwgc3RhcnRzKQoJYXNzZXJ0LkVxdWFsKDEsIGNvbXBsZXRlcykKCWFzc2VydC5FcXVhbCgxLCBzdWNjZXNzZXMpCglhc3NlcnQuRXF1YWwoMCwgZmFpbHVyZXMpCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -2846,29 +2867,6 @@
             &#34;Source&#34;: &#34;dHlwZSBDb21tYW5kU3RhdHVzRnVuYyBmdW5jKFN0YXR1cyk=&#34;
           },
           &#34;OutputLineFunc&#34;: {
-            &#34;Methods&#34;: [
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;outlevel&#34;,
-                    &#34;Type&#34;: &#34;log.Level&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;errlevel&#34;,
-                    &#34;Type&#34;: &#34;log.Level&#34;
-                  }
-                ],
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;LogOutput&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;OutputLineFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
-              }
-            ],
             &#34;Name&#34;: &#34;OutputLineFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk=&#34;
           },
@@ -8316,7 +8314,7 @@
         &#34;SourceLineCount&#34;: 1458,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6593,
           &#34;Median&#34;: 1,
@@ -10233,7 +10231,7 @@
         &#34;SourceLineCount&#34;: 690,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.242,
           &#34;Median&#34;: 0,
@@ -14191,10 +14189,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 61,
+            &#34;LineCount&#34;: 64,
             &#34;Name&#34;: &#34;netutil_test.go&#34;,
-            &#34;Size&#34;: 1684,
-            &#34;SourceLineCount&#34;: 13,
+            &#34;Size&#34;: 1732,
+            &#34;SourceLineCount&#34;: 15,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           }
@@ -14574,14 +14572,14 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;netutil&#34;,
-        &#34;LineCount&#34;: 735,
+        &#34;LineCount&#34;: 738,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;netutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 517,
+        &#34;SourceLineCount&#34;: 519,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.3673,
           &#34;Median&#34;: 0,
@@ -14600,7 +14598,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestFQDN&#34;,
             &#34;Signature&#34;: &#34;TestFQDN(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChzdHJpbmdzLlRyaW1TcGFjZShzdHJpbmcoc3lzKSksIEZRRE4oKSkKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCXZhciB3YW50ID0gc3RyaW5ncy5UcmltU3BhY2Uoc3RyaW5nKHN5cykpCgl3YW50ID0gc3RyaW5ncy5Ub0xvd2VyKHdhbnQpCglhc3NlcnQuRXF1YWwod2FudCwgRlFETigpKQp9&#34;
           }
         ],
         &#34;TypeCount&#34;: 4,
@@ -15268,7 +15266,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestExpandUser&#34;,
             &#34;Signature&#34;: &#34;TestExpandUser(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgdiBzdHJpbmcKCXZhciBlcnIgZXJyb3IKCXUsIF8gOj0gdXNlci5DdXJyZW50KCkKCXYsIGVyciA9IEV4cGFuZFVzZXIoYC9kZXYvbnVsbGApCglhc3NlcnQuRXF1YWwodiwgYC9kZXYvbnVsbGApCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoYH5gKQoJYXNzZXJ0LkVxdWFsKHYsIHUuSG9tZURpcikKCWFzc2VydC5OaWwoZXJyKQoJdiwgZXJyID0gRXhwYW5kVXNlcigifiIgKyB1Lk5hbWUpCglhc3NlcnQuRXF1YWwodiwgdS5Ib21lRGlyKQoJYXNzZXJ0Lk5pbChlcnIpCgl2LCBlcnIgPSBFeHBhbmRVc2VyKCJ&#43;L3Rlc3QtMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMyIpCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoIn4iICsgdS5OYW1lICsgIi90ZXN0LTEyMyIpCglhc3NlcnQuRXF1YWwodiwgdS5Ib21lRGlyKyIvdGVzdC0xMjMiKQoJYXNzZXJ0Lk5pbChlcnIpCgl2LCBlcnIgPSBFeHBhbmRVc2VyKCJ&#43;L3Rlc3QtMTIzL34vMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMy9&#43;LzEyMyIpCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoIn4iICsgdS5OYW1lICsgIi90ZXN0LTEyMy9&#43;IiArIHUuTmFtZSArICIvMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMy9&#43;Iit1Lk5hbWUrIi8xMjMiKQoJYXNzZXJ0Lk5pbChlcnIpCglhc3NlcnQuRmFsc2UoSXNOb25lbXB0eUZpbGUoYC9ub25leGlzdGVudC50eHRgKSkKCWFzc2VydC5GYWxzZShJc05vbmVtcHR5RGlyKGAvbm9uZXhpc3RlbnQvZGlyYCkpCglhc3NlcnQuVHJ1ZShJc05vbmVtcHR5RmlsZShgL2V0Yy9mc3RhYmApKQoJYXNzZXJ0LlRydWUoSXNOb25lbXB0eURpcihgL2V0Y2ApKQoJeCwgZXJyIDo9IG9zLkV4ZWN1dGFibGUoKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LlRydWUoSXNOb25lbXB0eUV4ZWN1dGFibGVGaWxlKHgpKQp9&#34;
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgdiBzdHJpbmcKCXZhciBlcnIgZXJyb3IKCXUsIF8gOj0gdXNlci5DdXJyZW50KCkKCXYsIGVyciA9IEV4cGFuZFVzZXIoYC9kZXYvbnVsbGApCglhc3NlcnQuRXF1YWwodiwgYC9kZXYvbnVsbGApCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoYH5gKQoJYXNzZXJ0LkVxdWFsKHYsIHUuSG9tZURpcikKCWFzc2VydC5OaWwoZXJyKQoJdiwgZXJyID0gRXhwYW5kVXNlcigifiIgKyB1Lk5hbWUpCglhc3NlcnQuRXF1YWwodiwgdS5Ib21lRGlyKQoJYXNzZXJ0Lk5pbChlcnIpCgl2LCBlcnIgPSBFeHBhbmRVc2VyKCJ&#43;L3Rlc3QtMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMyIpCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoIn4iICsgdS5OYW1lICsgIi90ZXN0LTEyMyIpCglhc3NlcnQuRXF1YWwodiwgdS5Ib21lRGlyKyIvdGVzdC0xMjMiKQoJYXNzZXJ0Lk5pbChlcnIpCgl2LCBlcnIgPSBFeHBhbmRVc2VyKCJ&#43;L3Rlc3QtMTIzL34vMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMy9&#43;LzEyMyIpCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoIn4iICsgdS5OYW1lICsgIi90ZXN0LTEyMy9&#43;IiArIHUuTmFtZSArICIvMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMy9&#43;Iit1Lk5hbWUrIi8xMjMiKQoJYXNzZXJ0Lk5pbChlcnIpCglhc3NlcnQuRmFsc2UoSXNOb25lbXB0eUZpbGUoYC9ub25leGlzdGVudC50eHRgKSkKCWFzc2VydC5GYWxzZShJc05vbmVtcHR5RGlyKGAvbm9uZXhpc3RlbnQvZGlyYCkpCglhc3NlcnQuVHJ1ZShJc05vbmVtcHR5RmlsZShgL2V0Yy9ob3N0c2ApKQoJYXNzZXJ0LlRydWUoSXNOb25lbXB0eURpcihgL2V0Y2ApKQoJeCwgZXJyIDo9IG9zLkV4ZWN1dGFibGUoKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LlRydWUoSXNOb25lbXB0eUV4ZWN1dGFibGVGaWxlKHgpKQp9&#34;
           }
         ],
         &#34;TypeCount&#34;: 0,
@@ -16666,7 +16664,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;,
-        &#34;CommentWordCount&#34;: 746,
+        &#34;CommentWordCount&#34;: 786,
         &#34;ConstantCount&#34;: 17,
         &#34;Constants&#34;: [
           {
@@ -16775,14 +16773,18 @@
                 &#34;PackageName&#34;: &#34;testing&#34;
               },
               {
+                &#34;Alias&#34;: &#34;time&#34;,
+                &#34;PackageName&#34;: &#34;time&#34;
+              },
+              {
                 &#34;Alias&#34;: &#34;require&#34;,
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 591,
+            &#34;LineCount&#34;: 608,
             &#34;Name&#34;: &#34;001_stringutil_general_test.go&#34;,
-            &#34;Size&#34;: 16887,
-            &#34;SourceLineCount&#34;: 466,
+            &#34;Size&#34;: 17362,
+            &#34;SourceLineCount&#34;: 478,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -16908,7 +16910,7 @@
           },
           {
             &#34;ConstantCount&#34;: 17,
-            &#34;FunctionCount&#34;: 68,
+            &#34;FunctionCount&#34;: 70,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;fmt&#34;,
@@ -16963,10 +16965,10 @@
                 &#34;PackageName&#34;: &#34;github.com/jdkato/prose/tokenize&#34;
               }
             ],
-            &#34;LineCount&#34;: 969,
+            &#34;LineCount&#34;: 983,
             &#34;Name&#34;: &#34;stringutil.go&#34;,
-            &#34;Size&#34;: 23163,
-            &#34;SourceLineCount&#34;: 734,
+            &#34;Size&#34;: 23670,
+            &#34;SourceLineCount&#34;: 742,
             &#34;TypeCount&#34;: 3,
             &#34;VariableCount&#34;: 9
           },
@@ -17019,7 +17021,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 81,
+        &#34;FunctionCount&#34;: 83,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -17861,6 +17863,31 @@
                 &#34;Type&#34;: &#34;string&#34;
               }
             ],
+            &#34;Comment&#34;: &#34;Identical to SplitPair, but returns the result of passing the second value in the pair to Autotype()&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;SplitPairAuto&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Type&#34;: &#34;interface{}&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;SplitPairAuto(in string, delimiter string) (string, interface{})&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGEsIGIgPSBTcGxpdFBhaXIoaW4sIGRlbGltaXRlcikKCXJldHVybiBhLCBBdXRvdHlwZShiKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;in&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;delimiter&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
             &#34;Comment&#34;: &#34;Split the given string into two parts from the right. If there is only one resulting part,\nthat part will be the first return value and the second return value will be empty.&#34;,
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;SplitPairRight&#34;,
@@ -17949,6 +17976,31 @@
             ],
             &#34;Signature&#34;: &#34;SplitPairTrimSpace(in string, delimiter string) (string, string)&#34;,
             &#34;Source&#34;: &#34;ewoJdmFyIGEsIGIgPSBTcGxpdFBhaXIoaW4sIGRlbGltaXRlcikKCWEgPSBzdHJpbmdzLlRyaW1TcGFjZShhKQoJYiA9IHN0cmluZ3MuVHJpbVNwYWNlKGIpCglyZXR1cm4gYSwgYgp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;in&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;delimiter&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Identical to SplitPairTrimSpace, but returns the result of passing the second value in the pair to Autotype()&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;SplitPairTrimSpaceAuto&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Type&#34;: &#34;interface{}&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;SplitPairTrimSpaceAuto(in string, delimiter string) (string, interface{})&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGEsIGIgPSBTcGxpdFBhaXJUcmltU3BhY2UoaW4sIGRlbGltaXRlcikKCXJldHVybiBhLCBBdXRvdHlwZShiKQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -18408,19 +18460,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;stringutil&#34;,
-        &#34;LineCount&#34;: 2512,
+        &#34;LineCount&#34;: 2543,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;stringutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 1929,
+        &#34;SourceLineCount&#34;: 1949,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.3634,
+          &#34;Mean&#34;: 0.3768,
           &#34;Median&#34;: 0,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4708
+          &#34;StdDev&#34;: 0.4747
         },
         &#34;Synopsis&#34;: &#34;Utilities for converting and manipulating data to and from strings\n&#34;,
         &#34;Tests&#34;: [
@@ -18785,7 +18837,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestSplitPairFamily&#34;,
             &#34;Signature&#34;: &#34;TestSplitPairFamily(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZmlyc3QsIHJlc3Qgc3RyaW5nCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyaW1TcGFjZShgIHRlc3QgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyaW1TcGFjZShgICB0ZXN0ICAuICAgIHZhbHVlcwkJIGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXNgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmltU3BhY2UoYCAgIHRlc3QgIC4gIHZhbHVlcyAgLiAgbmVzdGVkYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlcyAgLiAgbmVzdGVkYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyYWlsaW5nKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyYWlsaW5nKGB0ZXN0LnZhbHVlc2AsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXNgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmFpbGluZyhgdGVzdC52YWx1ZXMubmVzdGVkYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlcy5uZXN0ZWRgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHQoYHRlc3RgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHQoYHRlc3QudmFsdWVzYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0KGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3QudmFsdWVzYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYG5lc3RlZGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0VHJhaWxpbmcoYGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0VHJhaWxpbmcoYHRlc3RgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgdGVzdC52YWx1ZXMubmVzdGVkYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0LnZhbHVlc2AsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBuZXN0ZWRgLCByZXN0KQp9&#34;
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZmlyc3QsIHJlc3Qgc3RyaW5nCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCgl2YXIgaywgdiA9IFNwbGl0UGFpckF1dG8oYHg9MWAsIGA9YCkKCWFzc2VydC5FcXVhbChgeGAsIGspCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIHYpCglrLCB2ID0gU3BsaXRQYWlyQXV0byhgeT10cnVlYCwgYD1gKQoJYXNzZXJ0LkVxdWFsKGB5YCwgaykKCWFzc2VydC5FcXVhbCh0cnVlLCB2KQoJaywgdiA9IFNwbGl0UGFpckF1dG8oYGQ9MjAwNi0wMS0wMmAsIGA9YCkKCWFzc2VydC5FcXVhbChgZGAsIGspCglhc3NlcnQuRXF1YWwoMjAwNiwgdi4odGltZS5UaW1lKS5ZZWFyKCkpCglhc3NlcnQuRXF1YWwodGltZS5KYW51YXJ5LCB2Lih0aW1lLlRpbWUpLk1vbnRoKCkpCglhc3NlcnQuRXF1YWwoMiwgdi4odGltZS5UaW1lKS5EYXkoKSkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJpbVNwYWNlKGAgdGVzdCBgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJpbVNwYWNlKGAgIHRlc3QgIC4gICAgdmFsdWVzCQkgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyaW1TcGFjZShgICAgdGVzdCAgLiAgdmFsdWVzICAuICBuZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzICAuICBuZXN0ZWRgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmFpbGluZyhgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYHRlc3RgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYHRlc3QudmFsdWVzYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyYWlsaW5nKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0KGBgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgdGVzdGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHQoYHRlc3QudmFsdWVzLm5lc3RlZGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdC52YWx1ZXNgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgbmVzdGVkYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgdGVzdGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodFRyYWlsaW5nKGB0ZXN0LnZhbHVlc2AsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXNgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodFRyYWlsaW5nKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3QudmFsdWVzYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYG5lc3RlZGAsIHJlc3QpCn0vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0K&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -19335,10 +19387,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
               }
             ],
-            &#34;LineCount&#34;: 169,
+            &#34;LineCount&#34;: 165,
             &#34;Name&#34;: &#34;structutil.go&#34;,
-            &#34;Size&#34;: 4191,
-            &#34;SourceLineCount&#34;: 127,
+            &#34;Size&#34;: 4072,
+            &#34;SourceLineCount&#34;: 126,
             &#34;TypeCount&#34;: 2,
             &#34;VariableCount&#34;: 1
           },
@@ -19436,15 +19488,15 @@
               }
             ],
             &#34;Signature&#34;: &#34;FieldsFunc(in interface{}, fn StructFieldFunc) error&#34;,
-            &#34;Source&#34;: &#34;ewoJaWYgaW4gPT0gbmlsIHx8IGZuID09IG5pbCB7CgkJcmV0dXJuIG5pbAoJfQoJdmFyIGluVmFsdSByZWZsZWN0LlZhbHVlCglpZiB2LCBvayA6PSBpbi4ocmVmbGVjdC5WYWx1ZSk7IG9rIHsKCQlpblZhbHUgPSB2Cgl9IGVsc2UgewoJCWluVmFsdSA9IHJlZmxlY3QuVmFsdWVPZihpbikKCX0KCWlmIF8sIGVyciA6PSB2YWxpZGF0ZVB0clRvU3RydWN0KGBpbnB1dGAsIGluVmFsdSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBlcnIKCX0KCWluVmFsdSA9IGluVmFsdS5FbGVtKCkKCWluVHlwZSA6PSBpblZhbHUuVHlwZSgpCkZpZWxkTG9vcDoKCWZvciBpIDo9IDA7IGkgPCBpblR5cGUuTnVtRmllbGQoKTsgaSsrIHsKCQl2YXIgZmllbGRUID0gaW5UeXBlLkZpZWxkKGkpCgkJdmFyIGZpZWxkViA9IGluVmFsdS5GaWVsZChpKQoJCWlmIGZpZWxkVC5Bbm9ueW1vdXMgewoJCQlpZiBlcnIgOj0gRmllbGRzRnVuYyhmaWVsZFYsIGZuKTsgZXJyICE9IG5pbCB7CgkJCQlyZXR1cm4gZXJyCgkJCX0KCQl9CgkJaWYgZmllbGRULlBrZ1BhdGggIT0gYGAgewoJCQljb250aW51ZQoJCX0KCQlzd2l0Y2ggZXJyIDo9IGZuKCZmaWVsZFQsIGZpZWxkVik7IGVyciB7CgkJY2FzZSBTdG9wSXRlcmF0aW5nOgoJCQlicmVhayBGaWVsZExvb3AKCQljYXNlIG5pbDoKCQkJY29udGludWUKCQlkZWZhdWx0OgoJCQlyZXR1cm4gZXJyCgkJfQoJfQoJcmV0dXJuIG5pbAp9&#34;
+            &#34;Source&#34;: &#34;ewoJaWYgaW4gPT0gbmlsIHx8IGZuID09IG5pbCB7CgkJcmV0dXJuIG5pbAoJfQoJdmFyIGluVmFsdSByZWZsZWN0LlZhbHVlCglpZiB2LCBvayA6PSBpbi4ocmVmbGVjdC5WYWx1ZSk7IG9rIHsKCQlpblZhbHUgPSB2Cgl9IGVsc2UgewoJCWluVmFsdSA9IHJlZmxlY3QuVmFsdWVPZihpbikKCX0KCWlmIGluVmFsdS5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCWluVmFsdSA9IGluVmFsdS5FbGVtKCkKCX0KCXZhciBpblR5cGUgPSBpblZhbHUuVHlwZSgpCkZpZWxkTG9vcDoKCWZvciBpIDo9IDA7IGkgPCBpblR5cGUuTnVtRmllbGQoKTsgaSsrIHsKCQl2YXIgZmllbGRUID0gaW5UeXBlLkZpZWxkKGkpCgkJdmFyIGZpZWxkViA9IGluVmFsdS5GaWVsZChpKQoJCWlmIGZpZWxkVC5Bbm9ueW1vdXMgewoJCQlpZiBlcnIgOj0gRmllbGRzRnVuYyhmaWVsZFYsIGZuKTsgZXJyICE9IG5pbCB7CgkJCQlyZXR1cm4gZXJyCgkJCX0KCQl9CgkJaWYgZmllbGRULlBrZ1BhdGggIT0gYGAgewoJCQljb250aW51ZQoJCX0KCQlzd2l0Y2ggZXJyIDo9IGZuKCZmaWVsZFQsIGZpZWxkVik7IGVyciB7CgkJY2FzZSBTdG9wSXRlcmF0aW5nOgoJCQlicmVhayBGaWVsZExvb3AKCQljYXNlIG5pbDoKCQkJY29udGludWUKCQlkZWZhdWx0OgoJCQlyZXR1cm4gZXJyCgkJfQoJfQoJcmV0dXJuIG5pbAp9&#34;
           }
         ],
         &#34;ImportPath&#34;: &#34;structutil&#34;,
-        &#34;LineCount&#34;: 511,
+        &#34;LineCount&#34;: 507,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;structutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 408,
+        &#34;SourceLineCount&#34;: 407,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
@@ -19793,7 +19845,7 @@
             ],
             &#34;LineCount&#34;: 60,
             &#34;Name&#34;: &#34;timeutil.go&#34;,
-            &#34;Size&#34;: 1642,
+            &#34;Size&#34;: 1586,
             &#34;SourceLineCount&#34;: 34,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
@@ -19924,7 +19976,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;ReferenceTime() time.Time&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIHRpbWUuRGF0ZSgyMDA2LCAxLCAyLCAxNSwgNCwgNSwgOTk5OTk5OTk5LCB0aW1lLkZpeGVkWm9uZSgiTVNUIiwgLTcqNjAqNjApKQp9&#34;
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIHV0aWxzLlJlZmVyZW5jZVRpbWUKfQ==&#34;
           }
         ],
         &#34;ImportPath&#34;: &#34;timeutil&#34;,
@@ -21111,7 +21163,7 @@
         &#34;SourceLineCount&#34;: 1126,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0.9393,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.5356,
           &#34;Median&#34;: 0.4,
@@ -22195,7 +22247,7 @@
             ],
             &#34;LineCount&#34;: 127,
             &#34;Name&#34;: &#34;utils.go&#34;,
-            &#34;Size&#34;: 2882,
+            &#34;Size&#34;: 2890,
             &#34;SourceLineCount&#34;: 101,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 1
@@ -23381,7 +23433,7 @@
       &#34;SourceLineCount&#34;: 1458,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6593,
         &#34;Median&#34;: 1,
@@ -23406,7 +23458,7 @@
       &#34;SourceLineCount&#34;: 690,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.242,
         &#34;Median&#34;: 0,
@@ -23474,14 +23526,14 @@
       &#34;ConstantCount&#34;: 0,
       &#34;FunctionCount&#34;: 22,
       &#34;ImportPath&#34;: &#34;netutil&#34;,
-      &#34;LineCount&#34;: 735,
+      &#34;LineCount&#34;: 738,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;netutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 517,
+      &#34;SourceLineCount&#34;: 519,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.3673,
         &#34;Median&#34;: 0,
@@ -23595,23 +23647,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;,
-      &#34;CommentWordCount&#34;: 746,
+      &#34;CommentWordCount&#34;: 786,
       &#34;ConstantCount&#34;: 17,
-      &#34;FunctionCount&#34;: 81,
+      &#34;FunctionCount&#34;: 83,
       &#34;ImportPath&#34;: &#34;stringutil&#34;,
-      &#34;LineCount&#34;: 2512,
+      &#34;LineCount&#34;: 2543,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;stringutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 1929,
+      &#34;SourceLineCount&#34;: 1949,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.3634,
+        &#34;Mean&#34;: 0.3768,
         &#34;Median&#34;: 0,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4708
+        &#34;StdDev&#34;: 0.4747
       },
       &#34;Synopsis&#34;: &#34;Utilities for converting and manipulating data to and from strings\n&#34;,
       &#34;TypeCount&#34;: 6,
@@ -23624,11 +23676,11 @@
       &#34;ConstantCount&#34;: 0,
       &#34;FunctionCount&#34;: 12,
       &#34;ImportPath&#34;: &#34;structutil&#34;,
-      &#34;LineCount&#34;: 511,
+      &#34;LineCount&#34;: 507,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;structutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 408,
+      &#34;SourceLineCount&#34;: 407,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
@@ -23681,7 +23733,7 @@
       &#34;SourceLineCount&#34;: 1126,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0.9393,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.5356,
         &#34;Median&#34;: 0.4,
@@ -23724,7 +23776,7 @@
         <div id="x-footer" class="clearfix">
             <div class="container">
                 
-                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.5
+                Generated by <i><a target="_blank" href="https://github.com/ghetzel/go-owndoc">go-owndoc</a></i> v0.0.7
                 
 
                 <span class="pull-right">

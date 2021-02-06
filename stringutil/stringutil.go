@@ -642,6 +642,20 @@ func SplitPairTrimSpace(in string, delimiter string) (string, string) {
 	return a, b
 }
 
+// Identical to SplitPair, but returns the result of passing the second value in the pair to Autotype()
+func SplitPairAuto(in string, delimiter string) (string, interface{}) {
+	var a, b = SplitPair(in, delimiter)
+
+	return a, Autotype(b)
+}
+
+// Identical to SplitPairTrimSpace, but returns the result of passing the second value in the pair to Autotype()
+func SplitPairTrimSpaceAuto(in string, delimiter string) (string, interface{}) {
+	var a, b = SplitPairTrimSpace(in, delimiter)
+
+	return a, Autotype(b)
+}
+
 // Split the given string into two parts.  If there is only one resulting part,
 // that part will be the second return value and the first return value will be empty.
 func SplitPairTrailing(in string, delimiter string) (string, string) {

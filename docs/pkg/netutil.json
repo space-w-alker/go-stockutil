@@ -7,8 +7,8 @@
     "Synopsis": "Utilities for working with networks and network accessories.\n\nUtilities for working with networks and network accessories.\n",
     "MainFunction": false,
     "CommentWordCount": 461,
-    "LineCount": 735,
-    "SourceLineCount": 517,
+    "LineCount": 738,
+    "SourceLineCount": 519,
     "FunctionCount": 22,
     "TypeCount": 4,
     "ConstantCount": 0,
@@ -17,7 +17,7 @@
         "Mean": 0.3673,
         "StdDev": 0.4586,
         "GeometricMean": 0,
-        "HarmonicMean": 1,
+        "HarmonicMean": 0,
         "Median": 0,
         "Minimum": 0,
         "Maximum": 1
@@ -211,9 +211,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 1684,
-            "LineCount": 61,
-            "SourceLineCount": 13,
+            "Size": 1732,
+            "LineCount": 64,
+            "SourceLineCount": 15,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -621,7 +621,7 @@
                 }
             ],
             "Signature": "TestFQDN(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChzdHJpbmdzLlRyaW1TcGFjZShzdHJpbmcoc3lzKSksIEZRRE4oKSkKfQ==",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCXZhciB3YW50ID0gc3RyaW5ncy5UcmltU3BhY2Uoc3RyaW5nKHN5cykpCgl3YW50ID0gc3RyaW5ncy5Ub0xvd2VyKHdhbnQpCglhc3NlcnQuRXF1YWwod2FudCwgRlFETigpKQp9",
             "IsPackageLevel": true
         }
     ],

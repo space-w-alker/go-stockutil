@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/ghetzel/testify/require"
 )
@@ -465,6 +466,22 @@ func TestSplitPairFamily(t *testing.T) {
 	first, rest = SplitPair(`test.values.nested`, `.`)
 	assert.Equal(`test`, first)
 	assert.Equal(`values.nested`, rest)
+
+	// ---------------------------------------------------------------------------------------------
+	var k, v = SplitPairAuto(`x=1`, `=`)
+
+	assert.Equal(`x`, k)
+	assert.Equal(int64(1), v)
+
+	k, v = SplitPairAuto(`y=true`, `=`)
+	assert.Equal(`y`, k)
+	assert.Equal(true, v)
+
+	k, v = SplitPairAuto(`d=2006-01-02`, `=`)
+	assert.Equal(`d`, k)
+	assert.Equal(2006, v.(time.Time).Year())
+	assert.Equal(time.January, v.(time.Time).Month())
+	assert.Equal(2, v.(time.Time).Day())
 
 	// ---------------------------------------------------------------------------------------------
 	first, rest = SplitPairTrimSpace(` test `, `.`)

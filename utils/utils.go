@@ -12,7 +12,7 @@ import (
 	"k8s.io/client-go/util/jsonpath"
 )
 
-var ReferenceTime time.Time = time.Date(2006, 1, 2, 15, 4, 5, 0, time.FixedZone("MST", -7*60*60))
+var ReferenceTime time.Time = time.Date(2006, 1, 2, 15, 4, 5, 999999999, time.FixedZone("MST", -7*60*60))
 
 func GenericMarshalJSON(in interface{}, extraData ...map[string]interface{}) ([]byte, error) {
 	sval := structs.New(in)

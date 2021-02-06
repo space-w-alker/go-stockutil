@@ -107,7 +107,7 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 2526,
+            "Size": 2516,
             "LineCount": 102,
             "SourceLineCount": 82,
             "FunctionCount": 0,
@@ -215,7 +215,7 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 1776,
+            "Size": 1768,
             "LineCount": 81,
             "SourceLineCount": 59,
             "FunctionCount": 0,
@@ -460,6 +460,27 @@
             ],
             "Signature": "Join(in interface{}) string",
             "Source": "ewoJdmFyIGFyZ3MgW11zdHJpbmcKCWlmIGNtZCwgb2sgOj0gaW4uKCpleGVjLkNtZCk7IG9rIHsKCQlhcmdzID0gY21kLkFyZ3MKCX0gZWxzZSBpZiB0eXBldXRpbC5Jc0FycmF5KGluKSB7CgkJYXJncyA9IHNsaWNldXRpbC5TdHJpbmdpZnkoaW4pCgl9IGVsc2UgewoJCXJldHVybiBgYAoJfQoJZm9yIGksIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBzdHJpbmdzLkNvbnRhaW5zKGFyZywgYCBgKSB7CgkJCWFyZ3NbaV0gPSBzdHJpbmd1dGlsLldyYXAoYXJnLCBgJ2AsIGAnYCkKCQl9Cgl9CglyZXR1cm4gc3RyaW5ncy5Kb2luKGFyZ3MsIGAgYCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "LogOutput",
+            "Arguments": [
+                {
+                    "Name": "outlevel",
+                    "Type": "log.Level"
+                },
+                {
+                    "Name": "errlevel",
+                    "Type": "log.Level"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "OutputLineFunc"
+                }
+            ],
+            "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+            "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
             "IsPackageLevel": true
         },
         {
@@ -776,7 +797,7 @@
                 }
             ],
             "Signature": "TestEventedLineOutput(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzdGRvdXQgOj0gbWFrZShbXXN0cmluZywgMCkKCXN0ZGVyciA6PSBtYWtlKFtdc3RyaW5nLCAwKQoJY21kIDo9IENvbW1hbmQoYGVjaG9gLCBgLWVgLCBgMVxuMlxuM1xuYCkKCWNtZC5PblN0ZG91dCA9IGZ1bmMobGluZSBzdHJpbmcsIHNlcnIgYm9vbCkgewoJCXN0ZG91dCA9IGFwcGVuZChzdGRvdXQsIGxpbmUpCgl9Cglhc3NlcnQuTm9FcnJvcihjbWQuUnVuKCkpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YDFgLCBgMmAsIGAzYCwgYGB9LCBzdGRvdXQpCglhc3NlcnQuRW1wdHkoc3RkZXJyKQoJY21kID0gQ29tbWFuZChgYmFzaGAsIGAtY2AsIGBlY2hvIG1vY2s7IGVjaG8geWVhaCAxPiYyOyBlY2hvIGluZzsgZWNobyB5ZWFoIDE+JjI7IGVjaG8gYmlyZDsgZWNobyB5ZWFoIDE+JjI7IGVjaG8geWVhaDsgZWNobyB5ZWFoIDE+JjJgKQoJc3Rkb3V0ID0gbmlsCglzdGRlcnIgPSBuaWwKCWNtZC5PblN0ZG91dCA9IGZ1bmMobGluZSBzdHJpbmcsIHNlcnIgYm9vbCkgewoJCXN0ZG91dCA9IGFwcGVuZChzdGRvdXQsIGxpbmUpCgl9CgljbWQuT25TdGRlcnIgPSBmdW5jKGxpbmUgc3RyaW5nLCBzZXJyIGJvb2wpIHsKCQlzdGRlcnIgPSBhcHBlbmQoc3RkZXJyLCBsaW5lKQoJfQoJYXNzZXJ0Lk5vRXJyb3IoY21kLlJ1bigpKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2Btb2NrYCwgYGluZ2AsIGBiaXJkYCwgYHllYWhgfSwgc3Rkb3V0KQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2B5ZWFoYCwgYHllYWhgLCBgeWVhaGAsIGB5ZWFoYH0sIHN0ZGVycikKfQ==",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzdGRvdXQgOj0gbWFrZShbXXN0cmluZywgMCkKCXN0ZGVyciA6PSBtYWtlKFtdc3RyaW5nLCAwKQoJY21kIDo9IENvbW1hbmQoYHByaW50ZmAsIGAxXG4yXG4zXG5gKQoJY21kLk9uU3Rkb3V0ID0gZnVuYyhsaW5lIHN0cmluZywgc2VyciBib29sKSB7CgkJc3Rkb3V0ID0gYXBwZW5kKHN0ZG91dCwgbGluZSkKCX0KCWFzc2VydC5Ob0Vycm9yKGNtZC5SdW4oKSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgMWAsIGAyYCwgYDNgfSwgc3Rkb3V0KQoJYXNzZXJ0LkVtcHR5KHN0ZGVycikKCWNtZCA9IENvbW1hbmQoYGJhc2hgLCBgLWNgLCBgZWNobyBtb2NrOyBlY2hvIHllYWggMT4mMjsgZWNobyBpbmc7IGVjaG8geWVhaCAxPiYyOyBlY2hvIGJpcmQ7IGVjaG8geWVhaCAxPiYyOyBlY2hvIHllYWg7IGVjaG8geWVhaCAxPiYyYCkKCXN0ZG91dCA9IG5pbAoJc3RkZXJyID0gbmlsCgljbWQuT25TdGRvdXQgPSBmdW5jKGxpbmUgc3RyaW5nLCBzZXJyIGJvb2wpIHsKCQlzdGRvdXQgPSBhcHBlbmQoc3Rkb3V0LCBsaW5lKQoJfQoJY21kLk9uU3RkZXJyID0gZnVuYyhsaW5lIHN0cmluZywgc2VyciBib29sKSB7CgkJc3RkZXJyID0gYXBwZW5kKHN0ZGVyciwgbGluZSkKCX0KCWFzc2VydC5Ob0Vycm9yKGNtZC5SdW4oKSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgbW9ja2AsIGBpbmdgLCBgYmlyZGAsIGB5ZWFoYH0sIHN0ZG91dCkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgeWVhaGAsIGB5ZWFoYCwgYHllYWhgLCBgeWVhaGB9LCBzdGRlcnIpCn0=",
             "IsPackageLevel": true
         },
         {
@@ -788,7 +809,7 @@
                 }
             ],
             "Signature": "TestExecFalse(t *testing.T)",
-            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgL2Jpbi9mYWxzZWApCgljbWQuT25TdGFydCA9IGluY3IoJnN0YXJ0cykKCWNtZC5PbkNvbXBsZXRlID0gaW5jcigmY29tcGxldGVzKQoJY21kLk9uU3VjY2VzcyA9IGluY3IoJnN1Y2Nlc3NlcykKCWNtZC5PbkVycm9yID0gaW5jcigmZmFpbHVyZXMpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuUElEKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWNtZC5SdW4oKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5QSUQgPT0gMCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuVG9vaygpID4gMCkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5FeGl0Q29kZSA9PSAxKQoJYXNzZXJ0LkVxdWFsRXJyb3IoY21kLlN0YXR1cygpLkVycm9yLCBgUHJvY2VzcyBleGl0ZWQgd2l0aCBzdGF0dXMgMWApCglhc3NlcnQuRXF1YWwoMSwgc3RhcnRzKQoJYXNzZXJ0LkVxdWFsKDEsIGNvbXBsZXRlcykKCWFzc2VydC5FcXVhbCgwLCBzdWNjZXNzZXMpCglhc3NlcnQuRXF1YWwoMSwgZmFpbHVyZXMpCn0=",
+            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgZmFsc2VgKQoJY21kLk9uU3RhcnQgPSBpbmNyKCZzdGFydHMpCgljbWQuT25Db21wbGV0ZSA9IGluY3IoJmNvbXBsZXRlcykKCWNtZC5PblN1Y2Nlc3MgPSBpbmNyKCZzdWNjZXNzZXMpCgljbWQuT25FcnJvciA9IGluY3IoJmZhaWx1cmVzKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLlBJRCkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbChjbWQuU3RhdHVzKCkuRXJyb3IpCgljbWQuUnVuKCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUElEID09IDApCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlRvb2soKSA+IDApCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuRXhpdENvZGUgPT0gMSkKCWFzc2VydC5FcXVhbEVycm9yKGNtZC5TdGF0dXMoKS5FcnJvciwgYFByb2Nlc3MgZXhpdGVkIHdpdGggc3RhdHVzIDFgKQoJYXNzZXJ0LkVxdWFsKDEsIHN0YXJ0cykKCWFzc2VydC5FcXVhbCgxLCBjb21wbGV0ZXMpCglhc3NlcnQuRXF1YWwoMCwgc3VjY2Vzc2VzKQoJYXNzZXJ0LkVxdWFsKDEsIGZhaWx1cmVzKQp9",
             "IsPackageLevel": true
         },
         {
@@ -800,7 +821,7 @@
                 }
             ],
             "Signature": "TestExecTrue(t *testing.T)",
-            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgL2Jpbi90cnVlYCkKCWNtZC5PblN0YXJ0ID0gaW5jcigmc3RhcnRzKQoJY21kLk9uQ29tcGxldGUgPSBpbmNyKCZjb21wbGV0ZXMpCgljbWQuT25TdWNjZXNzID0gaW5jcigmc3VjY2Vzc2VzKQoJY21kLk9uRXJyb3IgPSBpbmNyKCZmYWlsdXJlcykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5aZXJvKGNtZC5TdGF0dXMoKS5QSUQpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5aZXJvKGNtZC5TdGF0dXMoKS5FeGl0Q29kZSkKCWFzc2VydC5OaWwoY21kLlN0YXR1cygpLkVycm9yKQoJY21kLlJ1bigpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUElEID09IDApCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlRvb2soKSA+IDApCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWFzc2VydC5FcXVhbCgxLCBzdGFydHMpCglhc3NlcnQuRXF1YWwoMSwgY29tcGxldGVzKQoJYXNzZXJ0LkVxdWFsKDEsIHN1Y2Nlc3NlcykKCWFzc2VydC5FcXVhbCgwLCBmYWlsdXJlcykKfQ==",
+            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgdHJ1ZWApCgljbWQuT25TdGFydCA9IGluY3IoJnN0YXJ0cykKCWNtZC5PbkNvbXBsZXRlID0gaW5jcigmY29tcGxldGVzKQoJY21kLk9uU3VjY2VzcyA9IGluY3IoJnN1Y2Nlc3NlcykKCWNtZC5PbkVycm9yID0gaW5jcigmZmFpbHVyZXMpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuUElEKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWNtZC5SdW4oKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlBJRCA9PSAwKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5Ub29rKCkgPiAwKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbChjbWQuU3RhdHVzKCkuRXJyb3IpCglhc3NlcnQuRXF1YWwoMSwgc3RhcnRzKQoJYXNzZXJ0LkVxdWFsKDEsIGNvbXBsZXRlcykKCWFzc2VydC5FcXVhbCgxLCBzdWNjZXNzZXMpCglhc3NlcnQuRXF1YWwoMCwgZmFpbHVyZXMpCn0=",
             "IsPackageLevel": true
         },
         {
@@ -1125,29 +1146,6 @@
         },
         "OutputLineFunc": {
             "Name": "OutputLineFunc",
-            "Methods": [
-                {
-                    "Name": "LogOutput",
-                    "Arguments": [
-                        {
-                            "Name": "outlevel",
-                            "Type": "log.Level"
-                        },
-                        {
-                            "Name": "errlevel",
-                            "Type": "log.Level"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "OutputLineFunc"
-                        }
-                    ],
-                    "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                    "IsPackageLevel": true
-                }
-            ],
             "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
         },
         "Status": {

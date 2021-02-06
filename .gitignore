@@ -27,3 +27,4 @@ _testmain.go
 /*-profile.html
 /*-profile.file
 /vendor
+.DS_Store

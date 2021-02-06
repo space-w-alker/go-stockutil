@@ -11,7 +11,7 @@ import (
 
 // Return the standard Golang reference time (2006-01-02T15:04:05.999999999Z07:00)
 func ReferenceTime() time.Time {
-	return time.Date(2006, 1, 2, 15, 4, 5, 999999999, time.FixedZone("MST", -7*60*60))
+	return utils.ReferenceTime
 }
 
 // Provides an API-compatible version of time.ParseDuration that accepts additional

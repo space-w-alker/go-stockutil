@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities for converting and manipulating data to and from strings\n",
     "MainFunction": false,
-    "CommentWordCount": 746,
-    "LineCount": 2512,
-    "SourceLineCount": 1929,
-    "FunctionCount": 81,
+    "CommentWordCount": 786,
+    "LineCount": 2543,
+    "SourceLineCount": 1949,
+    "FunctionCount": 83,
     "TypeCount": 6,
     "ConstantCount": 17,
     "VariableCount": 9,
     "Statistics": {
-        "Mean": 0.3634,
-        "StdDev": 0.4708,
+        "Mean": 0.3768,
+        "StdDev": 0.4747,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0,
@@ -39,13 +39,17 @@
                     "Alias": "testing"
                 },
                 {
+                    "PackageName": "time",
+                    "Alias": "time"
+                },
+                {
                     "PackageName": "github.com/ghetzel/testify/require",
                     "Alias": "require"
                 }
             ],
-            "Size": 16887,
-            "LineCount": 591,
-            "SourceLineCount": 466,
+            "Size": 17362,
+            "LineCount": 608,
+            "SourceLineCount": 478,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -227,10 +231,10 @@
                     "Alias": "tokenize"
                 }
             ],
-            "Size": 23163,
-            "LineCount": 969,
-            "SourceLineCount": 734,
-            "FunctionCount": 68,
+            "Size": 23670,
+            "LineCount": 983,
+            "SourceLineCount": 742,
+            "FunctionCount": 70,
             "TypeCount": 3,
             "ConstantCount": 17,
             "VariableCount": 9
@@ -1247,6 +1251,31 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "SplitPairAuto",
+            "Comment": "Identical to SplitPair, but returns the result of passing the second value in the pair to Autotype()",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "delimiter",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "SplitPairAuto(in string, delimiter string) (string, interface{})",
+            "Source": "ewoJdmFyIGEsIGIgPSBTcGxpdFBhaXIoaW4sIGRlbGltaXRlcikKCXJldHVybiBhLCBBdXRvdHlwZShiKQp9",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "SplitPairRight",
             "Comment": "Split the given string into two parts from the right. If there is only one resulting part,\nthat part will be the first return value and the second return value will be empty.",
             "Arguments": [
@@ -1344,6 +1373,31 @@
             ],
             "Signature": "SplitPairTrimSpace(in string, delimiter string) (string, string)",
             "Source": "ewoJdmFyIGEsIGIgPSBTcGxpdFBhaXIoaW4sIGRlbGltaXRlcikKCWEgPSBzdHJpbmdzLlRyaW1TcGFjZShhKQoJYiA9IHN0cmluZ3MuVHJpbVNwYWNlKGIpCglyZXR1cm4gYSwgYgp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SplitPairTrimSpaceAuto",
+            "Comment": "Identical to SplitPairTrimSpace, but returns the result of passing the second value in the pair to Autotype()",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "string"
+                },
+                {
+                    "Name": "delimiter",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                },
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "SplitPairTrimSpaceAuto(in string, delimiter string) (string, interface{})",
+            "Source": "ewoJdmFyIGEsIGIgPSBTcGxpdFBhaXJUcmltU3BhY2UoaW4sIGRlbGltaXRlcikKCXJldHVybiBhLCBBdXRvdHlwZShiKQp9",
             "IsPackageLevel": true
         },
         {
@@ -2164,7 +2218,7 @@
                 }
             ],
             "Signature": "TestSplitPairFamily(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZmlyc3QsIHJlc3Qgc3RyaW5nCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyaW1TcGFjZShgIHRlc3QgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyaW1TcGFjZShgICB0ZXN0ICAuICAgIHZhbHVlcwkJIGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXNgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmltU3BhY2UoYCAgIHRlc3QgIC4gIHZhbHVlcyAgLiAgbmVzdGVkYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlcyAgLiAgbmVzdGVkYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyYWlsaW5nKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyYWlsaW5nKGB0ZXN0LnZhbHVlc2AsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXNgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmFpbGluZyhgdGVzdC52YWx1ZXMubmVzdGVkYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlcy5uZXN0ZWRgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHQoYHRlc3RgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHQoYHRlc3QudmFsdWVzYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0KGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3QudmFsdWVzYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYG5lc3RlZGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0VHJhaWxpbmcoYGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0VHJhaWxpbmcoYHRlc3RgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgdGVzdC52YWx1ZXMubmVzdGVkYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0LnZhbHVlc2AsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBuZXN0ZWRgLCByZXN0KQp9",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZmlyc3QsIHJlc3Qgc3RyaW5nCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCgl2YXIgaywgdiA9IFNwbGl0UGFpckF1dG8oYHg9MWAsIGA9YCkKCWFzc2VydC5FcXVhbChgeGAsIGspCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIHYpCglrLCB2ID0gU3BsaXRQYWlyQXV0byhgeT10cnVlYCwgYD1gKQoJYXNzZXJ0LkVxdWFsKGB5YCwgaykKCWFzc2VydC5FcXVhbCh0cnVlLCB2KQoJaywgdiA9IFNwbGl0UGFpckF1dG8oYGQ9MjAwNi0wMS0wMmAsIGA9YCkKCWFzc2VydC5FcXVhbChgZGAsIGspCglhc3NlcnQuRXF1YWwoMjAwNiwgdi4odGltZS5UaW1lKS5ZZWFyKCkpCglhc3NlcnQuRXF1YWwodGltZS5KYW51YXJ5LCB2Lih0aW1lLlRpbWUpLk1vbnRoKCkpCglhc3NlcnQuRXF1YWwoMiwgdi4odGltZS5UaW1lKS5EYXkoKSkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJpbVNwYWNlKGAgdGVzdCBgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJpbVNwYWNlKGAgIHRlc3QgIC4gICAgdmFsdWVzCQkgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyaW1TcGFjZShgICAgdGVzdCAgLiAgdmFsdWVzICAuICBuZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzICAuICBuZXN0ZWRgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmFpbGluZyhgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYHRlc3RgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYHRlc3QudmFsdWVzYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyYWlsaW5nKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0KGBgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgdGVzdGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHQoYHRlc3QudmFsdWVzLm5lc3RlZGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdC52YWx1ZXNgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgbmVzdGVkYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgdGVzdGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodFRyYWlsaW5nKGB0ZXN0LnZhbHVlc2AsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXNgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodFRyYWlsaW5nKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3QudmFsdWVzYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYG5lc3RlZGAsIHJlc3QpCn0vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0K",
             "IsPackageLevel": true
         },
         {
