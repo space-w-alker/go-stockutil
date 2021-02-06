@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.6
+                            v1.9.7
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 5%</span>
+<span class="pull-right">Doc Coverage: 6%</span>
 <h2 id="pkg-overview">package geoutil</h2>
 
 <p>
@@ -178,6 +178,41 @@
 	
     <li>
 		<a href="#CardinalDirection">type CardinalDirection string</a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#Country">type Country</a>
+
+		
+		
+		<ul>
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#Country.IsValid">
+					func
+					(self Country)
+					IsValid() bool
+				</a>
+				
+			</li>
+			
+			
+		</ul>
+		
+	</li>
+	
+    <li>
+		<a href="#CountryData">type CountryData </a>
 
 		
 		
@@ -418,6 +453,34 @@
 	<tr>
 		<td class="text-left">
 			
+			<a href="countries.go">countries.go</a>
+			
+		</td>
+		<td class="text-right">46KB</td>
+		<td class="text-right">2014</td>
+		<td class="text-right">2</td>
+		<td class="text-right">2</td>
+		<td class="text-right">262</td>
+		<td class="text-right">1</td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="countries_test.go">countries_test.go</a>
+			
+		</td>
+		<td class="text-right">530B</td>
+		<td class="text-right">13</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
 			<a href="direction.go">direction.go</a>
 			
 		</td>
@@ -499,27 +562,289 @@
 	<a title="View Source" href="">&#10070;</a>
 
 	<pre>
-const <span id="East">East           </span> = `E`
-const <span id="FeetPerSecond">FeetPerSecond  </span> = 0.3048
-const <span id="Foot">Foot           </span> = 0.3048
-const <span id="Imperial">Imperial       </span> = `imperial`
-const <span id="KPH">KPH            </span> = 0.277778
-const <span id="Kilometer">Kilometer      </span> = 1000
-const <span id="MPH">MPH            </span> = 0.44704
-const <span id="Mach">Mach           </span> = 340.29
-const <span id="Meter">Meter          </span> = 1
-const <span id="MetersPerSecond">MetersPerSecond</span> = 1
-const <span id="Metric">Metric         </span> = `metric`
-const <span id="Mile">Mile           </span> = 1609.344
-const <span id="NauticalMile">NauticalMile   </span> = 1852
-const <span id="North">North          </span> = `N`
-const <span id="NorthEast">NorthEast      </span> = `NE`
-const <span id="NorthWest">NorthWest      </span> = `NW`
-const <span id="South">South          </span> = `S`
-const <span id="SouthEast">SouthEast      </span> = `SE`
-const <span id="SouthWest">SouthWest      </span> = `SW`
-const <span id="West">West           </span> = `W`
-const <span id="Yard">Yard           </span> = 0.9144
+const <span id="Afghanistan">Afghanistan                           </span> = `af`
+const <span id="Albania">Albania                               </span> = `al`
+const <span id="Algeria">Algeria                               </span> = `dz`
+const <span id="AmericanSamoa">AmericanSamoa                         </span> = `as`
+const <span id="Andorra">Andorra                               </span> = `ad`
+const <span id="Angola">Angola                                </span> = `ao`
+const <span id="Anguilla">Anguilla                              </span> = `ai`
+const <span id="Antarctica">Antarctica                            </span> = `aq`
+const <span id="AntiguaAndBarbuda">AntiguaAndBarbuda                     </span> = `ag`
+const <span id="Argentina">Argentina                             </span> = `ar`
+const <span id="Armenia">Armenia                               </span> = `am`
+const <span id="Aruba">Aruba                                 </span> = `aw`
+const <span id="Australia">Australia                             </span> = `au`
+const <span id="Austria">Austria                               </span> = `at`
+const <span id="Azerbaijan">Azerbaijan                            </span> = `az`
+const <span id="Bahamas">Bahamas                               </span> = `bs`
+const <span id="Bahrain">Bahrain                               </span> = `bh`
+const <span id="Bangladesh">Bangladesh                            </span> = `bd`
+const <span id="Barbados">Barbados                              </span> = `bb`
+const <span id="Belarus">Belarus                               </span> = `by`
+const <span id="Belgium">Belgium                               </span> = `be`
+const <span id="Belize">Belize                                </span> = `bz`
+const <span id="Benin">Benin                                 </span> = `bj`
+const <span id="Bermuda">Bermuda                               </span> = `bm`
+const <span id="Bhutan">Bhutan                                </span> = `bt`
+const <span id="Bolivia">Bolivia                               </span> = `bo`
+const <span id="BosniaAndHerzegovina">BosniaAndHerzegovina                  </span> = `ba`
+const <span id="Botswana">Botswana                              </span> = `bw`
+const <span id="BouvetIsland">BouvetIsland                          </span> = `bv`
+const <span id="Brazil">Brazil                                </span> = `br`
+const <span id="BritishIndianOceanTerritory">BritishIndianOceanTerritory           </span> = `io`
+const <span id="BritishVirginIslands">BritishVirginIslands                  </span> = `vg`
+const <span id="Brunei">Brunei                                </span> = `bn`
+const <span id="Bulgaria">Bulgaria                              </span> = `bg`
+const <span id="BurkinaFaso">BurkinaFaso                           </span> = `bf`
+const <span id="Burma">Burma                                 </span> = `mm`
+const <span id="Burundi">Burundi                               </span> = `bi`
+const <span id="Cambodia">Cambodia                              </span> = `kh`
+const <span id="Cameroon">Cameroon                              </span> = `cm`
+const <span id="Canada">Canada                                </span> = `ca`
+const <span id="CapeVerde">CapeVerde                             </span> = `cv`
+const <span id="CaymanIslands">CaymanIslands                         </span> = `ky`
+const <span id="CentralAfricanRepublic">CentralAfricanRepublic                </span> = `cf`
+const <span id="Chad">Chad                                  </span> = `td`
+const <span id="Chile">Chile                                 </span> = `cl`
+const <span id="China">China                                 </span> = `cn`
+const <span id="ChristmasIsland">ChristmasIsland                       </span> = `cx`
+const <span id="CocosIslands">CocosIslands                          </span> = `cc`
+const <span id="Colombia">Colombia                              </span> = `co`
+const <span id="Comoros">Comoros                               </span> = `km`
+const <span id="CongoDRC">CongoDRC                              </span> = `cd`
+const <span id="CongoRepublic">CongoRepublic                         </span> = `cg`
+const <span id="CookIslands">CookIslands                           </span> = `ck`
+const <span id="CostaRica">CostaRica                             </span> = `cr`
+const <span id="CoteDIvoire">CoteDIvoire                           </span> = `ci`
+const <span id="Croatia">Croatia                               </span> = `hr`
+const <span id="Cuba">Cuba                                  </span> = `cu`
+const <span id="Cyprus">Cyprus                                </span> = `cy`
+const <span id="CzechRepublic">CzechRepublic                         </span> = `cz`
+const <span id="CôtedIvoire">CôtedIvoire                           </span> = `ci`
+const <span id="Denmark">Denmark                               </span> = `dk`
+const <span id="Djibouti">Djibouti                              </span> = `dj`
+const <span id="Dominica">Dominica                              </span> = `dm`
+const <span id="DominicanRepublic">DominicanRepublic                     </span> = `do`
+const <span id="East">East                                  </span> = `E`
+const <span id="Ecuador">Ecuador                               </span> = `ec`
+const <span id="Egypt">Egypt                                 </span> = `eg`
+const <span id="ElSalvador">ElSalvador                            </span> = `sv`
+const <span id="EquatorialGuinea">EquatorialGuinea                      </span> = `gq`
+const <span id="Eritrea">Eritrea                               </span> = `er`
+const <span id="Estonia">Estonia                               </span> = `ee`
+const <span id="Ethiopia">Ethiopia                              </span> = `et`
+const <span id="FalklandIslands">FalklandIslands                       </span> = `fk`
+const <span id="FaroeIslands">FaroeIslands                          </span> = `fo`
+const <span id="FeetPerSecond">FeetPerSecond                         </span> = 0.3048
+const <span id="Fiji">Fiji                                  </span> = `fj`
+const <span id="Finland">Finland                               </span> = `fi`
+const <span id="Foot">Foot                                  </span> = 0.3048
+const <span id="France">France                                </span> = `fr`
+const <span id="FrenchGuiana">FrenchGuiana                          </span> = `gf`
+const <span id="FrenchPolynesia">FrenchPolynesia                       </span> = `pf`
+const <span id="FrenchSouthernTerritories">FrenchSouthernTerritories             </span> = `tf`
+const <span id="Gabon">Gabon                                 </span> = `ga`
+const <span id="Gambia">Gambia                                </span> = `gm`
+const <span id="GazaStrip">GazaStrip                             </span> = `gz`
+const <span id="Georgia">Georgia                               </span> = `ge`
+const <span id="Germany">Germany                               </span> = `de`
+const <span id="Ghana">Ghana                                 </span> = `gh`
+const <span id="Gibraltar">Gibraltar                             </span> = `gi`
+const <span id="GreatBritain">GreatBritain                          </span> = `gb`
+const <span id="Greece">Greece                                </span> = `gr`
+const <span id="Greenland">Greenland                             </span> = `gl`
+const <span id="Grenada">Grenada                               </span> = `gd`
+const <span id="Guadeloupe">Guadeloupe                            </span> = `gp`
+const <span id="Guam">Guam                                  </span> = `gu`
+const <span id="Guatemala">Guatemala                             </span> = `gt`
+const <span id="Guernsey">Guernsey                              </span> = `gg`
+const <span id="Guinea">Guinea                                </span> = `gn`
+const <span id="GuineaBissau">GuineaBissau                          </span> = `gw`
+const <span id="Guyana">Guyana                                </span> = `gy`
+const <span id="Haiti">Haiti                                 </span> = `ht`
+const <span id="HeardIslandAndMcDonaldIslands">HeardIslandAndMcDonaldIslands         </span> = `hm`
+const <span id="Honduras">Honduras                              </span> = `hn`
+const <span id="HongKong">HongKong                              </span> = `hk`
+const <span id="Hungary">Hungary                               </span> = `hu`
+const <span id="Iceland">Iceland                               </span> = `is`
+const <span id="Imperial">Imperial                              </span> = `imperial`
+const <span id="India">India                                 </span> = `in`
+const <span id="Indonesia">Indonesia                             </span> = `id`
+const <span id="Iran">Iran                                  </span> = `ir`
+const <span id="Iraq">Iraq                                  </span> = `iq`
+const <span id="Ireland">Ireland                               </span> = `ie`
+const <span id="IslasMalvinas">IslasMalvinas                         </span> = `fk`
+const <span id="IsleOfMan">IsleOfMan                             </span> = `im`
+const <span id="Israel">Israel                                </span> = `il`
+const <span id="Italy">Italy                                 </span> = `it`
+const <span id="Jamaica">Jamaica                               </span> = `jm`
+const <span id="JanMayen">JanMayen                              </span> = `sj`
+const <span id="Japan">Japan                                 </span> = `jp`
+const <span id="Jersey">Jersey                                </span> = `je`
+const <span id="Jordan">Jordan                                </span> = `jo`
+const <span id="KPH">KPH                                   </span> = 0.277778
+const <span id="Kazakhstan">Kazakhstan                            </span> = `kz`
+const <span id="Kenya">Kenya                                 </span> = `ke`
+const <span id="Kilometer">Kilometer                             </span> = 1000
+const <span id="Kiribati">Kiribati                              </span> = `ki`
+const <span id="Kosovo">Kosovo                                </span> = `xk`
+const <span id="Kuwait">Kuwait                                </span> = `kw`
+const <span id="Kyrgyzstan">Kyrgyzstan                            </span> = `kg`
+const <span id="Laos">Laos                                  </span> = `la`
+const <span id="Latvia">Latvia                                </span> = `lv`
+const <span id="Lebanon">Lebanon                               </span> = `lb`
+const <span id="Lesotho">Lesotho                               </span> = `ls`
+const <span id="Liberia">Liberia                               </span> = `lr`
+const <span id="Libya">Libya                                 </span> = `ly`
+const <span id="Liechtenstein">Liechtenstein                         </span> = `li`
+const <span id="Lithuania">Lithuania                             </span> = `lt`
+const <span id="Luxembourg">Luxembourg                            </span> = `lu`
+const <span id="MPH">MPH                                   </span> = 0.44704
+const <span id="Macau">Macau                                 </span> = `mo`
+const <span id="Macedonia">Macedonia                             </span> = `mk`
+const <span id="Mach">Mach                                  </span> = 340.29
+const <span id="Madagascar">Madagascar                            </span> = `mg`
+const <span id="Malawi">Malawi                                </span> = `mw`
+const <span id="Malaysia">Malaysia                              </span> = `my`
+const <span id="Maldives">Maldives                              </span> = `mv`
+const <span id="Mali">Mali                                  </span> = `ml`
+const <span id="Malta">Malta                                 </span> = `mt`
+const <span id="MarshallIslands">MarshallIslands                       </span> = `mh`
+const <span id="Martinique">Martinique                            </span> = `mq`
+const <span id="Mauritania">Mauritania                            </span> = `mr`
+const <span id="Mauritius">Mauritius                             </span> = `mu`
+const <span id="Mayotte">Mayotte                               </span> = `yt`
+const <span id="Meter">Meter                                 </span> = 1
+const <span id="MetersPerSecond">MetersPerSecond                       </span> = 1
+const <span id="Metric">Metric                                </span> = `metric`
+const <span id="Mexico">Mexico                                </span> = `mx`
+const <span id="Micronesia">Micronesia                            </span> = `fm`
+const <span id="Mile">Mile                                  </span> = 1609.344
+const <span id="Miquelon">Miquelon                              </span> = `pm`
+const <span id="Moldova">Moldova                               </span> = `md`
+const <span id="Monaco">Monaco                                </span> = `mc`
+const <span id="Mongolia">Mongolia                              </span> = `mn`
+const <span id="Montenegro">Montenegro                            </span> = `me`
+const <span id="Montserrat">Montserrat                            </span> = `ms`
+const <span id="Morocco">Morocco                               </span> = `ma`
+const <span id="Mozambique">Mozambique                            </span> = `mz`
+const <span id="Myanmar">Myanmar                               </span> = `mm`
+const <span id="Namibia">Namibia                               </span> = `na`
+const <span id="Nauru">Nauru                                 </span> = `nr`
+const <span id="NauticalMile">NauticalMile                          </span> = 1852
+const <span id="Nepal">Nepal                                 </span> = `np`
+const <span id="Netherlands">Netherlands                           </span> = `nl`
+const <span id="NetherlandsAntilles">NetherlandsAntilles                   </span> = `an`
+const <span id="NewCaledonia">NewCaledonia                          </span> = `nc`
+const <span id="NewZealand">NewZealand                            </span> = `nz`
+const <span id="Nicaragua">Nicaragua                             </span> = `ni`
+const <span id="Niger">Niger                                 </span> = `ne`
+const <span id="Nigeria">Nigeria                               </span> = `ng`
+const <span id="Niue">Niue                                  </span> = `nu`
+const <span id="NorfolkIsland">NorfolkIsland                         </span> = `nf`
+const <span id="North">North                                 </span> = `N`
+const <span id="NorthEast">NorthEast                             </span> = `NE`
+const <span id="NorthKorea">NorthKorea                            </span> = `kp`
+const <span id="NorthWest">NorthWest                             </span> = `NW`
+const <span id="NorthernMarianaIslands">NorthernMarianaIslands                </span> = `mp`
+const <span id="Norway">Norway                                </span> = `no`
+const <span id="Oman">Oman                                  </span> = `om`
+const <span id="Pakistan">Pakistan                              </span> = `pk`
+const <span id="Palau">Palau                                 </span> = `pw`
+const <span id="Palestine">Palestine                             </span> = `ps`
+const <span id="Panama">Panama                                </span> = `pa`
+const <span id="PapuaNewGuinea">PapuaNewGuinea                        </span> = `pg`
+const <span id="Paraguay">Paraguay                              </span> = `py`
+const <span id="Peru">Peru                                  </span> = `pe`
+const <span id="Philippines">Philippines                           </span> = `ph`
+const <span id="PitcairnIslands">PitcairnIslands                       </span> = `pn`
+const <span id="Poland">Poland                                </span> = `pl`
+const <span id="Portugal">Portugal                              </span> = `pt`
+const <span id="PuertoRico">PuertoRico                            </span> = `pr`
+const <span id="Qatar">Qatar                                 </span> = `qa`
+const <span id="Reunion">Reunion                               </span> = `re`
+const <span id="Romania">Romania                               </span> = `ro`
+const <span id="Russia">Russia                                </span> = `ru`
+const <span id="Rwanda">Rwanda                                </span> = `rw`
+const <span id="Réunion">Réunion                               </span> = `re`
+const <span id="SaintHelena">SaintHelena                           </span> = `sh`
+const <span id="SaintKittsAndNevis">SaintKittsAndNevis                    </span> = `kn`
+const <span id="SaintLucia">SaintLucia                            </span> = `lc`
+const <span id="SaintPierre">SaintPierre                           </span> = `pm`
+const <span id="SaintPierreAndMiquelon">SaintPierreAndMiquelon                </span> = `pm`
+const <span id="SaintVincent">SaintVincent                          </span> = `vc`
+const <span id="SaintVincentAndTheGrenadines">SaintVincentAndTheGrenadines          </span> = `vc`
+const <span id="Samoa">Samoa                                 </span> = `ws`
+const <span id="SanMarino">SanMarino                             </span> = `sm`
+const <span id="SaoTomeAndPrincipe">SaoTomeAndPrincipe                    </span> = `st`
+const <span id="SaudiArabia">SaudiArabia                           </span> = `sa`
+const <span id="Senegal">Senegal                               </span> = `sn`
+const <span id="Serbia">Serbia                                </span> = `rs`
+const <span id="Seychelles">Seychelles                            </span> = `sc`
+const <span id="SierraLeone">SierraLeone                           </span> = `sl`
+const <span id="Singapore">Singapore                             </span> = `sg`
+const <span id="Slovakia">Slovakia                              </span> = `sk`
+const <span id="Slovenia">Slovenia                              </span> = `si`
+const <span id="SolomonIslands">SolomonIslands                        </span> = `sb`
+const <span id="Somalia">Somalia                               </span> = `so`
+const <span id="South">South                                 </span> = `S`
+const <span id="SouthAfrica">SouthAfrica                           </span> = `za`
+const <span id="SouthEast">SouthEast                             </span> = `SE`
+const <span id="SouthGeorgia">SouthGeorgia                          </span> = `gs`
+const <span id="SouthGeorgiaAndTheSouthSandwichIslands">SouthGeorgiaAndTheSouthSandwichIslands</span> = `gs`
+const <span id="SouthKorea">SouthKorea                            </span> = `kr`
+const <span id="SouthSandwichIslands">SouthSandwichIslands                  </span> = `gs`
+const <span id="SouthSudan">SouthSudan                            </span> = `ss`
+const <span id="SouthWest">SouthWest                             </span> = `SW`
+const <span id="SovietUnion">SovietUnion                           </span> = `su`
+const <span id="Spain">Spain                                 </span> = `es`
+const <span id="SriLanka">SriLanka                              </span> = `lk`
+const <span id="Sudan">Sudan                                 </span> = `sd`
+const <span id="Suriname">Suriname                              </span> = `sr`
+const <span id="Svalbard">Svalbard                              </span> = `sj`
+const <span id="SvalbardAndJanMayen">SvalbardAndJanMayen                   </span> = `sj`
+const <span id="Swaziland">Swaziland                             </span> = `sz`
+const <span id="Sweden">Sweden                                </span> = `se`
+const <span id="Switzerland">Switzerland                           </span> = `ch`
+const <span id="Syria">Syria                                 </span> = `sy`
+const <span id="SãoToméAndPríncipe">SãoToméAndPríncipe                    </span> = `st`
+const <span id="Taiwan">Taiwan                                </span> = `tw`
+const <span id="Tajikistan">Tajikistan                            </span> = `tj`
+const <span id="Tanzania">Tanzania                              </span> = `tz`
+const <span id="Thailand">Thailand                              </span> = `th`
+const <span id="TheGrenadines">TheGrenadines                         </span> = `vc`
+const <span id="TimorLeste">TimorLeste                            </span> = `tl`
+const <span id="Togo">Togo                                  </span> = `tg`
+const <span id="Tokelau">Tokelau                               </span> = `tk`
+const <span id="Tonga">Tonga                                 </span> = `to`
+const <span id="TrinidadAndTobago">TrinidadAndTobago                     </span> = `tt`
+const <span id="Tunisia">Tunisia                               </span> = `tn`
+const <span id="Turkey">Turkey                                </span> = `tr`
+const <span id="Turkmenistan">Turkmenistan                          </span> = `tm`
+const <span id="TurksAndCaicosIslands">TurksAndCaicosIslands                 </span> = `tc`
+const <span id="Tuvalu">Tuvalu                                </span> = `tv`
+const <span id="UK">UK                                    </span> = `gb`
+const <span id="Uganda">Uganda                                </span> = `ug`
+const <span id="Ukraine">Ukraine                               </span> = `ua`
+const <span id="UnitedArabEmirates">UnitedArabEmirates                    </span> = `ae`
+const <span id="UnitedKingdom">UnitedKingdom                         </span> = `gb`
+const <span id="UnitedStates">UnitedStates                          </span> = `us`
+const <span id="UnitedStatesMinorOutlyingIslands">UnitedStatesMinorOutlyingIslands      </span> = `um`
+const <span id="UnitedStatesVirginIslands">UnitedStatesVirginIslands             </span> = `vi`
+const <span id="Uruguay">Uruguay                               </span> = `uy`
+const <span id="Uzbekistan">Uzbekistan                            </span> = `uz`
+const <span id="Vanuatu">Vanuatu                               </span> = `vu`
+const <span id="VaticanCity">VaticanCity                           </span> = `va`
+const <span id="Venezuela">Venezuela                             </span> = `ve`
+const <span id="Vietnam">Vietnam                               </span> = `vn`
+const <span id="WallisAndFutuna">WallisAndFutuna                       </span> = `wf`
+const <span id="West">West                                  </span> = `W`
+const <span id="WesternSahara">WesternSahara                         </span> = `eh`
+const <span id="Yard">Yard                                  </span> = 0.9144
+const <span id="Yemen">Yemen                                 </span> = `ye`
+const <span id="Zambia">Zambia                                </span> = `zm`
+const <span id="Zimbabwe">Zimbabwe                              </span> = `zw`
 </pre>
 </div>
 
@@ -534,6 +859,7 @@ const <span id="Yard">Yard           </span> = 0.9144
 	<a title="View Source" href="">&#10070;</a>
 
 	<pre>
+var <span id="Countries">Countries          </span> = 
 var <span id="DistanceDisplayUnit">DistanceDisplayUnit</span> = MeasurementSystem(Imperial)
 var <span id="SpeedDisplayUnit">SpeedDisplayUnit   </span> = MeasurementSystem(Imperial)
 </pre>

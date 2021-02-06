@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.6
+                            v1.9.7
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.9.6&#34;
+    &#34;Version&#34;: &#34;1.9.7&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.9.6`&#34;,
+        &#34;Expression&#34;: &#34;`1.9.7`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.9.6&#34;
+        &#34;Value&#34;: &#34;1.9.7&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -4068,6 +4068,24 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;fns&#34;,
+                &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;ManipulateAll&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;path&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4387,6 +4405,94 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;needle&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;prefix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;suffix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;prefix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;suffix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;scheme&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4396,6 +4502,32 @@
             &#34;Name&#34;: &#34;RemoveOpenHandler&#34;,
             &#34;Signature&#34;: &#34;RemoveOpenHandler(scheme string)&#34;,
             &#34;Source&#34;: &#34;ewoJZGVsZXRlKG9wZW5IYW5kbGVycywgc2NoZW1lKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;find&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;replace&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;occurrences&#34;,
+                &#34;Type&#34;: &#34;int&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;ReplaceWith&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -5364,140 +5496,6 @@
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3Igc3RydWN0IHsKCn0K&#34;
           },
           &#34;ReadManipulatorFunc&#34;: {
-            &#34;Methods&#34;: [
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;fns&#34;,
-                    &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;ManipulateAll&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;find&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;replace&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;occurrences&#34;,
-                    &#34;Type&#34;: &#34;int&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;ReplaceWith&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;needle&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;prefix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;suffix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;prefix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;suffix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
-              }
-            ],
             &#34;Name&#34;: &#34;ReadManipulatorFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3JGdW5jIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKQ==&#34;
           },
@@ -5715,9 +5713,393 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/geoutil&#34;,
-        &#34;CommentWordCount&#34;: 98,
-        &#34;ConstantCount&#34;: 21,
+        &#34;CommentWordCount&#34;: 135,
+        &#34;ConstantCount&#34;: 283,
         &#34;Constants&#34;: [
+          {
+            &#34;Expression&#34;: &#34;`af`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Afghanistan&#34;,
+            &#34;Value&#34;: &#34;af&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`al`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Albania&#34;,
+            &#34;Value&#34;: &#34;al&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`dz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Algeria&#34;,
+            &#34;Value&#34;: &#34;dz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`as`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;AmericanSamoa&#34;,
+            &#34;Value&#34;: &#34;as&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ad`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Andorra&#34;,
+            &#34;Value&#34;: &#34;ad&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ao`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Angola&#34;,
+            &#34;Value&#34;: &#34;ao&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ai`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Anguilla&#34;,
+            &#34;Value&#34;: &#34;ai&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`aq`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Antarctica&#34;,
+            &#34;Value&#34;: &#34;aq&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ag`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;AntiguaAndBarbuda&#34;,
+            &#34;Value&#34;: &#34;ag&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ar`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Argentina&#34;,
+            &#34;Value&#34;: &#34;ar&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`am`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Armenia&#34;,
+            &#34;Value&#34;: &#34;am&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`aw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Aruba&#34;,
+            &#34;Value&#34;: &#34;aw&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`au`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Australia&#34;,
+            &#34;Value&#34;: &#34;au&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`at`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Austria&#34;,
+            &#34;Value&#34;: &#34;at&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`az`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Azerbaijan&#34;,
+            &#34;Value&#34;: &#34;az&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bs`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Bahamas&#34;,
+            &#34;Value&#34;: &#34;bs&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bh`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Bahrain&#34;,
+            &#34;Value&#34;: &#34;bh&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bd`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Bangladesh&#34;,
+            &#34;Value&#34;: &#34;bd&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bb`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Barbados&#34;,
+            &#34;Value&#34;: &#34;bb&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`by`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Belarus&#34;,
+            &#34;Value&#34;: &#34;by&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`be`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Belgium&#34;,
+            &#34;Value&#34;: &#34;be&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Belize&#34;,
+            &#34;Value&#34;: &#34;bz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bj`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Benin&#34;,
+            &#34;Value&#34;: &#34;bj&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Bermuda&#34;,
+            &#34;Value&#34;: &#34;bm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bt`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Bhutan&#34;,
+            &#34;Value&#34;: &#34;bt&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bo`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Bolivia&#34;,
+            &#34;Value&#34;: &#34;bo&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ba`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;BosniaAndHerzegovina&#34;,
+            &#34;Value&#34;: &#34;ba&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Botswana&#34;,
+            &#34;Value&#34;: &#34;bw&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bv`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;BouvetIsland&#34;,
+            &#34;Value&#34;: &#34;bv&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`br`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Brazil&#34;,
+            &#34;Value&#34;: &#34;br&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`io`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;BritishIndianOceanTerritory&#34;,
+            &#34;Value&#34;: &#34;io&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`vg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;BritishVirginIslands&#34;,
+            &#34;Value&#34;: &#34;vg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Brunei&#34;,
+            &#34;Value&#34;: &#34;bn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Bulgaria&#34;,
+            &#34;Value&#34;: &#34;bg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bf`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;BurkinaFaso&#34;,
+            &#34;Value&#34;: &#34;bf&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Burma&#34;,
+            &#34;Value&#34;: &#34;mm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`bi`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Burundi&#34;,
+            &#34;Value&#34;: &#34;bi&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`kh`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Cambodia&#34;,
+            &#34;Value&#34;: &#34;kh&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Cameroon&#34;,
+            &#34;Value&#34;: &#34;cm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ca`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Canada&#34;,
+            &#34;Value&#34;: &#34;ca&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cv`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CapeVerde&#34;,
+            &#34;Value&#34;: &#34;cv&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ky`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CaymanIslands&#34;,
+            &#34;Value&#34;: &#34;ky&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cf`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CentralAfricanRepublic&#34;,
+            &#34;Value&#34;: &#34;cf&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`td`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Chad&#34;,
+            &#34;Value&#34;: &#34;td&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cl`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Chile&#34;,
+            &#34;Value&#34;: &#34;cl&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;China&#34;,
+            &#34;Value&#34;: &#34;cn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cx`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;ChristmasIsland&#34;,
+            &#34;Value&#34;: &#34;cx&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CocosIslands&#34;,
+            &#34;Value&#34;: &#34;cc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`co`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Colombia&#34;,
+            &#34;Value&#34;: &#34;co&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`km`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Comoros&#34;,
+            &#34;Value&#34;: &#34;km&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cd`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CongoDRC&#34;,
+            &#34;Value&#34;: &#34;cd&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CongoRepublic&#34;,
+            &#34;Value&#34;: &#34;cg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ck`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CookIslands&#34;,
+            &#34;Value&#34;: &#34;ck&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CostaRica&#34;,
+            &#34;Value&#34;: &#34;cr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ci`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CoteDIvoire&#34;,
+            &#34;Value&#34;: &#34;ci&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`hr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Croatia&#34;,
+            &#34;Value&#34;: &#34;hr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cu`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Cuba&#34;,
+            &#34;Value&#34;: &#34;cu&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cy`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Cyprus&#34;,
+            &#34;Value&#34;: &#34;cy&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`cz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CzechRepublic&#34;,
+            &#34;Value&#34;: &#34;cz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ci`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;CôtedIvoire&#34;,
+            &#34;Value&#34;: &#34;ci&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`dk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Denmark&#34;,
+            &#34;Value&#34;: &#34;dk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`dj`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Djibouti&#34;,
+            &#34;Value&#34;: &#34;dj&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`dm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Dominica&#34;,
+            &#34;Value&#34;: &#34;dm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`do`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;DominicanRepublic&#34;,
+            &#34;Value&#34;: &#34;do&#34;
+          },
           {
             &#34;Expression&#34;: &#34;`E`&#34;,
             &#34;Immutable&#34;: true,
@@ -5725,14 +6107,248 @@
             &#34;Value&#34;: &#34;E&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`ec`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Ecuador&#34;,
+            &#34;Value&#34;: &#34;ec&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`eg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Egypt&#34;,
+            &#34;Value&#34;: &#34;eg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sv`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;ElSalvador&#34;,
+            &#34;Value&#34;: &#34;sv&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gq`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;EquatorialGuinea&#34;,
+            &#34;Value&#34;: &#34;gq&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`er`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Eritrea&#34;,
+            &#34;Value&#34;: &#34;er&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ee`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Estonia&#34;,
+            &#34;Value&#34;: &#34;ee&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`et`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Ethiopia&#34;,
+            &#34;Value&#34;: &#34;et&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`fk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;FalklandIslands&#34;,
+            &#34;Value&#34;: &#34;fk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`fo`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;FaroeIslands&#34;,
+            &#34;Value&#34;: &#34;fo&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;0.3048&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;FeetPerSecond&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`fj`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Fiji&#34;,
+            &#34;Value&#34;: &#34;fj&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`fi`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Finland&#34;,
+            &#34;Value&#34;: &#34;fi&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;0.3048&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;Foot&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`fr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;France&#34;,
+            &#34;Value&#34;: &#34;fr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gf`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;FrenchGuiana&#34;,
+            &#34;Value&#34;: &#34;gf&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pf`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;FrenchPolynesia&#34;,
+            &#34;Value&#34;: &#34;pf&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tf`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;FrenchSouthernTerritories&#34;,
+            &#34;Value&#34;: &#34;tf&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ga`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Gabon&#34;,
+            &#34;Value&#34;: &#34;ga&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Gambia&#34;,
+            &#34;Value&#34;: &#34;gm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;GazaStrip&#34;,
+            &#34;Value&#34;: &#34;gz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ge`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Georgia&#34;,
+            &#34;Value&#34;: &#34;ge&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`de`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Germany&#34;,
+            &#34;Value&#34;: &#34;de&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gh`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Ghana&#34;,
+            &#34;Value&#34;: &#34;gh&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gi`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Gibraltar&#34;,
+            &#34;Value&#34;: &#34;gi&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gb`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;GreatBritain&#34;,
+            &#34;Value&#34;: &#34;gb&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Greece&#34;,
+            &#34;Value&#34;: &#34;gr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gl`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Greenland&#34;,
+            &#34;Value&#34;: &#34;gl&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gd`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Grenada&#34;,
+            &#34;Value&#34;: &#34;gd&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gp`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Guadeloupe&#34;,
+            &#34;Value&#34;: &#34;gp&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gu`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Guam&#34;,
+            &#34;Value&#34;: &#34;gu&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gt`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Guatemala&#34;,
+            &#34;Value&#34;: &#34;gt&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Guernsey&#34;,
+            &#34;Value&#34;: &#34;gg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Guinea&#34;,
+            &#34;Value&#34;: &#34;gn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;GuineaBissau&#34;,
+            &#34;Value&#34;: &#34;gw&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gy`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Guyana&#34;,
+            &#34;Value&#34;: &#34;gy&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ht`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Haiti&#34;,
+            &#34;Value&#34;: &#34;ht&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`hm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;HeardIslandAndMcDonaldIslands&#34;,
+            &#34;Value&#34;: &#34;hm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`hn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Honduras&#34;,
+            &#34;Value&#34;: &#34;hn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`hk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;HongKong&#34;,
+            &#34;Value&#34;: &#34;hk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`hu`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Hungary&#34;,
+            &#34;Value&#34;: &#34;hu&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`is`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Iceland&#34;,
+            &#34;Value&#34;: &#34;is&#34;
           },
           {
             &#34;Expression&#34;: &#34;`imperial`&#34;,
@@ -5741,9 +6357,105 @@
             &#34;Value&#34;: &#34;imperial&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`in`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;India&#34;,
+            &#34;Value&#34;: &#34;in&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`id`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Indonesia&#34;,
+            &#34;Value&#34;: &#34;id&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ir`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Iran&#34;,
+            &#34;Value&#34;: &#34;ir&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`iq`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Iraq&#34;,
+            &#34;Value&#34;: &#34;iq&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ie`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Ireland&#34;,
+            &#34;Value&#34;: &#34;ie&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`fk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;IslasMalvinas&#34;,
+            &#34;Value&#34;: &#34;fk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`im`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;IsleOfMan&#34;,
+            &#34;Value&#34;: &#34;im&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`il`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Israel&#34;,
+            &#34;Value&#34;: &#34;il&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`it`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Italy&#34;,
+            &#34;Value&#34;: &#34;it&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`jm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Jamaica&#34;,
+            &#34;Value&#34;: &#34;jm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sj`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;JanMayen&#34;,
+            &#34;Value&#34;: &#34;sj&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`jp`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Japan&#34;,
+            &#34;Value&#34;: &#34;jp&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`je`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Jersey&#34;,
+            &#34;Value&#34;: &#34;je&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`jo`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Jordan&#34;,
+            &#34;Value&#34;: &#34;jo&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;0.277778&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;KPH&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`kz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Kazakhstan&#34;,
+            &#34;Value&#34;: &#34;kz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ke`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Kenya&#34;,
+            &#34;Value&#34;: &#34;ke&#34;
           },
           {
             &#34;Expression&#34;: &#34;1000&#34;,
@@ -5751,14 +6463,170 @@
             &#34;Name&#34;: &#34;Kilometer&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`ki`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Kiribati&#34;,
+            &#34;Value&#34;: &#34;ki&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`xk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Kosovo&#34;,
+            &#34;Value&#34;: &#34;xk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`kw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Kuwait&#34;,
+            &#34;Value&#34;: &#34;kw&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`kg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Kyrgyzstan&#34;,
+            &#34;Value&#34;: &#34;kg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`la`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Laos&#34;,
+            &#34;Value&#34;: &#34;la&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`lv`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Latvia&#34;,
+            &#34;Value&#34;: &#34;lv&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`lb`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Lebanon&#34;,
+            &#34;Value&#34;: &#34;lb&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ls`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Lesotho&#34;,
+            &#34;Value&#34;: &#34;ls&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`lr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Liberia&#34;,
+            &#34;Value&#34;: &#34;lr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ly`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Libya&#34;,
+            &#34;Value&#34;: &#34;ly&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`li`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Liechtenstein&#34;,
+            &#34;Value&#34;: &#34;li&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`lt`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Lithuania&#34;,
+            &#34;Value&#34;: &#34;lt&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`lu`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Luxembourg&#34;,
+            &#34;Value&#34;: &#34;lu&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;0.44704&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;MPH&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`mo`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Macau&#34;,
+            &#34;Value&#34;: &#34;mo&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Macedonia&#34;,
+            &#34;Value&#34;: &#34;mk&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;340.29&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;Mach&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Madagascar&#34;,
+            &#34;Value&#34;: &#34;mg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Malawi&#34;,
+            &#34;Value&#34;: &#34;mw&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`my`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Malaysia&#34;,
+            &#34;Value&#34;: &#34;my&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mv`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Maldives&#34;,
+            &#34;Value&#34;: &#34;mv&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ml`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Mali&#34;,
+            &#34;Value&#34;: &#34;ml&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mt`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Malta&#34;,
+            &#34;Value&#34;: &#34;mt&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mh`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;MarshallIslands&#34;,
+            &#34;Value&#34;: &#34;mh&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mq`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Martinique&#34;,
+            &#34;Value&#34;: &#34;mq&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Mauritania&#34;,
+            &#34;Value&#34;: &#34;mr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mu`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Mauritius&#34;,
+            &#34;Value&#34;: &#34;mu&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`yt`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Mayotte&#34;,
+            &#34;Value&#34;: &#34;yt&#34;
           },
           {
             &#34;Expression&#34;: &#34;1&#34;,
@@ -5778,14 +6646,152 @@
             &#34;Value&#34;: &#34;metric&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`mx`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Mexico&#34;,
+            &#34;Value&#34;: &#34;mx&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`fm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Micronesia&#34;,
+            &#34;Value&#34;: &#34;fm&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;1609.344&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;Mile&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`pm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Miquelon&#34;,
+            &#34;Value&#34;: &#34;pm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`md`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Moldova&#34;,
+            &#34;Value&#34;: &#34;md&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Monaco&#34;,
+            &#34;Value&#34;: &#34;mc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Mongolia&#34;,
+            &#34;Value&#34;: &#34;mn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`me`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Montenegro&#34;,
+            &#34;Value&#34;: &#34;me&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ms`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Montserrat&#34;,
+            &#34;Value&#34;: &#34;ms&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ma`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Morocco&#34;,
+            &#34;Value&#34;: &#34;ma&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Mozambique&#34;,
+            &#34;Value&#34;: &#34;mz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Myanmar&#34;,
+            &#34;Value&#34;: &#34;mm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`na`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Namibia&#34;,
+            &#34;Value&#34;: &#34;na&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`nr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Nauru&#34;,
+            &#34;Value&#34;: &#34;nr&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;1852&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;NauticalMile&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`np`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Nepal&#34;,
+            &#34;Value&#34;: &#34;np&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`nl`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Netherlands&#34;,
+            &#34;Value&#34;: &#34;nl&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`an`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;NetherlandsAntilles&#34;,
+            &#34;Value&#34;: &#34;an&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`nc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;NewCaledonia&#34;,
+            &#34;Value&#34;: &#34;nc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`nz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;NewZealand&#34;,
+            &#34;Value&#34;: &#34;nz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ni`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Nicaragua&#34;,
+            &#34;Value&#34;: &#34;ni&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ne`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Niger&#34;,
+            &#34;Value&#34;: &#34;ne&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ng`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Nigeria&#34;,
+            &#34;Value&#34;: &#34;ng&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`nu`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Niue&#34;,
+            &#34;Value&#34;: &#34;nu&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`nf`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;NorfolkIsland&#34;,
+            &#34;Value&#34;: &#34;nf&#34;
           },
           {
             &#34;Expression&#34;: &#34;`N`&#34;,
@@ -5801,10 +6807,262 @@
             &#34;Value&#34;: &#34;NE&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`kp`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;NorthKorea&#34;,
+            &#34;Value&#34;: &#34;kp&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;`NW`&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;NorthWest&#34;,
             &#34;Value&#34;: &#34;NW&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`mp`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;NorthernMarianaIslands&#34;,
+            &#34;Value&#34;: &#34;mp&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`no`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Norway&#34;,
+            &#34;Value&#34;: &#34;no&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`om`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Oman&#34;,
+            &#34;Value&#34;: &#34;om&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Pakistan&#34;,
+            &#34;Value&#34;: &#34;pk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Palau&#34;,
+            &#34;Value&#34;: &#34;pw&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ps`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Palestine&#34;,
+            &#34;Value&#34;: &#34;ps&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pa`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Panama&#34;,
+            &#34;Value&#34;: &#34;pa&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;PapuaNewGuinea&#34;,
+            &#34;Value&#34;: &#34;pg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`py`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Paraguay&#34;,
+            &#34;Value&#34;: &#34;py&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pe`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Peru&#34;,
+            &#34;Value&#34;: &#34;pe&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ph`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Philippines&#34;,
+            &#34;Value&#34;: &#34;ph&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;PitcairnIslands&#34;,
+            &#34;Value&#34;: &#34;pn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pl`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Poland&#34;,
+            &#34;Value&#34;: &#34;pl&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pt`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Portugal&#34;,
+            &#34;Value&#34;: &#34;pt&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;PuertoRico&#34;,
+            &#34;Value&#34;: &#34;pr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`qa`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Qatar&#34;,
+            &#34;Value&#34;: &#34;qa&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`re`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Reunion&#34;,
+            &#34;Value&#34;: &#34;re&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ro`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Romania&#34;,
+            &#34;Value&#34;: &#34;ro&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ru`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Russia&#34;,
+            &#34;Value&#34;: &#34;ru&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`rw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Rwanda&#34;,
+            &#34;Value&#34;: &#34;rw&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`re`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Réunion&#34;,
+            &#34;Value&#34;: &#34;re&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sh`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaintHelena&#34;,
+            &#34;Value&#34;: &#34;sh&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`kn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaintKittsAndNevis&#34;,
+            &#34;Value&#34;: &#34;kn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`lc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaintLucia&#34;,
+            &#34;Value&#34;: &#34;lc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaintPierre&#34;,
+            &#34;Value&#34;: &#34;pm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`pm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaintPierreAndMiquelon&#34;,
+            &#34;Value&#34;: &#34;pm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`vc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaintVincent&#34;,
+            &#34;Value&#34;: &#34;vc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`vc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaintVincentAndTheGrenadines&#34;,
+            &#34;Value&#34;: &#34;vc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ws`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Samoa&#34;,
+            &#34;Value&#34;: &#34;ws&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SanMarino&#34;,
+            &#34;Value&#34;: &#34;sm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`st`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaoTomeAndPrincipe&#34;,
+            &#34;Value&#34;: &#34;st&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sa`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SaudiArabia&#34;,
+            &#34;Value&#34;: &#34;sa&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Senegal&#34;,
+            &#34;Value&#34;: &#34;sn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`rs`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Serbia&#34;,
+            &#34;Value&#34;: &#34;rs&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Seychelles&#34;,
+            &#34;Value&#34;: &#34;sc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sl`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SierraLeone&#34;,
+            &#34;Value&#34;: &#34;sl&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Singapore&#34;,
+            &#34;Value&#34;: &#34;sg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Slovakia&#34;,
+            &#34;Value&#34;: &#34;sk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`si`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Slovenia&#34;,
+            &#34;Value&#34;: &#34;si&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sb`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SolomonIslands&#34;,
+            &#34;Value&#34;: &#34;sb&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`so`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Somalia&#34;,
+            &#34;Value&#34;: &#34;so&#34;
           },
           {
             &#34;Expression&#34;: &#34;`S`&#34;,
@@ -5813,10 +7071,46 @@
             &#34;Value&#34;: &#34;S&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`za`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SouthAfrica&#34;,
+            &#34;Value&#34;: &#34;za&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;`SE`&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;SouthEast&#34;,
             &#34;Value&#34;: &#34;SE&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gs`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SouthGeorgia&#34;,
+            &#34;Value&#34;: &#34;gs&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gs`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SouthGeorgiaAndTheSouthSandwichIslands&#34;,
+            &#34;Value&#34;: &#34;gs&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`kr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SouthKorea&#34;,
+            &#34;Value&#34;: &#34;kr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gs`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SouthSandwichIslands&#34;,
+            &#34;Value&#34;: &#34;gs&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ss`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SouthSudan&#34;,
+            &#34;Value&#34;: &#34;ss&#34;
           },
           {
             &#34;Expression&#34;: &#34;`SW`&#34;,
@@ -5825,15 +7119,291 @@
             &#34;Value&#34;: &#34;SW&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`su`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SovietUnion&#34;,
+            &#34;Value&#34;: &#34;su&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`es`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Spain&#34;,
+            &#34;Value&#34;: &#34;es&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`lk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SriLanka&#34;,
+            &#34;Value&#34;: &#34;lk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sd`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Sudan&#34;,
+            &#34;Value&#34;: &#34;sd&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Suriname&#34;,
+            &#34;Value&#34;: &#34;sr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sj`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Svalbard&#34;,
+            &#34;Value&#34;: &#34;sj&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sj`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SvalbardAndJanMayen&#34;,
+            &#34;Value&#34;: &#34;sj&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Swaziland&#34;,
+            &#34;Value&#34;: &#34;sz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`se`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Sweden&#34;,
+            &#34;Value&#34;: &#34;se&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ch`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Switzerland&#34;,
+            &#34;Value&#34;: &#34;ch&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`sy`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Syria&#34;,
+            &#34;Value&#34;: &#34;sy&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`st`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;SãoToméAndPríncipe&#34;,
+            &#34;Value&#34;: &#34;st&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Taiwan&#34;,
+            &#34;Value&#34;: &#34;tw&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tj`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Tajikistan&#34;,
+            &#34;Value&#34;: &#34;tj&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Tanzania&#34;,
+            &#34;Value&#34;: &#34;tz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`th`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Thailand&#34;,
+            &#34;Value&#34;: &#34;th&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`vc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;TheGrenadines&#34;,
+            &#34;Value&#34;: &#34;vc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tl`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;TimorLeste&#34;,
+            &#34;Value&#34;: &#34;tl&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tg`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Togo&#34;,
+            &#34;Value&#34;: &#34;tg&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tk`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Tokelau&#34;,
+            &#34;Value&#34;: &#34;tk&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`to`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Tonga&#34;,
+            &#34;Value&#34;: &#34;to&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tt`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;TrinidadAndTobago&#34;,
+            &#34;Value&#34;: &#34;tt&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Tunisia&#34;,
+            &#34;Value&#34;: &#34;tn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tr`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Turkey&#34;,
+            &#34;Value&#34;: &#34;tr&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Turkmenistan&#34;,
+            &#34;Value&#34;: &#34;tm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tc`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;TurksAndCaicosIslands&#34;,
+            &#34;Value&#34;: &#34;tc&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`tv`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Tuvalu&#34;,
+            &#34;Value&#34;: &#34;tv&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gb`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;UK&#34;,
+            &#34;Value&#34;: &#34;gb&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ug`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Uganda&#34;,
+            &#34;Value&#34;: &#34;ug&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ua`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Ukraine&#34;,
+            &#34;Value&#34;: &#34;ua&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ae`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;UnitedArabEmirates&#34;,
+            &#34;Value&#34;: &#34;ae&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`gb`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;UnitedKingdom&#34;,
+            &#34;Value&#34;: &#34;gb&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`us`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;UnitedStates&#34;,
+            &#34;Value&#34;: &#34;us&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`um`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;UnitedStatesMinorOutlyingIslands&#34;,
+            &#34;Value&#34;: &#34;um&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`vi`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;UnitedStatesVirginIslands&#34;,
+            &#34;Value&#34;: &#34;vi&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`uy`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Uruguay&#34;,
+            &#34;Value&#34;: &#34;uy&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`uz`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Uzbekistan&#34;,
+            &#34;Value&#34;: &#34;uz&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`vu`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Vanuatu&#34;,
+            &#34;Value&#34;: &#34;vu&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`va`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;VaticanCity&#34;,
+            &#34;Value&#34;: &#34;va&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ve`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Venezuela&#34;,
+            &#34;Value&#34;: &#34;ve&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`vn`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Vietnam&#34;,
+            &#34;Value&#34;: &#34;vn&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`wf`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;WallisAndFutuna&#34;,
+            &#34;Value&#34;: &#34;wf&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;`W`&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;West&#34;,
             &#34;Value&#34;: &#34;W&#34;
           },
           {
+            &#34;Expression&#34;: &#34;`eh`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;WesternSahara&#34;,
+            &#34;Value&#34;: &#34;eh&#34;
+          },
+          {
             &#34;Expression&#34;: &#34;0.9144&#34;,
             &#34;Immutable&#34;: true,
             &#34;Name&#34;: &#34;Yard&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`ye`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Yemen&#34;,
+            &#34;Value&#34;: &#34;ye&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`zm`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Zambia&#34;,
+            &#34;Value&#34;: &#34;zm&#34;
+          },
+          {
+            &#34;Expression&#34;: &#34;`zw`&#34;,
+            &#34;Immutable&#34;: true,
+            &#34;Name&#34;: &#34;Zimbabwe&#34;,
+            &#34;Value&#34;: &#34;zw&#34;
           }
         ],
         &#34;Files&#34;: [
@@ -5871,6 +7441,50 @@
             &#34;Size&#34;: 3959,
             &#34;SourceLineCount&#34;: 116,
             &#34;TypeCount&#34;: 3,
+            &#34;VariableCount&#34;: 0
+          },
+          {
+            &#34;ConstantCount&#34;: 262,
+            &#34;FunctionCount&#34;: 2,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;strings&#34;,
+                &#34;PackageName&#34;: &#34;strings&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;stringutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;typeutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 2027,
+            &#34;Name&#34;: &#34;countries.go&#34;,
+            &#34;Size&#34;: 46913,
+            &#34;SourceLineCount&#34;: 2014,
+            &#34;TypeCount&#34;: 2,
+            &#34;VariableCount&#34;: 1
+          },
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 0,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;testing&#34;,
+                &#34;PackageName&#34;: &#34;testing&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;assert&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/assert&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 18,
+            &#34;Name&#34;: &#34;countries_test.go&#34;,
+            &#34;Size&#34;: 530,
+            &#34;SourceLineCount&#34;: 13,
+            &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
           {
@@ -5978,24 +7592,36 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 27,
+        &#34;FunctionCount&#34;: 29,
         &#34;ImportPath&#34;: &#34;geoutil&#34;,
-        &#34;LineCount&#34;: 538,
+        &#34;LineCount&#34;: 2583,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;geoutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 423,
+        &#34;SourceLineCount&#34;: 2450,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.0542,
+          &#34;Mean&#34;: 0.0632,
           &#34;Median&#34;: 0,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.2129
+          &#34;StdDev&#34;: 0.2328
         },
         &#34;Synopsis&#34;: &#34;Types and functions for working with Geospatial Data\n&#34;,
         &#34;Tests&#34;: [
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestCountriesGet&#34;,
+            &#34;Signature&#34;: &#34;TestCountriesGet(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0LkVxdWFsKHQsIGBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2FgLCBDb3VudHJpZXMuR2V0KFVuaXRlZFN0YXRlcykuTmFtZSkKCWFzc2VydC5FcXVhbCh0LCBgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhYCwgQ291bnRyaWVzLkdldChgdXNgKS5OYW1lKQoJYXNzZXJ0LkVxdWFsKHQsIGBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2FgLCBDb3VudHJpZXMuR2V0KGBVU2ApLk5hbWUpCglhc3NlcnQuRXF1YWwodCwgYFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYWAsIENvdW50cmllcy5HZXQoYHVTYCkuTmFtZSkKCWFzc2VydC5FcXVhbCh0LCBgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhYCwgQ291bnRyaWVzLkdldChgVXNgKS5OYW1lKQoJYXNzZXJ0LkZhbHNlKHQsIENvdW50cmllcy5HZXQoYHp6YCkuSXNWYWxpZCgpKQp9&#34;
+          },
           {
             &#34;Arguments&#34;: [
               {
@@ -6033,7 +7659,7 @@
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuVHJ1ZShTcGVlZChNUEgpLkZhc3RlclRoYW4oS1BIKSkKCWFzc2VydC5UcnVlKFNwZWVkKEtQSCkuU2xvd2VyVGhhbihNUEgpKQoJYXNzZXJ0LlRydWUoU3BlZWQoMzYwMCAqIE1QSCkuRXF1YWwoNTI4MCAqIEZlZXRQZXJTZWNvbmQpKQp9&#34;
           }
         ],
-        &#34;TypeCount&#34;: 7,
+        &#34;TypeCount&#34;: 9,
         &#34;Types&#34;: {
           &#34;CardinalDirection&#34;: {
             &#34;MetaType&#34;: &#34;string&#34;,
@@ -6058,6 +7684,69 @@
             ],
             &#34;Name&#34;: &#34;CardinalDirection&#34;,
             &#34;Source&#34;: &#34;dHlwZSBDYXJkaW5hbERpcmVjdGlvbiBzdHJpbmc=&#34;
+          },
+          &#34;Country&#34;: {
+            &#34;Fields&#34;: [
+              {
+                &#34;Name&#34;: &#34;Name&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;Code&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;CCTLD&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;Latitude&#34;,
+                &#34;Type&#34;: &#34;float64&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;Longitude&#34;,
+                &#34;Type&#34;: &#34;float64&#34;
+              }
+            ],
+            &#34;MetaType&#34;: &#34;struct&#34;,
+            &#34;Methods&#34;: [
+              {
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;IsValid&#34;,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;IsValid() bool&#34;
+              }
+            ],
+            &#34;Name&#34;: &#34;Country&#34;,
+            &#34;Source&#34;: &#34;dHlwZSBDb3VudHJ5IHN0cnVjdCB7CglOYW1lICAgICAgc3RyaW5nCglDb2RlICAgICAgc3RyaW5nCglDQ1RMRCAgICAgc3RyaW5nCglMYXRpdHVkZSAgZmxvYXQ2NAoJTG9uZ2l0dWRlIGZsb2F0NjQKfQ==&#34;
+          },
+          &#34;CountryData&#34;: {
+            &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;nameOrCode&#34;,
+                    &#34;Type&#34;: &#34;interface{}&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Get&#34;,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;Country&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Get(nameOrCode interface{}) Country&#34;
+              }
+            ],
+            &#34;Name&#34;: &#34;CountryData&#34;,
+            &#34;Source&#34;: &#34;dHlwZSBDb3VudHJ5RGF0YSBtYXBbc3RyaW5nXUNvdW50cnk=&#34;
           },
           &#34;Distance&#34;: {
             &#34;MetaType&#34;: &#34;float64&#34;,
@@ -6572,8 +8261,12 @@
           }
         },
         &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-        &#34;VariableCount&#34;: 2,
+        &#34;VariableCount&#34;: 3,
         &#34;Variables&#34;: [
+          {
+            &#34;Comment&#34;: &#34;A data structure that exposes standard information about countries of the world, keyed on their ISO3166-1 Alpha2 abbreviation (e.g.: \&#34;us\&#34;, \&#34;gb\&#34;, \&#34;de\&#34;, etc.)&#34;,
+            &#34;Name&#34;: &#34;Countries&#34;
+          },
           {
             &#34;Expression&#34;: &#34;MeasurementSystem(Imperial)&#34;,
             &#34;Name&#34;: &#34;DistanceDisplayUnit&#34;
@@ -10231,7 +11924,7 @@
         &#34;SourceLineCount&#34;: 690,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.242,
           &#34;Median&#34;: 0,
@@ -16664,7 +18357,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;,
-        &#34;CommentWordCount&#34;: 786,
+        &#34;CommentWordCount&#34;: 806,
         &#34;ConstantCount&#34;: 17,
         &#34;Constants&#34;: [
           {
@@ -16910,7 +18603,7 @@
           },
           {
             &#34;ConstantCount&#34;: 17,
-            &#34;FunctionCount&#34;: 70,
+            &#34;FunctionCount&#34;: 71,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;fmt&#34;,
@@ -16965,10 +18658,10 @@
                 &#34;PackageName&#34;: &#34;github.com/jdkato/prose/tokenize&#34;
               }
             ],
-            &#34;LineCount&#34;: 983,
+            &#34;LineCount&#34;: 1000,
             &#34;Name&#34;: &#34;stringutil.go&#34;,
-            &#34;Size&#34;: 23670,
-            &#34;SourceLineCount&#34;: 742,
+            &#34;Size&#34;: 24198,
+            &#34;SourceLineCount&#34;: 755,
             &#34;TypeCount&#34;: 3,
             &#34;VariableCount&#34;: 9
           },
@@ -17021,7 +18714,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 83,
+        &#34;FunctionCount&#34;: 84,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -17808,6 +19501,28 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;first&#34;,
+                &#34;Type&#34;: &#34;interface{}&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;second&#34;,
+                &#34;Type&#34;: &#34;interface{}&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A case insensitive, single return version of RelaxedEqual that trims leading and trailing whitespace from strings before comparison.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;SoftEqual&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;SoftEqual(first interface{}, second interface{}) bool&#34;,
+            &#34;Source&#34;: &#34;ewoJaWYgdHlwZXV0aWwuSXNLaW5kT2ZTdHJpbmcoZmlyc3QpIHsKCQlmaXJzdCA9IHN0cmluZ3MuVHJpbVNwYWNlKHN0cmluZ3MuVG9Mb3dlcih0eXBldXRpbC5TdHJpbmcoZmlyc3QpKSkKCX0KCWlmIHR5cGV1dGlsLklzS2luZE9mU3RyaW5nKHNlY29uZCkgewoJCXNlY29uZCA9IHN0cmluZ3MuVHJpbVNwYWNlKHN0cmluZ3MuVG9Mb3dlcih0eXBldXRpbC5TdHJpbmcoc2Vjb25kKSkpCgl9CglpZiBlcSwgZXJyIDo9IFJlbGF4ZWRFcXVhbChmaXJzdCwgc2Vjb25kKTsgZXJyID09IG5pbCAmJiBlcSB7CgkJcmV0dXJuIHRydWUKCX0gZWxzZSB7CgkJcmV0dXJuIGZhbHNlCgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;in&#34;,
                 &#34;Type&#34;: &#34;interface{}&#34;
               },
@@ -18460,19 +20175,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;stringutil&#34;,
-        &#34;LineCount&#34;: 2543,
+        &#34;LineCount&#34;: 2560,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;stringutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 1949,
+        &#34;SourceLineCount&#34;: 1962,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.3768,
+          &#34;Mean&#34;: 0.3833,
           &#34;Median&#34;: 0,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4747
+          &#34;StdDev&#34;: 0.4765
         },
         &#34;Synopsis&#34;: &#34;Utilities for converting and manipulating data to and from strings\n&#34;,
         &#34;Tests&#34;: [
@@ -23397,28 +25112,28 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/geoutil&#34;,
-      &#34;CommentWordCount&#34;: 98,
-      &#34;ConstantCount&#34;: 21,
-      &#34;FunctionCount&#34;: 27,
+      &#34;CommentWordCount&#34;: 135,
+      &#34;ConstantCount&#34;: 283,
+      &#34;FunctionCount&#34;: 29,
       &#34;ImportPath&#34;: &#34;geoutil&#34;,
-      &#34;LineCount&#34;: 538,
+      &#34;LineCount&#34;: 2583,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;geoutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 423,
+      &#34;SourceLineCount&#34;: 2450,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.0542,
+        &#34;Mean&#34;: 0.0632,
         &#34;Median&#34;: 0,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.2129
+        &#34;StdDev&#34;: 0.2328
       },
       &#34;Synopsis&#34;: &#34;Types and functions for working with Geospatial Data\n&#34;,
-      &#34;TypeCount&#34;: 7,
+      &#34;TypeCount&#34;: 9,
       &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-      &#34;VariableCount&#34;: 2
+      &#34;VariableCount&#34;: 3
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/httputil&#34;,
@@ -23458,7 +25173,7 @@
       &#34;SourceLineCount&#34;: 690,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.242,
         &#34;Median&#34;: 0,
@@ -23647,23 +25362,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;,
-      &#34;CommentWordCount&#34;: 786,
+      &#34;CommentWordCount&#34;: 806,
       &#34;ConstantCount&#34;: 17,
-      &#34;FunctionCount&#34;: 83,
+      &#34;FunctionCount&#34;: 84,
       &#34;ImportPath&#34;: &#34;stringutil&#34;,
-      &#34;LineCount&#34;: 2543,
+      &#34;LineCount&#34;: 2560,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;stringutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 1949,
+      &#34;SourceLineCount&#34;: 1962,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.3768,
+        &#34;Mean&#34;: 0.3833,
         &#34;Median&#34;: 0,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4747
+        &#34;StdDev&#34;: 0.4765
       },
       &#34;Synopsis&#34;: &#34;Utilities for converting and manipulating data to and from strings\n&#34;,
       &#34;TypeCount&#34;: 6,

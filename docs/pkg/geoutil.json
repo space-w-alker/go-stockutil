@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Types and functions for working with Geospatial Data\n",
     "MainFunction": false,
-    "CommentWordCount": 98,
-    "LineCount": 538,
-    "SourceLineCount": 423,
-    "FunctionCount": 27,
-    "TypeCount": 7,
-    "ConstantCount": 21,
-    "VariableCount": 2,
+    "CommentWordCount": 135,
+    "LineCount": 2583,
+    "SourceLineCount": 2450,
+    "FunctionCount": 29,
+    "TypeCount": 9,
+    "ConstantCount": 283,
+    "VariableCount": 3,
     "Statistics": {
-        "Mean": 0.0542,
-        "StdDev": 0.2129,
+        "Mean": 0.0632,
+        "StdDev": 0.2328,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0,
@@ -56,6 +56,50 @@
             "SourceLineCount": 116,
             "FunctionCount": 10,
             "TypeCount": 3,
+            "ConstantCount": 0,
+            "VariableCount": 0
+        },
+        {
+            "Name": "countries.go",
+            "Imports": [
+                {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
+                    "Alias": "typeutil"
+                }
+            ],
+            "Size": 46913,
+            "LineCount": 2027,
+            "SourceLineCount": 2014,
+            "FunctionCount": 2,
+            "TypeCount": 2,
+            "ConstantCount": 262,
+            "VariableCount": 1
+        },
+        {
+            "Name": "countries_test.go",
+            "Imports": [
+                {
+                    "PackageName": "testing",
+                    "Alias": "testing"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/assert",
+                    "Alias": "assert"
+                }
+            ],
+            "Size": 530,
+            "LineCount": 18,
+            "SourceLineCount": 13,
+            "FunctionCount": 0,
+            "TypeCount": 0,
             "ConstantCount": 0,
             "VariableCount": 0
         },
@@ -166,10 +210,448 @@
     ],
     "Constants": [
         {
+            "Name": "Afghanistan",
+            "Immutable": true,
+            "Expression": "`af`",
+            "Value": "af"
+        },
+        {
+            "Name": "Albania",
+            "Immutable": true,
+            "Expression": "`al`",
+            "Value": "al"
+        },
+        {
+            "Name": "Algeria",
+            "Immutable": true,
+            "Expression": "`dz`",
+            "Value": "dz"
+        },
+        {
+            "Name": "AmericanSamoa",
+            "Immutable": true,
+            "Expression": "`as`",
+            "Value": "as"
+        },
+        {
+            "Name": "Andorra",
+            "Immutable": true,
+            "Expression": "`ad`",
+            "Value": "ad"
+        },
+        {
+            "Name": "Angola",
+            "Immutable": true,
+            "Expression": "`ao`",
+            "Value": "ao"
+        },
+        {
+            "Name": "Anguilla",
+            "Immutable": true,
+            "Expression": "`ai`",
+            "Value": "ai"
+        },
+        {
+            "Name": "Antarctica",
+            "Immutable": true,
+            "Expression": "`aq`",
+            "Value": "aq"
+        },
+        {
+            "Name": "AntiguaAndBarbuda",
+            "Immutable": true,
+            "Expression": "`ag`",
+            "Value": "ag"
+        },
+        {
+            "Name": "Argentina",
+            "Immutable": true,
+            "Expression": "`ar`",
+            "Value": "ar"
+        },
+        {
+            "Name": "Armenia",
+            "Immutable": true,
+            "Expression": "`am`",
+            "Value": "am"
+        },
+        {
+            "Name": "Aruba",
+            "Immutable": true,
+            "Expression": "`aw`",
+            "Value": "aw"
+        },
+        {
+            "Name": "Australia",
+            "Immutable": true,
+            "Expression": "`au`",
+            "Value": "au"
+        },
+        {
+            "Name": "Austria",
+            "Immutable": true,
+            "Expression": "`at`",
+            "Value": "at"
+        },
+        {
+            "Name": "Azerbaijan",
+            "Immutable": true,
+            "Expression": "`az`",
+            "Value": "az"
+        },
+        {
+            "Name": "Bahamas",
+            "Immutable": true,
+            "Expression": "`bs`",
+            "Value": "bs"
+        },
+        {
+            "Name": "Bahrain",
+            "Immutable": true,
+            "Expression": "`bh`",
+            "Value": "bh"
+        },
+        {
+            "Name": "Bangladesh",
+            "Immutable": true,
+            "Expression": "`bd`",
+            "Value": "bd"
+        },
+        {
+            "Name": "Barbados",
+            "Immutable": true,
+            "Expression": "`bb`",
+            "Value": "bb"
+        },
+        {
+            "Name": "Belarus",
+            "Immutable": true,
+            "Expression": "`by`",
+            "Value": "by"
+        },
+        {
+            "Name": "Belgium",
+            "Immutable": true,
+            "Expression": "`be`",
+            "Value": "be"
+        },
+        {
+            "Name": "Belize",
+            "Immutable": true,
+            "Expression": "`bz`",
+            "Value": "bz"
+        },
+        {
+            "Name": "Benin",
+            "Immutable": true,
+            "Expression": "`bj`",
+            "Value": "bj"
+        },
+        {
+            "Name": "Bermuda",
+            "Immutable": true,
+            "Expression": "`bm`",
+            "Value": "bm"
+        },
+        {
+            "Name": "Bhutan",
+            "Immutable": true,
+            "Expression": "`bt`",
+            "Value": "bt"
+        },
+        {
+            "Name": "Bolivia",
+            "Immutable": true,
+            "Expression": "`bo`",
+            "Value": "bo"
+        },
+        {
+            "Name": "BosniaAndHerzegovina",
+            "Immutable": true,
+            "Expression": "`ba`",
+            "Value": "ba"
+        },
+        {
+            "Name": "Botswana",
+            "Immutable": true,
+            "Expression": "`bw`",
+            "Value": "bw"
+        },
+        {
+            "Name": "BouvetIsland",
+            "Immutable": true,
+            "Expression": "`bv`",
+            "Value": "bv"
+        },
+        {
+            "Name": "Brazil",
+            "Immutable": true,
+            "Expression": "`br`",
+            "Value": "br"
+        },
+        {
+            "Name": "BritishIndianOceanTerritory",
+            "Immutable": true,
+            "Expression": "`io`",
+            "Value": "io"
+        },
+        {
+            "Name": "BritishVirginIslands",
+            "Immutable": true,
+            "Expression": "`vg`",
+            "Value": "vg"
+        },
+        {
+            "Name": "Brunei",
+            "Immutable": true,
+            "Expression": "`bn`",
+            "Value": "bn"
+        },
+        {
+            "Name": "Bulgaria",
+            "Immutable": true,
+            "Expression": "`bg`",
+            "Value": "bg"
+        },
+        {
+            "Name": "BurkinaFaso",
+            "Immutable": true,
+            "Expression": "`bf`",
+            "Value": "bf"
+        },
+        {
+            "Name": "Burma",
+            "Immutable": true,
+            "Expression": "`mm`",
+            "Value": "mm"
+        },
+        {
+            "Name": "Burundi",
+            "Immutable": true,
+            "Expression": "`bi`",
+            "Value": "bi"
+        },
+        {
+            "Name": "Cambodia",
+            "Immutable": true,
+            "Expression": "`kh`",
+            "Value": "kh"
+        },
+        {
+            "Name": "Cameroon",
+            "Immutable": true,
+            "Expression": "`cm`",
+            "Value": "cm"
+        },
+        {
+            "Name": "Canada",
+            "Immutable": true,
+            "Expression": "`ca`",
+            "Value": "ca"
+        },
+        {
+            "Name": "CapeVerde",
+            "Immutable": true,
+            "Expression": "`cv`",
+            "Value": "cv"
+        },
+        {
+            "Name": "CaymanIslands",
+            "Immutable": true,
+            "Expression": "`ky`",
+            "Value": "ky"
+        },
+        {
+            "Name": "CentralAfricanRepublic",
+            "Immutable": true,
+            "Expression": "`cf`",
+            "Value": "cf"
+        },
+        {
+            "Name": "Chad",
+            "Immutable": true,
+            "Expression": "`td`",
+            "Value": "td"
+        },
+        {
+            "Name": "Chile",
+            "Immutable": true,
+            "Expression": "`cl`",
+            "Value": "cl"
+        },
+        {
+            "Name": "China",
+            "Immutable": true,
+            "Expression": "`cn`",
+            "Value": "cn"
+        },
+        {
+            "Name": "ChristmasIsland",
+            "Immutable": true,
+            "Expression": "`cx`",
+            "Value": "cx"
+        },
+        {
+            "Name": "CocosIslands",
+            "Immutable": true,
+            "Expression": "`cc`",
+            "Value": "cc"
+        },
+        {
+            "Name": "Colombia",
+            "Immutable": true,
+            "Expression": "`co`",
+            "Value": "co"
+        },
+        {
+            "Name": "Comoros",
+            "Immutable": true,
+            "Expression": "`km`",
+            "Value": "km"
+        },
+        {
+            "Name": "CongoDRC",
+            "Immutable": true,
+            "Expression": "`cd`",
+            "Value": "cd"
+        },
+        {
+            "Name": "CongoRepublic",
+            "Immutable": true,
+            "Expression": "`cg`",
+            "Value": "cg"
+        },
+        {
+            "Name": "CookIslands",
+            "Immutable": true,
+            "Expression": "`ck`",
+            "Value": "ck"
+        },
+        {
+            "Name": "CostaRica",
+            "Immutable": true,
+            "Expression": "`cr`",
+            "Value": "cr"
+        },
+        {
+            "Name": "CoteDIvoire",
+            "Immutable": true,
+            "Expression": "`ci`",
+            "Value": "ci"
+        },
+        {
+            "Name": "Croatia",
+            "Immutable": true,
+            "Expression": "`hr`",
+            "Value": "hr"
+        },
+        {
+            "Name": "Cuba",
+            "Immutable": true,
+            "Expression": "`cu`",
+            "Value": "cu"
+        },
+        {
+            "Name": "Cyprus",
+            "Immutable": true,
+            "Expression": "`cy`",
+            "Value": "cy"
+        },
+        {
+            "Name": "CzechRepublic",
+            "Immutable": true,
+            "Expression": "`cz`",
+            "Value": "cz"
+        },
+        {
+            "Name": "CôtedIvoire",
+            "Immutable": true,
+            "Expression": "`ci`",
+            "Value": "ci"
+        },
+        {
+            "Name": "Denmark",
+            "Immutable": true,
+            "Expression": "`dk`",
+            "Value": "dk"
+        },
+        {
+            "Name": "Djibouti",
+            "Immutable": true,
+            "Expression": "`dj`",
+            "Value": "dj"
+        },
+        {
+            "Name": "Dominica",
+            "Immutable": true,
+            "Expression": "`dm`",
+            "Value": "dm"
+        },
+        {
+            "Name": "DominicanRepublic",
+            "Immutable": true,
+            "Expression": "`do`",
+            "Value": "do"
+        },
+        {
             "Name": "East",
             "Immutable": true,
             "Expression": "`E`",
             "Value": "E"
+        },
+        {
+            "Name": "Ecuador",
+            "Immutable": true,
+            "Expression": "`ec`",
+            "Value": "ec"
+        },
+        {
+            "Name": "Egypt",
+            "Immutable": true,
+            "Expression": "`eg`",
+            "Value": "eg"
+        },
+        {
+            "Name": "ElSalvador",
+            "Immutable": true,
+            "Expression": "`sv`",
+            "Value": "sv"
+        },
+        {
+            "Name": "EquatorialGuinea",
+            "Immutable": true,
+            "Expression": "`gq`",
+            "Value": "gq"
+        },
+        {
+            "Name": "Eritrea",
+            "Immutable": true,
+            "Expression": "`er`",
+            "Value": "er"
+        },
+        {
+            "Name": "Estonia",
+            "Immutable": true,
+            "Expression": "`ee`",
+            "Value": "ee"
+        },
+        {
+            "Name": "Ethiopia",
+            "Immutable": true,
+            "Expression": "`et`",
+            "Value": "et"
+        },
+        {
+            "Name": "FalklandIslands",
+            "Immutable": true,
+            "Expression": "`fk`",
+            "Value": "fk"
+        },
+        {
+            "Name": "FaroeIslands",
+            "Immutable": true,
+            "Expression": "`fo`",
+            "Value": "fo"
         },
         {
             "Name": "FeetPerSecond",
@@ -177,9 +659,189 @@
             "Expression": "0.3048"
         },
         {
+            "Name": "Fiji",
+            "Immutable": true,
+            "Expression": "`fj`",
+            "Value": "fj"
+        },
+        {
+            "Name": "Finland",
+            "Immutable": true,
+            "Expression": "`fi`",
+            "Value": "fi"
+        },
+        {
             "Name": "Foot",
             "Immutable": true,
             "Expression": "0.3048"
+        },
+        {
+            "Name": "France",
+            "Immutable": true,
+            "Expression": "`fr`",
+            "Value": "fr"
+        },
+        {
+            "Name": "FrenchGuiana",
+            "Immutable": true,
+            "Expression": "`gf`",
+            "Value": "gf"
+        },
+        {
+            "Name": "FrenchPolynesia",
+            "Immutable": true,
+            "Expression": "`pf`",
+            "Value": "pf"
+        },
+        {
+            "Name": "FrenchSouthernTerritories",
+            "Immutable": true,
+            "Expression": "`tf`",
+            "Value": "tf"
+        },
+        {
+            "Name": "Gabon",
+            "Immutable": true,
+            "Expression": "`ga`",
+            "Value": "ga"
+        },
+        {
+            "Name": "Gambia",
+            "Immutable": true,
+            "Expression": "`gm`",
+            "Value": "gm"
+        },
+        {
+            "Name": "GazaStrip",
+            "Immutable": true,
+            "Expression": "`gz`",
+            "Value": "gz"
+        },
+        {
+            "Name": "Georgia",
+            "Immutable": true,
+            "Expression": "`ge`",
+            "Value": "ge"
+        },
+        {
+            "Name": "Germany",
+            "Immutable": true,
+            "Expression": "`de`",
+            "Value": "de"
+        },
+        {
+            "Name": "Ghana",
+            "Immutable": true,
+            "Expression": "`gh`",
+            "Value": "gh"
+        },
+        {
+            "Name": "Gibraltar",
+            "Immutable": true,
+            "Expression": "`gi`",
+            "Value": "gi"
+        },
+        {
+            "Name": "GreatBritain",
+            "Immutable": true,
+            "Expression": "`gb`",
+            "Value": "gb"
+        },
+        {
+            "Name": "Greece",
+            "Immutable": true,
+            "Expression": "`gr`",
+            "Value": "gr"
+        },
+        {
+            "Name": "Greenland",
+            "Immutable": true,
+            "Expression": "`gl`",
+            "Value": "gl"
+        },
+        {
+            "Name": "Grenada",
+            "Immutable": true,
+            "Expression": "`gd`",
+            "Value": "gd"
+        },
+        {
+            "Name": "Guadeloupe",
+            "Immutable": true,
+            "Expression": "`gp`",
+            "Value": "gp"
+        },
+        {
+            "Name": "Guam",
+            "Immutable": true,
+            "Expression": "`gu`",
+            "Value": "gu"
+        },
+        {
+            "Name": "Guatemala",
+            "Immutable": true,
+            "Expression": "`gt`",
+            "Value": "gt"
+        },
+        {
+            "Name": "Guernsey",
+            "Immutable": true,
+            "Expression": "`gg`",
+            "Value": "gg"
+        },
+        {
+            "Name": "Guinea",
+            "Immutable": true,
+            "Expression": "`gn`",
+            "Value": "gn"
+        },
+        {
+            "Name": "GuineaBissau",
+            "Immutable": true,
+            "Expression": "`gw`",
+            "Value": "gw"
+        },
+        {
+            "Name": "Guyana",
+            "Immutable": true,
+            "Expression": "`gy`",
+            "Value": "gy"
+        },
+        {
+            "Name": "Haiti",
+            "Immutable": true,
+            "Expression": "`ht`",
+            "Value": "ht"
+        },
+        {
+            "Name": "HeardIslandAndMcDonaldIslands",
+            "Immutable": true,
+            "Expression": "`hm`",
+            "Value": "hm"
+        },
+        {
+            "Name": "Honduras",
+            "Immutable": true,
+            "Expression": "`hn`",
+            "Value": "hn"
+        },
+        {
+            "Name": "HongKong",
+            "Immutable": true,
+            "Expression": "`hk`",
+            "Value": "hk"
+        },
+        {
+            "Name": "Hungary",
+            "Immutable": true,
+            "Expression": "`hu`",
+            "Value": "hu"
+        },
+        {
+            "Name": "Iceland",
+            "Immutable": true,
+            "Expression": "`is`",
+            "Value": "is"
         },
         {
             "Name": "Imperial",
@@ -188,9 +850,105 @@
             "Value": "imperial"
         },
         {
+            "Name": "India",
+            "Immutable": true,
+            "Expression": "`in`",
+            "Value": "in"
+        },
+        {
+            "Name": "Indonesia",
+            "Immutable": true,
+            "Expression": "`id`",
+            "Value": "id"
+        },
+        {
+            "Name": "Iran",
+            "Immutable": true,
+            "Expression": "`ir`",
+            "Value": "ir"
+        },
+        {
+            "Name": "Iraq",
+            "Immutable": true,
+            "Expression": "`iq`",
+            "Value": "iq"
+        },
+        {
+            "Name": "Ireland",
+            "Immutable": true,
+            "Expression": "`ie`",
+            "Value": "ie"
+        },
+        {
+            "Name": "IslasMalvinas",
+            "Immutable": true,
+            "Expression": "`fk`",
+            "Value": "fk"
+        },
+        {
+            "Name": "IsleOfMan",
+            "Immutable": true,
+            "Expression": "`im`",
+            "Value": "im"
+        },
+        {
+            "Name": "Israel",
+            "Immutable": true,
+            "Expression": "`il`",
+            "Value": "il"
+        },
+        {
+            "Name": "Italy",
+            "Immutable": true,
+            "Expression": "`it`",
+            "Value": "it"
+        },
+        {
+            "Name": "Jamaica",
+            "Immutable": true,
+            "Expression": "`jm`",
+            "Value": "jm"
+        },
+        {
+            "Name": "JanMayen",
+            "Immutable": true,
+            "Expression": "`sj`",
+            "Value": "sj"
+        },
+        {
+            "Name": "Japan",
+            "Immutable": true,
+            "Expression": "`jp`",
+            "Value": "jp"
+        },
+        {
+            "Name": "Jersey",
+            "Immutable": true,
+            "Expression": "`je`",
+            "Value": "je"
+        },
+        {
+            "Name": "Jordan",
+            "Immutable": true,
+            "Expression": "`jo`",
+            "Value": "jo"
+        },
+        {
             "Name": "KPH",
             "Immutable": true,
             "Expression": "0.277778"
+        },
+        {
+            "Name": "Kazakhstan",
+            "Immutable": true,
+            "Expression": "`kz`",
+            "Value": "kz"
+        },
+        {
+            "Name": "Kenya",
+            "Immutable": true,
+            "Expression": "`ke`",
+            "Value": "ke"
         },
         {
             "Name": "Kilometer",
@@ -198,14 +956,170 @@
             "Expression": "1000"
         },
         {
+            "Name": "Kiribati",
+            "Immutable": true,
+            "Expression": "`ki`",
+            "Value": "ki"
+        },
+        {
+            "Name": "Kosovo",
+            "Immutable": true,
+            "Expression": "`xk`",
+            "Value": "xk"
+        },
+        {
+            "Name": "Kuwait",
+            "Immutable": true,
+            "Expression": "`kw`",
+            "Value": "kw"
+        },
+        {
+            "Name": "Kyrgyzstan",
+            "Immutable": true,
+            "Expression": "`kg`",
+            "Value": "kg"
+        },
+        {
+            "Name": "Laos",
+            "Immutable": true,
+            "Expression": "`la`",
+            "Value": "la"
+        },
+        {
+            "Name": "Latvia",
+            "Immutable": true,
+            "Expression": "`lv`",
+            "Value": "lv"
+        },
+        {
+            "Name": "Lebanon",
+            "Immutable": true,
+            "Expression": "`lb`",
+            "Value": "lb"
+        },
+        {
+            "Name": "Lesotho",
+            "Immutable": true,
+            "Expression": "`ls`",
+            "Value": "ls"
+        },
+        {
+            "Name": "Liberia",
+            "Immutable": true,
+            "Expression": "`lr`",
+            "Value": "lr"
+        },
+        {
+            "Name": "Libya",
+            "Immutable": true,
+            "Expression": "`ly`",
+            "Value": "ly"
+        },
+        {
+            "Name": "Liechtenstein",
+            "Immutable": true,
+            "Expression": "`li`",
+            "Value": "li"
+        },
+        {
+            "Name": "Lithuania",
+            "Immutable": true,
+            "Expression": "`lt`",
+            "Value": "lt"
+        },
+        {
+            "Name": "Luxembourg",
+            "Immutable": true,
+            "Expression": "`lu`",
+            "Value": "lu"
+        },
+        {
             "Name": "MPH",
             "Immutable": true,
             "Expression": "0.44704"
         },
         {
+            "Name": "Macau",
+            "Immutable": true,
+            "Expression": "`mo`",
+            "Value": "mo"
+        },
+        {
+            "Name": "Macedonia",
+            "Immutable": true,
+            "Expression": "`mk`",
+            "Value": "mk"
+        },
+        {
             "Name": "Mach",
             "Immutable": true,
             "Expression": "340.29"
+        },
+        {
+            "Name": "Madagascar",
+            "Immutable": true,
+            "Expression": "`mg`",
+            "Value": "mg"
+        },
+        {
+            "Name": "Malawi",
+            "Immutable": true,
+            "Expression": "`mw`",
+            "Value": "mw"
+        },
+        {
+            "Name": "Malaysia",
+            "Immutable": true,
+            "Expression": "`my`",
+            "Value": "my"
+        },
+        {
+            "Name": "Maldives",
+            "Immutable": true,
+            "Expression": "`mv`",
+            "Value": "mv"
+        },
+        {
+            "Name": "Mali",
+            "Immutable": true,
+            "Expression": "`ml`",
+            "Value": "ml"
+        },
+        {
+            "Name": "Malta",
+            "Immutable": true,
+            "Expression": "`mt`",
+            "Value": "mt"
+        },
+        {
+            "Name": "MarshallIslands",
+            "Immutable": true,
+            "Expression": "`mh`",
+            "Value": "mh"
+        },
+        {
+            "Name": "Martinique",
+            "Immutable": true,
+            "Expression": "`mq`",
+            "Value": "mq"
+        },
+        {
+            "Name": "Mauritania",
+            "Immutable": true,
+            "Expression": "`mr`",
+            "Value": "mr"
+        },
+        {
+            "Name": "Mauritius",
+            "Immutable": true,
+            "Expression": "`mu`",
+            "Value": "mu"
+        },
+        {
+            "Name": "Mayotte",
+            "Immutable": true,
+            "Expression": "`yt`",
+            "Value": "yt"
         },
         {
             "Name": "Meter",
@@ -225,14 +1139,152 @@
             "Value": "metric"
         },
         {
+            "Name": "Mexico",
+            "Immutable": true,
+            "Expression": "`mx`",
+            "Value": "mx"
+        },
+        {
+            "Name": "Micronesia",
+            "Immutable": true,
+            "Expression": "`fm`",
+            "Value": "fm"
+        },
+        {
             "Name": "Mile",
             "Immutable": true,
             "Expression": "1609.344"
         },
         {
+            "Name": "Miquelon",
+            "Immutable": true,
+            "Expression": "`pm`",
+            "Value": "pm"
+        },
+        {
+            "Name": "Moldova",
+            "Immutable": true,
+            "Expression": "`md`",
+            "Value": "md"
+        },
+        {
+            "Name": "Monaco",
+            "Immutable": true,
+            "Expression": "`mc`",
+            "Value": "mc"
+        },
+        {
+            "Name": "Mongolia",
+            "Immutable": true,
+            "Expression": "`mn`",
+            "Value": "mn"
+        },
+        {
+            "Name": "Montenegro",
+            "Immutable": true,
+            "Expression": "`me`",
+            "Value": "me"
+        },
+        {
+            "Name": "Montserrat",
+            "Immutable": true,
+            "Expression": "`ms`",
+            "Value": "ms"
+        },
+        {
+            "Name": "Morocco",
+            "Immutable": true,
+            "Expression": "`ma`",
+            "Value": "ma"
+        },
+        {
+            "Name": "Mozambique",
+            "Immutable": true,
+            "Expression": "`mz`",
+            "Value": "mz"
+        },
+        {
+            "Name": "Myanmar",
+            "Immutable": true,
+            "Expression": "`mm`",
+            "Value": "mm"
+        },
+        {
+            "Name": "Namibia",
+            "Immutable": true,
+            "Expression": "`na`",
+            "Value": "na"
+        },
+        {
+            "Name": "Nauru",
+            "Immutable": true,
+            "Expression": "`nr`",
+            "Value": "nr"
+        },
+        {
             "Name": "NauticalMile",
             "Immutable": true,
             "Expression": "1852"
+        },
+        {
+            "Name": "Nepal",
+            "Immutable": true,
+            "Expression": "`np`",
+            "Value": "np"
+        },
+        {
+            "Name": "Netherlands",
+            "Immutable": true,
+            "Expression": "`nl`",
+            "Value": "nl"
+        },
+        {
+            "Name": "NetherlandsAntilles",
+            "Immutable": true,
+            "Expression": "`an`",
+            "Value": "an"
+        },
+        {
+            "Name": "NewCaledonia",
+            "Immutable": true,
+            "Expression": "`nc`",
+            "Value": "nc"
+        },
+        {
+            "Name": "NewZealand",
+            "Immutable": true,
+            "Expression": "`nz`",
+            "Value": "nz"
+        },
+        {
+            "Name": "Nicaragua",
+            "Immutable": true,
+            "Expression": "`ni`",
+            "Value": "ni"
+        },
+        {
+            "Name": "Niger",
+            "Immutable": true,
+            "Expression": "`ne`",
+            "Value": "ne"
+        },
+        {
+            "Name": "Nigeria",
+            "Immutable": true,
+            "Expression": "`ng`",
+            "Value": "ng"
+        },
+        {
+            "Name": "Niue",
+            "Immutable": true,
+            "Expression": "`nu`",
+            "Value": "nu"
+        },
+        {
+            "Name": "NorfolkIsland",
+            "Immutable": true,
+            "Expression": "`nf`",
+            "Value": "nf"
         },
         {
             "Name": "North",
@@ -248,10 +1300,262 @@
             "Value": "NE"
         },
         {
+            "Name": "NorthKorea",
+            "Immutable": true,
+            "Expression": "`kp`",
+            "Value": "kp"
+        },
+        {
             "Name": "NorthWest",
             "Immutable": true,
             "Expression": "`NW`",
             "Value": "NW"
+        },
+        {
+            "Name": "NorthernMarianaIslands",
+            "Immutable": true,
+            "Expression": "`mp`",
+            "Value": "mp"
+        },
+        {
+            "Name": "Norway",
+            "Immutable": true,
+            "Expression": "`no`",
+            "Value": "no"
+        },
+        {
+            "Name": "Oman",
+            "Immutable": true,
+            "Expression": "`om`",
+            "Value": "om"
+        },
+        {
+            "Name": "Pakistan",
+            "Immutable": true,
+            "Expression": "`pk`",
+            "Value": "pk"
+        },
+        {
+            "Name": "Palau",
+            "Immutable": true,
+            "Expression": "`pw`",
+            "Value": "pw"
+        },
+        {
+            "Name": "Palestine",
+            "Immutable": true,
+            "Expression": "`ps`",
+            "Value": "ps"
+        },
+        {
+            "Name": "Panama",
+            "Immutable": true,
+            "Expression": "`pa`",
+            "Value": "pa"
+        },
+        {
+            "Name": "PapuaNewGuinea",
+            "Immutable": true,
+            "Expression": "`pg`",
+            "Value": "pg"
+        },
+        {
+            "Name": "Paraguay",
+            "Immutable": true,
+            "Expression": "`py`",
+            "Value": "py"
+        },
+        {
+            "Name": "Peru",
+            "Immutable": true,
+            "Expression": "`pe`",
+            "Value": "pe"
+        },
+        {
+            "Name": "Philippines",
+            "Immutable": true,
+            "Expression": "`ph`",
+            "Value": "ph"
+        },
+        {
+            "Name": "PitcairnIslands",
+            "Immutable": true,
+            "Expression": "`pn`",
+            "Value": "pn"
+        },
+        {
+            "Name": "Poland",
+            "Immutable": true,
+            "Expression": "`pl`",
+            "Value": "pl"
+        },
+        {
+            "Name": "Portugal",
+            "Immutable": true,
+            "Expression": "`pt`",
+            "Value": "pt"
+        },
+        {
+            "Name": "PuertoRico",
+            "Immutable": true,
+            "Expression": "`pr`",
+            "Value": "pr"
+        },
+        {
+            "Name": "Qatar",
+            "Immutable": true,
+            "Expression": "`qa`",
+            "Value": "qa"
+        },
+        {
+            "Name": "Reunion",
+            "Immutable": true,
+            "Expression": "`re`",
+            "Value": "re"
+        },
+        {
+            "Name": "Romania",
+            "Immutable": true,
+            "Expression": "`ro`",
+            "Value": "ro"
+        },
+        {
+            "Name": "Russia",
+            "Immutable": true,
+            "Expression": "`ru`",
+            "Value": "ru"
+        },
+        {
+            "Name": "Rwanda",
+            "Immutable": true,
+            "Expression": "`rw`",
+            "Value": "rw"
+        },
+        {
+            "Name": "Réunion",
+            "Immutable": true,
+            "Expression": "`re`",
+            "Value": "re"
+        },
+        {
+            "Name": "SaintHelena",
+            "Immutable": true,
+            "Expression": "`sh`",
+            "Value": "sh"
+        },
+        {
+            "Name": "SaintKittsAndNevis",
+            "Immutable": true,
+            "Expression": "`kn`",
+            "Value": "kn"
+        },
+        {
+            "Name": "SaintLucia",
+            "Immutable": true,
+            "Expression": "`lc`",
+            "Value": "lc"
+        },
+        {
+            "Name": "SaintPierre",
+            "Immutable": true,
+            "Expression": "`pm`",
+            "Value": "pm"
+        },
+        {
+            "Name": "SaintPierreAndMiquelon",
+            "Immutable": true,
+            "Expression": "`pm`",
+            "Value": "pm"
+        },
+        {
+            "Name": "SaintVincent",
+            "Immutable": true,
+            "Expression": "`vc`",
+            "Value": "vc"
+        },
+        {
+            "Name": "SaintVincentAndTheGrenadines",
+            "Immutable": true,
+            "Expression": "`vc`",
+            "Value": "vc"
+        },
+        {
+            "Name": "Samoa",
+            "Immutable": true,
+            "Expression": "`ws`",
+            "Value": "ws"
+        },
+        {
+            "Name": "SanMarino",
+            "Immutable": true,
+            "Expression": "`sm`",
+            "Value": "sm"
+        },
+        {
+            "Name": "SaoTomeAndPrincipe",
+            "Immutable": true,
+            "Expression": "`st`",
+            "Value": "st"
+        },
+        {
+            "Name": "SaudiArabia",
+            "Immutable": true,
+            "Expression": "`sa`",
+            "Value": "sa"
+        },
+        {
+            "Name": "Senegal",
+            "Immutable": true,
+            "Expression": "`sn`",
+            "Value": "sn"
+        },
+        {
+            "Name": "Serbia",
+            "Immutable": true,
+            "Expression": "`rs`",
+            "Value": "rs"
+        },
+        {
+            "Name": "Seychelles",
+            "Immutable": true,
+            "Expression": "`sc`",
+            "Value": "sc"
+        },
+        {
+            "Name": "SierraLeone",
+            "Immutable": true,
+            "Expression": "`sl`",
+            "Value": "sl"
+        },
+        {
+            "Name": "Singapore",
+            "Immutable": true,
+            "Expression": "`sg`",
+            "Value": "sg"
+        },
+        {
+            "Name": "Slovakia",
+            "Immutable": true,
+            "Expression": "`sk`",
+            "Value": "sk"
+        },
+        {
+            "Name": "Slovenia",
+            "Immutable": true,
+            "Expression": "`si`",
+            "Value": "si"
+        },
+        {
+            "Name": "SolomonIslands",
+            "Immutable": true,
+            "Expression": "`sb`",
+            "Value": "sb"
+        },
+        {
+            "Name": "Somalia",
+            "Immutable": true,
+            "Expression": "`so`",
+            "Value": "so"
         },
         {
             "Name": "South",
@@ -260,10 +1564,46 @@
             "Value": "S"
         },
         {
+            "Name": "SouthAfrica",
+            "Immutable": true,
+            "Expression": "`za`",
+            "Value": "za"
+        },
+        {
             "Name": "SouthEast",
             "Immutable": true,
             "Expression": "`SE`",
             "Value": "SE"
+        },
+        {
+            "Name": "SouthGeorgia",
+            "Immutable": true,
+            "Expression": "`gs`",
+            "Value": "gs"
+        },
+        {
+            "Name": "SouthGeorgiaAndTheSouthSandwichIslands",
+            "Immutable": true,
+            "Expression": "`gs`",
+            "Value": "gs"
+        },
+        {
+            "Name": "SouthKorea",
+            "Immutable": true,
+            "Expression": "`kr`",
+            "Value": "kr"
+        },
+        {
+            "Name": "SouthSandwichIslands",
+            "Immutable": true,
+            "Expression": "`gs`",
+            "Value": "gs"
+        },
+        {
+            "Name": "SouthSudan",
+            "Immutable": true,
+            "Expression": "`ss`",
+            "Value": "ss"
         },
         {
             "Name": "SouthWest",
@@ -272,18 +1612,298 @@
             "Value": "SW"
         },
         {
+            "Name": "SovietUnion",
+            "Immutable": true,
+            "Expression": "`su`",
+            "Value": "su"
+        },
+        {
+            "Name": "Spain",
+            "Immutable": true,
+            "Expression": "`es`",
+            "Value": "es"
+        },
+        {
+            "Name": "SriLanka",
+            "Immutable": true,
+            "Expression": "`lk`",
+            "Value": "lk"
+        },
+        {
+            "Name": "Sudan",
+            "Immutable": true,
+            "Expression": "`sd`",
+            "Value": "sd"
+        },
+        {
+            "Name": "Suriname",
+            "Immutable": true,
+            "Expression": "`sr`",
+            "Value": "sr"
+        },
+        {
+            "Name": "Svalbard",
+            "Immutable": true,
+            "Expression": "`sj`",
+            "Value": "sj"
+        },
+        {
+            "Name": "SvalbardAndJanMayen",
+            "Immutable": true,
+            "Expression": "`sj`",
+            "Value": "sj"
+        },
+        {
+            "Name": "Swaziland",
+            "Immutable": true,
+            "Expression": "`sz`",
+            "Value": "sz"
+        },
+        {
+            "Name": "Sweden",
+            "Immutable": true,
+            "Expression": "`se`",
+            "Value": "se"
+        },
+        {
+            "Name": "Switzerland",
+            "Immutable": true,
+            "Expression": "`ch`",
+            "Value": "ch"
+        },
+        {
+            "Name": "Syria",
+            "Immutable": true,
+            "Expression": "`sy`",
+            "Value": "sy"
+        },
+        {
+            "Name": "SãoToméAndPríncipe",
+            "Immutable": true,
+            "Expression": "`st`",
+            "Value": "st"
+        },
+        {
+            "Name": "Taiwan",
+            "Immutable": true,
+            "Expression": "`tw`",
+            "Value": "tw"
+        },
+        {
+            "Name": "Tajikistan",
+            "Immutable": true,
+            "Expression": "`tj`",
+            "Value": "tj"
+        },
+        {
+            "Name": "Tanzania",
+            "Immutable": true,
+            "Expression": "`tz`",
+            "Value": "tz"
+        },
+        {
+            "Name": "Thailand",
+            "Immutable": true,
+            "Expression": "`th`",
+            "Value": "th"
+        },
+        {
+            "Name": "TheGrenadines",
+            "Immutable": true,
+            "Expression": "`vc`",
+            "Value": "vc"
+        },
+        {
+            "Name": "TimorLeste",
+            "Immutable": true,
+            "Expression": "`tl`",
+            "Value": "tl"
+        },
+        {
+            "Name": "Togo",
+            "Immutable": true,
+            "Expression": "`tg`",
+            "Value": "tg"
+        },
+        {
+            "Name": "Tokelau",
+            "Immutable": true,
+            "Expression": "`tk`",
+            "Value": "tk"
+        },
+        {
+            "Name": "Tonga",
+            "Immutable": true,
+            "Expression": "`to`",
+            "Value": "to"
+        },
+        {
+            "Name": "TrinidadAndTobago",
+            "Immutable": true,
+            "Expression": "`tt`",
+            "Value": "tt"
+        },
+        {
+            "Name": "Tunisia",
+            "Immutable": true,
+            "Expression": "`tn`",
+            "Value": "tn"
+        },
+        {
+            "Name": "Turkey",
+            "Immutable": true,
+            "Expression": "`tr`",
+            "Value": "tr"
+        },
+        {
+            "Name": "Turkmenistan",
+            "Immutable": true,
+            "Expression": "`tm`",
+            "Value": "tm"
+        },
+        {
+            "Name": "TurksAndCaicosIslands",
+            "Immutable": true,
+            "Expression": "`tc`",
+            "Value": "tc"
+        },
+        {
+            "Name": "Tuvalu",
+            "Immutable": true,
+            "Expression": "`tv`",
+            "Value": "tv"
+        },
+        {
+            "Name": "UK",
+            "Immutable": true,
+            "Expression": "`gb`",
+            "Value": "gb"
+        },
+        {
+            "Name": "Uganda",
+            "Immutable": true,
+            "Expression": "`ug`",
+            "Value": "ug"
+        },
+        {
+            "Name": "Ukraine",
+            "Immutable": true,
+            "Expression": "`ua`",
+            "Value": "ua"
+        },
+        {
+            "Name": "UnitedArabEmirates",
+            "Immutable": true,
+            "Expression": "`ae`",
+            "Value": "ae"
+        },
+        {
+            "Name": "UnitedKingdom",
+            "Immutable": true,
+            "Expression": "`gb`",
+            "Value": "gb"
+        },
+        {
+            "Name": "UnitedStates",
+            "Immutable": true,
+            "Expression": "`us`",
+            "Value": "us"
+        },
+        {
+            "Name": "UnitedStatesMinorOutlyingIslands",
+            "Immutable": true,
+            "Expression": "`um`",
+            "Value": "um"
+        },
+        {
+            "Name": "UnitedStatesVirginIslands",
+            "Immutable": true,
+            "Expression": "`vi`",
+            "Value": "vi"
+        },
+        {
+            "Name": "Uruguay",
+            "Immutable": true,
+            "Expression": "`uy`",
+            "Value": "uy"
+        },
+        {
+            "Name": "Uzbekistan",
+            "Immutable": true,
+            "Expression": "`uz`",
+            "Value": "uz"
+        },
+        {
+            "Name": "Vanuatu",
+            "Immutable": true,
+            "Expression": "`vu`",
+            "Value": "vu"
+        },
+        {
+            "Name": "VaticanCity",
+            "Immutable": true,
+            "Expression": "`va`",
+            "Value": "va"
+        },
+        {
+            "Name": "Venezuela",
+            "Immutable": true,
+            "Expression": "`ve`",
+            "Value": "ve"
+        },
+        {
+            "Name": "Vietnam",
+            "Immutable": true,
+            "Expression": "`vn`",
+            "Value": "vn"
+        },
+        {
+            "Name": "WallisAndFutuna",
+            "Immutable": true,
+            "Expression": "`wf`",
+            "Value": "wf"
+        },
+        {
             "Name": "West",
             "Immutable": true,
             "Expression": "`W`",
             "Value": "W"
         },
         {
+            "Name": "WesternSahara",
+            "Immutable": true,
+            "Expression": "`eh`",
+            "Value": "eh"
+        },
+        {
             "Name": "Yard",
             "Immutable": true,
             "Expression": "0.9144"
+        },
+        {
+            "Name": "Yemen",
+            "Immutable": true,
+            "Expression": "`ye`",
+            "Value": "ye"
+        },
+        {
+            "Name": "Zambia",
+            "Immutable": true,
+            "Expression": "`zm`",
+            "Value": "zm"
+        },
+        {
+            "Name": "Zimbabwe",
+            "Immutable": true,
+            "Expression": "`zw`",
+            "Value": "zw"
         }
     ],
     "Variables": [
+        {
+            "Name": "Countries",
+            "Comment": "A data structure that exposes standard information about countries of the world, keyed on their ISO3166-1 Alpha2 abbreviation (e.g.: \"us\", \"gb\", \"de\", etc.)"
+        },
         {
             "Name": "DistanceDisplayUnit",
             "Expression": "MeasurementSystem(Imperial)"
@@ -294,6 +1914,18 @@
         }
     ],
     "Tests": [
+        {
+            "Name": "TestCountriesGet",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestCountriesGet(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0LkVxdWFsKHQsIGBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2FgLCBDb3VudHJpZXMuR2V0KFVuaXRlZFN0YXRlcykuTmFtZSkKCWFzc2VydC5FcXVhbCh0LCBgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhYCwgQ291bnRyaWVzLkdldChgdXNgKS5OYW1lKQoJYXNzZXJ0LkVxdWFsKHQsIGBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2FgLCBDb3VudHJpZXMuR2V0KGBVU2ApLk5hbWUpCglhc3NlcnQuRXF1YWwodCwgYFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYWAsIENvdW50cmllcy5HZXQoYHVTYCkuTmFtZSkKCWFzc2VydC5FcXVhbCh0LCBgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhYCwgQ291bnRyaWVzLkdldChgVXNgKS5OYW1lKQoJYXNzZXJ0LkZhbHNlKHQsIENvdW50cmllcy5HZXQoYHp6YCkuSXNWYWxpZCgpKQp9",
+            "IsPackageLevel": true
+        },
         {
             "Name": "TestLocationSpeedFrom",
             "Arguments": [
@@ -355,6 +1987,69 @@
                 }
             ],
             "Source": "dHlwZSBDYXJkaW5hbERpcmVjdGlvbiBzdHJpbmc="
+        },
+        "Country": {
+            "Name": "Country",
+            "MetaType": "struct",
+            "Methods": [
+                {
+                    "Name": "IsValid",
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "IsValid() bool",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Fields": [
+                {
+                    "Name": "Name",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Code",
+                    "Type": "string"
+                },
+                {
+                    "Name": "CCTLD",
+                    "Type": "string"
+                },
+                {
+                    "Name": "Latitude",
+                    "Type": "float64"
+                },
+                {
+                    "Name": "Longitude",
+                    "Type": "float64"
+                }
+            ],
+            "Source": "dHlwZSBDb3VudHJ5IHN0cnVjdCB7CglOYW1lICAgICAgc3RyaW5nCglDb2RlICAgICAgc3RyaW5nCglDQ1RMRCAgICAgc3RyaW5nCglMYXRpdHVkZSAgZmxvYXQ2NAoJTG9uZ2l0dWRlIGZsb2F0NjQKfQ=="
+        },
+        "CountryData": {
+            "Name": "CountryData",
+            "Methods": [
+                {
+                    "Name": "Get",
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "nameOrCode",
+                            "Type": "interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "Country"
+                        }
+                    ],
+                    "Signature": "Get(nameOrCode interface{}) Country",
+                    "IsPackageLevel": false
+                }
+            ],
+            "Source": "dHlwZSBDb3VudHJ5RGF0YSBtYXBbc3RyaW5nXUNvdW50cnk="
         },
         "Distance": {
             "Name": "Distance",

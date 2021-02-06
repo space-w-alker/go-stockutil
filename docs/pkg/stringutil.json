@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities for converting and manipulating data to and from strings\n",
     "MainFunction": false,
-    "CommentWordCount": 786,
-    "LineCount": 2543,
-    "SourceLineCount": 1949,
-    "FunctionCount": 83,
+    "CommentWordCount": 806,
+    "LineCount": 2560,
+    "SourceLineCount": 1962,
+    "FunctionCount": 84,
     "TypeCount": 6,
     "ConstantCount": 17,
     "VariableCount": 9,
     "Statistics": {
-        "Mean": 0.3768,
-        "StdDev": 0.4747,
+        "Mean": 0.3833,
+        "StdDev": 0.4765,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0,
@@ -231,10 +231,10 @@
                     "Alias": "tokenize"
                 }
             ],
-            "Size": 23670,
-            "LineCount": 983,
-            "SourceLineCount": 742,
-            "FunctionCount": 70,
+            "Size": 24198,
+            "LineCount": 1000,
+            "SourceLineCount": 755,
+            "FunctionCount": 71,
             "TypeCount": 3,
             "ConstantCount": 17,
             "VariableCount": 9
@@ -1201,6 +1201,28 @@
             ],
             "Signature": "Snakeify(in interface{}, separator rune) string",
             "Source": "ewoJaW5TIDo9IHN0cmluZ3MuTWFwKGZ1bmMociBydW5lKSBydW5lIHsKCQlpZiB1bmljb2RlLklzU3BhY2UocikgewoJCQlyZXR1cm4gc2VwYXJhdG9yCgkJfSBlbHNlIGlmIHVuaWNvZGUuSXNQdW5jdChyKSAmJiBzZXBhcmF0b3IgIT0gciB7CgkJCXJldHVybiBzZXBhcmF0b3IKCQl9IGVsc2UgewoJCQlyZXR1cm4gcgoJCX0KCX0sIE11c3RTdHJpbmcoaW4pKQoJb3V0IDo9IG1ha2UoW11ydW5lLCAwKQoJcnVuZXMgOj0gW11ydW5lKGluUykKCXNlcGZuIDo9IGZ1bmMoaSBpbnQpIGJvb2wgewoJCXJldHVybiBpID49IDAgJiYgaSA8IGxlbihydW5lcykgJiYgdW5pY29kZS5Jc0xvd2VyKHJ1bmVzW2ldKQoJfQoJZm9yIGksIHIgOj0gcmFuZ2UgcnVuZXMgewoJCWlmIHVuaWNvZGUuSXNVcHBlcihyKSB7CgkJCXIgPSB1bmljb2RlLlRvTG93ZXIocikKCQkJaWYgaSA+IDAgJiYgcnVuZXNbaS0xXSAhPSBzZXBhcmF0b3IgJiYgKHNlcGZuKGktMSkgfHwgc2VwZm4oaSsxKSkgewoJCQkJb3V0ID0gYXBwZW5kKG91dCwgc2VwYXJhdG9yKQoJCQl9CgkJfQoJCW91dCA9IGFwcGVuZChvdXQsIHIpCgl9CglyZXR1cm4gc3RyaW5nKG91dCkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "SoftEqual",
+            "Comment": "A case insensitive, single return version of RelaxedEqual that trims leading and trailing whitespace from strings before comparison.",
+            "Arguments": [
+                {
+                    "Name": "first",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "second",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "SoftEqual(first interface{}, second interface{}) bool",
+            "Source": "ewoJaWYgdHlwZXV0aWwuSXNLaW5kT2ZTdHJpbmcoZmlyc3QpIHsKCQlmaXJzdCA9IHN0cmluZ3MuVHJpbVNwYWNlKHN0cmluZ3MuVG9Mb3dlcih0eXBldXRpbC5TdHJpbmcoZmlyc3QpKSkKCX0KCWlmIHR5cGV1dGlsLklzS2luZE9mU3RyaW5nKHNlY29uZCkgewoJCXNlY29uZCA9IHN0cmluZ3MuVHJpbVNwYWNlKHN0cmluZ3MuVG9Mb3dlcih0eXBldXRpbC5TdHJpbmcoc2Vjb25kKSkpCgl9CglpZiBlcSwgZXJyIDo9IFJlbGF4ZWRFcXVhbChmaXJzdCwgc2Vjb25kKTsgZXJyID09IG5pbCAmJiBlcSB7CgkJcmV0dXJuIHRydWUKCX0gZWxzZSB7CgkJcmV0dXJuIGZhbHNlCgl9Cn0=",
             "IsPackageLevel": true
         },
         {

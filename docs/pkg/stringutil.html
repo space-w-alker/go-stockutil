@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.6
+                            v1.9.7
                         </li>
                     </ul>
                     
@@ -405,6 +405,12 @@
 		
 		<a href="#Snakeify">func Snakeify(in interface{}, separator rune) string</a>
 		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SoftEqual">func SoftEqual(first interface{}, second interface{}) bool</a>
+		</strong>
 	</li>
 	
     <li>
@@ -925,9 +931,9 @@
 			<a href="stringutil.go">stringutil.go</a>
 			
 		</td>
-		<td class="text-right">23KB</td>
-		<td class="text-right">742</td>
-		<td class="text-right">70</td>
+		<td class="text-right">24KB</td>
+		<td class="text-right">755</td>
+		<td class="text-right">71</td>
 		<td class="text-right">3</td>
 		<td class="text-right">17</td>
 		<td class="text-right">9</td>
@@ -1482,6 +1488,20 @@ var <span id="TimeFormats">TimeFormats                </span> = utils.TimeFormat
 	<pre>func Snakeify(in interface{}, separator rune) string</pre>
 </div>
 
+
+
+<h3 id="SoftEqual" data-kind="f">
+	func <a title="View Source" href="">SoftEqual</a>
+	<a class="permalink" href="#SoftEqual">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SoftEqual(first interface{}, second interface{}) bool</pre>
+</div>
+
+
+<p><p>A case insensitive, single return version of RelaxedEqual that trims leading and trailing whitespace from strings before comparison.</p>
+</p>
 
 
 <h3 id="SplitLines" data-kind="f">

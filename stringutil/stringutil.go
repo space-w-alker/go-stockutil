@@ -619,6 +619,23 @@ func RelaxedEqual(first interface{}, second interface{}) (bool, error) {
 	}
 }
 
+// A case insensitive, single return version of RelaxedEqual that trims leading and trailing whitespace from strings before comparison.
+func SoftEqual(first interface{}, second interface{}) bool {
+	if typeutil.IsKindOfString(first) {
+		first = strings.TrimSpace(strings.ToLower(typeutil.String(first)))
+	}
+
+	if typeutil.IsKindOfString(second) {
+		second = strings.TrimSpace(strings.ToLower(typeutil.String(second)))
+	}
+
+	if eq, err := RelaxedEqual(first, second); err == nil && eq {
+		return true
+	} else {
+		return false
+	}
+}
+
 // Split the given string into two parts.  If there is only one resulting part,
 // that part will be the first return value and the second return value will be empty.
 func SplitPair(in string, delimiter string) (string, string) {
