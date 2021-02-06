@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities for converting, manipulating, and iterating over slices\n",
     "MainFunction": false,
-    "CommentWordCount": 709,
-    "LineCount": 1003,
-    "SourceLineCount": 745,
-    "FunctionCount": 31,
+    "CommentWordCount": 745,
+    "LineCount": 1024,
+    "SourceLineCount": 761,
+    "FunctionCount": 32,
     "TypeCount": 4,
     "ConstantCount": 0,
     "VariableCount": 3,
     "Statistics": {
-        "Mean": 0.8912,
-        "StdDev": 0.2853,
+        "Mean": 0.8943,
+        "StdDev": 0.2818,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 1,
@@ -51,10 +51,10 @@
                     "Alias": "go-intersect"
                 }
             ],
-            "Size": 11257,
-            "LineCount": 478,
-            "SourceLineCount": 325,
-            "FunctionCount": 31,
+            "Size": 11624,
+            "LineCount": 490,
+            "SourceLineCount": 333,
+            "FunctionCount": 32,
             "TypeCount": 4,
             "ConstantCount": 0,
             "VariableCount": 3
@@ -71,13 +71,17 @@
                     "Alias": "testing"
                 },
                 {
+                    "PackageName": "github.com/alecthomas/assert",
+                    "Alias": "assert"
+                },
+                {
                     "PackageName": "github.com/ghetzel/testify/require",
                     "Alias": "require"
                 }
             ],
-            "Size": 13104,
-            "LineCount": 525,
-            "SourceLineCount": 420,
+            "Size": 13446,
+            "LineCount": 534,
+            "SourceLineCount": 428,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -331,7 +335,7 @@
                 }
             ],
             "Signature": "Difference(first interface{}, second interface{}) []interface{}",
-            "Source": "ewoJZGlmZiA6PSBtYWtlKG1hcFtpbnRlcmZhY2V7fV1ib29sKQoJb3V0IDo9IG1ha2UoW11pbnRlcmZhY2V7fSwgMCkKCWFTIDo9IFNsaWNlaWZ5KGZpcnN0KQoJYlMgOj0gU2xpY2VpZnkoc2Vjb25kKQoJaWYgbGVuKGFTKSA9PSAwIHsKCQlyZXR1cm4gb3V0Cgl9IGVsc2UgaWYgbGVuKGJTKSA9PSAwIHsKCQlyZXR1cm4gYVMKCX0KCWZvciBfLCBpdGVtIDo9IHJhbmdlIGJTIHsKCQlkaWZmW2l0ZW1dID0gdHJ1ZQoJfQoJZm9yIF8sIGl0ZW0gOj0gcmFuZ2UgYVMgewoJCWlmIF8sIG9rIDo9IGRpZmZbaXRlbV07ICFvayB7CgkJCW91dCA9IGFwcGVuZChvdXQsIGl0ZW0pCgkJfQoJfQoJcmV0dXJuIG91dAp9",
+            "Source": "ewoJdmFyIGRpZmYgPSBtYWtlKG1hcFtpbnRlcmZhY2V7fV1ib29sKQoJdmFyIG91dCA9IG1ha2UoW11pbnRlcmZhY2V7fSwgMCkKCXZhciBhUyA9IFNsaWNlaWZ5KGZpcnN0KQoJdmFyIGJTID0gU2xpY2VpZnkoc2Vjb25kKQoJaWYgbGVuKGFTKSA9PSAwIHsKCQlyZXR1cm4gb3V0Cgl9IGVsc2UgaWYgbGVuKGJTKSA9PSAwIHsKCQlyZXR1cm4gYVMKCX0KCWZvciBfLCBpdGVtIDo9IHJhbmdlIGJTIHsKCQlkaWZmW2l0ZW1dID0gdHJ1ZQoJfQoJZm9yIF8sIGl0ZW0gOj0gcmFuZ2UgYVMgewoJCWlmIF8sIG9rIDo9IGRpZmZbaXRlbV07ICFvayB7CgkJCW91dCA9IGFwcGVuZChvdXQsIGl0ZW0pCgkJfQoJfQoJcmV0dXJuIG91dAp9",
             "IsPackageLevel": true
         },
         {
@@ -375,6 +379,24 @@
             "IsPackageLevel": true
         },
         {
+            "Name": "FirstNonZero",
+            "Comment": "Returns the first element in the given inputs that is not that type's zero value.  All input values\nare flattened into a single array, so variadic elements can contain scalar or array values.",
+            "Arguments": [
+                {
+                    "Name": "inputs",
+                    "Type": "...interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "interface{}"
+                }
+            ],
+            "Signature": "FirstNonZero(inputs ...interface{}) interface{}",
+            "Source": "ewoJZm9yIF8sIHYgOj0gcmFuZ2UgRmxhdHRlbihpbnB1dHMpIHsKCQlpZiAhdHlwZXV0aWwuSXNaZXJvKHYpIHsKCQkJcmV0dXJuIHYKCQl9Cgl9CglyZXR1cm4gbmlsCn0=",
+            "IsPackageLevel": true
+        },
+        {
             "Name": "Flatten",
             "Comment": "Returns the given slice as a single-level flattened array.",
             "Arguments": [
@@ -389,7 +411,7 @@
                 }
             ],
             "Signature": "Flatten(in interface{}) []interface{}",
-            "Source": "ewoJb3V0IDo9IG1ha2UoW11pbnRlcmZhY2V7fSwgMCkKCUVhY2goaW4sIGZ1bmMoXyBpbnQsIHZhbHVlIGludGVyZmFjZXt9KSBlcnJvciB7CgkJaWYgdHlwZXV0aWwuSXNBcnJheSh2YWx1ZSkgewoJCQlvdXQgPSBhcHBlbmQob3V0LCBGbGF0dGVuKHZhbHVlKS4uLikKCQl9IGVsc2UgewoJCQlvdXQgPSBhcHBlbmQob3V0LCB2YWx1ZSkKCQl9CgkJcmV0dXJuIG5pbAoJfSkKCXJldHVybiBvdXQKfQ==",
+            "Source": "ewoJdmFyIG91dCA9IG1ha2UoW11pbnRlcmZhY2V7fSwgMCkKCUVhY2goaW4sIGZ1bmMoXyBpbnQsIHZhbHVlIGludGVyZmFjZXt9KSBlcnJvciB7CgkJaWYgdHlwZXV0aWwuSXNBcnJheSh2YWx1ZSkgewoJCQlvdXQgPSBhcHBlbmQob3V0LCBGbGF0dGVuKHZhbHVlKS4uLikKCQl9IGVsc2UgewoJCQlvdXQgPSBhcHBlbmQob3V0LCB2YWx1ZSkKCQl9CgkJcmV0dXJuIG5pbAoJfSkKCXJldHVybiBvdXQKfQ==",
             "IsPackageLevel": true
         },
         {
@@ -866,6 +888,18 @@
             ],
             "Signature": "TestFirst(t *testing.T)",
             "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgaW5wdXQgaW50ZXJmYWNle30KCWFzc2VydC5OaWwoRmlyc3QobmlsKSkKCWFzc2VydC5OaWwoRmlyc3QoaW5wdXQpKQoJaW5wdXQgPSBbXWludHt9Cglhc3NlcnQuTmlsKEZpcnN0KGlucHV0KSkKCWlucHV0ID0gW11pbnR7MSwgMywgNX0KCWFzc2VydC5FcXVhbCgxLCBGaXJzdChpbnB1dCkpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestFirstNonZero",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestFirstNonZero(t *testing.T)",
+            "Source": "ewoJYXNzZXJ0Lk5pbCh0LCBGaXJzdE5vblplcm8oKSkKCWFzc2VydC5FcXVhbCh0LCA0MiwgRmlyc3ROb25aZXJvKDQyKSkKCWFzc2VydC5FcXVhbCh0LCA0MiwgRmlyc3ROb25aZXJvKGBgLCAwLCBmYWxzZSwgNDIsIGZhbHNlLCB0cnVlLCA5NikpCglhc3NlcnQuRXF1YWwodCwgOCwgRmlyc3ROb25aZXJvKFtdaW50ezAsIDAsIDB9LCA4LCBbXWludHs2OX0pKQoJYXNzZXJ0LkVxdWFsKHQsIDg0LCBGaXJzdE5vblplcm8oW11pbnR7MCwgMCwgMH0sIDAsIFtdaW50ezg0fSkpCn0=",
             "IsPackageLevel": true
         },
         {

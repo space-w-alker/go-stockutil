@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.7
+                            v1.9.8
                         </li>
                     </ul>
                     
@@ -246,6 +246,12 @@
     <li>
 		<strong>
 		<a href="#First">func First(in interface{}) interface{}</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FirstNonZero">func FirstNonZero(inputs ...interface{}) interface{}</a>
 		</strong>
 	</li>
 	
@@ -419,8 +425,8 @@
 			
 		</td>
 		<td class="text-right">11KB</td>
-		<td class="text-right">325</td>
-		<td class="text-right">31</td>
+		<td class="text-right">333</td>
+		<td class="text-right">32</td>
 		<td class="text-right">4</td>
 		<td class="text-right"></td>
 		<td class="text-right">3</td>
@@ -433,7 +439,7 @@
 			
 		</td>
 		<td class="text-right">13KB</td>
-		<td class="text-right">420</td>
+		<td class="text-right">428</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -645,6 +651,20 @@ var <span id="StrictEqualityCompare">StrictEqualityCompare </span> =
 
 
 <p><p>Returns the first element from the given slice, array or string; or nil.</p>
+</p>
+
+
+<h3 id="FirstNonZero" data-kind="f">
+	func <a title="View Source" href="">FirstNonZero</a>
+	<a class="permalink" href="#FirstNonZero">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FirstNonZero(inputs ...interface{}) interface{}</pre>
+</div>
+
+
+<p><p>Returns the first element in the given inputs that is not that type’s zero value.  All input values<br>are flattened into a single array, so variadic elements can contain scalar or array values.</p>
 </p>
 
 

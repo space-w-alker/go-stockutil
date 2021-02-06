@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/alecthomas/assert"
 	"github.com/ghetzel/testify/require"
 )
 
@@ -521,4 +522,12 @@ func TestTrimSpace(t *testing.T) {
 
 	assert.Nil(TrimSpace(nil))
 	assert.Equal([]string{`aaa`, `bbb`, `ccc`}, TrimSpace([]string{`aaa`, `   bbb `, ` ccc    `}))
+}
+
+func TestFirstNonZero(t *testing.T) {
+	assert.Nil(t, FirstNonZero())
+	assert.Equal(t, 42, FirstNonZero(42))
+	assert.Equal(t, 42, FirstNonZero(``, 0, false, 42, false, true, 96))
+	assert.Equal(t, 8, FirstNonZero([]int{0, 0, 0}, 8, []int{69}))
+	assert.Equal(t, 84, FirstNonZero([]int{0, 0, 0}, 0, []int{84}))
 }

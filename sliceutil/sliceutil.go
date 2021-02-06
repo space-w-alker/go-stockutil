@@ -106,10 +106,10 @@ func Intersect(a interface{}, b interface{}) []interface{} {
 
 // Return the slice that results from removing elements in second from the first.
 func Difference(first interface{}, second interface{}) []interface{} {
-	diff := make(map[interface{}]bool)
-	out := make([]interface{}, 0)
-	aS := Sliceify(first)
-	bS := Sliceify(second)
+	var diff = make(map[interface{}]bool)
+	var out = make([]interface{}, 0)
+	var aS = Sliceify(first)
+	var bS = Sliceify(second)
 
 	if len(aS) == 0 {
 		return out
@@ -163,7 +163,7 @@ func Compact(in interface{}) []interface{} {
 
 // Returns the given slice as a single-level flattened array.
 func Flatten(in interface{}) []interface{} {
-	out := make([]interface{}, 0)
+	var out = make([]interface{}, 0)
 
 	Each(in, func(_ int, value interface{}) error {
 		if typeutil.IsArray(value) {
@@ -276,6 +276,18 @@ func Get(in interface{}, index int) interface{} {
 // Returns the first element from the given slice, array or string; or nil.
 func First(in interface{}) interface{} {
 	return Get(in, 0)
+}
+
+// Returns the first element in the given inputs that is not that type's zero value.  All input values
+// are flattened into a single array, so variadic elements can contain scalar or array values.
+func FirstNonZero(inputs ...interface{}) interface{} {
+	for _, v := range Flatten(inputs) {
+		if !typeutil.IsZero(v) {
+			return v
+		}
+	}
+
+	return nil
 }
 
 // Returns the all but the first element from the given slice, array or string; or nil.
