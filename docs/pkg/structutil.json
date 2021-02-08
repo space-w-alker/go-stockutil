@@ -6,16 +6,16 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities for working with and manipulating structs.\n",
     "MainFunction": false,
-    "CommentWordCount": 79,
-    "LineCount": 507,
-    "SourceLineCount": 407,
-    "FunctionCount": 12,
+    "CommentWordCount": 92,
+    "LineCount": 536,
+    "SourceLineCount": 428,
+    "FunctionCount": 13,
     "TypeCount": 5,
     "ConstantCount": 0,
     "VariableCount": 2,
     "Statistics": {
-        "Mean": 0.1364,
-        "StdDev": 0.3432,
+        "Mean": 0.1739,
+        "StdDev": 0.379,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0,
@@ -35,18 +35,30 @@
                     "Alias": "reflect"
                 },
                 {
+                    "PackageName": "strings",
+                    "Alias": "strings"
+                },
+                {
                     "PackageName": "github.com/ghetzel/go-stockutil/maputil",
                     "Alias": "maputil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
+                    "Alias": "sliceutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
                 },
                 {
                     "PackageName": "github.com/ghetzel/go-stockutil/typeutil",
                     "Alias": "typeutil"
                 }
             ],
-            "Size": 3023,
-            "LineCount": 156,
-            "SourceLineCount": 124,
-            "FunctionCount": 9,
+            "Size": 3540,
+            "LineCount": 171,
+            "SourceLineCount": 135,
+            "FunctionCount": 10,
             "TypeCount": 2,
             "ConstantCount": 0,
             "VariableCount": 1
@@ -63,9 +75,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 2549,
-            "LineCount": 112,
-            "SourceLineCount": 97,
+            "Size": 2868,
+            "LineCount": 126,
+            "SourceLineCount": 107,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -241,7 +253,7 @@
                 }
             ],
             "Signature": "TestS(t *testing.T)",
-            "Source": "ewoJdmFyIGJhc2UgPSAmdFN0cnVjdENoaWxke3RTdHJ1Y3RCYXNlOiAmdFN0cnVjdEJhc2V7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBXb3JkczogW11zdHJpbmd7YGhlbGxvYCwgYHRoZXJlYH0sIFBocmFzZTogW11zdHJpbmd7YG1heWAsIGB0aGVgLCBgZm9yY2VgLCBgYmVgLCBgd2l0aGAsIGB5b3VgfX0sIEFkZHJlc3M6IGAxMjMgRmFrZSBTdC5gLCBEZXRhaWxzOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BnbG9iYWxgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYGJhc2VgLCBgdmFsdWVzYDogW11pbnR7MiwgNCwgNn19fX0KCXZhciBzID0gUyhiYXNlKQoJdmFyIGZpZWxkcyA9IHMuRmllbGRzKCkKCXJlcXVpcmUuTGVuKHQsIGZpZWxkcywgNykKCWZvciBpLCBmaWVsZCA6PSByYW5nZSBmaWVsZHMgewoJCXZhciBuYW1lID0gZmllbGQuTmFtZQoJCXZhciB0eXBuID0gZmllbGQuVHlwZS5TdHJpbmcoKQoJCXN3aXRjaCBpIHsKCQljYXNlIDA6CgkJCXJlcXVpcmUuRXF1YWwodCwgYE5hbWVgLCBuYW1lKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGBzdHJpbmdgLCB0eXBuKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGB0ZXN0YCwgZmllbGQuVigpLlN0cmluZygpKQoJCWNhc2UgMToKCQkJcmVxdWlyZS5FcXVhbCh0LCBgQWdlYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgaW50YCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBpbnQ2NCg0MiksIGZpZWxkLlYoKS5JbnQoKSkKCQljYXNlIDI6CgkJCXJlcXVpcmUuRXF1YWwodCwgYEVuYWJsZWRgLCBuYW1lKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGBib29sYCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBmYWxzZSwgZmllbGQuVigpLkJvb2woKSkKCQljYXNlIDM6CgkJCXJlcXVpcmUuRXF1YWwodCwgYFdvcmRzYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgW11zdHJpbmdgLCB0eXBuKQoJCQlyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BoZWxsb2AsIGB0aGVyZWB9LCBmaWVsZC5WKCkuU3RyaW5ncygpKQoJCWNhc2UgNDoKCQkJcmVxdWlyZS5FcXVhbCh0LCBgUGhyYXNlYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgW11zdHJpbmdgLCB0eXBuKQoJCQlyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BtYXlgLCBgdGhlYCwgYGZvcmNlYCwgYGJlYCwgYHdpdGhgLCBgeW91YH0sIGZpZWxkLlYoKS5TdHJpbmdzKCkpCgkJY2FzZSA1OgoJCQlyZXF1aXJlLkVxdWFsKHQsIGBBZGRyZXNzYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgc3RyaW5nYCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBgMTIzIEZha2UgU3QuYCwgZmllbGQuVigpLlN0cmluZygpKQoJCWNhc2UgNjoKCQkJcmVxdWlyZS5FcXVhbCh0LCBgRGV0YWlsc2AsIG5hbWUpCgkJCXJlcXVpcmUuRXF1YWwodCwgYG1hcFtzdHJpbmddaW50ZXJmYWNlIHt9YCwgdHlwbikKCQkJcmVxdWlyZS5MZW4odCwgYmFzZS5EZXRhaWxzLCAxKQoJCX0KCX0KCXJlcXVpcmUuTm9FcnJvcih0LCBzLk1lcmdlKCZ0U3RydWN0Q2hpbGR7dFN0cnVjdEJhc2U6ICZ0U3RydWN0QmFzZXtXb3JkczogW11zdHJpbmd7YGdlbmVyYWxgLCBga2Vub2JpYH0sIFBocmFzZTogW11zdHJpbmd7YGFuZGAsIGBhbHNvYCwgYHdpdGhgLCBgeW91YH19LCBBZGRyZXNzOiBgOTg3IEx1bHogTGFuZWAsIERldGFpbHM6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YGdsb2JhbGA6IG1hcFtzdHJpbmddaW50ZXJmYWNle317YG5hbWVgOiBgcmVwbGFjZWRgLCBgdmFsdWVzYDogW11pbnR7MSwgMywgNX19fX0pKQoJcmVxdWlyZS5FcXVhbCh0LCBbXXN0cmluZ3tgaGVsbG9gLCBgdGhlcmVgLCBgZ2VuZXJhbGAsIGBrZW5vYmlgfSwgYmFzZS5Xb3JkcykKCXJlcXVpcmUuRXF1YWwodCwgW11zdHJpbmd7YGFuZGAsIGBhbHNvYCwgYHdpdGhgLCBgeW91YH0sIGJhc2UuUGhyYXNlKQoJcmVxdWlyZS5FcXVhbCh0LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BnbG9iYWxgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYHJlcGxhY2VkYCwgYHZhbHVlc2A6IFtdaW50ZXJmYWNle317MSwgMywgNX19fSwgYmFzZS5EZXRhaWxzKQp9",
+            "Source": "ewoJdmFyIGJhc2UgPSAmdFN0cnVjdENoaWxke3RTdHJ1Y3RCYXNlOiAmdFN0cnVjdEJhc2V7TmFtZTogYHRlc3RgLCBBZ2U6IDQyLCBXb3JkczogW11zdHJpbmd7YGhlbGxvYCwgYHRoZXJlYH0sIFBocmFzZTogW11zdHJpbmd7YG1heWAsIGB0aGVgLCBgZm9yY2VgLCBgYmVgLCBgd2l0aGAsIGB5b3VgfX0sIEFkZHJlc3M6IGAxMjMgRmFrZSBTdC5gLCBEZXRhaWxzOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BnbG9iYWxgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYGJhc2VgLCBgdmFsdWVzYDogW11pbnR7MiwgNCwgNn19fX0KCXZhciBzID0gUyhiYXNlKQoJdmFyIGZpZWxkcyA9IHMuRmllbGRzKCkKCXJlcXVpcmUuTGVuKHQsIGZpZWxkcywgNykKCWZvciBpLCBmaWVsZCA6PSByYW5nZSBmaWVsZHMgewoJCXZhciBuYW1lID0gZmllbGQuTmFtZQoJCXZhciB0eXBuID0gZmllbGQuVHlwZS5TdHJpbmcoKQoJCXN3aXRjaCBpIHsKCQljYXNlIDA6CgkJCXJlcXVpcmUuRXF1YWwodCwgYE5hbWVgLCBuYW1lKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGBzdHJpbmdgLCB0eXBuKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGB0ZXN0YCwgZmllbGQuVigpLlN0cmluZygpKQoJCWNhc2UgMToKCQkJcmVxdWlyZS5FcXVhbCh0LCBgQWdlYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgaW50YCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBpbnQ2NCg0MiksIGZpZWxkLlYoKS5JbnQoKSkKCQljYXNlIDI6CgkJCXJlcXVpcmUuRXF1YWwodCwgYEVuYWJsZWRgLCBuYW1lKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGBib29sYCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBmYWxzZSwgZmllbGQuVigpLkJvb2woKSkKCQljYXNlIDM6CgkJCXJlcXVpcmUuRXF1YWwodCwgYFdvcmRzYCwgbmFtZSkKCQkJcmVxdWlyZS5FcXVhbCh0LCBgW11zdHJpbmdgLCB0eXBuKQoJCQlyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BoZWxsb2AsIGB0aGVyZWB9LCBmaWVsZC5WKCkuU3RyaW5ncygpKQoJCQl2YXIgdGFnLCBhdHRycywgb2sgPSBmaWVsZC5HZXRUYWcoYHRlc3RpbmdgKQoJCQlyZXF1aXJlLlRydWUodCwgb2spCgkJCXJlcXVpcmUuRXF1YWwodCwgYFdPUkRTYCwgdGFnKQoJCQlyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BvbWl0ZW1wdHlgfSwgYXR0cnMpCgkJCXRhZywgYXR0cnMsIG9rID0gZmllbGQuR2V0VGFnKGBvdGhlcmApCgkJCXJlcXVpcmUuRmFsc2UodCwgb2spCgkJCXJlcXVpcmUuRXF1YWwodCwgYGAsIHRhZykKCQkJcmVxdWlyZS5FbXB0eSh0LCBhdHRycykKCQljYXNlIDQ6CgkJCXJlcXVpcmUuRXF1YWwodCwgYFBocmFzZWAsIG5hbWUpCgkJCXJlcXVpcmUuRXF1YWwodCwgYFtdc3RyaW5nYCwgdHlwbikKCQkJcmVxdWlyZS5FcXVhbCh0LCBbXXN0cmluZ3tgbWF5YCwgYHRoZWAsIGBmb3JjZWAsIGBiZWAsIGB3aXRoYCwgYHlvdWB9LCBmaWVsZC5WKCkuU3RyaW5ncygpKQoJCWNhc2UgNToKCQkJcmVxdWlyZS5FcXVhbCh0LCBgQWRkcmVzc2AsIG5hbWUpCgkJCXJlcXVpcmUuRXF1YWwodCwgYHN0cmluZ2AsIHR5cG4pCgkJCXJlcXVpcmUuRXF1YWwodCwgYDEyMyBGYWtlIFN0LmAsIGZpZWxkLlYoKS5TdHJpbmcoKSkKCQljYXNlIDY6CgkJCXJlcXVpcmUuRXF1YWwodCwgYERldGFpbHNgLCBuYW1lKQoJCQlyZXF1aXJlLkVxdWFsKHQsIGBtYXBbc3RyaW5nXWludGVyZmFjZSB7fWAsIHR5cG4pCgkJCXJlcXVpcmUuTGVuKHQsIGJhc2UuRGV0YWlscywgMSkKCQl9Cgl9CglyZXF1aXJlLk5vRXJyb3IodCwgcy5NZXJnZSgmdFN0cnVjdENoaWxke3RTdHJ1Y3RCYXNlOiAmdFN0cnVjdEJhc2V7V29yZHM6IFtdc3RyaW5ne2BnZW5lcmFsYCwgYGtlbm9iaWB9LCBQaHJhc2U6IFtdc3RyaW5ne2BhbmRgLCBgYWxzb2AsIGB3aXRoYCwgYHlvdWB9fSwgQWRkcmVzczogYDk4NyBMdWx6IExhbmVgLCBEZXRhaWxzOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BnbG9iYWxgOiBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BuYW1lYDogYHJlcGxhY2VkYCwgYHZhbHVlc2A6IFtdaW50ezEsIDMsIDV9fX19KSkKCXJlcXVpcmUuRXF1YWwodCwgW11zdHJpbmd7YGhlbGxvYCwgYHRoZXJlYCwgYGdlbmVyYWxgLCBga2Vub2JpYH0sIGJhc2UuV29yZHMpCglyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BhbmRgLCBgYWxzb2AsIGB3aXRoYCwgYHlvdWB9LCBiYXNlLlBocmFzZSkKCXJlcXVpcmUuRXF1YWwodCwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgZ2xvYmFsYDogbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgbmFtZWA6IGByZXBsYWNlZGAsIGB2YWx1ZXNgOiBbXWludGVyZmFjZXt9ezEsIDMsIDV9fX0sIGJhc2UuRGV0YWlscykKfQ==",
             "IsPackageLevel": true
         }
     ],
@@ -250,6 +262,35 @@
             "Name": "Field",
             "MetaType": "struct",
             "Methods": [
+                {
+                    "Name": "GetTag",
+                    "Comment": "Retrieve the field name and attributes associated with the given field tag.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "label",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "fallback",
+                            "Type": "...interface{}"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        },
+                        {
+                            "Type": "[]string"
+                        },
+                        {
+                            "Type": "bool"
+                        }
+                    ],
+                    "Signature": "GetTag(label string, fallback ...interface{}) (string, []string, bool)",
+                    "IsPackageLevel": false
+                },
                 {
                     "Name": "Kind",
                     "PointerReceiver": true,

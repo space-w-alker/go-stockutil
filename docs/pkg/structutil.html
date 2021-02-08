@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.8
+                            v1.9.9
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 14%</span>
+<span class="pull-right">Doc Coverage: 17%</span>
 <h2 id="pkg-overview">package structutil</h2>
 
 <p>
@@ -209,7 +209,21 @@
 			
 			
 			
+			
+			
 
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Field.GetTag">
+					func
+					(self *Field)
+					GetTag(label string, fallback ...interface{}) (string, []string, bool)
+				</a>
+				</strong>
+			</li>
 			
 			
 			
@@ -404,8 +418,8 @@
 			
 		</td>
 		<td class="text-right">3KB</td>
-		<td class="text-right">124</td>
-		<td class="text-right">9</td>
+		<td class="text-right">135</td>
+		<td class="text-right">10</td>
 		<td class="text-right">2</td>
 		<td class="text-right"></td>
 		<td class="text-right">1</td>
@@ -417,8 +431,8 @@
 			<a href="s_test.go">s_test.go</a>
 			
 		</td>
-		<td class="text-right">2KB</td>
-		<td class="text-right">97</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">107</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -548,6 +562,26 @@ var <span id="StructTag">StructTag    </span> = `structutil`
 
 
 
+
+
+
+
+
+
+<h4 id="Field.GetTag" data-kind="f">
+	func
+	(self *Field)
+	<a title="View Source" href="">GetTag</a>
+	<a class="permalink" href="#GetTag">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Field) GetTag(label string, fallback ...interface{}) (string, []string, bool)</pre>
+</div>
+
+<p><p>Retrieve the field name and attributes associated with the given field tag.</p>
+</p>
 
 
 
