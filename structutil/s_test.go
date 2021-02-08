@@ -11,7 +11,7 @@ type tStructBase struct {
 	Age     int
 	Enabled bool
 	hidden  bool
-	Words   []string
+	Words   []string `testing:"WORDS,omitempty"`
 	Phrase  []string `structutil:"replace"`
 }
 
@@ -65,6 +65,20 @@ func TestS(t *testing.T) {
 			require.Equal(t, `Words`, name)
 			require.Equal(t, `[]string`, typn)
 			require.Equal(t, []string{`hello`, `there`}, field.V().Strings())
+
+			var tag, attrs, ok = field.GetTag(`testing`)
+
+			require.True(t, ok)
+			require.Equal(t, `WORDS`, tag)
+			require.Equal(t, []string{
+				`omitempty`,
+			}, attrs)
+
+			tag, attrs, ok = field.GetTag(`other`)
+
+			require.False(t, ok)
+			require.Equal(t, ``, tag)
+			require.Empty(t, attrs)
 		case 4:
 			require.Equal(t, `Phrase`, name)
 			require.Equal(t, `[]string`, typn)

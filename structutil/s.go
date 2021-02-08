@@ -3,8 +3,11 @@ package structutil
 import (
 	"fmt"
 	"reflect"
+	"strings"
 
 	"github.com/ghetzel/go-stockutil/maputil"
+	"github.com/ghetzel/go-stockutil/sliceutil"
+	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
@@ -31,6 +34,18 @@ func (self *Field) Value() reflect.Value {
 	}
 
 	return reflect.Value{}
+}
+
+// Retrieve the field name and attributes associated with the given field tag.
+func (self *Field) GetTag(label string, fallback ...interface{}) (string, []string, bool) {
+	if tag := self.Tag.Get(label); tag != `` {
+		var first, rest = stringutil.SplitPair(tag, `,`)
+		var attrs = strings.Split(rest, `,`)
+
+		return typeutil.OrString(first, self.Name), sliceutil.TrimSpace(attrs), true
+	}
+
+	return ``, nil, false
 }
 
 func (self *Field) V() typeutil.Variant {
