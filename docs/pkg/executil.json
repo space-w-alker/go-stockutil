@@ -7,8 +7,8 @@
     "Synopsis": "Utilities that make executing commands on the local system a little bit easier.\n",
     "MainFunction": false,
     "CommentWordCount": 634,
-    "LineCount": 949,
-    "SourceLineCount": 712,
+    "LineCount": 948,
+    "SourceLineCount": 710,
     "FunctionCount": 40,
     "TypeCount": 4,
     "ConstantCount": 0,
@@ -17,7 +17,7 @@
         "Mean": 0.5015,
         "StdDev": 0.486,
         "GeometricMean": 0,
-        "HarmonicMean": 1,
+        "HarmonicMean": 0,
         "Median": 0.6,
         "Minimum": 0,
         "Maximum": 1
@@ -203,10 +203,6 @@
                     "Alias": "exec"
                 },
                 {
-                    "PackageName": "strings",
-                    "Alias": "strings"
-                },
-                {
                     "PackageName": "testing",
                     "Alias": "testing"
                 },
@@ -215,9 +211,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 1768,
-            "LineCount": 81,
-            "SourceLineCount": 59,
+            "Size": 1760,
+            "LineCount": 80,
+            "SourceLineCount": 57,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -460,27 +456,6 @@
             ],
             "Signature": "Join(in interface{}) string",
             "Source": "ewoJdmFyIGFyZ3MgW11zdHJpbmcKCWlmIGNtZCwgb2sgOj0gaW4uKCpleGVjLkNtZCk7IG9rIHsKCQlhcmdzID0gY21kLkFyZ3MKCX0gZWxzZSBpZiB0eXBldXRpbC5Jc0FycmF5KGluKSB7CgkJYXJncyA9IHNsaWNldXRpbC5TdHJpbmdpZnkoaW4pCgl9IGVsc2UgewoJCXJldHVybiBgYAoJfQoJZm9yIGksIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBzdHJpbmdzLkNvbnRhaW5zKGFyZywgYCBgKSB7CgkJCWFyZ3NbaV0gPSBzdHJpbmd1dGlsLldyYXAoYXJnLCBgJ2AsIGAnYCkKCQl9Cgl9CglyZXR1cm4gc3RyaW5ncy5Kb2luKGFyZ3MsIGAgYCkKfQ==",
-            "IsPackageLevel": true
-        },
-        {
-            "Name": "LogOutput",
-            "Arguments": [
-                {
-                    "Name": "outlevel",
-                    "Type": "log.Level"
-                },
-                {
-                    "Name": "errlevel",
-                    "Type": "log.Level"
-                }
-            ],
-            "Returns": [
-                {
-                    "Type": "OutputLineFunc"
-                }
-            ],
-            "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-            "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
             "IsPackageLevel": true
         },
         {
@@ -857,7 +832,7 @@
                 }
             ],
             "Signature": "TestWhich(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuVHJ1ZShzdHJpbmdzLkhhc1N1ZmZpeChXaGljaChgdGFpbGApLCBgL2Jpbi90YWlsYCkpCglhc3NlcnQuRW1wdHkoV2hpY2goYGFic29sdXRlbHktbm90LWEtY29tbWFuZC1AIyQlXiYqYCkpCn0=",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRW1wdHkoV2hpY2goYGFic29sdXRlbHktbm90LWEtY29tbWFuZC1AIyQlXiYqYCkpCn0=",
             "IsPackageLevel": true
         }
     ],
@@ -1146,6 +1121,29 @@
         },
         "OutputLineFunc": {
             "Name": "OutputLineFunc",
+            "Methods": [
+                {
+                    "Name": "LogOutput",
+                    "Arguments": [
+                        {
+                            "Name": "outlevel",
+                            "Type": "log.Level"
+                        },
+                        {
+                            "Name": "errlevel",
+                            "Type": "log.Level"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "OutputLineFunc"
+                        }
+                    ],
+                    "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                    "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                    "IsPackageLevel": true
+                }
+            ],
             "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
         },
         "Status": {

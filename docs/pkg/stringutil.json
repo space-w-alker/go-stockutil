@@ -7,8 +7,8 @@
     "Synopsis": "Utilities for converting and manipulating data to and from strings\n",
     "MainFunction": false,
     "CommentWordCount": 806,
-    "LineCount": 2560,
-    "SourceLineCount": 1962,
+    "LineCount": 2570,
+    "SourceLineCount": 1969,
     "FunctionCount": 84,
     "TypeCount": 6,
     "ConstantCount": 17,
@@ -95,6 +95,10 @@
             "Name": "003_stringutil_tostring_test.go",
             "Imports": [
                 {
+                    "PackageName": "fmt",
+                    "Alias": "fmt"
+                },
+                {
                     "PackageName": "testing",
                     "Alias": "testing"
                 },
@@ -103,9 +107,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 2540,
-            "LineCount": 115,
-            "SourceLineCount": 92,
+            "Size": 2768,
+            "LineCount": 125,
+            "SourceLineCount": 99,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -2324,7 +2328,7 @@
                 }
             ],
             "Signature": "TestToString(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0ZXN0dmFsdWVzIDo9IG1hcFtpbnRlcmZhY2V7fV1zdHJpbmd7bmlsOiBgYCwgaW50KDApOiBgMGAsIGludCgxKTogYDFgLCBpbnQ4KDApOiBgMGAsIGludDgoMSk6IGAxYCwgaW50MTYoMCk6IGAwYCwgaW50MTYoMSk6IGAxYCwgaW50MzIoMCk6IGAwYCwgaW50MzIoMSk6IGAxYCwgaW50NjQoMCk6IGAwYCwgaW50NjQoMSk6IGAxYCwgdWludCgwKTogYDBgLCB1aW50KDEpOiBgMWAsIHVpbnQ4KDApOiBgMGAsIHVpbnQ4KDEpOiBgMWAsIHVpbnQxNigwKTogYDBgLCB1aW50MTYoMSk6IGAxYCwgdWludDMyKDApOiBgMGAsIHVpbnQzMigxKTogYDFgLCB1aW50NjQoMCk6IGAwYCwgdWludDY0KDEpOiBgMWAsIGZsb2F0MzIoMC4wKTogYDBgLCBmbG9hdDMyKDEuMCk6IGAxYCwgZmxvYXQ2NCgwLjApOiBgMGAsIGZsb2F0NjQoMS4wKTogYDFgLCBmbG9hdDMyKDAuNSk6IGAwLjVgLCBmbG9hdDMyKDEuNyk6IGAxLjdgLCBmbG9hdDY0KDAuNik6IGAwLjZgLCBmbG9hdDY0KDEuMik6IGAxLjJgfQoJZm9yIGluLCBvdXQgOj0gcmFuZ2UgdGVzdHZhbHVlcyB7CgkJaWYgdiwgZXJyIDo9IFRvU3RyaW5nKGluKTsgZXJyICE9IG5pbCB8fCB2ICE9IG91dCB7CgkJCXQuRXJyb3JmKCJWYWx1ZSAldiAoJVQpIFRvU3RyaW5nIGZhaWxlZDogZXhwZWN0ZWQgJyVzJywgZ290ICclcycgKGVycjogJXYpIiwgaW4sIGluLCBvdXQsIHYsIGVycikKCQl9Cgl9CglzLCBlcnIgOj0gVG9TdHJpbmcoW111aW50OHsweDc0LCAweDY1LCAweDczLCAweDc0fSkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbChgdGVzdGAsIHMpCglzLCBlcnIgPSBUb1N0cmluZyhbXWJ5dGV7MHg3NCwgMHg2NSwgMHg3MywgMHg3NH0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBzKQoJcywgZXJyID0gVG9TdHJpbmcoW11ydW5leyd0JywgJ2UnLCAncycsICd0J30pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBzKQp9",
+            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl0ZXN0dmFsdWVzIDo9IG1hcFtpbnRlcmZhY2V7fV1zdHJpbmd7bmlsOiBgYCwgZm10LkVycm9yZihgZXJyb3Itd29ya2VkYCk6IGBlcnJvci13b3JrZWRgLCBuZXcoZm10U3RyaW5nZXJUZXN0KTogYHN0cmluZ2VyLXdvcmtlZGAsIGludCgwKTogYDBgLCBpbnQoMSk6IGAxYCwgaW50OCgwKTogYDBgLCBpbnQ4KDEpOiBgMWAsIGludDE2KDApOiBgMGAsIGludDE2KDEpOiBgMWAsIGludDMyKDApOiBgMGAsIGludDMyKDEpOiBgMWAsIGludDY0KDApOiBgMGAsIGludDY0KDEpOiBgMWAsIHVpbnQoMCk6IGAwYCwgdWludCgxKTogYDFgLCB1aW50OCgwKTogYDBgLCB1aW50OCgxKTogYDFgLCB1aW50MTYoMCk6IGAwYCwgdWludDE2KDEpOiBgMWAsIHVpbnQzMigwKTogYDBgLCB1aW50MzIoMSk6IGAxYCwgdWludDY0KDApOiBgMGAsIHVpbnQ2NCgxKTogYDFgLCBmbG9hdDMyKDAuMCk6IGAwYCwgZmxvYXQzMigxLjApOiBgMWAsIGZsb2F0NjQoMC4wKTogYDBgLCBmbG9hdDY0KDEuMCk6IGAxYCwgZmxvYXQzMigwLjUpOiBgMC41YCwgZmxvYXQzMigxLjcpOiBgMS43YCwgZmxvYXQ2NCgwLjYpOiBgMC42YCwgZmxvYXQ2NCgxLjIpOiBgMS4yYH0KCWZvciBpbiwgb3V0IDo9IHJhbmdlIHRlc3R2YWx1ZXMgewoJCWlmIHYsIGVyciA6PSBUb1N0cmluZyhpbik7IGVyciAhPSBuaWwgfHwgdiAhPSBvdXQgewoJCQl0LkVycm9yZigiVmFsdWUgJXYgKCVUKSBUb1N0cmluZyBmYWlsZWQ6IGV4cGVjdGVkICclcycsIGdvdCAnJXMnIChlcnI6ICV2KSIsIGluLCBpbiwgb3V0LCB2LCBlcnIpCgkJfQoJfQoJcywgZXJyIDo9IFRvU3RyaW5nKFtddWludDh7MHg3NCwgMHg2NSwgMHg3MywgMHg3NH0pCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBzKQoJcywgZXJyID0gVG9TdHJpbmcoW11ieXRlezB4NzQsIDB4NjUsIDB4NzMsIDB4NzR9KQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgcykKCXMsIGVyciA9IFRvU3RyaW5nKFtdcnVuZXsndCcsICdlJywgJ3MnLCAndCd9KQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgcykKfQ==",
             "IsPackageLevel": true
         },
         {

@@ -8,7 +8,7 @@
     "MainFunction": false,
     "CommentWordCount": 355,
     "LineCount": 1529,
-    "SourceLineCount": 1239,
+    "SourceLineCount": 1240,
     "FunctionCount": 46,
     "TypeCount": 4,
     "ConstantCount": 12,
@@ -75,9 +75,9 @@
                     "Alias": "rxutil"
                 }
             ],
-            "Size": 13858,
+            "Size": 13918,
             "LineCount": 609,
-            "SourceLineCount": 505,
+            "SourceLineCount": 506,
             "FunctionCount": 18,
             "TypeCount": 2,
             "ConstantCount": 9,
@@ -975,7 +975,7 @@
                 }
             ],
             "Signature": "ToString(in interface{}) (string, error)",
-            "Source": "ewoJaWYgaW4gPT0gbmlsIHsKCQlyZXR1cm4gYGAsIG5pbAoJfQoJaWYgaW5TdHIsIG9rIDo9IGluLihmbXQuU3RyaW5nZXIpOyBvayB7CgkJcmV0dXJuIGluU3RyLlN0cmluZygpLCBuaWwKCX0KCXZhciBhc0J5dGVzIFtdYnl0ZQoJaWYgdTgsIG9rIDo9IGluLihbXXVpbnQ4KTsgb2sgewoJCWFzQnl0ZXMgPSBbXWJ5dGUodTgpCgl9IGVsc2UgaWYgYiwgb2sgOj0gaW4uKFtdYnl0ZSk7IG9rIHsKCQlhc0J5dGVzID0gYgoJfSBlbHNlIGlmIHIsIG9rIDo9IGluLihbXXJ1bmUpOyBvayB7CgkJcmV0dXJuIHN0cmluZyhyKSwgbmlsCgl9CglpZiBsZW4oYXNCeXRlcykgPiAwIHsKCQlpZiBvdXQgOj0gc3RyaW5nKGFzQnl0ZXMpOyB1dGY4LlZhbGlkU3RyaW5nKG91dCkgewoJCQlyZXR1cm4gb3V0LCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gYGAsIGZtdC5FcnJvcmYoIkdpdmVuICVUIGlzIG5vdCBhIHZhbGlkIFVURi04IHN0cmluZyIsIGluKQoJCX0KCX0KCWlmIGluVCA6PSByZWZsZWN0LlR5cGVPZihpbik7IGluVCAhPSBuaWwgewoJCXN3aXRjaCBpblQuS2luZCgpIHsKCQljYXNlIHJlZmxlY3QuRmxvYXQzMjoKCQkJcmV0dXJuIHN0cmNvbnYuRm9ybWF0RmxvYXQocmVmbGVjdC5WYWx1ZU9mKGluKS5GbG9hdCgpLCAnZicsIC0xLCAzMiksIG5pbAoJCWNhc2UgcmVmbGVjdC5GbG9hdDY0OgoJCQlyZXR1cm4gc3RyY29udi5Gb3JtYXRGbG9hdChyZWZsZWN0LlZhbHVlT2YoaW4pLkZsb2F0KCksICdmJywgLTEsIDY0KSwgbmlsCgkJY2FzZSByZWZsZWN0LkJvb2w6CgkJCXJldHVybiBzdHJjb252LkZvcm1hdEJvb2woaW4uKGJvb2wpKSwgbmlsCgkJY2FzZSByZWZsZWN0LlN0cmluZzoKCQkJaWYgaW5TdHIsIG9rIDo9IGluLihzdHJpbmcpOyBvayB7CgkJCQlyZXR1cm4gaW5TdHIsIG5pbAoJCQl9CgkJfQoJCWlmICFJc0tpbmQoaW4sIENvbXBvdW5kVHlwZXMuLi4pIHsKCQkJcmV0dXJuIGZtdC5TcHJpbnRmKCIldiIsIGluKSwgbmlsCgkJfQoJfQoJcmV0dXJuIGBgLCBmbXQuRXJyb3JmKCJVbmFibGUgdG8gY29udmVydCB0eXBlICclVCcgdG8gc3RyaW5nIiwgaW4pCn0=",
+            "Source": "ewoJaWYgaW4gPT0gbmlsIHsKCQlyZXR1cm4gYGAsIG5pbAoJfSBlbHNlIGlmIGVyciwgb2sgOj0gaW4uKGVycm9yKTsgb2sgewoJCXJldHVybiBlcnIuRXJyb3IoKSwgbmlsCgl9IGVsc2UgaWYgcywgb2sgOj0gaW4uKGZtdC5TdHJpbmdlcik7IG9rIHsKCQlyZXR1cm4gcy5TdHJpbmcoKSwgbmlsCgl9Cgl2YXIgYXNCeXRlcyBbXWJ5dGUKCWlmIHU4LCBvayA6PSBpbi4oW111aW50OCk7IG9rIHsKCQlhc0J5dGVzID0gW11ieXRlKHU4KQoJfSBlbHNlIGlmIGIsIG9rIDo9IGluLihbXWJ5dGUpOyBvayB7CgkJYXNCeXRlcyA9IGIKCX0gZWxzZSBpZiByLCBvayA6PSBpbi4oW11ydW5lKTsgb2sgewoJCXJldHVybiBzdHJpbmcociksIG5pbAoJfQoJaWYgbGVuKGFzQnl0ZXMpID4gMCB7CgkJaWYgb3V0IDo9IHN0cmluZyhhc0J5dGVzKTsgdXRmOC5WYWxpZFN0cmluZyhvdXQpIHsKCQkJcmV0dXJuIG91dCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGBgLCBmbXQuRXJyb3JmKCJHaXZlbiAlVCBpcyBub3QgYSB2YWxpZCBVVEYtOCBzdHJpbmciLCBpbikKCQl9Cgl9CglpZiBpblQgOj0gcmVmbGVjdC5UeXBlT2YoaW4pOyBpblQgIT0gbmlsIHsKCQlzd2l0Y2ggaW5ULktpbmQoKSB7CgkJY2FzZSByZWZsZWN0LkZsb2F0MzI6CgkJCXJldHVybiBzdHJjb252LkZvcm1hdEZsb2F0KHJlZmxlY3QuVmFsdWVPZihpbikuRmxvYXQoKSwgJ2YnLCAtMSwgMzIpLCBuaWwKCQljYXNlIHJlZmxlY3QuRmxvYXQ2NDoKCQkJcmV0dXJuIHN0cmNvbnYuRm9ybWF0RmxvYXQocmVmbGVjdC5WYWx1ZU9mKGluKS5GbG9hdCgpLCAnZicsIC0xLCA2NCksIG5pbAoJCWNhc2UgcmVmbGVjdC5Cb29sOgoJCQlyZXR1cm4gc3RyY29udi5Gb3JtYXRCb29sKGluLihib29sKSksIG5pbAoJCWNhc2UgcmVmbGVjdC5TdHJpbmc6CgkJCWlmIGluU3RyLCBvayA6PSBpbi4oc3RyaW5nKTsgb2sgewoJCQkJcmV0dXJuIGluU3RyLCBuaWwKCQkJfQoJCX0KCQlpZiAhSXNLaW5kKGluLCBDb21wb3VuZFR5cGVzLi4uKSB7CgkJCXJldHVybiBmbXQuU3ByaW50ZigiJXYiLCBpbiksIG5pbAoJCX0KCX0KCXJldHVybiBgYCwgZm10LkVycm9yZigiVW5hYmxlIHRvIGNvbnZlcnQgdHlwZSAnJVQnIHRvIHN0cmluZyIsIGluKQp9",
             "IsPackageLevel": true
         }
     ],

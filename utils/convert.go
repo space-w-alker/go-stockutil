@@ -115,10 +115,10 @@ var TimeFormats = []string{
 func ToString(in interface{}) (string, error) {
 	if in == nil {
 		return ``, nil
-	}
-
-	if inStr, ok := in.(fmt.Stringer); ok {
-		return inStr.String(), nil
+	} else if err, ok := in.(error); ok {
+		return err.Error(), nil
+	} else if s, ok := in.(fmt.Stringer); ok {
+		return s.String(), nil
 	}
 
 	var asBytes []byte

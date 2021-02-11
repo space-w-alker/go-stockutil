@@ -1,10 +1,17 @@
 package stringutil
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/ghetzel/testify/require"
 )
+
+type fmtStringerTest struct{}
+
+func (self *fmtStringerTest) String() string {
+	return `stringer-worked`
+}
 
 func TestConvertToString(t *testing.T) {
 	assert := require.New(t)
@@ -25,7 +32,10 @@ func TestToString(t *testing.T) {
 	assert := require.New(t)
 
 	testvalues := map[interface{}]string{
-		nil:      ``,
+		nil:                        ``,
+		fmt.Errorf(`error-worked`): `error-worked`,
+		new(fmtStringerTest):       `stringer-worked`,
+
 		int(0):   `0`,
 		int(1):   `1`,
 		int8(0):  `0`,
