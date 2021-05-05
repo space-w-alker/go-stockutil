@@ -6,19 +6,19 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
     "MainFunction": false,
-    "CommentWordCount": 886,
-    "LineCount": 1526,
-    "SourceLineCount": 1126,
-    "FunctionCount": 82,
+    "CommentWordCount": 940,
+    "LineCount": 1554,
+    "SourceLineCount": 1147,
+    "FunctionCount": 83,
     "TypeCount": 3,
     "ConstantCount": 3,
     "VariableCount": 0,
     "Statistics": {
-        "Mean": 0.5356,
-        "StdDev": 0.4464,
-        "GeometricMean": 0.9393,
-        "HarmonicMean": 0,
-        "Median": 0.4,
+        "Mean": 0.5409,
+        "StdDev": 0.4466,
+        "GeometricMean": 0.94,
+        "HarmonicMean": 1,
+        "Median": 0.5,
         "Minimum": 0,
         "Maximum": 1
     },
@@ -71,6 +71,10 @@
             "Name": "values.go",
             "Imports": [
                 {
+                    "PackageName": "encoding/json",
+                    "Alias": "json"
+                },
+                {
                     "PackageName": "fmt",
                     "Alias": "fmt"
                 },
@@ -95,10 +99,10 @@
                     "Alias": "utils"
                 }
             ],
-            "Size": 9821,
-            "LineCount": 389,
-            "SourceLineCount": 276,
-            "FunctionCount": 22,
+            "Size": 10436,
+            "LineCount": 417,
+            "SourceLineCount": 297,
+            "FunctionCount": 23,
             "TypeCount": 1,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -712,6 +716,28 @@
             ],
             "Signature": "IsZero(value interface{}) bool",
             "Source": "ewoJcmV0dXJuIHV0aWxzLklzWmVybyh2YWx1ZSkKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "JSON",
+            "Comment": "Provide a variable to encode as JSON, and an optional indent string.  If no indent argument is\nprovided, the default indent is \"  \" (two spaces).  If an empty string is explcitly provided\nfor the indent argument, the output will not be indented (single line).",
+            "Arguments": [
+                {
+                    "Name": "in",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "indent",
+                    "Type": "...string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "string"
+                }
+            ],
+            "Signature": "JSON(in interface{}, indent ...string) string",
+            "Source": "ewoJdmFyIGkgc3RyaW5nCgl2YXIgb3V0IFtdYnl0ZQoJdmFyIGVyciBlcnJvcgoJaWYgbGVuKGluZGVudCkgPiAwIHsKCQlpID0gaW5kZW50WzBdCgl9IGVsc2UgewoJCWkgPSBgICBgCgl9CglpZiBpID09IGBgIHsKCQlvdXQsIGVyciA9IGpzb24uTWFyc2hhbChpbikKCX0gZWxzZSB7CgkJb3V0LCBlcnIgPSBqc29uLk1hcnNoYWxJbmRlbnQoaW4sIGBgLCBpKQoJfQoJaWYgZXJyID09IG5pbCB7CgkJcmV0dXJuIHN0cmluZyhvdXQpCgl9IGVsc2UgewoJCXJldHVybiBgYAoJfQp9",
             "IsPackageLevel": true
         },
         {

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.10
+                            v1.9.11
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 37%</span>
+<span class="pull-right">Doc Coverage: 36%</span>
 <h2 id="pkg-overview">package fileutil</h2>
 
 <p>
@@ -510,6 +510,62 @@
 		<a href="#DirReaderOptions">type DirReaderOptions </a>
 
 		
+		
+	</li>
+	
+    <li>
+		<a href="#ExtendableReader">type ExtendableReader</a>
+
+		
+		
+		<ul>
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+			<li>
+				
+				<a href="#ExtendableReader.AppendSource">
+					func
+					(self *ExtendableReader)
+					AppendSource(rc io.ReadCloser)
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#ExtendableReader.Close">
+					func
+					(self *ExtendableReader)
+					Close() error
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#ExtendableReader.Read">
+					func
+					(self *ExtendableReader)
+					Read(b []byte) (int, error)
+				</a>
+				
+			</li>
+			
+			
+		</ul>
 		
 	</li>
 	
@@ -1102,6 +1158,34 @@
 		</td>
 		<td class="text-right">2KB</td>
 		<td class="text-right">65</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="extendable_reader.go">extendable_reader.go</a>
+			
+		</td>
+		<td class="text-right">1KB</td>
+		<td class="text-right">60</td>
+		<td class="text-right">3</td>
+		<td class="text-right">1</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="extendable_reader_test.go">extendable_reader_test.go</a>
+			
+		</td>
+		<td class="text-right">1020B</td>
+		<td class="text-right">32</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -2069,6 +2153,80 @@ var <span id="SshVerifyHostFunc">SshVerifyHostFunc       </span> =
 <div class="funcdecl decl">
 	<a title="View Source" href="">&#10070;</a>
 	<pre>func (self DirReaderOptions) Has(option DirReaderOption) bool</pre>
+</div>
+
+
+
+
+<h3 id="ExtendableReader" data-kind="t">
+	type
+	<a title="View Source" href="">ExtendableReader</a>
+	<a class="permalink" href="#ExtendableReader">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	
+	
+	<pre>type ExtendableReader struct {
+  // contains filtered or unexported fields
+}</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="ExtendableReader.AppendSource" data-kind="f">
+	func
+	(self *ExtendableReader)
+	<a title="View Source" href="">AppendSource</a>
+	<a class="permalink" href="#AppendSource">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ExtendableReader) AppendSource(rc io.ReadCloser)</pre>
+</div>
+
+
+
+
+<h4 id="ExtendableReader.Close" data-kind="f">
+	func
+	(self *ExtendableReader)
+	<a title="View Source" href="">Close</a>
+	<a class="permalink" href="#Close">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ExtendableReader) Close() error</pre>
+</div>
+
+
+
+
+<h4 id="ExtendableReader.Read" data-kind="f">
+	func
+	(self *ExtendableReader)
+	<a title="View Source" href="">Read</a>
+	<a class="permalink" href="#Read">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *ExtendableReader) Read(b []byte) (int, error)</pre>
 </div>
 
 

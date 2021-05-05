@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.10
+                            v1.9.11
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.9.10&#34;
+    &#34;Version&#34;: &#34;1.9.11&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.9.10`&#34;,
+        &#34;Expression&#34;: &#34;`1.9.11`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.9.10&#34;
+        &#34;Value&#34;: &#34;1.9.11&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -3440,6 +3440,66 @@
           },
           {
             &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 3,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;list&#34;,
+                &#34;PackageName&#34;: &#34;container/list&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;io&#34;,
+                &#34;PackageName&#34;: &#34;io&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;sync&#34;,
+                &#34;PackageName&#34;: &#34;sync&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;log&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 76,
+            &#34;Name&#34;: &#34;extendable_reader.go&#34;,
+            &#34;Size&#34;: 1363,
+            &#34;SourceLineCount&#34;: 60,
+            &#34;TypeCount&#34;: 1,
+            &#34;VariableCount&#34;: 0
+          },
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 0,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;bytes&#34;,
+                &#34;PackageName&#34;: &#34;bytes&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;io&#34;,
+                &#34;PackageName&#34;: &#34;io&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;ioutil&#34;,
+                &#34;PackageName&#34;: &#34;io/ioutil&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;testing&#34;,
+                &#34;PackageName&#34;: &#34;testing&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;require&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 45,
+            &#34;Name&#34;: &#34;extendable_reader_test.go&#34;,
+            &#34;Size&#34;: 1020,
+            &#34;SourceLineCount&#34;: 32,
+            &#34;TypeCount&#34;: 0,
+            &#34;VariableCount&#34;: 0
+          },
+          {
+            &#34;ConstantCount&#34;: 0,
             &#34;FunctionCount&#34;: 25,
             &#34;Imports&#34;: [
               {
@@ -3851,7 +3911,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 74,
+        &#34;FunctionCount&#34;: 77,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -4666,19 +4726,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;fileutil&#34;,
-        &#34;LineCount&#34;: 3014,
+        &#34;LineCount&#34;: 3135,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;fileutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 2404,
+        &#34;SourceLineCount&#34;: 2496,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.3679,
+          &#34;Mean&#34;: 0.3556,
           &#34;Median&#34;: 0,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.468
+          &#34;StdDev&#34;: 0.4648
         },
         &#34;Synopsis&#34;: &#34;Helpers for working with files and filesystems\n&#34;,
         &#34;Tests&#34;: [
@@ -4717,6 +4777,18 @@
             &#34;Name&#34;: &#34;TestDirReaderSkipFunc&#34;,
             &#34;Signature&#34;: &#34;TestDirReaderSkipFunc(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglkcmVhZCA6PSBOZXdEaXJSZWFkZXIoYC4vdGVzdGRpcmApCglkZWZlciBkcmVhZC5DbG9zZSgpCglkcmVhZC5TZXRTa2lwRnVuYyhmdW5jKHAgc3RyaW5nKSBib29sIHsKCQlmaWxlbmFtZSA6PSBzdHJpbmdzLlRyaW1TdWZmaXgocCwgZmlsZXBhdGguRXh0KHApKQoJCXQuTG9nZigiJXM6ICV2IiwgZmlsZW5hbWUsIHN0cmluZ3MuSGFzU3VmZml4KGZpbGVuYW1lLCBgMWApKQoJCXJldHVybiBzdHJpbmdzLkhhc1N1ZmZpeChmaWxlbmFtZSwgYDFgKQoJfSkKCWRhdGEsIGVyciA6PSBpb3V0aWwuUmVhZEFsbChkcmVhZCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCWFzc2VydC5FcXVhbCgiYVxuYlxuY1xuZDJcbmQzXG5lMlxuIiwgc3RyaW5nKGRhdGEpKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestExtendableReader&#34;,
+            &#34;Signature&#34;: &#34;TestExtendableReader(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIHNlcXJjIEV4dGVuZGFibGVSZWFkZXIKCXZhciBiID0gbWFrZShbXWJ5dGUsIDY0KQoJdmFyIG4sIGVyciA9IHNlcXJjLlJlYWQoYikKCXJlcXVpcmUuWmVybyh0LCBuKQoJcmVxdWlyZS5FcXVhbCh0LCBpby5FT0YsIGVycikKCXNlcXJjLkFwcGVuZFNvdXJjZShpb3V0aWwuTm9wQ2xvc2VyKGJ5dGVzLk5ld0J1ZmZlclN0cmluZyhgaGVsbG9gKSkpCgluLCBlcnIgPSBzZXFyYy5SZWFkKGIpCglyZXF1aXJlLk5vRXJyb3IodCwgZXJyKQoJcmVxdWlyZS5FcXVhbCh0LCA1LCBuKQoJbiwgZXJyID0gc2VxcmMuUmVhZChiKQoJcmVxdWlyZS5aZXJvKHQsIG4pCglyZXF1aXJlLkVxdWFsKHQsIGlvLkVPRiwgZXJyKQoJc2VxcmMuQXBwZW5kU291cmNlKGlvdXRpbC5Ob3BDbG9zZXIoYnl0ZXMuTmV3QnVmZmVyU3RyaW5nKGB0aGVyZWApKSkKCXNlcXJjLkFwcGVuZFNvdXJjZShpb3V0aWwuTm9wQ2xvc2VyKGJ5dGVzLk5ld0J1ZmZlclN0cmluZyhgIHRvZGF5YCkpKQoJc2VxcmMuQXBwZW5kU291cmNlKGlvdXRpbC5Ob3BDbG9zZXIoYnl0ZXMuTmV3QnVmZmVyU3RyaW5nKGAgaXNgKSkpCglzZXFyYy5BcHBlbmRTb3VyY2UoaW91dGlsLk5vcENsb3NlcihieXRlcy5OZXdCdWZmZXJTdHJpbmcoYCBhIGRheWApKSkKCWIsIGVyciA9IGlvLlJlYWRBbGwoJnNlcXJjKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIGVycikKCXJlcXVpcmUuRXF1YWwodCwgYHRoZXJlIHRvZGF5IGlzIGEgZGF5YCwgc3RyaW5nKGIpKQoJYiwgZXJyID0gaW8uUmVhZEFsbCgmc2VxcmMpCglyZXF1aXJlLk5vRXJyb3IodCwgZXJyKQoJcmVxdWlyZS5MZW4odCwgYiwgMCkKfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -4899,7 +4971,7 @@
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGAsIFNldEV4dChgYCwgYGApKQoJYXNzZXJ0LkVxdWFsKGAvbm90aGluZ2J1cmdlci50eHRgLCBTZXRFeHQoYC9ub3RoaW5nYnVyZ2VyLnR4dGAsIGBgKSkKCWFzc2VydC5FcXVhbChgL25vdGhpbmdidXJnZXIuanBnYCwgU2V0RXh0KGAvbm90aGluZ2J1cmdlci50eHRgLCBgLmpwZ2ApKQoJYXNzZXJ0LkVxdWFsKGAvbm90aGluZ2J1cmdlci5qcGdgLCBTZXRFeHQoYC9ub3RoaW5nYnVyZ2VyLnR4dGAsIGBqcGdgKSkKCWFzc2VydC5FcXVhbChgL25vdGhpbmdidXJnZXIudHh0YCwgU2V0RXh0KGAvbm90aGluZ2J1cmdlci50eHRgLCBgLmpwZ2AsIGAuYm1wYCkpCglhc3NlcnQuRXF1YWwoYC9ub3RoaW5nYnVyZ2VyLnR4dGAsIFNldEV4dChgL25vdGhpbmdidXJnZXIudHh0YCwgYGpwZ2AsIGAuYm1wYCkpCglhc3NlcnQuRXF1YWwoYC9ub3RoaW5nYnVyZ2VyLmpwZ2AsIFNldEV4dChgL25vdGhpbmdidXJnZXIudHh0YCwgYC5qcGdgLCBgLnR4dGApKQoJYXNzZXJ0LkVxdWFsKGAvbm90aGluZ2J1cmdlci5qcGdgLCBTZXRFeHQoYC9ub3RoaW5nYnVyZ2VyLnR4dGAsIGBqcGdgLCBgLnR4dGApKQoJYXNzZXJ0LkVxdWFsKGAvbm90aGluZ2J1cmdlci5qcGdgLCBTZXRFeHQoYC9ub3RoaW5nYnVyZ2VyLnR4dGAsIGAuanBnYCwgYHR4dGApKQoJYXNzZXJ0LkVxdWFsKGAvbm90aGluZ2J1cmdlci5qcGdgLCBTZXRFeHQoYC9ub3RoaW5nYnVyZ2VyLnR4dGAsIGBqcGdgLCBgdHh0YCkpCglhc3NlcnQuRXF1YWwoYC9ub3RoaW5nYnVyZ2VyLmluZm8ueG1sYCwgU2V0RXh0KGAvbm90aGluZ2J1cmdlci5pbmZvLmpzb25gLCBgeG1sYCkpCglhc3NlcnQuRXF1YWwoYC9ub3RoaW5nYnVyZ2VyLmluZm8ueG1sYCwgU2V0RXh0KGAvbm90aGluZ2J1cmdlci5pbmZvLmpzb25gLCBgLnhtbGApKQoJYXNzZXJ0LkVxdWFsKGAvbm90aGluZ2J1cmdlci54bWxgLCBTZXRFeHQoYC9ub3RoaW5nYnVyZ2VyLmluZm8uanNvbmAsIGAueG1sYCwgYGluZm8uanNvbmApKQoJYXNzZXJ0LkVxdWFsKGAvbm90aGluZ2J1cmdlci54bWxgLCBTZXRFeHQoYC9ub3RoaW5nYnVyZ2VyLmluZm8uanNvbmAsIGAueG1sYCwgYC5pbmZvLmpzb25gKSkKCWFzc2VydC5FcXVhbChgL25vdGhpbmdidXJnZXIueG1sYCwgU2V0RXh0KGAvbm90aGluZ2J1cmdlci5pbmZvLmpzb25gLCBgeG1sYCwgYGluZm8uanNvbmApKQoJYXNzZXJ0LkVxdWFsKGAvbm90aGluZ2J1cmdlci54bWxgLCBTZXRFeHQoYC9ub3RoaW5nYnVyZ2VyLmluZm8uanNvbmAsIGB4bWxgLCBgLmluZm8uanNvbmApKQp9&#34;
           }
         ],
-        &#34;TypeCount&#34;: 16,
+        &#34;TypeCount&#34;: 17,
         &#34;Types&#34;: {
           &#34;CloserFunc&#34;: {
             &#34;Name&#34;: &#34;CloserFunc&#34;,
@@ -5014,6 +5086,60 @@
             ],
             &#34;Name&#34;: &#34;DirReaderOptions&#34;,
             &#34;Source&#34;: &#34;dHlwZSBEaXJSZWFkZXJPcHRpb25zIFtdRGlyUmVhZGVyT3B0aW9u&#34;
+          },
+          &#34;ExtendableReader&#34;: {
+            &#34;HasUnexportedFields&#34;: true,
+            &#34;MetaType&#34;: &#34;struct&#34;,
+            &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;rc&#34;,
+                    &#34;Type&#34;: &#34;io.ReadCloser&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;AppendSource&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Signature&#34;: &#34;AppendSource(rc io.ReadCloser)&#34;
+              },
+              {
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Close&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Close() error&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;b&#34;,
+                    &#34;Type&#34;: &#34;[]byte&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Read&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;int&#34;
+                  },
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Read(b []byte) (int, error)&#34;
+              }
+            ],
+            &#34;Name&#34;: &#34;ExtendableReader&#34;,
+            &#34;Source&#34;: &#34;dHlwZSBFeHRlbmRhYmxlUmVhZGVyIHN0cnVjdCB7Cgp9Cg==&#34;
           },
           &#34;FileInfo&#34;: {
             &#34;Comment&#34;: &#34;An os.FileInfo-compatible wrapper that allows for individual values to be overridden.&#34;,
@@ -10007,7 +10133,7 @@
         &#34;SourceLineCount&#34;: 1458,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0.963,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6593,
           &#34;Median&#34;: 1,
@@ -11924,7 +12050,7 @@
         &#34;SourceLineCount&#34;: 690,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.242,
           &#34;Median&#34;: 0,
@@ -21833,7 +21959,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;,
-        &#34;CommentWordCount&#34;: 886,
+        &#34;CommentWordCount&#34;: 940,
         &#34;ConstantCount&#34;: 3,
         &#34;Constants&#34;: [
           {
@@ -21905,8 +22031,12 @@
           },
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 22,
+            &#34;FunctionCount&#34;: 23,
             &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;json&#34;,
+                &#34;PackageName&#34;: &#34;encoding/json&#34;
+              },
               {
                 &#34;Alias&#34;: &#34;fmt&#34;,
                 &#34;PackageName&#34;: &#34;fmt&#34;
@@ -21932,10 +22062,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/utils&#34;
               }
             ],
-            &#34;LineCount&#34;: 389,
+            &#34;LineCount&#34;: 417,
             &#34;Name&#34;: &#34;values.go&#34;,
-            &#34;Size&#34;: 9821,
-            &#34;SourceLineCount&#34;: 276,
+            &#34;Size&#34;: 10436,
+            &#34;SourceLineCount&#34;: 297,
             &#34;TypeCount&#34;: 1,
             &#34;VariableCount&#34;: 0
           },
@@ -22036,7 +22166,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 82,
+        &#34;FunctionCount&#34;: 83,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -22533,6 +22663,28 @@
               {
                 &#34;Name&#34;: &#34;in&#34;,
                 &#34;Type&#34;: &#34;interface{}&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;indent&#34;,
+                &#34;Type&#34;: &#34;...string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Provide a variable to encode as JSON, and an optional indent string.  If no indent argument is\nprovided, the default indent is \&#34;  \&#34; (two spaces).  If an empty string is explcitly provided\nfor the indent argument, the output will not be indented (single line).&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;JSON&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;JSON(in interface{}, indent ...string) string&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGkgc3RyaW5nCgl2YXIgb3V0IFtdYnl0ZQoJdmFyIGVyciBlcnJvcgoJaWYgbGVuKGluZGVudCkgPiAwIHsKCQlpID0gaW5kZW50WzBdCgl9IGVsc2UgewoJCWkgPSBgICBgCgl9CglpZiBpID09IGBgIHsKCQlvdXQsIGVyciA9IGpzb24uTWFyc2hhbChpbikKCX0gZWxzZSB7CgkJb3V0LCBlcnIgPSBqc29uLk1hcnNoYWxJbmRlbnQoaW4sIGBgLCBpKQoJfQoJaWYgZXJyID09IG5pbCB7CgkJcmV0dXJuIHN0cmluZyhvdXQpCgl9IGVsc2UgewoJCXJldHVybiBgYAoJfQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;in&#34;,
+                &#34;Type&#34;: &#34;interface{}&#34;
               }
             ],
             &#34;Comment&#34;: &#34;Returns the length of the given value that could have a length (strings, slices, arrays,\nmaps, and channels).  If the value is not a type that has a length, -1 is returned.&#34;,
@@ -22950,19 +23102,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;typeutil&#34;,
-        &#34;LineCount&#34;: 1526,
+        &#34;LineCount&#34;: 1554,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;typeutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 1126,
+        &#34;SourceLineCount&#34;: 1147,
         &#34;Statistics&#34;: {
-          &#34;GeometricMean&#34;: 0.9393,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;GeometricMean&#34;: 0.94,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.5356,
-          &#34;Median&#34;: 0.4,
+          &#34;Mean&#34;: 0.5409,
+          &#34;Median&#34;: 0.5,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4464
+          &#34;StdDev&#34;: 0.4466
         },
         &#34;Synopsis&#34;: &#34;Helpers for type inflection and simplifying working with Golang generic interface types\n&#34;,
         &#34;Tests&#34;: [
@@ -25168,24 +25320,24 @@
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/fileutil&#34;,
       &#34;CommentWordCount&#34;: 1484,
       &#34;ConstantCount&#34;: 3,
-      &#34;FunctionCount&#34;: 74,
+      &#34;FunctionCount&#34;: 77,
       &#34;ImportPath&#34;: &#34;fileutil&#34;,
-      &#34;LineCount&#34;: 3014,
+      &#34;LineCount&#34;: 3135,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;fileutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 2404,
+      &#34;SourceLineCount&#34;: 2496,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.3679,
+        &#34;Mean&#34;: 0.3556,
         &#34;Median&#34;: 0,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.468
+        &#34;StdDev&#34;: 0.4648
       },
       &#34;Synopsis&#34;: &#34;Helpers for working with files and filesystems\n&#34;,
-      &#34;TypeCount&#34;: 16,
+      &#34;TypeCount&#34;: 17,
       &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
       &#34;VariableCount&#34;: 30
     },
@@ -25227,7 +25379,7 @@
       &#34;SourceLineCount&#34;: 1458,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0.963,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6593,
         &#34;Median&#34;: 1,
@@ -25252,7 +25404,7 @@
       &#34;SourceLineCount&#34;: 690,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.242,
         &#34;Median&#34;: 0,
@@ -25516,23 +25668,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;,
-      &#34;CommentWordCount&#34;: 886,
+      &#34;CommentWordCount&#34;: 940,
       &#34;ConstantCount&#34;: 3,
-      &#34;FunctionCount&#34;: 82,
+      &#34;FunctionCount&#34;: 83,
       &#34;ImportPath&#34;: &#34;typeutil&#34;,
-      &#34;LineCount&#34;: 1526,
+      &#34;LineCount&#34;: 1554,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;typeutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 1126,
+      &#34;SourceLineCount&#34;: 1147,
       &#34;Statistics&#34;: {
-        &#34;GeometricMean&#34;: 0.9393,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;GeometricMean&#34;: 0.94,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.5356,
-        &#34;Median&#34;: 0.4,
+        &#34;Mean&#34;: 0.5409,
+        &#34;Median&#34;: 0.5,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4464
+        &#34;StdDev&#34;: 0.4466
       },
       &#34;Synopsis&#34;: &#34;Helpers for type inflection and simplifying working with Golang generic interface types\n&#34;,
       &#34;TypeCount&#34;: 3,

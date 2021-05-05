@@ -2,6 +2,7 @@
 package typeutil
 
 import (
+	"encoding/json"
 	"fmt"
 	"reflect"
 	"strings"
@@ -385,4 +386,31 @@ func IsKindOfString(in interface{}) bool {
 	}
 
 	return IsKind(kind, reflect.String)
+}
+
+// Provide a variable to encode as JSON, and an optional indent string.  If no indent argument is
+// provided, the default indent is "  " (two spaces).  If an empty string is explcitly provided
+// for the indent argument, the output will not be indented (single line).
+func JSON(in interface{}, indent ...string) string {
+	var i string
+	var out []byte
+	var err error
+
+	if len(indent) > 0 {
+		i = indent[0]
+	} else {
+		i = `  `
+	}
+
+	if i == `` {
+		out, err = json.Marshal(in)
+	} else {
+		out, err = json.MarshalIndent(in, ``, i)
+	}
+
+	if err == nil {
+		return string(out)
+	} else {
+		return ``
+	}
 }

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.10
+                            v1.9.11
                         </li>
                     </ul>
                     
@@ -324,6 +324,12 @@
     <li>
 		<strong>
 		<a href="#IsZero">func IsZero(value interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#JSON">func JSON(in interface{}, indent ...string) string</a>
 		</strong>
 	</li>
 	
@@ -1038,8 +1044,8 @@
 			
 		</td>
 		<td class="text-right">10KB</td>
-		<td class="text-right">276</td>
-		<td class="text-right">22</td>
+		<td class="text-right">297</td>
+		<td class="text-right">23</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1462,6 +1468,20 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 <p><p>Returns whether the given value represents the underlying type’s zero value</p>
+</p>
+
+
+<h3 id="JSON" data-kind="f">
+	func <a title="View Source" href="">JSON</a>
+	<a class="permalink" href="#JSON">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func JSON(in interface{}, indent ...string) string</pre>
+</div>
+
+
+<p><p>Provide a variable to encode as JSON, and an optional indent string.  If no indent argument is<br>provided, the default indent is “  ” (two spaces).  If an empty string is explcitly provided<br>for the indent argument, the output will not be indented (single line).</p>
 </p>
 
 
