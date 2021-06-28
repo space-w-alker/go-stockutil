@@ -237,13 +237,13 @@ func TestIsDuration(t *testing.T) {
 }
 
 func TestGenericCompare(t *testing.T) {
-	require.True(t, V(false).IsLessThan(true))
-	require.True(t, V(5).IsLessThan(10))
-	require.True(t, V(`apple`).IsLessThan(`banana`))
+	require.True(t, IsLessThan(false, true))
+	require.True(t, IsLessThan(5, 10))
+	require.True(t, IsLessThan(`apple`, `banana`))
 
-	require.False(t, V(nil).IsLessThan(nil))
-	require.False(t, V(``).IsLessThan(nil))
-	require.False(t, V(0).IsLessThan(0))
-	require.False(t, V(42).IsLessThan(42))
-	require.False(t, V(420).IsLessThan(69))
+	require.False(t, IsLessThan(nil, nil))
+	require.False(t, IsLessThan(``, nil))
+	require.False(t, IsLessThan(0, 0))
+	require.False(t, IsLessThan(42, 42))
+	require.False(t, IsLessThan(420, 69))
 }

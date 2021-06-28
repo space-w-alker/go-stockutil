@@ -1,7 +1,7 @@
 {
     "Metadata": {
         "Title": "go-stockutil",
-        "Version": "1.9.12",
+        "Version": "1.9.13",
         "GeneratorVersion": "0.0.7",
         "URL": "https://github.com/ghetzel/go-stockutil"
     },
@@ -150,7 +150,7 @@
                 "Mean": 0.6593,
                 "StdDev": 0.4504,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 0.9778,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -440,18 +440,18 @@
             "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
             "MainFunction": false,
             "CommentWordCount": 1049,
-            "LineCount": 1682,
-            "SourceLineCount": 1244,
-            "FunctionCount": 90,
+            "LineCount": 1686,
+            "SourceLineCount": 1247,
+            "FunctionCount": 91,
             "TypeCount": 3,
             "ConstantCount": 3,
             "VariableCount": 0,
             "Statistics": {
-                "Mean": 0.5716,
-                "StdDev": 0.4443,
-                "GeometricMean": 0.9443,
-                "HarmonicMean": 1,
-                "Median": 0.9,
+                "Mean": 0.5656,
+                "StdDev": 0.4458,
+                "GeometricMean": 0.9449,
+                "HarmonicMean": 0,
+                "Median": 0.85,
                 "Minimum": 0,
                 "Maximum": 1
             }
@@ -522,8 +522,8 @@
             {
                 "Name": "Version",
                 "Immutable": true,
-                "Expression": "`1.9.12`",
-                "Value": "1.9.12"
+                "Expression": "`1.9.13`",
+                "Value": "1.9.13"
             }
         ],
         "Packages": [
@@ -787,6 +787,25 @@
                         ],
                         "Signature": "HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)",
                         "Source": "ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9",
+                        "IsPackageLevel": true
+                    },
+                    {
+                        "Name": "KelvinToColor",
+                        "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
+                        "Arguments": [
+                            {
+                                "Name": "kelvin",
+                                "Type": "int"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Name": "color",
+                                "Type": "Color"
+                            }
+                        ],
+                        "Signature": "KelvinToColor(kelvin int) color Color",
+                        "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                         "IsPackageLevel": true
                     },
                     {
@@ -1363,25 +1382,6 @@
                                 ],
                                 "Signature": "Mix(first interface{}, second interface{}) (Color, error)",
                                 "Source": "ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9",
-                                "IsPackageLevel": true
-                            },
-                            {
-                                "Name": "KelvinToColor",
-                                "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
-                                "Arguments": [
-                                    {
-                                        "Name": "kelvin",
-                                        "Type": "int"
-                                    }
-                                ],
-                                "Returns": [
-                                    {
-                                        "Name": "color",
-                                        "Type": "Color"
-                                    }
-                                ],
-                                "Signature": "KelvinToColor(kelvin int) color Color",
-                                "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                                 "IsPackageLevel": true
                             }
                         ],
@@ -4615,24 +4615,6 @@
                         "IsPackageLevel": true
                     },
                     {
-                        "Name": "ManipulateAll",
-                        "Comment": "Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.",
-                        "Arguments": [
-                            {
-                                "Name": "fns",
-                                "Type": "...ReadManipulatorFunc"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9",
-                        "IsPackageLevel": true
-                    },
-                    {
                         "Name": "MustExpandUser",
                         "Arguments": [
                             {
@@ -4952,94 +4934,6 @@
                         "IsPackageLevel": true
                     },
                     {
-                        "Name": "RemoveLinesContaining",
-                        "Comment": "A ReadManipulatorFunc for removing lines that contain the given string.",
-                        "Arguments": [
-                            {
-                                "Name": "needle",
-                                "Type": "string"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "RemoveLinesContaining(needle string) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "RemoveLinesSurroundedBy",
-                        "Comment": "A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.",
-                        "Arguments": [
-                            {
-                                "Name": "prefix",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "suffix",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "trimSpace",
-                                "Type": "bool"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "RemoveLinesWithPrefix",
-                        "Comment": "A ReadManipulatorFunc for removing lines that have a given prefix.",
-                        "Arguments": [
-                            {
-                                "Name": "prefix",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "trimSpace",
-                                "Type": "bool"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "RemoveLinesWithSuffix",
-                        "Comment": "A ReadManipulatorFunc for removing lines that have a given suffix.",
-                        "Arguments": [
-                            {
-                                "Name": "suffix",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "trimSpace",
-                                "Type": "bool"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
-                        "IsPackageLevel": true
-                    },
-                    {
                         "Name": "RemoveOpenHandler",
                         "Comment": "Removes a registered URL scheme handler.",
                         "Arguments": [
@@ -5050,32 +4944,6 @@
                         ],
                         "Signature": "RemoveOpenHandler(scheme string)",
                         "Source": "ewoJZGVsZXRlKG9wZW5IYW5kbGVycywgc2NoZW1lKQp9",
-                        "IsPackageLevel": true
-                    },
-                    {
-                        "Name": "ReplaceWith",
-                        "Comment": "A ReadManipulatorFunc for replacing text in an io.Reader as its being read.",
-                        "Arguments": [
-                            {
-                                "Name": "find",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "replace",
-                                "Type": "string"
-                            },
-                            {
-                                "Name": "occurrences",
-                                "Type": "int"
-                            }
-                        ],
-                        "Returns": [
-                            {
-                                "Type": "ReadManipulatorFunc"
-                            }
-                        ],
-                        "Signature": "ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc",
-                        "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9",
                         "IsPackageLevel": true
                     },
                     {
@@ -6095,6 +5963,140 @@
                     },
                     "ReadManipulatorFunc": {
                         "Name": "ReadManipulatorFunc",
+                        "Methods": [
+                            {
+                                "Name": "ManipulateAll",
+                                "Comment": "Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.",
+                                "Arguments": [
+                                    {
+                                        "Name": "fns",
+                                        "Type": "...ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "ReplaceWith",
+                                "Comment": "A ReadManipulatorFunc for replacing text in an io.Reader as its being read.",
+                                "Arguments": [
+                                    {
+                                        "Name": "find",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "replace",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "occurrences",
+                                        "Type": "int"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "RemoveLinesContaining",
+                                "Comment": "A ReadManipulatorFunc for removing lines that contain the given string.",
+                                "Arguments": [
+                                    {
+                                        "Name": "needle",
+                                        "Type": "string"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "RemoveLinesContaining(needle string) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "RemoveLinesWithPrefix",
+                                "Comment": "A ReadManipulatorFunc for removing lines that have a given prefix.",
+                                "Arguments": [
+                                    {
+                                        "Name": "prefix",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "trimSpace",
+                                        "Type": "bool"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "RemoveLinesWithSuffix",
+                                "Comment": "A ReadManipulatorFunc for removing lines that have a given suffix.",
+                                "Arguments": [
+                                    {
+                                        "Name": "suffix",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "trimSpace",
+                                        "Type": "bool"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=",
+                                "IsPackageLevel": true
+                            },
+                            {
+                                "Name": "RemoveLinesSurroundedBy",
+                                "Comment": "A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.",
+                                "Arguments": [
+                                    {
+                                        "Name": "prefix",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "suffix",
+                                        "Type": "string"
+                                    },
+                                    {
+                                        "Name": "trimSpace",
+                                        "Type": "bool"
+                                    }
+                                ],
+                                "Returns": [
+                                    {
+                                        "Type": "ReadManipulatorFunc"
+                                    }
+                                ],
+                                "Signature": "RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc",
+                                "Source": "ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==",
+                                "IsPackageLevel": true
+                            }
+                        ],
                         "Source": "dHlwZSBSZWFkTWFuaXB1bGF0b3JGdW5jIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKQ=="
                     },
                     "RetrieveHandlerFunc": {
@@ -8767,7 +8769,7 @@
                     "Mean": 0.6593,
                     "StdDev": 0.4504,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 0.9778,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
@@ -22311,18 +22313,18 @@
                 "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
                 "MainFunction": false,
                 "CommentWordCount": 1049,
-                "LineCount": 1682,
-                "SourceLineCount": 1244,
-                "FunctionCount": 90,
+                "LineCount": 1686,
+                "SourceLineCount": 1247,
+                "FunctionCount": 91,
                 "TypeCount": 3,
                 "ConstantCount": 3,
                 "VariableCount": 0,
                 "Statistics": {
-                    "Mean": 0.5716,
-                    "StdDev": 0.4443,
-                    "GeometricMean": 0.9443,
-                    "HarmonicMean": 1,
-                    "Median": 0.9,
+                    "Mean": 0.5656,
+                    "StdDev": 0.4458,
+                    "GeometricMean": 0.9449,
+                    "HarmonicMean": 0,
+                    "Median": 0.85,
                     "Minimum": 0,
                     "Maximum": 1
                 },
@@ -22475,10 +22477,10 @@
                                 "Alias": "utils"
                             }
                         ],
-                        "Size": 12991,
-                        "LineCount": 603,
-                        "SourceLineCount": 435,
-                        "FunctionCount": 64,
+                        "Size": 13076,
+                        "LineCount": 607,
+                        "SourceLineCount": 438,
+                        "FunctionCount": 65,
                         "TypeCount": 1,
                         "ConstantCount": 0,
                         "VariableCount": 0
@@ -22499,7 +22501,7 @@
                                 "Alias": "require"
                             }
                         ],
-                        "Size": 6706,
+                        "Size": 6690,
                         "LineCount": 250,
                         "SourceLineCount": 216,
                         "FunctionCount": 0,
@@ -22948,6 +22950,27 @@
                         ],
                         "Signature": "IsKindOfString(in interface{}) bool",
                         "Source": "ewoJdmFyIGtpbmQgcmVmbGVjdC5LaW5kCglpZiBrLCBvayA6PSBpbi4ocmVmbGVjdC5LaW5kKTsgb2sgewoJCWtpbmQgPSBrCgl9IGVsc2UgaWYgaW5UIDo9IHJlZmxlY3QuVHlwZU9mKGluKTsgaW5UICE9IG5pbCB7CgkJa2luZCA9IGluVC5LaW5kKCkKCX0KCXJldHVybiBJc0tpbmQoa2luZCwgcmVmbGVjdC5TdHJpbmcpCn0=",
+                        "IsPackageLevel": true
+                    },
+                    {
+                        "Name": "IsLessThan",
+                        "Arguments": [
+                            {
+                                "Name": "a",
+                                "Type": "interface{}"
+                            },
+                            {
+                                "Name": "b",
+                                "Type": "interface{}"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Type": "bool"
+                            }
+                        ],
+                        "Signature": "IsLessThan(a interface{}, b interface{}) bool",
+                        "Source": "ewoJcmV0dXJuIFZWKGEpLklzTGVzc1RoYW4oYikKfQ==",
                         "IsPackageLevel": true
                     },
                     {
@@ -23523,7 +23546,7 @@
                             }
                         ],
                         "Signature": "TestGenericCompare(t *testing.T)",
-                        "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIFYoZmFsc2UpLklzTGVzc1RoYW4odHJ1ZSkpCglyZXF1aXJlLlRydWUodCwgVig1KS5Jc0xlc3NUaGFuKDEwKSkKCXJlcXVpcmUuVHJ1ZSh0LCBWKGBhcHBsZWApLklzTGVzc1RoYW4oYGJhbmFuYWApKQoJcmVxdWlyZS5GYWxzZSh0LCBWKG5pbCkuSXNMZXNzVGhhbihuaWwpKQoJcmVxdWlyZS5GYWxzZSh0LCBWKGBgKS5Jc0xlc3NUaGFuKG5pbCkpCglyZXF1aXJlLkZhbHNlKHQsIFYoMCkuSXNMZXNzVGhhbigwKSkKCXJlcXVpcmUuRmFsc2UodCwgVig0MikuSXNMZXNzVGhhbig0MikpCglyZXF1aXJlLkZhbHNlKHQsIFYoNDIwKS5Jc0xlc3NUaGFuKDY5KSkKfQ==",
+                        "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIElzTGVzc1RoYW4oZmFsc2UsIHRydWUpKQoJcmVxdWlyZS5UcnVlKHQsIElzTGVzc1RoYW4oNSwgMTApKQoJcmVxdWlyZS5UcnVlKHQsIElzTGVzc1RoYW4oYGFwcGxlYCwgYGJhbmFuYWApKQoJcmVxdWlyZS5GYWxzZSh0LCBJc0xlc3NUaGFuKG5pbCwgbmlsKSkKCXJlcXVpcmUuRmFsc2UodCwgSXNMZXNzVGhhbihgYCwgbmlsKSkKCXJlcXVpcmUuRmFsc2UodCwgSXNMZXNzVGhhbigwLCAwKSkKCXJlcXVpcmUuRmFsc2UodCwgSXNMZXNzVGhhbig0MiwgNDIpKQoJcmVxdWlyZS5GYWxzZSh0LCBJc0xlc3NUaGFuKDQyMCwgNjkpKQp9",
                         "IsPackageLevel": true
                     },
                     {
@@ -24350,7 +24373,7 @@
                                     }
                                 ],
                                 "Signature": "V(value interface{}) Variant",
-                                "Source": "ewoJcmV0dXJuIFZhcmlhbnR7VmFsdWU6IHZhbHVlfQp9",
+                                "Source": "ewoJaWYgdiwgb2sgOj0gdmFsdWUuKFZhcmlhbnQpOyBvayB7CgkJcmV0dXJuIHYKCX0gZWxzZSB7CgkJcmV0dXJuIFZhcmlhbnR7VmFsdWU6IHZhbHVlfQoJfQp9",
                                 "IsPackageLevel": true
                             },
                             {

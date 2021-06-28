@@ -19,8 +19,12 @@ type Variant struct {
 
 // Shortcut for creating a Variant.
 func V(value interface{}) Variant {
-	return Variant{
-		Value: value,
+	if v, ok := value.(Variant); ok {
+		return v
+	} else {
+		return Variant{
+			Value: value,
+		}
 	}
 }
 
@@ -459,15 +463,11 @@ func (self Variant) Or(or ...interface{}) interface{} {
 // care to compare like types appropriately, such as detecting numbers and performing a numeric comparison,
 // or detecting dates, times, and durations and comparing them temporally.
 func (self Variant) IsLessThan(j interface{}) bool {
-	var jV Variant
+	var jV Variant = V(j)
 
-	if v, ok := j.(Variant); ok {
-		jV = v
-	} else if j == nil {
-		// we're going to say that if we encounter a nil, we always want that nil to sort before this
+	// we're going to say that if we encounter a nil, we always want that nil to sort before this
+	if jV.IsNil() {
 		return false
-	} else {
-		jV = V(j)
 	}
 
 	if self.IsNumeric() && jV.IsNumeric() {
@@ -599,4 +599,8 @@ func OrDuration(first interface{}, rest ...interface{}) time.Duration {
 
 func OrBytes(first []byte, rest ...[]byte) []byte {
 	return V(first).OrBytes(rest...)
+}
+
+func IsLessThan(a interface{}, b interface{}) bool {
+	return VV(a).IsLessThan(b)
 }

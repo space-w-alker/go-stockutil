@@ -7,18 +7,18 @@
     "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
     "MainFunction": false,
     "CommentWordCount": 1049,
-    "LineCount": 1682,
-    "SourceLineCount": 1244,
-    "FunctionCount": 90,
+    "LineCount": 1686,
+    "SourceLineCount": 1247,
+    "FunctionCount": 91,
     "TypeCount": 3,
     "ConstantCount": 3,
     "VariableCount": 0,
     "Statistics": {
-        "Mean": 0.5716,
-        "StdDev": 0.4443,
-        "GeometricMean": 0.9443,
-        "HarmonicMean": 1,
-        "Median": 0.9,
+        "Mean": 0.5656,
+        "StdDev": 0.4458,
+        "GeometricMean": 0.9449,
+        "HarmonicMean": 0,
+        "Median": 0.85,
         "Minimum": 0,
         "Maximum": 1
     },
@@ -171,10 +171,10 @@
                     "Alias": "utils"
                 }
             ],
-            "Size": 12991,
-            "LineCount": 603,
-            "SourceLineCount": 435,
-            "FunctionCount": 64,
+            "Size": 13076,
+            "LineCount": 607,
+            "SourceLineCount": 438,
+            "FunctionCount": 65,
             "TypeCount": 1,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -195,7 +195,7 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 6706,
+            "Size": 6690,
             "LineCount": 250,
             "SourceLineCount": 216,
             "FunctionCount": 0,
@@ -644,6 +644,27 @@
             ],
             "Signature": "IsKindOfString(in interface{}) bool",
             "Source": "ewoJdmFyIGtpbmQgcmVmbGVjdC5LaW5kCglpZiBrLCBvayA6PSBpbi4ocmVmbGVjdC5LaW5kKTsgb2sgewoJCWtpbmQgPSBrCgl9IGVsc2UgaWYgaW5UIDo9IHJlZmxlY3QuVHlwZU9mKGluKTsgaW5UICE9IG5pbCB7CgkJa2luZCA9IGluVC5LaW5kKCkKCX0KCXJldHVybiBJc0tpbmQoa2luZCwgcmVmbGVjdC5TdHJpbmcpCn0=",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "IsLessThan",
+            "Arguments": [
+                {
+                    "Name": "a",
+                    "Type": "interface{}"
+                },
+                {
+                    "Name": "b",
+                    "Type": "interface{}"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "IsLessThan(a interface{}, b interface{}) bool",
+            "Source": "ewoJcmV0dXJuIFZWKGEpLklzTGVzc1RoYW4oYikKfQ==",
             "IsPackageLevel": true
         },
         {
@@ -1219,7 +1240,7 @@
                 }
             ],
             "Signature": "TestGenericCompare(t *testing.T)",
-            "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIFYoZmFsc2UpLklzTGVzc1RoYW4odHJ1ZSkpCglyZXF1aXJlLlRydWUodCwgVig1KS5Jc0xlc3NUaGFuKDEwKSkKCXJlcXVpcmUuVHJ1ZSh0LCBWKGBhcHBsZWApLklzTGVzc1RoYW4oYGJhbmFuYWApKQoJcmVxdWlyZS5GYWxzZSh0LCBWKG5pbCkuSXNMZXNzVGhhbihuaWwpKQoJcmVxdWlyZS5GYWxzZSh0LCBWKGBgKS5Jc0xlc3NUaGFuKG5pbCkpCglyZXF1aXJlLkZhbHNlKHQsIFYoMCkuSXNMZXNzVGhhbigwKSkKCXJlcXVpcmUuRmFsc2UodCwgVig0MikuSXNMZXNzVGhhbig0MikpCglyZXF1aXJlLkZhbHNlKHQsIFYoNDIwKS5Jc0xlc3NUaGFuKDY5KSkKfQ==",
+            "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIElzTGVzc1RoYW4oZmFsc2UsIHRydWUpKQoJcmVxdWlyZS5UcnVlKHQsIElzTGVzc1RoYW4oNSwgMTApKQoJcmVxdWlyZS5UcnVlKHQsIElzTGVzc1RoYW4oYGFwcGxlYCwgYGJhbmFuYWApKQoJcmVxdWlyZS5GYWxzZSh0LCBJc0xlc3NUaGFuKG5pbCwgbmlsKSkKCXJlcXVpcmUuRmFsc2UodCwgSXNMZXNzVGhhbihgYCwgbmlsKSkKCXJlcXVpcmUuRmFsc2UodCwgSXNMZXNzVGhhbigwLCAwKSkKCXJlcXVpcmUuRmFsc2UodCwgSXNMZXNzVGhhbig0MiwgNDIpKQoJcmVxdWlyZS5GYWxzZSh0LCBJc0xlc3NUaGFuKDQyMCwgNjkpKQp9",
             "IsPackageLevel": true
         },
         {
@@ -2046,7 +2067,7 @@
                         }
                     ],
                     "Signature": "V(value interface{}) Variant",
-                    "Source": "ewoJcmV0dXJuIFZhcmlhbnR7VmFsdWU6IHZhbHVlfQp9",
+                    "Source": "ewoJaWYgdiwgb2sgOj0gdmFsdWUuKFZhcmlhbnQpOyBvayB7CgkJcmV0dXJuIHYKCX0gZWxzZSB7CgkJcmV0dXJuIFZhcmlhbnR7VmFsdWU6IHZhbHVlfQoJfQp9",
                     "IsPackageLevel": true
                 },
                 {
