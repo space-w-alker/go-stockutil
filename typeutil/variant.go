@@ -24,6 +24,12 @@ func V(value interface{}) Variant {
 	}
 }
 
+// Returns a pointer to a variant.
+func VV(value interface{}) *Variant {
+	var v = V(value)
+	return &v
+}
+
 // Returns whether the underlying value is nil.
 func (self Variant) IsNil() bool {
 	return (self.Value == nil)
@@ -267,6 +273,21 @@ func (self *Variant) IsScalar() bool {
 	return IsScalar(self.Value)
 }
 
+// Return whether the value can be interpreted as a real number.
+func (self *Variant) IsNumeric() bool {
+	return IsNumeric(self.Value)
+}
+
+// Return whether the value can be interpreted as a time.
+func (self *Variant) IsTime() bool {
+	return !self.Time().IsZero()
+}
+
+// Return whether the value can be interpreted as a duration.
+func (self *Variant) IsDuration() bool {
+	return (self.Duration() != 0)
+}
+
 func (self *Variant) Append(values ...interface{}) error {
 	var base []interface{}
 
@@ -432,6 +453,36 @@ func (self Variant) Or(or ...interface{}) interface{} {
 	}
 
 	return nil
+}
+
+// IsLessThan reports whether the given value should sort before the current variant value, taking special
+// care to compare like types appropriately, such as detecting numbers and performing a numeric comparison,
+// or detecting dates, times, and durations and comparing them temporally.
+func (self Variant) IsLessThan(j interface{}) bool {
+	var jV Variant
+
+	if v, ok := j.(Variant); ok {
+		jV = v
+	} else if j == nil {
+		// we're going to say that if we encounter a nil, we always want that nil to sort before this
+		return false
+	} else {
+		jV = V(j)
+	}
+
+	if self.IsNumeric() && jV.IsNumeric() {
+		// compare numeric values numerically
+		return self.Float() < jV.Float()
+	} else if self.IsTime() && jV.IsTime() {
+		// compare times
+		return self.Time().Before(jV.Time())
+	} else if self.IsTime() && jV.IsTime() {
+		// compare durations
+		return self.Duration() < jV.Duration()
+	} else {
+		// fallback to lexical comparison
+		return self.String() < jV.String()
+	}
 }
 
 // Package-level string converter

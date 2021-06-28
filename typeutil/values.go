@@ -159,6 +159,16 @@ func IsFloat(in interface{}) bool {
 	return utils.IsFloat(in)
 }
 
+// Return whether the value can be interpreted as a time.
+func IsTime(in interface{}) bool {
+	return VV(in).IsTime()
+}
+
+// Return whether the value can be interpreted as a duration.
+func IsDuration(in interface{}) bool {
+	return VV(in).IsDuration()
+}
+
 // Returns whether the given value is a function.  If inParams is not -1, the function must
 // accept that number of arguments.  If outParams is not -1, the function must return that
 // number of values.

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.11
+                            v1.9.12
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 54%</span>
+<span class="pull-right">Doc Coverage: 57%</span>
 <h2 id="pkg-overview">package typeutil</h2>
 
 <p>
@@ -239,6 +239,12 @@
 	
     <li>
 		<strong>
+		<a href="#IsDuration">func IsDuration(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
 		<a href="#IsEmpty">func IsEmpty(value interface{}) bool</a>
 		</strong>
 	</li>
@@ -318,6 +324,12 @@
     <li>
 		<strong>
 		<a href="#IsStruct">func IsStruct(in interface{}) bool</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#IsTime">func IsTime(in interface{}) bool</a>
 		</strong>
 	</li>
 	
@@ -558,10 +570,29 @@
 			
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			
 			<li>
 				<strong>
 				<a href="#Variant.V">
 					func V(value interface{}) Variant
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.VV">
+					func VV(value interface{}) *Variant
 				</a>
 				</strong>
 			</li>
@@ -704,6 +735,30 @@
 			
 			<li>
 				<strong>
+				<a href="#Variant.IsDuration">
+					func
+					(self *Variant)
+					IsDuration() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.IsLessThan">
+					func
+					(self Variant)
+					IsLessThan(j interface{}) bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
 				<a href="#Variant.IsMap">
 					func
 					(self *Variant)
@@ -728,10 +783,34 @@
 			
 			<li>
 				<strong>
+				<a href="#Variant.IsNumeric">
+					func
+					(self *Variant)
+					IsNumeric() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
 				<a href="#Variant.IsScalar">
 					func
 					(self *Variant)
 					IsScalar() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.IsTime">
+					func
+					(self *Variant)
+					IsTime() bool
 				</a>
 				</strong>
 			</li>
@@ -981,6 +1060,8 @@
 			
 			
 			
+			
+			
 		</ul>
 		
 	</li>
@@ -1044,8 +1125,8 @@
 			
 		</td>
 		<td class="text-right">10KB</td>
-		<td class="text-right">297</td>
-		<td class="text-right">23</td>
+		<td class="text-right">303</td>
+		<td class="text-right">25</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1071,9 +1152,9 @@
 			<a href="variant.go">variant.go</a>
 			
 		</td>
-		<td class="text-right">11KB</td>
-		<td class="text-right">403</td>
-		<td class="text-right">59</td>
+		<td class="text-right">13KB</td>
+		<td class="text-right">435</td>
+		<td class="text-right">64</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1085,8 +1166,8 @@
 			<a href="variant_test.go">variant_test.go</a>
 			
 		</td>
-		<td class="text-right">5KB</td>
-		<td class="text-right">157</td>
+		<td class="text-right">7KB</td>
+		<td class="text-right">216</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1273,6 +1354,20 @@ const <span id="Value3">Value3</span> = `value-3`
 </p>
 
 
+<h3 id="IsDuration" data-kind="f">
+	func <a title="View Source" href="">IsDuration</a>
+	<a class="permalink" href="#IsDuration">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsDuration(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Return whether the value can be interpreted as a duration.</p>
+</p>
+
+
 <h3 id="IsEmpty" data-kind="f">
 	func <a title="View Source" href="">IsEmpty</a>
 	<a class="permalink" href="#IsEmpty">&#182;</a>
@@ -1454,6 +1549,20 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 <p><p>Returns whether the given value is a struct.</p>
+</p>
+
+
+<h3 id="IsTime" data-kind="f">
+	func <a title="View Source" href="">IsTime</a>
+	<a class="permalink" href="#IsTime">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func IsTime(in interface{}) bool</pre>
+</div>
+
+
+<p><p>Return whether the value can be interpreted as a time.</p>
 </p>
 
 
@@ -1880,6 +1989,14 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+
+
+
+
+
+
+
+
 <h4 id="V" data-kind="f">
 	func <a title="View Source" href="">V</a>
 	<a class="permalink" href="#V">&#182;</a>
@@ -1891,6 +2008,22 @@ const <span id="Value3">Value3</span> = `value-3`
 </div>
 
 <p><p>Shortcut for creating a Variant.</p>
+</p>
+
+
+
+
+<h4 id="VV" data-kind="f">
+	func <a title="View Source" href="">VV</a>
+	<a class="permalink" href="#VV">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func VV(value interface{}) *Variant</pre>
+</div>
+
+<p><p>Returns a pointer to a variant.</p>
 </p>
 
 
@@ -2089,6 +2222,42 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+<h4 id="Variant.IsDuration" data-kind="f">
+	func
+	(self *Variant)
+	<a title="View Source" href="">IsDuration</a>
+	<a class="permalink" href="#IsDuration">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Variant) IsDuration() bool</pre>
+</div>
+
+<p><p>Return whether the value can be interpreted as a duration.</p>
+</p>
+
+
+
+
+<h4 id="Variant.IsLessThan" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">IsLessThan</a>
+	<a class="permalink" href="#IsLessThan">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) IsLessThan(j interface{}) bool</pre>
+</div>
+
+<p><p>IsLessThan reports whether the given value should sort before the current variant value, taking special<br>care to compare like types appropriately, such as detecting numbers and performing a numeric comparison,<br>or detecting dates, times, and durations and comparing them temporally.</p>
+</p>
+
+
+
+
 <h4 id="Variant.IsMap" data-kind="f">
 	func
 	(self *Variant)
@@ -2125,6 +2294,24 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+<h4 id="Variant.IsNumeric" data-kind="f">
+	func
+	(self *Variant)
+	<a title="View Source" href="">IsNumeric</a>
+	<a class="permalink" href="#IsNumeric">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Variant) IsNumeric() bool</pre>
+</div>
+
+<p><p>Return whether the value can be interpreted as a real number.</p>
+</p>
+
+
+
+
 <h4 id="Variant.IsScalar" data-kind="f">
 	func
 	(self *Variant)
@@ -2138,6 +2325,24 @@ const <span id="Value3">Value3</span> = `value-3`
 </div>
 
 <p><p>Return whether the value is a scalar type.</p>
+</p>
+
+
+
+
+<h4 id="Variant.IsTime" data-kind="f">
+	func
+	(self *Variant)
+	<a title="View Source" href="">IsTime</a>
+	<a class="permalink" href="#IsTime">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Variant) IsTime() bool</pre>
+</div>
+
+<p><p>Return whether the value can be interpreted as a time.</p>
 </p>
 
 
@@ -2469,6 +2674,8 @@ const <span id="Value3">Value3</span> = `value-3`
 
 <p><p>Return the value as a time.Time if it can be interpreted as such, or zero time otherwise.</p>
 </p>
+
+
 
 
 

@@ -180,3 +180,70 @@ func TestOrDuration(t *testing.T) {
 	require.Equal(t, 24*time.Hour, OrDuration(`1d`))
 	require.Equal(t, 5*time.Minute+3*time.Second, OrDuration(`5m3s`, `1m18s`))
 }
+
+func TestIsNumeric(t *testing.T) {
+	require.True(t, IsNumeric(0))
+	require.True(t, IsNumeric(`0`))
+	require.True(t, IsNumeric(float64(0)))
+	require.True(t, IsNumeric(1))
+	require.True(t, IsNumeric(`1`))
+	require.True(t, IsNumeric(float64(1)))
+
+	require.False(t, IsNumeric(false))
+	require.False(t, IsNumeric(true))
+	require.False(t, IsNumeric(time.Now()))
+	require.True(t, IsNumeric(time.Now().Unix()))
+	require.False(t, IsNumeric(`a potato`))
+	require.False(t, IsNumeric(``))
+	require.False(t, IsNumeric(nil))
+}
+
+func TestIsTime(t *testing.T) {
+	require.True(t, IsTime(0))
+	require.True(t, IsTime(`0`))
+	require.True(t, IsTime(float64(0)))
+	require.True(t, IsTime(1))
+	require.True(t, IsTime(`1`))
+	require.True(t, IsTime(float64(1)))
+
+	require.False(t, IsTime(false))
+	require.False(t, IsTime(true))
+	require.True(t, IsTime(time.Now()))
+	require.True(t, IsTime(time.Now().Unix()))
+	require.False(t, IsTime(`a potato`))
+	require.True(t, IsTime(`now`))
+	require.True(t, IsTime(`2006-01-02`))
+	require.False(t, IsTime(``))
+	require.False(t, IsTime(nil))
+}
+
+func TestIsDuration(t *testing.T) {
+	require.False(t, IsDuration(0))
+	require.False(t, IsDuration(`0`))
+	require.False(t, IsDuration(float64(0)))
+	require.False(t, IsDuration(1))
+	require.False(t, IsDuration(`1`))
+	require.False(t, IsDuration(float64(1)))
+
+	require.False(t, IsDuration(false))
+	require.False(t, IsDuration(true))
+	require.False(t, IsDuration(`a potato`))
+	require.True(t, IsDuration(`30s`))
+	require.True(t, IsDuration(`20ms`))
+	require.True(t, IsDuration(`5m`))
+	require.False(t, IsDuration(`2006-01-02`))
+	require.False(t, IsDuration(``))
+	require.False(t, IsDuration(nil))
+}
+
+func TestGenericCompare(t *testing.T) {
+	require.True(t, V(false).IsLessThan(true))
+	require.True(t, V(5).IsLessThan(10))
+	require.True(t, V(`apple`).IsLessThan(`banana`))
+
+	require.False(t, V(nil).IsLessThan(nil))
+	require.False(t, V(``).IsLessThan(nil))
+	require.False(t, V(0).IsLessThan(0))
+	require.False(t, V(42).IsLessThan(42))
+	require.False(t, V(420).IsLessThan(69))
+}
