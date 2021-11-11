@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.9.13
+                            v1.10.0
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 38%</span>
+<span class="pull-right">Doc Coverage: 40%</span>
 <h2 id="pkg-overview">package stringutil</h2>
 
 <p>
@@ -458,6 +458,18 @@
     <li>
 		<strong>
 		<a href="#SplitPairTrimSpaceAuto">func SplitPairTrimSpaceAuto(in string, delimiter string) (string, interface{})</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitTrim">func SplitTrim(s string, sep string, cutset string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitTrimSpace">func SplitTrimSpace(s string, sep string) []string</a>
 		</strong>
 	</li>
 	
@@ -847,8 +859,8 @@
 			<a href="001_stringutil_general_test.go">001_stringutil_general_test.go</a>
 			
 		</td>
-		<td class="text-right">17KB</td>
-		<td class="text-right">478</td>
+		<td class="text-right">18KB</td>
+		<td class="text-right">492</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -932,8 +944,8 @@
 			
 		</td>
 		<td class="text-right">24KB</td>
-		<td class="text-right">755</td>
-		<td class="text-right">71</td>
+		<td class="text-right">769</td>
+		<td class="text-right">73</td>
 		<td class="text-right">3</td>
 		<td class="text-right">17</td>
 		<td class="text-right">9</td>
@@ -1613,6 +1625,34 @@ var <span id="TimeFormats">TimeFormats                </span> = utils.TimeFormat
 
 
 <p><p>Identical to SplitPairTrimSpace, but returns the result of passing the second value in the pair to Autotype()</p>
+</p>
+
+
+<h3 id="SplitTrim" data-kind="f">
+	func <a title="View Source" href="">SplitTrim</a>
+	<a class="permalink" href="#SplitTrim">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitTrim(s string, sep string, cutset string) []string</pre>
+</div>
+
+
+<p><p>Identical to strings.Split, but trims any leading and trailing whitespace from each element using<br>strings.Trim.</p>
+</p>
+
+
+<h3 id="SplitTrimSpace" data-kind="f">
+	func <a title="View Source" href="">SplitTrimSpace</a>
+	<a class="permalink" href="#SplitTrimSpace">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitTrimSpace(s string, sep string) []string</pre>
+</div>
+
+
+<p><p>Identical to strings.Split, but trims any leading and trailing whitespace from each element.</p>
 </p>
 
 

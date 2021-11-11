@@ -38,8 +38,8 @@
         {
             "Name": "Version",
             "Immutable": true,
-            "Expression": "`1.9.13`",
-            "Value": "1.9.13"
+            "Expression": "`1.10.0`",
+            "Value": "1.10.0"
         }
     ],
     "Packages": [
@@ -5709,11 +5709,11 @@
             "Synopsis": "Types and functions for working with Geospatial Data\n",
             "MainFunction": false,
             "CommentWordCount": 135,
-            "LineCount": 2583,
-            "SourceLineCount": 2450,
+            "LineCount": 2587,
+            "SourceLineCount": 2453,
             "FunctionCount": 29,
             "TypeCount": 9,
-            "ConstantCount": 283,
+            "ConstantCount": 286,
             "VariableCount": 3,
             "Statistics": {
                 "Mean": 0.0632,
@@ -5750,15 +5750,15 @@
                         },
                         {
                             "PackageName": "github.com/kellydunn/golang-geo",
-                            "Alias": "golang-geo"
+                            "Alias": "geo"
                         }
                     ],
-                    "Size": 3959,
-                    "LineCount": 154,
-                    "SourceLineCount": 116,
+                    "Size": 4129,
+                    "LineCount": 158,
+                    "SourceLineCount": 119,
                     "FunctionCount": 10,
                     "TypeCount": 3,
-                    "ConstantCount": 0,
+                    "ConstantCount": 3,
                     "VariableCount": 0
                 },
                 {
@@ -6294,6 +6294,24 @@
                     "Immutable": true,
                     "Expression": "`do`",
                     "Value": "do"
+                },
+                {
+                    "Name": "EarthKarmanHeight",
+                    "Type": "Distance",
+                    "Immutable": true,
+                    "Expression": "100 * Kilometer"
+                },
+                {
+                    "Name": "EarthRadius",
+                    "Type": "Distance",
+                    "Immutable": true,
+                    "Expression": "geo.EARTH_RADIUS * Kilometer"
+                },
+                {
+                    "Name": "EarthStratosphereHeight",
+                    "Type": "Distance",
+                    "Immutable": true,
+                    "Expression": "60 * Kilometer"
                 },
                 {
                     "Name": "East",
@@ -8285,7 +8303,7 @@
                 "Mean": 0.6593,
                 "StdDev": 0.4504,
                 "GeometricMean": 0,
-                "HarmonicMean": 0.9778,
+                "HarmonicMean": 0.9677,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -18386,16 +18404,16 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "Utilities for converting and manipulating data to and from strings\n",
             "MainFunction": false,
-            "CommentWordCount": 806,
-            "LineCount": 2570,
-            "SourceLineCount": 1969,
-            "FunctionCount": 84,
+            "CommentWordCount": 838,
+            "LineCount": 2611,
+            "SourceLineCount": 1997,
+            "FunctionCount": 86,
             "TypeCount": 6,
             "ConstantCount": 17,
             "VariableCount": 9,
             "Statistics": {
-                "Mean": 0.3833,
-                "StdDev": 0.4765,
+                "Mean": 0.3959,
+                "StdDev": 0.4796,
                 "GeometricMean": 0,
                 "HarmonicMean": 0,
                 "Median": 0,
@@ -18427,9 +18445,9 @@
                             "Alias": "require"
                         }
                     ],
-                    "Size": 17362,
-                    "LineCount": 608,
-                    "SourceLineCount": 478,
+                    "Size": 18047,
+                    "LineCount": 626,
+                    "SourceLineCount": 492,
                     "FunctionCount": 0,
                     "TypeCount": 0,
                     "ConstantCount": 0,
@@ -18615,10 +18633,10 @@
                             "Alias": "tokenize"
                         }
                     ],
-                    "Size": 24198,
-                    "LineCount": 1000,
-                    "SourceLineCount": 755,
-                    "FunctionCount": 71,
+                    "Size": 24779,
+                    "LineCount": 1023,
+                    "SourceLineCount": 769,
+                    "FunctionCount": 73,
                     "TypeCount": 3,
                     "ConstantCount": 17,
                     "VariableCount": 9
@@ -19807,6 +19825,54 @@
                     "IsPackageLevel": true
                 },
                 {
+                    "Name": "SplitTrim",
+                    "Comment": "Identical to strings.Split, but trims any leading and trailing whitespace from each element using\nstrings.Trim.",
+                    "Arguments": [
+                        {
+                            "Name": "s",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "sep",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "cutset",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]string"
+                        }
+                    ],
+                    "Signature": "SplitTrim(s string, sep string, cutset string) []string",
+                    "Source": "ewoJdmFyIHBhcnRzID0gc3RyaW5ncy5TcGxpdChzLCBzZXApCglmb3IgaSwgcGFydCA6PSByYW5nZSBwYXJ0cyB7CgkJcGFydHNbaV0gPSBzdHJpbmdzLlRyaW0ocGFydCwgY3V0c2V0KQoJfQoJcmV0dXJuIHBhcnRzCn0=",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "SplitTrimSpace",
+                    "Comment": "Identical to strings.Split, but trims any leading and trailing whitespace from each element.",
+                    "Arguments": [
+                        {
+                            "Name": "s",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "sep",
+                            "Type": "string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "[]string"
+                        }
+                    ],
+                    "Signature": "SplitTrimSpace(s string, sep string) []string",
+                    "Source": "ewoJdmFyIHBhcnRzID0gc3RyaW5ncy5TcGxpdChzLCBzZXApCglmb3IgaSwgcGFydCA6PSByYW5nZSBwYXJ0cyB7CgkJcGFydHNbaV0gPSBzdHJpbmdzLlRyaW1TcGFjZShwYXJ0KQoJfQoJcmV0dXJuIHBhcnRzCn0=",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "SplitTriple",
                     "Arguments": [
                         {
@@ -20625,6 +20691,30 @@
                     ],
                     "Signature": "TestSplitPairFamily(t *testing.T)",
                     "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgZmlyc3QsIHJlc3Qgc3RyaW5nCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0YCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpcihgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCgl2YXIgaywgdiA9IFNwbGl0UGFpckF1dG8oYHg9MWAsIGA9YCkKCWFzc2VydC5FcXVhbChgeGAsIGspCglhc3NlcnQuRXF1YWwoaW50NjQoMSksIHYpCglrLCB2ID0gU3BsaXRQYWlyQXV0byhgeT10cnVlYCwgYD1gKQoJYXNzZXJ0LkVxdWFsKGB5YCwgaykKCWFzc2VydC5FcXVhbCh0cnVlLCB2KQoJaywgdiA9IFNwbGl0UGFpckF1dG8oYGQ9MjAwNi0wMS0wMmAsIGA9YCkKCWFzc2VydC5FcXVhbChgZGAsIGspCglhc3NlcnQuRXF1YWwoMjAwNiwgdi4odGltZS5UaW1lKS5ZZWFyKCkpCglhc3NlcnQuRXF1YWwodGltZS5KYW51YXJ5LCB2Lih0aW1lLlRpbWUpLk1vbnRoKCkpCglhc3NlcnQuRXF1YWwoMiwgdi4odGltZS5UaW1lKS5EYXkoKSkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJpbVNwYWNlKGAgdGVzdCBgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJpbVNwYWNlKGAgIHRlc3QgIC4gICAgdmFsdWVzCQkgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyaW1TcGFjZShgICAgdGVzdCAgLiAgdmFsdWVzICAuICBuZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzICAuICBuZXN0ZWRgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJUcmFpbGluZyhgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYHRlc3RgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyVHJhaWxpbmcoYHRlc3QudmFsdWVzYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGB0ZXN0YCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHZhbHVlc2AsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclRyYWlsaW5nKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzLm5lc3RlZGAsIHJlc3QpCglmaXJzdCwgcmVzdCA9IFNwbGl0UGFpclJpZ2h0KGBgLCBgLmApCglhc3NlcnQuRXF1YWwoYGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgdGVzdGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGBgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodChgdGVzdC52YWx1ZXNgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3RgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgdmFsdWVzYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHQoYHRlc3QudmFsdWVzLm5lc3RlZGAsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdC52YWx1ZXNgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgbmVzdGVkYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgYCwgYC5gKQoJYXNzZXJ0LkVxdWFsKGBgLCBmaXJzdCkKCWFzc2VydC5FcXVhbChgYCwgcmVzdCkKCWZpcnN0LCByZXN0ID0gU3BsaXRQYWlyUmlnaHRUcmFpbGluZyhgdGVzdGAsIGAuYCkKCWFzc2VydC5FcXVhbChgYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYHRlc3RgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodFRyYWlsaW5nKGB0ZXN0LnZhbHVlc2AsIGAuYCkKCWFzc2VydC5FcXVhbChgdGVzdGAsIGZpcnN0KQoJYXNzZXJ0LkVxdWFsKGB2YWx1ZXNgLCByZXN0KQoJZmlyc3QsIHJlc3QgPSBTcGxpdFBhaXJSaWdodFRyYWlsaW5nKGB0ZXN0LnZhbHVlcy5uZXN0ZWRgLCBgLmApCglhc3NlcnQuRXF1YWwoYHRlc3QudmFsdWVzYCwgZmlyc3QpCglhc3NlcnQuRXF1YWwoYG5lc3RlZGAsIHJlc3QpCn0vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0K",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestSplitTrim",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestSplitTrim(t *testing.T)",
+                    "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7fSwgU3BsaXRUcmltKGBgLCBgYCwgYGApKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2BhYCwgYGJgLCBgY2B9LCBTcGxpdFRyaW0oYGE6YjpjYCwgYDpgLCBgYCkpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YGFgLCBgYmAsIGBjYH0sIFNwbGl0VHJpbShgIGEgOmIgOiBjYCwgYDpgLCBgIGApKQoJYXNzZXJ0LkVxdWFsKFtdc3RyaW5ne2AgYSBgLCBgIGIgYCwgYCBjIGB9LCBTcGxpdFRyaW0oYD4gYSA6PiBiIDo+IGMgYCwgYDpgLCBgPmApKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestSplitTrimSpace",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestSplitTrimSpace(t *testing.T)",
+                    "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7fSwgU3BsaXRUcmltU3BhY2UoYGAsIGBgKSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgYWAsIGBiYCwgYGNgfSwgU3BsaXRUcmltU3BhY2UoYGE6YjpjYCwgYDpgKSkKCWFzc2VydC5FcXVhbChbXXN0cmluZ3tgYWAsIGBiYCwgYGNgfSwgU3BsaXRUcmltU3BhY2UoYCBhIDpiIDogY2AsIGA6YCkpCglhc3NlcnQuRXF1YWwoW11zdHJpbmd7YD4gYWAsIGA+IGJgLCBgPiBjYH0sIFNwbGl0VHJpbVNwYWNlKGA+IGEgOj4gYiA6PiBjIGAsIGA6YCkpCn0=",
                     "IsPackageLevel": true
                 },
                 {

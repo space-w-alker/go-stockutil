@@ -7,11 +7,11 @@
     "Synopsis": "Types and functions for working with Geospatial Data\n",
     "MainFunction": false,
     "CommentWordCount": 135,
-    "LineCount": 2583,
-    "SourceLineCount": 2450,
+    "LineCount": 2587,
+    "SourceLineCount": 2453,
     "FunctionCount": 29,
     "TypeCount": 9,
-    "ConstantCount": 283,
+    "ConstantCount": 286,
     "VariableCount": 3,
     "Statistics": {
         "Mean": 0.0632,
@@ -48,15 +48,15 @@
                 },
                 {
                     "PackageName": "github.com/kellydunn/golang-geo",
-                    "Alias": "golang-geo"
+                    "Alias": "geo"
                 }
             ],
-            "Size": 3959,
-            "LineCount": 154,
-            "SourceLineCount": 116,
+            "Size": 4129,
+            "LineCount": 158,
+            "SourceLineCount": 119,
             "FunctionCount": 10,
             "TypeCount": 3,
-            "ConstantCount": 0,
+            "ConstantCount": 3,
             "VariableCount": 0
         },
         {
@@ -592,6 +592,24 @@
             "Immutable": true,
             "Expression": "`do`",
             "Value": "do"
+        },
+        {
+            "Name": "EarthKarmanHeight",
+            "Type": "Distance",
+            "Immutable": true,
+            "Expression": "100 * Kilometer"
+        },
+        {
+            "Name": "EarthRadius",
+            "Type": "Distance",
+            "Immutable": true,
+            "Expression": "geo.EARTH_RADIUS * Kilometer"
+        },
+        {
+            "Name": "EarthStratosphereHeight",
+            "Type": "Distance",
+            "Immutable": true,
+            "Expression": "60 * Kilometer"
         },
         {
             "Name": "East",

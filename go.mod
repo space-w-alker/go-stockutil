@@ -1,5 +1,18 @@
 module github.com/ghetzel/go-stockutil
 
+go 1.17
+
+require (
+	k8s.io/apimachinery v0.21.0
+	k8s.io/client-go v11.0.0+incompatible
+)
+
+replace (
+	k8s.io/api => k8s.io/api v0.19.1
+	k8s.io/apimachinery => k8s.io/apimachinery v0.19.1
+	k8s.io/client-go => k8s.io/client-go v0.19.1
+)
+
 require (
 	github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38
 	github.com/alecthomas/colour v0.1.0 // indirect
@@ -41,11 +54,17 @@ require (
 	github.com/urfave/negroni v1.0.0
 	github.com/ziutek/mymysql v1.5.4 // indirect
 	golang.org/x/crypto v0.0.0-20201217014255-9d1352758620
-	golang.org/x/net v0.0.0-20200625001655-4c5254603344
+	golang.org/x/net v0.0.0-20200707034311-ab3426394381
 	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208 // indirect
 	gopkg.in/neurosnap/sentences.v1 v1.0.6 // indirect
-	k8s.io/apimachinery v0.18.6
-	k8s.io/client-go v11.0.0+incompatible
 )
 
-go 1.12
+require (
+	github.com/hashicorp/errwrap v1.0.0 // indirect
+	github.com/kr/fs v0.1.0 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	golang.org/x/sys v0.0.0-20201218084310-7d0127a74742 // indirect
+	golang.org/x/term v0.0.0-20201210144234-2321bbc49cbf // indirect
+	gopkg.in/yaml.v2 v2.2.8 // indirect
+)

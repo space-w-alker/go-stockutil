@@ -7,8 +7,12 @@ import (
 	"time"
 
 	"github.com/ghetzel/go-stockutil/maputil"
-	"github.com/kellydunn/golang-geo"
+	geo "github.com/kellydunn/golang-geo"
 )
+
+const EarthRadius Distance = geo.EARTH_RADIUS * Kilometer
+const EarthStratosphereHeight Distance = 60 * Kilometer
+const EarthKarmanHeight Distance = 100 * Kilometer
 
 // Describes the error margin (+/-) for each of the named values.
 type LocationError struct {

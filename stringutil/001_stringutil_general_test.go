@@ -605,3 +605,21 @@ func TestSuffixLines(t *testing.T) {
 	assert.Equal("1<<<\n2<<<\n3<<<", SuffixLines("1\n2\n3", `<<<`))
 	assert.Equal("1<<<\n2<<<\n3<<<\n<<<", SuffixLines("1\n2\n3\n", `<<<`))
 }
+
+func TestSplitTrimSpace(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal([]string{}, SplitTrimSpace(``, ``))
+	assert.Equal([]string{`a`, `b`, `c`}, SplitTrimSpace(`a:b:c`, `:`))
+	assert.Equal([]string{`a`, `b`, `c`}, SplitTrimSpace(` a :b : c`, `:`))
+	assert.Equal([]string{`> a`, `> b`, `> c`}, SplitTrimSpace(`> a :> b :> c `, `:`))
+}
+
+func TestSplitTrim(t *testing.T) {
+	assert := require.New(t)
+
+	assert.Equal([]string{}, SplitTrim(``, ``, ``))
+	assert.Equal([]string{`a`, `b`, `c`}, SplitTrim(`a:b:c`, `:`, ``))
+	assert.Equal([]string{`a`, `b`, `c`}, SplitTrim(` a :b : c`, `:`, ` `))
+	assert.Equal([]string{` a `, ` b `, ` c `}, SplitTrim(`> a :> b :> c `, `:`, `>`))
+}

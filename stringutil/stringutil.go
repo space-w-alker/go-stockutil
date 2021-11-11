@@ -734,6 +734,29 @@ func SplitTripleTrimSpace(in string, delimiter string) (string, string, string) 
 	return a, b, c
 }
 
+// Identical to strings.Split, but trims any leading and trailing whitespace from each element.
+func SplitTrimSpace(s string, sep string) []string {
+	var parts = strings.Split(s, sep)
+
+	for i, part := range parts {
+		parts[i] = strings.TrimSpace(part)
+	}
+
+	return parts
+}
+
+// Identical to strings.Split, but trims any leading and trailing whitespace from each element using
+// strings.Trim.
+func SplitTrim(s string, sep string, cutset string) []string {
+	var parts = strings.Split(s, sep)
+
+	for i, part := range parts {
+		parts[i] = strings.Trim(part, cutset)
+	}
+
+	return parts
+}
+
 // Prefix the given string if it is non-empty
 func PrefixIf(in string, prefix string) string {
 	if !typeutil.IsZero(in) {
