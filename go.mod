@@ -44,7 +44,6 @@ require (
 	github.com/mattn/go-shellwords v1.0.9
 	github.com/melbahja/goph v1.2.1
 	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
-	github.com/miekg/dns v1.1.12 // indirect
 	github.com/mitchellh/mapstructure v1.0.0
 	github.com/neurosnap/sentences v1.0.6 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
@@ -54,17 +53,17 @@ require (
 	github.com/urfave/negroni v1.0.0
 	github.com/ziutek/mymysql v1.5.4 // indirect
 	golang.org/x/crypto v0.0.0-20201217014255-9d1352758620
-	golang.org/x/net v0.0.0-20200707034311-ab3426394381
-	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208 // indirect
+	golang.org/x/net v0.0.0-20210226172049-e18ecbb05110
 	gopkg.in/neurosnap/sentences.v1 v1.0.6 // indirect
 )
 
 require (
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/kr/fs v0.1.0 // indirect
+	github.com/miekg/dns v1.1.43 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	golang.org/x/sys v0.0.0-20201218084310-7d0127a74742 // indirect
+	golang.org/x/sys v0.0.0-20210303074136-134d130e1a04 // indirect
 	golang.org/x/term v0.0.0-20201210144234-2321bbc49cbf // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )

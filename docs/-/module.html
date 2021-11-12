@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.0
+                            v1.10.1
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.10.0&#34;
+    &#34;Version&#34;: &#34;1.10.1&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.10.0`&#34;,
+        &#34;Expression&#34;: &#34;`1.10.1`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.10.0&#34;
+        &#34;Value&#34;: &#34;1.10.1&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -4126,6 +4126,24 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;fns&#34;,
+                &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;ManipulateAll&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;path&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4445,6 +4463,94 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;needle&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;prefix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;suffix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;prefix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;suffix&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;trimSpace&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;scheme&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4454,6 +4560,32 @@
             &#34;Name&#34;: &#34;RemoveOpenHandler&#34;,
             &#34;Signature&#34;: &#34;RemoveOpenHandler(scheme string)&#34;,
             &#34;Source&#34;: &#34;ewoJZGVsZXRlKG9wZW5IYW5kbGVycywgc2NoZW1lKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;find&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;replace&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;occurrences&#34;,
+                &#34;Type&#34;: &#34;int&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;ReplaceWith&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -4733,7 +4865,7 @@
         &#34;SourceLineCount&#34;: 2496,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.3556,
           &#34;Median&#34;: 0,
@@ -5488,140 +5620,6 @@
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3Igc3RydWN0IHsKCn0K&#34;
           },
           &#34;ReadManipulatorFunc&#34;: {
-            &#34;Methods&#34;: [
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;fns&#34;,
-                    &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;ManipulateAll&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;find&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;replace&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;occurrences&#34;,
-                    &#34;Type&#34;: &#34;int&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;ReplaceWith&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;needle&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;prefix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;suffix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;prefix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;suffix&#34;,
-                    &#34;Type&#34;: &#34;string&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;trimSpace&#34;,
-                    &#34;Type&#34;: &#34;bool&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
-              }
-            ],
             &#34;Name&#34;: &#34;ReadManipulatorFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3JGdW5jIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKQ==&#34;
           },
@@ -10151,7 +10149,7 @@
         &#34;SourceLineCount&#34;: 1458,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0.9677,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6593,
           &#34;Median&#34;: 1,
@@ -23256,7 +23254,7 @@
         &#34;SourceLineCount&#34;: 1247,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0.9449,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.5656,
           &#34;Median&#34;: 0.85,
@@ -25599,7 +25597,7 @@
       &#34;SourceLineCount&#34;: 2496,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.3556,
         &#34;Median&#34;: 0,
@@ -25649,7 +25647,7 @@
       &#34;SourceLineCount&#34;: 1458,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0.9677,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6593,
         &#34;Median&#34;: 1,
@@ -25949,7 +25947,7 @@
       &#34;SourceLineCount&#34;: 1247,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0.9449,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.5656,
         &#34;Median&#34;: 0.85,
