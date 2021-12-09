@@ -1,0 +1,25 @@
+package typeutil
+
+type typeutilFunctionSignatureSpec Peg {
+    functionSignatureGrammarMixin
+}
+
+typeutilFunctionSignatureSpec       <- (KW_FUNC / IDENT) _ SIGNATURE _ RETURNS? !.
+
+_                  <- [ \t\r\n]*
+KW_FUNC            <- 'func'
+IDENT              <- [[a-z_]][[a-z0-9_]]*
+SIGNATURE          <- PUNC_SIG_OPEN ARGS* PUNC_SIG_CLOSE
+RETURNS            <- ( DATATYPE / PUNC_SIG_OPEN ARGS* PUNC_SIG_CLOSE )
+PUNC_SIG_OPEN      <- _ '('_
+PUNC_SIG_CLOSE     <- _ ')'_
+PUNC_COMMA         <- _ ','_
+ARGS               <- DATATYPE PUNC_COMMA?
+
+DATATYPE           <- [*]?( BOOL / INT / FLOAT / STRING / ERROR / CUSTOM_TYPE )
+BOOL               <- 'bool'
+INT                <- 'int'
+FLOAT              <- 'float'
+STRING             <- 'string'
+ERROR              <- 'error'
+CUSTOM_TYPE        <- [[a-z_]][[a-z0-9_]]*

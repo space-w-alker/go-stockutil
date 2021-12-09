@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.1
+                            v1.10.2
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.10.1&#34;
+    &#34;Version&#34;: &#34;1.10.2&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.10.1`&#34;,
+        &#34;Expression&#34;: &#34;`1.10.2`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.10.1&#34;
+        &#34;Value&#34;: &#34;1.10.2&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -422,25 +422,6 @@
             ],
             &#34;Signature&#34;: &#34;HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)&#34;,
             &#34;Source&#34;: &#34;ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;kelvin&#34;,
-                &#34;Type&#34;: &#34;int&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;KelvinToColor&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Name&#34;: &#34;color&#34;,
-                &#34;Type&#34;: &#34;Color&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
-            &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -1034,6 +1015,25 @@
                 ],
                 &#34;Signature&#34;: &#34;Mix(first interface{}, second interface{}) (Color, error)&#34;,
                 &#34;Source&#34;: &#34;ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;kelvin&#34;,
+                    &#34;Type&#34;: &#34;int&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;KelvinToColor&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;color&#34;,
+                    &#34;Type&#34;: &#34;Color&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
+                &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
               }
             ],
             &#34;Name&#34;: &#34;Color&#34;,
@@ -2166,6 +2166,27 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;outlevel&#34;,
+                &#34;Type&#34;: &#34;log.Level&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;errlevel&#34;,
+                &#34;Type&#34;: &#34;log.Level&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;LogOutput&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;OutputLineFunc&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;line&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               },
@@ -2842,29 +2863,6 @@
             &#34;Source&#34;: &#34;dHlwZSBDb21tYW5kU3RhdHVzRnVuYyBmdW5jKFN0YXR1cyk=&#34;
           },
           &#34;OutputLineFunc&#34;: {
-            &#34;Methods&#34;: [
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;outlevel&#34;,
-                    &#34;Type&#34;: &#34;log.Level&#34;
-                  },
-                  {
-                    &#34;Name&#34;: &#34;errlevel&#34;,
-                    &#34;Type&#34;: &#34;log.Level&#34;
-                  }
-                ],
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;LogOutput&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Type&#34;: &#34;OutputLineFunc&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
-                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
-              }
-            ],
             &#34;Name&#34;: &#34;OutputLineFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk=&#34;
           },
@@ -4865,7 +4863,7 @@
         &#34;SourceLineCount&#34;: 2496,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.3556,
           &#34;Median&#34;: 0,
@@ -22047,7 +22045,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;,
-        &#34;CommentWordCount&#34;: 1049,
+        &#34;CommentWordCount&#34;: 1128,
         &#34;ConstantCount&#34;: 3,
         &#34;Constants&#34;: [
           {
@@ -22075,7 +22073,7 @@
         &#34;Files&#34;: [
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 1,
+            &#34;FunctionCount&#34;: 5,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;fmt&#34;,
@@ -22086,17 +22084,21 @@
                 &#34;PackageName&#34;: &#34;reflect&#34;
               }
             ],
-            &#34;LineCount&#34;: 18,
+            &#34;LineCount&#34;: 135,
             &#34;Name&#34;: &#34;reflect.go&#34;,
-            &#34;Size&#34;: 341,
-            &#34;SourceLineCount&#34;: 13,
-            &#34;TypeCount&#34;: 0,
+            &#34;Size&#34;: 3296,
+            &#34;SourceLineCount&#34;: 100,
+            &#34;TypeCount&#34;: 1,
             &#34;VariableCount&#34;: 0
           },
           {
             &#34;ConstantCount&#34;: 0,
             &#34;FunctionCount&#34;: 0,
             &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;errors&#34;,
+                &#34;PackageName&#34;: &#34;errors&#34;
+              },
               {
                 &#34;Alias&#34;: &#34;strings&#34;,
                 &#34;PackageName&#34;: &#34;strings&#34;
@@ -22110,10 +22112,46 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 30,
+            &#34;LineCount&#34;: 78,
             &#34;Name&#34;: &#34;reflect_test.go&#34;,
-            &#34;Size&#34;: 511,
-            &#34;SourceLineCount&#34;: 23,
+            &#34;Size&#34;: 2522,
+            &#34;SourceLineCount&#34;: 61,
+            &#34;TypeCount&#34;: 0,
+            &#34;VariableCount&#34;: 0
+          },
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 2,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;fmt&#34;,
+                &#34;PackageName&#34;: &#34;fmt&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;io&#34;,
+                &#34;PackageName&#34;: &#34;io&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;os&#34;,
+                &#34;PackageName&#34;: &#34;os&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;sort&#34;,
+                &#34;PackageName&#34;: &#34;sort&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;strconv&#34;,
+                &#34;PackageName&#34;: &#34;strconv&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;strings&#34;,
+                &#34;PackageName&#34;: &#34;strings&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 916,
+            &#34;Name&#34;: &#34;sigparse.peg.go&#34;,
+            &#34;Size&#34;: 19856,
+            &#34;SourceLineCount&#34;: 869,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -22254,7 +22292,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 91,
+        &#34;FunctionCount&#34;: 97,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -22430,7 +22468,29 @@
               }
             ],
             &#34;Signature&#34;: &#34;FunctionArity(fn interface{}) (int, int, error)&#34;,
-            &#34;Source&#34;: &#34;ewoJaWYgSXNGdW5jdGlvbihmbikgewoJCWZuVCA6PSByZWZsZWN0LlR5cGVPZihmbikKCQlyZXR1cm4gZm5ULk51bUluKCksIGZuVC5OdW1PdXQoKSwgbmlsCgl9IGVsc2UgewoJCXJldHVybiAwLCAwLCBmbXQuRXJyb3JmKCJleHBlY3RlZCBmdW5jdGlvbiwgZ290ICVUIiwgZm4pCgl9Cn0=&#34;
+            &#34;Source&#34;: &#34;ewoJaWYgSXNGdW5jdGlvbihmbikgewoJCXZhciBmblQgPSByZWZsZWN0LlR5cGVPZihmbikKCQlyZXR1cm4gZm5ULk51bUluKCksIGZuVC5OdW1PdXQoKSwgbmlsCgl9IGVsc2UgewoJCXJldHVybiAwLCAwLCBmbXQuRXJyb3JmKCJleHBlY3RlZCBmdW5jdGlvbiwgZ290ICVUIiwgZm4pCgl9Cn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;fn&#34;,
+                &#34;Type&#34;: &#34;interface{}&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;signature&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Returns whether the given function&#39;s actual signature matches the given spec string (as parsed by\nParseSignatureString).&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;FunctionMatchesSignature&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;error&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;FunctionMatchesSignature(fn interface{}, signature string) error&#34;,
+            &#34;Source&#34;: &#34;ewoJZm4gPSBSZXNvbHZlVmFsdWUoZm4pCgl2YXIgZm5UID0gcmVmbGVjdC5WYWx1ZU9mKGZuKS5UeXBlKCkKCWlmIGZuVC5LaW5kKCkgIT0gcmVmbGVjdC5GdW5jIHsKCQlyZXR1cm4gZm10LkVycm9yZigiZXhwZWN0ZWQgZnVuY3Rpb24sIGdvdCAlVCIsIGZuKQoJfQoJaWYgXywgYXJncywgcmV0dXJucywgZXJyIDo9IFBhcnNlU2lnbmF0dXJlU3RyaW5nKHNpZ25hdHVyZSk7IGVyciA9PSBuaWwgewoJCWlmIGxlbihhcmdzKSAhPSBmblQuTnVtSW4oKSB7CgkJCXJldHVybiBmbXQuRXJyb3JmKCJleHBlY3RlZCAlZCBhcmd1bWVudHMsIGdvdCAlZCIsIGxlbihhcmdzKSwgZm5ULk51bUluKCkpCgkJfQoJCWlmIGxlbihyZXR1cm5zKSAhPSBmblQuTnVtT3V0KCkgewoJCQlyZXR1cm4gZm10LkVycm9yZigiZXhwZWN0ZWQgJWQgcmV0dXJuIGFyZ3VtZW50cywgZ290ICVkIiwgbGVuKHJldHVybnMpLCBmblQuTnVtT3V0KCkpCgkJfQoJCWZvciBpLCBhcmcgOj0gcmFuZ2UgYXJncyB7CgkJCXZhciBmbkFyZyA9IGZuVC5JbihpKQoJCQlpZiAhYXJnLklzU2FtZVR5cGVBcyhmbkFyZykgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoImFyZ3VtZW50ICVkIHR5cGUgbWlzbWF0Y2g6IGV4cGVjdGVkICV2LCBnb3QgJXYiLCBpLCBhcmcsIGZuQXJnKQoJCQl9CgkJfQoJCWZvciBpLCBhcmcgOj0gcmFuZ2UgcmV0dXJucyB7CgkJCXZhciBmbkFyZyA9IGZuVC5PdXQoaSkKCQkJaWYgIWFyZy5Jc1NhbWVUeXBlQXMoZm5BcmcpIHsKCQkJCXJldHVybiBmbXQuRXJyb3JmKCJyZXR1cm4gYXJndW1lbnQgJWQgdHlwZSBtaXNtYXRjaDogZXhwZWN0ZWQgJXYsIGdvdCAldiIsIGksIGFyZywgZm5BcmcpCgkJCX0KCQl9CgkJcmV0dXJuIG5pbAoJfSBlbHNlIHsKCQlyZXR1cm4gZXJyCgl9Cn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -23097,6 +23157,54 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;signature&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Parse the given function signature string and return the function name, input, and output arguments.\nExample: \&#34;helloWorld(string) error\&#34; would return an ident of \&#34;helloWorld\&#34;, a 1-element type declaration\nrepresenting the \&#34;string\&#34; argument, and a 1-element returns array with the \&#34;error\&#34; return parameter.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;ParseSignatureString&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Name&#34;: &#34;ident&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;args&#34;,
+                &#34;Type&#34;: &#34;[]TypeDeclaration&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;returns&#34;,
+                &#34;Type&#34;: &#34;[]TypeDeclaration&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;perr&#34;,
+                &#34;Type&#34;: &#34;error&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;ParseSignatureString(signature string) (ident string, args []TypeDeclaration, returns []TypeDeclaration, perr error)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGdyYW1tYXIgPSAmdHlwZXV0aWxGdW5jdGlvblNpZ25hdHVyZVNwZWN7QnVmZmVyOiBzaWduYXR1cmUsIFByZXR0eTogdHJ1ZX0KCWlmIGVyciA6PSBncmFtbWFyLkluaXQoKTsgZXJyICE9IG5pbCB7CgkJcGVyciA9IGVycgoJCXJldHVybgoJfQoJaWYgZXJyIDo9IGdyYW1tYXIuUGFyc2UoKTsgZXJyICE9IG5pbCB7CgkJcGVyciA9IGVycgoJCXJldHVybgoJfQoJdmFyIGRlY2xzID0gbWFrZShbXVR5cGVEZWNsYXJhdGlvbiwgMCkKCWZvciBfLCB0b2tlbiA6PSByYW5nZSBncmFtbWFyLlRva2VucygpIHsKCQlzd2l0Y2ggcnVsZSA6PSB0b2tlbi5wZWdSdWxlOyBydWxlIHsKCQljYXNlIHJ1bGVLV19GVU5DOgoJCQlpZGVudCA9IGAoYW5vbnltb3VzKWAKCQljYXNlIHJ1bGVJREVOVDoKCQkJaWRlbnQgPSBzaWduYXR1cmVbdG9rZW4uYmVnaW46dG9rZW4uZW5kXQoJCWNhc2UgcnVsZVNJR05BVFVSRToKCQkJYXJncyA9IG1ha2UoW11UeXBlRGVjbGFyYXRpb24sIGxlbihkZWNscykpCgkJCWNvcHkoYXJncywgZGVjbHMpCgkJCWRlY2xzID0gbWFrZShbXVR5cGVEZWNsYXJhdGlvbiwgMCkKCQljYXNlIHJ1bGVSRVRVUk5TOgoJCQlyZXR1cm5zID0gbWFrZShbXVR5cGVEZWNsYXJhdGlvbiwgbGVuKGRlY2xzKSkKCQkJY29weShyZXR1cm5zLCBkZWNscykKCQkJZGVjbHMgPSBuaWwKCQljYXNlIHJ1bGVEQVRBVFlQRToKCQkJZGVjbHMgPSBhcHBlbmQoZGVjbHMsIFR5cGVEZWNsYXJhdGlvbihzaWduYXR1cmVbdG9rZW4uYmVnaW46dG9rZW4uZW5kXSkpCgkJfQoJfQoJcmV0dXJuCn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;pretty&#34;,
+                &#34;Type&#34;: &#34;bool&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;Pretty&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;Pretty(pretty bool) &#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMocCAqdHlwZXV0aWxGdW5jdGlvblNpZ25hdHVyZVNwZWMpIGVycm9yIHsKCQlwLlByZXR0eSA9IHByZXR0eQoJCXJldHVybiBuaWwKCX0KfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;handler&#34;,
                 &#34;Type&#34;: &#34;TypeConvertFunc&#34;
               },
@@ -23150,6 +23258,23 @@
             ],
             &#34;Signature&#34;: &#34;SetValue(target interface{}, value interface{}) error&#34;,
             &#34;Source&#34;: &#34;ewoJdmFyIHRhcmdldFYsIHZhbHVlViwgb3JpZ2luYWxWIHJlZmxlY3QuVmFsdWUKCWlmIHRWLCBvayA6PSB0YXJnZXQuKHJlZmxlY3QuVmFsdWUpOyBvayB7CgkJdGFyZ2V0ViA9IHRWCgl9IGVsc2UgewoJCXRhcmdldFYgPSByZWZsZWN0LlZhbHVlT2YodGFyZ2V0KQoJCWlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuU3RydWN0IHsKCQkJcmV0dXJuIGZtdC5FcnJvcmYoIk11c3QgcGFzcyBhIHBvaW50ZXIgdG8gYSBzdHJ1Y3QgaW5zdGFuY2UsIGdvdCAlVCIsIHRhcmdldCkKCQl9IGVsc2UgaWYgdGFyZ2V0Vi5LaW5kKCkgPT0gcmVmbGVjdC5QdHIgewoJCQl0YXJnZXRWID0gdGFyZ2V0Vi5FbGVtKCkKCQl9Cgl9CglpZiAhdGFyZ2V0Vi5Jc1ZhbGlkKCkgewoJCXJldHVybiBmbXQuRXJyb3JmKCJUYXJnZXQgJVQgaXMgbm90IHZhbGlkIiwgdGFyZ2V0KQoJfQoJaWYgdiwgZXJyIDo9IHV0aWxzLkNvbnZlcnRDdXN0b21UeXBlKHZhbHVlKTsgZXJyID09IG5pbCB7CgkJdmFsdWUgPSB2Cgl9IGVsc2UgaWYgZXJyICE9IHV0aWxzLlBhc3N0aHJvdWdoVHlwZSB7CgkJcmV0dXJuIGVycgoJfQoJaWYgdlYsIG9rIDo9IHZhbHVlLihyZWZsZWN0LlZhbHVlKTsgb2sgewoJCW9yaWdpbmFsViA9IHZWCgkJdmFsdWVWID0gdlYKCX0gZWxzZSB7CgkJb3JpZ2luYWxWID0gcmVmbGVjdC5WYWx1ZU9mKHZhbHVlKQoJCXZhbHVlViA9IHJlZmxlY3QuVmFsdWVPZihSZXNvbHZlVmFsdWUodmFsdWUpKQoJfQoJaWYgdmFsdWVWLklzVmFsaWQoKSB7CgkJdGFyZ2V0VCA6PSB0YXJnZXRWLlR5cGUoKQoJCXZhbHVlVCA6PSB2YWx1ZVYuVHlwZSgpCgkJaWYgdGFyZ2V0VC5LaW5kKCkgPT0gcmVmbGVjdC5TdHJpbmcgJiYgdmFsdWVWLkNhbkludGVyZmFjZSgpIHsKCQkJdmFsdWVWID0gcmVmbGVjdC5WYWx1ZU9mKGZtdC5TcHJpbnRmKCIldiIsIHZhbHVlVi5JbnRlcmZhY2UoKSkpCgkJCXZhbHVlVCA9IHZhbHVlVi5UeXBlKCkKCQkJaWYgIXZhbHVlVi5Jc1ZhbGlkKCkgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIkNvbnZlcnRpbmcgJVQgdG8gJXYgcHJvZHVjZWQgYW4gaW52YWxpZCB2YWx1ZSIsIHZhbHVlLCB0YXJnZXRUKQoJCQl9CgkJfQoJCWlmIHZhbHVlVC5Bc3NpZ25hYmxlVG8odGFyZ2V0VCkgewoJCQl0YXJnZXRWLlNldCh2YWx1ZVYpCgkJfSBlbHNlIGlmIHZhbHVlVC5Db252ZXJ0aWJsZVRvKHRhcmdldFQpIHsKCQkJdGFyZ2V0Vi5TZXQodmFsdWVWLkNvbnZlcnQodGFyZ2V0VCkpCgkJfSBlbHNlIGlmIHRhcmdldFYuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJaWYgb3JpZ2luYWxWLktpbmQoKSA9PSByZWZsZWN0LlB0ciB7CgkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0Viwgb3JpZ2luYWxWKQoJCQl9IGVsc2UgewoJCQkJcmV0dXJuIGZtdC5FcnJvcmYoIlVuYWJsZSB0byBzZXQgdGFyZ2V0OiB2YWx1ZSBmb3IgdGFyZ2V0ICV2IG11c3QgYmUgZ2l2ZW4gYXMgYSBwb2ludGVyIiwgdGFyZ2V0VCkKCQkJfQoJCX0gZWxzZSB7CgkJCXN3aXRjaCBraW5kIDo9IHRhcmdldFYuS2luZCgpOyBraW5kIHsKCQkJY2FzZSByZWZsZWN0LlN0cnVjdDoKCQkJCWlmIGVtYmVkZGVkViA6PSB0YXJnZXRWLkZpZWxkQnlOYW1lKHZhbHVlVC5OYW1lKCkpOyBlbWJlZGRlZFYuSXNWYWxpZCgpIHsKCQkJCQlpZiBlcnIgOj0gU2V0VmFsdWUoZW1iZWRkZWRWLCB2YWx1ZSk7IGVyciA9PSBuaWwgewoJCQkJCQlyZXR1cm4gbmlsCgkJCQkJfQoJCQkJfQoJCQljYXNlIHJlZmxlY3QuQXJyYXksIHJlZmxlY3QuU2xpY2U6CgkJCQlpZiBJc0FycmF5KHZhbHVlKSB7CgkJCQkJdmFyIHZhbHVlQSA9IHV0aWxzLlNsaWNlaWZ5KHZhbHVlKQoJCQkJCXZhciByZXBsID0gdGFyZ2V0VgoJCQkJCWlmIHRhcmdldFYuTGVuKCkgPCBsZW4odmFsdWVBKSB7CgkJCQkJCXJlcGwgPSByZWZsZWN0Lk1ha2VTbGljZSh0YXJnZXRULCBsZW4odmFsdWVBKSwgbGVuKHZhbHVlQSkpCgkJCQkJfQoJCQkJCWZvciBpIDo9IDA7IGkgPCByZXBsLkxlbigpOyBpKysgewoJCQkJCQl2YXIgZWxlbSA9IHJlcGwuSW5kZXgoaSkKCQkJCQkJaWYgZXJyIDo9IFNldFZhbHVlKGVsZW0sIHZhbHVlQVtpXSk7IGVyciAhPSBuaWwgewoJCQkJCQkJcmV0dXJuIGZtdC5FcnJvcmYoImNhbm5vdCBzZXQgaW5kZXggJWQ6ICV2IiwgaSwgZXJyKQoJCQkJCQl9CgkJCQkJfQoJCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXRWLCByZXBsKQoJCQkJfQoJCQl9CgkJCXN3aXRjaCB2YWx1ZS4odHlwZSkgewoJCQljYXNlIHRpbWUuVGltZToKCQkJCXJldHVybiBTZXRWYWx1ZSh0YXJnZXQsIHZhbHVlLih0aW1lLlRpbWUpLlVuaXhOYW5vKCkpCgkJCWNhc2UgKnRpbWUuVGltZToKCQkJCWlmIHRtIDo9IHZhbHVlLigqdGltZS5UaW1lKTsgdG0gIT0gbmlsIHsKCQkJCQlyZXR1cm4gU2V0VmFsdWUodGFyZ2V0LCB0bS5Vbml4TmFubygpKQoJCQkJfQoJCQl9CgkJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldDogJVQgaGFzIG5vIHBhdGggdG8gYmVjb21pbmcgJXYiLCB2YWx1ZSwgdGFyZ2V0VCkKCQl9Cgl9IGVsc2UgewoJCXJldHVybiBmbXQuRXJyb3JmKCJVbmFibGUgdG8gc2V0IHRhcmdldCB0byB0aGUgZ2l2ZW4gJVQgdmFsdWUiLCB2YWx1ZSkKCX0KCXJldHVybiBuaWwKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;size&#34;,
+                &#34;Type&#34;: &#34;int&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;Size&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;Size(size int) &#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMocCAqdHlwZXV0aWxGdW5jdGlvblNpZ25hdHVyZVNwZWMpIGVycm9yIHsKCQlwLnRva2VuczMyID0gdG9rZW5zMzJ7dHJlZTogbWFrZShbXXRva2VuMzIsIDAsIHNpemUpfQoJCXJldHVybiBuaWwKCX0KfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -23247,19 +23372,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;typeutil&#34;,
-        &#34;LineCount&#34;: 1686,
+        &#34;LineCount&#34;: 2767,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;typeutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 1247,
+        &#34;SourceLineCount&#34;: 2241,
         &#34;Statistics&#34;: {
-          &#34;GeometricMean&#34;: 0.9449,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;GeometricMean&#34;: 0.948,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.5656,
-          &#34;Median&#34;: 0.85,
+          &#34;Mean&#34;: 0.552,
+          &#34;Median&#34;: 0.75,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4458
+          &#34;StdDev&#34;: 0.4506
         },
         &#34;Synopsis&#34;: &#34;Helpers for type inflection and simplifying working with Golang generic interface types\n&#34;,
         &#34;Tests&#34;: [
@@ -23274,6 +23399,18 @@
             &#34;Name&#34;: &#34;TestFunctionArity&#34;,
             &#34;Signature&#34;: &#34;TestFunctionArity(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpLCBvLCBlcnIgOj0gRnVuY3Rpb25Bcml0eShzdHJpbmdzLkNvbXBhcmUpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoMiwgaSkKCWFzc2VydC5FcXVhbCgxLCBvKQoJZjBfMCA6PSBmdW5jKCkgewoJfQoJaSwgbywgZXJyID0gRnVuY3Rpb25Bcml0eShmMF8wKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LkVxdWFsKDAsIGkpCglhc3NlcnQuRXF1YWwoMCwgbykKCWYwXzEgOj0gZnVuYygpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9CglpLCBvLCBlcnIgPSBGdW5jdGlvbkFyaXR5KGYwXzEpCglhc3NlcnQuTm9FcnJvcihlcnIpCglhc3NlcnQuRXF1YWwoMCwgaSkKCWFzc2VydC5FcXVhbCgxLCBvKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestFunctionMatchesSignature&#34;,
+            &#34;Signature&#34;: &#34;TestFunctionMatchesSignature(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKCkgewoJfSwgYGZ1bmMoKWApKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKF8gc3RyaW5nKSB7Cgl9LCBgZnVuYyhzdHJpbmcpYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCBgZnVuYyhzdHJpbmcpIGVycm9yYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIChpbnQsIGVycm9yKSB7CgkJcmV0dXJuIDAsIG5pbAoJfSwgYGZ1bmMoc3RyaW5nKSAoaW50LCBlcnJvcilgKSkKfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -23487,6 +23624,18 @@
               }
             ],
             &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestParseSignatureString&#34;,
+            &#34;Signature&#34;: &#34;TestParseSignatureString(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGlkZW50LCBhcmdzLCByZXR1cm5zLCBlcnIgPSBQYXJzZVNpZ25hdHVyZVN0cmluZyhgdGVzdEZ1bmMoc3RyLGJvb2wsICp0ZXN0Q3VzdG9tVHlwZSkgKGJvb2wsZXJyb3IpYCkKCXJlcXVpcmUuTm9FcnJvcih0LCBlcnIpCglyZXF1aXJlLkVxdWFsKHQsIGB0ZXN0RnVuY2AsIGlkZW50KQoJcmVxdWlyZS5MZW4odCwgYXJncywgMykKCWFyZ3NbMF0uSXNTYW1lVHlwZUFzKGBleGFtcGxlIHN0cmluZ2ApCglhcmdzWzFdLklzU2FtZVR5cGVBcyh0cnVlKQoJYXJnc1syXS5Jc1NhbWVUeXBlQXMobmV3KHRlc3RDdXN0b21UeXBlKSkKCXJlcXVpcmUuTGVuKHQsIHJldHVybnMsIDIpCglyZXR1cm5zWzBdLklzU2FtZVR5cGVBcyh0cnVlKQoJcmV0dXJuc1sxXS5Jc1NhbWVUeXBlQXMoZXJyb3JzLk5ldyhgdGVzdCBlcnJvcmApKQoJaWRlbnQsIGFyZ3MsIHJldHVybnMsIGVyciA9IFBhcnNlU2lnbmF0dXJlU3RyaW5nKGBmdW5jKClgKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIGVycikKCXJlcXVpcmUuRXF1YWwodCwgYChhbm9ueW1vdXMpYCwgaWRlbnQpCglyZXF1aXJlLkxlbih0LCBhcmdzLCAwKQoJcmVxdWlyZS5MZW4odCwgcmV0dXJucywgMCkKCWlkZW50LCBhcmdzLCByZXR1cm5zLCBlcnIgPSBQYXJzZVNpZ25hdHVyZVN0cmluZyhgdGVzdEZ1bmMoKSBlcnJvcmApCglyZXF1aXJlLk5vRXJyb3IodCwgZXJyKQoJcmVxdWlyZS5FcXVhbCh0LCBgdGVzdEZ1bmNgLCBpZGVudCkKCXJlcXVpcmUuTGVuKHQsIGFyZ3MsIDApCglyZXF1aXJlLkxlbih0LCByZXR1cm5zLCAxKQoJcmV0dXJuc1swXS5Jc1NhbWVUeXBlQXMoZXJyb3JzLk5ldyhgdGVzdCBlcnJvcmApKQoJaWRlbnQsIGFyZ3MsIHJldHVybnMsIGVyciA9IFBhcnNlU2lnbmF0dXJlU3RyaW5nKGB0ZXN0RnVuYyhib29sKSAoZXJyb3IpYCkKCXJlcXVpcmUuTm9FcnJvcih0LCBlcnIpCglyZXF1aXJlLkVxdWFsKHQsIGB0ZXN0RnVuY2AsIGlkZW50KQoJcmVxdWlyZS5MZW4odCwgYXJncywgMSkKCWFyZ3NbMF0uSXNTYW1lVHlwZUFzKGZhbHNlKQoJcmVxdWlyZS5MZW4odCwgcmV0dXJucywgMSkKCXJldHVybnNbMF0uSXNTYW1lVHlwZUFzKGVycm9ycy5OZXcoYHRlc3QgZXJyb3JgKSkKfS8vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestSetValueInt&#34;,
             &#34;Signature&#34;: &#34;TestSetValueInt(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgaSBpbnQKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpLCBpbnQoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIGludDgoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIGludDE2KDQyKSkpCglhc3NlcnQuRXF1YWwoaW50KDQyKSwgaSkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpLCBpbnQzMig0MikpKQoJYXNzZXJ0LkVxdWFsKGludCg0MiksIGkpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaSwgaW50NjQoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIHVpbnQoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIHVpbnQ4KDQyKSkpCglhc3NlcnQuRXF1YWwoaW50KDQyKSwgaSkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpLCB1aW50MTYoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQoNDIpLCBpKQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmksIHVpbnQzMig0MikpKQoJYXNzZXJ0LkVxdWFsKGludCg0MiksIGkpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaSwgdWludDY0KDQyKSkpCglhc3NlcnQuRXF1YWwoaW50KDQyKSwgaSkKCXZhciBpOCBpbnQ4Cglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaTgsIGludCg0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgaW50OCg0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgaW50MTYoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQ4KDQyKSwgaTgpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaTgsIGludDMyKDQyKSkpCglhc3NlcnQuRXF1YWwoaW50OCg0MiksIGk4KQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmk4LCBpbnQ2NCg0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgdWludCg0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgdWludDgoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQ4KDQyKSwgaTgpCglhc3NlcnQuTm9FcnJvcihTZXRWYWx1ZSgmaTgsIHVpbnQxNig0MikpKQoJYXNzZXJ0LkVxdWFsKGludDgoNDIpLCBpOCkKCWFzc2VydC5Ob0Vycm9yKFNldFZhbHVlKCZpOCwgdWludDMyKDQyKSkpCglhc3NlcnQuRXF1YWwoaW50OCg0MiksIGk4KQoJYXNzZXJ0Lk5vRXJyb3IoU2V0VmFsdWUoJmk4LCB1aW50NjQoNDIpKSkKCWFzc2VydC5FcXVhbChpbnQ4KDQyKSwgaTgpCglhc3NlcnQuTm90TmlsKFNldFZhbHVlKHRpbWUuVGltZXt9LCB0aW1lLk5vdygpKSkKfS8vIElOVAovLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCg==&#34;
@@ -23540,7 +23689,7 @@
             &#34;Source&#34;: &#34;ewoJdmFyIHYgPSBWKGBoZWxsb2ApCglyZXF1aXJlLk5vRXJyb3IodCwgdi5BcHBlbmQoYHRoZXJlYCkpCglyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BoZWxsb2AsIGB0aGVyZWB9LCB2LlN0cmluZ3MoKSkKfQ==&#34;
           }
         ],
-        &#34;TypeCount&#34;: 3,
+        &#34;TypeCount&#34;: 4,
         &#34;Types&#34;: {
           &#34;Thing&#34;: {
             &#34;Fields&#34;: [
@@ -23560,6 +23709,41 @@
           &#34;TypeConvertFunc&#34;: {
             &#34;Name&#34;: &#34;TypeConvertFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBUeXBlQ29udmVydEZ1bmMgPSB1dGlscy5UeXBlQ29udmVydEZ1bmM=&#34;
+          },
+          &#34;TypeDeclaration&#34;: {
+            &#34;MetaType&#34;: &#34;string&#34;,
+            &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;value&#34;,
+                    &#34;Type&#34;: &#34;interface{}&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;IsSameTypeAs&#34;,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;IsSameTypeAs(value interface{}) bool&#34;
+              },
+              {
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;String&#34;,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;string&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;String() string&#34;
+              }
+            ],
+            &#34;Name&#34;: &#34;TypeDeclaration&#34;,
+            &#34;Source&#34;: &#34;dHlwZSBUeXBlRGVjbGFyYXRpb24gc3RyaW5n&#34;
           },
           &#34;Variant&#34;: {
             &#34;Comment&#34;: &#34;Represents an interface type with helper functions for making it easy to do\ntype conversions.&#34;,
@@ -25597,7 +25781,7 @@
       &#34;SourceLineCount&#34;: 2496,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.3556,
         &#34;Median&#34;: 0,
@@ -25936,26 +26120,26 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;,
-      &#34;CommentWordCount&#34;: 1049,
+      &#34;CommentWordCount&#34;: 1128,
       &#34;ConstantCount&#34;: 3,
-      &#34;FunctionCount&#34;: 91,
+      &#34;FunctionCount&#34;: 97,
       &#34;ImportPath&#34;: &#34;typeutil&#34;,
-      &#34;LineCount&#34;: 1686,
+      &#34;LineCount&#34;: 2767,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;typeutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 1247,
+      &#34;SourceLineCount&#34;: 2241,
       &#34;Statistics&#34;: {
-        &#34;GeometricMean&#34;: 0.9449,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;GeometricMean&#34;: 0.948,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.5656,
-        &#34;Median&#34;: 0.85,
+        &#34;Mean&#34;: 0.552,
+        &#34;Median&#34;: 0.75,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4458
+        &#34;StdDev&#34;: 0.4506
       },
       &#34;Synopsis&#34;: &#34;Helpers for type inflection and simplifying working with Golang generic interface types\n&#34;,
-      &#34;TypeCount&#34;: 3,
+      &#34;TypeCount&#34;: 4,
       &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
       &#34;VariableCount&#34;: 0
     },

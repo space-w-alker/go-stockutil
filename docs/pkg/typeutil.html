@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.1
+                            v1.10.2
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 57%</span>
+<span class="pull-right">Doc Coverage: 55%</span>
 <h2 id="pkg-overview">package typeutil</h2>
 
 <p>
@@ -222,6 +222,12 @@
     <li>
 		<strong>
 		<a href="#FunctionArity">func FunctionArity(fn interface{}) (int, int, error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#FunctionMatchesSignature">func FunctionMatchesSignature(fn interface{}, signature string) error</a>
 		</strong>
 	</li>
 	
@@ -431,6 +437,18 @@
 	
     <li>
 		<strong>
+		<a href="#ParseSignatureString">func ParseSignatureString(signature string) (ident string, args []TypeDeclaration, returns []TypeDeclaration, perr error)</a>
+		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Pretty">func Pretty(pretty bool) </a>
+		
+	</li>
+	
+    <li>
+		<strong>
 		<a href="#RegisterTypeHandler">func RegisterTypeHandler(handler TypeConvertFunc, types ...string)</a>
 		</strong>
 	</li>
@@ -445,6 +463,12 @@
 		<strong>
 		<a href="#SetValue">func SetValue(target interface{}, value interface{}) error</a>
 		</strong>
+	</li>
+	
+    <li>
+		
+		<a href="#Size">func Size(size int) </a>
+		
 	</li>
 	
     <li>
@@ -496,6 +520,13 @@
 	
     <li>
 		<a href="#TypeConvertFunc">type TypeConvertFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
+		<a href="#TypeDeclaration">type TypeDeclaration string</a>
 
 		
 		
@@ -1102,10 +1133,10 @@
 			<a href="reflect.go">reflect.go</a>
 			
 		</td>
-		<td class="text-right">341B</td>
-		<td class="text-right">13</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">100</td>
+		<td class="text-right">5</td>
 		<td class="text-right">1</td>
-		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 	</tr>
@@ -1116,9 +1147,23 @@
 			<a href="reflect_test.go">reflect_test.go</a>
 			
 		</td>
-		<td class="text-right">511B</td>
-		<td class="text-right">23</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">61</td>
 		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="sigparse.peg.go">sigparse.peg.go</a>
+			
+		</td>
+		<td class="text-right">19KB</td>
+		<td class="text-right">869</td>
+		<td class="text-right">2</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1329,6 +1374,20 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 <p><p>Returns the number of input and return arguments a given function has.</p>
+</p>
+
+
+<h3 id="FunctionMatchesSignature" data-kind="f">
+	func <a title="View Source" href="">FunctionMatchesSignature</a>
+	<a class="permalink" href="#FunctionMatchesSignature">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FunctionMatchesSignature(fn interface{}, signature string) error</pre>
+</div>
+
+
+<p><p>Returns whether the given function’s actual signature matches the given spec string (as parsed by<br>ParseSignatureString).</p>
 </p>
 
 
@@ -1766,6 +1825,31 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+<h3 id="ParseSignatureString" data-kind="f">
+	func <a title="View Source" href="">ParseSignatureString</a>
+	<a class="permalink" href="#ParseSignatureString">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func ParseSignatureString(signature string) (ident string, args []TypeDeclaration, returns []TypeDeclaration, perr error)</pre>
+</div>
+
+
+<p><p>Parse the given function signature string and return the function name, input, and output arguments.<br>Example: “helloWorld(string) error” would return an ident of “helloWorld”, a 1-element type declaration<br>representing the “string” argument, and a 1-element returns array with the “error” return parameter.</p>
+</p>
+
+
+<h3 id="Pretty" data-kind="f">
+	func <a title="View Source" href="">Pretty</a>
+	<a class="permalink" href="#Pretty">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Pretty(pretty bool) </pre>
+</div>
+
+
+
 <h3 id="RegisterTypeHandler" data-kind="f">
 	func <a title="View Source" href="">RegisterTypeHandler</a>
 	<a class="permalink" href="#RegisterTypeHandler">&#182;</a>
@@ -1806,6 +1890,17 @@ const <span id="Value3">Value3</span> = `value-3`
 
 <p><p>Attempts to set the given reflect.Value to the given interface value</p>
 </p>
+
+
+<h3 id="Size" data-kind="f">
+	func <a title="View Source" href="">Size</a>
+	<a class="permalink" href="#Size">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Size(size int) </pre>
+</div>
+
 
 
 <h3 id="Slice" data-kind="f">
@@ -1918,6 +2013,59 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+
+
+
+
+<h3 id="TypeDeclaration" data-kind="t">
+	type
+	<a title="View Source" href="">TypeDeclaration</a>
+	<a class="permalink" href="#TypeDeclaration">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type TypeDeclaration string</pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="TypeDeclaration.IsSameTypeAs" data-kind="f">
+	func
+	(self TypeDeclaration)
+	<a title="View Source" href="">IsSameTypeAs</a>
+	<a class="permalink" href="#IsSameTypeAs">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self TypeDeclaration) IsSameTypeAs(value interface{}) bool</pre>
+</div>
+
+
+
+
+<h4 id="TypeDeclaration.String" data-kind="f">
+	func
+	(self TypeDeclaration)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self TypeDeclaration) String() string</pre>
+</div>
 
 
 
