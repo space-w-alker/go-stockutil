@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.2
+                            v1.10.3
                         </li>
                     </ul>
                     
@@ -615,6 +615,10 @@
 			
 			
 			
+			
+			
+			
+			
 			<li>
 				<strong>
 				<a href="#Variant.V">
@@ -776,6 +780,30 @@
 					func
 					(self *Variant)
 					IsDuration() bool
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				
+				<a href="#Variant.IsFunction">
+					func
+					(self Variant)
+					IsFunction(signature ...string) bool
+				</a>
+				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Variant.IsKind">
+					func
+					(self *Variant)
+					IsKind(kind reflect.Kind) bool
 				</a>
 				</strong>
 			</li>
@@ -1134,7 +1162,7 @@
 			
 		</td>
 		<td class="text-right">3KB</td>
-		<td class="text-right">100</td>
+		<td class="text-right">103</td>
 		<td class="text-right">5</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
@@ -1147,8 +1175,8 @@
 			<a href="reflect_test.go">reflect_test.go</a>
 			
 		</td>
-		<td class="text-right">2KB</td>
-		<td class="text-right">61</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">62</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1161,8 +1189,8 @@
 			<a href="sigparse.peg.go">sigparse.peg.go</a>
 			
 		</td>
-		<td class="text-right">19KB</td>
-		<td class="text-right">869</td>
+		<td class="text-right">20KB</td>
+		<td class="text-right">892</td>
 		<td class="text-right">2</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1204,8 +1232,8 @@
 			
 		</td>
 		<td class="text-right">13KB</td>
-		<td class="text-right">438</td>
-		<td class="text-right">65</td>
+		<td class="text-right">459</td>
+		<td class="text-right">67</td>
 		<td class="text-right">1</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1218,7 +1246,7 @@
 			
 		</td>
 		<td class="text-right">7KB</td>
-		<td class="text-right">216</td>
+		<td class="text-right">228</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -2162,6 +2190,10 @@ const <span id="Value3">Value3</span> = `value-3`
 
 
 
+
+
+
+
 <h4 id="V" data-kind="f">
 	func <a title="View Source" href="">V</a>
 	<a class="permalink" href="#V">&#182;</a>
@@ -2400,6 +2432,39 @@ const <span id="Value3">Value3</span> = `value-3`
 </div>
 
 <p><p>Return whether the value can be interpreted as a duration.</p>
+</p>
+
+
+
+
+<h4 id="Variant.IsFunction" data-kind="f">
+	func
+	(self Variant)
+	<a title="View Source" href="">IsFunction</a>
+	<a class="permalink" href="#IsFunction">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self Variant) IsFunction(signature ...string) bool</pre>
+</div>
+
+
+
+
+<h4 id="Variant.IsKind" data-kind="f">
+	func
+	(self *Variant)
+	<a title="View Source" href="">IsKind</a>
+	<a class="permalink" href="#IsKind">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Variant) IsKind(kind reflect.Kind) bool</pre>
+</div>
+
+<p><p>Return whether the value is of the given reflect.Kind</p>
 </p>
 
 

@@ -247,3 +247,17 @@ func TestGenericCompare(t *testing.T) {
 	require.False(t, IsLessThan(42, 42))
 	require.False(t, IsLessThan(420, 69))
 }
+
+func TestVariantIsFunction(t *testing.T) {
+	require.False(t, V(nil).IsFunction())
+	require.False(t, V(false).IsFunction())
+	require.False(t, V(nil).IsFunction(`func()`))
+	require.False(t, V(false).IsFunction(`func()`))
+
+	require.True(t, V(func() {}).IsFunction())
+	require.True(t, V(func() {}).IsFunction(`func()`))
+	require.True(t, V(func(_ string) {}).IsFunction(`func(string)`))
+	require.True(t, V(func(_ string) error { return nil }).IsFunction(`func(string) error`))
+	require.True(t, V(func(_ string) error { return nil }).IsFunction(`func(any) any`))
+	require.True(t, V(func(_ string) (int, error) { return 0, nil }).IsFunction(`func(string) (int, error)`))
+}

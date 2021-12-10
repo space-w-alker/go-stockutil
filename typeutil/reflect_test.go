@@ -73,5 +73,6 @@ func TestFunctionMatchesSignature(t *testing.T) {
 	require.NoError(t, FunctionMatchesSignature(func() {}, `func()`))
 	require.NoError(t, FunctionMatchesSignature(func(_ string) {}, `func(string)`))
 	require.NoError(t, FunctionMatchesSignature(func(_ string) error { return nil }, `func(string) error`))
+	require.NoError(t, FunctionMatchesSignature(func(_ string) error { return nil }, `func(any) any`))
 	require.NoError(t, FunctionMatchesSignature(func(_ string) (int, error) { return 0, nil }, `func(string) (int, error)`))
 }

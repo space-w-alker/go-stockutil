@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.2
+                            v1.10.3
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.10.2&#34;
+    &#34;Version&#34;: &#34;1.10.3&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.10.2`&#34;,
+        &#34;Expression&#34;: &#34;`1.10.3`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.10.2&#34;
+        &#34;Value&#34;: &#34;1.10.3&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -422,6 +422,25 @@
             ],
             &#34;Signature&#34;: &#34;HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)&#34;,
             &#34;Source&#34;: &#34;ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;kelvin&#34;,
+                &#34;Type&#34;: &#34;int&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;KelvinToColor&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Name&#34;: &#34;color&#34;,
+                &#34;Type&#34;: &#34;Color&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
+            &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -1015,25 +1034,6 @@
                 ],
                 &#34;Signature&#34;: &#34;Mix(first interface{}, second interface{}) (Color, error)&#34;,
                 &#34;Source&#34;: &#34;ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;kelvin&#34;,
-                    &#34;Type&#34;: &#34;int&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;KelvinToColor&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;color&#34;,
-                    &#34;Type&#34;: &#34;Color&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
-                &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
               }
             ],
             &#34;Name&#34;: &#34;Color&#34;,
@@ -2496,7 +2496,7 @@
         &#34;SourceLineCount&#34;: 710,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.5015,
           &#34;Median&#34;: 0.6,
@@ -10147,7 +10147,7 @@
         &#34;SourceLineCount&#34;: 1458,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6593,
           &#34;Median&#34;: 1,
@@ -22045,7 +22045,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;,
-        &#34;CommentWordCount&#34;: 1128,
+        &#34;CommentWordCount&#34;: 1137,
         &#34;ConstantCount&#34;: 3,
         &#34;Constants&#34;: [
           {
@@ -22084,10 +22084,10 @@
                 &#34;PackageName&#34;: &#34;reflect&#34;
               }
             ],
-            &#34;LineCount&#34;: 135,
+            &#34;LineCount&#34;: 139,
             &#34;Name&#34;: &#34;reflect.go&#34;,
-            &#34;Size&#34;: 3296,
-            &#34;SourceLineCount&#34;: 100,
+            &#34;Size&#34;: 3334,
+            &#34;SourceLineCount&#34;: 103,
             &#34;TypeCount&#34;: 1,
             &#34;VariableCount&#34;: 0
           },
@@ -22112,10 +22112,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 78,
+            &#34;LineCount&#34;: 79,
             &#34;Name&#34;: &#34;reflect_test.go&#34;,
-            &#34;Size&#34;: 2522,
-            &#34;SourceLineCount&#34;: 61,
+            &#34;Size&#34;: 2622,
+            &#34;SourceLineCount&#34;: 62,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -22148,10 +22148,10 @@
                 &#34;PackageName&#34;: &#34;strings&#34;
               }
             ],
-            &#34;LineCount&#34;: 916,
+            &#34;LineCount&#34;: 939,
             &#34;Name&#34;: &#34;sigparse.peg.go&#34;,
-            &#34;Size&#34;: 19856,
-            &#34;SourceLineCount&#34;: 869,
+            &#34;Size&#34;: 20316,
+            &#34;SourceLineCount&#34;: 892,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -22229,7 +22229,7 @@
           },
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 65,
+            &#34;FunctionCount&#34;: 67,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;json&#34;,
@@ -22260,10 +22260,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/utils&#34;
               }
             ],
-            &#34;LineCount&#34;: 607,
+            &#34;LineCount&#34;: 632,
             &#34;Name&#34;: &#34;variant.go&#34;,
-            &#34;Size&#34;: 13076,
-            &#34;SourceLineCount&#34;: 438,
+            &#34;Size&#34;: 13733,
+            &#34;SourceLineCount&#34;: 459,
             &#34;TypeCount&#34;: 1,
             &#34;VariableCount&#34;: 0
           },
@@ -22284,15 +22284,15 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 250,
+            &#34;LineCount&#34;: 264,
             &#34;Name&#34;: &#34;variant_test.go&#34;,
-            &#34;Size&#34;: 6690,
-            &#34;SourceLineCount&#34;: 216,
+            &#34;Size&#34;: 7357,
+            &#34;SourceLineCount&#34;: 228,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 97,
+        &#34;FunctionCount&#34;: 99,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -23372,19 +23372,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;typeutil&#34;,
-        &#34;LineCount&#34;: 2767,
+        &#34;LineCount&#34;: 2834,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;typeutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 2241,
+        &#34;SourceLineCount&#34;: 2301,
         &#34;Statistics&#34;: {
-          &#34;GeometricMean&#34;: 0.948,
+          &#34;GeometricMean&#34;: 0.949,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.552,
+          &#34;Mean&#34;: 0.55,
           &#34;Median&#34;: 0.75,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4506
+          &#34;StdDev&#34;: 0.4509
         },
         &#34;Synopsis&#34;: &#34;Helpers for type inflection and simplifying working with Golang generic interface types\n&#34;,
         &#34;Tests&#34;: [
@@ -23410,7 +23410,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestFunctionMatchesSignature&#34;,
             &#34;Signature&#34;: &#34;TestFunctionMatchesSignature(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKCkgewoJfSwgYGZ1bmMoKWApKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKF8gc3RyaW5nKSB7Cgl9LCBgZnVuYyhzdHJpbmcpYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCBgZnVuYyhzdHJpbmcpIGVycm9yYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIChpbnQsIGVycm9yKSB7CgkJcmV0dXJuIDAsIG5pbAoJfSwgYGZ1bmMoc3RyaW5nKSAoaW50LCBlcnJvcilgKSkKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKCkgewoJfSwgYGZ1bmMoKWApKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKF8gc3RyaW5nKSB7Cgl9LCBgZnVuYyhzdHJpbmcpYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCBgZnVuYyhzdHJpbmcpIGVycm9yYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCBgZnVuYyhhbnkpIGFueWApKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKF8gc3RyaW5nKSAoaW50LCBlcnJvcikgewoJCXJldHVybiAwLCBuaWwKCX0sIGBmdW5jKHN0cmluZykgKGludCwgZXJyb3IpYCkpCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -23687,6 +23687,18 @@
             &#34;Name&#34;: &#34;TestVariantAppend&#34;,
             &#34;Signature&#34;: &#34;TestVariantAppend(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJdmFyIHYgPSBWKGBoZWxsb2ApCglyZXF1aXJlLk5vRXJyb3IodCwgdi5BcHBlbmQoYHRoZXJlYCkpCglyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BoZWxsb2AsIGB0aGVyZWB9LCB2LlN0cmluZ3MoKSkKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestVariantIsFunction&#34;,
+            &#34;Signature&#34;: &#34;TestVariantIsFunction(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJcmVxdWlyZS5GYWxzZSh0LCBWKG5pbCkuSXNGdW5jdGlvbigpKQoJcmVxdWlyZS5GYWxzZSh0LCBWKGZhbHNlKS5Jc0Z1bmN0aW9uKCkpCglyZXF1aXJlLkZhbHNlKHQsIFYobmlsKS5Jc0Z1bmN0aW9uKGBmdW5jKClgKSkKCXJlcXVpcmUuRmFsc2UodCwgVihmYWxzZSkuSXNGdW5jdGlvbihgZnVuYygpYCkpCglyZXF1aXJlLlRydWUodCwgVihmdW5jKCkgewoJfSkuSXNGdW5jdGlvbigpKQoJcmVxdWlyZS5UcnVlKHQsIFYoZnVuYygpIHsKCX0pLklzRnVuY3Rpb24oYGZ1bmMoKWApKQoJcmVxdWlyZS5UcnVlKHQsIFYoZnVuYyhfIHN0cmluZykgewoJfSkuSXNGdW5jdGlvbihgZnVuYyhzdHJpbmcpYCkpCglyZXF1aXJlLlRydWUodCwgVihmdW5jKF8gc3RyaW5nKSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSkuSXNGdW5jdGlvbihgZnVuYyhzdHJpbmcpIGVycm9yYCkpCglyZXF1aXJlLlRydWUodCwgVihmdW5jKF8gc3RyaW5nKSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSkuSXNGdW5jdGlvbihgZnVuYyhhbnkpIGFueWApKQoJcmVxdWlyZS5UcnVlKHQsIFYoZnVuYyhfIHN0cmluZykgKGludCwgZXJyb3IpIHsKCQlyZXR1cm4gMCwgbmlsCgl9KS5Jc0Z1bmN0aW9uKGBmdW5jKHN0cmluZykgKGludCwgZXJyb3IpYCkpCn0=&#34;
           }
         ],
         &#34;TypeCount&#34;: 4,
@@ -23893,6 +23905,42 @@
                   }
                 ],
                 &#34;Signature&#34;: &#34;IsDuration() bool&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;signature&#34;,
+                    &#34;Type&#34;: &#34;...string&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;IsFunction&#34;,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;IsFunction(signature ...string) bool&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;kind&#34;,
+                    &#34;Type&#34;: &#34;reflect.Kind&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Return whether the value is of the given reflect.Kind&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;IsKind&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;IsKind(kind reflect.Kind) bool&#34;
               },
               {
                 &#34;Arguments&#34;: [
@@ -25756,7 +25804,7 @@
       &#34;SourceLineCount&#34;: 710,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.5015,
         &#34;Median&#34;: 0.6,
@@ -25831,7 +25879,7 @@
       &#34;SourceLineCount&#34;: 1458,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6593,
         &#34;Median&#34;: 1,
@@ -26120,23 +26168,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/typeutil&#34;,
-      &#34;CommentWordCount&#34;: 1128,
+      &#34;CommentWordCount&#34;: 1137,
       &#34;ConstantCount&#34;: 3,
-      &#34;FunctionCount&#34;: 97,
+      &#34;FunctionCount&#34;: 99,
       &#34;ImportPath&#34;: &#34;typeutil&#34;,
-      &#34;LineCount&#34;: 2767,
+      &#34;LineCount&#34;: 2834,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;typeutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 2241,
+      &#34;SourceLineCount&#34;: 2301,
       &#34;Statistics&#34;: {
-        &#34;GeometricMean&#34;: 0.948,
+        &#34;GeometricMean&#34;: 0.949,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.552,
+        &#34;Mean&#34;: 0.55,
         &#34;Median&#34;: 0.75,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4506
+        &#34;StdDev&#34;: 0.4509
       },
       &#34;Synopsis&#34;: &#34;Helpers for type inflection and simplifying working with Golang generic interface types\n&#34;,
       &#34;TypeCount&#34;: 4,

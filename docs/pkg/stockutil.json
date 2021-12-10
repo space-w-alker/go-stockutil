@@ -38,8 +38,8 @@
         {
             "Name": "Version",
             "Immutable": true,
-            "Expression": "`1.10.2`",
-            "Value": "1.10.2"
+            "Expression": "`1.10.3`",
+            "Value": "1.10.3"
         }
     ],
     "Packages": [
@@ -303,6 +303,25 @@
                     ],
                     "Signature": "HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)",
                     "Source": "ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "KelvinToColor",
+                    "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
+                    "Arguments": [
+                        {
+                            "Name": "kelvin",
+                            "Type": "int"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Name": "color",
+                            "Type": "Color"
+                        }
+                    ],
+                    "Signature": "KelvinToColor(kelvin int) color Color",
+                    "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                     "IsPackageLevel": true
                 },
                 {
@@ -879,25 +898,6 @@
                             ],
                             "Signature": "Mix(first interface{}, second interface{}) (Color, error)",
                             "Source": "ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9",
-                            "IsPackageLevel": true
-                        },
-                        {
-                            "Name": "KelvinToColor",
-                            "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
-                            "Arguments": [
-                                {
-                                    "Name": "kelvin",
-                                    "Type": "int"
-                                }
-                            ],
-                            "Returns": [
-                                {
-                                    "Name": "color",
-                                    "Type": "Color"
-                                }
-                            ],
-                            "Signature": "KelvinToColor(kelvin int) color Color",
-                            "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                             "IsPackageLevel": true
                         }
                     ],
@@ -1621,7 +1621,7 @@
                 "Mean": 0.5015,
                 "StdDev": 0.486,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0.6,
                 "Minimum": 0,
                 "Maximum": 1
@@ -8299,7 +8299,7 @@
                 "Mean": 0.6593,
                 "StdDev": 0.4504,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -21914,17 +21914,17 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "Helpers for type inflection and simplifying working with Golang generic interface types\n",
             "MainFunction": false,
-            "CommentWordCount": 1128,
-            "LineCount": 2767,
-            "SourceLineCount": 2241,
-            "FunctionCount": 97,
+            "CommentWordCount": 1137,
+            "LineCount": 2834,
+            "SourceLineCount": 2301,
+            "FunctionCount": 99,
             "TypeCount": 4,
             "ConstantCount": 3,
             "VariableCount": 0,
             "Statistics": {
-                "Mean": 0.552,
-                "StdDev": 0.4506,
-                "GeometricMean": 0.948,
+                "Mean": 0.55,
+                "StdDev": 0.4509,
+                "GeometricMean": 0.949,
                 "HarmonicMean": 0,
                 "Median": 0.75,
                 "Minimum": 0,
@@ -21943,9 +21943,9 @@
                             "Alias": "reflect"
                         }
                     ],
-                    "Size": 3296,
-                    "LineCount": 135,
-                    "SourceLineCount": 100,
+                    "Size": 3334,
+                    "LineCount": 139,
+                    "SourceLineCount": 103,
                     "FunctionCount": 5,
                     "TypeCount": 1,
                     "ConstantCount": 0,
@@ -21971,9 +21971,9 @@
                             "Alias": "require"
                         }
                     ],
-                    "Size": 2522,
-                    "LineCount": 78,
-                    "SourceLineCount": 61,
+                    "Size": 2622,
+                    "LineCount": 79,
+                    "SourceLineCount": 62,
                     "FunctionCount": 0,
                     "TypeCount": 0,
                     "ConstantCount": 0,
@@ -22007,9 +22007,9 @@
                             "Alias": "strings"
                         }
                     ],
-                    "Size": 19856,
-                    "LineCount": 916,
-                    "SourceLineCount": 869,
+                    "Size": 20316,
+                    "LineCount": 939,
+                    "SourceLineCount": 892,
                     "FunctionCount": 2,
                     "TypeCount": 0,
                     "ConstantCount": 0,
@@ -22119,10 +22119,10 @@
                             "Alias": "utils"
                         }
                     ],
-                    "Size": 13076,
-                    "LineCount": 607,
-                    "SourceLineCount": 438,
-                    "FunctionCount": 65,
+                    "Size": 13733,
+                    "LineCount": 632,
+                    "SourceLineCount": 459,
+                    "FunctionCount": 67,
                     "TypeCount": 1,
                     "ConstantCount": 0,
                     "VariableCount": 0
@@ -22143,9 +22143,9 @@
                             "Alias": "require"
                         }
                     ],
-                    "Size": 6690,
-                    "LineCount": 250,
-                    "SourceLineCount": 216,
+                    "Size": 7357,
+                    "LineCount": 264,
+                    "SourceLineCount": 228,
                     "FunctionCount": 0,
                     "TypeCount": 0,
                     "ConstantCount": 0,
@@ -23275,7 +23275,7 @@
                         }
                     ],
                     "Signature": "TestFunctionMatchesSignature(t *testing.T)",
-                    "Source": "ewoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKCkgewoJfSwgYGZ1bmMoKWApKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKF8gc3RyaW5nKSB7Cgl9LCBgZnVuYyhzdHJpbmcpYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCBgZnVuYyhzdHJpbmcpIGVycm9yYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIChpbnQsIGVycm9yKSB7CgkJcmV0dXJuIDAsIG5pbAoJfSwgYGZ1bmMoc3RyaW5nKSAoaW50LCBlcnJvcilgKSkKfQ==",
+                    "Source": "ewoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKCkgewoJfSwgYGZ1bmMoKWApKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKF8gc3RyaW5nKSB7Cgl9LCBgZnVuYyhzdHJpbmcpYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCBgZnVuYyhzdHJpbmcpIGVycm9yYCkpCglyZXF1aXJlLk5vRXJyb3IodCwgRnVuY3Rpb25NYXRjaGVzU2lnbmF0dXJlKGZ1bmMoXyBzdHJpbmcpIGVycm9yIHsKCQlyZXR1cm4gbmlsCgl9LCBgZnVuYyhhbnkpIGFueWApKQoJcmVxdWlyZS5Ob0Vycm9yKHQsIEZ1bmN0aW9uTWF0Y2hlc1NpZ25hdHVyZShmdW5jKF8gc3RyaW5nKSAoaW50LCBlcnJvcikgewoJCXJldHVybiAwLCBuaWwKCX0sIGBmdW5jKHN0cmluZykgKGludCwgZXJyb3IpYCkpCn0=",
                     "IsPackageLevel": true
                 },
                 {
@@ -23553,6 +23553,18 @@
                     "Signature": "TestVariantAppend(t *testing.T)",
                     "Source": "ewoJdmFyIHYgPSBWKGBoZWxsb2ApCglyZXF1aXJlLk5vRXJyb3IodCwgdi5BcHBlbmQoYHRoZXJlYCkpCglyZXF1aXJlLkVxdWFsKHQsIFtdc3RyaW5ne2BoZWxsb2AsIGB0aGVyZWB9LCB2LlN0cmluZ3MoKSkKfQ==",
                     "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestVariantIsFunction",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestVariantIsFunction(t *testing.T)",
+                    "Source": "ewoJcmVxdWlyZS5GYWxzZSh0LCBWKG5pbCkuSXNGdW5jdGlvbigpKQoJcmVxdWlyZS5GYWxzZSh0LCBWKGZhbHNlKS5Jc0Z1bmN0aW9uKCkpCglyZXF1aXJlLkZhbHNlKHQsIFYobmlsKS5Jc0Z1bmN0aW9uKGBmdW5jKClgKSkKCXJlcXVpcmUuRmFsc2UodCwgVihmYWxzZSkuSXNGdW5jdGlvbihgZnVuYygpYCkpCglyZXF1aXJlLlRydWUodCwgVihmdW5jKCkgewoJfSkuSXNGdW5jdGlvbigpKQoJcmVxdWlyZS5UcnVlKHQsIFYoZnVuYygpIHsKCX0pLklzRnVuY3Rpb24oYGZ1bmMoKWApKQoJcmVxdWlyZS5UcnVlKHQsIFYoZnVuYyhfIHN0cmluZykgewoJfSkuSXNGdW5jdGlvbihgZnVuYyhzdHJpbmcpYCkpCglyZXF1aXJlLlRydWUodCwgVihmdW5jKF8gc3RyaW5nKSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSkuSXNGdW5jdGlvbihgZnVuYyhzdHJpbmcpIGVycm9yYCkpCglyZXF1aXJlLlRydWUodCwgVihmdW5jKF8gc3RyaW5nKSBlcnJvciB7CgkJcmV0dXJuIG5pbAoJfSkuSXNGdW5jdGlvbihgZnVuYyhhbnkpIGFueWApKQoJcmVxdWlyZS5UcnVlKHQsIFYoZnVuYyhfIHN0cmluZykgKGludCwgZXJyb3IpIHsKCQlyZXR1cm4gMCwgbmlsCgl9KS5Jc0Z1bmN0aW9uKGBmdW5jKHN0cmluZykgKGludCwgZXJyb3IpYCkpCn0=",
+                    "IsPackageLevel": true
                 }
             ],
             "Types": {
@@ -23751,6 +23763,42 @@
                                 }
                             ],
                             "Signature": "IsDuration() bool",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "IsFunction",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "signature",
+                                    "Type": "...string"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "bool"
+                                }
+                            ],
+                            "Signature": "IsFunction(signature ...string) bool",
+                            "IsPackageLevel": false
+                        },
+                        {
+                            "Name": "IsKind",
+                            "Comment": "Return whether the value is of the given reflect.Kind",
+                            "PointerReceiver": true,
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "kind",
+                                    "Type": "reflect.Kind"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "bool"
+                                }
+                            ],
+                            "Signature": "IsKind(kind reflect.Kind) bool",
                             "IsPackageLevel": false
                         },
                         {

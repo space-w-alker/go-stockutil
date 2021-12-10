@@ -16,10 +16,11 @@ PUNC_SIG_CLOSE     <- _ ')'_
 PUNC_COMMA         <- _ ','_
 ARGS               <- DATATYPE PUNC_COMMA?
 
-DATATYPE           <- [*]?( BOOL / INT / FLOAT / STRING / ERROR / CUSTOM_TYPE )
+DATATYPE           <- [*]?( BOOL / INT / FLOAT / STRING / ERROR / CUSTOM_TYPE / ANY )
 BOOL               <- 'bool'
 INT                <- 'int'
 FLOAT              <- 'float'
 STRING             <- 'string'
 ERROR              <- 'error'
 CUSTOM_TYPE        <- [[a-z_]][[a-z0-9_]]*
+ANY                <- 'any'

@@ -21,6 +21,10 @@ func (self TypeDeclaration) String() string {
 }
 
 func (self TypeDeclaration) IsSameTypeAs(value interface{}) bool {
+	if self == `any` {
+		return true
+	}
+
 	var t reflect.Type
 
 	if vv, ok := value.(reflect.Value); ok && vv.IsValid() {

@@ -44,6 +44,19 @@ func (self Variant) IsZero() bool {
 	return IsZero(self.Value)
 }
 
+// Return whether the value is of the given reflect.Kind
+func (self *Variant) IsKind(kind reflect.Kind) bool {
+	if vV, ok := self.Value.(reflect.Value); ok && vV.IsValid() {
+		return (vV.Type().Kind() == kind)
+	} else if vT, ok := self.Value.(reflect.Type); ok && vT != nil {
+		return (vT.Kind() == kind)
+	} else if vT := reflect.TypeOf(self.Value); vT != nil {
+		return (vT.Kind() == kind)
+	} else {
+		return false
+	}
+}
+
 // Return the value as a string, or an empty string if the value could not be converted.
 func (self Variant) String() string {
 	if v, err := utils.ConvertToString(self.Value); err == nil {
@@ -482,6 +495,18 @@ func (self Variant) IsLessThan(j interface{}) bool {
 	} else {
 		// fallback to lexical comparison
 		return self.String() < jV.String()
+	}
+}
+
+func (self Variant) IsFunction(signature ...string) bool {
+	if !self.IsKind(reflect.Func) {
+		return false
+	}
+
+	if len(signature) > 0 {
+		return (FunctionMatchesSignature(self.Value, signature[0]) == nil)
+	} else {
+		return true
 	}
 }
 

@@ -35,6 +35,7 @@ const (
 	ruleSTRING
 	ruleERROR
 	ruleCUSTOM_TYPE
+	ruleANY
 )
 
 var rul3s = [...]string{
@@ -56,6 +57,7 @@ var rul3s = [...]string{
 	"STRING",
 	"ERROR",
 	"CUSTOM_TYPE",
+	"ANY",
 }
 
 type token32 struct {
@@ -172,7 +174,7 @@ type typeutilFunctionSignatureSpec struct {
 
 	Buffer string
 	buffer []rune
-	rules  [18]func() bool
+	rules  [19]func() bool
 	parse  func(rule ...int) error
 	reset  func()
 	Pretty bool
@@ -670,7 +672,7 @@ func (p *typeutilFunctionSignatureSpec) Init(options ...func(*typeutilFunctionSi
 			position, tokenIndex = position45, tokenIndex45
 			return false
 		},
-		/* 10 DATATYPE <- <('*'? (BOOL / INT / FLOAT / STRING / ERROR / CUSTOM_TYPE))> */
+		/* 10 DATATYPE <- <('*'? (BOOL / INT / FLOAT / STRING / ERROR / CUSTOM_TYPE / ANY))> */
 		func() bool {
 			position50, tokenIndex50 := position, tokenIndex
 			{
@@ -816,77 +818,96 @@ func (p *typeutilFunctionSignatureSpec) Init(options ...func(*typeutilFunctionSi
 				l63:
 					position, tokenIndex = position54, tokenIndex54
 					{
-						position65 := position
+						position66 := position
 						{
-							position66, tokenIndex66 := position, tokenIndex
+							position67, tokenIndex67 := position, tokenIndex
 							if c := buffer[position]; c < rune('a') || c > rune('z') {
-								goto l67
-							}
-							position++
-							goto l66
-						l67:
-							position, tokenIndex = position66, tokenIndex66
-							if c := buffer[position]; c < rune('A') || c > rune('Z') {
 								goto l68
 							}
 							position++
-							goto l66
+							goto l67
 						l68:
-							position, tokenIndex = position66, tokenIndex66
+							position, tokenIndex = position67, tokenIndex67
+							if c := buffer[position]; c < rune('A') || c > rune('Z') {
+								goto l69
+							}
+							position++
+							goto l67
+						l69:
+							position, tokenIndex = position67, tokenIndex67
 							if buffer[position] != rune('_') {
-								goto l50
+								goto l65
 							}
 							position++
 						}
-					l66:
-					l69:
+					l67:
+					l70:
 						{
-							position70, tokenIndex70 := position, tokenIndex
+							position71, tokenIndex71 := position, tokenIndex
 							{
-								position71, tokenIndex71 := position, tokenIndex
+								position72, tokenIndex72 := position, tokenIndex
 								if c := buffer[position]; c < rune('a') || c > rune('z') {
-									goto l72
-								}
-								position++
-								goto l71
-							l72:
-								position, tokenIndex = position71, tokenIndex71
-								if c := buffer[position]; c < rune('A') || c > rune('Z') {
 									goto l73
 								}
 								position++
-								goto l71
+								goto l72
 							l73:
-								position, tokenIndex = position71, tokenIndex71
+								position, tokenIndex = position72, tokenIndex72
+								if c := buffer[position]; c < rune('A') || c > rune('Z') {
+									goto l74
+								}
+								position++
+								goto l72
+							l74:
+								position, tokenIndex = position72, tokenIndex72
 								{
-									position75, tokenIndex75 := position, tokenIndex
+									position76, tokenIndex76 := position, tokenIndex
 									if c := buffer[position]; c < rune('0') || c > rune('9') {
-										goto l76
+										goto l77
 									}
 									position++
-									goto l75
-								l76:
-									position, tokenIndex = position75, tokenIndex75
+									goto l76
+								l77:
+									position, tokenIndex = position76, tokenIndex76
 									if c := buffer[position]; c < rune('0') || c > rune('9') {
-										goto l74
+										goto l75
 									}
 									position++
 								}
+							l76:
+								goto l72
 							l75:
-								goto l71
-							l74:
-								position, tokenIndex = position71, tokenIndex71
+								position, tokenIndex = position72, tokenIndex72
 								if buffer[position] != rune('_') {
-									goto l70
+									goto l71
 								}
 								position++
 							}
+						l72:
+							goto l70
 						l71:
-							goto l69
-						l70:
-							position, tokenIndex = position70, tokenIndex70
+							position, tokenIndex = position71, tokenIndex71
 						}
-						add(ruleCUSTOM_TYPE, position65)
+						add(ruleCUSTOM_TYPE, position66)
+					}
+					goto l54
+				l65:
+					position, tokenIndex = position54, tokenIndex54
+					{
+						position78 := position
+						if buffer[position] != rune('a') {
+							goto l50
+						}
+						position++
+						if buffer[position] != rune('n') {
+							goto l50
+						}
+						position++
+						if buffer[position] != rune('y') {
+							goto l50
+						}
+						position++
+						add(ruleANY, position78)
 					}
 				}
 			l54:
@@ -908,6 +929,8 @@ func (p *typeutilFunctionSignatureSpec) Init(options ...func(*typeutilFunctionSi
 		/* 15 ERROR <- <('e' 'r' 'r' 'o' 'r')> */
 		nil,
 		/* 16 CUSTOM_TYPE <- <(([a-z] / [A-Z] / '_') ([a-z] / [A-Z] / ([0-9] / [0-9]) / '_')*)> */
+		nil,
+		/* 17 ANY <- <('a' 'n' 'y')> */
 		nil,
 	}
 	p.rules = _rules
