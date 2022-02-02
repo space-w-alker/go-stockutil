@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.3
+                            v1.10.4
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.10.3&#34;
+    &#34;Version&#34;: &#34;1.10.4&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.10.3`&#34;,
+        &#34;Expression&#34;: &#34;`1.10.4`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.10.3&#34;
+        &#34;Value&#34;: &#34;1.10.4&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -10147,7 +10147,7 @@
         &#34;SourceLineCount&#34;: 1458,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6593,
           &#34;Median&#34;: 1,
@@ -17108,9 +17108,39 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/rxutil&#34;,
-        &#34;CommentWordCount&#34;: 150,
+        &#34;CommentWordCount&#34;: 186,
         &#34;ConstantCount&#34;: 0,
         &#34;Files&#34;: [
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 2,
+            &#34;LineCount&#34;: 20,
+            &#34;Name&#34;: &#34;functions.go&#34;,
+            &#34;Size&#34;: 527,
+            &#34;SourceLineCount&#34;: 14,
+            &#34;TypeCount&#34;: 0,
+            &#34;VariableCount&#34;: 0
+          },
+          {
+            &#34;ConstantCount&#34;: 0,
+            &#34;FunctionCount&#34;: 0,
+            &#34;Imports&#34;: [
+              {
+                &#34;Alias&#34;: &#34;testing&#34;,
+                &#34;PackageName&#34;: &#34;testing&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;assert&#34;,
+                &#34;PackageName&#34;: &#34;github.com/alecthomas/assert&#34;
+              }
+            ],
+            &#34;LineCount&#34;: 15,
+            &#34;Name&#34;: &#34;functions_test.go&#34;,
+            &#34;Size&#34;: 336,
+            &#34;SourceLineCount&#34;: 11,
+            &#34;TypeCount&#34;: 0,
+            &#34;VariableCount&#34;: 0
+          },
           {
             &#34;ConstantCount&#34;: 0,
             &#34;FunctionCount&#34;: 7,
@@ -17168,7 +17198,7 @@
             &#34;VariableCount&#34;: 12
           }
         ],
-        &#34;FunctionCount&#34;: 7,
+        &#34;FunctionCount&#34;: 9,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -17190,22 +17220,70 @@
             ],
             &#34;Signature&#34;: &#34;IsMatchString(pattern interface{}, source string) bool&#34;,
             &#34;Source&#34;: &#34;ewoJcmV0dXJuIChNYXRjaChwYXR0ZXJuLCBzb3VyY2UpICE9IG5pbCkKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;pattern&#34;,
+                &#34;Type&#34;: &#34;interface{}&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;s&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Splits a given string using the given regexp string or *regexp.Regexp value into zero or more parts.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;Split&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;[]string&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;Split(pattern interface{}, s string) []string&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIFNwbGl0TihwYXR0ZXJuLCBzLCAtMSkKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;pattern&#34;,
+                &#34;Type&#34;: &#34;interface{}&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;s&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;n&#34;,
+                &#34;Type&#34;: &#34;int&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Splits a given string using the given regexp string or *regexp.Regexp value into at most n parts.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;SplitN&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;[]string&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;SplitN(pattern interface{}, s string, n int) []string&#34;,
+            &#34;Source&#34;: &#34;ewoJaWYgcyA9PSBgYCB7CgkJcmV0dXJuIG1ha2UoW11zdHJpbmcsIDApCgl9CglpZiBtYXRjaCA6PSBNYXRjaChwYXR0ZXJuLCBzKTsgbWF0Y2ggIT0gbmlsIHsKCQlyZXR1cm4gbWF0Y2gucnguU3BsaXQocywgbikKCX0gZWxzZSB7CgkJcmV0dXJuIFtdc3RyaW5ne3N9Cgl9Cn0=&#34;
           }
         ],
         &#34;ImportPath&#34;: &#34;rxutil&#34;,
-        &#34;LineCount&#34;: 221,
+        &#34;LineCount&#34;: 256,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;rxutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 162,
+        &#34;SourceLineCount&#34;: 187,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.29,
+          &#34;Mean&#34;: 0.3545,
           &#34;Median&#34;: 0,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4449
+          &#34;StdDev&#34;: 0.4707
         },
         &#34;Synopsis&#34;: &#34;Utilities to make working with regular expressions easier.\n&#34;,
         &#34;Tests&#34;: [
@@ -17268,6 +17346,18 @@
             &#34;Name&#34;: &#34;TestReplaceGroupNamed&#34;,
             &#34;Signature&#34;: &#34;TestReplaceGroupNamed(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgltYXRjaCA6PSBNYXRjaChgKD9QPGZpcnN0PlxkKylcLihcZCspLig/UDxzZWNvbmQ&#43;XGQrKWAsIGAxMjM0LjU2NzguOWApCglhc3NlcnQuTm90TmlsKG1hdGNoKQoJYXNzZXJ0LkVxdWFsKGBmaXJzdC41Njc4LjlgLCBtYXRjaC5SZXBsYWNlR3JvdXAoYGZpcnN0YCwgYGZpcnN0YCkpCglhc3NlcnQuRXF1YWwoYDEyMzQuNTY3OC5zZWNvbmRgLCBtYXRjaC5SZXBsYWNlR3JvdXAoYHNlY29uZGAsIGBzZWNvbmRgKSkKCWFzc2VydC5FcXVhbChgMTIzNC41Njc4LjlgLCBtYXRjaC5SZXBsYWNlR3JvdXAoYHRoaXJkYCwgYHRoaXJkYCkpCn0=&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestSplitN&#34;,
+            &#34;Signature&#34;: &#34;TestSplitN(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0LkVtcHR5KHQsIFNwbGl0KG5pbCwgYGApKQoJYXNzZXJ0LkVxdWFsKHQsIFtdc3RyaW5ne2AxOjI6M2B9LCBTcGxpdChuaWwsIGAxOjI6M2ApKQoJYXNzZXJ0LkVxdWFsKHQsIFtdc3RyaW5ne2AxYCwgYDJgLCBgM2B9LCBTcGxpdCgiOiIsICIxOjI6MyIpKQoJYXNzZXJ0LkVxdWFsKHQsIFtdc3RyaW5ne2AxYCwgYDJgLCBgM2AsIGBgfSwgU3BsaXQoIlxcVysiLCAiMS0tMjo6OzMgICAgIikpCn0=&#34;
           }
         ],
         &#34;TypeCount&#34;: 1,
@@ -25879,7 +25969,7 @@
       &#34;SourceLineCount&#34;: 1458,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6593,
         &#34;Median&#34;: 1,
@@ -26018,23 +26108,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/rxutil&#34;,
-      &#34;CommentWordCount&#34;: 150,
+      &#34;CommentWordCount&#34;: 186,
       &#34;ConstantCount&#34;: 0,
-      &#34;FunctionCount&#34;: 7,
+      &#34;FunctionCount&#34;: 9,
       &#34;ImportPath&#34;: &#34;rxutil&#34;,
-      &#34;LineCount&#34;: 221,
+      &#34;LineCount&#34;: 256,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;rxutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 162,
+      &#34;SourceLineCount&#34;: 187,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.29,
+        &#34;Mean&#34;: 0.3545,
         &#34;Median&#34;: 0,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4449
+        &#34;StdDev&#34;: 0.4707
       },
       &#34;Synopsis&#34;: &#34;Utilities to make working with regular expressions easier.\n&#34;,
       &#34;TypeCount&#34;: 1,

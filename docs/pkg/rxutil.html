@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.3
+                            v1.10.4
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 29%</span>
+<span class="pull-right">Doc Coverage: 35%</span>
 <h2 id="pkg-overview">package rxutil</h2>
 
 <p>
@@ -175,6 +175,18 @@
 		
 		<a href="#IsMatchString">func IsMatchString(pattern interface{}, source string) bool</a>
 		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#Split">func Split(pattern interface{}, s string) []string</a>
+		</strong>
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#SplitN">func SplitN(pattern interface{}, s string, n int) []string</a>
+		</strong>
 	</li>
 	
 
@@ -304,6 +316,34 @@
 	<tr>
 		<td class="text-left">
 			
+			<a href="functions.go">functions.go</a>
+			
+		</td>
+		<td class="text-right">527B</td>
+		<td class="text-right">14</td>
+		<td class="text-right">2</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
+			<a href="functions_test.go">functions_test.go</a>
+			
+		</td>
+		<td class="text-right">336B</td>
+		<td class="text-right">11</td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+		<td class="text-right"></td>
+	</tr>
+	
+	<tr>
+		<td class="text-left">
+			
 			<a href="match.go">match.go</a>
 			
 		</td>
@@ -387,6 +427,34 @@ var <span id="Whitespace">Whitespace         </span> = regexp.MustCompile(`\s&#4
 	<pre>func IsMatchString(pattern interface{}, source string) bool</pre>
 </div>
 
+
+
+<h3 id="Split" data-kind="f">
+	func <a title="View Source" href="">Split</a>
+	<a class="permalink" href="#Split">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func Split(pattern interface{}, s string) []string</pre>
+</div>
+
+
+<p><p>Splits a given string using the given regexp string or *regexp.Regexp value into zero or more parts.</p>
+</p>
+
+
+<h3 id="SplitN" data-kind="f">
+	func <a title="View Source" href="">SplitN</a>
+	<a class="permalink" href="#SplitN">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func SplitN(pattern interface{}, s string, n int) []string</pre>
+</div>
+
+
+<p><p>Splits a given string using the given regexp string or *regexp.Regexp value into at most n parts.</p>
+</p>
 
 
 
