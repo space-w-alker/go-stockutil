@@ -8,6 +8,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/alecthomas/assert"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
 	"github.com/ghetzel/testify/require"
@@ -387,4 +388,48 @@ func TestMJson(t *testing.T) {
 
 	assert.Equal([]byte(`{"hello":"there"}`), m.JSON())
 	assert.Equal([]byte("{\n..\"hello\": \"there\"\n}"), m.JSON(`..`))
+}
+
+func TestMMerge(t *testing.T) {
+	var m = NewMap()
+
+	assert.Equal(t, map[string]interface{}{}, m.MapNative())
+
+	m.Merge(map[string]interface{}{
+		`a`: 1,
+		`b`: 2,
+	})
+
+	assert.Equal(t, map[string]interface{}{
+		`a`: 1,
+		`b`: 2,
+	}, m.MapNative())
+
+	m.Merge(map[string]interface{}{
+		`b`: 2.1,
+		`c`: 3,
+	})
+
+	assert.Equal(t, map[string]interface{}{
+		`a`: 1,
+		`b`: 2.1,
+		`c`: 3,
+	}, m.MapNative())
+
+	m.Merge(map[string]interface{}{
+		`b`: nil,
+	})
+
+	assert.Equal(t, map[string]interface{}{
+		`a`: 1,
+		`b`: nil,
+		`c`: 3,
+	}, m.MapNative())
+
+	m.Compact()
+
+	assert.Equal(t, map[string]interface{}{
+		`a`: 1,
+		`c`: 3,
+	}, m.MapNative())
 }

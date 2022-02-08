@@ -86,9 +86,8 @@ func StringKeys(input interface{}) []string {
 
 // Return the values from the given map.
 func MapValues(input interface{}) []interface{} {
-	values := make([]interface{}, 0)
-
-	inputV := reflect.ValueOf(input)
+	var values = make([]interface{}, 0)
+	var inputV = reflect.ValueOf(input)
 
 	switch inputV.Kind() {
 	case reflect.Map:
@@ -226,8 +225,8 @@ func DiffuseMap(data map[string]interface{}, fieldJoiner string) (map[string]int
 // deeply-nested map
 //
 func DiffuseMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error) {
-	errs := make([]error, 0)
-	output := make(map[string]interface{})
+	var errs = make([]error, 0)
+	var output = make(map[string]interface{})
 
 	//  get the list of keys and sort them because order in a map is undefined
 	dataKeys := StringKeys(data)
@@ -236,8 +235,7 @@ func DiffuseMapTyped(data map[string]interface{}, fieldJoiner string, typePrefix
 	//  for each data item
 	for _, key := range dataKeys {
 		var keyParts []string
-
-		value, _ := data[key]
+		var value, _ = data[key]
 
 		//  handle "typed" maps in which the type information is embedded
 		if typePrefixSeparator != "" {
@@ -257,7 +255,6 @@ func DiffuseMapTyped(data map[string]interface{}, fieldJoiner string, typePrefix
 		}
 
 		keyParts = strings.Split(key, fieldJoiner)
-
 		output = DeepSet(output, keyParts, value).(map[string]interface{})
 	}
 
@@ -274,8 +271,8 @@ func CoalesceMap(data map[string]interface{}, fieldJoiner string) (map[string]in
 // Additionally, values will be converted to strings and keys will be prefixed with the datatype of the value
 //
 func CoalesceMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error) {
-	errs := make([]error, 0)
-	rv := make(map[string]interface{})
+	var errs = make([]error, 0)
+	var rv = make(map[string]interface{})
 
 	for k, v := range deepGetValues([]string{}, fieldJoiner, data) {
 		if stringVal, err := stringutil.ToString(v); err == nil {
@@ -289,16 +286,16 @@ func CoalesceMapTyped(data map[string]interface{}, fieldJoiner string, typePrefi
 }
 
 func deepGetValues(keys []string, joiner string, data interface{}) map[string]interface{} {
-	rv := make(map[string]interface{})
+	var rv = make(map[string]interface{})
 	data = typeutil.ResolveValue(data)
 
 	if data != nil {
-		dType := reflect.TypeOf(data)
+		var dType = reflect.TypeOf(data)
 
 		switch dType.Kind() {
 		case reflect.Map:
 			for k, v := range data.(map[string]interface{}) {
-				newKey := keys
+				var newKey = keys
 				newKey = append(newKey, k)
 
 				for kk, vv := range deepGetValues(newKey, joiner, v) {
@@ -308,7 +305,7 @@ func deepGetValues(keys []string, joiner string, data interface{}) map[string]in
 
 		case reflect.Slice, reflect.Array:
 			for i, value := range sliceutil.Sliceify(data) {
-				newKey := keys
+				var newKey = keys
 				newKey = append(newKey, strconv.Itoa(i))
 
 				for k, v := range deepGetValues(newKey, joiner, value) {
@@ -356,7 +353,7 @@ func Get(data interface{}, key string, fallback ...interface{}) interface{} {
 	data = typeutil.ResolveValue(data)
 
 	if typeutil.IsKind(data, reflect.Map) {
-		dataV := reflect.ValueOf(data)
+		var dataV = reflect.ValueOf(data)
 
 		if valueV := dataV.MapIndex(reflect.ValueOf(key)); valueV.IsValid() {
 			if valueI := valueV.Interface(); !typeutil.IsZero(valueI) {
@@ -373,27 +370,24 @@ func Get(data interface{}, key string, fallback ...interface{}) interface{} {
 }
 
 func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interface{} {
-	current := typeutil.ResolveValue(data)
+	var current = typeutil.ResolveValue(data)
 
 	if len(fallbacks) == 0 {
 		fallbacks = []interface{}{nil}
 	}
 
-	fallback := fallbacks[0]
+	var fallback = fallbacks[0]
 
 	for i := 0; i < len(path); i++ {
-		part := path[i]
-
-		// fmt.Printf("dg:%s = %v (%T)\n", part, current, current)
-
-		dValue := reflect.ValueOf(current)
+		var part = path[i]
+		var dValue = reflect.ValueOf(current)
 
 		// if this value is not valid, return fallback here
 		if !dValue.IsValid() {
 			return fallback
 		}
 
-		dType := dValue.Type()
+		var dType = dValue.Type()
 
 		// for pointers and interfaces, get the underlying type
 		switch dType.Kind() {
@@ -414,7 +408,7 @@ func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interfac
 					}
 				}
 			} else if part == `*` {
-				subitems := make([]interface{}, dValue.Len())
+				var subitems = make([]interface{}, dValue.Len())
 
 				for j := 0; j < dValue.Len(); j++ {
 					if value := dValue.Index(j).Interface(); value != nil {
@@ -465,7 +459,7 @@ func DeepGet(data interface{}, path []string, fallbacks ...interface{}) interfac
 }
 
 func DeepGetBool(data interface{}, path []string) bool {
-	vI := DeepGet(data, path, false)
+	var vI = DeepGet(data, path, false)
 
 	if v, ok := vI.(bool); ok && v {
 		return true
@@ -594,7 +588,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 					return data
 				}
 
-				dT := dV.Type()
+				var dT = dV.Type()
 
 				for i := 0; i < dT.NumField(); i++ {
 					if fT := dT.Field(i); fT.Name == first {
@@ -615,7 +609,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 		if typeutil.IsInteger(rest[0]) {
 			if typeutil.IsMap(data) {
 				//  is the value at `first' in the map isn't present or isn't an array, create it
-				curVal := Get(data, first)
+				var curVal = Get(data, first)
 
 				if typeutil.IsArray(curVal) {
 					curVal = sliceutil.Sliceify(curVal)
@@ -637,7 +631,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 			//    will be created and either set to `data[first]' (the map)
 			//    or appended to `data[first]' (the array)
 			if typeutil.IsArray(data) {
-				dataArray := sliceutil.Sliceify(data)
+				var dataArray = sliceutil.Sliceify(data)
 
 				if curIndex := int(typeutil.Int(first)); typeutil.IsInteger(first) {
 					if curIndex >= len(dataArray) {
@@ -655,7 +649,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 			} else if dataMap, ok := data.(map[string]interface{}); ok {
 				//  handle good old fashioned maps-of-maps
 				//  is the value at 'first' in the map isn't present or isn't a map, create it
-				curVal, _ := dataMap[first]
+				var curVal, _ = dataMap[first]
 
 				if !typeutil.IsMap(curVal) {
 					dataMap[first] = make(map[string]interface{})
@@ -672,7 +666,7 @@ func DeepSet(data interface{}, path []string, value interface{}) interface{} {
 }
 
 func Append(maps ...map[string]interface{}) map[string]interface{} {
-	out := make(map[string]interface{})
+	var out = make(map[string]interface{})
 
 	for _, mapV := range maps {
 		for k, v := range mapV {
@@ -684,7 +678,7 @@ func Append(maps ...map[string]interface{}) map[string]interface{} {
 }
 
 func Pluck(sliceOfMaps interface{}, key []string) []interface{} {
-	rv := make([]interface{}, 0)
+	var rv = make([]interface{}, 0)
 
 	if sliceOfMaps == nil {
 		return rv
@@ -736,11 +730,11 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStru
 		return nil
 	}
 
-	parentV := reflect.ValueOf(parent)
+	var parentV = reflect.ValueOf(parent)
 
 	switch parentV.Kind() {
 	case reflect.Chan, reflect.Func, reflect.Map, reflect.Ptr, reflect.Slice, reflect.UnsafePointer:
-		pp := parentV.Pointer()
+		var pp = parentV.Pointer()
 
 		for _, s := range seen {
 			if s == pp {
@@ -832,7 +826,7 @@ func walkGeneric(parent interface{}, path []string, walkFn WalkFunc, includeStru
 
 // Recursively remove all zero and empty values from the given map.
 func Compact(input map[string]interface{}) (map[string]interface{}, error) {
-	output := make(map[string]interface{})
+	var output = make(map[string]interface{})
 
 	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
 		if !typeutil.IsEmpty(value) {
@@ -862,7 +856,7 @@ func Merge(first interface{}, second interface{}, options ...MergeOption) (map[s
 		return nil, fmt.Errorf("second argument must be a map, got %T", second)
 	}
 
-	output := make(map[string]interface{})
+	var output = make(map[string]interface{})
 
 	if err := Walk(first, func(value interface{}, path []string, isLeaf bool) error {
 		if isLeaf {
@@ -908,7 +902,7 @@ func Merge(first interface{}, second interface{}, options ...MergeOption) (map[s
 
 // Take the input map and convert all values to strings.
 func Stringify(input map[string]interface{}) map[string]string {
-	output := make(map[string]string)
+	var output = make(map[string]string)
 
 	for k, v := range input {
 		if str, err := stringutil.ToString(v); err == nil {
@@ -923,7 +917,7 @@ func Stringify(input map[string]interface{}) map[string]string {
 
 // Recursively walk the given map, performing automatic type conversion on all leaf nodes.
 func Autotype(input interface{}) map[string]interface{} {
-	output := make(map[string]interface{})
+	var output = make(map[string]interface{})
 
 	if err := Walk(input, func(value interface{}, path []string, isLeaf bool) error {
 		// if we encounter a Variant, use its autotyping instead of walking the struct
@@ -956,7 +950,7 @@ func JSONPath(data interface{}, query string) (interface{}, error) {
 }
 
 func apply(includeStruct bool, input interface{}, fn ApplyFunc) map[string]interface{} {
-	output := make(map[string]interface{})
+	var output = make(map[string]interface{})
 
 	wfn := func(value interface{}, path []string, isLeaf bool) error {
 		if isLeaf {

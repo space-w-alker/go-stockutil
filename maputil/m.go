@@ -211,6 +211,38 @@ func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Vari
 	}
 }
 
+// Copy the items from a map into this one.
+func (self *Map) Merge(other interface{}) int {
+	self.atomic.Lock()
+	defer self.atomic.Unlock()
+
+	var count int
+
+	for k, v := range M(other).MapNative() {
+		self.set(k, v)
+		count += 1
+	}
+
+	return count
+}
+
+// Reject all nil values from the map.
+func (self *Map) Compact() *Map {
+	self.atomic.Lock()
+	defer self.atomic.Unlock()
+
+	var d = self.MapNative()
+
+	for k, v := range d {
+		if v == nil {
+			delete(d, k)
+		}
+	}
+
+	self.data = d
+	return self
+}
+
 // Performs a JSONPath query against the given object and returns the results.
 // See JSONPath for details.
 func (self *Map) JSONPath(query string, fallback ...interface{}) interface{} {
@@ -312,13 +344,24 @@ func (self *Map) Map(key string, tagName ...string) map[typeutil.Variant]typeuti
 	return self.Get(key).Map(tagName...)
 }
 
-// Return the value as a map[string]interface{} {
+// Return the value as a map[string]interface{}.
 func (self *Map) MapNative(tagName ...string) map[string]interface{} {
 	if len(tagName) == 0 {
 		tagName = []string{self.structTagKey}
 	}
 
 	return typeutil.MapNative(self.data, tagName...)
+}
+
+// Return the value as a map[string]string.
+func (self *Map) MapString(tagName ...string) map[string]string {
+	var rv = make(map[string]string)
+
+	for k, v := range self.MapNative(tagName...) {
+		rv[k] = typeutil.String(v)
+	}
+
+	return rv
 }
 
 func (self *Map) JSON(indent ...string) (data []byte) {
