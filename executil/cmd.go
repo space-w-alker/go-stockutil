@@ -14,6 +14,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/ghetzel/go-stockutil/log"
 	"github.com/ghetzel/go-stockutil/sliceutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
@@ -109,11 +110,14 @@ type Cmd struct {
 	// Specifies that the spawned process should inherit the same Process Group ID (PGID) as the parent.
 	InheritParent bool
 
-	status     Status
-	statusLock sync.Mutex
-	reallyDone *sync.WaitGroup
-	finished   chan bool
-	exitError  error
+	status      Status
+	finalStatus *Status
+	statusLock  sync.Mutex
+	reallyDone  *sync.WaitGroup
+	finished    chan bool
+	exitError   error
+	reader      io.ReadCloser
+	writer      io.WriteCloser
 }
 
 func Wrap(cmd *exec.Cmd) *Cmd {
@@ -189,6 +193,8 @@ func new(wrap *exec.Cmd) *Cmd {
 
 func (self *Cmd) prestart() error {
 	self.statusLock.Lock()
+	self.finalStatus = nil
+	self.status = Status{}
 	self.status.StartedAt = time.Now()
 	self.status.Running = true
 	self.statusLock.Unlock()
@@ -216,14 +222,14 @@ func (self *Cmd) prestart() error {
 			go func(rc io.ReadCloser) {
 				defer rc.Close()
 
-				splitfn := self.StdoutSplitFunc
+				var splitfn = self.StdoutSplitFunc
 
 				if splitfn == nil {
 					splitfn = bufio.ScanLines
 				}
 
-				splitter := stringutil.NewScanInterceptor(splitfn)
-				scanner := bufio.NewScanner(rc)
+				var splitter = stringutil.NewScanInterceptor(splitfn)
+				var scanner = bufio.NewScanner(rc)
 				scanner.Split(splitter.Scan)
 
 				for scanner.Scan() {
@@ -240,14 +246,14 @@ func (self *Cmd) prestart() error {
 			go func(rc io.ReadCloser) {
 				defer rc.Close()
 
-				splitfn := self.StderrSplitFunc
+				var splitfn = self.StderrSplitFunc
 
 				if splitfn == nil {
 					splitfn = bufio.ScanLines
 				}
 
-				splitter := stringutil.NewScanInterceptor(splitfn)
-				scanner := bufio.NewScanner(rc)
+				var splitter = stringutil.NewScanInterceptor(splitfn)
+				var scanner = bufio.NewScanner(rc)
 				scanner.Split(splitter.Scan)
 
 				for scanner.Scan() {
@@ -263,10 +269,10 @@ func (self *Cmd) prestart() error {
 }
 
 func (self *Cmd) CombinedOutput() ([]byte, error) {
-	defer self.waitReallyDone()
+	defer self.killAndWait()
 
 	if err := self.prestart(); err == nil {
-		out, err := self.Cmd.CombinedOutput()
+		var out, err = self.Cmd.CombinedOutput()
 		self.exitError = err
 		self.updateStatus()
 		return out, err
@@ -284,10 +290,10 @@ func (self *Cmd) String() string {
 }
 
 func (self *Cmd) Output() ([]byte, error) {
-	defer self.waitReallyDone()
+	defer self.killAndWait()
 
 	if err := self.prestart(); err == nil {
-		out, err := self.Cmd.Output()
+		var out, err = self.Cmd.Output()
 		self.exitError = err
 		self.updateStatus()
 		return out, err
@@ -312,7 +318,7 @@ func (self *Cmd) SetEnv(key string, value interface{}) {
 }
 
 func (self *Cmd) Run() error {
-	defer self.waitReallyDone()
+	defer self.killAndWait()
 
 	if err := self.prestart(); err == nil {
 		err := self.Cmd.Run()
@@ -363,7 +369,79 @@ func (self *Cmd) WaitStatus() Status {
 	return self.status
 }
 
-func (self *Cmd) waitReallyDone() {
+// Implements io.Reader, sourcing data from the command's standard output.  If the command is not
+// already running, it will be started.
+func (self *Cmd) Read(p []byte) (int, error) {
+	if self.reader == nil {
+		if err := self.interceptStdout(); err != nil {
+			return 0, err
+		}
+
+		if err := self.Start(); err != nil {
+			return 0, err
+		}
+	}
+
+	return self.reader.Read(p)
+}
+
+// Implements io.Writer, writing data to the commands standard input.  If the command is not already
+// running, it will be started.
+func (self *Cmd) Write(p []byte) (int, error) {
+	if self.writer == nil {
+		if err := self.interceptStdout(); err != nil {
+			return 0, err
+		}
+
+		if err := self.interceptStdin(); err != nil {
+			return 0, err
+		}
+
+		if err := self.Start(); err != nil {
+			return 0, err
+		}
+	}
+
+	return self.writer.Write(p)
+}
+
+// Implements io.Closer, killing the underlying process, waiting for it to exit, then returning.
+func (self *Cmd) Close() error {
+	var merr error
+
+	merr = log.AppendError(merr, self.killAndWait())
+
+	if r := self.reader; r != nil {
+		merr = log.AppendError(merr, r.Close())
+	}
+
+	if w := self.writer; w != nil {
+		merr = log.AppendError(merr, w.Close())
+	}
+
+	return merr
+}
+
+// Notify the command that no further standard input will be written.
+func (self *Cmd) CloseInput() error {
+	if w := self.writer; w != nil {
+		return w.Close()
+	} else {
+		return nil
+	}
+}
+
+func (self *Cmd) interceptStdout() (err error) {
+	self.reader, err = self.StdoutPipe()
+	return
+}
+
+func (self *Cmd) interceptStdin() (err error) {
+	self.writer, err = self.StdinPipe()
+	return
+}
+
+func (self *Cmd) killAndWait() error {
 	// this quits the startMonitoringCommand() monitoring loop
 	select {
 	case self.finished <- true:
@@ -372,9 +450,10 @@ func (self *Cmd) waitReallyDone() {
 
 	// this waits for startMonitoringCommand() to fire callbacks and actually exit
 	self.reallyDone.Wait()
+	return self.finalStatus.Error
 }
 
-// a goroutine that is launched whenever a command
+// a goroutine that is launched whenever a command is started
 func (self *Cmd) startMonitoringCommand() {
 	self.reallyDone.Add(1)
 
@@ -384,7 +463,7 @@ func (self *Cmd) startMonitoringCommand() {
 		self.MonitorInterval = self.Timeout
 	}
 
-	ticker := time.NewTicker(self.MonitorInterval)
+	var ticker = time.NewTicker(self.MonitorInterval)
 
 MonitorLoop:
 	for self.Timeout == 0 || time.Since(self.status.StartedAt) < self.Timeout {
@@ -409,19 +488,20 @@ MonitorLoop:
 	ticker.Stop()
 	self.Kill()
 	self.updateStatus()
-	finalStatus := self.Status()
+	var final = self.Status()
+	self.finalStatus = &final
 
 	// fire off callbacks
 	if fn := self.OnComplete; fn != nil {
-		fn(finalStatus)
+		fn(final)
 	}
 
-	if finalStatus.Successful {
+	if self.finalStatus.Successful {
 		if fn := self.OnSuccess; fn != nil {
-			fn(finalStatus)
+			fn(final)
 		}
 	} else if fn := self.OnError; fn != nil {
-		fn(finalStatus)
+		fn(final)
 	}
 
 	self.reallyDone.Done()

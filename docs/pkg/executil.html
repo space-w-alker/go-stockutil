@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.4
+                            v1.10.6
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 50%</span>
+<span class="pull-right">Doc Coverage: 53%</span>
 <h2 id="pkg-overview">package executil</h2>
 
 <p>
@@ -335,6 +335,10 @@
 			
 			
 			
+			
+			
+			
+			
 			<li>
 				
 				<a href="#Cmd.Command">
@@ -342,6 +346,8 @@
 				</a>
 				
 			</li>
+			
+			
 			
 			
 			
@@ -384,6 +390,8 @@
 			
 			
 			
+			
+			
 			<li>
 				
 				<a href="#Cmd.CommandContext">
@@ -394,6 +402,30 @@
 			
 			
 
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Cmd.Close">
+					func
+					(self *Cmd)
+					Close() error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Cmd.CloseInput">
+					func
+					(self *Cmd)
+					CloseInput() error
+				</a>
+				</strong>
+			</li>
 			
 			
 			
@@ -431,6 +463,18 @@
 					Output() ([]byte, error)
 				</a>
 				
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Cmd.Read">
+					func
+					(self *Cmd)
+					Read(p []byte) (int, error)
+				</a>
+				</strong>
 			</li>
 			
 			
@@ -508,6 +552,18 @@
 			</li>
 			
 			
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Cmd.Write">
+					func
+					(self *Cmd)
+					Write(p []byte) (int, error)
+				</a>
+				</strong>
+			</li>
 			
 			
 			
@@ -602,9 +658,9 @@
 			<a href="cmd.go">cmd.go</a>
 			
 		</td>
-		<td class="text-right">11KB</td>
-		<td class="text-right">366</td>
-		<td class="text-right">18</td>
+		<td class="text-right">13KB</td>
+		<td class="text-right">425</td>
+		<td class="text-right">22</td>
 		<td class="text-right">4</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -616,8 +672,8 @@
 			<a href="cmd_test.go">cmd_test.go</a>
 			
 		</td>
-		<td class="text-right">2KB</td>
-		<td class="text-right">82</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">110</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -1088,6 +1144,10 @@ var <span id="PromptWriter">PromptWriter        </span> = os.Stdout
 
 
 
+
+
+
+
 <h4 id="Command" data-kind="f">
 	func <a title="View Source" href="">Command</a>
 	<a class="permalink" href="#Command">&#182;</a>
@@ -1097,6 +1157,8 @@ var <span id="PromptWriter">PromptWriter        </span> = os.Stdout
 	<a title="View Source" href="">&#10070;</a>
 	<pre>func Command(name string, arg ...string) *Cmd</pre>
 </div>
+
+
 
 
 
@@ -1143,6 +1205,8 @@ var <span id="PromptWriter">PromptWriter        </span> = os.Stdout
 
 
 
+
+
 <h4 id="CommandContext" data-kind="f">
 	func <a title="View Source" href="">CommandContext</a>
 	<a class="permalink" href="#CommandContext">&#182;</a>
@@ -1155,6 +1219,42 @@ var <span id="PromptWriter">PromptWriter        </span> = os.Stdout
 
 
 
+
+
+
+
+<h4 id="Cmd.Close" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">Close</a>
+	<a class="permalink" href="#Close">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) Close() error</pre>
+</div>
+
+<p><p>Implements io.Closer, killing the underlying process, waiting for it to exit, then returning.</p>
+</p>
+
+
+
+
+<h4 id="Cmd.CloseInput" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">CloseInput</a>
+	<a class="permalink" href="#CloseInput">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) CloseInput() error</pre>
+</div>
+
+<p><p>Notify the command that no further standard input will be written.</p>
+</p>
 
 
 
@@ -1205,6 +1305,24 @@ var <span id="PromptWriter">PromptWriter        </span> = os.Stdout
 	<a title="View Source" href="">&#10070;</a>
 	<pre>func (self *Cmd) Output() ([]byte, error)</pre>
 </div>
+
+
+
+
+<h4 id="Cmd.Read" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">Read</a>
+	<a class="permalink" href="#Read">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) Read(p []byte) (int, error)</pre>
+</div>
+
+<p><p>Implements io.Reader, sourcing data from the command’s standard output.  If the command is not<br>already running, it will be started.</p>
+</p>
 
 
 
@@ -1305,6 +1423,24 @@ var <span id="PromptWriter">PromptWriter        </span> = os.Stdout
 </p>
 
 
+
+
+
+
+<h4 id="Cmd.Write" data-kind="f">
+	func
+	(self *Cmd)
+	<a title="View Source" href="">Write</a>
+	<a class="permalink" href="#Write">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Cmd) Write(p []byte) (int, error)</pre>
+</div>
+
+<p><p>Implements io.Writer, writing data to the commands standard input.  If the command is not already<br>running, it will be started.</p>
+</p>
 
 
 

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.4
+                            v1.10.6
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 57%</span>
+<span class="pull-right">Doc Coverage: 58%</span>
 <h2 id="pkg-overview">package maputil</h2>
 
 <p>
@@ -505,6 +505,8 @@
 			
 			
 			
+			
+			
 			<li>
 				<strong>
 				<a href="#Map.M">
@@ -512,6 +514,10 @@
 				</a>
 				</strong>
 			</li>
+			
+			
+			
+			
 			
 			
 			
@@ -603,6 +609,18 @@
 					func
 					(self *Map)
 					Bytes(key string) []byte
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Compact">
+					func
+					(self *Map)
+					Compact() *Map
 				</a>
 				</strong>
 			</li>
@@ -804,6 +822,18 @@
 			
 			
 			<li>
+				<strong>
+				<a href="#Map.MapString">
+					func
+					(self *Map)
+					MapString(tagName ...string) map[string]string
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
 				
 				<a href="#Map.MarshalJSON">
 					func
@@ -821,6 +851,18 @@
 					func
 					(self *Map)
 					MarshalXML(e *xml.Encoder, start xml.StartElement) error
+				</a>
+				</strong>
+			</li>
+			
+			
+			
+			<li>
+				<strong>
+				<a href="#Map.Merge">
+					func
+					(self *Map)
+					Merge(other interface{}) int
 				</a>
 				</strong>
 			</li>
@@ -1340,8 +1382,8 @@
 			
 		</td>
 		<td class="text-right">15KB</td>
-		<td class="text-right">450</td>
-		<td class="text-right">42</td>
+		<td class="text-right">479</td>
+		<td class="text-right">45</td>
 		<td class="text-right">6</td>
 		<td class="text-right"></td>
 		<td class="text-right">2</td>
@@ -1353,8 +1395,8 @@
 			<a href="m_test.go">m_test.go</a>
 			
 		</td>
-		<td class="text-right">11KB</td>
-		<td class="text-right">322</td>
+		<td class="text-right">12KB</td>
+		<td class="text-right">357</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -2115,6 +2157,8 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 
 
 
+
+
 <h4 id="M" data-kind="f">
 	func <a title="View Source" href="">M</a>
 	<a class="permalink" href="#M">&#182;</a>
@@ -2127,6 +2171,10 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 
 <p><p>Create a new Variant map object from the given value.  A wide range of values are accepted, and<br>the best effort is made to convert those values into a usable map. Accepted values include typeutil.Variant,<br>any value with a reflect.Kind of reflect.Map, sync.Map, another maputil.Map, url.Values,<br>http.Header, or a string or []byte which will be decoded using json.Unmarshal if and only if the<br>string begins with “{” and ends with “}”.</p>
 </p>
+
+
+
+
 
 
 
@@ -2240,6 +2288,24 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 </div>
 
 <p><p>Return the value at key as a byte slice.</p>
+</p>
+
+
+
+
+<h4 id="Map.Compact" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Compact</a>
+	<a class="permalink" href="#Compact">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Compact() *Map</pre>
+</div>
+
+<p><p>Reject all nil values from the map.</p>
 </p>
 
 
@@ -2523,7 +2589,25 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 	<pre>func (self *Map) MapNative(tagName ...string) map[string]interface{}</pre>
 </div>
 
-<p><p>Return the value as a map[string]interface{} {</p>
+<p><p>Return the value as a map[string]interface{}.</p>
+</p>
+
+
+
+
+<h4 id="Map.MapString" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">MapString</a>
+	<a class="permalink" href="#MapString">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) MapString(tagName ...string) map[string]string</pre>
+</div>
+
+<p><p>Return the value as a map[string]string.</p>
 </p>
 
 
@@ -2557,6 +2641,24 @@ var <span id="UnmarshalStructTag">UnmarshalStructTag </span> = `maputil`
 </div>
 
 <p><p>Marshals the current data into XML.  Nested maps are output as nested elements.  Map values that<br>are scalars (strings, numbers, bools, dates/times) will appear as attributes on the parent element.</p>
+</p>
+
+
+
+
+<h4 id="Map.Merge" data-kind="f">
+	func
+	(self *Map)
+	<a title="View Source" href="">Merge</a>
+	<a class="permalink" href="#Merge">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self *Map) Merge(other interface{}) int</pre>
+</div>
+
+<p><p>Copy the items from a map into this one.</p>
 </p>
 
 

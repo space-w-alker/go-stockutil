@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.4
+                            v1.10.6
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.10.4&#34;
+    &#34;Version&#34;: &#34;1.10.6&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.10.4`&#34;,
+        &#34;Expression&#34;: &#34;`1.10.6`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.10.4&#34;
+        &#34;Value&#34;: &#34;1.10.6&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -422,25 +422,6 @@
             ],
             &#34;Signature&#34;: &#34;HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)&#34;,
             &#34;Source&#34;: &#34;ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;kelvin&#34;,
-                &#34;Type&#34;: &#34;int&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;KelvinToColor&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Name&#34;: &#34;color&#34;,
-                &#34;Type&#34;: &#34;Color&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
-            &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -1034,6 +1015,25 @@
                 ],
                 &#34;Signature&#34;: &#34;Mix(first interface{}, second interface{}) (Color, error)&#34;,
                 &#34;Source&#34;: &#34;ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;kelvin&#34;,
+                    &#34;Type&#34;: &#34;int&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;KelvinToColor&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;color&#34;,
+                    &#34;Type&#34;: &#34;Color&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
+                &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
               }
             ],
             &#34;Name&#34;: &#34;Color&#34;,
@@ -1741,12 +1741,12 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/executil&#34;,
-        &#34;CommentWordCount&#34;: 634,
+        &#34;CommentWordCount&#34;: 710,
         &#34;ConstantCount&#34;: 0,
         &#34;Files&#34;: [
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 18,
+            &#34;FunctionCount&#34;: 22,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;bufio&#34;,
@@ -1793,6 +1793,10 @@
                 &#34;PackageName&#34;: &#34;time&#34;
               },
               {
+                &#34;Alias&#34;: &#34;log&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;
+              },
+              {
                 &#34;Alias&#34;: &#34;sliceutil&#34;,
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/sliceutil&#34;
               },
@@ -1809,10 +1813,10 @@
                 &#34;PackageName&#34;: &#34;github.com/mattn/go-shellwords&#34;
               }
             ],
-            &#34;LineCount&#34;: 487,
+            &#34;LineCount&#34;: 567,
             &#34;Name&#34;: &#34;cmd.go&#34;,
-            &#34;Size&#34;: 11213,
-            &#34;SourceLineCount&#34;: 366,
+            &#34;Size&#34;: 13029,
+            &#34;SourceLineCount&#34;: 425,
             &#34;TypeCount&#34;: 4,
             &#34;VariableCount&#34;: 0
           },
@@ -1821,18 +1825,30 @@
             &#34;FunctionCount&#34;: 0,
             &#34;Imports&#34;: [
               {
+                &#34;Alias&#34;: &#34;bytes&#34;,
+                &#34;PackageName&#34;: &#34;bytes&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;ioutil&#34;,
+                &#34;PackageName&#34;: &#34;io/ioutil&#34;
+              },
+              {
                 &#34;Alias&#34;: &#34;testing&#34;,
                 &#34;PackageName&#34;: &#34;testing&#34;
               },
               {
-                &#34;Alias&#34;: &#34;require&#34;,
-                &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
+                &#34;Alias&#34;: &#34;stringutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;assert&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/assert&#34;
               }
             ],
-            &#34;LineCount&#34;: 102,
+            &#34;LineCount&#34;: 135,
             &#34;Name&#34;: &#34;cmd_test.go&#34;,
-            &#34;Size&#34;: 2516,
-            &#34;SourceLineCount&#34;: 82,
+            &#34;Size&#34;: 3445,
+            &#34;SourceLineCount&#34;: 110,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -1993,7 +2009,7 @@
             &#34;VariableCount&#34;: 3
           }
         ],
-        &#34;FunctionCount&#34;: 40,
+        &#34;FunctionCount&#34;: 44,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -2489,19 +2505,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;executil&#34;,
-        &#34;LineCount&#34;: 948,
+        &#34;LineCount&#34;: 1061,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;executil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 710,
+        &#34;SourceLineCount&#34;: 797,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.5015,
-          &#34;Median&#34;: 0.6,
+          &#34;Mean&#34;: 0.5304,
+          &#34;Median&#34;: 0.8,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.486
+          &#34;StdDev&#34;: 0.4858
         },
         &#34;Synopsis&#34;: &#34;Utilities that make executing commands on the local system a little bit easier.\n&#34;,
         &#34;Tests&#34;: [
@@ -2527,7 +2543,31 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestExecFalse&#34;,
             &#34;Signature&#34;: &#34;TestExecFalse(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgZmFsc2VgKQoJY21kLk9uU3RhcnQgPSBpbmNyKCZzdGFydHMpCgljbWQuT25Db21wbGV0ZSA9IGluY3IoJmNvbXBsZXRlcykKCWNtZC5PblN1Y2Nlc3MgPSBpbmNyKCZzdWNjZXNzZXMpCgljbWQuT25FcnJvciA9IGluY3IoJmZhaWx1cmVzKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLlBJRCkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbChjbWQuU3RhdHVzKCkuRXJyb3IpCgljbWQuUnVuKCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUElEID09IDApCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlRvb2soKSA&#43;IDApCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuRXhpdENvZGUgPT0gMSkKCWFzc2VydC5FcXVhbEVycm9yKGNtZC5TdGF0dXMoKS5FcnJvciwgYFByb2Nlc3MgZXhpdGVkIHdpdGggc3RhdHVzIDFgKQoJYXNzZXJ0LkVxdWFsKDEsIHN0YXJ0cykKCWFzc2VydC5FcXVhbCgxLCBjb21wbGV0ZXMpCglhc3NlcnQuRXF1YWwoMCwgc3VjY2Vzc2VzKQoJYXNzZXJ0LkVxdWFsKDEsIGZhaWx1cmVzKQp9&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJdmFyIGNtZCA9IENvbW1hbmQoYGZhbHNlYCkKCWNtZC5PblN0YXJ0ID0gaW5jcigmc3RhcnRzKQoJY21kLk9uQ29tcGxldGUgPSBpbmNyKCZjb21wbGV0ZXMpCgljbWQuT25TdWNjZXNzID0gaW5jcigmc3VjY2Vzc2VzKQoJY21kLk9uRXJyb3IgPSBpbmNyKCZmYWlsdXJlcykKCWFzc2VydC5GYWxzZSh0LCBjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZSh0LCBjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5aZXJvKHQsIGNtZC5TdGF0dXMoKS5QSUQpCglhc3NlcnQuVHJ1ZSh0LCBjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUodCwgY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5aZXJvKHQsIGNtZC5TdGF0dXMoKS5FeGl0Q29kZSkKCWFzc2VydC5OaWwodCwgY21kLlN0YXR1cygpLkVycm9yKQoJY21kLlJ1bigpCglhc3NlcnQuRmFsc2UodCwgY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UodCwgY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuRmFsc2UodCwgY21kLlN0YXR1cygpLlBJRCA9PSAwKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuRmFsc2UodCwgY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKHQsIGNtZC5TdGF0dXMoKS5Ub29rKCkgPiAwKQoJYXNzZXJ0LlRydWUodCwgY21kLlN0YXR1cygpLkV4aXRDb2RlID09IDEpCglhc3NlcnQuRXF1YWxFcnJvcih0LCBjbWQuU3RhdHVzKCkuRXJyb3IsIGBQcm9jZXNzIGV4aXRlZCB3aXRoIHN0YXR1cyAxYCkKCWFzc2VydC5FcXVhbCh0LCAxLCBzdGFydHMpCglhc3NlcnQuRXF1YWwodCwgMSwgY29tcGxldGVzKQoJYXNzZXJ0LkVxdWFsKHQsIDAsIHN1Y2Nlc3NlcykKCWFzc2VydC5FcXVhbCh0LCAxLCBmYWlsdXJlcykKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestExecReadCloser&#34;,
+            &#34;Signature&#34;: &#34;TestExecReadCloser(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGNtZCA9IENvbW1hbmQoYGVjaG9gLCBgaGVsbG9gKQoJdmFyIGRhdGEsIGVyciA9IGlvdXRpbC5SZWFkQWxsKGNtZCkKCWFzc2VydC5Ob0Vycm9yKHQsIGVycikKCWFzc2VydC5FcXVhbCh0LCAiaGVsbG9cbiIsIHN0cmluZyhkYXRhKSkKCWFzc2VydC5Ob0Vycm9yKHQsIGNtZC5DbG9zZSgpKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestExecReadWriteCloser&#34;,
+            &#34;Signature&#34;: &#34;TestExecReadWriteCloser(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGMgaW50ID0gMTI4Cgl2YXIgcGF5bG9hZCA9IHN0cmluZ3V0aWwuVVVJRCgpLkJ5dGVzKCkKCXZhciBjbWQgPSBDb21tYW5kKGBjYXRgKQoJZm9yIGkgOj0gMDsgaSA8IGM7IGkrKyB7CgkJdmFyIF8sIHdlcnIgPSBjbWQuV3JpdGUocGF5bG9hZCkKCQlhc3NlcnQuTm9FcnJvcih0LCB3ZXJyKQoJfQoJYXNzZXJ0Lk5vRXJyb3IodCwgY21kLkNsb3NlSW5wdXQoKSkKCXZhciBkYXRhLCByZXJyID0gaW91dGlsLlJlYWRBbGwoY21kKQoJYXNzZXJ0Lk5vRXJyb3IodCwgcmVycikKCWFzc2VydC5FcXVhbCh0LCBieXRlcy5SZXBlYXQocGF5bG9hZCwgYyksIGRhdGEpCglhc3NlcnQuTm9FcnJvcih0LCBjbWQuQ2xvc2UoKSkKfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -2539,7 +2579,19 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestExecTrue&#34;,
             &#34;Signature&#34;: &#34;TestExecTrue(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgdHJ1ZWApCgljbWQuT25TdGFydCA9IGluY3IoJnN0YXJ0cykKCWNtZC5PbkNvbXBsZXRlID0gaW5jcigmY29tcGxldGVzKQoJY21kLk9uU3VjY2VzcyA9IGluY3IoJnN1Y2Nlc3NlcykKCWNtZC5PbkVycm9yID0gaW5jcigmZmFpbHVyZXMpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuUElEKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWNtZC5SdW4oKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlBJRCA9PSAwKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5Ub29rKCkgPiAwKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbChjbWQuU3RhdHVzKCkuRXJyb3IpCglhc3NlcnQuRXF1YWwoMSwgc3RhcnRzKQoJYXNzZXJ0LkVxdWFsKDEsIGNvbXBsZXRlcykKCWFzc2VydC5FcXVhbCgxLCBzdWNjZXNzZXMpCglhc3NlcnQuRXF1YWwoMCwgZmFpbHVyZXMpCn0=&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJdmFyIGNtZCA9IENvbW1hbmQoYHRydWVgKQoJY21kLk9uU3RhcnQgPSBpbmNyKCZzdGFydHMpCgljbWQuT25Db21wbGV0ZSA9IGluY3IoJmNvbXBsZXRlcykKCWNtZC5PblN1Y2Nlc3MgPSBpbmNyKCZzdWNjZXNzZXMpCgljbWQuT25FcnJvciA9IGluY3IoJmZhaWx1cmVzKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0Llplcm8odCwgY21kLlN0YXR1cygpLlBJRCkKCWFzc2VydC5UcnVlKHQsIGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZSh0LCBjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0Llplcm8odCwgY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbCh0LCBjbWQuU3RhdHVzKCkuRXJyb3IpCgljbWQuUnVuKCkKCWFzc2VydC5GYWxzZSh0LCBjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5UcnVlKHQsIGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5QSUQgPT0gMCkKCWFzc2VydC5GYWxzZSh0LCBjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZSh0LCBjbWQuU3RhdHVzKCkuVG9vaygpID4gMCkKCWFzc2VydC5aZXJvKHQsIGNtZC5TdGF0dXMoKS5FeGl0Q29kZSkKCWFzc2VydC5OaWwodCwgY21kLlN0YXR1cygpLkVycm9yKQoJYXNzZXJ0LkVxdWFsKHQsIDEsIHN0YXJ0cykKCWFzc2VydC5FcXVhbCh0LCAxLCBjb21wbGV0ZXMpCglhc3NlcnQuRXF1YWwodCwgMSwgc3VjY2Vzc2VzKQoJYXNzZXJ0LkVxdWFsKHQsIDAsIGZhaWx1cmVzKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestExecWriteCloser&#34;,
+            &#34;Signature&#34;: &#34;TestExecWriteCloser(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGNtZCA9IENvbW1hbmQoYGNhdGApCgl2YXIgbiwgZXJyID0gY21kLldyaXRlKFtdYnl0ZSgiaGVsbG9cbiIpKQoJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyKQoJYXNzZXJ0LkVxdWFsKHQsIDYsIG4pCglhc3NlcnQuTm9FcnJvcih0LCBjbWQuQ2xvc2UoKSkKfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -2563,7 +2615,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestShellOut&#34;,
             &#34;Signature&#34;: &#34;TestShellOut(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGhlbGxvIHRoZXJlYCwgc3RyaW5nKE11c3RTaGVsbE91dChgZWNob2AsIGAtbmAsIGBoZWxsb2AsIGB0aGVyZWApKSkKCWFzc2VydC5FcXVhbChgaGVsbG8gdGhlcmVgLCBzdHJpbmcoTXVzdFNoZWxsT3V0KGBlY2hvIC1uIGhlbGxvIHRoZXJlYCkpKQoJYXNzZXJ0LkVxdWFsKGBoZWxsbyB0aGVyZWAsIHN0cmluZyhNdXN0U2hlbGxPdXQoYGVjaG8gLW5gLCBgaGVsbG8gdGhlcmVgKSkpCn0=&#34;
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0LkVxdWFsKHQsIGBoZWxsbyB0aGVyZWAsIHN0cmluZyhNdXN0U2hlbGxPdXQoYGVjaG9gLCBgLW5gLCBgaGVsbG9gLCBgdGhlcmVgKSkpCglhc3NlcnQuRXF1YWwodCwgYGhlbGxvIHRoZXJlYCwgc3RyaW5nKE11c3RTaGVsbE91dChgZWNobyAtbiBoZWxsbyB0aGVyZWApKSkKCWFzc2VydC5FcXVhbCh0LCBgaGVsbG8gdGhlcmVgLCBzdHJpbmcoTXVzdFNoZWxsT3V0KGBlY2hvIC1uYCwgYGhlbGxvIHRoZXJlYCkpKQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -2653,6 +2705,32 @@
             &#34;MetaType&#34;: &#34;struct&#34;,
             &#34;Methods&#34;: [
               {
+                &#34;Comment&#34;: &#34;Implements io.Closer, killing the underlying process, waiting for it to exit, then returning.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Close&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Close() error&#34;
+              },
+              {
+                &#34;Comment&#34;: &#34;Notify the command that no further standard input will be written.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;CloseInput&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;CloseInput() error&#34;
+              },
+              {
                 &#34;IsPackageLevel&#34;: false,
                 &#34;Name&#34;: &#34;CombinedOutput&#34;,
                 &#34;PointerReceiver&#34;: true,
@@ -2715,6 +2793,28 @@
                   }
                 ],
                 &#34;Signature&#34;: &#34;Output() ([]byte, error)&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;p&#34;,
+                    &#34;Type&#34;: &#34;[]byte&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Implements io.Reader, sourcing data from the command&#39;s standard output.  If the command is not\nalready running, it will be started.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Read&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;int&#34;
+                  },
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Read(p []byte) (int, error)&#34;
               },
               {
                 &#34;IsPackageLevel&#34;: false,
@@ -2828,6 +2928,28 @@
                 ],
                 &#34;Signature&#34;: &#34;Wrap(cmd *exec.Cmd) *Cmd&#34;,
                 &#34;Source&#34;: &#34;ewoJcmV0dXJuIG5ldyhjbWQpCn0=&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;p&#34;,
+                    &#34;Type&#34;: &#34;[]byte&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Implements io.Writer, writing data to the commands standard input.  If the command is not already\nrunning, it will be started.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Write&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;int&#34;
+                  },
+                  {
+                    &#34;Type&#34;: &#34;error&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Write(p []byte) (int, error)&#34;
               },
               {
                 &#34;Arguments&#34;: [
@@ -4124,24 +4246,6 @@
           {
             &#34;Arguments&#34;: [
               {
-                &#34;Name&#34;: &#34;fns&#34;,
-                &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;ManipulateAll&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
                 &#34;Name&#34;: &#34;path&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4461,94 +4565,6 @@
           {
             &#34;Arguments&#34;: [
               {
-                &#34;Name&#34;: &#34;needle&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;prefix&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;suffix&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;trimSpace&#34;,
-                &#34;Type&#34;: &#34;bool&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;prefix&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;trimSpace&#34;,
-                &#34;Type&#34;: &#34;bool&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;suffix&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;trimSpace&#34;,
-                &#34;Type&#34;: &#34;bool&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
                 &#34;Name&#34;: &#34;scheme&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               }
@@ -4558,32 +4574,6 @@
             &#34;Name&#34;: &#34;RemoveOpenHandler&#34;,
             &#34;Signature&#34;: &#34;RemoveOpenHandler(scheme string)&#34;,
             &#34;Source&#34;: &#34;ewoJZGVsZXRlKG9wZW5IYW5kbGVycywgc2NoZW1lKQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;find&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;replace&#34;,
-                &#34;Type&#34;: &#34;string&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;occurrences&#34;,
-                &#34;Type&#34;: &#34;int&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;ReplaceWith&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -5618,6 +5608,140 @@
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3Igc3RydWN0IHsKCn0K&#34;
           },
           &#34;ReadManipulatorFunc&#34;: {
+            &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;fns&#34;,
+                    &#34;Type&#34;: &#34;...ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Performs multiple sequential manipulations on an intercepted line of text from\nan io.Reader as its being read.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;ManipulateAll&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;ManipulateAll(fns ...ReadManipulatorFunc) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJdmFyIGVyciBlcnJvcgoJCWZvciBfLCBmbiA6PSByYW5nZSBmbnMgewoJCQlkYXRhLCBlcnIgPSBmbihkYXRhKQoJCQlpZiBlcnIgIT0gbmlsIHsKCQkJCWJyZWFrCgkJCX0KCQl9CgkJcmV0dXJuIGRhdGEsIGVycgoJfQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;find&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;replace&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;occurrences&#34;,
+                    &#34;Type&#34;: &#34;int&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for replacing text in an io.Reader as its being read.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;ReplaceWith&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;ReplaceWith(find string, replace string, occurrences int) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlsaW5lID0gc3RyaW5ncy5SZXBsYWNlKGxpbmUsIGZpbmQsIHJlcGxhY2UsIG9jY3VycmVuY2VzKQoJCXJldHVybiBbXWJ5dGUobGluZSksIG5pbAoJfQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;needle&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that contain the given string.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;RemoveLinesContaining&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;RemoveLinesContaining(needle string) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJaWYgc3RyaW5ncy5Db250YWlucyhzdHJpbmcoZGF0YSksIG5lZWRsZSkgewoJCQlyZXR1cm4gbmlsLCBuaWwKCQl9IGVsc2UgewoJCQlyZXR1cm4gZGF0YSwgbmlsCgkJfQoJfQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;prefix&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;trimSpace&#34;,
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given prefix.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;RemoveLinesWithPrefix&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;RemoveLinesWithPrefix(prefix string, trimSpace bool) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;suffix&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;trimSpace&#34;,
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines that have a given suffix.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;RemoveLinesWithSuffix&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;RemoveLinesWithSuffix(suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNTdWZmaXgobGluZSwgc3VmZml4KSB7CgkJCXJldHVybiBuaWwsIG5pbAoJCX0gZWxzZSB7CgkJCXJldHVybiBkYXRhLCBuaWwKCQl9Cgl9Cn0=&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;prefix&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;suffix&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;trimSpace&#34;,
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;A ReadManipulatorFunc for removing lines surrounded by a given prefix and suffix.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;RemoveLinesSurroundedBy&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;ReadManipulatorFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;RemoveLinesSurroundedBy(prefix string, suffix string, trimSpace bool) ReadManipulatorFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKSB7CgkJbGluZSA6PSBzdHJpbmcoZGF0YSkKCQlpZiB0cmltU3BhY2UgewoJCQlsaW5lID0gc3RyaW5ncy5UcmltU3BhY2UobGluZSkKCQl9CgkJaWYgc3RyaW5ncy5IYXNQcmVmaXgobGluZSwgcHJlZml4KSAmJiBzdHJpbmdzLkhhc1N1ZmZpeChsaW5lLCBzdWZmaXgpIHsKCQkJcmV0dXJuIG5pbCwgbmlsCgkJfSBlbHNlIHsKCQkJcmV0dXJuIGRhdGEsIG5pbAoJCX0KCX0KfQ==&#34;
+              }
+            ],
             &#34;Name&#34;: &#34;ReadManipulatorFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBSZWFkTWFuaXB1bGF0b3JGdW5jIGZ1bmMoZGF0YSBbXWJ5dGUpIChbXWJ5dGUsIGVycm9yKQ==&#34;
           },
@@ -10147,7 +10271,7 @@
         &#34;SourceLineCount&#34;: 1458,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6593,
           &#34;Median&#34;: 1,
@@ -12405,7 +12529,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/maputil&#34;,
-        &#34;CommentWordCount&#34;: 1412,
+        &#34;CommentWordCount&#34;: 1441,
         &#34;ConstantCount&#34;: 1,
         &#34;Constants&#34;: [
           {
@@ -12680,7 +12804,7 @@
           },
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 42,
+            &#34;FunctionCount&#34;: 45,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;json&#34;,
@@ -12739,10 +12863,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/utils&#34;
               }
             ],
-            &#34;LineCount&#34;: 620,
+            &#34;LineCount&#34;: 663,
             &#34;Name&#34;: &#34;m.go&#34;,
-            &#34;Size&#34;: 15066,
-            &#34;SourceLineCount&#34;: 450,
+            &#34;Size&#34;: 15798,
+            &#34;SourceLineCount&#34;: 479,
             &#34;TypeCount&#34;: 6,
             &#34;VariableCount&#34;: 2
           },
@@ -12775,6 +12899,10 @@
                 &#34;PackageName&#34;: &#34;time&#34;
               },
               {
+                &#34;Alias&#34;: &#34;assert&#34;,
+                &#34;PackageName&#34;: &#34;github.com/alecthomas/assert&#34;
+              },
+              {
                 &#34;Alias&#34;: &#34;stringutil&#34;,
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
               },
@@ -12787,10 +12915,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 391,
+            &#34;LineCount&#34;: 436,
             &#34;Name&#34;: &#34;m_test.go&#34;,
-            &#34;Size&#34;: 11395,
-            &#34;SourceLineCount&#34;: 322,
+            &#34;Size&#34;: 12069,
+            &#34;SourceLineCount&#34;: 357,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -12863,9 +12991,9 @@
                 &#34;PackageName&#34;: &#34;github.com/mitchellh/mapstructure&#34;
               }
             ],
-            &#34;LineCount&#34;: 1092,
+            &#34;LineCount&#34;: 1086,
             &#34;Name&#34;: &#34;maputil.go&#34;,
-            &#34;Size&#34;: 28022,
+            &#34;Size&#34;: 28052,
             &#34;SourceLineCount&#34;: 795,
             &#34;TypeCount&#34;: 5,
             &#34;VariableCount&#34;: 2
@@ -12903,7 +13031,7 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 79,
+        &#34;FunctionCount&#34;: 82,
         &#34;Functions&#34;: [
           {
             &#34;Arguments&#34;: [
@@ -12920,7 +13048,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;Append(maps ...map[string]interface{}) map[string]interface{}&#34;,
-            &#34;Source&#34;: &#34;ewoJb3V0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWZvciBfLCBtYXBWIDo9IHJhbmdlIG1hcHMgewoJCWZvciBrLCB2IDo9IHJhbmdlIG1hcFYgewoJCQlvdXRba10gPSB2CgkJfQoJfQoJcmV0dXJuIG91dAp9&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIG91dCA9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWZvciBfLCBtYXBWIDo9IHJhbmdlIG1hcHMgewoJCWZvciBrLCB2IDo9IHJhbmdlIG1hcFYgewoJCQlvdXRba10gPSB2CgkJfQoJfQoJcmV0dXJuIG91dAp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -12982,7 +13110,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;Autotype(input interface{}) map[string]interface{}&#34;,
-            &#34;Source&#34;: &#34;ewoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlmIGVyciA6PSBXYWxrKGlucHV0LCBmdW5jKHZhbHVlIGludGVyZmFjZXt9LCBwYXRoIFtdc3RyaW5nLCBpc0xlYWYgYm9vbCkgZXJyb3IgewoJCWlmIHZhbHVlVmFyLCBvayA6PSB2YWx1ZS4odHlwZXV0aWwuVmFyaWFudCk7IG9rIHsKCQkJdmFsdWUgPSB2YWx1ZVZhci5BdXRvKCkKCQkJaWYgIXR5cGV1dGlsLklzRW1wdHkodmFsdWUpIHsKCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJfQoJCQlyZXR1cm4gU2tpcERlc2NlbmRhbnRzCgkJfSBlbHNlIGlmIGlzTGVhZiB7CgkJCWlmICF0eXBldXRpbC5Jc0VtcHR5KHZhbHVlKSB7CgkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgc3RyaW5ndXRpbC5BdXRvdHlwZSh2YWx1ZSkpCgkJCX0KCQl9CgkJcmV0dXJuIG5pbAoJfSk7IGVyciAhPSBuaWwgewoJCXBhbmljKGVyci5FcnJvcigpKQoJfQoJcmV0dXJuIG91dHB1dAp9&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIG91dHB1dCA9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlmIGVyciA6PSBXYWxrKGlucHV0LCBmdW5jKHZhbHVlIGludGVyZmFjZXt9LCBwYXRoIFtdc3RyaW5nLCBpc0xlYWYgYm9vbCkgZXJyb3IgewoJCWlmIHZhbHVlVmFyLCBvayA6PSB2YWx1ZS4odHlwZXV0aWwuVmFyaWFudCk7IG9rIHsKCQkJdmFsdWUgPSB2YWx1ZVZhci5BdXRvKCkKCQkJaWYgIXR5cGV1dGlsLklzRW1wdHkodmFsdWUpIHsKCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJfQoJCQlyZXR1cm4gU2tpcERlc2NlbmRhbnRzCgkJfSBlbHNlIGlmIGlzTGVhZiB7CgkJCWlmICF0eXBldXRpbC5Jc0VtcHR5KHZhbHVlKSB7CgkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgc3RyaW5ndXRpbC5BdXRvdHlwZSh2YWx1ZSkpCgkJCX0KCQl9CgkJcmV0dXJuIG5pbAoJfSk7IGVyciAhPSBuaWwgewoJCXBhbmljKGVyci5FcnJvcigpKQoJfQoJcmV0dXJuIG91dHB1dAp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13036,7 +13164,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;CoalesceMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error)&#34;,
-            &#34;Source&#34;: &#34;ewoJZXJycyA6PSBtYWtlKFtdZXJyb3IsIDApCglydiA6PSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglmb3IgaywgdiA6PSByYW5nZSBkZWVwR2V0VmFsdWVzKFtdc3RyaW5ne30sIGZpZWxkSm9pbmVyLCBkYXRhKSB7CgkJaWYgc3RyaW5nVmFsLCBlcnIgOj0gc3RyaW5ndXRpbC5Ub1N0cmluZyh2KTsgZXJyID09IG5pbCB7CgkJCXJ2W3ByZXBhcmVDb2FsZXNjZWRLZXkoaywgdiwgdHlwZVByZWZpeFNlcGFyYXRvcildID0gc3RyaW5nVmFsCgkJfSBlbHNlIHsKCQkJZXJycyA9IGFwcGVuZChlcnJzLCBlcnIpCgkJfQoJfQoJcmV0dXJuIHJ2LCBlcnJzCn0=&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIGVycnMgPSBtYWtlKFtdZXJyb3IsIDApCgl2YXIgcnYgPSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCglmb3IgaywgdiA6PSByYW5nZSBkZWVwR2V0VmFsdWVzKFtdc3RyaW5ne30sIGZpZWxkSm9pbmVyLCBkYXRhKSB7CgkJaWYgc3RyaW5nVmFsLCBlcnIgOj0gc3RyaW5ndXRpbC5Ub1N0cmluZyh2KTsgZXJyID09IG5pbCB7CgkJCXJ2W3ByZXBhcmVDb2FsZXNjZWRLZXkoaywgdiwgdHlwZVByZWZpeFNlcGFyYXRvcildID0gc3RyaW5nVmFsCgkJfSBlbHNlIHsKCQkJZXJycyA9IGFwcGVuZChlcnJzLCBlcnIpCgkJfQoJfQoJcmV0dXJuIHJ2LCBlcnJzCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13057,7 +13185,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;Compact(input map[string]interface{}) (map[string]interface{}, error)&#34;,
-            &#34;Source&#34;: &#34;ewoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlmIGVyciA6PSBXYWxrKGlucHV0LCBmdW5jKHZhbHVlIGludGVyZmFjZXt9LCBwYXRoIFtdc3RyaW5nLCBpc0xlYWYgYm9vbCkgZXJyb3IgewoJCWlmICF0eXBldXRpbC5Jc0VtcHR5KHZhbHVlKSB7CgkJCWlmIHR5cGV1dGlsLklzQXJyYXkodmFsdWUpIHsKCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJCXJldHVybiBTa2lwRGVzY2VuZGFudHMKCQkJfSBlbHNlIGlmIGlzTGVhZiB7CgkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgdmFsdWUpCgkJCX0KCQl9CgkJcmV0dXJuIG5pbAoJfSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBuaWwsIGVycgoJfQoJcmV0dXJuIG91dHB1dCwgbmlsCn0=&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIG91dHB1dCA9IG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCWlmIGVyciA6PSBXYWxrKGlucHV0LCBmdW5jKHZhbHVlIGludGVyZmFjZXt9LCBwYXRoIFtdc3RyaW5nLCBpc0xlYWYgYm9vbCkgZXJyb3IgewoJCWlmICF0eXBldXRpbC5Jc0VtcHR5KHZhbHVlKSB7CgkJCWlmIHR5cGV1dGlsLklzQXJyYXkodmFsdWUpIHsKCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJCXJldHVybiBTa2lwRGVzY2VuZGFudHMKCQkJfSBlbHNlIGlmIGlzTGVhZiB7CgkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgdmFsdWUpCgkJCX0KCQl9CgkJcmV0dXJuIG5pbAoJfSk7IGVyciAhPSBuaWwgewoJCXJldHVybiBuaWwsIGVycgoJfQoJcmV0dXJuIG91dHB1dCwgbmlsCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13118,7 +13246,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;DeepGet(data interface{}, path []string, fallbacks ...interface{}) interface{}&#34;,
-            &#34;Source&#34;: &#34;ewoJY3VycmVudCA6PSB0eXBldXRpbC5SZXNvbHZlVmFsdWUoZGF0YSkKCWlmIGxlbihmYWxsYmFja3MpID09IDAgewoJCWZhbGxiYWNrcyA9IFtdaW50ZXJmYWNle317bmlsfQoJfQoJZmFsbGJhY2sgOj0gZmFsbGJhY2tzWzBdCglmb3IgaSA6PSAwOyBpIDwgbGVuKHBhdGgpOyBpKysgewoJCXBhcnQgOj0gcGF0aFtpXQoJCWRWYWx1ZSA6PSByZWZsZWN0LlZhbHVlT2YoY3VycmVudCkKCQlpZiAhZFZhbHVlLklzVmFsaWQoKSB7CgkJCXJldHVybiBmYWxsYmFjawoJCX0KCQlkVHlwZSA6PSBkVmFsdWUuVHlwZSgpCgkJc3dpdGNoIGRUeXBlLktpbmQoKSB7CgkJY2FzZSByZWZsZWN0LkludGVyZmFjZSwgcmVmbGVjdC5QdHI6CgkJCWRUeXBlID0gZFR5cGUuRWxlbSgpCgkJfQoJCXN3aXRjaCBkVHlwZS5LaW5kKCkgewoJCWNhc2UgcmVmbGVjdC5TbGljZSwgcmVmbGVjdC5BcnJheToKCQkJaWYgc3RyaW5ndXRpbC5Jc0ludGVnZXIocGFydCkgewoJCQkJaWYgcGFydEluZGV4LCBlcnIgOj0gc3RyY29udi5BdG9pKHBhcnQpOyBlcnIgPT0gbmlsIHsKCQkJCQlpZiBwYXJ0SW5kZXggPCBkVmFsdWUuTGVuKCkgewoJCQkJCQlpZiB2YWx1ZSA6PSBkVmFsdWUuSW5kZXgocGFydEluZGV4KS5JbnRlcmZhY2UoKTsgdmFsdWUgIT0gbmlsIHsKCQkJCQkJCWN1cnJlbnQgPSB2YWx1ZQoJCQkJCQkJY29udGludWUKCQkJCQkJfQoJCQkJCX0KCQkJCX0KCQkJfSBlbHNlIGlmIHBhcnQgPT0gYCpgIHsKCQkJCXN1Yml0ZW1zIDo9IG1ha2UoW11pbnRlcmZhY2V7fSwgZFZhbHVlLkxlbigpKQoJCQkJZm9yIGogOj0gMDsgaiA8IGRWYWx1ZS5MZW4oKTsgaisrIHsKCQkJCQlpZiB2YWx1ZSA6PSBkVmFsdWUuSW5kZXgoaikuSW50ZXJmYWNlKCk7IHZhbHVlICE9IG5pbCB7CgkJCQkJCWlmIGkrMSA8IGxlbihwYXRoKSB7CgkJCQkJCQlzdWJpdGVtc1tqXSA9IERlZXBHZXQodmFsdWUsIHBhdGhbKGkrMSk6XSwgZmFsbGJhY2tzLi4uKQoJCQkJCQl9IGVsc2UgewoJCQkJCQkJc3ViaXRlbXNbal0gPSB2YWx1ZQoJCQkJCQl9CgkJCQkJfSBlbHNlIHsKCQkJCQkJc3ViaXRlbXNbal0gPSBmYWxsYmFjawoJCQkJCX0KCQkJCX0KCQkJCXJldHVybiBzdWJpdGVtcwoJCQl9CgkJCXJldHVybiBmYWxsYmFjawoJCWNhc2UgcmVmbGVjdC5NYXA6CgkJCWlmIG1hcFZhbHVlIDo9IGRWYWx1ZS5NYXBJbmRleChyZWZsZWN0LlZhbHVlT2YocGFydCkpOyBtYXBWYWx1ZS5Jc1ZhbGlkKCkgewoJCQkJY3VycmVudCA9IG1hcFZhbHVlLkludGVyZmFjZSgpCgkJCX0gZWxzZSB7CgkJCQlyZXR1cm4gZmFsbGJhY2sKCQkJfQoJCWNhc2UgcmVmbGVjdC5TdHJ1Y3Q6CgkJCWlmIGRWYWx1ZS5UeXBlKCkuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJCWRWYWx1ZSA9IGRWYWx1ZS5FbGVtKCkKCQkJfQoJCQlpZiBzdHJ1Y3RGaWVsZCA6PSBkVmFsdWUuRmllbGRCeU5hbWUocGFydCk7IHN0cnVjdEZpZWxkLklzVmFsaWQoKSAmJiBzdHJ1Y3RGaWVsZC5DYW5JbnRlcmZhY2UoKSB7CgkJCQljdXJyZW50ID0gc3RydWN0RmllbGQuSW50ZXJmYWNlKCkKCQkJCWNvbnRpbnVlCgkJCX0KCQlkZWZhdWx0OgoJCQlyZXR1cm4gZmFsbGJhY2sKCQl9Cgl9CglyZXR1cm4gY3VycmVudAp9&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIGN1cnJlbnQgPSB0eXBldXRpbC5SZXNvbHZlVmFsdWUoZGF0YSkKCWlmIGxlbihmYWxsYmFja3MpID09IDAgewoJCWZhbGxiYWNrcyA9IFtdaW50ZXJmYWNle317bmlsfQoJfQoJdmFyIGZhbGxiYWNrID0gZmFsbGJhY2tzWzBdCglmb3IgaSA6PSAwOyBpIDwgbGVuKHBhdGgpOyBpKysgewoJCXZhciBwYXJ0ID0gcGF0aFtpXQoJCXZhciBkVmFsdWUgPSByZWZsZWN0LlZhbHVlT2YoY3VycmVudCkKCQlpZiAhZFZhbHVlLklzVmFsaWQoKSB7CgkJCXJldHVybiBmYWxsYmFjawoJCX0KCQl2YXIgZFR5cGUgPSBkVmFsdWUuVHlwZSgpCgkJc3dpdGNoIGRUeXBlLktpbmQoKSB7CgkJY2FzZSByZWZsZWN0LkludGVyZmFjZSwgcmVmbGVjdC5QdHI6CgkJCWRUeXBlID0gZFR5cGUuRWxlbSgpCgkJfQoJCXN3aXRjaCBkVHlwZS5LaW5kKCkgewoJCWNhc2UgcmVmbGVjdC5TbGljZSwgcmVmbGVjdC5BcnJheToKCQkJaWYgc3RyaW5ndXRpbC5Jc0ludGVnZXIocGFydCkgewoJCQkJaWYgcGFydEluZGV4LCBlcnIgOj0gc3RyY29udi5BdG9pKHBhcnQpOyBlcnIgPT0gbmlsIHsKCQkJCQlpZiBwYXJ0SW5kZXggPCBkVmFsdWUuTGVuKCkgewoJCQkJCQlpZiB2YWx1ZSA6PSBkVmFsdWUuSW5kZXgocGFydEluZGV4KS5JbnRlcmZhY2UoKTsgdmFsdWUgIT0gbmlsIHsKCQkJCQkJCWN1cnJlbnQgPSB2YWx1ZQoJCQkJCQkJY29udGludWUKCQkJCQkJfQoJCQkJCX0KCQkJCX0KCQkJfSBlbHNlIGlmIHBhcnQgPT0gYCpgIHsKCQkJCXZhciBzdWJpdGVtcyA9IG1ha2UoW11pbnRlcmZhY2V7fSwgZFZhbHVlLkxlbigpKQoJCQkJZm9yIGogOj0gMDsgaiA8IGRWYWx1ZS5MZW4oKTsgaisrIHsKCQkJCQlpZiB2YWx1ZSA6PSBkVmFsdWUuSW5kZXgoaikuSW50ZXJmYWNlKCk7IHZhbHVlICE9IG5pbCB7CgkJCQkJCWlmIGkrMSA8IGxlbihwYXRoKSB7CgkJCQkJCQlzdWJpdGVtc1tqXSA9IERlZXBHZXQodmFsdWUsIHBhdGhbKGkrMSk6XSwgZmFsbGJhY2tzLi4uKQoJCQkJCQl9IGVsc2UgewoJCQkJCQkJc3ViaXRlbXNbal0gPSB2YWx1ZQoJCQkJCQl9CgkJCQkJfSBlbHNlIHsKCQkJCQkJc3ViaXRlbXNbal0gPSBmYWxsYmFjawoJCQkJCX0KCQkJCX0KCQkJCXJldHVybiBzdWJpdGVtcwoJCQl9CgkJCXJldHVybiBmYWxsYmFjawoJCWNhc2UgcmVmbGVjdC5NYXA6CgkJCWlmIG1hcFZhbHVlIDo9IGRWYWx1ZS5NYXBJbmRleChyZWZsZWN0LlZhbHVlT2YocGFydCkpOyBtYXBWYWx1ZS5Jc1ZhbGlkKCkgewoJCQkJY3VycmVudCA9IG1hcFZhbHVlLkludGVyZmFjZSgpCgkJCX0gZWxzZSB7CgkJCQlyZXR1cm4gZmFsbGJhY2sKCQkJfQoJCWNhc2UgcmVmbGVjdC5TdHJ1Y3Q6CgkJCWlmIGRWYWx1ZS5UeXBlKCkuS2luZCgpID09IHJlZmxlY3QuUHRyIHsKCQkJCWRWYWx1ZSA9IGRWYWx1ZS5FbGVtKCkKCQkJfQoJCQlpZiBzdHJ1Y3RGaWVsZCA6PSBkVmFsdWUuRmllbGRCeU5hbWUocGFydCk7IHN0cnVjdEZpZWxkLklzVmFsaWQoKSAmJiBzdHJ1Y3RGaWVsZC5DYW5JbnRlcmZhY2UoKSB7CgkJCQljdXJyZW50ID0gc3RydWN0RmllbGQuSW50ZXJmYWNlKCkKCQkJCWNvbnRpbnVlCgkJCX0KCQlkZWZhdWx0OgoJCQlyZXR1cm4gZmFsbGJhY2sKCQl9Cgl9CglyZXR1cm4gY3VycmVudAp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13139,7 +13267,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;DeepGetBool(data interface{}, path []string) bool&#34;,
-            &#34;Source&#34;: &#34;ewoJdkkgOj0gRGVlcEdldChkYXRhLCBwYXRoLCBmYWxzZSkKCWlmIHYsIG9rIDo9IHZJLihib29sKTsgb2sgJiYgdiB7CgkJcmV0dXJuIHRydWUKCX0KCXJldHVybiBmYWxzZQp9&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIHZJID0gRGVlcEdldChkYXRhLCBwYXRoLCBmYWxzZSkKCWlmIHYsIG9rIDo9IHZJLihib29sKTsgb2sgJiYgdiB7CgkJcmV0dXJuIHRydWUKCX0KCXJldHVybiBmYWxzZQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13215,7 +13343,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;DeepSet(data interface{}, path []string, value interface{}) interface{}&#34;,
-            &#34;Source&#34;: &#34;ewoJaWYgbGVuKHBhdGgpID09IDAgewoJCXJldHVybiBkYXRhCgl9Cgl2YXIgZmlyc3QgPSBwYXRoWzBdCgl2YXIgcmVzdCA9IG1ha2UoW11zdHJpbmcsIDApCglpZiBsZW4ocGF0aCkgPiAxIHsKCQlyZXN0ID0gcGF0aFsxOl0KCX0KCWlmIGxlbihyZXN0KSA9PSAwIHsKCQlpZiB0eXBldXRpbC5Jc0FycmF5KGRhdGEpIHsKCQkJZGF0YUFycmF5IDo9IHNsaWNldXRpbC5TbGljZWlmeShkYXRhKQoJCQlpZiBjdXJJbmRleCA6PSBpbnQodHlwZXV0aWwuSW50KGZpcnN0KSk7IHR5cGV1dGlsLklzSW50ZWdlcihmaXJzdCkgewoJCQkJaWYgY3VySW5kZXggPj0gbGVuKGRhdGFBcnJheSkgewoJCQkJCWZvciBhZGQgOj0gbGVuKGRhdGFBcnJheSk7IGFkZCA8PSBjdXJJbmRleDsgYWRkKysgewoJCQkJCQlkYXRhQXJyYXkgPSBhcHBlbmQoZGF0YUFycmF5LCBuaWwpCgkJCQkJfQoJCQkJfQoJCQkJaWYgY3VySW5kZXggPCBsZW4oZGF0YUFycmF5KSB7CgkJCQkJZGF0YUFycmF5W2N1ckluZGV4XSA9IHZhbHVlCgkJCQkJcmV0dXJuIGRhdGFBcnJheQoJCQkJfQoJCQl9CgkJfSBlbHNlIGlmIHR5cGV1dGlsLklzTWFwKGRhdGEpIHsKCQkJaWYgZXJyIDo9IFNldChkYXRhLCBmaXJzdCwgdmFsdWUpOyBlcnIgPT0gbmlsIHsKCQkJCXJldHVybiBkYXRhCgkJCX0KCQl9IGVsc2UgaWYgdHlwZXV0aWwuSXNTdHJ1Y3QoZGF0YSkgewoJCQlpZiBkViA6PSByZWZsZWN0LlZhbHVlT2YoZGF0YSk7IGRWLktpbmQoKSA9PSByZWZsZWN0LlB0ciB7CgkJCQlpZiBkRSA6PSBkVi5FbGVtKCk7IGRFLktpbmQoKSA9PSByZWZsZWN0LlN0cnVjdCB7CgkJCQkJZFYgPSBkRQoJCQkJfSBlbHNlIHsKCQkJCQlyZXR1cm4gZGF0YQoJCQkJfQoJCQkJZFQgOj0gZFYuVHlwZSgpCgkJCQlmb3IgaSA6PSAwOyBpIDwgZFQuTnVtRmllbGQoKTsgaSsrIHsKCQkJCQlpZiBmVCA6PSBkVC5GaWVsZChpKTsgZlQuTmFtZSA9PSBmaXJzdCB7CgkJCQkJCWlmIGZWIDo9IGRWLkZpZWxkKGkpOyBmVi5Jc1ZhbGlkKCkgJiYgZlYuQ2FuU2V0KCkgewoJCQkJCQkJdHlwZXV0aWwuU2V0VmFsdWUoZFYuRmllbGQoaSksIHZhbHVlKQoJCQkJCQl9CgkJCQkJCWJyZWFrCgkJCQkJfQoJCQkJfQoJCQl9CgkJCXJldHVybiBkYXRhCgkJfQoJfSBlbHNlIHsKCQlpZiB0eXBldXRpbC5Jc0ludGVnZXIocmVzdFswXSkgewoJCQlpZiB0eXBldXRpbC5Jc01hcChkYXRhKSB7CgkJCQljdXJWYWwgOj0gR2V0KGRhdGEsIGZpcnN0KQoJCQkJaWYgdHlwZXV0aWwuSXNBcnJheShjdXJWYWwpIHsKCQkJCQljdXJWYWwgPSBzbGljZXV0aWwuU2xpY2VpZnkoY3VyVmFsKQoJCQkJfSBlbHNlIHsKCQkJCQljdXJWYWwgPSBtYWtlKFtdaW50ZXJmYWNle30sIDApCgkJCQkJU2V0KGRhdGEsIGZpcnN0LCBjdXJWYWwpCgkJCQl9CgkJCQlpZiBlcnIgOj0gU2V0KGRhdGEsIGZpcnN0LCBEZWVwU2V0KGN1clZhbCwgcmVzdCwgdmFsdWUpKTsgZXJyID09IG5pbCB7CgkJCQkJcmV0dXJuIGRhdGEKCQkJCX0KCQkJfQoJCX0gZWxzZSB7CgkJCWlmIHR5cGV1dGlsLklzQXJyYXkoZGF0YSkgewoJCQkJZGF0YUFycmF5IDo9IHNsaWNldXRpbC5TbGljZWlmeShkYXRhKQoJCQkJaWYgY3VySW5kZXggOj0gaW50KHR5cGV1dGlsLkludChmaXJzdCkpOyB0eXBldXRpbC5Jc0ludGVnZXIoZmlyc3QpIHsKCQkJCQlpZiBjdXJJbmRleCA&#43;PSBsZW4oZGF0YUFycmF5KSB7CgkJCQkJCWZvciBhZGQgOj0gbGVuKGRhdGFBcnJheSk7IGFkZCA8PSBjdXJJbmRleDsgYWRkKysgewoJCQkJCQkJZGF0YUFycmF5ID0gYXBwZW5kKGRhdGFBcnJheSwgbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KSkKCQkJCQkJfQoJCQkJCX0KCQkJCQlpZiBjdXJJbmRleCA8IGxlbihkYXRhQXJyYXkpIHsKCQkJCQkJZGF0YUFycmF5W2N1ckluZGV4XSA9IERlZXBTZXQoZGF0YUFycmF5W2N1ckluZGV4XSwgcmVzdCwgdmFsdWUpCgkJCQkJCXJldHVybiBkYXRhQXJyYXkKCQkJCQl9CgkJCQl9CgkJCX0gZWxzZSBpZiBkYXRhTWFwLCBvayA6PSBkYXRhLihtYXBbc3RyaW5nXWludGVyZmFjZXt9KTsgb2sgewoJCQkJY3VyVmFsLCBfIDo9IGRhdGFNYXBbZmlyc3RdCgkJCQlpZiAhdHlwZXV0aWwuSXNNYXAoY3VyVmFsKSB7CgkJCQkJZGF0YU1hcFtmaXJzdF0gPSBtYWtlKG1hcFtzdHJpbmddaW50ZXJmYWNle30pCgkJCQkJY3VyVmFsLCBfID0gZGF0YU1hcFtmaXJzdF0KCQkJCX0KCQkJCWRhdGFNYXBbZmlyc3RdID0gRGVlcFNldChkYXRhTWFwW2ZpcnN0XSwgcmVzdCwgdmFsdWUpCgkJCQlyZXR1cm4gZGF0YU1hcAoJCQl9CgkJfQoJfQoJcmV0dXJuIGRhdGEKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJaWYgbGVuKHBhdGgpID09IDAgewoJCXJldHVybiBkYXRhCgl9Cgl2YXIgZmlyc3QgPSBwYXRoWzBdCgl2YXIgcmVzdCA9IG1ha2UoW11zdHJpbmcsIDApCglpZiBsZW4ocGF0aCkgPiAxIHsKCQlyZXN0ID0gcGF0aFsxOl0KCX0KCWlmIGxlbihyZXN0KSA9PSAwIHsKCQlpZiB0eXBldXRpbC5Jc0FycmF5KGRhdGEpIHsKCQkJZGF0YUFycmF5IDo9IHNsaWNldXRpbC5TbGljZWlmeShkYXRhKQoJCQlpZiBjdXJJbmRleCA6PSBpbnQodHlwZXV0aWwuSW50KGZpcnN0KSk7IHR5cGV1dGlsLklzSW50ZWdlcihmaXJzdCkgewoJCQkJaWYgY3VySW5kZXggPj0gbGVuKGRhdGFBcnJheSkgewoJCQkJCWZvciBhZGQgOj0gbGVuKGRhdGFBcnJheSk7IGFkZCA8PSBjdXJJbmRleDsgYWRkKysgewoJCQkJCQlkYXRhQXJyYXkgPSBhcHBlbmQoZGF0YUFycmF5LCBuaWwpCgkJCQkJfQoJCQkJfQoJCQkJaWYgY3VySW5kZXggPCBsZW4oZGF0YUFycmF5KSB7CgkJCQkJZGF0YUFycmF5W2N1ckluZGV4XSA9IHZhbHVlCgkJCQkJcmV0dXJuIGRhdGFBcnJheQoJCQkJfQoJCQl9CgkJfSBlbHNlIGlmIHR5cGV1dGlsLklzTWFwKGRhdGEpIHsKCQkJaWYgZXJyIDo9IFNldChkYXRhLCBmaXJzdCwgdmFsdWUpOyBlcnIgPT0gbmlsIHsKCQkJCXJldHVybiBkYXRhCgkJCX0KCQl9IGVsc2UgaWYgdHlwZXV0aWwuSXNTdHJ1Y3QoZGF0YSkgewoJCQlpZiBkViA6PSByZWZsZWN0LlZhbHVlT2YoZGF0YSk7IGRWLktpbmQoKSA9PSByZWZsZWN0LlB0ciB7CgkJCQlpZiBkRSA6PSBkVi5FbGVtKCk7IGRFLktpbmQoKSA9PSByZWZsZWN0LlN0cnVjdCB7CgkJCQkJZFYgPSBkRQoJCQkJfSBlbHNlIHsKCQkJCQlyZXR1cm4gZGF0YQoJCQkJfQoJCQkJdmFyIGRUID0gZFYuVHlwZSgpCgkJCQlmb3IgaSA6PSAwOyBpIDwgZFQuTnVtRmllbGQoKTsgaSsrIHsKCQkJCQlpZiBmVCA6PSBkVC5GaWVsZChpKTsgZlQuTmFtZSA9PSBmaXJzdCB7CgkJCQkJCWlmIGZWIDo9IGRWLkZpZWxkKGkpOyBmVi5Jc1ZhbGlkKCkgJiYgZlYuQ2FuU2V0KCkgewoJCQkJCQkJdHlwZXV0aWwuU2V0VmFsdWUoZFYuRmllbGQoaSksIHZhbHVlKQoJCQkJCQl9CgkJCQkJCWJyZWFrCgkJCQkJfQoJCQkJfQoJCQl9CgkJCXJldHVybiBkYXRhCgkJfQoJfSBlbHNlIHsKCQlpZiB0eXBldXRpbC5Jc0ludGVnZXIocmVzdFswXSkgewoJCQlpZiB0eXBldXRpbC5Jc01hcChkYXRhKSB7CgkJCQl2YXIgY3VyVmFsID0gR2V0KGRhdGEsIGZpcnN0KQoJCQkJaWYgdHlwZXV0aWwuSXNBcnJheShjdXJWYWwpIHsKCQkJCQljdXJWYWwgPSBzbGljZXV0aWwuU2xpY2VpZnkoY3VyVmFsKQoJCQkJfSBlbHNlIHsKCQkJCQljdXJWYWwgPSBtYWtlKFsgLy8gIGlzIHRoZSB2YWx1ZSBhdCBgZmlyc3QnIGluIHRoZSBtYXAgaXNuJ3QgcHJlc2VudCBvciBpc24ndCBhbiBhcnJheSwgY3JlYXRlIGl0CgkJCQkJXWludGVyZmFjZXt9LCAwKQoJCQkJCVNldChkYXRhLCBmaXJzdCwgY3VyVmFsKQoJCQkJfQoJCQkJaWYgZXJyIDo9IFNldChkYXRhLCBmaXJzdCwgRGVlcFNldChjdXJWYWwsIHJlc3QsIHZhbHVlKSk7IGVyciA9PSBuaWwgewoJCQkJCXJldHVybiBkYXRhCgkJCQl9CgkJCX0KCQl9IGVsc2UgewoJCQlpZiB0eXBldXRpbC5Jc0FycmF5KGRhdGEpIHsKCQkJCXZhciBkYXRhQXJyYXkgPSBzbGljZXV0aWwuU2xpY2VpZnkoZGF0YSkKCQkJCWlmIGN1ckluZGV4IDo9IGludCh0eXBldXRpbC5JbnQoZmlyc3QpKTsgdHlwZXV0aWwuSXNJbnRlZ2VyKGZpcnN0KSB7CgkJCQkJaWYgY3VySW5kZXggPj0gbGVuKGRhdGFBcnJheSkgewoJCQkJCQlmb3IgYWRkIDo9IGxlbihkYXRhQXJyYXkpOyBhZGQgPD0gY3VySW5kZXg7IGFkZCsrIHsKCQkJCQkJCWRhdGFBcnJheSA9IGFwcGVuZChkYXRhQXJyYXksIG1ha2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fSkpCgkJCQkJCX0KCQkJCQl9CgkJCQkJaWYgY3VySW5kZXggPCBsZW4oZGF0YUFycmF5KSB7CgkJCQkJCWRhdGFBcnJheVtjdXJJbmRleF0gPSBEZWVwU2V0KGRhdGFBcnJheVtjdXJJbmRleF0sIHJlc3QsIHZhbHVlKQoJCQkJCQlyZXR1cm4gZGF0YUFycmF5CgkJCQkJfQoJCQkJfQoJCQl9IGVsc2UgaWYgZGF0YU1hcCwgb2sgOj0gZGF0YS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSk7IG9rIHsKCQkJCXZhciBjdXJWYWwsIF8gPSBkYXRhTWFwW2ZpcnN0XQoJCQkJaWYgIXR5cGV1dGlsLklzTWFwKGN1clZhbCkgewoJCQkJCWRhdGFNYXBbZmlyc3RdID0gbWFrZShtYXAgLy8gIGhhbmRsZSBnb29kIG9sZCBmYXNoaW9uZWQgbWFwcy1vZi1tYXBzCgkJCQkJLy8gIGlzIHRoZSB2YWx1ZSBhdCAnZmlyc3QnIGluIHRoZSBtYXAgaXNuJ3QgcHJlc2VudCBvciBpc24ndCBhIG1hcCwgY3JlYXRlIGl0CgkJCQkJW3N0cmluZ11pbnRlcmZhY2V7fSkKCQkJCQljdXJWYWwsIF8gPSBkYXRhTWFwW2ZpcnN0XQoJCQkJfQoJCQkJZGF0YU1hcFtmaXJzdF0gPSBEZWVwU2V0KGRhdGFNYXBbZmlyc3RdLCByZXN0LCB2YWx1ZSkKCQkJCXJldHVybiBkYXRhTWFwCgkJCX0KCQl9Cgl9CglyZXR1cm4gZGF0YQp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13291,7 +13419,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;DiffuseMapTyped(data map[string]interface{}, fieldJoiner string, typePrefixSeparator string) (map[string]interface{}, []error)&#34;,
-            &#34;Source&#34;: &#34;ewoJZXJycyA6PSBtYWtlKFtdZXJyb3IsIDApCglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJZGF0YUtleXMgOj0gU3RyaW5nS2V5cyhkYXRhKQoJc29ydC5TdHJpbmdzKGRhdGFLZXlzKQoJZm9yIF8sIGtleSA6PSByYW5nZSBkYXRhS2V5cyB7CgkJdmFyIGtleVBhcnRzIFtdc3RyaW5nCgkJdmFsdWUsIF8gOj0gZGF0YVtrZXldCgkJaWYgdHlwZVByZWZpeFNlcGFyYXRvciAhPSAiIiB7CgkJCXZhciB0eXBlTmFtZSBzdHJpbmcKCQkJdHlwZU5hbWUsIGtleSA9IHN0cmluZ3V0aWwuU3BsaXRQYWlyVHJhaWxpbmcoa2V5LCB0eXBlUHJlZml4U2VwYXJhdG9yKQoJCQlpZiB0eXBlTmFtZSA9PSBgYCB7CgkJCQl0eXBlTmFtZSA9IGBzdHJgCgkJCX0KCQkJaWYgdiwgZXJyIDo9IGNvZXJjZUludG9UeXBlKHZhbHVlLCB0eXBlTmFtZSk7IGVyciA9PSBuaWwgewoJCQkJdmFsdWUgPSB2CgkJCX0gZWxzZSB7CgkJCQllcnJzID0gYXBwZW5kKGVycnMsIGVycikKCQkJfQoJCX0KCQlrZXlQYXJ0cyA9IHN0cmluZ3MuU3BsaXQoa2V5LCBmaWVsZEpvaW5lcikKCQlvdXRwdXQgPSBEZWVwU2V0KG91dHB1dCwga2V5UGFydHMsIHZhbHVlKS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCX0KCXJldHVybiBvdXRwdXQsIGVycnMKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIGVycnMgPSBtYWtlKFtdZXJyb3IsIDApCgl2YXIgb3V0cHV0ID0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJZGF0YUtleXMgOj0gU3RyaW5nS2V5cyhkYXRhKQoJc29ydC5TdHJpbmdzKGRhdGFLZXlzKQoJZm9yIF8sIGtleSA6PSByYW5nZSBkYXRhS2V5cyB7CgkJdmFyIGtleVBhcnRzIFtdc3RyaW5nCgkJdmFyIHZhbHVlLCBfID0gZGF0YVtrZXldCgkJaWYgdHlwZVByZWZpeFNlcGFyYXRvciAhPSAiIiB7CgkJCXZhciB0eXBlTmFtZSBzdHJpbmcKCQkJdHlwZU5hbWUsIGtleSA9IHN0cmluZ3V0aWwuU3BsaXRQYWlyVHJhaWxpbmcoa2V5LCB0eXBlUHJlZml4U2VwYXJhdG9yKQoJCQlpZiB0eXBlTmFtZSA9PSBgYCB7CgkJCQl0eXBlTmFtZSA9IGBzdHJgCgkJCX0KCQkJaWYgdiwgZXJyIDo9IGNvZXJjZUludG9UeXBlKHZhbHVlLCB0eXBlTmFtZSk7IGVyciA9PSBuaWwgewoJCQkJdmFsdWUgPSB2CgkJCX0gZWxzZSB7CgkJCQllcnJzID0gYXBwZW5kKGVycnMsIGVycikKCQkJfQoJCX0KCQlrZXlQYXJ0cyA9IHN0cmluZ3MuU3BsaXQoa2V5LCBmaWVsZEpvaW5lcikKCQlvdXRwdXQgPSBEZWVwU2V0KG91dHB1dCwga2V5UGFydHMsIHZhbHVlKS4obWFwW3N0cmluZ11pbnRlcmZhY2V7fSkKCX0KCXJldHVybiBvdXRwdXQsIGVycnMKfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13337,7 +13465,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;Get(data interface{}, key string, fallback ...interface{}) interface{}&#34;,
-            &#34;Source&#34;: &#34;ewoJZGF0YSA9IHR5cGV1dGlsLlJlc29sdmVWYWx1ZShkYXRhKQoJaWYgdHlwZXV0aWwuSXNLaW5kKGRhdGEsIHJlZmxlY3QuTWFwKSB7CgkJZGF0YVYgOj0gcmVmbGVjdC5WYWx1ZU9mKGRhdGEpCgkJaWYgdmFsdWVWIDo9IGRhdGFWLk1hcEluZGV4KHJlZmxlY3QuVmFsdWVPZihrZXkpKTsgdmFsdWVWLklzVmFsaWQoKSB7CgkJCWlmIHZhbHVlSSA6PSB2YWx1ZVYuSW50ZXJmYWNlKCk7ICF0eXBldXRpbC5Jc1plcm8odmFsdWVJKSB7CgkJCQlyZXR1cm4gdmFsdWVJCgkJCX0KCQl9Cgl9CglpZiBsZW4oZmFsbGJhY2spID4gMCB7CgkJcmV0dXJuIGZhbGxiYWNrWzBdCgl9IGVsc2UgewoJCXJldHVybiBuaWwKCX0KfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJZGF0YSA9IHR5cGV1dGlsLlJlc29sdmVWYWx1ZShkYXRhKQoJaWYgdHlwZXV0aWwuSXNLaW5kKGRhdGEsIHJlZmxlY3QuTWFwKSB7CgkJdmFyIGRhdGFWID0gcmVmbGVjdC5WYWx1ZU9mKGRhdGEpCgkJaWYgdmFsdWVWIDo9IGRhdGFWLk1hcEluZGV4KHJlZmxlY3QuVmFsdWVPZihrZXkpKTsgdmFsdWVWLklzVmFsaWQoKSB7CgkJCWlmIHZhbHVlSSA6PSB2YWx1ZVYuSW50ZXJmYWNlKCk7ICF0eXBldXRpbC5Jc1plcm8odmFsdWVJKSB7CgkJCQlyZXR1cm4gdmFsdWVJCgkJCX0KCQl9Cgl9CglpZiBsZW4oZmFsbGJhY2spID4gMCB7CgkJcmV0dXJuIGZhbGxiYWNrWzBdCgl9IGVsc2UgewoJCXJldHVybiBuaWwKCX0KfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13424,7 +13552,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;MapValues(input interface{}) []interface{}&#34;,
-            &#34;Source&#34;: &#34;ewoJdmFsdWVzIDo9IG1ha2UoW11pbnRlcmZhY2V7fSwgMCkKCWlucHV0ViA6PSByZWZsZWN0LlZhbHVlT2YoaW5wdXQpCglzd2l0Y2ggaW5wdXRWLktpbmQoKSB7CgljYXNlIHJlZmxlY3QuTWFwOgoJCWZvciBfLCBtYXBLZXlWIDo9IHJhbmdlIGlucHV0Vi5NYXBLZXlzKCkgewoJCQlpZiBtYXBWIDo9IGlucHV0Vi5NYXBJbmRleChtYXBLZXlWKTsgbWFwVi5Jc1ZhbGlkKCkgJiYgbWFwVi5DYW5JbnRlcmZhY2UoKSB7CgkJCQl2YWx1ZXMgPSBhcHBlbmQodmFsdWVzLCBtYXBWLkludGVyZmFjZSgpKQoJCQl9CgkJfQoJfQoJcmV0dXJuIHZhbHVlcwp9&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIHZhbHVlcyA9IG1ha2UoW11pbnRlcmZhY2V7fSwgMCkKCXZhciBpbnB1dFYgPSByZWZsZWN0LlZhbHVlT2YoaW5wdXQpCglzd2l0Y2ggaW5wdXRWLktpbmQoKSB7CgljYXNlIHJlZmxlY3QuTWFwOgoJCWZvciBfLCBtYXBLZXlWIDo9IHJhbmdlIGlucHV0Vi5NYXBLZXlzKCkgewoJCQlpZiBtYXBWIDo9IGlucHV0Vi5NYXBJbmRleChtYXBLZXlWKTsgbWFwVi5Jc1ZhbGlkKCkgJiYgbWFwVi5DYW5JbnRlcmZhY2UoKSB7CgkJCQl2YWx1ZXMgPSBhcHBlbmQodmFsdWVzLCBtYXBWLkludGVyZmFjZSgpKQoJCQl9CgkJfQoJfQoJcmV0dXJuIHZhbHVlcwp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13453,7 +13581,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;Merge(first interface{}, second interface{}, options ...MergeOption) (map[string]interface{}, error)&#34;,
-            &#34;Source&#34;: &#34;ewoJaWYgZmlyc3QgIT0gbmlsICYmICF0eXBldXRpbC5Jc0tpbmQoZmlyc3QsIHJlZmxlY3QuTWFwKSB7CgkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiZmlyc3QgYXJndW1lbnQgbXVzdCBiZSBhIG1hcCwgZ290ICVUIiwgZmlyc3QpCgl9CglpZiBzZWNvbmQgIT0gbmlsICYmICF0eXBldXRpbC5Jc0tpbmQoc2Vjb25kLCByZWZsZWN0Lk1hcCkgewoJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoInNlY29uZCBhcmd1bWVudCBtdXN0IGJlIGEgbWFwLCBnb3QgJVQiLCBzZWNvbmQpCgl9CglvdXRwdXQgOj0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaWYgZXJyIDo9IFdhbGsoZmlyc3QsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmIHsKCQkJRGVlcFNldChvdXRwdXQsIHBhdGgsIHZhbHVlKQoJCX0KCQlyZXR1cm4gbmlsCgl9KTsgZXJyICE9IG5pbCB7CgkJcmV0dXJuIG5pbCwgZXJyCgl9CglpZiBlcnIgOj0gV2FsayhzZWNvbmQsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmIHsKCQkJaWYgdmFsdWUgIT0gbmlsIHsKCQkJCWlmIGN1cnJlbnRWYWx1ZSA6PSBEZWVwR2V0KG91dHB1dCwgcGF0aCwgbmlsKTsgY3VycmVudFZhbHVlID09IG5pbCB7CgkJCQkJRGVlcFNldChvdXRwdXQsIHBhdGgsIHZhbHVlKQoJCQkJfSBlbHNlIHsKCQkJCQljdXJyZW50ViA6PSByZWZsZWN0LlZhbHVlT2YoY3VycmVudFZhbHVlKQoJCQkJCXN3aXRjaCBjdXJyZW50Vi5UeXBlKCkuS2luZCgpIHsKCQkJCQljYXNlIHJlZmxlY3QuU2xpY2UsIHJlZmxlY3QuQXJyYXk6CgkJCQkJCW5ld1BhdGggOj0gYXBwZW5kKHBhdGgsIGZtdC5TcHJpbnRmKCIlZCIsIGN1cnJlbnRWLkxlbigpKSkKCQkJCQkJRGVlcFNldChvdXRwdXQsIG5ld1BhdGgsIHZhbHVlKQoJCQkJCWRlZmF1bHQ6CgkJCQkJCWlmIE1lcmdlT3B0aW9ucyhvcHRpb25zKS5IYXMoQXBwZW5kVmFsdWVzKSB7CgkJCQkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgW11pbnRlcmZhY2V7fXtjdXJyZW50VmFsdWUsIHZhbHVlfSkKCQkJCQkJfSBlbHNlIHsKCQkJCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJCQkJfQoJCQkJCX0KCQkJCX0KCQkJfQoJCX0KCQlyZXR1cm4gbmlsCgl9KTsgZXJyICE9IG5pbCB7CgkJcmV0dXJuIG5pbCwgZXJyCgl9CglyZXR1cm4gb3V0cHV0LCBuaWwKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJaWYgZmlyc3QgIT0gbmlsICYmICF0eXBldXRpbC5Jc0tpbmQoZmlyc3QsIHJlZmxlY3QuTWFwKSB7CgkJcmV0dXJuIG5pbCwgZm10LkVycm9yZigiZmlyc3QgYXJndW1lbnQgbXVzdCBiZSBhIG1hcCwgZ290ICVUIiwgZmlyc3QpCgl9CglpZiBzZWNvbmQgIT0gbmlsICYmICF0eXBldXRpbC5Jc0tpbmQoc2Vjb25kLCByZWZsZWN0Lk1hcCkgewoJCXJldHVybiBuaWwsIGZtdC5FcnJvcmYoInNlY29uZCBhcmd1bWVudCBtdXN0IGJlIGEgbWFwLCBnb3QgJVQiLCBzZWNvbmQpCgl9Cgl2YXIgb3V0cHV0ID0gbWFrZShtYXBbc3RyaW5nXWludGVyZmFjZXt9KQoJaWYgZXJyIDo9IFdhbGsoZmlyc3QsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmIHsKCQkJRGVlcFNldChvdXRwdXQsIHBhdGgsIHZhbHVlKQoJCX0KCQlyZXR1cm4gbmlsCgl9KTsgZXJyICE9IG5pbCB7CgkJcmV0dXJuIG5pbCwgZXJyCgl9CglpZiBlcnIgOj0gV2FsayhzZWNvbmQsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmIHsKCQkJaWYgdmFsdWUgIT0gbmlsIHsKCQkJCWlmIGN1cnJlbnRWYWx1ZSA6PSBEZWVwR2V0KG91dHB1dCwgcGF0aCwgbmlsKTsgY3VycmVudFZhbHVlID09IG5pbCB7CgkJCQkJRGVlcFNldChvdXRwdXQsIHBhdGgsIHZhbHVlKQoJCQkJfSBlbHNlIHsKCQkJCQljdXJyZW50ViA6PSByZWZsZWN0LlZhbHVlT2YoY3VycmVudFZhbHVlKQoJCQkJCXN3aXRjaCBjdXJyZW50Vi5UeXBlKCkuS2luZCgpIHsKCQkJCQljYXNlIHJlZmxlY3QuU2xpY2UsIHJlZmxlY3QuQXJyYXk6CgkJCQkJCW5ld1BhdGggOj0gYXBwZW5kKHBhdGgsIGZtdC5TcHJpbnRmKCIlZCIsIGN1cnJlbnRWLkxlbigpKSkKCQkJCQkJRGVlcFNldChvdXRwdXQsIG5ld1BhdGgsIHZhbHVlKQoJCQkJCWRlZmF1bHQ6CgkJCQkJCWlmIE1lcmdlT3B0aW9ucyhvcHRpb25zKS5IYXMoQXBwZW5kVmFsdWVzKSB7CgkJCQkJCQlEZWVwU2V0KG91dHB1dCwgcGF0aCwgW11pbnRlcmZhY2V7fXtjdXJyZW50VmFsdWUsIHZhbHVlfSkKCQkJCQkJfSBlbHNlIHsKCQkJCQkJCURlZXBTZXQob3V0cHV0LCBwYXRoLCB2YWx1ZSkKCQkJCQkJfQoJCQkJCX0KCQkJCX0KCQkJfQoJCX0KCQlyZXR1cm4gbmlsCgl9KTsgZXJyICE9IG5pbCB7CgkJcmV0dXJuIG5pbCwgZXJyCgl9CglyZXR1cm4gb3V0cHV0LCBuaWwKfQ==&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13474,7 +13602,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;Pluck(sliceOfMaps interface{}, key []string) []interface{}&#34;,
-            &#34;Source&#34;: &#34;ewoJcnYgOj0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJaWYgc2xpY2VPZk1hcHMgPT0gbmlsIHsKCQlyZXR1cm4gcnYKCX0KCVdhbGtTdHJ1Y3Qoc2xpY2VPZk1hcHMsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmICYmIGxlbihwYXRoKSA&#43;IDEgewoJCQl2YXIgc2hvdWxkSW5jbHVkZSBib29sCgkJCWZvciBpLCBfIDo9IHJhbmdlIHBhdGggewoJCQkJaWYgaSA9PSAwIHsKCQkJCQljb250aW51ZQoJCQkJfSBlbHNlIGlmIChpIC0gMSkgPCBsZW4oa2V5KSB7CgkJCQkJaWYga2V5W2ktMV0gPT0gYCpgIHx8IHBhdGhbaV0gPT0ga2V5W2ktMV0gewoJCQkJCQlzaG91bGRJbmNsdWRlID0gdHJ1ZQoJCQkJCQljb250aW51ZQoJCQkJCX0gZWxzZSB7CgkJCQkJCXNob3VsZEluY2x1ZGUgPSBmYWxzZQoJCQkJCQlicmVhawoJCQkJCX0KCQkJCX0KCQkJfQoJCQlpZiBzaG91bGRJbmNsdWRlIHsKCQkJCXJ2ID0gYXBwZW5kKHJ2LCB2YWx1ZSkKCQkJfQoJCX0KCQlyZXR1cm4gbmlsCgl9KQoJcmV0dXJuIHJ2Cn0=&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIHJ2ID0gbWFrZShbXWludGVyZmFjZXt9LCAwKQoJaWYgc2xpY2VPZk1hcHMgPT0gbmlsIHsKCQlyZXR1cm4gcnYKCX0KCVdhbGtTdHJ1Y3Qoc2xpY2VPZk1hcHMsIGZ1bmModmFsdWUgaW50ZXJmYWNle30sIHBhdGggW11zdHJpbmcsIGlzTGVhZiBib29sKSBlcnJvciB7CgkJaWYgaXNMZWFmICYmIGxlbihwYXRoKSA&#43;IDEgewoJCQl2YXIgc2hvdWxkSW5jbHVkZSBib29sCgkJCWZvciBpLCBfIDo9IHJhbmdlIHBhdGggewoJCQkJaWYgaSA9PSAwIHsKCQkJCQljb250aW51ZQoJCQkJfSBlbHNlIGlmIChpIC0gMSkgPCBsZW4oa2V5KSB7CgkJCQkJaWYga2V5W2ktMV0gPT0gYCpgIHx8IHBhdGhbaV0gPT0ga2V5W2ktMV0gewoJCQkJCQlzaG91bGRJbmNsdWRlID0gdHJ1ZQoJCQkJCQljb250aW51ZQoJCQkJCX0gZWxzZSB7CgkJCQkJCXNob3VsZEluY2x1ZGUgPSBmYWxzZQoJCQkJCQlicmVhawoJCQkJCX0KCQkJCX0KCQkJfQoJCQlpZiBzaG91bGRJbmNsdWRlIHsKCQkJCXJ2ID0gYXBwZW5kKHJ2LCB2YWx1ZSkKCQkJfQoJCX0KCQlyZXR1cm4gbmlsCgl9KQoJcmV0dXJuIHJ2Cn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13601,7 +13729,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;Stringify(input map[string]interface{}) map[string]string&#34;,
-            &#34;Source&#34;: &#34;ewoJb3V0cHV0IDo9IG1ha2UobWFwW3N0cmluZ11zdHJpbmcpCglmb3IgaywgdiA6PSByYW5nZSBpbnB1dCB7CgkJaWYgc3RyLCBlcnIgOj0gc3RyaW5ndXRpbC5Ub1N0cmluZyh2KTsgZXJyID09IG5pbCB7CgkJCW91dHB1dFtrXSA9IHN0cgoJCX0gZWxzZSB7CgkJCW91dHB1dFtrXSA9IGZtdC5TcHJpbnRmKCIhI0VSUjwldj4iLCBlcnIpCgkJfQoJfQoJcmV0dXJuIG91dHB1dAp9&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIG91dHB1dCA9IG1ha2UobWFwW3N0cmluZ11zdHJpbmcpCglmb3IgaywgdiA6PSByYW5nZSBpbnB1dCB7CgkJaWYgc3RyLCBlcnIgOj0gc3RyaW5ndXRpbC5Ub1N0cmluZyh2KTsgZXJyID09IG5pbCB7CgkJCW91dHB1dFtrXSA9IHN0cgoJCX0gZWxzZSB7CgkJCW91dHB1dFtrXSA9IGZtdC5TcHJpbnRmKCIhI0VSUjwldj4iLCBlcnIpCgkJfQoJfQoJcmV0dXJuIG91dHB1dAp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -13727,19 +13855,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;maputil&#34;,
-        &#34;LineCount&#34;: 4503,
+        &#34;LineCount&#34;: 4585,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;maputil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 3442,
+        &#34;SourceLineCount&#34;: 3506,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.5685,
+          &#34;Mean&#34;: 0.5781,
           &#34;Median&#34;: 0.9,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4814
+          &#34;StdDev&#34;: 0.4788
         },
         &#34;Synopsis&#34;: &#34;Utilities for converting, manipulating, and iterating over maps\n&#34;,
         &#34;Tests&#34;: [
@@ -14303,6 +14431,18 @@
               }
             ],
             &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestMMerge&#34;,
+            &#34;Signature&#34;: &#34;TestMMerge(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIG0gPSBOZXdNYXAoKQoJYXNzZXJ0LkVxdWFsKHQsIG1hcFtzdHJpbmddaW50ZXJmYWNle317fSwgbS5NYXBOYXRpdmUoKSkKCW0uTWVyZ2UobWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogMn0pCglhc3NlcnQuRXF1YWwodCwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogMn0sIG0uTWFwTmF0aXZlKCkpCgltLk1lcmdlKG1hcFtzdHJpbmddaW50ZXJmYWNle317YGJgOiAyLjEsIGBjYDogM30pCglhc3NlcnQuRXF1YWwodCwgbWFwW3N0cmluZ11pbnRlcmZhY2V7fXtgYWA6IDEsIGBiYDogMi4xLCBgY2A6IDN9LCBtLk1hcE5hdGl2ZSgpKQoJbS5NZXJnZShtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BiYDogbmlsfSkKCWFzc2VydC5FcXVhbCh0LCBtYXBbc3RyaW5nXWludGVyZmFjZXt9e2BhYDogMSwgYGJgOiBuaWwsIGBjYDogM30sIG0uTWFwTmF0aXZlKCkpCgltLkNvbXBhY3QoKQoJYXNzZXJ0LkVxdWFsKHQsIG1hcFtzdHJpbmddaW50ZXJmYWNle317YGFgOiAxLCBgY2A6IDN9LCBtLk1hcE5hdGl2ZSgpKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestMSet&#34;,
             &#34;Signature&#34;: &#34;TestMSet(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglpbnB1dCA6PSBNKG5pbCkKCWFzc2VydC5FcXVhbChgYCwgaW5wdXQuU3RyaW5nKGBsb2xgKSkKCWFzc2VydC5FcXVhbChgMmZ1bm55NG1lYCwgaW5wdXQuU2V0KGBsb2xgLCBgMmZ1bm55NG1lYCkuU3RyaW5nKCkpCglhc3NlcnQuRXF1YWwoYDJmdW5ueTRtZWAsIGlucHV0LlN0cmluZyhgbG9sYCkpCn0=&#34;
@@ -14692,6 +14832,19 @@
                 &#34;Signature&#34;: &#34;Bytes(key string) []byte&#34;
               },
               {
+                &#34;Comment&#34;: &#34;Reject all nil values from the map.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Compact&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;*Map&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Compact() *Map&#34;
+              },
+              {
                 &#34;Arguments&#34;: [
                   {
                     &#34;Name&#34;: &#34;key&#34;,
@@ -15016,7 +15169,7 @@
                     &#34;Type&#34;: &#34;...string&#34;
                   }
                 ],
-                &#34;Comment&#34;: &#34;Return the value as a map[string]interface{} {&#34;,
+                &#34;Comment&#34;: &#34;Return the value as a map[string]interface{}.&#34;,
                 &#34;IsPackageLevel&#34;: false,
                 &#34;Name&#34;: &#34;MapNative&#34;,
                 &#34;PointerReceiver&#34;: true,
@@ -15027,6 +15180,25 @@
                   }
                 ],
                 &#34;Signature&#34;: &#34;MapNative(tagName ...string) map[string]interface{}&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;tagName&#34;,
+                    &#34;Type&#34;: &#34;...string&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Return the value as a map[string]string.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;MapString&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;map[string]string&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;MapString(tagName ...string) map[string]string&#34;
               },
               {
                 &#34;IsPackageLevel&#34;: false,
@@ -15065,6 +15237,25 @@
                   }
                 ],
                 &#34;Signature&#34;: &#34;MarshalXML(e *xml.Encoder, start xml.StartElement) error&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;other&#34;,
+                    &#34;Type&#34;: &#34;interface{}&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Copy the items from a map into this one.&#34;,
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;Merge&#34;,
+                &#34;PointerReceiver&#34;: true,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;int&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;Merge(other interface{}) int&#34;
               },
               {
                 &#34;Arguments&#34;: [
@@ -16412,7 +16603,7 @@
         &#34;SourceLineCount&#34;: 519,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 0,
+          &#34;HarmonicMean&#34;: 1,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.3673,
           &#34;Median&#34;: 0,
@@ -25883,23 +26074,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/executil&#34;,
-      &#34;CommentWordCount&#34;: 634,
+      &#34;CommentWordCount&#34;: 710,
       &#34;ConstantCount&#34;: 0,
-      &#34;FunctionCount&#34;: 40,
+      &#34;FunctionCount&#34;: 44,
       &#34;ImportPath&#34;: &#34;executil&#34;,
-      &#34;LineCount&#34;: 948,
+      &#34;LineCount&#34;: 1061,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;executil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 710,
+      &#34;SourceLineCount&#34;: 797,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.5015,
-        &#34;Median&#34;: 0.6,
+        &#34;Mean&#34;: 0.5304,
+        &#34;Median&#34;: 0.8,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.486
+        &#34;StdDev&#34;: 0.4858
       },
       &#34;Synopsis&#34;: &#34;Utilities that make executing commands on the local system a little bit easier.\n&#34;,
       &#34;TypeCount&#34;: 4,
@@ -25969,7 +26160,7 @@
       &#34;SourceLineCount&#34;: 1458,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6593,
         &#34;Median&#34;: 1,
@@ -26008,23 +26199,23 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/maputil&#34;,
-      &#34;CommentWordCount&#34;: 1412,
+      &#34;CommentWordCount&#34;: 1441,
       &#34;ConstantCount&#34;: 1,
-      &#34;FunctionCount&#34;: 79,
+      &#34;FunctionCount&#34;: 82,
       &#34;ImportPath&#34;: &#34;maputil&#34;,
-      &#34;LineCount&#34;: 4503,
+      &#34;LineCount&#34;: 4585,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;maputil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 3442,
+      &#34;SourceLineCount&#34;: 3506,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.5685,
+        &#34;Mean&#34;: 0.5781,
         &#34;Median&#34;: 0.9,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4814
+        &#34;StdDev&#34;: 0.4788
       },
       &#34;Synopsis&#34;: &#34;Utilities for converting, manipulating, and iterating over maps\n&#34;,
       &#34;TypeCount&#34;: 14,
@@ -26069,7 +26260,7 @@
       &#34;SourceLineCount&#34;: 519,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 0,
+        &#34;HarmonicMean&#34;: 1,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.3673,
         &#34;Median&#34;: 0,

@@ -6,19 +6,19 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Utilities that make executing commands on the local system a little bit easier.\n",
     "MainFunction": false,
-    "CommentWordCount": 634,
-    "LineCount": 948,
-    "SourceLineCount": 710,
-    "FunctionCount": 40,
+    "CommentWordCount": 710,
+    "LineCount": 1061,
+    "SourceLineCount": 797,
+    "FunctionCount": 44,
     "TypeCount": 4,
     "ConstantCount": 0,
     "VariableCount": 3,
     "Statistics": {
-        "Mean": 0.5015,
-        "StdDev": 0.486,
+        "Mean": 0.5304,
+        "StdDev": 0.4858,
         "GeometricMean": 0,
-        "HarmonicMean": 1,
-        "Median": 0.6,
+        "HarmonicMean": 0,
+        "Median": 0.8,
         "Minimum": 0,
         "Maximum": 1
     },
@@ -71,6 +71,10 @@
                     "Alias": "time"
                 },
                 {
+                    "PackageName": "github.com/ghetzel/go-stockutil/log",
+                    "Alias": "log"
+                },
+                {
                     "PackageName": "github.com/ghetzel/go-stockutil/sliceutil",
                     "Alias": "sliceutil"
                 },
@@ -87,10 +91,10 @@
                     "Alias": "go-shellwords"
                 }
             ],
-            "Size": 11213,
-            "LineCount": 487,
-            "SourceLineCount": 366,
-            "FunctionCount": 18,
+            "Size": 13029,
+            "LineCount": 567,
+            "SourceLineCount": 425,
+            "FunctionCount": 22,
             "TypeCount": 4,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -99,17 +103,29 @@
             "Name": "cmd_test.go",
             "Imports": [
                 {
+                    "PackageName": "bytes",
+                    "Alias": "bytes"
+                },
+                {
+                    "PackageName": "io/ioutil",
+                    "Alias": "ioutil"
+                },
+                {
                     "PackageName": "testing",
                     "Alias": "testing"
                 },
                 {
-                    "PackageName": "github.com/ghetzel/testify/require",
-                    "Alias": "require"
+                    "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                    "Alias": "stringutil"
+                },
+                {
+                    "PackageName": "github.com/ghetzel/testify/assert",
+                    "Alias": "assert"
                 }
             ],
-            "Size": 2516,
-            "LineCount": 102,
-            "SourceLineCount": 82,
+            "Size": 3445,
+            "LineCount": 135,
+            "SourceLineCount": 110,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -805,7 +821,31 @@
                 }
             ],
             "Signature": "TestExecFalse(t *testing.T)",
-            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgZmFsc2VgKQoJY21kLk9uU3RhcnQgPSBpbmNyKCZzdGFydHMpCgljbWQuT25Db21wbGV0ZSA9IGluY3IoJmNvbXBsZXRlcykKCWNtZC5PblN1Y2Nlc3MgPSBpbmNyKCZzdWNjZXNzZXMpCgljbWQuT25FcnJvciA9IGluY3IoJmZhaWx1cmVzKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLlBJRCkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbChjbWQuU3RhdHVzKCkuRXJyb3IpCgljbWQuUnVuKCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuUElEID09IDApCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5GYWxzZShjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlRvb2soKSA+IDApCglhc3NlcnQuVHJ1ZShjbWQuU3RhdHVzKCkuRXhpdENvZGUgPT0gMSkKCWFzc2VydC5FcXVhbEVycm9yKGNtZC5TdGF0dXMoKS5FcnJvciwgYFByb2Nlc3MgZXhpdGVkIHdpdGggc3RhdHVzIDFgKQoJYXNzZXJ0LkVxdWFsKDEsIHN0YXJ0cykKCWFzc2VydC5FcXVhbCgxLCBjb21wbGV0ZXMpCglhc3NlcnQuRXF1YWwoMCwgc3VjY2Vzc2VzKQoJYXNzZXJ0LkVxdWFsKDEsIGZhaWx1cmVzKQp9",
+            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJdmFyIGNtZCA9IENvbW1hbmQoYGZhbHNlYCkKCWNtZC5PblN0YXJ0ID0gaW5jcigmc3RhcnRzKQoJY21kLk9uQ29tcGxldGUgPSBpbmNyKCZjb21wbGV0ZXMpCgljbWQuT25TdWNjZXNzID0gaW5jcigmc3VjY2Vzc2VzKQoJY21kLk9uRXJyb3IgPSBpbmNyKCZmYWlsdXJlcykKCWFzc2VydC5GYWxzZSh0LCBjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5GYWxzZSh0LCBjbWQuU3RhdHVzKCkuU3VjY2Vzc2Z1bCkKCWFzc2VydC5aZXJvKHQsIGNtZC5TdGF0dXMoKS5QSUQpCglhc3NlcnQuVHJ1ZSh0LCBjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LlRydWUodCwgY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5aZXJvKHQsIGNtZC5TdGF0dXMoKS5FeGl0Q29kZSkKCWFzc2VydC5OaWwodCwgY21kLlN0YXR1cygpLkVycm9yKQoJY21kLlJ1bigpCglhc3NlcnQuRmFsc2UodCwgY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UodCwgY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuRmFsc2UodCwgY21kLlN0YXR1cygpLlBJRCA9PSAwKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuRmFsc2UodCwgY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKHQsIGNtZC5TdGF0dXMoKS5Ub29rKCkgPiAwKQoJYXNzZXJ0LlRydWUodCwgY21kLlN0YXR1cygpLkV4aXRDb2RlID09IDEpCglhc3NlcnQuRXF1YWxFcnJvcih0LCBjbWQuU3RhdHVzKCkuRXJyb3IsIGBQcm9jZXNzIGV4aXRlZCB3aXRoIHN0YXR1cyAxYCkKCWFzc2VydC5FcXVhbCh0LCAxLCBzdGFydHMpCglhc3NlcnQuRXF1YWwodCwgMSwgY29tcGxldGVzKQoJYXNzZXJ0LkVxdWFsKHQsIDAsIHN1Y2Nlc3NlcykKCWFzc2VydC5FcXVhbCh0LCAxLCBmYWlsdXJlcykKfQ==",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestExecReadCloser",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestExecReadCloser(t *testing.T)",
+            "Source": "ewoJdmFyIGNtZCA9IENvbW1hbmQoYGVjaG9gLCBgaGVsbG9gKQoJdmFyIGRhdGEsIGVyciA9IGlvdXRpbC5SZWFkQWxsKGNtZCkKCWFzc2VydC5Ob0Vycm9yKHQsIGVycikKCWFzc2VydC5FcXVhbCh0LCAiaGVsbG9cbiIsIHN0cmluZyhkYXRhKSkKCWFzc2VydC5Ob0Vycm9yKHQsIGNtZC5DbG9zZSgpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestExecReadWriteCloser",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestExecReadWriteCloser(t *testing.T)",
+            "Source": "ewoJdmFyIGMgaW50ID0gMTI4Cgl2YXIgcGF5bG9hZCA9IHN0cmluZ3V0aWwuVVVJRCgpLkJ5dGVzKCkKCXZhciBjbWQgPSBDb21tYW5kKGBjYXRgKQoJZm9yIGkgOj0gMDsgaSA8IGM7IGkrKyB7CgkJdmFyIF8sIHdlcnIgPSBjbWQuV3JpdGUocGF5bG9hZCkKCQlhc3NlcnQuTm9FcnJvcih0LCB3ZXJyKQoJfQoJYXNzZXJ0Lk5vRXJyb3IodCwgY21kLkNsb3NlSW5wdXQoKSkKCXZhciBkYXRhLCByZXJyID0gaW91dGlsLlJlYWRBbGwoY21kKQoJYXNzZXJ0Lk5vRXJyb3IodCwgcmVycikKCWFzc2VydC5FcXVhbCh0LCBieXRlcy5SZXBlYXQocGF5bG9hZCwgYyksIGRhdGEpCglhc3NlcnQuTm9FcnJvcih0LCBjbWQuQ2xvc2UoKSkKfQ==",
             "IsPackageLevel": true
         },
         {
@@ -817,7 +857,19 @@
                 }
             ],
             "Signature": "TestExecTrue(t *testing.T)",
-            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgljbWQgOj0gQ29tbWFuZChgdHJ1ZWApCgljbWQuT25TdGFydCA9IGluY3IoJnN0YXJ0cykKCWNtZC5PbkNvbXBsZXRlID0gaW5jcigmY29tcGxldGVzKQoJY21kLk9uU3VjY2VzcyA9IGluY3IoJnN1Y2Nlc3NlcykKCWNtZC5PbkVycm9yID0gaW5jcigmZmFpbHVyZXMpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlJ1bm5pbmcpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuUElEKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN0YXJ0ZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuWmVybyhjbWQuU3RhdHVzKCkuRXhpdENvZGUpCglhc3NlcnQuTmlsKGNtZC5TdGF0dXMoKS5FcnJvcikKCWNtZC5SdW4oKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LlRydWUoY21kLlN0YXR1cygpLlN1Y2Nlc3NmdWwpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlBJRCA9PSAwKQoJYXNzZXJ0LkZhbHNlKGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuRmFsc2UoY21kLlN0YXR1cygpLlN0b3BwZWRBdC5Jc1plcm8oKSkKCWFzc2VydC5UcnVlKGNtZC5TdGF0dXMoKS5Ub29rKCkgPiAwKQoJYXNzZXJ0Llplcm8oY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbChjbWQuU3RhdHVzKCkuRXJyb3IpCglhc3NlcnQuRXF1YWwoMSwgc3RhcnRzKQoJYXNzZXJ0LkVxdWFsKDEsIGNvbXBsZXRlcykKCWFzc2VydC5FcXVhbCgxLCBzdWNjZXNzZXMpCglhc3NlcnQuRXF1YWwoMCwgZmFpbHVyZXMpCn0=",
+            "Source": "ewoJdmFyIHN0YXJ0cyBpbnQKCXZhciBjb21wbGV0ZXMgaW50Cgl2YXIgc3VjY2Vzc2VzIGludAoJdmFyIGZhaWx1cmVzIGludAoJdmFyIGNtZCA9IENvbW1hbmQoYHRydWVgKQoJY21kLk9uU3RhcnQgPSBpbmNyKCZzdGFydHMpCgljbWQuT25Db21wbGV0ZSA9IGluY3IoJmNvbXBsZXRlcykKCWNtZC5PblN1Y2Nlc3MgPSBpbmNyKCZzdWNjZXNzZXMpCgljbWQuT25FcnJvciA9IGluY3IoJmZhaWx1cmVzKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5SdW5uaW5nKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0Llplcm8odCwgY21kLlN0YXR1cygpLlBJRCkKCWFzc2VydC5UcnVlKHQsIGNtZC5TdGF0dXMoKS5TdGFydGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZSh0LCBjbWQuU3RhdHVzKCkuU3RvcHBlZEF0LklzWmVybygpKQoJYXNzZXJ0Llplcm8odCwgY21kLlN0YXR1cygpLkV4aXRDb2RlKQoJYXNzZXJ0Lk5pbCh0LCBjbWQuU3RhdHVzKCkuRXJyb3IpCgljbWQuUnVuKCkKCWFzc2VydC5GYWxzZSh0LCBjbWQuU3RhdHVzKCkuUnVubmluZykKCWFzc2VydC5UcnVlKHQsIGNtZC5TdGF0dXMoKS5TdWNjZXNzZnVsKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5QSUQgPT0gMCkKCWFzc2VydC5GYWxzZSh0LCBjbWQuU3RhdHVzKCkuU3RhcnRlZEF0LklzWmVybygpKQoJYXNzZXJ0LkZhbHNlKHQsIGNtZC5TdGF0dXMoKS5TdG9wcGVkQXQuSXNaZXJvKCkpCglhc3NlcnQuVHJ1ZSh0LCBjbWQuU3RhdHVzKCkuVG9vaygpID4gMCkKCWFzc2VydC5aZXJvKHQsIGNtZC5TdGF0dXMoKS5FeGl0Q29kZSkKCWFzc2VydC5OaWwodCwgY21kLlN0YXR1cygpLkVycm9yKQoJYXNzZXJ0LkVxdWFsKHQsIDEsIHN0YXJ0cykKCWFzc2VydC5FcXVhbCh0LCAxLCBjb21wbGV0ZXMpCglhc3NlcnQuRXF1YWwodCwgMSwgc3VjY2Vzc2VzKQoJYXNzZXJ0LkVxdWFsKHQsIDAsIGZhaWx1cmVzKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestExecWriteCloser",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestExecWriteCloser(t *testing.T)",
+            "Source": "ewoJdmFyIGNtZCA9IENvbW1hbmQoYGNhdGApCgl2YXIgbiwgZXJyID0gY21kLldyaXRlKFtdYnl0ZSgiaGVsbG9cbiIpKQoJYXNzZXJ0Lk5vRXJyb3IodCwgZXJyKQoJYXNzZXJ0LkVxdWFsKHQsIDYsIG4pCglhc3NlcnQuTm9FcnJvcih0LCBjbWQuQ2xvc2UoKSkKfQ==",
             "IsPackageLevel": true
         },
         {
@@ -841,7 +893,7 @@
                 }
             ],
             "Signature": "TestShellOut(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoYGhlbGxvIHRoZXJlYCwgc3RyaW5nKE11c3RTaGVsbE91dChgZWNob2AsIGAtbmAsIGBoZWxsb2AsIGB0aGVyZWApKSkKCWFzc2VydC5FcXVhbChgaGVsbG8gdGhlcmVgLCBzdHJpbmcoTXVzdFNoZWxsT3V0KGBlY2hvIC1uIGhlbGxvIHRoZXJlYCkpKQoJYXNzZXJ0LkVxdWFsKGBoZWxsbyB0aGVyZWAsIHN0cmluZyhNdXN0U2hlbGxPdXQoYGVjaG8gLW5gLCBgaGVsbG8gdGhlcmVgKSkpCn0=",
+            "Source": "ewoJYXNzZXJ0LkVxdWFsKHQsIGBoZWxsbyB0aGVyZWAsIHN0cmluZyhNdXN0U2hlbGxPdXQoYGVjaG9gLCBgLW5gLCBgaGVsbG9gLCBgdGhlcmVgKSkpCglhc3NlcnQuRXF1YWwodCwgYGhlbGxvIHRoZXJlYCwgc3RyaW5nKE11c3RTaGVsbE91dChgZWNobyAtbiBoZWxsbyB0aGVyZWApKSkKCWFzc2VydC5FcXVhbCh0LCBgaGVsbG8gdGhlcmVgLCBzdHJpbmcoTXVzdFNoZWxsT3V0KGBlY2hvIC1uYCwgYGhlbGxvIHRoZXJlYCkpKQp9",
             "IsPackageLevel": true
         },
         {
@@ -862,6 +914,32 @@
             "Name": "Cmd",
             "MetaType": "struct",
             "Methods": [
+                {
+                    "Name": "Close",
+                    "Comment": "Implements io.Closer, killing the underlying process, waiting for it to exit, then returning.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Close() error",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "CloseInput",
+                    "Comment": "Notify the command that no further standard input will be written.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Returns": [
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "CloseInput() error",
+                    "IsPackageLevel": false
+                },
                 {
                     "Name": "CombinedOutput",
                     "PointerReceiver": true,
@@ -924,6 +1002,28 @@
                         }
                     ],
                     "Signature": "Output() ([]byte, error)",
+                    "IsPackageLevel": false
+                },
+                {
+                    "Name": "Read",
+                    "Comment": "Implements io.Reader, sourcing data from the command's standard output.  If the command is not\nalready running, it will be started.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "p",
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "int"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Read(p []byte) (int, error)",
                     "IsPackageLevel": false
                 },
                 {
@@ -1038,6 +1138,28 @@
                     "Signature": "Wrap(cmd *exec.Cmd) *Cmd",
                     "Source": "ewoJcmV0dXJuIG5ldyhjbWQpCn0=",
                     "IsPackageLevel": true
+                },
+                {
+                    "Name": "Write",
+                    "Comment": "Implements io.Writer, writing data to the commands standard input.  If the command is not already\nrunning, it will be started.",
+                    "PointerReceiver": true,
+                    "ReceiverName": "self",
+                    "Arguments": [
+                        {
+                            "Name": "p",
+                            "Type": "[]byte"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "int"
+                        },
+                        {
+                            "Type": "error"
+                        }
+                    ],
+                    "Signature": "Write(p []byte) (int, error)",
+                    "IsPackageLevel": false
                 },
                 {
                     "Name": "CommandContext",
