@@ -1,6 +1,10 @@
 package fileutil
 
-import "io"
+import (
+	"io"
+
+	"github.com/ghetzel/go-stockutil/log"
+)
 
 type CloserFunc = func(io.ReadCloser) error
 
@@ -30,4 +34,24 @@ func (self *PostReadCloser) Close() error {
 	} else {
 		return self.upstream.Close()
 	}
+}
+
+type MultiCloser struct {
+	closers []io.Closer
+}
+
+func NewMultiCloser(closers ...io.Closer) *MultiCloser {
+	return &MultiCloser{
+		closers: closers,
+	}
+}
+
+func (self *MultiCloser) Close() (merr error) {
+	for _, closer := range self.closers {
+		if closer != nil {
+			merr = log.AppendError(merr, closer.Close())
+		}
+	}
+
+	return
 }
