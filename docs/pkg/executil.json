@@ -7,15 +7,15 @@
     "Synopsis": "Utilities that make executing commands on the local system a little bit easier.\n",
     "MainFunction": false,
     "CommentWordCount": 710,
-    "LineCount": 1066,
-    "SourceLineCount": 801,
+    "LineCount": 1069,
+    "SourceLineCount": 804,
     "FunctionCount": 44,
     "TypeCount": 4,
     "ConstantCount": 0,
     "VariableCount": 3,
     "Statistics": {
-        "Mean": 0.5304,
-        "StdDev": 0.4858,
+        "Mean": 0.5229,
+        "StdDev": 0.4864,
         "GeometricMean": 0,
         "HarmonicMean": 0,
         "Median": 0.8,
@@ -91,9 +91,9 @@
                     "Alias": "go-shellwords"
                 }
             ],
-            "Size": 13095,
-            "LineCount": 572,
-            "SourceLineCount": 429,
+            "Size": 13151,
+            "LineCount": 575,
+            "SourceLineCount": 432,
             "FunctionCount": 22,
             "TypeCount": 4,
             "ConstantCount": 0,
@@ -1321,9 +1321,13 @@
                 {
                     "Name": "PID",
                     "Type": "int"
+                },
+                {
+                    "Name": "Cmd",
+                    "Type": "*Cmd"
                 }
             ],
-            "Source": "dHlwZSBTdGF0dXMgc3RydWN0IHsKCVN0YXJ0ZWRBdCAgdGltZS5UaW1lCglTdG9wcGVkQXQgIHRpbWUuVGltZQoJUnVubmluZyAgICBib29sCglTdWNjZXNzZnVsIGJvb2wKCUV4aXRDb2RlICAgaW50CglFcnJvciAgICAgIGVycm9yCglQSUQgICAgICAgIGludAp9"
+            "Source": "dHlwZSBTdGF0dXMgc3RydWN0IHsKCVN0YXJ0ZWRBdCAgdGltZS5UaW1lCglTdG9wcGVkQXQgIHRpbWUuVGltZQoJUnVubmluZyAgICBib29sCglTdWNjZXNzZnVsIGJvb2wKCUV4aXRDb2RlICAgaW50CglFcnJvciAgICAgIGVycm9yCglQSUQgICAgICAgIGludAoJQ21kICAgICAgICAqQ21kCn0="
         }
     }
 }

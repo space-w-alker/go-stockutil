@@ -32,6 +32,7 @@ type Status struct {
 	ExitCode   int
 	Error      error
 	PID        int
+	Cmd        *Cmd
 }
 
 func (self Status) Took() time.Duration {
@@ -118,6 +119,7 @@ type Cmd struct {
 	exitError   error
 	reader      io.ReadCloser
 	writer      io.WriteCloser
+	hasWaited   bool
 }
 
 func Wrap(cmd *exec.Cmd) *Cmd {
@@ -193,6 +195,7 @@ func new(wrap *exec.Cmd) *Cmd {
 
 func (self *Cmd) prestart() error {
 	self.statusLock.Lock()
+	self.hasWaited = false
 	self.finalStatus = nil
 	self.status = Status{}
 	self.status.StartedAt = time.Now()
@@ -202,6 +205,7 @@ func (self *Cmd) prestart() error {
 	if self.InheritParent {
 		self.Cmd.SysProcAttr = &syscall.SysProcAttr{
 			Setpgid: true,
+			Pgid:    os.Getpid(),
 		}
 	}
 
@@ -364,7 +368,11 @@ func (self *Cmd) Kill() error {
 // Wait for the process to complete, then return the last status.
 // Process must have been started using the Start() function.
 func (self *Cmd) WaitStatus() Status {
-	self.exitError = self.Wait()
+	if !self.hasWaited {
+		self.exitError = self.Wait()
+		self.hasWaited = true
+	}
+
 	self.updateStatus()
 	return self.status
 }
@@ -409,16 +417,15 @@ func (self *Cmd) Write(p []byte) (int, error) {
 func (self *Cmd) Close() error {
 	var merr error
 
-	merr = log.AppendError(merr, self.killAndWait())
+	if w := self.writer; w != nil {
+		merr = log.AppendError(merr, w.Close())
+	}
 
 	if r := self.reader; r != nil {
 		merr = log.AppendError(merr, r.Close())
 	}
 
-	if w := self.writer; w != nil {
-		merr = log.AppendError(merr, w.Close())
-	}
-
+	merr = log.AppendError(merr, self.killAndWait())
 	return merr
 }
 
@@ -445,11 +452,10 @@ func (self *Cmd) killAndWait() error {
 	// this quits the startMonitoringCommand() monitoring loop
 	select {
 	case self.finished <- true:
+		// this waits for startMonitoringCommand() to fire callbacks and actually exit
+		self.reallyDone.Wait()
 	default:
 	}
-
-	// this waits for startMonitoringCommand() to fire callbacks and actually exit
-	self.reallyDone.Wait()
 
 	if status := self.finalStatus; status != nil {
 		return status.Error
@@ -483,17 +489,15 @@ MonitorLoop:
 			if fn := self.OnMonitor; fn != nil {
 				fn(self.Status())
 			}
-
 		case <-self.finished:
-			ticker.Stop()
+			self.Kill()
 			break MonitorLoop
 		}
 	}
 
 	ticker.Stop()
-	self.Kill()
 	self.updateStatus()
-	var final = self.Status()
+	var final = self.WaitStatus()
 	self.finalStatus = &final
 
 	// fire off callbacks
@@ -515,6 +519,7 @@ MonitorLoop:
 func (self *Cmd) updateStatus() {
 	self.statusLock.Lock()
 	defer self.statusLock.Unlock()
+	self.status.Cmd = self
 
 	var pstate *os.ProcessState
 

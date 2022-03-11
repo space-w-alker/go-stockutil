@@ -28,3 +28,4 @@ _testmain.go
 /*-profile.file
 /vendor
 .DS_Store
+/.vscode
