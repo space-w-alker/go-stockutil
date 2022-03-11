@@ -14,7 +14,6 @@ func TestFQDN(t *testing.T) {
 	assert.NoError(err)
 
 	var want = strings.TrimSpace(string(sys))
-	want = strings.ToLower(want)
 	assert.Equal(want, FQDN())
 }
 

@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.6
+                            v1.10.7
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.10.6&#34;
+    &#34;Version&#34;: &#34;1.10.7&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.10.6`&#34;,
+        &#34;Expression&#34;: &#34;`1.10.7`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.10.6&#34;
+        &#34;Value&#34;: &#34;1.10.7&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -422,6 +422,25 @@
             ],
             &#34;Signature&#34;: &#34;HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)&#34;,
             &#34;Source&#34;: &#34;ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;kelvin&#34;,
+                &#34;Type&#34;: &#34;int&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;KelvinToColor&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Name&#34;: &#34;color&#34;,
+                &#34;Type&#34;: &#34;Color&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
+            &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -1015,25 +1034,6 @@
                 ],
                 &#34;Signature&#34;: &#34;Mix(first interface{}, second interface{}) (Color, error)&#34;,
                 &#34;Source&#34;: &#34;ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9&#34;
-              },
-              {
-                &#34;Arguments&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;kelvin&#34;,
-                    &#34;Type&#34;: &#34;int&#34;
-                  }
-                ],
-                &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
-                &#34;IsPackageLevel&#34;: true,
-                &#34;Name&#34;: &#34;KelvinToColor&#34;,
-                &#34;Returns&#34;: [
-                  {
-                    &#34;Name&#34;: &#34;color&#34;,
-                    &#34;Type&#34;: &#34;Color&#34;
-                  }
-                ],
-                &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
-                &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
               }
             ],
             &#34;Name&#34;: &#34;Color&#34;,
@@ -1813,10 +1813,10 @@
                 &#34;PackageName&#34;: &#34;github.com/mattn/go-shellwords&#34;
               }
             ],
-            &#34;LineCount&#34;: 567,
+            &#34;LineCount&#34;: 572,
             &#34;Name&#34;: &#34;cmd.go&#34;,
-            &#34;Size&#34;: 13029,
-            &#34;SourceLineCount&#34;: 425,
+            &#34;Size&#34;: 13095,
+            &#34;SourceLineCount&#34;: 429,
             &#34;TypeCount&#34;: 4,
             &#34;VariableCount&#34;: 0
           },
@@ -2505,11 +2505,11 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;executil&#34;,
-        &#34;LineCount&#34;: 1061,
+        &#34;LineCount&#34;: 1066,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;executil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 797,
+        &#34;SourceLineCount&#34;: 801,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
@@ -10271,7 +10271,7 @@
         &#34;SourceLineCount&#34;: 1458,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.6593,
           &#34;Median&#34;: 1,
@@ -16213,10 +16213,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 64,
+            &#34;LineCount&#34;: 63,
             &#34;Name&#34;: &#34;netutil_test.go&#34;,
-            &#34;Size&#34;: 1732,
-            &#34;SourceLineCount&#34;: 15,
+            &#34;Size&#34;: 1702,
+            &#34;SourceLineCount&#34;: 14,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           }
@@ -16596,14 +16596,14 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;netutil&#34;,
-        &#34;LineCount&#34;: 738,
+        &#34;LineCount&#34;: 737,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;netutil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 519,
+        &#34;SourceLineCount&#34;: 518,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
-          &#34;HarmonicMean&#34;: 1,
+          &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
           &#34;Mean&#34;: 0.3673,
           &#34;Median&#34;: 0,
@@ -16622,7 +16622,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;TestFQDN&#34;,
             &#34;Signature&#34;: &#34;TestFQDN(t *testing.T)&#34;,
-            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCXZhciB3YW50ID0gc3RyaW5ncy5UcmltU3BhY2Uoc3RyaW5nKHN5cykpCgl3YW50ID0gc3RyaW5ncy5Ub0xvd2VyKHdhbnQpCglhc3NlcnQuRXF1YWwod2FudCwgRlFETigpKQp9&#34;
+            &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCXZhciB3YW50ID0gc3RyaW5ncy5UcmltU3BhY2Uoc3RyaW5nKHN5cykpCglhc3NlcnQuRXF1YWwod2FudCwgRlFETigpKQp9&#34;
           }
         ],
         &#34;TypeCount&#34;: 4,
@@ -26078,11 +26078,11 @@
       &#34;ConstantCount&#34;: 0,
       &#34;FunctionCount&#34;: 44,
       &#34;ImportPath&#34;: &#34;executil&#34;,
-      &#34;LineCount&#34;: 1061,
+      &#34;LineCount&#34;: 1066,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;executil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 797,
+      &#34;SourceLineCount&#34;: 801,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
@@ -26160,7 +26160,7 @@
       &#34;SourceLineCount&#34;: 1458,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.6593,
         &#34;Median&#34;: 1,
@@ -26253,14 +26253,14 @@
       &#34;ConstantCount&#34;: 0,
       &#34;FunctionCount&#34;: 22,
       &#34;ImportPath&#34;: &#34;netutil&#34;,
-      &#34;LineCount&#34;: 738,
+      &#34;LineCount&#34;: 737,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;netutil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 519,
+      &#34;SourceLineCount&#34;: 518,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
-        &#34;HarmonicMean&#34;: 1,
+        &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
         &#34;Mean&#34;: 0.3673,
         &#34;Median&#34;: 0,

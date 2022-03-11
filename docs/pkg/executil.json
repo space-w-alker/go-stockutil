@@ -7,8 +7,8 @@
     "Synopsis": "Utilities that make executing commands on the local system a little bit easier.\n",
     "MainFunction": false,
     "CommentWordCount": 710,
-    "LineCount": 1061,
-    "SourceLineCount": 797,
+    "LineCount": 1066,
+    "SourceLineCount": 801,
     "FunctionCount": 44,
     "TypeCount": 4,
     "ConstantCount": 0,
@@ -91,9 +91,9 @@
                     "Alias": "go-shellwords"
                 }
             ],
-            "Size": 13029,
-            "LineCount": 567,
-            "SourceLineCount": 425,
+            "Size": 13095,
+            "LineCount": 572,
+            "SourceLineCount": 429,
             "FunctionCount": 22,
             "TypeCount": 4,
             "ConstantCount": 0,

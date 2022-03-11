@@ -450,7 +450,12 @@ func (self *Cmd) killAndWait() error {
 
 	// this waits for startMonitoringCommand() to fire callbacks and actually exit
 	self.reallyDone.Wait()
-	return self.finalStatus.Error
+
+	if status := self.finalStatus; status != nil {
+		return status.Error
+	} else {
+		return nil
+	}
 }
 
 // a goroutine that is launched whenever a command is started
