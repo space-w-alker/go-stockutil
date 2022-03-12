@@ -31,13 +31,14 @@ var backend *logging.LogBackend
 var formatted logging.Backend
 var leveled logging.LeveledBackend
 var intercepts sync.Map
-
+var filters sync.Map
 var defaultLogger *logging.Logger
 var ModuleName = ``
 
 type LogFunc func(args ...interface{})
 type FormattedLogFunc func(format string, args ...interface{})
 type LogInterceptFunc func(level Level, line string, stack StackItems)
+type LogFilterFunc func(level Level, line string, stack StackItems) bool
 
 // The LOGLEVEL environment variable has final say over the effective log level
 // for all users of this package.
@@ -71,7 +72,7 @@ func initLogging() {
 // synchronously if SynchronousIntercepts is true) for every line logged.
 // Returns a UUID that can be later used to deregister the intercept function.
 func AddLogIntercept(fn LogInterceptFunc) string {
-	id := stringutil.UUID().String()
+	var id = stringutil.UUID().String()
 	intercepts.Store(id, fn)
 	return id
 }
@@ -79,6 +80,36 @@ func AddLogIntercept(fn LogInterceptFunc) string {
 // Remove the previously-added log intercept function.
 func RemoveLogIntercept(id string) {
 	intercepts.Delete(id)
+}
+
+// Append a function to be called for every line logged.  If the function
+// returns false, the line will be dropped (will not be logged or intercepted).
+func AddLogFilter(fn LogFilterFunc) string {
+	var id = stringutil.UUID().String()
+	filters.Store(id, fn)
+	return id
+}
+
+// Remove the previously-added log filter function.
+func RemoveLogFilter(id string) {
+	filters.Delete(id)
+}
+
+// Takes a list of package names ("a/b/c") or patterns ("a/b/*") whose log output
+// will be rejected.  If the package name or patterns matches any function in the
+// call stack, the associated message will be rejected.
+func FilterPackages(patterns ...string) string {
+	return AddLogFilter(func(level Level, line string, stack StackItems) bool {
+		for _, item := range stack {
+			for _, pkg := range patterns {
+				if item.InPackage(pkg) {
+					return false
+				}
+			}
+		}
+
+		return true
+	})
 }
 
 func Debugging() bool {
@@ -136,7 +167,15 @@ func SetLevel(level Level, modules ...string) {
 
 func Logf(level Level, format string, args ...interface{}) {
 	initLogging()
-	callIntercepts(level, fmt.Sprintf(format, args...), StackTrace(DefaultInterceptStackDepth))
+
+	var line = fmt.Sprintf(format, args...)
+	var stack = StackTrace(DefaultInterceptStackDepth)
+
+	if shouldSkip(level, line, stack) {
+		return
+	}
+
+	callIntercepts(level, line, stack)
 
 	// only replace with the actual ANSI escape sequences if we're at a tty
 	// or if colors have been explicitly enabled, otherwise just remove the sequences
@@ -158,7 +197,15 @@ func Log(level Level, args ...interface{}) {
 	}
 
 	initLogging()
-	callIntercepts(level, strings.Join(sliceutil.Stringify(args), ` `), StackTrace(DefaultInterceptStackDepth))
+
+	var line = strings.Join(sliceutil.Stringify(args), ` `)
+	var stack = StackTrace(DefaultInterceptStackDepth)
+
+	if shouldSkip(level, line, stack) {
+		return
+	}
+
+	callIntercepts(level, line, stack)
 	log(level, args...)
 }
 
@@ -340,4 +387,19 @@ func callIntercepts(level Level, line string, stack StackItems) {
 
 		return true
 	})
+}
+
+func shouldSkip(level Level, line string, stack StackItems) (skip bool) {
+	filters.Range(func(_ interface{}, value interface{}) bool {
+		if fn, ok := value.(LogFilterFunc); ok {
+			if !fn(level, line, stack) {
+				skip = true
+				return false
+			}
+		}
+
+		return true
+	})
+
+	return
 }

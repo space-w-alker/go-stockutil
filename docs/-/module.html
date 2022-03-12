@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.9
+                            v1.10.10
                         </li>
                     </ul>
                     
@@ -148,7 +148,7 @@
     &#34;GeneratorVersion&#34;: &#34;0.0.7&#34;,
     &#34;Title&#34;: &#34;go-stockutil&#34;,
     &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
-    &#34;Version&#34;: &#34;1.10.9&#34;
+    &#34;Version&#34;: &#34;1.10.10&#34;
   },
   &#34;Package&#34;: {
     &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil&#34;,
@@ -156,10 +156,10 @@
     &#34;ConstantCount&#34;: 1,
     &#34;Constants&#34;: [
       {
-        &#34;Expression&#34;: &#34;`1.10.9`&#34;,
+        &#34;Expression&#34;: &#34;`1.10.10`&#34;,
         &#34;Immutable&#34;: true,
         &#34;Name&#34;: &#34;Version&#34;,
-        &#34;Value&#34;: &#34;1.10.9&#34;
+        &#34;Value&#34;: &#34;1.10.10&#34;
       }
     ],
     &#34;Files&#34;: [
@@ -168,7 +168,7 @@
         &#34;FunctionCount&#34;: 0,
         &#34;LineCount&#34;: 4,
         &#34;Name&#34;: &#34;version.go&#34;,
-        &#34;Size&#34;: 44,
+        &#34;Size&#34;: 45,
         &#34;SourceLineCount&#34;: 2,
         &#34;TypeCount&#34;: 0,
         &#34;VariableCount&#34;: 0
@@ -422,25 +422,6 @@
             ],
             &#34;Signature&#34;: &#34;HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)&#34;,
             &#34;Source&#34;: &#34;ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
-                &#34;Name&#34;: &#34;kelvin&#34;,
-                &#34;Type&#34;: &#34;int&#34;
-              }
-            ],
-            &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;KelvinToColor&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Name&#34;: &#34;color&#34;,
-                &#34;Type&#34;: &#34;Color&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
-            &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -1034,6 +1015,25 @@
                 ],
                 &#34;Signature&#34;: &#34;Mix(first interface{}, second interface{}) (Color, error)&#34;,
                 &#34;Source&#34;: &#34;ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9&#34;
+              },
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;kelvin&#34;,
+                    &#34;Type&#34;: &#34;int&#34;
+                  }
+                ],
+                &#34;Comment&#34;: &#34;Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.&#34;,
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;KelvinToColor&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;color&#34;,
+                    &#34;Type&#34;: &#34;Color&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;KelvinToColor(kelvin int) color Color&#34;,
+                &#34;Source&#34;: &#34;ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA&#43;IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9&#34;
               }
             ],
             &#34;Name&#34;: &#34;Color&#34;,
@@ -1813,10 +1813,10 @@
                 &#34;PackageName&#34;: &#34;github.com/mattn/go-shellwords&#34;
               }
             ],
-            &#34;LineCount&#34;: 575,
+            &#34;LineCount&#34;: 589,
             &#34;Name&#34;: &#34;cmd.go&#34;,
-            &#34;Size&#34;: 13151,
-            &#34;SourceLineCount&#34;: 432,
+            &#34;Size&#34;: 13482,
+            &#34;SourceLineCount&#34;: 447,
             &#34;TypeCount&#34;: 4,
             &#34;VariableCount&#34;: 0
           },
@@ -2182,27 +2182,6 @@
           {
             &#34;Arguments&#34;: [
               {
-                &#34;Name&#34;: &#34;outlevel&#34;,
-                &#34;Type&#34;: &#34;log.Level&#34;
-              },
-              {
-                &#34;Name&#34;: &#34;errlevel&#34;,
-                &#34;Type&#34;: &#34;log.Level&#34;
-              }
-            ],
-            &#34;IsPackageLevel&#34;: true,
-            &#34;Name&#34;: &#34;LogOutput&#34;,
-            &#34;Returns&#34;: [
-              {
-                &#34;Type&#34;: &#34;OutputLineFunc&#34;
-              }
-            ],
-            &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
-            &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
-          },
-          {
-            &#34;Arguments&#34;: [
-              {
                 &#34;Name&#34;: &#34;line&#34;,
                 &#34;Type&#34;: &#34;string&#34;
               },
@@ -2505,11 +2484,11 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;executil&#34;,
-        &#34;LineCount&#34;: 1069,
+        &#34;LineCount&#34;: 1083,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;executil&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 804,
+        &#34;SourceLineCount&#34;: 819,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
@@ -2985,6 +2964,29 @@
             &#34;Source&#34;: &#34;dHlwZSBDb21tYW5kU3RhdHVzRnVuYyBmdW5jKFN0YXR1cyk=&#34;
           },
           &#34;OutputLineFunc&#34;: {
+            &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;outlevel&#34;,
+                    &#34;Type&#34;: &#34;log.Level&#34;
+                  },
+                  {
+                    &#34;Name&#34;: &#34;errlevel&#34;,
+                    &#34;Type&#34;: &#34;log.Level&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: true,
+                &#34;Name&#34;: &#34;LogOutput&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;OutputLineFunc&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc&#34;,
+                &#34;Source&#34;: &#34;ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==&#34;
+              }
+            ],
             &#34;Name&#34;: &#34;OutputLineFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk=&#34;
           },
@@ -11267,7 +11269,7 @@
       },
       {
         &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;,
-        &#34;CommentWordCount&#34;: 1052,
+        &#34;CommentWordCount&#34;: 1134,
         &#34;ConstantCount&#34;: 8,
         &#34;Constants&#34;: [
           {
@@ -11364,7 +11366,7 @@
           },
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 3,
+            &#34;FunctionCount&#34;: 5,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;fmt&#34;,
@@ -11377,12 +11379,20 @@
               {
                 &#34;Alias&#34;: &#34;strings&#34;,
                 &#34;PackageName&#34;: &#34;strings&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;stringutil&#34;,
+                &#34;PackageName&#34;: &#34;github.com/ghetzel/go-stockutil/stringutil&#34;
+              },
+              {
+                &#34;Alias&#34;: &#34;glob&#34;,
+                &#34;PackageName&#34;: &#34;github.com/gobwas/glob&#34;
               }
             ],
-            &#34;LineCount&#34;: 77,
+            &#34;LineCount&#34;: 127,
             &#34;Name&#34;: &#34;debugging.go&#34;,
-            &#34;Size&#34;: 1476,
-            &#34;SourceLineCount&#34;: 58,
+            &#34;Size&#34;: 2723,
+            &#34;SourceLineCount&#34;: 98,
             &#34;TypeCount&#34;: 2,
             &#34;VariableCount&#34;: 1
           },
@@ -11433,10 +11443,10 @@
                 &#34;PackageName&#34;: &#34;github.com/ghetzel/testify/require&#34;
               }
             ],
-            &#34;LineCount&#34;: 52,
+            &#34;LineCount&#34;: 78,
             &#34;Name&#34;: &#34;errors_test.go&#34;,
-            &#34;Size&#34;: 1304,
-            &#34;SourceLineCount&#34;: 43,
+            &#34;Size&#34;: 2232,
+            &#34;SourceLineCount&#34;: 63,
             &#34;TypeCount&#34;: 0,
             &#34;VariableCount&#34;: 0
           },
@@ -11458,7 +11468,7 @@
           },
           {
             &#34;ConstantCount&#34;: 0,
-            &#34;FunctionCount&#34;: 34,
+            &#34;FunctionCount&#34;: 37,
             &#34;Imports&#34;: [
               {
                 &#34;Alias&#34;: &#34;json&#34;,
@@ -11509,11 +11519,11 @@
                 &#34;PackageName&#34;: &#34;github.com/op/go-logging&#34;
               }
             ],
-            &#34;LineCount&#34;: 344,
+            &#34;LineCount&#34;: 406,
             &#34;Name&#34;: &#34;log.go&#34;,
-            &#34;Size&#34;: 8103,
-            &#34;SourceLineCount&#34;: 257,
-            &#34;TypeCount&#34;: 3,
+            &#34;Size&#34;: 9535,
+            &#34;SourceLineCount&#34;: 301,
+            &#34;TypeCount&#34;: 4,
             &#34;VariableCount&#34;: 5
           },
           {
@@ -11549,8 +11559,26 @@
             &#34;VariableCount&#34;: 0
           }
         ],
-        &#34;FunctionCount&#34;: 54,
+        &#34;FunctionCount&#34;: 59,
         &#34;Functions&#34;: [
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;fn&#34;,
+                &#34;Type&#34;: &#34;LogFilterFunc&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Append a function to be called for every line logged.  If the function\nreturns false, the line will be dropped (will not be logged or intercepted).&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;AddLogFilter&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;AddLogFilter(fn LogFilterFunc) string&#34;,
+            &#34;Source&#34;: &#34;ewoJdmFyIGlkID0gc3RyaW5ndXRpbC5VVUlEKCkuU3RyaW5nKCkKCWZpbHRlcnMuU3RvcmUoaWQsIGZuKQoJcmV0dXJuIGlkCn0=&#34;
+          },
           {
             &#34;Arguments&#34;: [
               {
@@ -11567,7 +11595,7 @@
               }
             ],
             &#34;Signature&#34;: &#34;AddLogIntercept(fn LogInterceptFunc) string&#34;,
-            &#34;Source&#34;: &#34;ewoJaWQgOj0gc3RyaW5ndXRpbC5VVUlEKCkuU3RyaW5nKCkKCWludGVyY2VwdHMuU3RvcmUoaWQsIGZuKQoJcmV0dXJuIGlkCn0=&#34;
+            &#34;Source&#34;: &#34;ewoJdmFyIGlkID0gc3RyaW5ndXRpbC5VVUlEKCkuU3RyaW5nKCkKCWludGVyY2VwdHMuU3RvcmUoaWQsIGZuKQoJcmV0dXJuIGlkCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -11972,6 +12000,24 @@
           {
             &#34;Arguments&#34;: [
               {
+                &#34;Name&#34;: &#34;patterns&#34;,
+                &#34;Type&#34;: &#34;...string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Takes a list of package names (\&#34;a/b/c\&#34;) or patterns (\&#34;a/b/*\&#34;) whose log output\nwill be rejected.  If the package name or patterns matches any function in the\ncall stack, the associated message will be rejected.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;FilterPackages&#34;,
+            &#34;Returns&#34;: [
+              {
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Signature&#34;: &#34;FilterPackages(patterns ...string) string&#34;,
+            &#34;Source&#34;: &#34;ewoJcmV0dXJuIEFkZExvZ0ZpbHRlcihmdW5jKGxldmVsIExldmVsLCBsaW5lIHN0cmluZywgc3RhY2sgU3RhY2tJdGVtcykgYm9vbCB7CgkJZm9yIF8sIGl0ZW0gOj0gcmFuZ2Ugc3RhY2sgewoJCQlmb3IgXywgcGtnIDo9IHJhbmdlIHBhdHRlcm5zIHsKCQkJCWlmIGl0ZW0uSW5QYWNrYWdlKHBrZykgewoJCQkJCXJldHVybiBmYWxzZQoJCQkJfQoJCQl9CgkJfQoJCXJldHVybiB0cnVlCgl9KQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
                 &#34;Name&#34;: &#34;args&#34;,
                 &#34;Type&#34;: &#34;...interface{}&#34;
               }
@@ -12011,7 +12057,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;Log&#34;,
             &#34;Signature&#34;: &#34;Log(level Level, args ...interface{})&#34;,
-            &#34;Source&#34;: &#34;ewoJaWYgbGV2ZWwgPT0gRkFUQUwgJiYgbGVuKGFyZ3MpID09IDEgJiYgYXJnc1swXSA9PSBuaWwgewoJCXJldHVybgoJfQoJaW5pdExvZ2dpbmcoKQoJY2FsbEludGVyY2VwdHMobGV2ZWwsIHN0cmluZ3MuSm9pbihzbGljZXV0aWwuU3RyaW5naWZ5KGFyZ3MpLCBgIGApLCBTdGFja1RyYWNlKERlZmF1bHRJbnRlcmNlcHRTdGFja0RlcHRoKSkKCWxvZyhsZXZlbCwgYXJncy4uLikKfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJaWYgbGV2ZWwgPT0gRkFUQUwgJiYgbGVuKGFyZ3MpID09IDEgJiYgYXJnc1swXSA9PSBuaWwgewoJCXJldHVybgoJfQoJaW5pdExvZ2dpbmcoKQoJdmFyIGxpbmUgPSBzdHJpbmdzLkpvaW4oc2xpY2V1dGlsLlN0cmluZ2lmeShhcmdzKSwgYCBgKQoJdmFyIHN0YWNrID0gU3RhY2tUcmFjZShEZWZhdWx0SW50ZXJjZXB0U3RhY2tEZXB0aCkKCWlmIHNob3VsZFNraXAobGV2ZWwsIGxpbmUsIHN0YWNrKSB7CgkJcmV0dXJuCgl9CgljYWxsSW50ZXJjZXB0cyhsZXZlbCwgbGluZSwgc3RhY2spCglsb2cobGV2ZWwsIGFyZ3MuLi4pCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -12031,7 +12077,7 @@
             &#34;IsPackageLevel&#34;: true,
             &#34;Name&#34;: &#34;Logf&#34;,
             &#34;Signature&#34;: &#34;Logf(level Level, format string, args ...interface{})&#34;,
-            &#34;Source&#34;: &#34;ewoJaW5pdExvZ2dpbmcoKQoJY2FsbEludGVyY2VwdHMobGV2ZWwsIGZtdC5TcHJpbnRmKGZvcm1hdCwgYXJncy4uLiksIFN0YWNrVHJhY2UoRGVmYXVsdEludGVyY2VwdFN0YWNrRGVwdGgpKQoJaWYgRW5hYmxlQ29sb3JFeHByZXNzaW9ucyB7CgkJbG9nKGxldmVsLCBDU3ByaW50Zihmb3JtYXQsIGFyZ3MuLi4pKQoJfSBlbHNlIHsKCQlsb2cobGV2ZWwsIENTdHJpcGYoZm9ybWF0LCBhcmdzLi4uKSkKCX0KfQ==&#34;
+            &#34;Source&#34;: &#34;ewoJaW5pdExvZ2dpbmcoKQoJdmFyIGxpbmUgPSBmbXQuU3ByaW50Zihmb3JtYXQsIGFyZ3MuLi4pCgl2YXIgc3RhY2sgPSBTdGFja1RyYWNlKERlZmF1bHRJbnRlcmNlcHRTdGFja0RlcHRoKQoJaWYgc2hvdWxkU2tpcChsZXZlbCwgbGluZSwgc3RhY2spIHsKCQlyZXR1cm4KCX0KCWNhbGxJbnRlcmNlcHRzKGxldmVsLCBsaW5lLCBzdGFjaykKCWlmIEVuYWJsZUNvbG9yRXhwcmVzc2lvbnMgewoJCWxvZyhsZXZlbCwgQ1NwcmludGYoZm9ybWF0LCBhcmdzLi4uKSkKCX0gZWxzZSB7CgkJbG9nKGxldmVsLCBDU3RyaXBmKGZvcm1hdCwgYXJncy4uLikpCgl9Cn0=&#34;
           },
           {
             &#34;IsPackageLevel&#34;: true,
@@ -12099,6 +12145,19 @@
             &#34;Name&#34;: &#34;Panicf&#34;,
             &#34;Signature&#34;: &#34;Panicf(format string, args ...interface{})&#34;,
             &#34;Source&#34;: &#34;ewoJTG9nZihQQU5JQywgZm9ybWF0LCBhcmdzLi4uKQp9&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;id&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              }
+            ],
+            &#34;Comment&#34;: &#34;Remove the previously-added log filter function.&#34;,
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;RemoveLogFilter&#34;,
+            &#34;Signature&#34;: &#34;RemoveLogFilter(id string)&#34;,
+            &#34;Source&#34;: &#34;ewoJZmlsdGVycy5EZWxldGUoaWQpCn0=&#34;
           },
           {
             &#34;Arguments&#34;: [
@@ -12227,19 +12286,19 @@
           }
         ],
         &#34;ImportPath&#34;: &#34;log&#34;,
-        &#34;LineCount&#34;: 907,
+        &#34;LineCount&#34;: 1045,
         &#34;MainFunction&#34;: false,
         &#34;Name&#34;: &#34;log&#34;,
         &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-        &#34;SourceLineCount&#34;: 690,
+        &#34;SourceLineCount&#34;: 794,
         &#34;Statistics&#34;: {
           &#34;GeometricMean&#34;: 0,
           &#34;HarmonicMean&#34;: 0,
           &#34;Maximum&#34;: 1,
-          &#34;Mean&#34;: 0.242,
+          &#34;Mean&#34;: 0.2519,
           &#34;Median&#34;: 0,
           &#34;Minimum&#34;: 0,
-          &#34;StdDev&#34;: 0.4247
+          &#34;StdDev&#34;: 0.4278
         },
         &#34;Synopsis&#34;: &#34;Package log package provides convenient and flexible utilities for logging messages.\n\nOverview\n\nLogging is done by calling functions in this package that correspond to the\nseverity of the log message being output.  At the package level, a minimum\nseverity can be set.  Messages less severe than this minimum logging level will\nnot be output.\n\nColor Expressions\n\nIn addition to the standard printf-style formatting options (as defined in the\nstandard fmt package), this package supports inline expressions that control the\noutput of ANSI terminal escape sequences.  These expressions allow for a simple\nmechanism to colorize log output, as well as applying graphical effects like\nbold, underline, and blinking text (for terminals that support it).\n\nBy default, color expressions will only be honored if os.Stdin is attached to a\npseudoterminal.  This is the case when the program is run on the command line\nand is not piped or redirected to another file.  This default ensures that the\ncolors are visible only in a visual context, but do not corrupt files or\npipelines with ANSI escape sequences.  Color sequences can be explicitly enabled\nor disabled by setting the EnableColorExpressions package variable.\n\nUsing color expressions in format strings is done by wrapping the expression in\n${expr}.  The general format for color expressions is:\n\n\tforegroundColor[&#43;attributes[:backgroundColor[&#43;attributes]]]\n\nColors (foreground and background):\n\tblack\n\tred\n\tgreen\n\tyellow\n\tblue\n\tmagenta\n\tcyan\n\twhite\n\t[0-255]: numeric 8-bit color (for 256 color terminals)\n\treset: Reset all color and graphics attributes to their defaults\n\nForeground Attributes:\n\tb: bold text\n\tB: blinking text\n\th: high-intensity (bright text)\n\ti: inverted/reverse colors\n\ts: strikethrough\n\tu: underline\n\nBackground Attributes:\n\th: high-intensity (bright text)\n\nExamples\n\nBelow are some examples showing various formatting options for logs.\n\n\tlog.Info(\&#34;Hello, world!\&#34;)\n\t// [11:22:33 0001] INFO Hello, world!\n\n\tlog.Warningf(\&#34;The %q operation could not be completed.\&#34;, \&#34;add\&#34;)\n\t// [11:22:33 0002] WARN The \&#34;add\&#34; operation could not be completed.\n\n\tlog.Errorf(\&#34;There was an ${red}error${reset} opening file ${blue&#43;b:white}%s${reset}\&#34;, filename)\n\t// [11:22:33 0003] ERRO There was an error opening file /tmp/file.txt\n\t//                                   ^^^^^              ^^^^^^^^^^^^^\n\t//                                   red text           blue text on white background\n\nLog Interception\n\nIt is sometimes useful to be able to act on logs as they are emitted, especially in cases where this\npackage is used in other projects that are imported.  Log Interceptors are called before each log\nline is emitted.  The LogInterceptFunc is called with the level the message was emitted with, the\nmessage itself as a string, and a stack trace struct that defines exactly where the log was emitted\nfrom.\n\n\t// print a complete stack trace before every debug-level message that is encountered\n\tlog.AddLogIntercept(func(level log.Level, line string, stack log.StackItems){\n\t\tif level == log.DEBUG {\n\t\t\tfor _, item := range stack {\n\t\t\t\tfmt.Println(item.String())\n\t\t\t}\n\t\t}\n\t})\n\nWritable Logger\n\nThe WritableLogger implements the io.Writer interface, acting as a bridge between byte streams from\nvarious sources and the log package.  This is frequently useful in situations like parsing the\noutput of other programs.  A WritableLogger accepts a custom LogParseFunc that allows individual\nlines being written to the WritableLogger to be parsed, rewritten, and given a log severity level.\n\n\timport (\n\t\t\&#34;os/exec\&#34;\n\t\t\&#34;github.com/ghetzel/go-stockutil/log\&#34;\n\t)\n\n\twr := log.NewWritableLogger(log.INFO, `ls: `)\n\n\twr.SetParserFunc(func(line string) (log.Level, string) {\n\t\tif strings.Contains(line, `root`) {\n\t\t\t// root-owned files show up as errors\n\t\t\treturn log.ERROR, line\n\t\t} else if strings.Contains(line, os.Getenv(`USER`)) {\n\t\t\t// current user files are notices\n\t\t\treturn log.NOTICE, line\n\t\t} else {\n\t\t\t// all other lines are not logged at all\n\t\t\treturn log.DEBUG, ``\n\t\t}\n\t})\n\n\tls := exec.Command(`ls`, `-l`)\n\tls.Stdout = wr\n\tls.Run()\n&#34;,
         &#34;Tests&#34;: [
@@ -12266,9 +12325,21 @@
             &#34;Name&#34;: &#34;TestErrors&#34;,
             &#34;Signature&#34;: &#34;TestErrors(t *testing.T)&#34;,
             &#34;Source&#34;: &#34;ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgllMW0gOj0gYGVycm9yIDFgCgllMSA6PSBlcnJvcnMuTmV3KGUxbSkKCWUybSA6PSBgZXJyb3JgCgllMiA6PSBlcnJvcnMuTmV3KGUybSkKCWFzc2VydC5GYWxzZShFcnJDb250YWlucyhuaWwsIG5pbCkpCglhc3NlcnQuRmFsc2UoRXJyQ29udGFpbnMoZTEsIG5pbCkpCglhc3NlcnQuRmFsc2UoRXJyQ29udGFpbnMobmlsLCBlMikpCglhc3NlcnQuRmFsc2UoRXJyQ29udGFpbnMobmlsLCBlMm0pKQoJYXNzZXJ0LlRydWUoRXJyQ29udGFpbnMoZTEsIGUxKSkKCWFzc2VydC5UcnVlKEVyckNvbnRhaW5zKGUxLCBlMW0pKQoJYXNzZXJ0LlRydWUoRXJyQ29udGFpbnMoZTIsIGUyKSkKCWFzc2VydC5UcnVlKEVyckNvbnRhaW5zKGUyLCBlMm0pKQoJYXNzZXJ0LlRydWUoRXJyQ29udGFpbnMoZTEsIGUyKSkKCWFzc2VydC5UcnVlKEVyckNvbnRhaW5zKGUxLCBlMm0pKQoJYXNzZXJ0LkZhbHNlKEVyckNvbnRhaW5zKGUyLCBlMSkpCglhc3NlcnQuRmFsc2UoRXJyQ29udGFpbnMoZTIsIGUxbSkpCglhc3NlcnQuVHJ1ZShFcnJIYXNQcmVmaXgoZTEsIGUxKSkKCWFzc2VydC5UcnVlKEVyckhhc1ByZWZpeChlMSwgZTFtKSkKCWFzc2VydC5UcnVlKEVyckhhc1ByZWZpeChlMiwgZTIpKQoJYXNzZXJ0LlRydWUoRXJySGFzUHJlZml4KGUyLCBlMm0pKQoJYXNzZXJ0LlRydWUoRXJySGFzUHJlZml4KGUxLCBlMikpCglhc3NlcnQuVHJ1ZShFcnJIYXNQcmVmaXgoZTEsIGUybSkpCglhc3NlcnQuRmFsc2UoRXJySGFzUHJlZml4KGUxLCBgbm9wZWApKQoJYXNzZXJ0LkZhbHNlKEVyckhhc1ByZWZpeChlMiwgZTEpKQoJYXNzZXJ0LkZhbHNlKEVyckhhc1ByZWZpeChlMiwgZTFtKSkKCWFzc2VydC5GYWxzZShFcnJIYXNTdWZmaXgoZTEsIGUyKSkKCWFzc2VydC5GYWxzZShFcnJIYXNTdWZmaXgoZTEsIGUybSkpCglhc3NlcnQuVHJ1ZShFcnJIYXNTdWZmaXgoZTEsIGAxYCkpCglhc3NlcnQuRmFsc2UoRXJySGFzU3VmZml4KGUyLCBlMSkpCglhc3NlcnQuRmFsc2UoRXJySGFzU3VmZml4KGUyLCBlMW0pKQoJYXNzZXJ0LlRydWUoRXJySGFzU3VmZml4KGUxLCBlMSkpCglhc3NlcnQuVHJ1ZShFcnJIYXNTdWZmaXgoZTEsIGUxbSkpCglhc3NlcnQuVHJ1ZShFcnJIYXNTdWZmaXgoZTIsIGUyKSkKCWFzc2VydC5UcnVlKEVyckhhc1N1ZmZpeChlMiwgZTJtKSkKfQ==&#34;
+          },
+          {
+            &#34;Arguments&#34;: [
+              {
+                &#34;Name&#34;: &#34;t&#34;,
+                &#34;Type&#34;: &#34;*testing.T&#34;
+              }
+            ],
+            &#34;IsPackageLevel&#34;: true,
+            &#34;Name&#34;: &#34;TestStackTrace&#34;,
+            &#34;Signature&#34;: &#34;TestStackTrace(t *testing.T)&#34;,
+            &#34;Source&#34;: &#34;ewoJbmV3KHRyYWNlVGVzdCkuZG8odCkKfQ==&#34;
           }
         ],
-        &#34;TypeCount&#34;: 9,
+        &#34;TypeCount&#34;: 10,
         &#34;Types&#34;: {
           &#34;FormattedLogFunc&#34;: {
             &#34;Name&#34;: &#34;FormattedLogFunc&#34;,
@@ -12309,6 +12380,10 @@
             &#34;Name&#34;: &#34;Level&#34;,
             &#34;Source&#34;: &#34;dHlwZSBMZXZlbCBpbnQ=&#34;
           },
+          &#34;LogFilterFunc&#34;: {
+            &#34;Name&#34;: &#34;LogFilterFunc&#34;,
+            &#34;Source&#34;: &#34;dHlwZSBMb2dGaWx0ZXJGdW5jIGZ1bmMobGV2ZWwgTGV2ZWwsIGxpbmUgc3RyaW5nLCBzdGFjayBTdGFja0l0ZW1zKSBib29s&#34;
+          },
           &#34;LogFunc&#34;: {
             &#34;Name&#34;: &#34;LogFunc&#34;,
             &#34;Source&#34;: &#34;dHlwZSBMb2dGdW5jIGZ1bmMoYXJncyAuLi5pbnRlcmZhY2V7fSk=&#34;
@@ -12338,10 +12413,39 @@
               {
                 &#34;Name&#34;: &#34;Function&#34;,
                 &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;PackageName&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;Receiver&#34;,
+                &#34;Type&#34;: &#34;string&#34;
+              },
+              {
+                &#34;Name&#34;: &#34;FunctionName&#34;,
+                &#34;Type&#34;: &#34;string&#34;
               }
             ],
             &#34;MetaType&#34;: &#34;struct&#34;,
             &#34;Methods&#34;: [
+              {
+                &#34;Arguments&#34;: [
+                  {
+                    &#34;Name&#34;: &#34;pkgname&#34;,
+                    &#34;Type&#34;: &#34;string&#34;
+                  }
+                ],
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;InPackage&#34;,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;bool&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;InPackage(pkgname string) bool&#34;
+              },
               {
                 &#34;IsPackageLevel&#34;: false,
                 &#34;Name&#34;: &#34;String&#34;,
@@ -12355,10 +12459,21 @@
               }
             ],
             &#34;Name&#34;: &#34;StackItem&#34;,
-            &#34;Source&#34;: &#34;dHlwZSBTdGFja0l0ZW0gc3RydWN0IHsKCVByb2dyYW1Db3VudGVyIHVpbnRwdHIKCUZpbGVuYW1lICAgICAgIHN0cmluZwoJTGluZSAgICAgICAgICAgaW50CglGdW5jdGlvbiAgICAgICBzdHJpbmcKfQ==&#34;
+            &#34;Source&#34;: &#34;dHlwZSBTdGFja0l0ZW0gc3RydWN0IHsKCVByb2dyYW1Db3VudGVyIHVpbnRwdHIKCUZpbGVuYW1lICAgICAgIHN0cmluZwoJTGluZSAgICAgICAgICAgaW50CglGdW5jdGlvbiAgICAgICBzdHJpbmcKCVBhY2thZ2VOYW1lICAgIHN0cmluZwoJUmVjZWl2ZXIgICAgICAgc3RyaW5nCglGdW5jdGlvbk5hbWUgICBzdHJpbmcKfQ==&#34;
           },
           &#34;StackItems&#34;: {
             &#34;Methods&#34;: [
+              {
+                &#34;IsPackageLevel&#34;: false,
+                &#34;Name&#34;: &#34;String&#34;,
+                &#34;ReceiverName&#34;: &#34;self&#34;,
+                &#34;Returns&#34;: [
+                  {
+                    &#34;Type&#34;: &#34;string&#34;
+                  }
+                ],
+                &#34;Signature&#34;: &#34;String() string&#34;
+              },
               {
                 &#34;Arguments&#34;: [
                   {
@@ -12375,7 +12490,7 @@
                   }
                 ],
                 &#34;Signature&#34;: &#34;StackTrace(skip int) StackItems&#34;,
-                &#34;Source&#34;: &#34;ewoJcGMgOj0gbWFrZShbXXVpbnRwdHIsIE1heFN0YWNrVHJhY2VEZXB0aCkKCWl0ZW1zIDo9IG1ha2UoU3RhY2tJdGVtcywgMCkKCWlmIG4gOj0gcnVudGltZS5DYWxsZXJzKHNraXAsIHBjKTsgbiA8PSBsZW4ocGMpIHsKCQlwYyA9IHBjWzpuXQoJCWlmIGZyYW1lcyA6PSBydW50aW1lLkNhbGxlcnNGcmFtZXMocGMpOyBmcmFtZXMgIT0gbmlsIHsKCQkJZm9yIGkgOj0gMDsgbGVuKGl0ZW1zKSA8PSBsZW4ocGMpOyBpKysgewoJCQkJZnJhbWUsIG1vcmUgOj0gZnJhbWVzLk5leHQoKQoJCQkJaXRlbXMgPSBhcHBlbmQoaXRlbXMsIFN0YWNrSXRlbXtQcm9ncmFtQ291bnRlcjogZnJhbWUuUEMsIEZ1bmN0aW9uOiBmcmFtZS5GdW5jdGlvbiwgRmlsZW5hbWU6IGZyYW1lLkZpbGUsIExpbmU6IGZyYW1lLkxpbmV9KQoJCQkJaWYgIW1vcmUgewoJCQkJCWJyZWFrCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gaXRlbXMKfQ==&#34;
+                &#34;Source&#34;: &#34;ewoJdmFyIHBjID0gbWFrZShbXXVpbnRwdHIsIE1heFN0YWNrVHJhY2VEZXB0aCkKCXZhciBpdGVtcyA9IG1ha2UoU3RhY2tJdGVtcywgMCkKCWlmIG4gOj0gcnVudGltZS5DYWxsZXJzKHNraXAsIHBjKTsgbiA8PSBsZW4ocGMpIHsKCQlwYyA9IHBjWzpuXQoJCWlmIGZyYW1lcyA6PSBydW50aW1lLkNhbGxlcnNGcmFtZXMocGMpOyBmcmFtZXMgIT0gbmlsIHsKCQkJZm9yIGkgOj0gMDsgbGVuKGl0ZW1zKSA8PSBsZW4ocGMpOyBpKysgewoJCQkJdmFyIGZyYW1lLCBtb3JlID0gZnJhbWVzLk5leHQoKQoJCQkJdmFyIHBrZ25hbWUgc3RyaW5nCgkJCQl2YXIgcmVjdiBzdHJpbmcKCQkJCXZhciBmbm5hbWUgc3RyaW5nCgkJCQl2YXIgbGFzdFNsYXNoID0gc3RyaW5ncy5MYXN0SW5kZXgoZnJhbWUuRnVuY3Rpb24sIGAvYCkKCQkJCWlmIGxhc3RTbGFzaCA&#43;IDAgewoJCQkJCXZhciBwa2dSZWN2U2VwID0gbGFzdFNsYXNoICsgc3RyaW5ncy5JbmRleChmcmFtZS5GdW5jdGlvbltsYXN0U2xhc2g6XSwgYC5gKQoJCQkJCXZhciByZWN2Rm5uU2VwID0gc3RyaW5ncy5MYXN0SW5kZXgoZnJhbWUuRnVuY3Rpb24sIGAuYCkKCQkJCQlpZiByZWN2Rm5uU2VwID4gMCAmJiBwa2dSZWN2U2VwID4gMCB7CgkJCQkJCXBrZ25hbWUgPSBmcmFtZS5GdW5jdGlvblswOnBrZ1JlY3ZTZXBdCgkJCQkJCWlmIHJlY3ZGbm5TZXAgIT0gcGtnUmVjdlNlcCB7CgkJCQkJCQlyZWN2ID0gZnJhbWUuRnVuY3Rpb25bcGtnUmVjdlNlcCsxIDogcmVjdkZublNlcF0KCQkJCQkJfQoJCQkJCQlmbm5hbWUgPSBmcmFtZS5GdW5jdGlvbltyZWN2Rm5uU2VwKzE6XQoJCQkJCX0KCQkJCX0gZWxzZSBpZiBsYXN0U2xhc2ggPCAwIHsKCQkJCQlwa2duYW1lLCBmbm5hbWUgPSBzdHJpbmd1dGlsLlNwbGl0UGFpcihmcmFtZS5GdW5jdGlvbiwgYC5gKQoJCQkJfQoJCQkJaXRlbXMgPSBhcHBlbmQoaXRlbXMsIFN0YWNrSXRlbXtQcm9ncmFtQ291bnRlcjogZnJhbWUuUEMsIEZ1bmN0aW9uOiBmcmFtZS5GdW5jdGlvbiwgUGFja2FnZU5hbWU6IHBrZ25hbWUsIFJlY2VpdmVyOiByZWN2LCBGdW5jdGlvbk5hbWU6IGZubmFtZSwgRmlsZW5hbWU6IGZyYW1lLkZpbGUsIExpbmU6IGZyYW1lLkxpbmV9KQoJCQkJaWYgIW1vcmUgewoJCQkJCWJyZWFrCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gaXRlbXMKfQ==&#34;
               }
             ],
             &#34;Name&#34;: &#34;StackItems&#34;,
@@ -26124,11 +26239,11 @@
       &#34;ConstantCount&#34;: 0,
       &#34;FunctionCount&#34;: 44,
       &#34;ImportPath&#34;: &#34;executil&#34;,
-      &#34;LineCount&#34;: 1069,
+      &#34;LineCount&#34;: 1083,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;executil&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 804,
+      &#34;SourceLineCount&#34;: 819,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
@@ -26220,26 +26335,26 @@
     },
     {
       &#34;CanonicalImportPath&#34;: &#34;github.com/ghetzel/go-stockutil/log&#34;,
-      &#34;CommentWordCount&#34;: 1052,
+      &#34;CommentWordCount&#34;: 1134,
       &#34;ConstantCount&#34;: 8,
-      &#34;FunctionCount&#34;: 54,
+      &#34;FunctionCount&#34;: 59,
       &#34;ImportPath&#34;: &#34;log&#34;,
-      &#34;LineCount&#34;: 907,
+      &#34;LineCount&#34;: 1045,
       &#34;MainFunction&#34;: false,
       &#34;Name&#34;: &#34;log&#34;,
       &#34;ParentPackage&#34;: &#34;stockutil&#34;,
-      &#34;SourceLineCount&#34;: 690,
+      &#34;SourceLineCount&#34;: 794,
       &#34;Statistics&#34;: {
         &#34;GeometricMean&#34;: 0,
         &#34;HarmonicMean&#34;: 0,
         &#34;Maximum&#34;: 1,
-        &#34;Mean&#34;: 0.242,
+        &#34;Mean&#34;: 0.2519,
         &#34;Median&#34;: 0,
         &#34;Minimum&#34;: 0,
-        &#34;StdDev&#34;: 0.4247
+        &#34;StdDev&#34;: 0.4278
       },
       &#34;Synopsis&#34;: &#34;Package log package provides convenient and flexible utilities for logging messages.\n\nOverview\n\nLogging is done by calling functions in this package that correspond to the\nseverity of the log message being output.  At the package level, a minimum\nseverity can be set.  Messages less severe than this minimum logging level will\nnot be output.\n\nColor Expressions\n\nIn addition to the standard printf-style formatting options (as defined in the\nstandard fmt package), this package supports inline expressions that control the\noutput of ANSI terminal escape sequences.  These expressions allow for a simple\nmechanism to colorize log output, as well as applying graphical effects like\nbold, underline, and blinking text (for terminals that support it).\n\nBy default, color expressions will only be honored if os.Stdin is attached to a\npseudoterminal.  This is the case when the program is run on the command line\nand is not piped or redirected to another file.  This default ensures that the\ncolors are visible only in a visual context, but do not corrupt files or\npipelines with ANSI escape sequences.  Color sequences can be explicitly enabled\nor disabled by setting the EnableColorExpressions package variable.\n\nUsing color expressions in format strings is done by wrapping the expression in\n${expr}.  The general format for color expressions is:\n\n\tforegroundColor[&#43;attributes[:backgroundColor[&#43;attributes]]]\n\nColors (foreground and background):\n\tblack\n\tred\n\tgreen\n\tyellow\n\tblue\n\tmagenta\n\tcyan\n\twhite\n\t[0-255]: numeric 8-bit color (for 256 color terminals)\n\treset: Reset all color and graphics attributes to their defaults\n\nForeground Attributes:\n\tb: bold text\n\tB: blinking text\n\th: high-intensity (bright text)\n\ti: inverted/reverse colors\n\ts: strikethrough\n\tu: underline\n\nBackground Attributes:\n\th: high-intensity (bright text)\n\nExamples\n\nBelow are some examples showing various formatting options for logs.\n\n\tlog.Info(\&#34;Hello, world!\&#34;)\n\t// [11:22:33 0001] INFO Hello, world!\n\n\tlog.Warningf(\&#34;The %q operation could not be completed.\&#34;, \&#34;add\&#34;)\n\t// [11:22:33 0002] WARN The \&#34;add\&#34; operation could not be completed.\n\n\tlog.Errorf(\&#34;There was an ${red}error${reset} opening file ${blue&#43;b:white}%s${reset}\&#34;, filename)\n\t// [11:22:33 0003] ERRO There was an error opening file /tmp/file.txt\n\t//                                   ^^^^^              ^^^^^^^^^^^^^\n\t//                                   red text           blue text on white background\n\nLog Interception\n\nIt is sometimes useful to be able to act on logs as they are emitted, especially in cases where this\npackage is used in other projects that are imported.  Log Interceptors are called before each log\nline is emitted.  The LogInterceptFunc is called with the level the message was emitted with, the\nmessage itself as a string, and a stack trace struct that defines exactly where the log was emitted\nfrom.\n\n\t// print a complete stack trace before every debug-level message that is encountered\n\tlog.AddLogIntercept(func(level log.Level, line string, stack log.StackItems){\n\t\tif level == log.DEBUG {\n\t\t\tfor _, item := range stack {\n\t\t\t\tfmt.Println(item.String())\n\t\t\t}\n\t\t}\n\t})\n\nWritable Logger\n\nThe WritableLogger implements the io.Writer interface, acting as a bridge between byte streams from\nvarious sources and the log package.  This is frequently useful in situations like parsing the\noutput of other programs.  A WritableLogger accepts a custom LogParseFunc that allows individual\nlines being written to the WritableLogger to be parsed, rewritten, and given a log severity level.\n\n\timport (\n\t\t\&#34;os/exec\&#34;\n\t\t\&#34;github.com/ghetzel/go-stockutil/log\&#34;\n\t)\n\n\twr := log.NewWritableLogger(log.INFO, `ls: `)\n\n\twr.SetParserFunc(func(line string) (log.Level, string) {\n\t\tif strings.Contains(line, `root`) {\n\t\t\t// root-owned files show up as errors\n\t\t\treturn log.ERROR, line\n\t\t} else if strings.Contains(line, os.Getenv(`USER`)) {\n\t\t\t// current user files are notices\n\t\t\treturn log.NOTICE, line\n\t\t} else {\n\t\t\t// all other lines are not logged at all\n\t\t\treturn log.DEBUG, ``\n\t\t}\n\t})\n\n\tls := exec.Command(`ls`, `-l`)\n\tls.Stdout = wr\n\tls.Run()\n&#34;,
-      &#34;TypeCount&#34;: 9,
+      &#34;TypeCount&#34;: 10,
       &#34;URL&#34;: &#34;https://github.com/ghetzel/go-stockutil&#34;,
       &#34;VariableCount&#34;: 8
     },

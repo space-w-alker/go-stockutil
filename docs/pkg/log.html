@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.9
+                            v1.10.10
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 24%</span>
+<span class="pull-right">Doc Coverage: 25%</span>
 <h2 id="pkg-overview">package log</h2>
 
 <p>
@@ -289,6 +289,12 @@ ls.Run()
 	
 
 	
+	
+    <li>
+		<strong>
+		<a href="#AddLogFilter">func AddLogFilter(fn LogFilterFunc) string</a>
+		</strong>
+	</li>
 	
     <li>
 		<strong>
@@ -441,6 +447,12 @@ ls.Run()
 	</li>
 	
     <li>
+		<strong>
+		<a href="#FilterPackages">func FilterPackages(patterns ...string) string</a>
+		</strong>
+	</li>
+	
+    <li>
 		
 		<a href="#Info">func Info(args ...interface{})</a>
 		
@@ -492,6 +504,12 @@ ls.Run()
 		
 		<a href="#Panicf">func Panicf(format string, args ...interface{})</a>
 		
+	</li>
+	
+    <li>
+		<strong>
+		<a href="#RemoveLogFilter">func RemoveLogFilter(id string)</a>
+		</strong>
 	</li>
 	
     <li>
@@ -560,6 +578,13 @@ ls.Run()
 	</li>
 	
     <li>
+		<a href="#LogFilterFunc">type LogFilterFunc </a>
+
+		
+		
+	</li>
+	
+    <li>
 		<a href="#LogFunc">type LogFunc </a>
 
 		
@@ -589,7 +614,21 @@ ls.Run()
 			
 			
 			
+			
+			
 
+			
+			
+			
+			<li>
+				
+				<a href="#StackItem.InPackage">
+					func
+					(self StackItem)
+					InPackage(pkgname string) bool
+				</a>
+				
+			</li>
 			
 			
 			
@@ -810,9 +849,9 @@ ls.Run()
 			<a href="debugging.go">debugging.go</a>
 			
 		</td>
-		<td class="text-right">1KB</td>
-		<td class="text-right">58</td>
-		<td class="text-right">3</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">98</td>
+		<td class="text-right">5</td>
 		<td class="text-right">2</td>
 		<td class="text-right"></td>
 		<td class="text-right">1</td>
@@ -852,8 +891,8 @@ ls.Run()
 			<a href="errors_test.go">errors_test.go</a>
 			
 		</td>
-		<td class="text-right">1KB</td>
-		<td class="text-right">43</td>
+		<td class="text-right">2KB</td>
+		<td class="text-right">63</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -880,10 +919,10 @@ ls.Run()
 			<a href="log.go">log.go</a>
 			
 		</td>
-		<td class="text-right">8KB</td>
-		<td class="text-right">257</td>
-		<td class="text-right">34</td>
-		<td class="text-right">3</td>
+		<td class="text-right">9KB</td>
+		<td class="text-right">301</td>
+		<td class="text-right">37</td>
+		<td class="text-right">4</td>
 		<td class="text-right"></td>
 		<td class="text-right">5</td>
 	</tr>
@@ -965,6 +1004,20 @@ var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
 
 
 
+
+
+<h3 id="AddLogFilter" data-kind="f">
+	func <a title="View Source" href="">AddLogFilter</a>
+	<a class="permalink" href="#AddLogFilter">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func AddLogFilter(fn LogFilterFunc) string</pre>
+</div>
+
+
+<p><p>Append a function to be called for every line logged.  If the function<br>returns false, the line will be dropped (will not be logged or intercepted).</p>
+</p>
 
 
 <h3 id="AddLogIntercept" data-kind="f">
@@ -1278,6 +1331,20 @@ var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
 </p>
 
 
+<h3 id="FilterPackages" data-kind="f">
+	func <a title="View Source" href="">FilterPackages</a>
+	<a class="permalink" href="#FilterPackages">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func FilterPackages(patterns ...string) string</pre>
+</div>
+
+
+<p><p>Takes a list of package names (“a/b/c”) or patterns (“a/b/*”) whose log output<br>will be rejected.  If the package name or patterns matches any function in the<br>call stack, the associated message will be rejected.</p>
+</p>
+
+
 <h3 id="Info" data-kind="f">
 	func <a title="View Source" href="">Info</a>
 	<a class="permalink" href="#Info">&#182;</a>
@@ -1375,6 +1442,20 @@ var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
 	<pre>func Panicf(format string, args ...interface{})</pre>
 </div>
 
+
+
+<h3 id="RemoveLogFilter" data-kind="f">
+	func <a title="View Source" href="">RemoveLogFilter</a>
+	<a class="permalink" href="#RemoveLogFilter">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func RemoveLogFilter(id string)</pre>
+</div>
+
+
+<p><p>Remove the previously-added log filter function.</p>
+</p>
 
 
 <h3 id="RemoveLogIntercept" data-kind="f">
@@ -1547,6 +1628,25 @@ var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
 
 
 
+<h3 id="LogFilterFunc" data-kind="t">
+	type
+	<a title="View Source" href="">LogFilterFunc</a>
+	<a class="permalink" href="#LogFilterFunc">&#182;</a>
+</h3>
+
+<div class="decl" data-kind="d">
+	<a title="View Source" href="">&#182;</a>
+	
+	
+	<pre>type LogFilterFunc func(level Level, line string, stack StackItems) bool</pre>
+</div>
+
+
+
+
+
+
+
 <h3 id="LogFunc" data-kind="t">
 	type
 	<a title="View Source" href="">LogFunc</a>
@@ -1619,6 +1719,9 @@ var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
 	Filename       string
 	Line           int
 	Function       string
+	PackageName    string
+	Receiver       string
+	FunctionName   string
 }</pre>
 </div>
 
@@ -1626,6 +1729,23 @@ var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
 
 
 
+
+
+
+
+
+
+<h4 id="StackItem.InPackage" data-kind="f">
+	func
+	(self StackItem)
+	<a title="View Source" href="">InPackage</a>
+	<a class="permalink" href="#InPackage">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self StackItem) InPackage(pkgname string) bool</pre>
+</div>
 
 
 
@@ -1661,6 +1781,8 @@ var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
 
 
 
+
+
 <h4 id="StackTrace" data-kind="f">
 	func <a title="View Source" href="">StackTrace</a>
 	<a class="permalink" href="#StackTrace">&#182;</a>
@@ -1676,6 +1798,21 @@ var <span id="TerminalEscapeSuffix">TerminalEscapeSuffix      </span> = `\]`
 
 
 
+
+
+
+
+<h4 id="StackItems.String" data-kind="f">
+	func
+	(self StackItems)
+	<a title="View Source" href="">String</a>
+	<a class="permalink" href="#String">&#182;</a>
+</h4>
+
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func (self StackItems) String() string</pre>
+</div>
 
 
 

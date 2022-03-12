@@ -1,6 +1,6 @@
 
 LOCALS := $(shell find . -type f -name '*.go' -not -path "./vendor/*")
-PKGS   := $(wildcard *util)
+PKGS   := log $(wildcard *util)
 COUNT  ?= 1
 
 # TEST_GOSTOCKUTIL_RETRIEVE_VIA_SFTP ?= sftp://cortex/motd

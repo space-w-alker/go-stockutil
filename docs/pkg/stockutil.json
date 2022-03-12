@@ -25,7 +25,7 @@
     "Files": [
         {
             "Name": "version.go",
-            "Size": 44,
+            "Size": 45,
             "LineCount": 4,
             "SourceLineCount": 2,
             "FunctionCount": 0,
@@ -38,8 +38,8 @@
         {
             "Name": "Version",
             "Immutable": true,
-            "Expression": "`1.10.9`",
-            "Value": "1.10.9"
+            "Expression": "`1.10.10`",
+            "Value": "1.10.10"
         }
     ],
     "Packages": [
@@ -303,25 +303,6 @@
                     ],
                     "Signature": "HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)",
                     "Source": "ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "KelvinToColor",
-                    "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
-                    "Arguments": [
-                        {
-                            "Name": "kelvin",
-                            "Type": "int"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Name": "color",
-                            "Type": "Color"
-                        }
-                    ],
-                    "Signature": "KelvinToColor(kelvin int) color Color",
-                    "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                     "IsPackageLevel": true
                 },
                 {
@@ -898,6 +879,25 @@
                             ],
                             "Signature": "Mix(first interface{}, second interface{}) (Color, error)",
                             "Source": "ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9",
+                            "IsPackageLevel": true
+                        },
+                        {
+                            "Name": "KelvinToColor",
+                            "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
+                            "Arguments": [
+                                {
+                                    "Name": "kelvin",
+                                    "Type": "int"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Name": "color",
+                                    "Type": "Color"
+                                }
+                            ],
+                            "Signature": "KelvinToColor(kelvin int) color Color",
+                            "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                             "IsPackageLevel": true
                         }
                     ],
@@ -1611,8 +1611,8 @@
             "Synopsis": "Utilities that make executing commands on the local system a little bit easier.\n",
             "MainFunction": false,
             "CommentWordCount": 710,
-            "LineCount": 1069,
-            "SourceLineCount": 804,
+            "LineCount": 1083,
+            "SourceLineCount": 819,
             "FunctionCount": 44,
             "TypeCount": 4,
             "ConstantCount": 0,
@@ -1695,9 +1695,9 @@
                             "Alias": "go-shellwords"
                         }
                     ],
-                    "Size": 13151,
-                    "LineCount": 575,
-                    "SourceLineCount": 432,
+                    "Size": 13482,
+                    "LineCount": 589,
+                    "SourceLineCount": 447,
                     "FunctionCount": 22,
                     "TypeCount": 4,
                     "ConstantCount": 0,
@@ -2076,27 +2076,6 @@
                     ],
                     "Signature": "Join(in interface{}) string",
                     "Source": "ewoJdmFyIGFyZ3MgW11zdHJpbmcKCWlmIGNtZCwgb2sgOj0gaW4uKCpleGVjLkNtZCk7IG9rIHsKCQlhcmdzID0gY21kLkFyZ3MKCX0gZWxzZSBpZiB0eXBldXRpbC5Jc0FycmF5KGluKSB7CgkJYXJncyA9IHNsaWNldXRpbC5TdHJpbmdpZnkoaW4pCgl9IGVsc2UgewoJCXJldHVybiBgYAoJfQoJZm9yIGksIGFyZyA6PSByYW5nZSBhcmdzIHsKCQlpZiBzdHJpbmdzLkNvbnRhaW5zKGFyZywgYCBgKSB7CgkJCWFyZ3NbaV0gPSBzdHJpbmd1dGlsLldyYXAoYXJnLCBgJ2AsIGAnYCkKCQl9Cgl9CglyZXR1cm4gc3RyaW5ncy5Kb2luKGFyZ3MsIGAgYCkKfQ==",
-                    "IsPackageLevel": true
-                },
-                {
-                    "Name": "LogOutput",
-                    "Arguments": [
-                        {
-                            "Name": "outlevel",
-                            "Type": "log.Level"
-                        },
-                        {
-                            "Name": "errlevel",
-                            "Type": "log.Level"
-                        }
-                    ],
-                    "Returns": [
-                        {
-                            "Type": "OutputLineFunc"
-                        }
-                    ],
-                    "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                    "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
                     "IsPackageLevel": true
                 },
                 {
@@ -2868,6 +2847,29 @@
                 },
                 "OutputLineFunc": {
                     "Name": "OutputLineFunc",
+                    "Methods": [
+                        {
+                            "Name": "LogOutput",
+                            "Arguments": [
+                                {
+                                    "Name": "outlevel",
+                                    "Type": "log.Level"
+                                },
+                                {
+                                    "Name": "errlevel",
+                                    "Type": "log.Level"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "OutputLineFunc"
+                                }
+                            ],
+                            "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                            "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                            "IsPackageLevel": true
+                        }
+                    ],
                     "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
                 },
                 "Status": {
@@ -11136,16 +11138,16 @@
             "URL": "https://github.com/ghetzel/go-stockutil",
             "Synopsis": "Package log package provides convenient and flexible utilities for logging messages.\n\nOverview\n\nLogging is done by calling functions in this package that correspond to the\nseverity of the log message being output.  At the package level, a minimum\nseverity can be set.  Messages less severe than this minimum logging level will\nnot be output.\n\nColor Expressions\n\nIn addition to the standard printf-style formatting options (as defined in the\nstandard fmt package), this package supports inline expressions that control the\noutput of ANSI terminal escape sequences.  These expressions allow for a simple\nmechanism to colorize log output, as well as applying graphical effects like\nbold, underline, and blinking text (for terminals that support it).\n\nBy default, color expressions will only be honored if os.Stdin is attached to a\npseudoterminal.  This is the case when the program is run on the command line\nand is not piped or redirected to another file.  This default ensures that the\ncolors are visible only in a visual context, but do not corrupt files or\npipelines with ANSI escape sequences.  Color sequences can be explicitly enabled\nor disabled by setting the EnableColorExpressions package variable.\n\nUsing color expressions in format strings is done by wrapping the expression in\n${expr}.  The general format for color expressions is:\n\n\tforegroundColor[+attributes[:backgroundColor[+attributes]]]\n\nColors (foreground and background):\n\tblack\n\tred\n\tgreen\n\tyellow\n\tblue\n\tmagenta\n\tcyan\n\twhite\n\t[0-255]: numeric 8-bit color (for 256 color terminals)\n\treset: Reset all color and graphics attributes to their defaults\n\nForeground Attributes:\n\tb: bold text\n\tB: blinking text\n\th: high-intensity (bright text)\n\ti: inverted/reverse colors\n\ts: strikethrough\n\tu: underline\n\nBackground Attributes:\n\th: high-intensity (bright text)\n\nExamples\n\nBelow are some examples showing various formatting options for logs.\n\n\tlog.Info(\"Hello, world!\")\n\t// [11:22:33 0001] INFO Hello, world!\n\n\tlog.Warningf(\"The %q operation could not be completed.\", \"add\")\n\t// [11:22:33 0002] WARN The \"add\" operation could not be completed.\n\n\tlog.Errorf(\"There was an ${red}error${reset} opening file ${blue+b:white}%s${reset}\", filename)\n\t// [11:22:33 0003] ERRO There was an error opening file /tmp/file.txt\n\t//                                   ^^^^^              ^^^^^^^^^^^^^\n\t//                                   red text           blue text on white background\n\nLog Interception\n\nIt is sometimes useful to be able to act on logs as they are emitted, especially in cases where this\npackage is used in other projects that are imported.  Log Interceptors are called before each log\nline is emitted.  The LogInterceptFunc is called with the level the message was emitted with, the\nmessage itself as a string, and a stack trace struct that defines exactly where the log was emitted\nfrom.\n\n\t// print a complete stack trace before every debug-level message that is encountered\n\tlog.AddLogIntercept(func(level log.Level, line string, stack log.StackItems){\n\t\tif level == log.DEBUG {\n\t\t\tfor _, item := range stack {\n\t\t\t\tfmt.Println(item.String())\n\t\t\t}\n\t\t}\n\t})\n\nWritable Logger\n\nThe WritableLogger implements the io.Writer interface, acting as a bridge between byte streams from\nvarious sources and the log package.  This is frequently useful in situations like parsing the\noutput of other programs.  A WritableLogger accepts a custom LogParseFunc that allows individual\nlines being written to the WritableLogger to be parsed, rewritten, and given a log severity level.\n\n\timport (\n\t\t\"os/exec\"\n\t\t\"github.com/ghetzel/go-stockutil/log\"\n\t)\n\n\twr := log.NewWritableLogger(log.INFO, `ls: `)\n\n\twr.SetParserFunc(func(line string) (log.Level, string) {\n\t\tif strings.Contains(line, `root`) {\n\t\t\t// root-owned files show up as errors\n\t\t\treturn log.ERROR, line\n\t\t} else if strings.Contains(line, os.Getenv(`USER`)) {\n\t\t\t// current user files are notices\n\t\t\treturn log.NOTICE, line\n\t\t} else {\n\t\t\t// all other lines are not logged at all\n\t\t\treturn log.DEBUG, ``\n\t\t}\n\t})\n\n\tls := exec.Command(`ls`, `-l`)\n\tls.Stdout = wr\n\tls.Run()\n",
             "MainFunction": false,
-            "CommentWordCount": 1052,
-            "LineCount": 907,
-            "SourceLineCount": 690,
-            "FunctionCount": 54,
-            "TypeCount": 9,
+            "CommentWordCount": 1134,
+            "LineCount": 1045,
+            "SourceLineCount": 794,
+            "FunctionCount": 59,
+            "TypeCount": 10,
             "ConstantCount": 8,
             "VariableCount": 8,
             "Statistics": {
-                "Mean": 0.242,
-                "StdDev": 0.4247,
+                "Mean": 0.2519,
+                "StdDev": 0.4278,
                 "GeometricMean": 0,
                 "HarmonicMean": 0,
                 "Median": 0,
@@ -11223,12 +11225,20 @@
                         {
                             "PackageName": "strings",
                             "Alias": "strings"
+                        },
+                        {
+                            "PackageName": "github.com/ghetzel/go-stockutil/stringutil",
+                            "Alias": "stringutil"
+                        },
+                        {
+                            "PackageName": "github.com/gobwas/glob",
+                            "Alias": "glob"
                         }
                     ],
-                    "Size": 1476,
-                    "LineCount": 77,
-                    "SourceLineCount": 58,
-                    "FunctionCount": 3,
+                    "Size": 2723,
+                    "LineCount": 127,
+                    "SourceLineCount": 98,
+                    "FunctionCount": 5,
                     "TypeCount": 2,
                     "ConstantCount": 0,
                     "VariableCount": 1
@@ -11279,9 +11289,9 @@
                             "Alias": "require"
                         }
                     ],
-                    "Size": 1304,
-                    "LineCount": 52,
-                    "SourceLineCount": 43,
+                    "Size": 2232,
+                    "LineCount": 78,
+                    "SourceLineCount": 63,
                     "FunctionCount": 0,
                     "TypeCount": 0,
                     "ConstantCount": 0,
@@ -11355,11 +11365,11 @@
                             "Alias": "go-logging"
                         }
                     ],
-                    "Size": 8103,
-                    "LineCount": 344,
-                    "SourceLineCount": 257,
-                    "FunctionCount": 34,
-                    "TypeCount": 3,
+                    "Size": 9535,
+                    "LineCount": 406,
+                    "SourceLineCount": 301,
+                    "FunctionCount": 37,
+                    "TypeCount": 4,
                     "ConstantCount": 0,
                     "VariableCount": 5
                 },
@@ -11471,6 +11481,24 @@
             ],
             "Functions": [
                 {
+                    "Name": "AddLogFilter",
+                    "Comment": "Append a function to be called for every line logged.  If the function\nreturns false, the line will be dropped (will not be logged or intercepted).",
+                    "Arguments": [
+                        {
+                            "Name": "fn",
+                            "Type": "LogFilterFunc"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "AddLogFilter(fn LogFilterFunc) string",
+                    "Source": "ewoJdmFyIGlkID0gc3RyaW5ndXRpbC5VVUlEKCkuU3RyaW5nKCkKCWZpbHRlcnMuU3RvcmUoaWQsIGZuKQoJcmV0dXJuIGlkCn0=",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "AddLogIntercept",
                     "Comment": "Append a function to be called (asynchronously in its own goroutine, or\nsynchronously if SynchronousIntercepts is true) for every line logged.\nReturns a UUID that can be later used to deregister the intercept function.",
                     "Arguments": [
@@ -11485,7 +11513,7 @@
                         }
                     ],
                     "Signature": "AddLogIntercept(fn LogInterceptFunc) string",
-                    "Source": "ewoJaWQgOj0gc3RyaW5ndXRpbC5VVUlEKCkuU3RyaW5nKCkKCWludGVyY2VwdHMuU3RvcmUoaWQsIGZuKQoJcmV0dXJuIGlkCn0=",
+                    "Source": "ewoJdmFyIGlkID0gc3RyaW5ndXRpbC5VVUlEKCkuU3RyaW5nKCkKCWludGVyY2VwdHMuU3RvcmUoaWQsIGZuKQoJcmV0dXJuIGlkCn0=",
                     "IsPackageLevel": true
                 },
                 {
@@ -11889,6 +11917,24 @@
                     "IsPackageLevel": true
                 },
                 {
+                    "Name": "FilterPackages",
+                    "Comment": "Takes a list of package names (\"a/b/c\") or patterns (\"a/b/*\") whose log output\nwill be rejected.  If the package name or patterns matches any function in the\ncall stack, the associated message will be rejected.",
+                    "Arguments": [
+                        {
+                            "Name": "patterns",
+                            "Type": "...string"
+                        }
+                    ],
+                    "Returns": [
+                        {
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "FilterPackages(patterns ...string) string",
+                    "Source": "ewoJcmV0dXJuIEFkZExvZ0ZpbHRlcihmdW5jKGxldmVsIExldmVsLCBsaW5lIHN0cmluZywgc3RhY2sgU3RhY2tJdGVtcykgYm9vbCB7CgkJZm9yIF8sIGl0ZW0gOj0gcmFuZ2Ugc3RhY2sgewoJCQlmb3IgXywgcGtnIDo9IHJhbmdlIHBhdHRlcm5zIHsKCQkJCWlmIGl0ZW0uSW5QYWNrYWdlKHBrZykgewoJCQkJCXJldHVybiBmYWxzZQoJCQkJfQoJCQl9CgkJfQoJCXJldHVybiB0cnVlCgl9KQp9",
+                    "IsPackageLevel": true
+                },
+                {
                     "Name": "Info",
                     "Arguments": [
                         {
@@ -11929,7 +11975,7 @@
                         }
                     ],
                     "Signature": "Log(level Level, args ...interface{})",
-                    "Source": "ewoJaWYgbGV2ZWwgPT0gRkFUQUwgJiYgbGVuKGFyZ3MpID09IDEgJiYgYXJnc1swXSA9PSBuaWwgewoJCXJldHVybgoJfQoJaW5pdExvZ2dpbmcoKQoJY2FsbEludGVyY2VwdHMobGV2ZWwsIHN0cmluZ3MuSm9pbihzbGljZXV0aWwuU3RyaW5naWZ5KGFyZ3MpLCBgIGApLCBTdGFja1RyYWNlKERlZmF1bHRJbnRlcmNlcHRTdGFja0RlcHRoKSkKCWxvZyhsZXZlbCwgYXJncy4uLikKfQ==",
+                    "Source": "ewoJaWYgbGV2ZWwgPT0gRkFUQUwgJiYgbGVuKGFyZ3MpID09IDEgJiYgYXJnc1swXSA9PSBuaWwgewoJCXJldHVybgoJfQoJaW5pdExvZ2dpbmcoKQoJdmFyIGxpbmUgPSBzdHJpbmdzLkpvaW4oc2xpY2V1dGlsLlN0cmluZ2lmeShhcmdzKSwgYCBgKQoJdmFyIHN0YWNrID0gU3RhY2tUcmFjZShEZWZhdWx0SW50ZXJjZXB0U3RhY2tEZXB0aCkKCWlmIHNob3VsZFNraXAobGV2ZWwsIGxpbmUsIHN0YWNrKSB7CgkJcmV0dXJuCgl9CgljYWxsSW50ZXJjZXB0cyhsZXZlbCwgbGluZSwgc3RhY2spCglsb2cobGV2ZWwsIGFyZ3MuLi4pCn0=",
                     "IsPackageLevel": true
                 },
                 {
@@ -11949,7 +11995,7 @@
                         }
                     ],
                     "Signature": "Logf(level Level, format string, args ...interface{})",
-                    "Source": "ewoJaW5pdExvZ2dpbmcoKQoJY2FsbEludGVyY2VwdHMobGV2ZWwsIGZtdC5TcHJpbnRmKGZvcm1hdCwgYXJncy4uLiksIFN0YWNrVHJhY2UoRGVmYXVsdEludGVyY2VwdFN0YWNrRGVwdGgpKQoJaWYgRW5hYmxlQ29sb3JFeHByZXNzaW9ucyB7CgkJbG9nKGxldmVsLCBDU3ByaW50Zihmb3JtYXQsIGFyZ3MuLi4pKQoJfSBlbHNlIHsKCQlsb2cobGV2ZWwsIENTdHJpcGYoZm9ybWF0LCBhcmdzLi4uKSkKCX0KfQ==",
+                    "Source": "ewoJaW5pdExvZ2dpbmcoKQoJdmFyIGxpbmUgPSBmbXQuU3ByaW50Zihmb3JtYXQsIGFyZ3MuLi4pCgl2YXIgc3RhY2sgPSBTdGFja1RyYWNlKERlZmF1bHRJbnRlcmNlcHRTdGFja0RlcHRoKQoJaWYgc2hvdWxkU2tpcChsZXZlbCwgbGluZSwgc3RhY2spIHsKCQlyZXR1cm4KCX0KCWNhbGxJbnRlcmNlcHRzKGxldmVsLCBsaW5lLCBzdGFjaykKCWlmIEVuYWJsZUNvbG9yRXhwcmVzc2lvbnMgewoJCWxvZyhsZXZlbCwgQ1NwcmludGYoZm9ybWF0LCBhcmdzLi4uKSkKCX0gZWxzZSB7CgkJbG9nKGxldmVsLCBDU3RyaXBmKGZvcm1hdCwgYXJncy4uLikpCgl9Cn0=",
                     "IsPackageLevel": true
                 },
                 {
@@ -12017,6 +12063,19 @@
                     ],
                     "Signature": "Panicf(format string, args ...interface{})",
                     "Source": "ewoJTG9nZihQQU5JQywgZm9ybWF0LCBhcmdzLi4uKQp9",
+                    "IsPackageLevel": true
+                },
+                {
+                    "Name": "RemoveLogFilter",
+                    "Comment": "Remove the previously-added log filter function.",
+                    "Arguments": [
+                        {
+                            "Name": "id",
+                            "Type": "string"
+                        }
+                    ],
+                    "Signature": "RemoveLogFilter(id string)",
+                    "Source": "ewoJZmlsdGVycy5EZWxldGUoaWQpCn0=",
                     "IsPackageLevel": true
                 },
                 {
@@ -12169,6 +12228,18 @@
                     "Signature": "TestErrors(t *testing.T)",
                     "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgllMW0gOj0gYGVycm9yIDFgCgllMSA6PSBlcnJvcnMuTmV3KGUxbSkKCWUybSA6PSBgZXJyb3JgCgllMiA6PSBlcnJvcnMuTmV3KGUybSkKCWFzc2VydC5GYWxzZShFcnJDb250YWlucyhuaWwsIG5pbCkpCglhc3NlcnQuRmFsc2UoRXJyQ29udGFpbnMoZTEsIG5pbCkpCglhc3NlcnQuRmFsc2UoRXJyQ29udGFpbnMobmlsLCBlMikpCglhc3NlcnQuRmFsc2UoRXJyQ29udGFpbnMobmlsLCBlMm0pKQoJYXNzZXJ0LlRydWUoRXJyQ29udGFpbnMoZTEsIGUxKSkKCWFzc2VydC5UcnVlKEVyckNvbnRhaW5zKGUxLCBlMW0pKQoJYXNzZXJ0LlRydWUoRXJyQ29udGFpbnMoZTIsIGUyKSkKCWFzc2VydC5UcnVlKEVyckNvbnRhaW5zKGUyLCBlMm0pKQoJYXNzZXJ0LlRydWUoRXJyQ29udGFpbnMoZTEsIGUyKSkKCWFzc2VydC5UcnVlKEVyckNvbnRhaW5zKGUxLCBlMm0pKQoJYXNzZXJ0LkZhbHNlKEVyckNvbnRhaW5zKGUyLCBlMSkpCglhc3NlcnQuRmFsc2UoRXJyQ29udGFpbnMoZTIsIGUxbSkpCglhc3NlcnQuVHJ1ZShFcnJIYXNQcmVmaXgoZTEsIGUxKSkKCWFzc2VydC5UcnVlKEVyckhhc1ByZWZpeChlMSwgZTFtKSkKCWFzc2VydC5UcnVlKEVyckhhc1ByZWZpeChlMiwgZTIpKQoJYXNzZXJ0LlRydWUoRXJySGFzUHJlZml4KGUyLCBlMm0pKQoJYXNzZXJ0LlRydWUoRXJySGFzUHJlZml4KGUxLCBlMikpCglhc3NlcnQuVHJ1ZShFcnJIYXNQcmVmaXgoZTEsIGUybSkpCglhc3NlcnQuRmFsc2UoRXJySGFzUHJlZml4KGUxLCBgbm9wZWApKQoJYXNzZXJ0LkZhbHNlKEVyckhhc1ByZWZpeChlMiwgZTEpKQoJYXNzZXJ0LkZhbHNlKEVyckhhc1ByZWZpeChlMiwgZTFtKSkKCWFzc2VydC5GYWxzZShFcnJIYXNTdWZmaXgoZTEsIGUyKSkKCWFzc2VydC5GYWxzZShFcnJIYXNTdWZmaXgoZTEsIGUybSkpCglhc3NlcnQuVHJ1ZShFcnJIYXNTdWZmaXgoZTEsIGAxYCkpCglhc3NlcnQuRmFsc2UoRXJySGFzU3VmZml4KGUyLCBlMSkpCglhc3NlcnQuRmFsc2UoRXJySGFzU3VmZml4KGUyLCBlMW0pKQoJYXNzZXJ0LlRydWUoRXJySGFzU3VmZml4KGUxLCBlMSkpCglhc3NlcnQuVHJ1ZShFcnJIYXNTdWZmaXgoZTEsIGUxbSkpCglhc3NlcnQuVHJ1ZShFcnJIYXNTdWZmaXgoZTIsIGUyKSkKCWFzc2VydC5UcnVlKEVyckhhc1N1ZmZpeChlMiwgZTJtKSkKfQ==",
                     "IsPackageLevel": true
+                },
+                {
+                    "Name": "TestStackTrace",
+                    "Arguments": [
+                        {
+                            "Name": "t",
+                            "Type": "*testing.T"
+                        }
+                    ],
+                    "Signature": "TestStackTrace(t *testing.T)",
+                    "Source": "ewoJbmV3KHRyYWNlVGVzdCkuZG8odCkKfQ==",
+                    "IsPackageLevel": true
                 }
             ],
             "Types": {
@@ -12211,6 +12282,10 @@
                     ],
                     "Source": "dHlwZSBMZXZlbCBpbnQ="
                 },
+                "LogFilterFunc": {
+                    "Name": "LogFilterFunc",
+                    "Source": "dHlwZSBMb2dGaWx0ZXJGdW5jIGZ1bmMobGV2ZWwgTGV2ZWwsIGxpbmUgc3RyaW5nLCBzdGFjayBTdGFja0l0ZW1zKSBib29s"
+                },
                 "LogFunc": {
                     "Name": "LogFunc",
                     "Source": "dHlwZSBMb2dGdW5jIGZ1bmMoYXJncyAuLi5pbnRlcmZhY2V7fSk="
@@ -12227,6 +12302,23 @@
                     "Name": "StackItem",
                     "MetaType": "struct",
                     "Methods": [
+                        {
+                            "Name": "InPackage",
+                            "ReceiverName": "self",
+                            "Arguments": [
+                                {
+                                    "Name": "pkgname",
+                                    "Type": "string"
+                                }
+                            ],
+                            "Returns": [
+                                {
+                                    "Type": "bool"
+                                }
+                            ],
+                            "Signature": "InPackage(pkgname string) bool",
+                            "IsPackageLevel": false
+                        },
                         {
                             "Name": "String",
                             "ReceiverName": "self",
@@ -12255,13 +12347,36 @@
                         {
                             "Name": "Function",
                             "Type": "string"
+                        },
+                        {
+                            "Name": "PackageName",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "Receiver",
+                            "Type": "string"
+                        },
+                        {
+                            "Name": "FunctionName",
+                            "Type": "string"
                         }
                     ],
-                    "Source": "dHlwZSBTdGFja0l0ZW0gc3RydWN0IHsKCVByb2dyYW1Db3VudGVyIHVpbnRwdHIKCUZpbGVuYW1lICAgICAgIHN0cmluZwoJTGluZSAgICAgICAgICAgaW50CglGdW5jdGlvbiAgICAgICBzdHJpbmcKfQ=="
+                    "Source": "dHlwZSBTdGFja0l0ZW0gc3RydWN0IHsKCVByb2dyYW1Db3VudGVyIHVpbnRwdHIKCUZpbGVuYW1lICAgICAgIHN0cmluZwoJTGluZSAgICAgICAgICAgaW50CglGdW5jdGlvbiAgICAgICBzdHJpbmcKCVBhY2thZ2VOYW1lICAgIHN0cmluZwoJUmVjZWl2ZXIgICAgICAgc3RyaW5nCglGdW5jdGlvbk5hbWUgICBzdHJpbmcKfQ=="
                 },
                 "StackItems": {
                     "Name": "StackItems",
                     "Methods": [
+                        {
+                            "Name": "String",
+                            "ReceiverName": "self",
+                            "Returns": [
+                                {
+                                    "Type": "string"
+                                }
+                            ],
+                            "Signature": "String() string",
+                            "IsPackageLevel": false
+                        },
                         {
                             "Name": "StackTrace",
                             "Comment": "Retrieves details about the call stack that led to this function call.",
@@ -12277,7 +12392,7 @@
                                 }
                             ],
                             "Signature": "StackTrace(skip int) StackItems",
-                            "Source": "ewoJcGMgOj0gbWFrZShbXXVpbnRwdHIsIE1heFN0YWNrVHJhY2VEZXB0aCkKCWl0ZW1zIDo9IG1ha2UoU3RhY2tJdGVtcywgMCkKCWlmIG4gOj0gcnVudGltZS5DYWxsZXJzKHNraXAsIHBjKTsgbiA8PSBsZW4ocGMpIHsKCQlwYyA9IHBjWzpuXQoJCWlmIGZyYW1lcyA6PSBydW50aW1lLkNhbGxlcnNGcmFtZXMocGMpOyBmcmFtZXMgIT0gbmlsIHsKCQkJZm9yIGkgOj0gMDsgbGVuKGl0ZW1zKSA8PSBsZW4ocGMpOyBpKysgewoJCQkJZnJhbWUsIG1vcmUgOj0gZnJhbWVzLk5leHQoKQoJCQkJaXRlbXMgPSBhcHBlbmQoaXRlbXMsIFN0YWNrSXRlbXtQcm9ncmFtQ291bnRlcjogZnJhbWUuUEMsIEZ1bmN0aW9uOiBmcmFtZS5GdW5jdGlvbiwgRmlsZW5hbWU6IGZyYW1lLkZpbGUsIExpbmU6IGZyYW1lLkxpbmV9KQoJCQkJaWYgIW1vcmUgewoJCQkJCWJyZWFrCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gaXRlbXMKfQ==",
+                            "Source": "ewoJdmFyIHBjID0gbWFrZShbXXVpbnRwdHIsIE1heFN0YWNrVHJhY2VEZXB0aCkKCXZhciBpdGVtcyA9IG1ha2UoU3RhY2tJdGVtcywgMCkKCWlmIG4gOj0gcnVudGltZS5DYWxsZXJzKHNraXAsIHBjKTsgbiA8PSBsZW4ocGMpIHsKCQlwYyA9IHBjWzpuXQoJCWlmIGZyYW1lcyA6PSBydW50aW1lLkNhbGxlcnNGcmFtZXMocGMpOyBmcmFtZXMgIT0gbmlsIHsKCQkJZm9yIGkgOj0gMDsgbGVuKGl0ZW1zKSA8PSBsZW4ocGMpOyBpKysgewoJCQkJdmFyIGZyYW1lLCBtb3JlID0gZnJhbWVzLk5leHQoKQoJCQkJdmFyIHBrZ25hbWUgc3RyaW5nCgkJCQl2YXIgcmVjdiBzdHJpbmcKCQkJCXZhciBmbm5hbWUgc3RyaW5nCgkJCQl2YXIgbGFzdFNsYXNoID0gc3RyaW5ncy5MYXN0SW5kZXgoZnJhbWUuRnVuY3Rpb24sIGAvYCkKCQkJCWlmIGxhc3RTbGFzaCA+IDAgewoJCQkJCXZhciBwa2dSZWN2U2VwID0gbGFzdFNsYXNoICsgc3RyaW5ncy5JbmRleChmcmFtZS5GdW5jdGlvbltsYXN0U2xhc2g6XSwgYC5gKQoJCQkJCXZhciByZWN2Rm5uU2VwID0gc3RyaW5ncy5MYXN0SW5kZXgoZnJhbWUuRnVuY3Rpb24sIGAuYCkKCQkJCQlpZiByZWN2Rm5uU2VwID4gMCAmJiBwa2dSZWN2U2VwID4gMCB7CgkJCQkJCXBrZ25hbWUgPSBmcmFtZS5GdW5jdGlvblswOnBrZ1JlY3ZTZXBdCgkJCQkJCWlmIHJlY3ZGbm5TZXAgIT0gcGtnUmVjdlNlcCB7CgkJCQkJCQlyZWN2ID0gZnJhbWUuRnVuY3Rpb25bcGtnUmVjdlNlcCsxIDogcmVjdkZublNlcF0KCQkJCQkJfQoJCQkJCQlmbm5hbWUgPSBmcmFtZS5GdW5jdGlvbltyZWN2Rm5uU2VwKzE6XQoJCQkJCX0KCQkJCX0gZWxzZSBpZiBsYXN0U2xhc2ggPCAwIHsKCQkJCQlwa2duYW1lLCBmbm5hbWUgPSBzdHJpbmd1dGlsLlNwbGl0UGFpcihmcmFtZS5GdW5jdGlvbiwgYC5gKQoJCQkJfQoJCQkJaXRlbXMgPSBhcHBlbmQoaXRlbXMsIFN0YWNrSXRlbXtQcm9ncmFtQ291bnRlcjogZnJhbWUuUEMsIEZ1bmN0aW9uOiBmcmFtZS5GdW5jdGlvbiwgUGFja2FnZU5hbWU6IHBrZ25hbWUsIFJlY2VpdmVyOiByZWN2LCBGdW5jdGlvbk5hbWU6IGZubmFtZSwgRmlsZW5hbWU6IGZyYW1lLkZpbGUsIExpbmU6IGZyYW1lLkxpbmV9KQoJCQkJaWYgIW1vcmUgewoJCQkJCWJyZWFrCgkJCQl9CgkJCX0KCQl9Cgl9CglyZXR1cm4gaXRlbXMKfQ==",
                             "IsPackageLevel": true
                         }
                     ],

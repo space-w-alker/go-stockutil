@@ -373,6 +373,13 @@ func (self *Cmd) WaitStatus() Status {
 		self.hasWaited = true
 	}
 
+	if xe := self.exitError; xe != nil {
+		switch xe.Error() {
+		case `exec: Wait was already called`:
+			self.exitError = nil
+		}
+	}
+
 	self.updateStatus()
 	return self.status
 }
@@ -458,7 +465,12 @@ func (self *Cmd) killAndWait() error {
 	}
 
 	if status := self.finalStatus; status != nil {
-		return status.Error
+		switch msg := typeutil.String(status.Error); msg {
+		case `signal: killed`:
+			return nil
+		default:
+			return status.Error
+		}
 	} else {
 		return nil
 	}

@@ -7,6 +7,32 @@ import (
 	"github.com/ghetzel/testify/require"
 )
 
+type traceTest struct{}
+
+func (self *traceTest) do(t *testing.T) {
+	var trace = StackTrace(0)
+
+	require.True(t, len(trace) >= 3)
+	require.Equal(t, trace[0].Function, `runtime.Callers`)
+	require.Equal(t, trace[0].FunctionName, `Callers`)
+	require.Equal(t, trace[0].PackageName, `runtime`)
+	require.Equal(t, trace[0].Receiver, ``)
+
+	require.Equal(t, trace[1].Function, `github.com/ghetzel/go-stockutil/log.StackTrace`)
+	require.Equal(t, trace[1].FunctionName, `StackTrace`)
+	require.Equal(t, trace[1].PackageName, `github.com/ghetzel/go-stockutil/log`)
+	require.Equal(t, trace[1].Receiver, ``)
+
+	require.Equal(t, trace[2].Function, `github.com/ghetzel/go-stockutil/log.(*traceTest).do`)
+	require.Equal(t, trace[2].FunctionName, `do`)
+	require.Equal(t, trace[2].PackageName, `github.com/ghetzel/go-stockutil/log`)
+	require.Equal(t, trace[2].Receiver, `(*traceTest)`)
+}
+
+func TestStackTrace(t *testing.T) {
+	new(traceTest).do(t)
+}
+
 func TestErrors(t *testing.T) {
 	assert := require.New(t)
 

@@ -3,6 +3,7 @@ module github.com/ghetzel/go-stockutil
 go 1.17
 
 require (
+	github.com/gobwas/glob v0.2.3
 	k8s.io/apimachinery v0.21.0
 	k8s.io/client-go v11.0.0+incompatible
 )
