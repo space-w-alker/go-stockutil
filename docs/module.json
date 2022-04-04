@@ -1,7 +1,7 @@
 {
     "Metadata": {
         "Title": "go-stockutil",
-        "Version": "1.10.10",
+        "Version": "1.10.11",
         "GeneratorVersion": "0.0.7",
         "URL": "https://github.com/ghetzel/go-stockutil"
     },
@@ -175,7 +175,7 @@
                 "Mean": 0.2519,
                 "StdDev": 0.4278,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -522,8 +522,8 @@
             {
                 "Name": "Version",
                 "Immutable": true,
-                "Expression": "`1.10.10`",
-                "Value": "1.10.10"
+                "Expression": "`1.10.11`",
+                "Value": "1.10.11"
             }
         ],
         "Packages": [
@@ -2563,6 +2563,27 @@
                         "IsPackageLevel": true
                     },
                     {
+                        "Name": "LogOutput",
+                        "Arguments": [
+                            {
+                                "Name": "outlevel",
+                                "Type": "log.Level"
+                            },
+                            {
+                                "Name": "errlevel",
+                                "Type": "log.Level"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Type": "OutputLineFunc"
+                            }
+                        ],
+                        "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
+                        "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
+                        "IsPackageLevel": true
+                    },
+                    {
                         "Name": "LogOutputFunc",
                         "Arguments": [
                             {
@@ -3331,29 +3352,6 @@
                     },
                     "OutputLineFunc": {
                         "Name": "OutputLineFunc",
-                        "Methods": [
-                            {
-                                "Name": "LogOutput",
-                                "Arguments": [
-                                    {
-                                        "Name": "outlevel",
-                                        "Type": "log.Level"
-                                    },
-                                    {
-                                        "Name": "errlevel",
-                                        "Type": "log.Level"
-                                    }
-                                ],
-                                "Returns": [
-                                    {
-                                        "Type": "OutputLineFunc"
-                                    }
-                                ],
-                                "Signature": "LogOutput(outlevel log.Level, errlevel log.Level) OutputLineFunc",
-                                "Source": "ewoJcmV0dXJuIGZ1bmMobGluZSBzdHJpbmcsIGVyciBib29sKSB7CgkJaWYgZXJyIHsKCQkJbG9nLkxvZyhvdXRsZXZlbCwgbGluZSkKCQl9IGVsc2UgewoJCQlsb2cuTG9nKGVycmxldmVsLCBsaW5lKQoJCX0KCX0KfQ==",
-                                "IsPackageLevel": true
-                            }
-                        ],
                         "Source": "dHlwZSBPdXRwdXRMaW5lRnVuYyBmdW5jKHN0cmluZywgYm9vbCk="
                     },
                     "Status": {
@@ -11633,7 +11631,7 @@
                     "Mean": 0.2519,
                     "StdDev": 0.4278,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 0,
                     "Minimum": 0,
                     "Maximum": 1
@@ -11687,7 +11685,7 @@
                                 "Alias": "require"
                             }
                         ],
-                        "Size": 3181,
+                        "Size": 3229,
                         "LineCount": 49,
                         "SourceLineCount": 40,
                         "FunctionCount": 0,
@@ -12698,7 +12696,7 @@
                             }
                         ],
                         "Signature": "TestCSprintf(t *testing.T)",
-                        "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlszMG1ibGFja1x4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7YmxhY2t9YmxhY2ske3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlszMW1yZWRceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke3JlZH1yZWQke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlszMm1ncmVlblx4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7Z3JlZW59Z3JlZW4ke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlszM215ZWxsb3dceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke3llbGxvd315ZWxsb3cke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlszNG1ibHVlXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHtibHVlfWJsdWUke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlszNW1tYWdlbnRhXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHttYWdlbnRhfW1hZ2VudGEke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlszNm1jeWFuXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHtjeWFufWN5YW4ke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlszN213aGl0ZVx4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7d2hpdGV9d2hpdGUke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYls5MG1ibGFja1x4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7YmxhY2sraH1ibGFjayR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzkxbXJlZFx4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7cmVkK2h9cmVkJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFx4MWJbOTJtZ3JlZW5ceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke2dyZWVuK2h9Z3JlZW4ke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYls5M215ZWxsb3dceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke3llbGxvdytofXllbGxvdyR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzk0bWJsdWVceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke2JsdWUraH1ibHVlJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFx4MWJbOTVtbWFnZW50YVx4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7bWFnZW50YStofW1hZ2VudGEke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYls5Nm1jeWFuXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHtjeWFuK2h9Y3lhbiR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzk3bXdoaXRlXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHt3aGl0ZStofXdoaXRlJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFxcW1x4MWJbOTBtXFxdYmxhY2tcXFtceDFiWzBtXFxdIHdvcmQiLCBUZXJtU3ByaW50ZigidGhpcyAke2JsYWNrK2h9YmxhY2ske3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXFxbXHgxYls5MW1cXF1yZWRcXFtceDFiWzBtXFxdIHdvcmQiLCBUZXJtU3ByaW50ZigidGhpcyAke3JlZCtofXJlZCR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBcXFtceDFiWzkybVxcXWdyZWVuXFxbXHgxYlswbVxcXSB3b3JkIiwgVGVybVNwcmludGYoInRoaXMgJHtncmVlbitofWdyZWVuJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFxcW1x4MWJbOTNtXFxdeWVsbG93XFxbXHgxYlswbVxcXSB3b3JkIiwgVGVybVNwcmludGYoInRoaXMgJHt5ZWxsb3craH15ZWxsb3cke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXFxbXHgxYls5NG1cXF1ibHVlXFxbXHgxYlswbVxcXSB3b3JkIiwgVGVybVNwcmludGYoInRoaXMgJHtibHVlK2h9Ymx1ZSR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBcXFtceDFiWzk1bVxcXW1hZ2VudGFcXFtceDFiWzBtXFxdIHdvcmQiLCBUZXJtU3ByaW50ZigidGhpcyAke21hZ2VudGEraH1tYWdlbnRhJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFxcW1x4MWJbOTZtXFxdY3lhblxcW1x4MWJbMG1cXF0gd29yZCIsIFRlcm1TcHJpbnRmKCJ0aGlzICR7Y3lhbitofWN5YW4ke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXFxbXHgxYls5N21cXF13aGl0ZVxcW1x4MWJbMG1cXF0gd29yZCIsIFRlcm1TcHJpbnRmKCJ0aGlzICR7d2hpdGUraH13aGl0ZSR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBibGFjayB3b3JkIiwgQ1N0cmlwZigidGhpcyAke2JsYWNrK2h9YmxhY2ske3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgcmVkIHdvcmQiLCBDU3RyaXBmKCJ0aGlzICR7cmVkK2h9cmVkJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIGdyZWVuIHdvcmQiLCBDU3RyaXBmKCJ0aGlzICR7Z3JlZW4raH1ncmVlbiR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyB5ZWxsb3cgd29yZCIsIENTdHJpcGYoInRoaXMgJHt5ZWxsb3craH15ZWxsb3cke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgYmx1ZSB3b3JkIiwgQ1N0cmlwZigidGhpcyAke2JsdWUraH1ibHVlJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIG1hZ2VudGEgd29yZCIsIENTdHJpcGYoInRoaXMgJHttYWdlbnRhK2h9bWFnZW50YSR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBjeWFuIHdvcmQiLCBDU3RyaXBmKCJ0aGlzICR7Y3lhbitofWN5YW4ke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgd2hpdGUgd29yZCIsIENTdHJpcGYoInRoaXMgJHt3aGl0ZStofXdoaXRlJHtyZXNldH0gd29yZCIpKQp9",
+                        "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlswOzMwbWJsYWNrXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHtibGFja31ibGFjayR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzA7MzFtcmVkXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHtyZWR9cmVkJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFx4MWJbMDszMm1ncmVlblx4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7Z3JlZW59Z3JlZW4ke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlswOzMzbXllbGxvd1x4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7eWVsbG93fXllbGxvdyR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzA7MzRtYmx1ZVx4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7Ymx1ZX1ibHVlJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFx4MWJbMDszNW1tYWdlbnRhXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHttYWdlbnRhfW1hZ2VudGEke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlswOzM2bWN5YW5ceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke2N5YW59Y3lhbiR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzA7Mzdtd2hpdGVceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke3doaXRlfXdoaXRlJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFx4MWJbMDs5MG1ibGFja1x4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7YmxhY2sraH1ibGFjayR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzA7OTFtcmVkXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHtyZWQraH1yZWQke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlswOzkybWdyZWVuXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHtncmVlbitofWdyZWVuJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFx4MWJbMDs5M215ZWxsb3dceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke3llbGxvdytofXllbGxvdyR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzA7OTRtYmx1ZVx4MWJbMG0gd29yZCIsIENTcHJpbnRmKCJ0aGlzICR7Ymx1ZStofWJsdWUke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXHgxYlswOzk1bW1hZ2VudGFceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke21hZ2VudGEraH1tYWdlbnRhJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFx4MWJbMDs5Nm1jeWFuXHgxYlswbSB3b3JkIiwgQ1NwcmludGYoInRoaXMgJHtjeWFuK2h9Y3lhbiR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBceDFiWzA7OTdtd2hpdGVceDFiWzBtIHdvcmQiLCBDU3ByaW50ZigidGhpcyAke3doaXRlK2h9d2hpdGUke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXFxbXHgxYlswOzkwbVxcXWJsYWNrXFxbXHgxYlswbVxcXSB3b3JkIiwgVGVybVNwcmludGYoInRoaXMgJHtibGFjaytofWJsYWNrJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFxcW1x4MWJbMDs5MW1cXF1yZWRcXFtceDFiWzBtXFxdIHdvcmQiLCBUZXJtU3ByaW50ZigidGhpcyAke3JlZCtofXJlZCR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBcXFtceDFiWzA7OTJtXFxdZ3JlZW5cXFtceDFiWzBtXFxdIHdvcmQiLCBUZXJtU3ByaW50ZigidGhpcyAke2dyZWVuK2h9Z3JlZW4ke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXFxbXHgxYlswOzkzbVxcXXllbGxvd1xcW1x4MWJbMG1cXF0gd29yZCIsIFRlcm1TcHJpbnRmKCJ0aGlzICR7eWVsbG93K2h9eWVsbG93JHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFxcW1x4MWJbMDs5NG1cXF1ibHVlXFxbXHgxYlswbVxcXSB3b3JkIiwgVGVybVNwcmludGYoInRoaXMgJHtibHVlK2h9Ymx1ZSR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBcXFtceDFiWzA7OTVtXFxdbWFnZW50YVxcW1x4MWJbMG1cXF0gd29yZCIsIFRlcm1TcHJpbnRmKCJ0aGlzICR7bWFnZW50YStofW1hZ2VudGEke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgXFxbXHgxYlswOzk2bVxcXWN5YW5cXFtceDFiWzBtXFxdIHdvcmQiLCBUZXJtU3ByaW50ZigidGhpcyAke2N5YW4raH1jeWFuJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIFxcW1x4MWJbMDs5N21cXF13aGl0ZVxcW1x4MWJbMG1cXF0gd29yZCIsIFRlcm1TcHJpbnRmKCJ0aGlzICR7d2hpdGUraH13aGl0ZSR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBibGFjayB3b3JkIiwgQ1N0cmlwZigidGhpcyAke2JsYWNrK2h9YmxhY2ske3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgcmVkIHdvcmQiLCBDU3RyaXBmKCJ0aGlzICR7cmVkK2h9cmVkJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIGdyZWVuIHdvcmQiLCBDU3RyaXBmKCJ0aGlzICR7Z3JlZW4raH1ncmVlbiR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyB5ZWxsb3cgd29yZCIsIENTdHJpcGYoInRoaXMgJHt5ZWxsb3craH15ZWxsb3cke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgYmx1ZSB3b3JkIiwgQ1N0cmlwZigidGhpcyAke2JsdWUraH1ibHVlJHtyZXNldH0gd29yZCIpKQoJYXNzZXJ0LkVxdWFsKCJ0aGlzIG1hZ2VudGEgd29yZCIsIENTdHJpcGYoInRoaXMgJHttYWdlbnRhK2h9bWFnZW50YSR7cmVzZXR9IHdvcmQiKSkKCWFzc2VydC5FcXVhbCgidGhpcyBjeWFuIHdvcmQiLCBDU3RyaXBmKCJ0aGlzICR7Y3lhbitofWN5YW4ke3Jlc2V0fSB3b3JkIikpCglhc3NlcnQuRXF1YWwoInRoaXMgd2hpdGUgd29yZCIsIENTdHJpcGYoInRoaXMgJHt3aGl0ZStofXdoaXRlJHtyZXNldH0gd29yZCIpKQp9",
                         "IsPackageLevel": true
                     },
                     {
