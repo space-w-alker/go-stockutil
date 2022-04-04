@@ -117,7 +117,7 @@
                     
                     <ul class="nav navbar-nav navbar-right">
                         <li class="navbar-text">
-                            v1.10.11
+                            v1.10.12
                         </li>
                     </ul>
                     
@@ -141,7 +141,7 @@
 	</span>
 </div>
 
-<span class="pull-right">Doc Coverage: 49%</span>
+<span class="pull-right">Doc Coverage: 51%</span>
 <h2 id="pkg-overview">package pathutil</h2>
 
 <p>
@@ -301,6 +301,12 @@
 		</strong>
 	</li>
 	
+    <li>
+		<strong>
+		<a href="#MatchPath">func MatchPath(pattern string, path string) bool</a>
+		</strong>
+	</li>
+	
 
 	
 	
@@ -334,9 +340,9 @@
 			<a href="pathutil.go">pathutil.go</a>
 			
 		</td>
-		<td class="text-right">4KB</td>
-		<td class="text-right">125</td>
-		<td class="text-right">22</td>
+		<td class="text-right">5KB</td>
+		<td class="text-right">132</td>
+		<td class="text-right">23</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -348,8 +354,8 @@
 			<a href="pathutil_test.go">pathutil_test.go</a>
 			
 		</td>
-		<td class="text-right">1KB</td>
-		<td class="text-right">41</td>
+		<td class="text-right">3KB</td>
+		<td class="text-right">86</td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
 		<td class="text-right"></td>
@@ -639,6 +645,20 @@
 
 
 <p><p>Returns true if the given path exists and is a symbolic link.</p>
+</p>
+
+
+<h3 id="MatchPath" data-kind="f">
+	func <a title="View Source" href="">MatchPath</a>
+	<a class="permalink" href="#MatchPath">&#182;</a>
+</h3>
+<div class="funcdecl decl">
+	<a title="View Source" href="">&#10070;</a>
+	<pre>func MatchPath(pattern string, path string) bool</pre>
+</div>
+
+
+<p><p>Returns whether a given path matches a glob pattern.<br><br>via github.com/gobwas/glob:<br><br>Compile creates Glob for given pattern and strings (if any present after pattern) as separators.<br>The pattern syntax is:<br><br>   pattern:<br>       { term }<br><br>   term:<br>       <code>*</code>         matches any sequence of non-separator characters<br>       <code>**</code>        matches any sequence of characters<br>       <code>?</code>         matches any single non-separator character<br>       <code>[</code> [ <code>!</code> ] { character-range } <code>]</code><br>                   character class (must be non-empty)<br>       <code>{</code> pattern-list <code>}</code><br>                   pattern alternatives<br>       c           matches character c (c != <code>*</code>, <code>**</code>, <code>?</code>, <code>\</code>, <code>[</code>, <code>{</code>, <code>}</code>)<br>       <code>\</code> c       matches character c<br><br>   character-range:<br>       c           matches character c (c != <code>\\</code>, <code>-</code>, <code>]</code>)<br>       <code>\</code> c       matches character c<br>       lo <code>-</code> hi   matches character c for lo &lt;= c &lt;= hi<br><br>   pattern-list:<br>       pattern { <code>,</code> pattern }<br>                   comma-separated (without spaces) patterns</p>
 </p>
 
 

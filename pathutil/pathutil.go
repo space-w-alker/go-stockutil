@@ -7,7 +7,47 @@ import (
 	"os"
 	"os/user"
 	"strings"
+
+	"github.com/gobwas/glob"
 )
+
+// Returns whether a given path matches a glob pattern.
+//
+// via github.com/gobwas/glob:
+//
+// Compile creates Glob for given pattern and strings (if any present after pattern) as separators.
+// The pattern syntax is:
+//
+//    pattern:
+//        { term }
+//
+//    term:
+//        `*`         matches any sequence of non-separator characters
+//        `**`        matches any sequence of characters
+//        `?`         matches any single non-separator character
+//        `[` [ `!` ] { character-range } `]`
+//                    character class (must be non-empty)
+//        `{` pattern-list `}`
+//                    pattern alternatives
+//        c           matches character c (c != `*`, `**`, `?`, `\`, `[`, `{`, `}`)
+//        `\` c       matches character c
+//
+//    character-range:
+//        c           matches character c (c != `\\`, `-`, `]`)
+//        `\` c       matches character c
+//        lo `-` hi   matches character c for lo <= c <= hi
+//
+//    pattern-list:
+//        pattern { `,` pattern }
+//                    comma-separated (without spaces) patterns
+//
+func MatchPath(pattern string, path string) bool {
+	if g, err := glob.Compile(pattern); err == nil {
+		return g.Match(path)
+	}
+
+	return false
+}
 
 // ExpandUser replaces the tilde (~) in a path into the current user's home directory.
 func ExpandUser(path string) (string, error) {

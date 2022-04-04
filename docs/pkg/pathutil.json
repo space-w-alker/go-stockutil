@@ -6,19 +6,19 @@
     "URL": "https://github.com/ghetzel/go-stockutil",
     "Synopsis": "Additional helpers for working with file paths and filesystem information\n",
     "MainFunction": false,
-    "CommentWordCount": 174,
-    "LineCount": 227,
-    "SourceLineCount": 166,
-    "FunctionCount": 22,
+    "CommentWordCount": 353,
+    "LineCount": 313,
+    "SourceLineCount": 218,
+    "FunctionCount": 23,
     "TypeCount": 0,
     "ConstantCount": 0,
     "VariableCount": 0,
     "Statistics": {
-        "Mean": 0.4909,
-        "StdDev": 0.4926,
+        "Mean": 0.513,
+        "StdDev": 0.4928,
         "GeometricMean": 1,
         "HarmonicMean": 0,
-        "Median": 0.4,
+        "Median": 0.8,
         "Minimum": 0,
         "Maximum": 1
     },
@@ -45,12 +45,16 @@
                 {
                     "PackageName": "strings",
                     "Alias": "strings"
+                },
+                {
+                    "PackageName": "github.com/gobwas/glob",
+                    "Alias": "glob"
                 }
             ],
-            "Size": 3800,
-            "LineCount": 171,
-            "SourceLineCount": 125,
-            "FunctionCount": 22,
+            "Size": 5056,
+            "LineCount": 211,
+            "SourceLineCount": 132,
+            "FunctionCount": 23,
             "TypeCount": 0,
             "ConstantCount": 0,
             "VariableCount": 0
@@ -75,9 +79,9 @@
                     "Alias": "require"
                 }
             ],
-            "Size": 1169,
-            "LineCount": 56,
-            "SourceLineCount": 41,
+            "Size": 3388,
+            "LineCount": 102,
+            "SourceLineCount": 86,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -472,6 +476,28 @@
             "Signature": "LinkExists(path string) bool",
             "Source": "ewoJaWYgc3RhdCwgZXJyIDo9IG9zLlN0YXQocGF0aCk7IGVyciA9PSBuaWwgewoJCXJldHVybiBJc1N5bWxpbmsoc3RhdC5Nb2RlKCkpCgl9CglyZXR1cm4gZmFsc2UKfQ==",
             "IsPackageLevel": true
+        },
+        {
+            "Name": "MatchPath",
+            "Comment": "Returns whether a given path matches a glob pattern.\n\nvia github.com/gobwas/glob:\n\nCompile creates Glob for given pattern and strings (if any present after pattern) as separators.\nThe pattern syntax is:\n\n   pattern:\n       { term }\n\n   term:\n       `*`         matches any sequence of non-separator characters\n       `**`        matches any sequence of characters\n       `?`         matches any single non-separator character\n       `[` [ `!` ] { character-range } `]`\n                   character class (must be non-empty)\n       `{` pattern-list `}`\n                   pattern alternatives\n       c           matches character c (c != `*`, `**`, `?`, `\\`, `[`, `{`, `}`)\n       `\\` c       matches character c\n\n   character-range:\n       c           matches character c (c != `\\\\`, `-`, `]`)\n       `\\` c       matches character c\n       lo `-` hi   matches character c for lo \u003c= c \u003c= hi\n\n   pattern-list:\n       pattern { `,` pattern }\n                   comma-separated (without spaces) patterns",
+            "Arguments": [
+                {
+                    "Name": "pattern",
+                    "Type": "string"
+                },
+                {
+                    "Name": "path",
+                    "Type": "string"
+                }
+            ],
+            "Returns": [
+                {
+                    "Type": "bool"
+                }
+            ],
+            "Signature": "MatchPath(pattern string, path string) bool",
+            "Source": "ewoJaWYgZywgZXJyIDo9IGdsb2IuQ29tcGlsZShwYXR0ZXJuKTsgZXJyID09IG5pbCB7CgkJcmV0dXJuIGcuTWF0Y2gocGF0aCkKCX0KCXJldHVybiBmYWxzZQp9",
+            "IsPackageLevel": true
         }
     ],
     "Tests": [
@@ -485,6 +511,18 @@
             ],
             "Signature": "TestExpandUser(t *testing.T)",
             "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCgl2YXIgdiBzdHJpbmcKCXZhciBlcnIgZXJyb3IKCXUsIF8gOj0gdXNlci5DdXJyZW50KCkKCXYsIGVyciA9IEV4cGFuZFVzZXIoYC9kZXYvbnVsbGApCglhc3NlcnQuRXF1YWwodiwgYC9kZXYvbnVsbGApCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoYH5gKQoJYXNzZXJ0LkVxdWFsKHYsIHUuSG9tZURpcikKCWFzc2VydC5OaWwoZXJyKQoJdiwgZXJyID0gRXhwYW5kVXNlcigifiIgKyB1Lk5hbWUpCglhc3NlcnQuRXF1YWwodiwgdS5Ib21lRGlyKQoJYXNzZXJ0Lk5pbChlcnIpCgl2LCBlcnIgPSBFeHBhbmRVc2VyKCJ+L3Rlc3QtMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMyIpCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoIn4iICsgdS5OYW1lICsgIi90ZXN0LTEyMyIpCglhc3NlcnQuRXF1YWwodiwgdS5Ib21lRGlyKyIvdGVzdC0xMjMiKQoJYXNzZXJ0Lk5pbChlcnIpCgl2LCBlcnIgPSBFeHBhbmRVc2VyKCJ+L3Rlc3QtMTIzL34vMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMy9+LzEyMyIpCglhc3NlcnQuTmlsKGVycikKCXYsIGVyciA9IEV4cGFuZFVzZXIoIn4iICsgdS5OYW1lICsgIi90ZXN0LTEyMy9+IiArIHUuTmFtZSArICIvMTIzIikKCWFzc2VydC5FcXVhbCh2LCB1LkhvbWVEaXIrIi90ZXN0LTEyMy9+Iit1Lk5hbWUrIi8xMjMiKQoJYXNzZXJ0Lk5pbChlcnIpCglhc3NlcnQuRmFsc2UoSXNOb25lbXB0eUZpbGUoYC9ub25leGlzdGVudC50eHRgKSkKCWFzc2VydC5GYWxzZShJc05vbmVtcHR5RGlyKGAvbm9uZXhpc3RlbnQvZGlyYCkpCglhc3NlcnQuVHJ1ZShJc05vbmVtcHR5RmlsZShgL2V0Yy9ob3N0c2ApKQoJYXNzZXJ0LlRydWUoSXNOb25lbXB0eURpcihgL2V0Y2ApKQoJeCwgZXJyIDo9IG9zLkV4ZWN1dGFibGUoKQoJYXNzZXJ0Lk5vRXJyb3IoZXJyKQoJYXNzZXJ0LlRydWUoSXNOb25lbXB0eUV4ZWN1dGFibGVGaWxlKHgpKQp9",
+            "IsPackageLevel": true
+        },
+        {
+            "Name": "TestMatchPath",
+            "Arguments": [
+                {
+                    "Name": "t",
+                    "Type": "*testing.T"
+                }
+            ],
+            "Signature": "TestMatchPath(t *testing.T)",
+            "Source": "ewoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aChgKipgLCBgL2hlbGxvL3RoZXJlLnR4dGApKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aChgKi50eHRgLCBgL2hlbGxvL3RoZXJlLnR4dGApKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aChgKiovKi50eHRgLCBgL2hlbGxvL3RoZXJlLnR4dGApKQoJcmVxdWlyZS5GYWxzZSh0LCBNYXRjaFBhdGgoYCoqLyoudHh0YCwgYC9oZWxsby90aGVyZS5qcGdgKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoIiogP2F0ICogZXllcyIsICJteSBjYXQgaGFzIHZlcnkgYnJpZ2h0IGV5ZXMiKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoIiIsICIiKSkKCXJlcXVpcmUuRmFsc2UodCwgTWF0Y2hQYXRoKCIiLCAiYiIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgiKsOkIiwgIsOlw6QiKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoImFiYyIsICJhYmMiKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoImEqYyIsICJhYmMiKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoImEqYyIsICJhMTIzNDVjIikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCJhP2MiLCAiYTFjIikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCI/YXQiLCAiY2F0IikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCI/YXQiLCAiZmF0IikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCIqIiwgImFiYyIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aChgXCpgLCAiKiIpKQoJcmVxdWlyZS5GYWxzZSh0LCBNYXRjaFBhdGgoIj9hdCIsICJhdCIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgiKnRlc3QiLCAidGhpcyBpcyBhIHRlc3QiKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoInRoaXMqIiwgInRoaXMgaXMgYSB0ZXN0IikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCIqaXMgKiIsICJ0aGlzIGlzIGEgdGVzdCIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgiKmlzKmEqIiwgInRoaXMgaXMgYSB0ZXN0IikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCIqKnRlc3QqKiIsICJ0aGlzIGlzIGEgdGVzdCIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgiKippcyoqYSoqKnRlc3QqIiwgInRoaXMgaXMgYSB0ZXN0IikpCglyZXF1aXJlLkZhbHNlKHQsIE1hdGNoUGF0aCgiKmlzIiwgInRoaXMgaXMgYSB0ZXN0IikpCglyZXF1aXJlLkZhbHNlKHQsIE1hdGNoUGF0aCgiKm5vKiIsICJ0aGlzIGlzIGEgdGVzdCIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgiWyFhXSoiLCAidGhpcyBpcyBhIHRlc3QzIikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCIqYWJjIiwgImFiY2FiYyIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgiKiphYmMiLCAiYWJjYWJjIikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCI/Pz8iLCAiYWJjIikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCI/Kj8iLCAiYWJjIikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCI/Kj8iLCAiYWMiKSkKCXJlcXVpcmUuRmFsc2UodCwgTWF0Y2hQYXRoKCJzdGEiLCAic3RhZ25hdGlvbiIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgic3RhKiIsICJzdGFnbmF0aW9uIikpCglyZXF1aXJlLkZhbHNlKHQsIE1hdGNoUGF0aCgic3RhPyIsICJzdGFnbmF0aW9uIikpCglyZXF1aXJlLkZhbHNlKHQsIE1hdGNoUGF0aCgic3RhP24iLCAic3RhZ25hdGlvbiIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgie2FiYyxkZWZ9Z2hpIiwgImRlZmdoaSIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgie2FiYyxhYmNkfWEiLCAiYWJjZGEiKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoInthLGFifXtiYyxmfSIsICJhYmMiKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoInsqLCoqfXthLGJ9IiwgImFiIikpCglyZXF1aXJlLkZhbHNlKHQsIE1hdGNoUGF0aCgieyosKip9e2EsYn0iLCAiYWMiKSkKCXJlcXVpcmUuVHJ1ZSh0LCBNYXRjaFBhdGgoIi97cmF0ZSxbYS16XVthLXpdW2Etel19KiIsICIvcmF0ZSIpKQoJcmVxdWlyZS5UcnVlKHQsIE1hdGNoUGF0aCgiL3tyYXRlLFswLTldWzAtOV1bMC05XX0qIiwgIi9yYXRlIikpCglyZXF1aXJlLlRydWUodCwgTWF0Y2hQYXRoKCIve3JhdGUsW2Etel1bYS16XVthLXpdfSoiLCAiL3VzZCIpKQp9",
             "IsPackageLevel": true
         }
     ]
