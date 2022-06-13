@@ -123,10 +123,6 @@
                     "Alias": "testing"
                 },
                 {
-                    "PackageName": "github.com/alecthomas/assert",
-                    "Alias": "assert"
-                },
-                {
                     "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
                     "Alias": "fileutil"
                 },
@@ -139,11 +135,15 @@
                     "Alias": "typeutil"
                 },
                 {
+                    "PackageName": "github.com/ghetzel/testify/assert",
+                    "Alias": "assert"
+                },
+                {
                     "PackageName": "github.com/ghetzel/testify/require",
                     "Alias": "require"
                 }
             ],
-            "Size": 5742,
+            "Size": 5747,
             "LineCount": 226,
             "SourceLineCount": 173,
             "FunctionCount": 0,

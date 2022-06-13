@@ -7,8 +7,8 @@
     "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
     "MainFunction": false,
     "CommentWordCount": 1441,
-    "LineCount": 4585,
-    "SourceLineCount": 3506,
+    "LineCount": 4601,
+    "SourceLineCount": 3517,
     "FunctionCount": 82,
     "TypeCount": 14,
     "ConstantCount": 1,
@@ -319,9 +319,9 @@
                     "Alias": "utilutil"
                 }
             ],
-            "Size": 15798,
-            "LineCount": 663,
-            "SourceLineCount": 479,
+            "Size": 15971,
+            "LineCount": 679,
+            "SourceLineCount": 490,
             "FunctionCount": 45,
             "TypeCount": 6,
             "ConstantCount": 0,
@@ -447,7 +447,7 @@
                     "Alias": "mapstructure"
                 }
             ],
-            "Size": 28052,
+            "Size": 28066,
             "LineCount": 1086,
             "SourceLineCount": 795,
             "FunctionCount": 37,
@@ -1019,7 +1019,7 @@
                 }
             ],
             "Signature": "Keys(input interface{}) []interface{}",
-            "Source": "ewoJa2V5cyA6PSBtYWtlKFtdaW50ZXJmYWNle30sIDApCglpbnB1dCA9IHR5cGV1dGlsLlJlc29sdmVWYWx1ZShpbnB1dCkKCWlmIGlucHV0ID09IG5pbCB7CgkJcmV0dXJuIGtleXMKCX0KCWlucHV0ViA6PSByZWZsZWN0LlZhbHVlT2YoaW5wdXQpCglpZiBpbnB1dFYuS2luZCgpID09IHJlZmxlY3QuTWFwIHsKCQlrZXlzViA6PSBpbnB1dFYuTWFwS2V5cygpCgkJZm9yIF8sIGtleVYgOj0gcmFuZ2Uga2V5c1YgewoJCQlrZXlzID0gYXBwZW5kKGtleXMsIGtleVYpCgkJfQoJfSBlbHNlIGlmIHN5bmNNYXAsIG9rIDo9IGlucHV0LihzeW5jLk1hcCk7IG9rIHsKCQlzeW5jTWFwLlJhbmdlKGZ1bmMoa2V5IGludGVyZmFjZXt9LCBfIGludGVyZmFjZXt9KSBib29sIHsKCQkJa2V5cyA9IGFwcGVuZChrZXlzLCBrZXkpCgkJCXJldHVybiB0cnVlCgkJfSkKCX0KCXJldHVybiBrZXlzCn0=",
+            "Source": "ewoJdmFyIGtleXMgPSBtYWtlKFtdaW50ZXJmYWNle30sIDApCgl2YXIgcmlucHV0ID0gdHlwZXV0aWwuUmVzb2x2ZVZhbHVlKGlucHV0KQoJaWYgcmlucHV0ID09IG5pbCB7CgkJcmV0dXJuIGtleXMKCX0KCXZhciBpbnB1dFYgPSByZWZsZWN0LlZhbHVlT2YocmlucHV0KQoJaWYgaW5wdXRWLktpbmQoKSA9PSByZWZsZWN0Lk1hcCB7CgkJa2V5c1YgOj0gaW5wdXRWLk1hcEtleXMoKQoJCWZvciBfLCBrZXlWIDo9IHJhbmdlIGtleXNWIHsKCQkJa2V5cyA9IGFwcGVuZChrZXlzLCBrZXlWKQoJCX0KCX0gZWxzZSBpZiBzeW5jTWFwLCBvayA6PSBpbnB1dC4oKnN5bmMuTWFwKTsgb2sgewoJCXN5bmNNYXAuUmFuZ2UoZnVuYyhrZXkgaW50ZXJmYWNle30sIF8gaW50ZXJmYWNle30pIGJvb2wgewoJCQlrZXlzID0gYXBwZW5kKGtleXMsIGtleSkKCQkJcmV0dXJuIHRydWUKCQl9KQoJfQoJcmV0dXJuIGtleXMKfQ==",
             "IsPackageLevel": true
         },
         {

@@ -59,7 +59,7 @@ type Map struct {
 	rootTagName       string
 	xmlMarshalGeneric bool
 	xmlKeyTransformFn KeyTransformFunc
-	atomic            sync.Mutex
+	atomic            *sync.Mutex
 }
 
 func NewMap() *Map {
@@ -156,6 +156,22 @@ func (self *Map) Delete(key string) {
 	Delete(self.data, key)
 }
 
+// internal: acquire write lock
+func (self *Map) lock() {
+	if self.atomic == nil {
+		self.atomic = new(sync.Mutex)
+	}
+
+	self.atomic.Lock()
+}
+
+// internal: release write lock
+func (self *Map) unlock() {
+	if self.atomic != nil {
+		self.atomic.Unlock()
+	}
+}
+
 // internal: unlocked implementation of set()
 func (self *Map) set(key string, value interface{}) typeutil.Variant {
 	var vv = typeutil.V(value)
@@ -166,8 +182,8 @@ func (self *Map) set(key string, value interface{}) typeutil.Variant {
 
 // Set a value in the Map at the given dot.separated key to a value.
 func (self *Map) Set(key string, value interface{}) typeutil.Variant {
-	self.atomic.Lock()
-	defer self.atomic.Unlock()
+	self.lock()
+	defer self.unlock()
 
 	return self.set(key, value)
 }
@@ -176,8 +192,8 @@ func (self *Map) Set(key string, value interface{}) typeutil.Variant {
 // other modifications for the duration of the function's execution.
 func (self *Map) SetFunc(key string, vfunc MapSetFunc) typeutil.Variant {
 	if vfunc != nil {
-		self.atomic.Lock()
-		defer self.atomic.Unlock()
+		self.lock()
+		defer self.unlock()
 
 		return self.set(key, vfunc(self, key))
 	}
@@ -188,8 +204,8 @@ func (self *Map) SetFunc(key string, vfunc MapSetFunc) typeutil.Variant {
 // Set a value in the Map at the given dot.separated key to a value, but only if the
 // current value at that key is that type's zero value.
 func (self *Map) SetIfZero(key string, value interface{}) (typeutil.Variant, bool) {
-	self.atomic.Lock()
-	defer self.atomic.Unlock()
+	self.lock()
+	defer self.unlock()
 
 	if v := self.Get(key); v.IsZero() {
 		return self.set(key, value), true
@@ -201,8 +217,8 @@ func (self *Map) SetIfZero(key string, value interface{}) (typeutil.Variant, boo
 // Set a value in the Map at the given dot.separated key to a value, but only if the
 // new value is not a zero value.
 func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Variant, bool) {
-	self.atomic.Lock()
-	defer self.atomic.Unlock()
+	self.lock()
+	defer self.unlock()
 
 	if !typeutil.IsZero(value) {
 		return self.set(key, value), true
@@ -213,8 +229,8 @@ func (self *Map) SetValueIfNonZero(key string, value interface{}) (typeutil.Vari
 
 // Copy the items from a map into this one.
 func (self *Map) Merge(other interface{}) int {
-	self.atomic.Lock()
-	defer self.atomic.Unlock()
+	self.lock()
+	defer self.unlock()
 
 	var count int
 
@@ -228,8 +244,8 @@ func (self *Map) Merge(other interface{}) int {
 
 // Reject all nil values from the map.
 func (self *Map) Compact() *Map {
-	self.atomic.Lock()
-	defer self.atomic.Unlock()
+	self.lock()
+	defer self.unlock()
 
 	var d = self.MapNative()
 

@@ -25,7 +25,7 @@
                 "Mean": 0.8074,
                 "StdDev": 0.3867,
                 "GeometricMean": 1,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 1,
                 "Minimum": 0,
                 "Maximum": 1
@@ -75,7 +75,7 @@
                 "Mean": 0.5229,
                 "StdDev": 0.4864,
                 "GeometricMean": 0,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 0.8,
                 "Minimum": 0,
                 "Maximum": 1
@@ -175,7 +175,7 @@
                 "Mean": 0.2519,
                 "StdDev": 0.4278,
                 "GeometricMean": 0,
-                "HarmonicMean": 1,
+                "HarmonicMean": 0,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -190,8 +190,8 @@
             "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
             "MainFunction": false,
             "CommentWordCount": 1441,
-            "LineCount": 4585,
-            "SourceLineCount": 3506,
+            "LineCount": 4601,
+            "SourceLineCount": 3517,
             "FunctionCount": 82,
             "TypeCount": 14,
             "ConstantCount": 1,
@@ -225,7 +225,7 @@
                 "Mean": 0.1667,
                 "StdDev": 0.3727,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -241,7 +241,7 @@
             "MainFunction": false,
             "CommentWordCount": 461,
             "LineCount": 737,
-            "SourceLineCount": 518,
+            "SourceLineCount": 505,
             "FunctionCount": 22,
             "TypeCount": 4,
             "ConstantCount": 0,
@@ -300,7 +300,7 @@
                 "Mean": 0.3545,
                 "StdDev": 0.4707,
                 "GeometricMean": 0,
-                "HarmonicMean": 0,
+                "HarmonicMean": 1,
                 "Median": 0,
                 "Minimum": 0,
                 "Maximum": 1
@@ -546,7 +546,7 @@
                     "Mean": 0.8074,
                     "StdDev": 0.3867,
                     "GeometricMean": 1,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 1,
                     "Minimum": 0,
                     "Maximum": 1
@@ -787,6 +787,25 @@
                         ],
                         "Signature": "HsvToRgb(hue float64, saturation float64, value float64) (uint8, uint8, uint8)",
                         "Source": "ewoJciwgZywgYiA6PSBoc3YycmdiKGh1ZSwgc2F0dXJhdGlvbiwgdmFsdWUpCglyZXR1cm4gdWludDgociAqIDI1NS4wKSwgdWludDgoZyAqIDI1NS4wKSwgdWludDgoYiAqIDI1NS4wKQp9",
+                        "IsPackageLevel": true
+                    },
+                    {
+                        "Name": "KelvinToColor",
+                        "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
+                        "Arguments": [
+                            {
+                                "Name": "kelvin",
+                                "Type": "int"
+                            }
+                        ],
+                        "Returns": [
+                            {
+                                "Name": "color",
+                                "Type": "Color"
+                            }
+                        ],
+                        "Signature": "KelvinToColor(kelvin int) color Color",
+                        "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                         "IsPackageLevel": true
                     },
                     {
@@ -1363,25 +1382,6 @@
                                 ],
                                 "Signature": "Mix(first interface{}, second interface{}) (Color, error)",
                                 "Source": "ewoJcmV0dXJuIE1peE4oZmlyc3QsIHNlY29uZCwgMC41KQp9",
-                                "IsPackageLevel": true
-                            },
-                            {
-                                "Name": "KelvinToColor",
-                                "Comment": "Takes a color temperature in degrees Kelvin and returns a valid Color for that temperature.\nThis function works best between 1000K and 40000K.",
-                                "Arguments": [
-                                    {
-                                        "Name": "kelvin",
-                                        "Type": "int"
-                                    }
-                                ],
-                                "Returns": [
-                                    {
-                                        "Name": "color",
-                                        "Type": "Color"
-                                    }
-                                ],
-                                "Signature": "KelvinToColor(kelvin int) color Color",
-                                "Source": "ewoJY29sb3IuYSA9IDEuMAoJdmFyIHJBLCByQiwgckMsIHJYIGZsb2F0NjQKCXZhciBnMUEsIGcxQiwgZzFDLCBnMVggZmxvYXQ2NAoJdmFyIGcyQSwgZzJCLCBnMkMsIGcyWCBmbG9hdDY0Cgl2YXIgYkEsIGJCLCBiQywgYlggZmxvYXQ2NAoJckEgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRBCglyQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX1JlZEIKCXJDID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfUmVkQwoJclggPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19SZWRYCglnMUEgPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuQQoJZzFCID0gaGVsbGFuZEJhcnRsZXR0VW5kZXI2NjAwS19HcmVlbkIKCWcxQyA9IGhlbGxhbmRCYXJ0bGV0dFVuZGVyNjYwMEtfR3JlZW5DCglnMVggPSBoZWxsYW5kQmFydGxldHRVbmRlcjY2MDBLX0dyZWVuWAoJZzJBID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5BCglnMkIgPSBoZWxsYW5kQmFydGxldHRPdmVyRXE2NjAwS19HcmVlbkIKCWcyQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXJFcTY2MDBLX0dyZWVuQwoJZzJYID0gaGVsbGFuZEJhcnRsZXR0T3ZlckVxNjYwMEtfR3JlZW5YCgliQSA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVBCgliQiA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVCCgliQyA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVDCgliWCA9IGhlbGxhbmRCYXJ0bGV0dE92ZXIyMDAwS19VbmRlcjY2MDBLX0JsdWVYCgl0ZW1wIDo9IGZsb2F0NjQoa2VsdmluKSAvIDEwMC4wCglpZiB0ZW1wIDwgNjYgewoJCWNvbG9yLnIgPSAxLjAKCX0gZWxzZSB7CgkJeCA6PSAodGVtcCArIHJYKQoJCXIyNTUgOj0gKHJBICsgKHJCICogeCkgKyAockMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgcjI1NSA8IDAgewoJCQlyMjU1ID0gMAoJCX0gZWxzZSBpZiByMjU1ID4gMjU1IHsKCQkJcjI1NSA9IDI1NQoJCX0KCQljb2xvci5yID0gcjI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8IDY2IHsKCQl4IDo9ICh0ZW1wICsgZzFYKQoJCWcyNTUgOj0gKGcxQSArIChnMUIgKiB4KSArIChnMUMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfSBlbHNlIHsKCQl4IDo9ICh0ZW1wICsgZzJYKQoJCWcyNTUgOj0gKGcyQSArIChnMkIgKiB4KSArIChnMkMgKiBtYXRoLkxvZyh4KSkpCgkJaWYgZzI1NSA8IDAgewoJCQlnMjU1ID0gMAoJCX0gZWxzZSBpZiBnMjU1ID4gMjU1IHsKCQkJZzI1NSA9IDI1NQoJCX0KCQljb2xvci5nID0gZzI1NSAvIDI1NQoJfQoJaWYgdGVtcCA8PSAyMCB7CgkJY29sb3IuYiA9IDAKCX0gZWxzZSBpZiB0ZW1wID49IDY2IHsKCQljb2xvci5iID0gMS4wCgl9IGVsc2UgewoJCXggOj0gKHRlbXAgKyBiWCkKCQliMjU1IDo9IChiQSArIChiQiAqIHgpICsgKGJDICogbWF0aC5Mb2coeCkpKQoJCWlmIGIyNTUgPCAwIHsKCQkJYjI1NSA9IDAKCQl9IGVsc2UgaWYgYjI1NSA+IDI1NSB7CgkJCWIyNTUgPSAyNTUKCQl9CgkJY29sb3IuYiA9IGIyNTUgLyAyNTUKCX0KCXJldHVybgp9",
                                 "IsPackageLevel": true
                             }
                         ],
@@ -2105,7 +2105,7 @@
                     "Mean": 0.5229,
                     "StdDev": 0.4864,
                     "GeometricMean": 0,
-                    "HarmonicMean": 1,
+                    "HarmonicMean": 0,
                     "Median": 0.8,
                     "Minimum": 0,
                     "Maximum": 1
@@ -9057,10 +9057,6 @@
                                 "Alias": "testing"
                             },
                             {
-                                "PackageName": "github.com/alecthomas/assert",
-                                "Alias": "assert"
-                            },
-                            {
                                 "PackageName": "github.com/ghetzel/go-stockutil/fileutil",
                                 "Alias": "fileutil"
                             },
@@ -9073,11 +9069,15 @@
                                 "Alias": "typeutil"
                             },
                             {
+                                "PackageName": "github.com/ghetzel/testify/assert",
+                                "Alias": "assert"
+                            },
+                            {
                                 "PackageName": "github.com/ghetzel/testify/require",
                                 "Alias": "require"
                             }
                         ],
-                        "Size": 5742,
+                        "Size": 5747,
                         "LineCount": 226,
                         "SourceLineCount": 173,
                         "FunctionCount": 0,
@@ -11629,7 +11629,7 @@
                     "Mean": 0.2519,
                     "StdDev": 0.4278,
                     "GeometricMean": 0,
-                    "HarmonicMean": 1,
+                    "HarmonicMean": 0,
                     "Median": 0,
                     "Minimum": 0,
                     "Maximum": 1
@@ -13040,8 +13040,8 @@
                 "Synopsis": "Utilities for converting, manipulating, and iterating over maps\n",
                 "MainFunction": false,
                 "CommentWordCount": 1441,
-                "LineCount": 4585,
-                "SourceLineCount": 3506,
+                "LineCount": 4601,
+                "SourceLineCount": 3517,
                 "FunctionCount": 82,
                 "TypeCount": 14,
                 "ConstantCount": 1,
@@ -13352,9 +13352,9 @@
                                 "Alias": "utilutil"
                             }
                         ],
-                        "Size": 15798,
-                        "LineCount": 663,
-                        "SourceLineCount": 479,
+                        "Size": 15971,
+                        "LineCount": 679,
+                        "SourceLineCount": 490,
                         "FunctionCount": 45,
                         "TypeCount": 6,
                         "ConstantCount": 0,
@@ -13480,7 +13480,7 @@
                                 "Alias": "mapstructure"
                             }
                         ],
-                        "Size": 28052,
+                        "Size": 28066,
                         "LineCount": 1086,
                         "SourceLineCount": 795,
                         "FunctionCount": 37,
@@ -14052,7 +14052,7 @@
                             }
                         ],
                         "Signature": "Keys(input interface{}) []interface{}",
-                        "Source": "ewoJa2V5cyA6PSBtYWtlKFtdaW50ZXJmYWNle30sIDApCglpbnB1dCA9IHR5cGV1dGlsLlJlc29sdmVWYWx1ZShpbnB1dCkKCWlmIGlucHV0ID09IG5pbCB7CgkJcmV0dXJuIGtleXMKCX0KCWlucHV0ViA6PSByZWZsZWN0LlZhbHVlT2YoaW5wdXQpCglpZiBpbnB1dFYuS2luZCgpID09IHJlZmxlY3QuTWFwIHsKCQlrZXlzViA6PSBpbnB1dFYuTWFwS2V5cygpCgkJZm9yIF8sIGtleVYgOj0gcmFuZ2Uga2V5c1YgewoJCQlrZXlzID0gYXBwZW5kKGtleXMsIGtleVYpCgkJfQoJfSBlbHNlIGlmIHN5bmNNYXAsIG9rIDo9IGlucHV0LihzeW5jLk1hcCk7IG9rIHsKCQlzeW5jTWFwLlJhbmdlKGZ1bmMoa2V5IGludGVyZmFjZXt9LCBfIGludGVyZmFjZXt9KSBib29sIHsKCQkJa2V5cyA9IGFwcGVuZChrZXlzLCBrZXkpCgkJCXJldHVybiB0cnVlCgkJfSkKCX0KCXJldHVybiBrZXlzCn0=",
+                        "Source": "ewoJdmFyIGtleXMgPSBtYWtlKFtdaW50ZXJmYWNle30sIDApCgl2YXIgcmlucHV0ID0gdHlwZXV0aWwuUmVzb2x2ZVZhbHVlKGlucHV0KQoJaWYgcmlucHV0ID09IG5pbCB7CgkJcmV0dXJuIGtleXMKCX0KCXZhciBpbnB1dFYgPSByZWZsZWN0LlZhbHVlT2YocmlucHV0KQoJaWYgaW5wdXRWLktpbmQoKSA9PSByZWZsZWN0Lk1hcCB7CgkJa2V5c1YgOj0gaW5wdXRWLk1hcEtleXMoKQoJCWZvciBfLCBrZXlWIDo9IHJhbmdlIGtleXNWIHsKCQkJa2V5cyA9IGFwcGVuZChrZXlzLCBrZXlWKQoJCX0KCX0gZWxzZSBpZiBzeW5jTWFwLCBvayA6PSBpbnB1dC4oKnN5bmMuTWFwKTsgb2sgewoJCXN5bmNNYXAuUmFuZ2UoZnVuYyhrZXkgaW50ZXJmYWNle30sIF8gaW50ZXJmYWNle30pIGJvb2wgewoJCQlrZXlzID0gYXBwZW5kKGtleXMsIGtleSkKCQkJcmV0dXJuIHRydWUKCQl9KQoJfQoJcmV0dXJuIGtleXMKfQ==",
                         "IsPackageLevel": true
                     },
                     {
@@ -16296,7 +16296,7 @@
                     "Mean": 0.1667,
                     "StdDev": 0.3727,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 0,
                     "Minimum": 0,
                     "Maximum": 1
@@ -16533,7 +16533,7 @@
                 "MainFunction": false,
                 "CommentWordCount": 461,
                 "LineCount": 737,
-                "SourceLineCount": 518,
+                "SourceLineCount": 505,
                 "FunctionCount": 22,
                 "TypeCount": 4,
                 "ConstantCount": 0,
@@ -16718,27 +16718,9 @@
                     },
                     {
                         "Name": "netutil_test.go",
-                        "Imports": [
-                            {
-                                "PackageName": "os/exec",
-                                "Alias": "exec"
-                            },
-                            {
-                                "PackageName": "strings",
-                                "Alias": "strings"
-                            },
-                            {
-                                "PackageName": "testing",
-                                "Alias": "testing"
-                            },
-                            {
-                                "PackageName": "github.com/ghetzel/testify/require",
-                                "Alias": "require"
-                            }
-                        ],
-                        "Size": 1702,
+                        "Size": 1741,
                         "LineCount": 63,
-                        "SourceLineCount": 14,
+                        "SourceLineCount": 1,
                         "FunctionCount": 0,
                         "TypeCount": 0,
                         "ConstantCount": 0,
@@ -17133,20 +17115,6 @@
                         "Comment": "Unregister all Multicast DNS services.",
                         "Signature": "ZeroconfUnregisterAll()",
                         "Source": "ewoJcmVnaXN0ZXJlZC5SYW5nZShmdW5jKGtleSwgdmFsdWUgaW50ZXJmYWNle30pIGJvb2wgewoJCVplcm9jb25mVW5yZWdpc3Rlcih0eXBldXRpbC5TdHJpbmcoa2V5KSkKCQlyZXR1cm4gdHJ1ZQoJfSkKfQ==",
-                        "IsPackageLevel": true
-                    }
-                ],
-                "Tests": [
-                    {
-                        "Name": "TestFQDN",
-                        "Arguments": [
-                            {
-                                "Name": "t",
-                                "Type": "*testing.T"
-                            }
-                        ],
-                        "Signature": "TestFQDN(t *testing.T)",
-                        "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCXZhciB3YW50ID0gc3RyaW5ncy5UcmltU3BhY2Uoc3RyaW5nKHN5cykpCglhc3NlcnQuRXF1YWwod2FudCwgRlFETigpKQp9",
                         "IsPackageLevel": true
                     }
                 ],
@@ -17858,7 +17826,7 @@
                     "Mean": 0.3545,
                     "StdDev": 0.4707,
                     "GeometricMean": 0,
-                    "HarmonicMean": 0,
+                    "HarmonicMean": 1,
                     "Median": 0,
                     "Minimum": 0,
                     "Maximum": 1

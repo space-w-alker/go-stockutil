@@ -51,14 +51,14 @@ func (self MergeOptions) Has(option MergeOption) bool {
 
 // Return an interface slice of the keys of the given map.
 func Keys(input interface{}) []interface{} {
-	keys := make([]interface{}, 0)
-	input = typeutil.ResolveValue(input)
+	var keys = make([]interface{}, 0)
+	var rinput = typeutil.ResolveValue(input)
 
-	if input == nil {
+	if rinput == nil {
 		return keys
 	}
 
-	inputV := reflect.ValueOf(input)
+	var inputV = reflect.ValueOf(rinput)
 
 	if inputV.Kind() == reflect.Map {
 		keysV := inputV.MapKeys()
@@ -66,7 +66,7 @@ func Keys(input interface{}) []interface{} {
 		for _, keyV := range keysV {
 			keys = append(keys, keyV)
 		}
-	} else if syncMap, ok := input.(sync.Map); ok {
+	} else if syncMap, ok := input.(*sync.Map); ok {
 		syncMap.Range(func(key interface{}, _ interface{}) bool {
 			keys = append(keys, key)
 			return true

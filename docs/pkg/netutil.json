@@ -8,7 +8,7 @@
     "MainFunction": false,
     "CommentWordCount": 461,
     "LineCount": 737,
-    "SourceLineCount": 518,
+    "SourceLineCount": 505,
     "FunctionCount": 22,
     "TypeCount": 4,
     "ConstantCount": 0,
@@ -193,27 +193,9 @@
         },
         {
             "Name": "netutil_test.go",
-            "Imports": [
-                {
-                    "PackageName": "os/exec",
-                    "Alias": "exec"
-                },
-                {
-                    "PackageName": "strings",
-                    "Alias": "strings"
-                },
-                {
-                    "PackageName": "testing",
-                    "Alias": "testing"
-                },
-                {
-                    "PackageName": "github.com/ghetzel/testify/require",
-                    "Alias": "require"
-                }
-            ],
-            "Size": 1702,
+            "Size": 1741,
             "LineCount": 63,
-            "SourceLineCount": 14,
+            "SourceLineCount": 1,
             "FunctionCount": 0,
             "TypeCount": 0,
             "ConstantCount": 0,
@@ -608,20 +590,6 @@
             "Comment": "Unregister all Multicast DNS services.",
             "Signature": "ZeroconfUnregisterAll()",
             "Source": "ewoJcmVnaXN0ZXJlZC5SYW5nZShmdW5jKGtleSwgdmFsdWUgaW50ZXJmYWNle30pIGJvb2wgewoJCVplcm9jb25mVW5yZWdpc3Rlcih0eXBldXRpbC5TdHJpbmcoa2V5KSkKCQlyZXR1cm4gdHJ1ZQoJfSkKfQ==",
-            "IsPackageLevel": true
-        }
-    ],
-    "Tests": [
-        {
-            "Name": "TestFQDN",
-            "Arguments": [
-                {
-                    "Name": "t",
-                    "Type": "*testing.T"
-                }
-            ],
-            "Signature": "TestFQDN(t *testing.T)",
-            "Source": "ewoJYXNzZXJ0IDo9IHJlcXVpcmUuTmV3KHQpCglzeXMsIGVyciA6PSBleGVjLkNvbW1hbmQoYGhvc3RuYW1lYCwgYC1mYCkuT3V0cHV0KCkKCWFzc2VydC5Ob0Vycm9yKGVycikKCXZhciB3YW50ID0gc3RyaW5ncy5UcmltU3BhY2Uoc3RyaW5nKHN5cykpCglhc3NlcnQuRXF1YWwod2FudCwgRlFETigpKQp9",
             "IsPackageLevel": true
         }
     ],

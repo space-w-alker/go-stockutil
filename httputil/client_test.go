@@ -8,10 +8,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/alecthomas/assert"
 	"github.com/ghetzel/go-stockutil/fileutil"
 	"github.com/ghetzel/go-stockutil/stringutil"
 	"github.com/ghetzel/go-stockutil/typeutil"
+	"github.com/ghetzel/testify/assert"
 	"github.com/ghetzel/testify/require"
 )
 

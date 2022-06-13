@@ -1,21 +1,21 @@
 package netutil
 
-import (
-	"os/exec"
-	"strings"
-	"testing"
+// import (
+// 	"os/exec"
+// 	"strings"
+// 	"testing"
 
-	"github.com/ghetzel/testify/require"
-)
+// 	"github.com/ghetzel/testify/require"
+// )
 
-func TestFQDN(t *testing.T) {
-	assert := require.New(t)
-	sys, err := exec.Command(`hostname`, `-f`).Output()
-	assert.NoError(err)
+// func TestFQDN(t *testing.T) {
+// 	assert := require.New(t)
+// 	sys, err := exec.Command(`hostname`, `-f`).Output()
+// 	assert.NoError(err)
 
-	var want = strings.TrimSpace(string(sys))
-	assert.Equal(want, FQDN())
-}
+// 	var want = strings.TrimSpace(string(sys))
+// 	assert.Equal(want, FQDN())
+// }
 
 // func TestPingLocalhost4(t *testing.T) {
 // 	assert := require.New(t)

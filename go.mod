@@ -4,14 +4,8 @@ go 1.17
 
 require (
 	github.com/gobwas/glob v0.2.3
-	k8s.io/apimachinery v0.23.5
-	k8s.io/client-go v11.0.0+incompatible
-)
-
-replace (
-	k8s.io/api => k8s.io/api v0.19.1
-	k8s.io/apimachinery => k8s.io/apimachinery v0.19.1
-	k8s.io/client-go => k8s.io/client-go v0.19.1
+	k8s.io/apimachinery v0.24.1
+	k8s.io/client-go v0.24.1
 )
 
 require (
@@ -67,5 +61,6 @@ require (
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/tools v0.1.10 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
-	gopkg.in/yaml.v2 v2.2.8 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
+	sigs.k8s.io/json v0.0.0-20211208200746-9f7c6b3444d2 // indirect
 )
