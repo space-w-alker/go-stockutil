@@ -185,6 +185,7 @@ func Parse(value interface{}) (Color, error) {
 	} else {
 		colorS := fmt.Sprintf("%v", value)
 		colorS = strings.TrimSpace(colorS)
+		colorS = strings.ToLower(colorS)
 
 		if c, ok := ColorNames[colorS]; ok && strings.TrimSpace(c) != `` {
 			colorS = c
