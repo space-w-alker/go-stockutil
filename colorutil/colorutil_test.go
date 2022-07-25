@@ -365,3 +365,12 @@ func TestIsZero(t *testing.T) {
 
 	require.False(t, c.IsZero())
 }
+
+func TestColorNames(t *testing.T) {
+	require.True(t, MustParse(`red`).Equals(`#ff0000`))
+	require.True(t, MustParse(`green`).Equals(`#008000`))
+	require.True(t, MustParse(`blue`).Equals(`#0000ff`))
+
+	ColorNames[`_testing`] = `#123456`
+	require.True(t, MustParse(`_testing`).Equals(`#123456`))
+}

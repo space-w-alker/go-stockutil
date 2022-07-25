@@ -186,6 +186,10 @@ func Parse(value interface{}) (Color, error) {
 		colorS := fmt.Sprintf("%v", value)
 		colorS = strings.TrimSpace(colorS)
 
+		if c, ok := ColorNames[colorS]; ok && strings.TrimSpace(c) != `` {
+			colorS = c
+		}
+
 		if rgba := rxutil.Match(rgbaPattern, colorS); rgba != nil {
 			// handles rgb(), rgba() patterns
 			for v, factorS := range rgba.NamedCaptures() {
