@@ -355,3 +355,13 @@ func TestAdjustHue(t *testing.T) {
 	adjustHue(t, `#FF0000`, 240, `#0000FF`)
 	adjustHue(t, `#ad4038`, 20, `#ad6638`)
 }
+
+func TestIsZero(t *testing.T) {
+	var c Color
+
+	require.True(t, c.IsZero())
+
+	c = MustParse(`ff00cc`)
+
+	require.False(t, c.IsZero())
+}
