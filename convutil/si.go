@@ -10,31 +10,30 @@ import (
 type SIExponents int
 
 const (
-	Yotta SIExponents = 24
-	Zetta             = 21
-	Exa               = 18
-	Peta              = 15
-	Tera              = 12
-	Giga              = 9
-	Mega              = 6
-	Kilo              = 3
-	Hecto             = 2
-	Deca              = 1
-	Deci              = -1
-	Centi             = -2
-	Milli             = -3
-	Micro             = -6
-	Nano              = -9
-	Pico              = -12
-	Femto             = -15
-	Atto              = -18
-	Zepto             = -21
-	Yocto             = -24
-	// Approved at General Conference on Weights and Measures (CGPM) 2022
-	Ronna  = 27
-	Quetta = 30
-	Ronto  = -27
-	Quecto = -30
+	Quetta SIExponents = 30
+	Ronna              = 27
+	Yotta              = 24
+	Zetta              = 21
+	Exa                = 18
+	Peta               = 15
+	Tera               = 12
+	Giga               = 9
+	Mega               = 6
+	Kilo               = 3
+	Hecto              = 2
+	Deca               = 1
+	Deci               = -1
+	Centi              = -2
+	Milli              = -3
+	Micro              = -6
+	Nano               = -9
+	Pico               = -12
+	Femto              = -15
+	Atto               = -18
+	Zepto              = -21
+	Yocto              = -24
+	Ronto              = -27
+	Quecto             = -30
 )
 
 type Bytes float64
