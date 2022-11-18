@@ -38,7 +38,8 @@ func TestByteStringer(t *testing.T) {
 	assert.Equal(`1EB`, Exabyte.String())
 	assert.Equal(`1ZB`, Zettabyte.String())
 	assert.Equal(`1YB`, Yottabyte.String())
-	assert.Equal(`1BB`, Brontobyte.String())
+	assert.Equal(`1RB`, Ronnabyte.String())
+	assert.Equal(`1QB`, Quettabyte.String())
 
 	assert.Equal(`512B`, (512 * Byte).String())
 	assert.Equal(`512KB`, (512 * Kilobyte).String())
@@ -49,7 +50,8 @@ func TestByteStringer(t *testing.T) {
 	assert.Equal(`512EB`, (512 * Exabyte).String())
 	assert.Equal(`512ZB`, (512 * Zettabyte).String())
 	assert.Equal(`512YB`, (512 * Yottabyte).String())
-	assert.Equal(`512BB`, (512 * Brontobyte).String())
+	assert.Equal(`512RB`, (512 * Ronnabyte).String())
+	assert.Equal(`512QB`, (512 * Quettabyte).String())
 
 	assert.Equal(`0.5KB`, Bytes(512).To(Kilobyte))
 	assert.Equal(`0.0005MB`, Bytes(512).To(Megabyte))

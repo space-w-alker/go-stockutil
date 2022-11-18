@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/ghetzel/go-stockutil/mathutil"
-
 	"github.com/ghetzel/go-stockutil/typeutil"
 )
 
@@ -31,6 +30,11 @@ const (
 	Atto              = -18
 	Zepto             = -21
 	Yocto             = -24
+	// Approved at General Conference on Weights and Measures (CGPM) 2022
+	Ronna  = 27
+	Quetta = 30
+	Ronto  = -27
+	Quecto = -30
 )
 
 type Bytes float64
@@ -45,7 +49,9 @@ const (
 	Exabyte    Bytes = 1152921504606846976
 	Zettabyte  Bytes = 1180591620717411303424
 	Yottabyte  Bytes = 1208925819614629174706176
-	Brontobyte Bytes = 1237940039285380274899124224
+	Brontobyte Bytes = 1237940039285380274899124224 // unofficial
+	Ronnabyte  Bytes = 1237940039285380274899124224
+	Quettabyte Bytes = 1267650600228229401496703205376
 )
 
 func (self Bytes) To(unit Bytes) string {
@@ -81,9 +87,12 @@ func (self Bytes) Convert(to Bytes) (float64, string) {
 	var suffix string
 
 	switch {
-	case self >= Brontobyte || to == Brontobyte:
-		suffix = `BB`
-		value = float64(self / Brontobyte)
+	case self >= Quettabyte || to == Quettabyte:
+		suffix = `QB`
+		value = float64(self / Quettabyte)
+	case self >= Ronnabyte || to == Ronnabyte:
+		suffix = `RB`
+		value = float64(self / Ronnabyte)
 	case self >= Yottabyte || to == Yottabyte:
 		suffix = `YB`
 		value = float64(self / Yottabyte)
@@ -113,7 +122,7 @@ func (self Bytes) Convert(to Bytes) (float64, string) {
 		value = float64(self)
 	}
 
-	value = mathutil.RoundPlaces(value, mathutil.LeadingSignificantZeros(value, 28)+1)
+	value = mathutil.RoundPlaces(value, mathutil.LeadingSignificantZeros(value, 31)+1)
 
 	return value, suffix
 }
