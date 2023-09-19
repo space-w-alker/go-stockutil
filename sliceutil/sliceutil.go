@@ -426,6 +426,16 @@ func Map(in interface{}, fn MapFunc) []interface{} {
 	return out
 }
 
+// Same with Map. Accepts an in function.
+func MapOut(in interface{}, out interface{}, fn MapFunc) {
+
+	Each(in, func(i int, v interface{}) error {
+		out = append(out, fn(i, v))
+		return nil
+	})
+	
+}
+
 // Returns a copy of the given slice with each element modified by the a given function, then
 // converted to a string.
 func MapString(in interface{}, fn MapStringFunc) []string {
